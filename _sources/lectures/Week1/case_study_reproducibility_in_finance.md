@@ -1,0 +1,10 @@
+# Case Study: Is There A Reproducibility Crisis In Finance?
+
+TBD
+
+- **"Most Financial Economics Research is 'Likely False'"**. https://www.barrons.com/articles/most-financial-economics-research-is-likely-false-1403036662
+- **"... and the Cross-Section of Expected Returns"**, by Campbell R. Harvey, Yan Liu, Heqing Zhu (2016) https://academic.oup.com/rfs/article/29/1/5/1843824
+- **Bloomberg: A Grad-School Number-Cruncher Shakes Up the World of Bond Quants---Professors retract seminal finance paper after detective work uncovers flaws** https://www.bloomberg.com/news/articles/2023-12-01/a-grad-school-number-cruncher-shakes-up-the-world-of-bond-quants 
+  - Alex Dickerson, a doctoral student, uncovered flaws in a seminal finance paper by Georgetown University professors, which had been influential in bond quantitative analysis. His work led to the retraction of [this paper](https://www.sciencedirect.com/science/article/pii/S0304405X18302095) from the Journal of Financial Economics, a first for the journal. Dickerson identified errors in data alignment and removal of extreme losses in bonds, which invalidated the original paper's conclusions about predictive factors in the bond market. This discovery has significant implications for the field of finance, challenging the reliability of many accepted theories and methodologies.
+  - The retracted paper was important because it provided a framework for identifying predictive factors in bond markets, a key aspect for quantitative investing. Its findings were seen as groundbreaking, influencing numerous strategies and research in finance. The retraction of such a seminal work signifies a major shift in understanding these factors, impacting both academic research and practical investment strategies in the bond market. This calls into question the reliability of established methodologies and theories in the field of finance.
+- **AQR: Is There a Replication Crisis in Finance** https://www.aqr.com/Insights/Research/Working-Paper/Is-There-a-Replication-Crisis-in-Finance

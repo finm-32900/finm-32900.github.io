@@ -1,0 +1,572 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>What is Data Science? Where does this course fit in? &#8212; Data Science Tools for Finance</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Week1/what_is_this_course_about';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="What are Reproducible Analytical Pipelines?" href="reproducible_analytical_pipelines.html" />
+    <link rel="prev" title="Week 1: Introduction" href="README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Data Science Tools for Finance - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Data Science Tools for Finance - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Data Science Tools for Finance
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Course Syllabus: FINM 32900, Winter 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HW0.html">Homework 0: Setting up your computing environment</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Week 1: Introduction</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">What is Data Science? Where does this course fit in?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW1.html">Homework 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week2/README.html">Week 2: Build Systems and Task Runners</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/what_is_a_build_system.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/HW2.html">Homework 2</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flectures/Week1/what_is_this_course_about.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lectures/Week1/what_is_this_course_about.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>What is Data Science? Where does this course fit in?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-two-fold-objective-of-this-course">The Two-Fold Objective Of This Course</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-data-science">What is Data Science?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-aside-on-the-data-science-and-this-history-of-science">An Aside On The Data Science And This History Of Science</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-of-reproducibility-and-data-science">Principles of Reproducibility and Data Science</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="what-is-data-science-where-does-this-course-fit-in">
+<h1>What is Data Science? Where does this course fit in?<a class="headerlink" href="#what-is-data-science-where-does-this-course-fit-in" title="Permalink to this heading">#</a></h1>
+<section id="the-two-fold-objective-of-this-course">
+<h2>The Two-Fold Objective Of This Course<a class="headerlink" href="#the-two-fold-objective-of-this-course" title="Permalink to this heading">#</a></h2>
+<p>The two objectives of this course are based on definition of “Data Science.”</p>
+<ol class="arabic simple">
+<li><p><strong>The “Science” in Data Science.</strong> Teach a core set of software tools and principles behind creating modern data analytic workflows that are reproducible and scalable from end to end. The idea is that this set of computational tools will serve as a technical foundation for any subfield of data science that the student wishes to pursue. This is born out of the idea that reproducibility is fundamental to good science.</p></li>
+<li><p><strong>The “Data” in Data Science.</strong> Give students hands-on experience with a series of important and commonly used financial data sets and/or sources, including CRSP, Compustat, FRED, BEA data, FINRA TRACE, TreasuryDirect, EDGAR, and NYSE TAQ. Not only does each data set require some degree of domain specific knowledge (e.g., to clean and interpret properly), but each data set also poses different computational challenges to use effectively. For example, using EDGAR means working with large amounts of unstructured text or data from NYSE TAQ involves learning to work with big data (approximately 100 GBs per day). Each case study is designed to give students the basic knowledge and tools to use these data sets effectively.</p></li>
+</ol>
+<p>Now, I recognize that the term “data science” is a broad term and that the field has a wide scope. Given this, this course focuses on a common skill set across various data science subfields. In my opinion, this core set of skills arises from the definition of “data science.” That is, this core set of skills are those that make up the elements of the analytical pipeline: from data extraction and cleaning to exploratory analysis, visualization, and modeling, and finally, publication and deployment. This course aims to teach the tools and principles behind creating reproducible and scalable workflows, including build automation, dependency management, unit testing, the command-line environment, shell scripting, Git for version control, and GitHub for team collaboration. Furthermore, given that this course is aimed towards students studying quantitative finance, these tools are taught through a series of case studies that are designed to give students practical experience with key financial data sets and sources, such as CRSP and Compustat for pricing and financials, macroeconomic data from FRED and the BEA, bond transactions from FINRA TRACE, Treasury auction data from TreasuryDirect, textual data from EDGAR, and high-frequency trade and quote data from NYSE.</p>
+</section>
+<section id="what-is-data-science">
+<h2>What is Data Science?<a class="headerlink" href="#what-is-data-science" title="Permalink to this heading">#</a></h2>
+<p>Given the increasing complexity of the computational sciences, the ability to produce readable, reusable, and reproducible code and analyses is increasingly important in order to produce good science and to add value within an organization. Recognizing that data science is a broad term encompassing many fields, this course introduces a core set of practical tools and techniques common to all subfields of data science as they are used within quantitative finance, with a special emphasis on those necessary to build behind creating reproducible and scalable workflows (e.g., reproducible analytical pipelines).</p>
+<p>A common characterization of data science describes it as a combination of coding/computer skills, mathematics and statistics, and domain specific knowledge (see the following figure).</p>
+<p><img alt="&quot;The Data Science Venn Diagram&quot;, by Drew Conway" src="../../_images/data_science_venn_diagram.png" /></p>
+<p>These computer skills, colloquially referred to as “hacking skills,” are called such because they refer to skills that are often not taught in a traditional computer science curriculum. A computer science curriculum might include theoretical courses on algorithms, operating systems, or programming languages, whereas the practical skills related to the computing ecosystem—the command-line environment, shell scripting, data wrangling and visualization, or version control—are often left to the individual to learn on their own. (This was even the motivation for a supplementary CS course at MIT, <a class="reference external" href="https://missing.csail.mit.edu/">“The Missing Semester of Your CS Education.”</a>) In this course, I provide a structured overview of these important tools and demonstrate, by example, how they can be used to (1) collect, clean, and analyze economic and financial data; (2) facilitate collaboration among groups of researchers; and (3) to create analyses that are easy for outside users to reproduce. All of the examples and/or case studies used to illustrate these concepts and to teach these tools come from common tasks or applications within quantitative finance, including data wrangling, feature engineering, time series forecasting, performance evaluation, portfolio optimization, back testing, and reporting results.</p>
+<section id="an-aside-on-the-data-science-and-this-history-of-science">
+<h3>An Aside On The Data Science And This History Of Science<a class="headerlink" href="#an-aside-on-the-data-science-and-this-history-of-science" title="Permalink to this heading">#</a></h3>
+<p>The concept of reproducibility has been a cornerstone in the development of the scientific method and, by extension, the broader history of science. Reproducibility refers to the ability of an experiment or study to be repeated with similar results by different researchers, using the same methods under the same conditions. This principle is crucial for validating the reliability and universality of scientific findings.</p>
+<p>As an example, consider the accomplishments of the historical astronomer Galileo Galilei. Galileo’s work exemplifies how reproducible findings are fundamental for advancing scientific knowledge and challenging established theories.
+In the early 17th century, Galileo improved the design of the telescope and made astronomical observations that challenged the prevailing geocentric model, which placed the Earth at the center of the universe. He observed, among other things, the moons of Jupiter and the phases of Venus. These observations were reproducible in the sense that other scientists could and did construct similar telescopes to see the same phenomena. This reproducibility was crucial for the acceptance of the heliocentric model, which posits the Sun at the center of the solar system.</p>
+<div class="tip admonition">
+<p class="admonition-title">Discussion</p>
+<p>What are ways in which principles of reproducibility in the hard sciences might be reflected in data science?</p>
+</div>
+</section>
+</section>
+<section id="principles-of-reproducibility-and-data-science">
+<h2>Principles of Reproducibility and Data Science<a class="headerlink" href="#principles-of-reproducibility-and-data-science" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>The Scientific Revolution</strong>: The 17th century’s Scientific Revolution further solidified reproducibility as a scientific norm. The works of scientists like Kepler, Galileo, and Newton were often replicated by their contemporaries, which helped establish the credibility of their findings. In data science, our work gains more credibility when it is easy to reproduce, given the right resources.</p></li>
+<li><p><strong>Standardization of Methods</strong>: The 20th century also saw the development of standardized methods and protocols in various scientific fields, which further reinforced the reproducibility of experiments. In data science, we want to adopt the common state-of-the art software tools used by other data scientist for ease of communication and reproducibility.</p></li>
+<li><p><strong>Reliability of Results</strong>: Reproducibility ensures that scientific findings are not the result of chance, bias, or unique conditions. It is a test of the validity of the findings.</p></li>
+<li><p><strong>Scientific Progress</strong>: Science advances by building on previous work. Reproducibility allows subsequent scientists to rely on existing findings as they push the boundaries of knowledge. As an example, the open source movement facilitates scientific progress by making research methods, data, and tools publicly accessible, allowing scientists to easily replicate and build upon previous work. This transparency and availability of resources enhance the reproducibility and reliability of scientific findings, accelerating the advancement of knowledge. For example, you will find many projects available as open source projects on GitHub. The open science movement, as an example, emphasizes transparency, open access to data and methods, and collaborative research, partly as a response to reproducibility issues.</p></li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>As an example, see the <a class="reference external" href="https://www.openassetpricing.com/">“Open Source Asset Pricing”</a> project on GitHub: <a class="github reference external" href="https://github.com/OpenSourceAP/CrossSection/">OpenSourceAP/CrossSection</a></p>
+</div>
+<ul class="simple">
+<li><p><strong>Reproducibility Crisis</strong>: Recently, various fields, especially in psychology and biomedical sciences, have faced a “reproducibility crisis.” This has led to increased scrutiny of experimental methods and statistical practices.</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Discussion</p>
+<p>Finance, unlike fields like Psychology, do not rely on clinical experiments. It relies on data that is, to a large degree, open to anyone to use. Would we expect there to be a reproducibility crisis in finance, given that everybody is using the same data? We will explore this in more depth shortly.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures\Week1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 1: Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="reproducible_analytical_pipelines.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">What are Reproducible Analytical Pipelines?</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-two-fold-objective-of-this-course">The Two-Fold Objective Of This Course</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-data-science">What is Data Science?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-aside-on-the-data-science-and-this-history-of-science">An Aside On The Data Science And This History Of Science</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principles-of-reproducibility-and-data-science">Principles of Reproducibility and Data Science</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeremy Bejarano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
