@@ -1,5 +1,6 @@
 Course Syllabus: FINM 32900, Winter 2024
-========
+========================================
+
 **FINM 32900, Data Science Tools for Finance**
 
 ##  Summary
@@ -7,18 +8,18 @@ Course Syllabus: FINM 32900, Winter 2024
 **Course Description**
 "Data Science for Finance" is a hands-on course centered on key data science tools in quantitative finance. Acknowledging the field's wide scope, the course focuses on a common skill set across various data science subfields. That is, this course examines elements of the analytical pipeline, from data extraction and cleaning to exploratory analysis, visualization, and modeling, and finally, publication and deployment. It does so with the aim of teaching the tools and principles behind creating reproducible and scalable workflows, including build automation, dependency management, unit testing, the command-line environment, shell scripting, Git for version control, and GitHub for team collaboration. These skills are taught through case studies, each of which will additionally give students practical experience with key financial data sets and sources such as CRSP and Compustat for pricing and financials, macroeconomic data from FRED and the BEA, bond transactions from FINRA TRACE, Treasury auction data from TreasuryDirect, textual data from EDGAR, and high-frequency trade and quote data from NYSE. Prior experience at an intermediate level with Python and the PyData stack is assumed.
 
-
-[The full class syllabus can be found here.](https://github.com/jmbejara/finm-32900-data-science/blob/master/syllabus_FINM_32900_data_science_for_finance.pdf)
-
-- **Class:** Mondays, 6 - 9 PM
+- **Class:** Mondays, 6 - 9 PM, in-person at the Stevanovich Center building, Room #112. (5727 S. University Ave.)
 - **Lecturer:** Jeremy Bejarano, jbejarano@uchicago.edu
-- **Instructor Office Hours:** Fridays, 3 - 4 pm, on Zoom only. Link: TBD
+- **Instructor Office Hours:** Fridays, 3 - 4 pm, on Zoom only. Link: Zoom link is available in the calendar on Canvas.
 - **Teaching Assistants:**
   - Tobias Rodriguez del Pozo, tobiasdelpozo@uchicago.edu
   - Younghun Lee, hun@uchicago.edu
-  - Note: Please include both TAs on all emails. However, students are strongly encouraged to post questions on the discussion page of the class GitHub repository here: link TBD
-- **TA Office Hours:** Saturdays, 10-11 am ET, on Zoom only. Link: TBD
-- **Website:** Canvas will be used for grades. Homework and notes will be posted on the course GitHub repo: https://github.com/jmbejara/finm-32900-data-science
+  - Note: Please include both TAs on all emails. However, students are strongly encouraged to post questions on the discussion page of the class GitHub repository here: Zoom link is available in the calendar on Canvas.
+- **TA Office Hours:** Saturdays, 10-11 am ET, on Zoom only. Zoom link is available in the calendar on Canvas.
+- **Website:** Canvas will be used for grades and for publishing Zoom links only. Homework and notes will be posted on the course GitHub repo: https://github.com/jmbejara/finm-32900-data-science. Questions and other class-related discussions should be posted here as well.
+- **Textbook:** The text for the course will be published incrementally here: https://finm-32900.github.io/
+
+**NOTE:** Due to the holiday on January 15, a makeup class on Zoom with be held on Saturday, Jan 13.
 
 
 ### Assignments
@@ -33,34 +34,24 @@ In lieu of a final exam, students will be organized into groups of 4 and will ea
 
 ## Schedule
 
-The schedule will follow the ordering of the chapters listed in the GitHub book found here: Link TBD. 
-
-Each week's lecture will have its own directory. The agenda for each particular day is described in the README file within each day's directory. 
-
-### Weekly Agendas
-
-- [Monday, Jan 8 (In-Person)](https://github.com/jmbejara/comp-econ-sp19/tree/master/lectures/4-02_Introduction)
-- [Saturday, Jan 13 (Zoom b/c of holiday)](https://github.com/jmbejara/comp-econ-sp19/tree/master/lectures/4-02_Introduction)
-    - Class will be held on Saturday, Jan 13 at 9 - 11:45 am.
-    - Zoom link: Link TBD
-- [Monday, Jan 22 (In-Person)](https://github.com/jmbejara/comp-econ-sp19/tree/master/lectures/4-02_Introduction)
-- Monday, Jan 29 (In-Person)
+The schedule will follow the ordering of the chapters listed in the GitHub book found here: https://finm-32900.github.io/. 
+Each week is it's own chapter and the agenda is listed in the first sub-section of the chapter.
 
 ### HW Due Dates
 
-- [HW 0: Ungraded. Due ASAP, preferably before the first class](https://github.com/jmbejara/comp-econ-sp19/tree/master/lectures/4-02_Introduction)
-- [HW 1: Due Monday, Jan 15 at 3 pm](https://github.com/jmbejara/comp-econ-sp19/tree/master/lectures/4-02_Introduction)
-- [HW 2: Due Monday, Jan 22 at 3 pm](https://github.com/jmbejara/comp-econ-sp19/tree/master/lectures/4-02_Introduction)
+- [HW 0: Ungraded. Due ASAP, preferably before the first class](lectures/Week1/HW0.md)
+- [HW 1: Due Monday, Jan 15 at 3 pm](lectures/Week1/HW1.md)
+- [HW 2: Due Monday, Jan 22 at 3 pm](lectures/Week2/HW2.md)
     
 ## References
 
-A significant portion of this course is inspired by ["The Missing Semester of Your CS Education"](https://missing.csail.mit.edu/), a short course taught in the Computer Science department at MIT. I'll rely on the material shown there for portions of this course.
-
-I will provide the lecture notes that we will use in class. As a prerequiste, you should have some prior familiarity with Python and the PyData stack (e.g., Numpy, Scipy, Pandas, Matplotlib). The following references may serve as useful refreshers:
+I will provide the lecture notes that we will use in class here: https://finm-32900.github.io/. As a prerequiste, you should have some prior familiarity with Python and the PyData stack (e.g., Numpy, Scipy, Pandas, Matplotlib). The following references may serve as useful refreshers:
 
 - [Python for Data Analysis, 3rd Edition](https://wesmckinney.com/book/), by Wes McKinney
 - [Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/), by Jake VanderPlas
 - [Python Programming for Economics and Finance](https://python-programming.quantecon.org/intro.html), by Thomas J. Sargent and John Stachurski
+
+A significant portion of this course is inspired by ["The Missing Semester of Your CS Education"](https://missing.csail.mit.edu/), a short course taught in the Computer Science department at MIT. I'll rely on the material shown there for portions of this course.
 
 
 ## Software to be used in class
