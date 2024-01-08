@@ -27,4 +27,4 @@ how to access the [course textbook](https://finm-32900.github.io/), and how to d
 
 ## Homework 1
 
-TBD
+TBD. Repo Spikes
