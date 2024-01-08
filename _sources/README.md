@@ -32,6 +32,15 @@ Course Syllabus: FINM 32900, Winter 2024
 
 In lieu of a final exam, students will be organized into groups of 4 and will each complete a course project. Each group will present their completed project to the instructor at the end of the course. These presentations will be scheduled individually. 
 
+## Assessment
+
+Grades will be based on 7 coding assignments (70%), a final group project (25%), and participation (5%). 
+
+- Assignments will be submitted individually and will be graded using GitHub’s automated testing tools. 
+- The final project will be completed in groups. Students will choose the project from among a few options provided at the beginning of the quarter. The project will be graded not only on how well it accomplishes the assigned data cleaning and analysis task, but will be primarily graded on whether (1) the steps to reproduce it are fully automated and well documented, (2) the code is written in a clean and reusable fashion, and (3) the results are presented clearly and presented in a way that convinces the reader that the results are correct. A more specific rubric will be provided in class.
+- The participation grade will depend on the positive impacts that a student has on the class. These include participating in in-class discussions and/or answering questions on the class GitHub page (or on Canvas). Students are in no way penalized for giving wrong answers in these in-class discussions nor is there any penalty for asking for help—asking for help is often the best way to learn!
+
+
 ## Schedule
 
 The schedule will follow the ordering of the chapters listed in the GitHub book found here: https://finm-32900.github.io/. 
