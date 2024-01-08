@@ -32,7 +32,7 @@ At the time, this paper was held up as evidence in favor of austerity measures p
 ![Reinhart and Rogoff Coding Error Bloomberg](./assets/reinhard_rogoff.png)
 
 
-## Is There a Replication Crisis in Finance
+## Is There a Replication Crisis in Finance?
 ```{admonition} Discussion
 :class: note 
 Finance, unlike fields like psychology, do not rely on clinical experiments. It relies on data that is, to a large degree, open to anyone to use. Would we expect there to be a reproducibility crisis in finance, given that everybody is using the same data? 

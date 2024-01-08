@@ -12,6 +12,8 @@ a data science project often involves several interdependent stages: data collec
 
 In such a multi-faceted environment, RAP plays a pivotal role in maintaining the integrity and consistency of the workflow. For instance, if new data becomes available or if there's a need to modify the analysis model, RAP facilitates the seamless integration of these changes across all stages. This integration is crucial in financial research, where the accuracy and timeliness of insights can significantly impact decision-making and strategy formulation. The automated and structured nature of RAP not only ensures that each step of the process adheres to predefined standards but also allows for easy tracking of changes and quick adaptation to new requirements or data. This agility, coupled with the robustness of reproducible results, makes RAP an indispensable tool in modern quantitative finance research.
 
+
+
 ## The Business Case for RAP
 
 Within the context of economic statistics and financial regulators, consider this statement by the UK’s Office for Statistics Regulation:
@@ -33,6 +35,36 @@ and provide better ways for team members to coordinate their efforts.
 Why might these things be especially important in finance?
 ```
 
+
+### An Aside: One of my own examples
+
+
+![Bloomberg OFR FSI](assets/fsi_webpage.png)
+<!-- ![Bloomberg OFR FSI](assets/bloomberg_ofr_fsi_1.png)
+![Bloomberg OFR FSI](assets/bloomberg_ofr_fsi_2.png)
+![Bloomberg OFR FSI](assets/bloomberg_ofr_fsi_3.png) -->
+
+
+```{figure} assets/bloomberg_ofr_fsi_1.png
+:name: bloomberg-ofr-fsi-1
+:width: 40%
+
+Bloomberg OFR FSI 1
+```
+
+```{figure} assets/bloomberg_ofr_fsi_2.png
+:name: bloomberg-ofr-fsi-2
+:width: 40%
+
+Bloomberg OFR FSI 2
+``` 
+
+```{figure} assets/bloomberg_ofr_fsi_3.png
+:name: bloomberg-ofr-fsi-3
+:width: 40%
+
+Bloomberg OFR FSI 3
+```
 
 ## Exploring the pipeline. Where can you add value?
 
