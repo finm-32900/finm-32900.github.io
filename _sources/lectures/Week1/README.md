@@ -27,4 +27,6 @@ how to access the [course textbook](https://finm-32900.github.io/), and how to d
 
 ## Homework 1
 
-TBD. Repo Spikes
+Learning objects for [HW1](./HW1.md): 
+Introduction to GitHub, using unit tests and GitHub actions for autograding, 
+and downloading data from FRED to study repo spikes

@@ -148,7 +148,7 @@ How many people here have used the Linux command line before? How often? Do you 
 - **Package and Dependency Management (Example: pip)**
   - `pip` is the standard package manager for Python, used for installing and managing Python libraries from the Python Package Index (PyPI). `pip` is essential for efficiently adding and updating Python libraries. Conda is capable of handling non-Python dependencies as well, while pip is specifically a Python package manager, focusing on installing and managing Python libraries.
 
-- **Environment Management (Example: Conda Environments)**
+- **Virtual Environments (Example: Conda Environments)**
   - [Conda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html) specialize in managing and isolating project-specific dependencies, including both Python and non-Python packages. In the realm of quantitative finance, this is invaluable as it allows for the creation of distinct, reproducible environments for different financial models or analyses, preventing conflicts between project dependencies and ensuring consistent results. Some similar tools are `virtualenv` or `pipenv`.
 
 - **Unit Testing (Example: pytest)**

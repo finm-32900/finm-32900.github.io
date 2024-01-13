@@ -177,14 +177,16 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Week1/HW1.html">Homework 1</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Week1/_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
 
 
 
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Week 2: Build Systems and Task Runners</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="virtual_environments.html">Virtual Environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="what_is_a_build_system.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_structure.html">Project Structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 2</a></li>
 </ul>
@@ -361,7 +363,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -377,6 +381,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-ungraded">Part 0 (ungraded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded">Part 1 (graded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded">Part 2 (graded)</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -388,7 +402,32 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="homework-2">
 <h1>Homework 2<a class="headerlink" href="#homework-2" title="Permalink to this heading">#</a></h1>
-<p>TBD</p>
+<section id="part-0-ungraded">
+<h2>Part 0 (ungraded)<a class="headerlink" href="#part-0-ungraded" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Make sure to “watch” the <a class="reference external" href="https://github.com/finm-32900/finm-32900-data-science">course repository</a> so that you will be notified of new posts on the course discussion board. Click the “watch” button on the top right of the page.</p></li>
+<li><p>Consider, if you’d like, posting an introduction here on the course discussion board: <a class="github reference external" href="https://github.com/orgs/finm-32900/discussions/2">orgs/finm-32900#2</a></p></li>
+<li><p>Consider watching the following vide</p></li>
+</ul>
+</section>
+<section id="part-1-graded">
+<h2>Part 1 (graded)<a class="headerlink" href="#part-1-graded" title="Permalink to this heading">#</a></h2>
+<p>In order to continue on our journey mastering the many features of Github, please complete next 2 tutorials from the <a class="reference external" href="https://skills.github.com/">GitHub Skills</a> page. Please make sure to use <strong>public repositories</strong> for this in your own GitHub user account. You will provide a link later to demonstrate that it was completed.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/skills/review-pull-requests">Review pull requests</a> You may want to seek out the help of a friend or teammate with this one.</p></li>
+<li><p><a class="reference external" href="https://github.com/skills/resolve-merge-conflicts">Resolve merge conflicts</a></p></li>
+</ul>
+<p>Also, if you’re looking for more instruction about how to use Git, here are two videos that I might recommend:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=M-O8ZNW9icQ">What is Version Control? (Learn Git Video Course)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=i_23KUAEtUM">Using Git with Visual Studio Code (Official Beginner Tutorial)</a></p></li>
+</ul>
+</section>
+<section id="part-2-graded">
+<h2>Part 2 (graded)<a class="headerlink" href="#part-2-graded" title="Permalink to this heading">#</a></h2>
+<p>In this second part, you’ll complete an exercise related to the Atlanta Fed Wage Growth Tracker case study. We’ll download Census data from the Current Population Survey (CPS) via IPUMS and generate a time series similar to the one publish on the <a class="reference external" href="https://www.atlantafed.org/chcs/wage-growth-tracker">Atlanta Fed’s website.</a></p>
+<p>Link TBD</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -436,6 +475,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-ungraded">Part 0 (ungraded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded">Part 1 (graded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded">Part 2 (graded)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

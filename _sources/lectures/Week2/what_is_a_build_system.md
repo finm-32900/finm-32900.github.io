@@ -297,7 +297,9 @@ def task_hello():
     }
 ```
 
-For a more complex workflow with PyDoit, see the example at the beginning of this page. To see a working example, examine now the `blank_project` repository I've made available here: https://github.com/jmbejara/blank_project. We'll now walk through this project, after concluding.
+## Example
+
+For a more complex workflow with PyDoit, see the example at the beginning of this page. To see a working example, examine now the `blank_project` repository I've made available here: https://github.com/jmbejara/blank_project. My template here borrows from the template created by [Cookie Cutter Data Science](https://drivendata.github.io/cookiecutter-data-science/). We'll now walk through this project, after concluding.
 
 ##  Conclusion
 Both GNU Make and Python PyDoit offer powerful solutions for automating build processes and task execution. The choice between them often depends on the specific requirements of a project, such as the programming language used, the complexity of the task, and the user's familiarity with Python. While GNU Make is more traditional and widely used in compiling, PyDoit provides a more flexible and Python-centric approach to task automation.
