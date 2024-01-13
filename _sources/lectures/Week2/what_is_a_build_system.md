@@ -184,8 +184,6 @@ target: dependencies
 ```
 Now, consider the `dodo.py` example file above. When written as a `Makefile` to be used with GNU Make, it would look like this:
 
-Certainly! Here's a similar (but not exactly equivalent) workflow of the provided `dodo.py` file translated into a `Makefile` for use with GNU Make. This Makefile will manage the same Python-based data science project, with tasks for data collection, preprocessing, analysis, model training, validation, and reporting.
-
 ```makefile
 # Makefile for managing a data science research project workflow
 
