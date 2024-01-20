@@ -22,4 +22,6 @@ Also, if you're looking for more instruction about how to use Git, here are two 
 
 In this second part, you'll complete an exercise related to the Atlanta Fed Wage Growth Tracker case study. We'll download Census data from the Current Population Survey (CPS) via IPUMS and generate a time series similar to the one publish on the [Atlanta Fed's website.](https://www.atlantafed.org/chcs/wage-growth-tracker)
 
-Link TBD
+The link to accept the HW is here: https://classroom.github.com/a/4pBuJ2rw
+
+The following is a guide that will help you complete the homework: [HW Guide: Wage Growth During the Recession](../../output/_01_wage_growth_during_the_recession.ipynb)
