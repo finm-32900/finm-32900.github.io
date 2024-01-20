@@ -25,3 +25,46 @@ In this second part, you'll complete an exercise related to the Atlanta Fed Wage
 The link to accept the HW is here: https://classroom.github.com/a/4pBuJ2rw
 
 The following is a guide that will help you complete the homework: [HW Guide: Wage Growth During the Recession](../../output/_01_wage_growth_during_the_recession.ipynb)
+
+
+
+## Additional Notes about the HW
+
+Hi all. I wanted to add some further clarifications in case there is some confusion. 
+
+### Which files should I edit?
+
+In order to complete the homework, you need to adjust the source files so that the unit test files pass. The unit tests are implemented in the files that start with `test_FILENAME.py`. The files indicated by the red bracket below are the test files. 
+
+**NOTE:** You should not make any edits to these files. If an edit is made, you will be required to edit the history of your commits to remove any trace of the edits to these files:
+
+![image](./assets/hw2_test_files.png)
+
+So, to complete the assignment, you should edit the source files that are being tested. That is, you should make edits to the files highlighted in yellow below:
+
+![image](./assets/HW2_files_to_edit.png)
+
+
+Finally, there is a notebook available in the file `src\01_wage_growth_during_the_recession.ipynb`. You do not need to do anything with this file. It exists only to provide guidance on how to complete the various steps needed to produce a new, demographically adjusted wage series as we discussed in class. 
+
+### Why are we doing it this way? 
+
+The point of structuring the assignment this way is to give you experience with unit testing, CI/CD, and the concept of test-driven development. These are concepts that you should learn to level-up your software development skills. These are real-world development concepts and getting experience with them should move you beyond the over-simplified approach that you might find in a typical university problem set.
+
+We discussed unit tests and test-driven development in class a little. If you'd like more in-depth information, please watch these YouTube videos:
+
+["Software Testing Explained in 100 Seconds"](https://www.youtube.com/watch?v=u6QfIXgjwGQ) (This short video is written from the perspective of a web developer, but the same concepts apply to us.)
+
+[![Software Testing Explained in 100 Seconds](https://img.youtube.com/vi/u6QfIXgjwGQ/0.jpg)](https://www.youtube.com/watch?v=u6QfIXgjwGQ)
+
+["Test-Driven Development In Python // The Power of Red-Green-Refactor"](https://www.youtube.com/watch?v=B1j6k2j2eJg) (This video discussing unit testing with Python and PyTest.)
+
+[![Test-Driven Development In Python // The Power of Red-Green-Refactor](https://img.youtube.com/vi/B1j6k2j2eJg/0.jpg)](https://www.youtube.com/watch?v=B1j6k2j2eJg)
+
+### How can I check if my tests are passing?
+
+From the command-line, in the base directory of the project, run `pytest`
+
+In `test_dodo.py` file, you'll also notice that one of the tests asks you to edit `dodo.py` file so that the command `doit` will run all of the code of the project. To execute the `dodo.py` file, make sure `PyDoit` is installed and then simply run `doit` from the command line in the base directory of the project.
+
+

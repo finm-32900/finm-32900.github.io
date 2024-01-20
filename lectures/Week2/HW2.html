@@ -393,6 +393,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-ungraded">Part 0 (ungraded)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded">Part 1 (graded)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded">Part 2 (graded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes-about-the-hw">Additional Notes about the HW</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-files-should-i-edit">Which files should I edit?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-doing-it-this-way">Why are we doing it this way?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-i-check-if-my-tests-are-passing">How can I check if my tests are passing?</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -432,6 +438,33 @@ document.write(`
 <p>In this second part, you’ll complete an exercise related to the Atlanta Fed Wage Growth Tracker case study. We’ll download Census data from the Current Population Survey (CPS) via IPUMS and generate a time series similar to the one publish on the <a class="reference external" href="https://www.atlantafed.org/chcs/wage-growth-tracker">Atlanta Fed’s website.</a></p>
 <p>The link to accept the HW is here: <a class="reference external" href="https://classroom.github.com/a/4pBuJ2rw">https://classroom.github.com/a/4pBuJ2rw</a></p>
 <p>The following is a guide that will help you complete the homework: <a class="reference internal" href="../../output/_01_wage_growth_during_the_recession.html"><span class="doc std std-doc">HW Guide: Wage Growth During the Recession</span></a></p>
+</section>
+<section id="additional-notes-about-the-hw">
+<h2>Additional Notes about the HW<a class="headerlink" href="#additional-notes-about-the-hw" title="Permalink to this heading">#</a></h2>
+<p>Hi all. I wanted to add some further clarifications in case there is some confusion.</p>
+<section id="which-files-should-i-edit">
+<h3>Which files should I edit?<a class="headerlink" href="#which-files-should-i-edit" title="Permalink to this heading">#</a></h3>
+<p>In order to complete the homework, you need to adjust the source files so that the unit test files pass. The unit tests are implemented in the files that start with <code class="docutils literal notranslate"><span class="pre">test_FILENAME.py</span></code>. The files indicated by the red bracket below are the test files.</p>
+<p><strong>NOTE:</strong> You should not make any edits to these files. If an edit is made, you will be required to edit the history of your commits to remove any trace of the edits to these files:</p>
+<p><img alt="image" src="../../_images/hw2_test_files.png" /></p>
+<p>So, to complete the assignment, you should edit the source files that are being tested. That is, you should make edits to the files highlighted in yellow below:</p>
+<p><img alt="image" src="../../_images/HW2_files_to_edit.png" /></p>
+<p>Finally, there is a notebook available in the file <code class="docutils literal notranslate"><span class="pre">src\01_wage_growth_during_the_recession.ipynb</span></code>. You do not need to do anything with this file. It exists only to provide guidance on how to complete the various steps needed to produce a new, demographically adjusted wage series as we discussed in class.</p>
+</section>
+<section id="why-are-we-doing-it-this-way">
+<h3>Why are we doing it this way?<a class="headerlink" href="#why-are-we-doing-it-this-way" title="Permalink to this heading">#</a></h3>
+<p>The point of structuring the assignment this way is to give you experience with unit testing, CI/CD, and the concept of test-driven development. These are concepts that you should learn to level-up your software development skills. These are real-world development concepts and getting experience with them should move you beyond the over-simplified approach that you might find in a typical university problem set.</p>
+<p>We discussed unit tests and test-driven development in class a little. If you’d like more in-depth information, please watch these YouTube videos:</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=u6QfIXgjwGQ">“Software Testing Explained in 100 Seconds”</a> (This short video is written from the perspective of a web developer, but the same concepts apply to us.)</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=u6QfIXgjwGQ"><img alt="Software Testing Explained in 100 Seconds" src="https://img.youtube.com/vi/u6QfIXgjwGQ/0.jpg" /></a></p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=B1j6k2j2eJg">“Test-Driven Development In Python // The Power of Red-Green-Refactor”</a> (This video discussing unit testing with Python and PyTest.)</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=B1j6k2j2eJg"><img alt="Test-Driven Development In Python // The Power of Red-Green-Refactor" src="https://img.youtube.com/vi/B1j6k2j2eJg/0.jpg" /></a></p>
+</section>
+<section id="how-can-i-check-if-my-tests-are-passing">
+<h3>How can I check if my tests are passing?<a class="headerlink" href="#how-can-i-check-if-my-tests-are-passing" title="Permalink to this heading">#</a></h3>
+<p>From the command-line, in the base directory of the project, run <code class="docutils literal notranslate"><span class="pre">pytest</span></code></p>
+<p>In <code class="docutils literal notranslate"><span class="pre">test_dodo.py</span></code> file, you’ll also notice that one of the tests asks you to edit <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> file so that the command <code class="docutils literal notranslate"><span class="pre">doit</span></code> will run all of the code of the project. To execute the <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> file, make sure <code class="docutils literal notranslate"><span class="pre">PyDoit</span></code> is installed and then simply run <code class="docutils literal notranslate"><span class="pre">doit</span></code> from the command line in the base directory of the project.</p>
+</section>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -503,6 +536,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-ungraded">Part 0 (ungraded)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded">Part 1 (graded)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded">Part 2 (graded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes-about-the-hw">Additional Notes about the HW</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-files-should-i-edit">Which files should I edit?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-doing-it-this-way">Why are we doing it this way?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-i-check-if-my-tests-are-passing">How can I check if my tests are passing?</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
