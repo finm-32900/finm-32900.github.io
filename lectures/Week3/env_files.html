@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Homework 3" href="HW3.html" />
-    <link rel="prev" title="Week 3: SQL, Env Files, Secrets, and Automating Queries" href="README.html" />
+    <link rel="prev" title="Introduction to WRDS" href="WRDS_intro_and_web_queries.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -195,7 +195,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../output/_01_wage_growth_during_the_recession.html">HW Guide: Wage Growth During the Recession</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Week 3: SQL, Env Files, Secrets, and Automating Queries</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Env Files and the Separations of Settings from Code</a></li>
 </ul>
 </li>
@@ -372,7 +373,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -388,6 +391,18 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-twelve-factor-app-methodology">The Twelve-Factor App methodology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storing-config-in-environment-variables">Storing Config in Environment Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dot-env-env-file">What is a Dot Env (<code class="docutils literal notranslate"><span class="pre">.env</span></code>) File?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-examine-the-env-file-in-the-blank-project-repo">Example: Examine the Env file in the Blank Project Repo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-s-decouple-and-dotenv-packages">Python’s <code class="docutils literal notranslate"><span class="pre">decouple</span></code> and <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> packages:</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -399,10 +414,125 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="env-files-and-the-separations-of-settings-from-code">
 <h1>Env Files and the Separations of Settings from Code<a class="headerlink" href="#env-files-and-the-separations-of-settings-from-code" title="Permalink to this heading">#</a></h1>
+<section id="the-twelve-factor-app-methodology">
+<h2>The Twelve-Factor App methodology<a class="headerlink" href="#the-twelve-factor-app-methodology" title="Permalink to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://12factor.net/">Twelve-Factor App</a> methodology is a set of best practices designed to enable applications to be built with portability and resilience when deployed to the web. The methodology draws inspiration from Martin Fowler’s books on software development practices, aiming to provide a shared vocabulary and conceptual solutions to common problems in modern application development. It <a class="reference external" href="https://en.wikipedia.org/wiki/Twelve-Factor_App_methodology">was created by developers at Heroku</a>, a platform-as-a-service company. This methodology synthesizes the experiences and observations of its creators in developing and deploying a hundreds of applications, particularly on the Heroku platform. While many of these principles apply specifically to web apps and “software-as-a-service”, many of the principles apply more universally to software development. Let’s take a brief look at the 12 principles. Then, we’ll discuss the first three in a little more detail, as they directly apply to us today.</p>
+<p>The Twelve Factors:</p>
+<ol class="arabic simple">
+<li><p><strong>Codebase</strong>: One codebase tracked in revision control, many deploys.</p></li>
+<li><p><strong>Dependencies</strong>: Explicitly declare and isolate dependencies.</p></li>
+<li><p><strong>Config</strong>: Store config in the environment.</p></li>
+<li><p><strong>Backing Services</strong>: Treat backing services as attached resources.</p>
 <ul class="simple">
-<li><p>Discuss <code class="docutils literal notranslate"><span class="pre">.env</span></code> files and the “strict separation of settings from code” <a class="reference external" href="https://github.com/HBNetwork/python-decouple">using <code class="docutils literal notranslate"><span class="pre">decouple</span></code></a>. Follow the discussion there.</p></li>
-<li><p>Use the <a class="reference external" href="https://github.com/jmbejara/blank_project"><code class="docutils literal notranslate"><span class="pre">blank_project</span></code></a> template and the <code class="docutils literal notranslate"><span class="pre">demo_environment_variables.py</span></code> file there.</p></li>
+<li><p>“A backing service is any service the app consumes over the network as part of its normal operation. Examples include datastores (such as MySQL or CouchDB)…Backing services like the database are traditionally managed by the same systems administrators who deploy the app’s runtime. The code for a twelve-factor app makes no distinction between local and third party services. To the app, both are attached resources, accessed via a URL or other locator/credentials stored in the config. A deploy of the twelve-factor app should be able to swap out a local MySQL database with one managed by a third party (such as Amazon RDS) without any changes to the app’s code.”</p></li>
 </ul>
+</li>
+<li><p><strong>Build, Release, Run</strong>: Strictly separate build and run stages.</p></li>
+<li><p><strong>Processes</strong>: Execute the app as one or more stateless processes.</p></li>
+<li><p><strong>Port Binding</strong>: Export services via port binding.</p></li>
+<li><p><strong>Concurrency</strong>: Scale out via the process model.</p></li>
+<li><p><strong>Disposability</strong>: Maximize robustness with fast startup and graceful shutdown.</p></li>
+<li><p><strong>Dev/Prod Parity</strong>: Keep development, staging, and production as similar as possible.</p></li>
+<li><p><strong>Logs</strong>: Treat logs as event streams.</p></li>
+<li><p><strong>Admin Processes</strong>: Run admin/management tasks as one-off processes.</p></li>
+</ol>
+<p>Now, consider the first three principles. Over the last 2 weeks, we have learned to incorporate the first two factors into our code. Today we discuss the third: storing config in the environment.</p>
+</section>
+<section id="storing-config-in-environment-variables">
+<h2>Storing Config in Environment Variables<a class="headerlink" href="#storing-config-in-environment-variables" title="Permalink to this heading">#</a></h2>
+<p>Please refer to <a class="reference external" href="https://12factor.net/config">Section 3 of the Twelve-Factor App</a>. Here is a snippet:</p>
+<blockquote>
+<div><p>An app’s config is everything that is likely to vary between deploys (staging, production, developer environments, etc). This includes:</p>
+<ul class="simple">
+<li><p>Resource handles to the database, Memcached, and other backing services</p></li>
+<li><p>Credentials to external services such as Amazon S3 or Twitter</p></li>
+<li><p>Per-deploy values such as the canonical hostname for the deploy</p></li>
+</ul>
+<p>Apps sometimes store config as constants in the code. This is a violation of twelve-factor, which requires strict separation of config from code. Config varies substantially across deploys, code does not.
+…</p>
+<p>The twelve-factor app stores config in environment variables (often shortened to env vars or env). Env vars are easy to change between deploys without changing any code; unlike config files, there is little chance of them being checked into the code repo accidentally; and unlike custom config files, or other config mechanisms such as Java System Properties, they are a language- and OS-agnostic standard.</p>
+</div></blockquote>
+</section>
+<section id="what-is-a-dot-env-env-file">
+<h2>What is a Dot Env (<code class="docutils literal notranslate"><span class="pre">.env</span></code>) File?<a class="headerlink" href="#what-is-a-dot-env-env-file" title="Permalink to this heading">#</a></h2>
+<p>A <code class="docutils literal notranslate"><span class="pre">.env</span></code> file, short for “environment file”, is a simple text file containing environment variables. These variables are key-value pairs that can store configuration settings and other data that should not be hard-coded directly into source code. This practice is particularly important for security, maintainability, and the flexibility of the software.</p>
+<ul class="simple">
+<li><p><strong>Format</strong>: Typically, each line in a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file contains a single environment variable expressed as <code class="docutils literal notranslate"><span class="pre">KEY=value</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">OUTPUT_DIR=./data/</span></code> or <code class="docutils literal notranslate"><span class="pre">API_KEY=yourkeyhere</span></code>.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example .env file</span>
+<span class="n">DATA_DIR</span><span class="o">=</span><span class="s2">&quot;D:/Dropbox/project_data/blank_project&quot;</span>
+<span class="n">OUTPUT_DIR</span><span class="o">=</span><span class="s2">&quot;C:/Users/jdoe/GitRepositories/blank_project/output&quot;</span>
+<span class="n">WRDS_USERNAME</span><span class="o">=</span><span class="s2">&quot;jdoe&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Secrets</strong>: These files may often  contain sensitive information, like API keys, database passwords, and service credentials, which should not be exposed publicly.</p></li>
+<li><p><strong>Version Control</strong>: <code class="docutils literal notranslate"><span class="pre">.env</span></code> should NOT be checked into version control systems (like Git). The point is to keep sensitive data secure. Instead, a template (like <code class="docutils literal notranslate"><span class="pre">env.example</span></code>) with dummy values can be added to the repository to guide setup. You’ll see this in my <a class="reference external" href="https://github.com/jmbejara/blank_project"><code class="docutils literal notranslate"><span class="pre">blank_project</span></code> repo</a></p></li>
+<li><p><strong>Separation of Configurations and Environment-Specific Settings</strong>: By using <code class="docutils literal notranslate"><span class="pre">.env</span></code> files, you can separate configuration from code. They allow for different settings across environments (development, testing, production), without changing the code. I often use this to specify data and output directories that may change based on the environment that I’m using at the moment to run my code. I also use this when your HW runs on the autograder. That way, your code doesn’t need to change to accommodate the different runtime environment used by the autograder.</p></li>
+<li><p><strong>Loading Environment Variables</strong>: In most programming languages, there are libraries or built-in functionalities to load these variables into the application’s environment. For instance, in Python, the <code class="docutils literal notranslate"><span class="pre">python-dotenv</span></code> or the <code class="docutils literal notranslate"><span class="pre">decouple</span></code> packages can be used to load variables from a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file. Furthermore, environment variables are mostly agnostic to the platform (.e.g, Windows, Linux, or MacOS).</p></li>
+<li><p><strong>Accessing Variables</strong>: Once loaded, these variables can be accessed just like any other environment variable in your code. For example, in Python, you would use <code class="docutils literal notranslate"><span class="pre">os.environ.get('KEY')</span></code> to access the value of <code class="docutils literal notranslate"><span class="pre">KEY</span></code>.</p></li>
+<li><p><strong>Dynamic Configuration</strong>: This approach allows the application to be configured dynamically based on the environment it’s running in. This is crucial for applications that need to run in multiple environments with different configurations (like database URLs, logging levels, etc.).</p></li>
+</ul>
+<p>Recapping <strong>Best Practices</strong></p>
+<ul class="simple">
+<li><p><strong>Keep it Secure</strong>: Never commit <code class="docutils literal notranslate"><span class="pre">.env</span></code> files to version control. Always use <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> or equivalent in other version control systems to exclude this file.</p></li>
+<li><p><strong>Documentation</strong>: Provide documentation or an example <code class="docutils literal notranslate"><span class="pre">.env</span></code> file to guide setting up the necessary environment variables.</p></li>
+<li><p><strong>Validation and Defaults</strong>: Implement validation for environment variables in your application and set sensible defaults where appropriate.</p></li>
+</ul>
+</section>
+<section id="example-examine-the-env-file-in-the-blank-project-repo">
+<h2>Example: Examine the Env file in the Blank Project Repo<a class="headerlink" href="#example-examine-the-env-file-in-the-blank-project-repo" title="Permalink to this heading">#</a></h2>
+<p>Use the <a class="reference external" href="https://github.com/jmbejara/blank_project"><code class="docutils literal notranslate"><span class="pre">blank_project</span></code></a> template and the <code class="docutils literal notranslate"><span class="pre">demo_environment_variables.py</span></code> file there.</p>
+<p>Test out for yourself the functionality described in the module’s docstring:</p>
+<p>This module demonstrate the use of environment variables to specify
+project configurations</p>
+<p>The precedence of environment variables is the following:</p>
+<ol class="arabic simple">
+<li><p>Use locally defined variables</p></li>
+<li><p>Use globally defined variables</p></li>
+<li><p>Use variables defined in .env</p></li>
+<li><p>Use default values defined in <a class="reference external" href="http://config.py">config.py</a></p></li>
+</ol>
+<p>In Windows,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">::</span> <span class="n">Default</span> <span class="n">variables</span><span class="p">,</span> <span class="ow">or</span> <span class="n">those</span> <span class="ow">in</span> <span class="o">.</span><span class="n">env</span> <span class="n">take</span> <span class="n">precedence</span><span class="p">:</span>
+<span class="n">python</span> <span class="n">demo_environment_variables</span><span class="o">.</span><span class="n">py</span>
+
+<span class="p">::</span> <span class="n">Now</span><span class="p">,</span> <span class="nb">set</span> <span class="n">environment</span> <span class="n">variables</span> <span class="n">globally</span><span class="o">.</span> <span class="n">These</span> <span class="n">will</span> <span class="n">take</span>
+<span class="p">::</span> <span class="n">precedence</span> <span class="n">over</span> <span class="n">those</span> <span class="ow">in</span> <span class="o">.</span><span class="n">env</span>
+<span class="nb">set</span> <span class="n">DATA_DIR</span><span class="o">=../</span><span class="n">somedir</span><span class="o">/</span>
+<span class="nb">set</span> <span class="n">OUTPUT_DIR</span><span class="o">=../</span><span class="n">otherdir</span><span class="o">/</span>
+<span class="n">python</span> <span class="o">./</span><span class="n">src</span><span class="o">/</span><span class="n">demo_environment_variables</span><span class="o">.</span><span class="n">py</span>
+
+<span class="p">::</span> <span class="n">Unset</span> <span class="n">variables</span> <span class="k">if</span> <span class="n">so</span> <span class="n">desired</span><span class="o">.</span> 
+<span class="nb">set</span> <span class="n">DATA_DIR</span><span class="o">=</span>
+<span class="nb">set</span> <span class="n">OUTPUT_DIR</span><span class="o">=</span>
+</pre></div>
+</div>
+<p>In Unix-like machines, this can easily be done on a single line so
+that the environment variables don’t persist (are not set globally),</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DATA_DIR</span><span class="o">=../</span><span class="n">somedir</span><span class="o">/</span> <span class="n">OUTPUT_DIR</span><span class="o">=../</span><span class="n">otherdir</span><span class="o">/</span> <span class="n">python</span> <span class="o">./</span><span class="n">src</span><span class="o">/</span><span class="n">demo_environment_variables</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</section>
+<section id="python-s-decouple-and-dotenv-packages">
+<h2>Python’s <code class="docutils literal notranslate"><span class="pre">decouple</span></code> and <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> packages:<a class="headerlink" href="#python-s-decouple-and-dotenv-packages" title="Permalink to this heading">#</a></h2>
+<p>Review the docs of <code class="docutils literal notranslate"><span class="pre">decouple</span></code> and review its usage in <code class="docutils literal notranslate"><span class="pre">config.py</span></code> in the <code class="docutils literal notranslate"><span class="pre">blank_project</span></code> repo</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pypi.org/project/python-decouple/">https://pypi.org/project/python-decouple/</a></p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/python-dotenv/">https://pypi.org/project/python-dotenv/</a></p></li>
+</ul>
+<p>The typical usage pattern for <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> would look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+
+<span class="n">load_dotenv</span><span class="p">()</span>  <span class="c1"># take environment variables from .env.</span>
+
+<span class="c1"># Code of your application, which uses environment variables (e.g. from `os.environ` or</span>
+<span class="c1"># `os.getenv`) as if they came from the actual environment.</span>
+
+<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">[</span><span class="s1">&#39;DATA_DIR&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -436,12 +566,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="README.html"
+       href="WRDS_intro_and_web_queries.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Week 3: SQL, Env Files, Secrets, and Automating Queries</p>
+        <p class="prev-next-title">Introduction to WRDS</p>
       </div>
     </a>
     <a class="right-next"
@@ -459,6 +589,24 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-twelve-factor-app-methodology">The Twelve-Factor App methodology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storing-config-in-environment-variables">Storing Config in Environment Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dot-env-env-file">What is a Dot Env (<code class="docutils literal notranslate"><span class="pre">.env</span></code>) File?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-examine-the-env-file-in-the-blank-project-repo">Example: Examine the Env file in the Blank Project Repo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-s-decouple-and-dotenv-packages">Python’s <code class="docutils literal notranslate"><span class="pre">decouple</span></code> and <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> packages:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

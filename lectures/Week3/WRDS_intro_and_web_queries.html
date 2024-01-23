@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Homework 3 &#8212; Data Science Tools for Finance</title>
+    <title>Introduction to WRDS &#8212; Data Science Tools for Finance</title>
   
   
   
@@ -62,10 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Week3/HW3';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Week3/WRDS_intro_and_web_queries';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Env Files and the Separations of Settings from Code" href="env_files.html" />
+    <link rel="next" title="Env Files and the Separations of Settings from Code" href="env_files.html" />
+    <link rel="prev" title="Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL" href="README.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -194,12 +195,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../output/_01_wage_growth_during_the_recession.html">HW Guide: Wage Growth During the Recession</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="README.html">Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Introduction to WRDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="env_files.html">Env Files and the Separations of Settings from Code</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Homework 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HW3.html">Homework 3</a></li>
 </ul>
 
     </div>
@@ -271,7 +272,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flectures/Week3/HW3.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flectures/Week3/WRDS_intro_and_web_queries.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -301,7 +302,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/lectures/Week3/HW3.md" target="_blank"
+      <li><a href="../../_sources/lectures/Week3/WRDS_intro_and_web_queries.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -372,7 +373,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -383,11 +386,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Homework 3</h1>
+    <h1>Introduction to WRDS</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-platform-for-financial-data">A Platform For Financial Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-core-data-sets">The Core Data Sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compustat">Compustat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-these-compare-with-bloomberg-or-datastream">How do these compare with Bloomberg or Datastream?</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -397,8 +411,81 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="homework-3">
-<h1>Homework 3<a class="headerlink" href="#homework-3" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-wrds">
+<h1>Introduction to WRDS<a class="headerlink" href="#introduction-to-wrds" title="Permalink to this heading">#</a></h1>
+<section id="a-platform-for-financial-data">
+<h2>A Platform For Financial Data<a class="headerlink" href="#a-platform-for-financial-data" title="Permalink to this heading">#</a></h2>
+<p>Wharton Research Data Services (WRDS) is a data research platform and business intelligence tool widely used in academic, government, and corporate sectors. It provides access to a vast repository of financial, economic, and marketing data, which is pivotal for conducting rigorous research in various fields, especially in finance and economics. The platform is known for its comprehensive and high-quality datasets.</p>
+<p><a class="reference external" href="https://wrds-www.wharton.upenn.edu/"><img alt="WRDS Logo" src="../../_images/wrds_logo.png" /></a></p>
+<p>WRDS offers a variety of datasets from numerous sources, including leading data providers like Compustat, CRSP, IBES, and Bloomberg. It covers a wide range of data types, including:</p>
+<ul class="simple">
+<li><p>Stock prices and trading volumes</p></li>
+<li><p>Financial statement data</p></li>
+<li><p>Analyst forecasts</p></li>
+<li><p>Corporate governance data</p></li>
+<li><p>Mutual fund and bond data</p></li>
+<li><p>Macroeconomic data</p></li>
+</ul>
+<p><img alt="WRDS Datasets" src="../../_images/wrds_subscriptions.png" /></p>
+<p>One of the key strengths of WRDS is its user-friendly interface, which allows for easy data extraction and manipulation. It provides powerful tools for data analysis, including the ability to execute custom queries and perform complex statistical analyses. In academic settings, WRDS is particularly valued for its role in facilitating empirical research in finance and economics. It allows researchers, professors, and students to access a wealth of data necessary for testing financial theories, exploring economic trends, and developing new insights in the field of quantitative finance.</p>
+</section>
+<section id="the-core-data-sets">
+<h2>The Core Data Sets<a class="headerlink" href="#the-core-data-sets" title="Permalink to this heading">#</a></h2>
+<p>WRDS provides some usage statistics on their website in an introduction presentation <a class="reference external" href="https://wrds-www.wharton.upenn.edu/documents/1400/wrds_research_data_overview.pdf">here</a>. This chart shows
+the percentage of usage across all WRDS data sets.</p>
+<p><img alt="WRDS Database Usage" src="../../_images/wrds_database_usage.png" /></p>
+<p>The two most popular data sets are CRSP and Compustat.</p>
+<p>WRDS did an analysis finance papers published in the top 3 finance journals—the Journal of Finance, the Journal of Financial Economics, and the Review of Financial Studies—from the years 2004-2016. Out of all of these papers, the following chart shows how many times each data set was cited.</p>
+<p><img alt="Top 10 Databases" src="../../_images/wrds_top_10_databases.png" /></p>
+<p>All of the listed data sets, except for those colored in red, are available in WRDS.</p>
+</section>
+<section id="compustat">
+<h2>Compustat<a class="headerlink" href="#compustat" title="Permalink to this heading">#</a></h2>
+<p><img alt="Compustat Logo" src="../../_images/Compustat_Logo.png" /></p>
+<p><a class="reference external" href="https://www.marketplace.spglobal.com/en/datasets/compustat-financials-(8)">Compustat Financials, S&amp;P Global Market Intelligence</a></p>
+<p>Compustat is a comprehensive database of financial, statistical, and market information, primarily focused on publicly traded companies. It is widely used in academic research, particularly in the fields of finance and economics, for conducting in-depth analysis of company performance and market trends. The dataset includes information from various countries and markets, making it a valuable resource for both domestic and international financial research.</p>
+<p>Key features of the Compustat dataset include:</p>
+<ol class="arabic simple">
+<li><p><strong>Financial Statements:</strong> Detailed income statements, balance sheets, and cash flow statements for a wide range of companies.</p></li>
+<li><p><strong>Historical Data:</strong> Longitudinal data that allows for historical trend analysis and time-series studies.</p></li>
+<li><p><strong>Global Coverage:</strong> Data on companies from various global markets, including North America, Europe, Asia, and more.</p></li>
+<li><p><strong>Segment Data:</strong> Information on business segments and geographical segments of companies.</p></li>
+<li><p><strong>Market Data:</strong> Includes stock prices, trading volume, and other market-related information.</p></li>
+<li><p><strong>Corporate Actions:</strong> Data on dividends, stock splits, mergers and acquisitions, and other corporate events.</p></li>
+<li><p><strong>Ratios and Metrics:</strong> Key financial ratios and metrics that are pre-calculated for ease of analysis, such as ROE, ROA, and EBITDA.</p></li>
+</ol>
+<p>Compustat is highly regarded for its accuracy, depth, and consistency, making it a fundamental resource for both theoretical and empirical research in finance. It’s extensively used for tasks like asset pricing models, risk management, portfolio construction, and corporate finance studies. For students and researchers in quantitative finance, Compustat provides a rich dataset for modeling, back-testing theories, and conducting robust financial analyses.</p>
+<p><img alt="CRSP Logo" src="../../_images/crsp-llc-logo-web-01_3.png" /></p>
+<p><a class="reference external" href="https://www.crsp.org/">Center for Research in Security Prices</a></p>
+<p>The Center for Research in Security Prices (CRSP) is a renowned financial research database, primarily recognized for its comprehensive historical data on securities traded in the United States. Established at the University of Chicago’s Booth School of Business, CRSP is a crucial resource for academic, commercial, and governmental research in finance.</p>
+<p>Key characteristics of the CRSP database include:</p>
+<ol class="arabic simple">
+<li><p><strong>Extensive Historical Data:</strong> CRSP is particularly noted for its long historical time series, which in some cases go back as far as 1925. This historical depth is invaluable for long-term financial studies and analyses.</p></li>
+<li><p><strong>Stock Data:</strong> The database provides detailed information on stocks listed on NYSE, AMEX, and NASDAQ, including prices, returns, trading volumes, and other market indicators.</p></li>
+<li><p><strong>Indices:</strong> CRSP develops and maintains a series of stock indices that serve as benchmarks for the investment industry, including value- and equal-weighted indices.</p></li>
+<li><p><strong>Corporate Actions:</strong> Information on dividends, stock splits, and other corporate events that impact stock valuation is extensively covered.</p></li>
+<li><p><strong>Treasury and Mutual Fund Data:</strong> Beyond stocks, CRSP also includes data on US Treasury bills, bonds, and mutual funds, expanding its utility for various types of financial research.</p></li>
+<li><p><strong>Survivorship Bias-Free Data:</strong> CRSP’s dataset is known for being free of survivorship bias, as it includes data on companies that have ceased to exist, which is crucial for accurate historical analysis.</p></li>
+<li><p><strong>Research Quality:</strong> The accuracy, completeness, and cleanliness of the data make CRSP a gold standard for financial research, particularly in academic settings.</p></li>
+</ol>
+<p>For students and researchers in quantitative finance, CRSP provides essential data for analyzing stock performance, conducting empirical tests of asset pricing models, and studying market anomalies and behaviors. Its extensive historical data and robustness make it a fundamental tool for both historical analysis and contemporary market studies.</p>
+</section>
+<section id="how-do-these-compare-with-bloomberg-or-datastream">
+<h2>How do these compare with Bloomberg or Datastream?<a class="headerlink" href="#how-do-these-compare-with-bloomberg-or-datastream" title="Permalink to this heading">#</a></h2>
+<p>Choosing between financial databases like CRSP, Bloomberg, or Datastream depends on the specific requirements of the research or analysis being conducted. Each of these platforms has unique strengths and features that make them suitable for different purposes. Here are some reasons why someone might opt for CRSP over Bloomberg or Datastream:</p>
+<ul class="simple">
+<li><p><strong>Historical Depth:</strong> CRSP is renowned for its extensive historical data, particularly for U.S. securities. It offers data going back as far as 1925, which is invaluable for long-term historical research and analysis. This level of historical depth might not be matched by Bloomberg or Datastream.</p></li>
+<li><p><strong>Survivorship Bias-Free Data:</strong> CRSP’s data includes companies that have ceased to exist, which is crucial for accurate historical analyses. This feature helps in avoiding survivorship bias, making it a robust choice for academic studies that require comprehensive historical perspectives.</p></li>
+<li><p><strong>Data Consistency and Quality:</strong> CRSP is known for its high standards in data accuracy, consistency, and cleanliness, which are critical for reliable academic research.</p></li>
+</ul>
+<p>On the other hand, there are some drawbacks of CRSP relative to Bloomberg or Datastream.</p>
+<ul class="simple">
+<li><p><strong>Limited Scope</strong>: CRSP has a limited scope relative to Bloomberg or Datastream. It primarily focuses on US markets and lacks the global coverage found in Bloomberg.</p></li>
+<li><p><strong>Real-Time Data</strong>: Does not offer real-time data, which is essential for current market analysis.</p></li>
+<li><p><strong>Less Comprehensive</strong>: Fewer types of financial data compared to Bloomberg (e.g., lacks extensive international data, commodities, real-time news).</p></li>
+</ul>
+<p>Broadly speaking, CRSP is more suited for academic research focused on historical analysis of the U.S. stock market, offering in-depth and high-quality data with a bias-free historical perspective. Bloomberg, on the other hand, excels in providing a wide range of real-time global financial data and tools, catering more to finance professionals and analysts who require real-time data and sophisticated analysis tools. The choice between them largely depends on the specific needs, goals, and resources of the user.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -432,13 +519,22 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="env_files.html"
+       href="README.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="env_files.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Env Files and the Separations of Settings from Code</p>
       </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -446,6 +542,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-platform-for-financial-data">A Platform For Financial Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-core-data-sets">The Core Data Sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compustat">Compustat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-these-compare-with-bloomberg-or-datastream">How do these compare with Bloomberg or Datastream?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
