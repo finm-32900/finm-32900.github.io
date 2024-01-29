@@ -4,7 +4,6 @@
 
 - Make sure to "watch" the [course repository](https://github.com/finm-32900/finm-32900-data-science) so that you will be notified of new posts on the course discussion board. Click the "watch" button on the top right of the page.
 - Consider, if you'd like, posting an introduction here on the course discussion board: https://github.com/orgs/finm-32900/discussions/2
-- Consider watching the following vide
 
 ## Part 1 (graded)
 

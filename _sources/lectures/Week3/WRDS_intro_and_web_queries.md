@@ -61,6 +61,14 @@ Key features of the Compustat dataset include:
 
 Compustat is highly regarded for its accuracy, depth, and consistency, making it a fundamental resource for both theoretical and empirical research in finance. It's extensively used for tasks like asset pricing models, risk management, portfolio construction, and corporate finance studies. For students and researchers in quantitative finance, Compustat provides a rich dataset for modeling, back-testing theories, and conducting robust financial analyses.
 
+The following two videos provide a short introduction to Compustat on WRDS.
+
+[![Compustat on WRDS Part 1](./assets/compustat_on_WRDS_p1.png)](https://wrds-www.wharton.upenn.edu/pages/grid-items/introduction-compustat-part-1/)
+[![Compustat on WRDS Part 2](./assets/compustat_on_WRDS_p2.png)](https://wrds-www.wharton.upenn.edu/pages/grid-items/introduction-compustat-part-2/)
+
+
+## CRSP
+
 ![CRSP Logo](./assets/crsp-llc-logo-web-01_3.png)
 
 [Center for Research in Security Prices](https://www.crsp.org/)
@@ -85,6 +93,10 @@ Key characteristics of the CRSP database include:
 
 For students and researchers in quantitative finance, CRSP provides essential data for analyzing stock performance, conducting empirical tests of asset pricing models, and studying market anomalies and behaviors. Its extensive historical data and robustness make it a fundamental tool for both historical analysis and contemporary market studies.
 
+The following [video](https://wrds-www.wharton.upenn.edu/pages/grid-items/crsp-basics/) provides a nice introduction to the basics of CRSP.
+
+[![CRSP in WRDS Basics](./assets/crsp_in_wrds_thumbnail.png)](https://wrds-www.wharton.upenn.edu/pages/grid-items/crsp-basics/)
+
 
 ## How do these compare with Bloomberg or Datastream?
 
@@ -101,4 +113,11 @@ On the other hand, there are some drawbacks of CRSP relative to Bloomberg or Dat
 - **Less Comprehensive**: Fewer types of financial data compared to Bloomberg (e.g., lacks extensive international data, commodities, real-time news).
 
 Broadly speaking, CRSP is more suited for academic research focused on historical analysis of the U.S. stock market, offering in-depth and high-quality data with a bias-free historical perspective. Bloomberg, on the other hand, excels in providing a wide range of real-time global financial data and tools, catering more to finance professionals and analysts who require real-time data and sophisticated analysis tools. The choice between them largely depends on the specific needs, goals, and resources of the user.
+
+## WRDS Web Queries
+
+To familiarize yourselves to using WRDS, please [watch the following video](https://vimeo.com/436447434) about WRDS Web Queries. While we will be automating the query process using the WRDS Python package [`wrds`](https://pypi.org/project/wrds/), using the web query system is a good way for initial exploration of the data.
+
+[![WRDS Web Queries](./assets/wrds_web_queries.png)](https://wrds-www.wharton.upenn.edu/pages/grid-items/introduction-web-queries-wrds/)
+
 

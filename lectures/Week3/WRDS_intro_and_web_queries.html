@@ -202,6 +202,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="HW3.html">Homework 3</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week4/README.html">Week 4: Generating Reports, featuring LaTeX</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -400,7 +404,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-platform-for-financial-data">A Platform For Financial Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-core-data-sets">The Core Data Sets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compustat">Compustat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crsp">CRSP</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-these-compare-with-bloomberg-or-datastream">How do these compare with Bloomberg or Datastream?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrds-web-queries">WRDS Web Queries</a></li>
 </ul>
             </nav>
         </div>
@@ -456,6 +462,12 @@ the percentage of usage across all WRDS data sets.</p>
 <li><p><strong>Ratios and Metrics:</strong> Key financial ratios and metrics that are pre-calculated for ease of analysis, such as ROE, ROA, and EBITDA.</p></li>
 </ol>
 <p>Compustat is highly regarded for its accuracy, depth, and consistency, making it a fundamental resource for both theoretical and empirical research in finance. It’s extensively used for tasks like asset pricing models, risk management, portfolio construction, and corporate finance studies. For students and researchers in quantitative finance, Compustat provides a rich dataset for modeling, back-testing theories, and conducting robust financial analyses.</p>
+<p>The following two videos provide a short introduction to Compustat on WRDS.</p>
+<p><a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/grid-items/introduction-compustat-part-1/"><img alt="Compustat on WRDS Part 1" src="../../_images/compustat_on_WRDS_p1.png" /></a>
+<a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/grid-items/introduction-compustat-part-2/"><img alt="Compustat on WRDS Part 2" src="../../_images/compustat_on_WRDS_p2.png" /></a></p>
+</section>
+<section id="crsp">
+<h2>CRSP<a class="headerlink" href="#crsp" title="Permalink to this heading">#</a></h2>
 <p><img alt="CRSP Logo" src="../../_images/crsp-llc-logo-web-01_3.png" /></p>
 <p><a class="reference external" href="https://www.crsp.org/">Center for Research in Security Prices</a></p>
 <p>The Center for Research in Security Prices (CRSP) is a renowned financial research database, primarily recognized for its comprehensive historical data on securities traded in the United States. Established at the University of Chicago’s Booth School of Business, CRSP is a crucial resource for academic, commercial, and governmental research in finance.</p>
@@ -470,6 +482,8 @@ the percentage of usage across all WRDS data sets.</p>
 <li><p><strong>Research Quality:</strong> The accuracy, completeness, and cleanliness of the data make CRSP a gold standard for financial research, particularly in academic settings.</p></li>
 </ol>
 <p>For students and researchers in quantitative finance, CRSP provides essential data for analyzing stock performance, conducting empirical tests of asset pricing models, and studying market anomalies and behaviors. Its extensive historical data and robustness make it a fundamental tool for both historical analysis and contemporary market studies.</p>
+<p>The following <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/grid-items/crsp-basics/">video</a> provides a nice introduction to the basics of CRSP.</p>
+<p><a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/grid-items/crsp-basics/"><img alt="CRSP in WRDS Basics" src="../../_images/crsp_in_wrds_thumbnail.png" /></a></p>
 </section>
 <section id="how-do-these-compare-with-bloomberg-or-datastream">
 <h2>How do these compare with Bloomberg or Datastream?<a class="headerlink" href="#how-do-these-compare-with-bloomberg-or-datastream" title="Permalink to this heading">#</a></h2>
@@ -486,6 +500,11 @@ the percentage of usage across all WRDS data sets.</p>
 <li><p><strong>Less Comprehensive</strong>: Fewer types of financial data compared to Bloomberg (e.g., lacks extensive international data, commodities, real-time news).</p></li>
 </ul>
 <p>Broadly speaking, CRSP is more suited for academic research focused on historical analysis of the U.S. stock market, offering in-depth and high-quality data with a bias-free historical perspective. Bloomberg, on the other hand, excels in providing a wide range of real-time global financial data and tools, catering more to finance professionals and analysts who require real-time data and sophisticated analysis tools. The choice between them largely depends on the specific needs, goals, and resources of the user.</p>
+</section>
+<section id="wrds-web-queries">
+<h2>WRDS Web Queries<a class="headerlink" href="#wrds-web-queries" title="Permalink to this heading">#</a></h2>
+<p>To familiarize yourselves to using WRDS, please <a class="reference external" href="https://vimeo.com/436447434">watch the following video</a> about WRDS Web Queries. While we will be automating the query process using the WRDS Python package <a class="reference external" href="https://pypi.org/project/wrds/"><code class="docutils literal notranslate"><span class="pre">wrds</span></code></a>, using the web query system is a good way for initial exploration of the data.</p>
+<p><a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/grid-items/introduction-web-queries-wrds/"><img alt="WRDS Web Queries" src="../../_images/wrds_web_queries.png" /></a></p>
 </section>
 </section>
 
@@ -555,7 +574,9 @@ the percentage of usage across all WRDS data sets.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-platform-for-financial-data">A Platform For Financial Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-core-data-sets">The Core Data Sets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compustat">Compustat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crsp">CRSP</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-these-compare-with-bloomberg-or-datastream">How do these compare with Bloomberg or Datastream?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrds-web-queries">WRDS Web Queries</a></li>
 </ul>
   </nav></div>
 

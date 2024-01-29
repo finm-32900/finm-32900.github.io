@@ -65,6 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Week3/HW3';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX" href="../Week4/README.html" />
     <link rel="prev" title="Env Files and the Separations of Settings from Code" href="env_files.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -201,6 +202,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Homework 3</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week4/README.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -373,7 +378,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -389,6 +396,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-not-graded">Part 0 (not graded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded">Part 1 (graded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded">Part 2 (graded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder">Reminder</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -400,6 +418,49 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="homework-3">
 <h1>Homework 3<a class="headerlink" href="#homework-3" title="Permalink to this heading">#</a></h1>
+<section id="part-0-not-graded">
+<h2>Part 0 (not graded)<a class="headerlink" href="#part-0-not-graded" title="Permalink to this heading">#</a></h2>
+<p>Please watch the following videos to better familiarize yourself with CRSP and Compustat in WRDS.</p>
+<ul class="simple">
+<li><p>Watch the CRSP and Compustat videos linked in the class notes from earlier, <a class="reference internal" href="WRDS_intro_and_web_queries.html"><span class="doc std std-doc">found here.</span></a></p></li>
+<li><p><a class="reference external" href="https://vimeo.com/417302309">CRSP Coverage</a></p></li>
+<li><p><a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/grid-items/crsp-useful-variables/">CRSP - Useful Variale</a></p>
+<ul>
+<li><p>This video goes over some points we made in class as well and is helpful for cleaning the CRSP data (e.g., negative prices).</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/grid-items/crsp-stock-database-structure/">CRSP Stock Database Coverage</a></p>
+<ul>
+<li><p>Useful for merging stock files and event files in CRSP via SQL. This is useful, for example, to incorporate delisting returns.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="part-1-graded">
+<h2>Part 1 (graded)<a class="headerlink" href="#part-1-graded" title="Permalink to this heading">#</a></h2>
+<p>Again, we continue on our journey mastering the many features of Github. Please complete next 2 tutorials from the <a class="reference external" href="https://skills.github.com/">GitHub Skills</a> page. Please make sure to use <strong>public repositories</strong> for this in your own GitHub user account. You will provide a link later to demonstrate that it was completed.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/skills/release-based-workflow">Release Based workflow</a></p></li>
+<li><p><a class="reference external" href="https://github.com/skills/connect-the-dots">Connect the dots</a></p></li>
+</ul>
+</section>
+<section id="part-2-graded">
+<h2>Part 2 (graded)<a class="headerlink" href="#part-2-graded" title="Permalink to this heading">#</a></h2>
+<p>In this second part, you’ll complete an exercise related to the seminal papers <a class="reference external" href="https://home.cerge-ei.cz/petrz/gdn/Fama_French_92_tables.pdf">Fama and French (1992)</a> and <a class="reference external" href="https://www.jufinance.com/mag/fin534_16/Common_risk_factors_Fama_French_JFE1993.pdf">Fama and French (1993)</a>. We will download the data using the WRDS Python package. This data download step will be fully automated.</p>
+<p>The link to accept the HW is here: Link TBD</p>
+<!-- 
+The following is a guide that will help you complete the homework: [HW Guide: Wage Growth During the Recession](../../output/_01_wage_growth_during_the_recession.ipynb)
+-->
+<p><strong>Citations:</strong></p>
+<ul class="simple">
+<li><p>Eugene, Fama, and Kenneth French. “The cross-section of expected stock returns.” Journal of Finance 47, no. 2 (1992): 427-465.</p></li>
+<li><p>Fama, Eugene F., and Kenneth R. French. “Common risk factors in the returns on stocks and bonds.” Journal of financial economics 33, no. 1 (1993): 3-56.</p></li>
+</ul>
+</section>
+<section id="reminder">
+<h2>Reminder<a class="headerlink" href="#reminder" title="Permalink to this heading">#</a></h2>
+<p>Do not make any changes to the unit test files. If an edit is made, you will be required to edit the history of your commits to remove any trace of the edits to these files.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -441,12 +502,38 @@ document.write(`
         <p class="prev-next-title">Env Files and the Separations of Settings from Code</p>
       </div>
     </a>
+    <a class="right-next"
+       href="../Week4/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-not-graded">Part 0 (not graded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded">Part 1 (graded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded">Part 2 (graded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder">Reminder</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
