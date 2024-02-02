@@ -201,8 +201,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week3/env_files.html">Env Files and the Separations of Settings from Code</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/Week3/HW3.html">Homework 3</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week4/README.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week3/HW3.html">Homework 3</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="_02_CRSP_market_index.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_03_Fama_French_1993.html">HW Guide Part B: Replicate Fama-French 1993</a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week4/README.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 </ul>
@@ -2034,7 +2041,7 @@ ax.figure.legend()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x23a07c36210&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x201a7d144a0&gt;
 </pre></div>
 </div>
 <img alt="../_images/a36f1f567595b46e0e99b89b250580d1e66fe59fb8eb2e7d11bcc925a534adb7.png" src="../_images/a36f1f567595b46e0e99b89b250580d1e66fe59fb8eb2e7d11bcc925a534adb7.png" />
@@ -2119,7 +2126,7 @@ Use the same code as from before. However, this time let’s explore the relatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x23a09f13dd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x201aa192030&gt;
 </pre></div>
 </div>
 <img alt="../_images/d7b1c67f56a6d9ba7f9cbfc64f792e2523bb9389e188423d677a898ece5cc410.png" src="../_images/d7b1c67f56a6d9ba7f9cbfc64f792e2523bb9389e188423d677a898ece5cc410.png" />
@@ -2233,7 +2240,8 @@ wages growth is slightly positively correlated with the level of employment. It�
 <h3>Step 20. Create new variables in <code class="docutils literal notranslate"><span class="pre">df</span></code> for age and education bins.<a class="headerlink" href="#step-20-create-new-variables-in-df-for-age-and-education-bins" title="Permalink to this heading">#</a></h3>
 <p>To demographically adjust the data, create age-skill groups in each year. Use 5 year age ranges (25-29, 30-34, etc.) and 5 education groupings (less than high school, high school only, some college, bachelor’s degree, more than a bachelor’s degree).</p>
 <p>I have provided starter code here:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add bins to `df` for the AGE and EDUC variables</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add bins to `df` for the AGE and EDUC variables as described in</span>
+<span class="c1"># Question 1.B of the HW.</span>
 <span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="o">...</span> <span class="n">YOUR_CODE_HERE</span> <span class="o">...</span> <span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;age_binned&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;AGE&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">include_lowest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
