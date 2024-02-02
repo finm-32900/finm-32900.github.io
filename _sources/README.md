@@ -51,6 +51,7 @@ Each week is it's own chapter and the agenda is listed in the first sub-section 
 - [HW 0: Ungraded. Due ASAP, preferably before the first class](lectures/Week1/HW0.md)
 - [HW 1: Due Thursday, Jan 18 at 11:59 pm](lectures/Week1/HW1.md)
 - [HW 2: Due Saturday, Jan 27 at 11:59 pm](lectures/Week2/HW2.md)
+- [HW 3: Due Saturday, Feb 9 at 11:59 pm](lectures/Week3/HW3.md)
     
 ## References
 
