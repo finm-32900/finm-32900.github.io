@@ -5,13 +5,14 @@ In this project, you'll replicate tables, figures, or data series from a well kn
 ## Receiving Your Assigned Project
 
   - You will be assigned a project from the list found [here.](./potential_final_projects.md) 
-  - Your preference will be taken into account when assigning the projects. You can rank your preferred projects by using the following Google Form: LINK TBD. Please, only submit one response per group. Your group must have 4 people in it. Some exceptions may be made for groups of 5.
-  - You will meet with me at the beginning of the project as well as at the end (a consultation). The first meeting is to establish the goals for the project. The final meeting is to present your results. When you submit the link, you will also have a chance to schedule your consultation and final presentation dates. 
+  - Your preference will be taken into account when assigning the projects. You can rank your preferred projects by using the following Google Form: https://forms.gle/EKkPQSX6uWipZhdx5 . Please, only submit one response per group. Your group must have 4 people in it. Some exceptions may be made for groups of 5.
+  - You will meet with me at the beginning of the project as well as at the end (a consultation). The first meeting is to establish the goals for the project. The final meeting is to present your results. When you submit the link, you will also have a chance to schedule your consultation and final presentation dates.
+  - In this first consultation meeting, you should come prepared with a list of tasks that each team member will be primarily responsible for. Team members can and should share tasks (e.g., two people can be responsible for the LaTeX writeup whereas everyone should be involved in figuring out how to understand and clean the data). Write this list of tasks in the README.md of the GitHub repo.
 
 ## Final Project Grading Rubric
 
 The following questions or assertions will be made of your code when you present it at the end of the quarter. Each question will be subjectively prorated on the degree of completion. For example, if you replicate 50% of the numbers from a table, you'll get 50% of the available points. Some adjustments may be made by discretion based on the difficulty of the task.
-For each assertion in the following, I enumerate the points each is worth in **bold** and there are a total of 132 points available in total.
+For each assertion in the following, I enumerate the points each is worth in **bold** and there are a total of 182 points available in total.
 
 
 - **4/4** You must generate a single LaTeX document that briefly describes the nature of the replication project and contains all the tables and charts that your code produces. You should give a high level overview of how the replication project went. Where did you find success, where were the challenges? Also, explain the data sources that you used? The LaTeX document should not contain code snippets, but only give the tables and charts and a high level discussion of the project.
@@ -35,6 +36,7 @@ For each assertion in the following, I enumerate the points each is worth in **b
 - **4/4** Has each member of your group made and merged a GitHub pull request?
 - **4/4** Does each Python file have a "docstring" at the top that describes what the file does?
 - **4/4** Does each Python function have a reasonably descriptive name and, when appropriate, a function docstring? (No need to overboard, but the code should be reasonably clean.)
+- **50/50** Did I individually accomplish the tasks that were assigned to me by the group and did I contribute a substantial part of the code to the project as evidenced by the commit history?
 
  
  

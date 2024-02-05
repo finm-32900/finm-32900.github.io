@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX &#8212; Data Science Tools for Finance</title>
+    <title>LaTeX Essentials &#8212; Data Science Tools for Finance</title>
   
   
   
@@ -62,11 +62,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Week4/README';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Week4/latex_essentials';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Reports with Jupyter Notebooks" href="reports_with_jupyter_notebooks.html" />
-    <link rel="prev" title="HW Guide Part B: Replicate Fama-French 1993" href="../../output/_03_Fama_French_1993.html" />
+    <link rel="next" title="Week 5: Unit Tests and Documentation with Sphinx" href="../Week5/README.html" />
+    <link rel="prev" title="Introduction to LaTeX" href="intro_to_LaTeX.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -209,10 +211,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="intro_to_LaTeX.html">Introduction to LaTeX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="latex_essentials.html">LaTeX Essentials</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">LaTeX Essentials</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Week5/README.html">Week 5: Unit Tests and Documentation with Sphinx</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -296,7 +298,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flectures/Week4/README.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flectures/Week4/latex_essentials.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -326,7 +328,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/lectures/Week4/README.md" target="_blank"
+      <li><a href="../../_sources/lectures/Week4/latex_essentials.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -410,7 +412,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</h1>
+    <h1>LaTeX Essentials</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,8 +422,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">Agenda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-various-equation-environments">The Various Equation Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tables-and-figures">Tables and Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#labels-and-references">Labels and References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliographies">Bibliographies</a></li>
 </ul>
             </nav>
         </div>
@@ -433,50 +438,150 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-4-generating-reports-featuring-jupyter-notebooks-and-latex">
-<h1>Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX<a class="headerlink" href="#week-4-generating-reports-featuring-jupyter-notebooks-and-latex" title="Permalink to this heading">#</a></h1>
-<section id="learning-outcomes">
-<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Familiarity with using Markdown cells within Jupyter Notebooks</p>
-<ul>
-<li><p>Why should I only use Jupyter notebooks for final reports (not as steps within the pipeline)?</p></li>
-<li><p>Familiarity with <code class="docutils literal notranslate"><span class="pre">nbconvert</span></code> to convert notebooks to scripts, HTML, PDFs</p></li>
-<li><p>Using <code class="docutils literal notranslate"><span class="pre">nbconvert</span></code> to execute a notebook from the command line. (Why would we want to do this?)</p></li>
-<li><p>How to fit a notebook into the PyDoit workflow? (Use the workflow set up in my <code class="docutils literal notranslate"><span class="pre">blank_project</span></code> GitHub template repo.)</p></li>
-</ul>
-</li>
-<li><p>Basic familiarity with LaTeX.</p>
-<ul>
-<li><p>Ability to edit and compile LaTeX templates in <code class="docutils literal notranslate"><span class="pre">blank_project</span></code> repo using <code class="docutils literal notranslate"><span class="pre">TeXworks</span></code> (which is included with TeX Live).</p></li>
-<li><p>Understanding of how to automate the inclusion of an image or table into a LaTeX document.</p></li>
-</ul>
-</li>
-</ul>
-</section>
-<section id="agenda">
-<h2>Agenda<a class="headerlink" href="#agenda" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Review HW 2. Meaning of new series? Lessons learned note? What were some gotchas?</p>
-<ul>
-<li><p>People downloaded data in different ways. Some in fixed-width format, some in CSV format. Some included different samples, e.g. different time periods. Some included extra columns than others.</p></li>
-<li><p>Some people had errors with the handling of the dates when using <code class="docutils literal notranslate"><span class="pre">.describe()</span></code>. This came up because they were using the wrong version of Pandas. Importance of using <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span></code> environments.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">s24</span></code> didn’t pass even though all previous tests pass. Unit tests sometimes don’t cover all corner cases.</p></li>
-<li><p>Slipped in <code class="docutils literal notranslate"><span class="pre">.env</span></code> into GitHub repo and that caused everything to fall apart. Important to never commit <code class="docutils literal notranslate"><span class="pre">.env</span></code> to your GitHub repo.</p></li>
-<li><p>VS Code editor tips. Send code to interactive tab option and shift enter. Step through code because loading can take a long time.</p></li>
-</ul>
-</li>
-<li><p>Final projects. Show example based on blank template. List will be released. Submit survey with group member names. Rank projects.</p></li>
-<li><p>Review WRDS Python package functionality using <a class="reference internal" href="../../output/_01_wrds_python_package.html"><span class="doc std std-doc">walkthrough here.</span></a></p></li>
-<li><p>Review CRSP and Compustat cleaning procedure.</p></li>
-<li><p>Discuss generation of value weighted market index in terms of psuedo code?</p></li>
-<li><p><a class="reference internal" href="intro_to_LaTeX.html"><span class="doc std std-doc">Introduction to LaTeX</span></a></p></li>
-<li><p>Generating reports with LaTeX in <a class="reference external" href="http://dodo.py">dodo.py</a></p></li>
-<li><p>Automatic generation of HTML notebook reports. Why are notebooks difficult with Git?</p></li>
-</ul>
-</section>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="latex-essentials">
+<h1>LaTeX Essentials<a class="headerlink" href="#latex-essentials" title="Permalink to this heading">#</a></h1>
+<p>Now that we’ve introduced the concept of LaTeX and discussed how to compile a document, we’ll now go over a few of
+the essential pieces that you’ll need to know.</p>
+<p>For this, we’ll review each of the concepts listed below as they appear in <code class="docutils literal notranslate"><span class="pre">/reports/report_example.tex</span></code> in my <code class="docutils literal notranslate"><span class="pre">blank_project</span></code> repository: <a class="github reference external" href="https://github.com/jmbejara/blank_project">jmbejara/blank_project</a>.</p>
+<section id="environments">
+<h2>Environments<a class="headerlink" href="#environments" title="Permalink to this heading">#</a></h2>
+<p>In LaTeX, environments are used to define specific sections of a document that have different formatting or behavior. They are initiated with the <code class="docutils literal notranslate"><span class="pre">\begin{environmentName}</span></code> command and closed with the <code class="docutils literal notranslate"><span class="pre">\end{environmentName}</span></code> command. The <code class="docutils literal notranslate"><span class="pre">itemize</span></code> environment, for example, is used to create bullet lists. Each environment provides a set of formatting rules or structures, such as list environments (<code class="docutils literal notranslate"><span class="pre">itemize</span></code>, <code class="docutils literal notranslate"><span class="pre">enumerate</span></code>), table environments (<code class="docutils literal notranslate"><span class="pre">tabular</span></code>), mathematical environments (<code class="docutils literal notranslate"><span class="pre">equation</span></code>), and many others, catering to various types of content structuring and formatting needs.</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>itemize<span class="nb">}</span>
+<span class="k">\item</span> Something
+<span class="k">\item</span> Another thing
+<span class="k">\item</span> Something else
+<span class="k">\end</span><span class="nb">{</span>itemize<span class="nb">}</span>
+</pre></div>
 </div>
+</section>
+<section id="the-various-equation-environments">
+<h2>The Various Equation Environments<a class="headerlink" href="#the-various-equation-environments" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Inline math with <code class="docutils literal notranslate"><span class="pre">$y</span> <span class="pre">=</span> <span class="pre">x^2$</span></code>. This would inline like this: <span class="math notranslate nohighlight">\(y = x^2\)</span>.</p></li>
+<li><p>Display math with <code class="docutils literal notranslate"><span class="pre">$$</span></code>, vs <code class="docutils literal notranslate"><span class="pre">equation</span></code> environment</p></li>
+</ul>
+<p>Display math with <code class="docutils literal notranslate"><span class="pre">$$</span></code></p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="sb">$$</span>
+<span class="nv">\frac</span><span class="nb">{</span><span class="nv">\partial</span><span class="nb"> V}{</span><span class="nv">\partial</span><span class="nb"> t} </span><span class="o">+</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{</span><span class="m">2</span><span class="nb">}</span><span class="nv">\sigma</span><span class="nb">^</span><span class="m">2</span><span class="nb"> S^</span><span class="m">2</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\partial</span><span class="nb">^</span><span class="m">2</span><span class="nb"> V}{</span><span class="nv">\partial</span><span class="nb"> S^</span><span class="m">2</span><span class="nb">} </span>
+<span class="o">+</span><span class="nb"> rS</span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\partial</span><span class="nb"> V}{</span><span class="nv">\partial</span><span class="nb"> S} </span><span class="o">-</span><span class="nb"> rV </span><span class="o">=</span><span class="nb"> </span><span class="m">0</span>
+<span class="s">$$</span>
+</pre></div>
+</div>
+<p>will be rendered like this:
+$<span class="math notranslate nohighlight">\(
+\frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + 
+rS\frac{\partial V}{\partial S} - rV = 0
+\)</span>$
+This will do the same thing:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+<span class="k">\frac</span><span class="nb">{</span><span class="k">\partial</span> V<span class="nb">}{</span><span class="k">\partial</span> t<span class="nb">}</span> + <span class="k">\frac</span><span class="nb">{</span>1<span class="nb">}{</span>2<span class="nb">}</span><span class="k">\sigma</span><span class="nb">^</span>2 S<span class="nb">^</span>2 <span class="k">\frac</span><span class="nb">{</span><span class="k">\partial</span><span class="nb">^</span>2 V<span class="nb">}{</span><span class="k">\partial</span> S<span class="nb">^</span>2<span class="nb">}</span> 
++ rS<span class="k">\frac</span><span class="nb">{</span><span class="k">\partial</span> V<span class="nb">}{</span><span class="k">\partial</span> S<span class="nb">}</span> - rV = 0
+<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">align</span></code> environment for equations. Sometimes you want to align several equations for the purpose of derivations. For example, this code</p></li>
+</ul>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
+P(S<span class="nb">_</span>t, t) <span class="nb">&amp;</span>= Ke<span class="nb">^{</span>-r(T - t)<span class="nb">}</span> - S<span class="nb">_</span>t + C(S<span class="nb">_</span>t, t)  <span class="k">\\</span>
+          <span class="nb">&amp;</span>= N(-d<span class="nb">_</span>-) Ke<span class="nb">^{</span>-r(T - t)<span class="nb">}</span> - N(-d<span class="nb">_</span>+) S<span class="nb">_</span>t 
+<span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
+</pre></div>
+</div>
+<p>produces the following:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-321dbe93-c7e8-4919-97d7-b43b522d1895">
+<span class="eqno">(1)<a class="headerlink" href="#equation-321dbe93-c7e8-4919-97d7-b43b522d1895" title="Permalink to this equation">#</a></span>\[\begin{align}
+P(S_t, t) &amp;= Ke^{-r(T - t)} - S_t + C(S_t, t)   \\
+          &amp;= N(-d_-) Ke^{-r(T - t)} - N(-d_+) S_t 
+\end{align}\]</div>
+</section>
+<section id="tables-and-figures">
+<h2>Tables and Figures<a class="headerlink" href="#tables-and-figures" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tabular</span></code> vs <code class="docutils literal notranslate"><span class="pre">table</span></code> environment</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">tabular</span></code> environment in LaTeX is used to create a table with specified alignment for columns, without providing floating capabilities. It’s useful for inserting tables directly in the text flow. On the other hand, the <code class="docutils literal notranslate"><span class="pre">table</span></code> environment is a floating container that allows you to position tables in a more flexible manner within the document, including adding captions and labels for referencing. The <code class="docutils literal notranslate"><span class="pre">table</span></code> environment can encapsulate a <code class="docutils literal notranslate"><span class="pre">tabular</span></code> environment, enabling the table to float and be captioned, but <code class="docutils literal notranslate"><span class="pre">tabular</span></code> is what actually defines the table’s structure and content.</p>
+<p>A minimal working example of a document with a table would look like this:</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>booktabs<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+First document. This is a simple example, with no 
+extra parameters or packages included.
+
+<span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>
+<span class="k">\centering</span>
+<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>lrrrrr<span class="nb">}</span>
+<span class="k">\toprule</span>
+ <span class="nb">&amp;</span> 0 <span class="nb">&amp;</span> 1 <span class="nb">&amp;</span> 2 <span class="nb">&amp;</span> 3 <span class="nb">&amp;</span> 4 <span class="k">\\</span>
+<span class="k">\midrule</span>
+0 <span class="nb">&amp;</span> 0.543405 <span class="nb">&amp;</span> 0.278369 <span class="nb">&amp;</span> 0.424518 <span class="nb">&amp;</span> 0.844776 <span class="nb">&amp;</span> 0.004719 <span class="k">\\</span>
+1 <span class="nb">&amp;</span> 0.121569 <span class="nb">&amp;</span> 0.670749 <span class="nb">&amp;</span> 0.825853 <span class="nb">&amp;</span> 0.136707 <span class="nb">&amp;</span> 0.575093 <span class="k">\\</span>
+2 <span class="nb">&amp;</span> 0.891322 <span class="nb">&amp;</span> 0.209202 <span class="nb">&amp;</span> 0.185328 <span class="nb">&amp;</span> 0.108377 <span class="nb">&amp;</span> 0.219697 <span class="k">\\</span>
+3 <span class="nb">&amp;</span> 0.978624 <span class="nb">&amp;</span> 0.811683 <span class="nb">&amp;</span> 0.171941 <span class="nb">&amp;</span> 0.816225 <span class="nb">&amp;</span> 0.274074 <span class="k">\\</span>
+4 <span class="nb">&amp;</span> 0.431704 <span class="nb">&amp;</span> 0.940030 <span class="nb">&amp;</span> 0.817649 <span class="nb">&amp;</span> 0.336112 <span class="nb">&amp;</span> 0.175410 <span class="k">\\</span>
+<span class="k">\bottomrule</span>
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+</div>
+<p>Automating the generation of the tables can be done by swapping out the tabular environment and generating that from
+a Pandas DataFrame.</p>
+<div class="highlight-latex notranslate"><div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>booktabs<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+First document. This is a simple example, with no 
+extra parameters or packages included.
+
+<span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>
+<span class="k">\centering</span>
+<span class="k">\input</span><span class="nb">{</span>example<span class="nb">_</span>table.tex<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">example_table.tex</span></code> is generated from
+code like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">config</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">DATA_DIR</span><span class="p">)</span>
+<span class="n">OUTPUT_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">OUTPUT_DIR</span><span class="p">)</span>
+
+
+<span class="c1">## Suppress scientific notation and limit to 3 decimal places</span>
+<span class="c1"># Sets display, but doesn&#39;t affect formatting to LaTeX</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.float_format&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">x</span><span class="p">)</span>
+<span class="c1"># Sets format for printing to LaTeX</span>
+<span class="n">float_format_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
+<span class="n">latex_table_string</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">to_latex</span><span class="p">(</span><span class="n">float_format</span><span class="o">=</span><span class="n">float_format_func</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">latex_table_string</span><span class="p">)</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">OUTPUT_DIR</span> <span class="o">/</span> <span class="sa">f</span><span class="s1">&#39;pandas_to_latex_simple_table1.tex&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">text_file</span><span class="p">:</span>
+    <span class="n">text_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">latex_table_string</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</section>
+<section id="labels-and-references">
+<h2>Labels and References<a class="headerlink" href="#labels-and-references" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Demonstrate labels and references, using <code class="docutils literal notranslate"><span class="pre">tag</span></code> and <code class="docutils literal notranslate"><span class="pre">ref</span></code>.</p></li>
+</ul>
+</section>
+<section id="bibliographies">
+<h2>Bibliographies<a class="headerlink" href="#bibliographies" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Bibliography, with <code class="docutils literal notranslate"><span class="pre">.bib</span></code> files and <code class="docutils literal notranslate"><span class="pre">\cite{}</span></code>. Use Google Scholar to add bibliography entry to BibTeX file and then cite the paper in the LaTeX document.</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -510,20 +615,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../../output/_03_Fama_French_1993.html"
+       href="intro_to_LaTeX.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">HW Guide Part B: Replicate Fama-French 1993</p>
+        <p class="prev-next-title">Introduction to LaTeX</p>
       </div>
     </a>
     <a class="right-next"
-       href="reports_with_jupyter_notebooks.html"
+       href="../Week5/README.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Reports with Jupyter Notebooks</p>
+        <p class="prev-next-title">Week 5: Unit Tests and Documentation with Sphinx</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -542,8 +647,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">Agenda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-various-equation-environments">The Various Equation Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tables-and-figures">Tables and Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#labels-and-references">Labels and References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliographies">Bibliographies</a></li>
 </ul>
   </nav></div>
 

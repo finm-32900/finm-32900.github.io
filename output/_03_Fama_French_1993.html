@@ -212,9 +212,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week4/README.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Misc/final_project.html">Final Project</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week5/README.html">Week 5: Unit Tests and Documentation with Sphinx</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week5/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week5/unit_tests.html">Unit Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Misc/final_project.html">Final Project</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Misc/potential_final_projects.html">List of Potential Final Projects</a></li>
 </ul>
 </li>
@@ -736,7 +742,7 @@ memory usage: 415.3+ MB
 </section>
 <section id="step-5-merge-crsp-and-compustat">
 <h2>Step 5. Merge CRSP and Compustat<a class="headerlink" href="#step-5-merge-crsp-and-compustat" title="Permalink to this heading">#</a></h2>
-<p>“We merged CRSP and Compustat using the CRSP CCM product (as of April 2010). We matched Compustat’s gvkey (from calendar year t-1) to CRSP’s permno as of June year t. Data was cleaned for unnecessary duplicates. First there were cases when different gvkeys exist for same permno-date. We solved these duplicates by only keeping those cases that are flagged as ‘primary’ matches by CRSP’s CCM (linkprim=’P’ ). There were other unnecessary duplicates that were removed. Some companies may have two annual accounting records in the same calendar year. This is produced by change in the fiscal year end during the same calendar year. In these cases, we selected the last annual record for a given calendar year.</p>
+<p>“We merged CRSP and Compustat using the CRSP CCM product (as of April 2010). We matched Compustat’s gvkey (from calendar year t-1) to CRSP’s permno as of June year t. Data was cleaned for unnecessary duplicates. First there were cases when different gvkeys exist for same permno-date. We solved these duplicates by only keeping those cases that are flagged as ‘primary’ matches by CRSP’s CCM (linkprim=‘P’ ). There were other unnecessary duplicates that were removed. Some companies may have two annual accounting records in the same calendar year. This is produced by change in the fiscal year end during the same calendar year. In these cases, we selected the last annual record for a given calendar year.</p>
 <p>After data cleaning, the book-to-market ratio for every firm in the sample were calculated by dividing Book Equity (for fiscal year that ends on year t-1) over the market value of its common equity at the end of December year t -1. These book-to-market ratios and Market Capitalization (as of December year t-1) were assigned to June year t in order to create portfolios.”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

@@ -212,9 +212,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week4/README.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Misc/final_project.html">Final Project</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week5/README.html">Week 5: Unit Tests and Documentation with Sphinx</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week5/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week5/unit_tests.html">Unit Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Misc/final_project.html">Final Project</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Misc/potential_final_projects.html">List of Potential Final Projects</a></li>
 </ul>
 </li>
@@ -449,7 +455,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-16-plot-median-wages-and-employment-on-the-same-graph">Step 16. Plot median wages and employment on the same graph</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-17-plot-median-wages-growth-and-employment-on-the-same-graph">Step 17. Plot median wages growth and employment on the same graph</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-18-plot-median-wages-growth-and-employment-growth-on-the-same-graph">Step 18. Plot median wages growth and employment <em>growth</em> on the same graph</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-19-use-the-code-below-as-well-as-the-graphs-from-before-to-describe-what-we-re-seeing-in-the-data">Step 19. Use the code below as well as the graphs from before to describe what we’re seeing in the data.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-19-use-the-code-below-as-well-as-the-graphs-from-before-to-describe-what-were-seeing-in-the-data">Step 19. Use the code below as well as the graphs from before to describe what we’re seeing in the data.</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-demographically-adjusted-series">4. Create Demographically Adjusted Series</a><ul class="nav section-nav flex-column">
@@ -2138,8 +2144,8 @@ Use the same code as from before. However, this time let’s explore the relatio
 </div>
 </div>
 </section>
-<section id="step-19-use-the-code-below-as-well-as-the-graphs-from-before-to-describe-what-we-re-seeing-in-the-data">
-<h3>Step 19. Use the code below as well as the graphs from before to describe what we’re seeing in the data.<a class="headerlink" href="#step-19-use-the-code-below-as-well-as-the-graphs-from-before-to-describe-what-we-re-seeing-in-the-data" title="Permalink to this heading">#</a></h3>
+<section id="step-19-use-the-code-below-as-well-as-the-graphs-from-before-to-describe-what-were-seeing-in-the-data">
+<h3>Step 19. Use the code below as well as the graphs from before to describe what we’re seeing in the data.<a class="headerlink" href="#step-19-use-the-code-below-as-well-as-the-graphs-from-before-to-describe-what-were-seeing-in-the-data" title="Permalink to this heading">#</a></h3>
 <p>Use <code class="docutils literal notranslate"><span class="pre">.corr()</span></code> to compute the correlations between the various wage growth series and the measures of employment in <code class="docutils literal notranslate"><span class="pre">tdf</span></code>. Give a summary of what you’re seeing in the data. How does it match up with your intution and with your understanding of supply and demand in labor markets?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3030,7 +3036,7 @@ For fun, below is an attempt at creating something similar to a demographically 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-16-plot-median-wages-and-employment-on-the-same-graph">Step 16. Plot median wages and employment on the same graph</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-17-plot-median-wages-growth-and-employment-on-the-same-graph">Step 17. Plot median wages growth and employment on the same graph</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-18-plot-median-wages-growth-and-employment-growth-on-the-same-graph">Step 18. Plot median wages growth and employment <em>growth</em> on the same graph</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-19-use-the-code-below-as-well-as-the-graphs-from-before-to-describe-what-we-re-seeing-in-the-data">Step 19. Use the code below as well as the graphs from before to describe what we’re seeing in the data.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-19-use-the-code-below-as-well-as-the-graphs-from-before-to-describe-what-were-seeing-in-the-data">Step 19. Use the code below as well as the graphs from before to describe what we’re seeing in the data.</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-demographically-adjusted-series">4. Create Demographically Adjusted Series</a><ul class="nav section-nav flex-column">

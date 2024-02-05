@@ -212,9 +212,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Week4/README.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Misc/final_project.html">Final Project</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week5/README.html">Week 5: Unit Tests and Documentation with Sphinx</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Misc/final_project.html">Final Project</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Misc/potential_final_projects.html">List of Potential Final Projects</a></li>
 </ul>
 </li>
@@ -418,7 +424,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storing-config-in-environment-variables">Storing Config in Environment Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dot-env-env-file">What is a Dot Env (<code class="docutils literal notranslate"><span class="pre">.env</span></code>) File?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-examine-the-env-file-in-the-blank-project-repo">Example: Examine the Env file in the Blank Project Repo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-s-decouple-and-dotenv-packages">Python’s <code class="docutils literal notranslate"><span class="pre">decouple</span></code> and <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> packages:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pythons-decouple-and-dotenv-packages">Python’s <code class="docutils literal notranslate"><span class="pre">decouple</span></code> and <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> packages:</a></li>
 </ul>
             </nav>
         </div>
@@ -532,8 +538,8 @@ that the environment variables don’t persist (are not set globally),</p>
 </pre></div>
 </div>
 </section>
-<section id="python-s-decouple-and-dotenv-packages">
-<h2>Python’s <code class="docutils literal notranslate"><span class="pre">decouple</span></code> and <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> packages:<a class="headerlink" href="#python-s-decouple-and-dotenv-packages" title="Permalink to this heading">#</a></h2>
+<section id="pythons-decouple-and-dotenv-packages">
+<h2>Python’s <code class="docutils literal notranslate"><span class="pre">decouple</span></code> and <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> packages:<a class="headerlink" href="#pythons-decouple-and-dotenv-packages" title="Permalink to this heading">#</a></h2>
 <p>Review the docs of <code class="docutils literal notranslate"><span class="pre">decouple</span></code> and review its usage in <code class="docutils literal notranslate"><span class="pre">config.py</span></code> in the <code class="docutils literal notranslate"><span class="pre">blank_project</span></code> repo</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pypi.org/project/python-decouple/">https://pypi.org/project/python-decouple/</a></p></li>
@@ -620,7 +626,7 @@ that the environment variables don’t persist (are not set globally),</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storing-config-in-environment-variables">Storing Config in Environment Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dot-env-env-file">What is a Dot Env (<code class="docutils literal notranslate"><span class="pre">.env</span></code>) File?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-examine-the-env-file-in-the-blank-project-repo">Example: Examine the Env file in the Blank Project Repo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-s-decouple-and-dotenv-packages">Python’s <code class="docutils literal notranslate"><span class="pre">decouple</span></code> and <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> packages:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pythons-decouple-and-dotenv-packages">Python’s <code class="docutils literal notranslate"><span class="pre">decouple</span></code> and <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> packages:</a></li>
 </ul>
   </nav></div>
 
