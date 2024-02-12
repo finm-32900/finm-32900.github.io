@@ -6,7 +6,7 @@ In this project, you'll replicate tables, figures, or data series from a well kn
 
   - You will be assigned a project from the list found [here.](./potential_final_projects.md) 
   - Your preference will be taken into account when assigning the projects. You can rank your preferred projects by using the following Google Form: https://forms.gle/EKkPQSX6uWipZhdx5 . Please, only submit one response per group. Your group must have 4 people in it. Some exceptions may be made for groups of 5.
-  - You will meet with me at the beginning of the project as well as at the end (a consultation). The first meeting is to establish the goals for the project. The final meeting is to present your results. When you submit the link, you will also have a chance to schedule your consultation and final presentation dates.
+  - You will meet with me at the beginning of the project as well as at the end (a consultation). The first meeting is to establish the goals for the project. The final meeting is to present your results. When you submit the link, you will also have a chance to schedule your consultation and final presentation dates. The link the page to book these meetings is in the Canvas announcement.
   - In this first consultation meeting, you should come prepared with a list of tasks that each team member will be primarily responsible for. Team members can and should share tasks (e.g., two people can be responsible for the LaTeX writeup whereas everyone should be involved in figuring out how to understand and clean the data). Write this list of tasks in the README.md of the GitHub repo.
 
 ## Final Project Grading Rubric

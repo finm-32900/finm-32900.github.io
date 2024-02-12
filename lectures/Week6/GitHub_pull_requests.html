@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Week 2: Build Systems and Task Runners &#8212; Data Science Tools for Finance</title>
+    <title>GitHub Pull Requests: Enhancing Collaborative Development &#8212; Data Science Tools for Finance</title>
   
   
   
@@ -62,11 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Week2/README';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Week6/GitHub_pull_requests';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Virtual Environments" href="virtual_environments.html" />
-    <link rel="prev" title="Rate Spikes in the Market for Repurchase Agreements" href="../../output/_01_repo_spikes.html" />
+    <link rel="next" title="Final Project" href="../Misc/final_project.html" />
+    <link rel="prev" title="The Bloomberg Terminal" href="bloomberg_terminal.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -171,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../README.html">Course Syllabus: FINM 32900, Winter 2024</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Week1/HW0.html">Homework 0: Setting up your computing environment</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week1/README.html">Week 1: Introduction</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week1/overview_w1.html">Week 1: Introduction</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week1/what_is_this_course_about.html">What is Data Science? Where does this course fit in?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
@@ -184,18 +184,18 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 2: Build Systems and Task Runners</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="virtual_environments.html">Virtual Environments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="what_is_a_build_system.html">What is a build system or task runner?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="project_structure.html">Project Structure</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week2/overview_w2.html">Week 2: Build Systems and Task Runners</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/virtual_environments.html">Virtual Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/what_is_a_build_system.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/project_structure.html">Project Structure</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="HW2.html">Homework 2</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week2/HW2.html">Homework 2</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../output/_01_wage_growth_during_the_recession.html">HW Guide: Wage Growth During the Recession</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week3/README.html">Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week3/overview_w3.html">Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week3/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../output/_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week3/env_files.html">Env Files and the Separations of Settings from Code</a></li>
@@ -209,18 +209,23 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week4/README.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week4/overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week5/README.html">Week 5: Unit Tests and Documentation with Sphinx</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week5/overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week5/sphinx.html">Sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Misc/final_project.html">Final Project</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview_w6.html">Week 6: Bloomberg and Social Coding with GitHub</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">GitHub Pull Requests: Enhancing Collaborative Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Misc/final_project.html">Final Project</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Misc/potential_final_projects.html">List of Potential Final Projects</a></li>
 </ul>
 </li>
@@ -296,7 +301,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flectures/Week2/README.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flectures/Week6/GitHub_pull_requests.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -326,7 +331,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/lectures/Week2/README.md" target="_blank"
+      <li><a href="../../_sources/lectures/Week6/GitHub_pull_requests.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -410,7 +415,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 2: Build Systems and Task Runners</h1>
+    <h1>GitHub Pull Requests: Enhancing Collaborative Development</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,7 +425,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases-of-github-pull-requests">Use Cases of GitHub Pull Requests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-integration">Workflow Integration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-usefulness">Examples of Usefulness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
             </nav>
         </div>
@@ -432,22 +440,49 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-2-build-systems-and-task-runners">
-<h1>Week 2: Build Systems and Task Runners<a class="headerlink" href="#week-2-build-systems-and-task-runners" title="Permalink to this heading">#</a></h1>
-<section id="objectives">
-<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="github-pull-requests-enhancing-collaborative-development">
+<h1>GitHub Pull Requests: Enhancing Collaborative Development<a class="headerlink" href="#github-pull-requests-enhancing-collaborative-development" title="Permalink to this heading">#</a></h1>
+<p>GitHub, a pivotal platform in the software development domain, leverages <em>pull requests</em> as a fundamental mechanism for fostering collaboration, code quality, and project management. Pull requests are a formalized way of notifying team members about changes one has pushed to a GitHub repository. Through this process, team members can review, discuss, and eventually merge the change into the main branch of the project. This chapter explores the various use cases and the integral role pull requests play in a development team’s workflow.</p>
+<section id="use-cases-of-github-pull-requests">
+<h2>Use Cases of GitHub Pull Requests<a class="headerlink" href="#use-cases-of-github-pull-requests" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Review <a class="reference internal" href="../Week1/HW1.html"><span class="doc std std-doc">HW 1</span></a></p></li>
-<li><p>Finish discussion of <a class="reference internal" href="../../output/_01_repo_spikes.html"><span class="doc std std-doc">repo spikes case study</span></a></p></li>
-<li><p>Discuss <a class="reference internal" href="virtual_environments.html"><span class="doc std std-doc">Virtual Environments</span></a></p></li>
-<li><p>Demonstration of</p></li>
-<li><p>Discuss <a class="reference internal" href="what_is_a_build_system.html"><span class="doc std std-doc">Build Systems and Task Runners</span></a></p></li>
-<li><p>Discuss <a class="reference internal" href="HW2.html"><span class="doc std std-doc">HW 2</span></a></p></li>
-<li><p>Discuss Case Study: Atlanta Fed Wage Growth Tracker</p></li>
+<li><p><strong>Code Review and Quality Assurance</strong></p></li>
+</ul>
+<p>Pull requests are instrumental in the code review process. When a developer proposes changes by creating a pull request, it initiates a structured platform for reviewing code. Peers can comment on specific lines of code, suggest improvements, and identify potential bugs before the code is merged. This process not only improves code quality but also fosters learning and knowledge sharing among team members.</p>
+<ul class="simple">
+<li><p><strong>Collaborative Development</strong></p></li>
+</ul>
+<p>GitHub pull requests support collaborative development by allowing multiple developers to work on different features simultaneously. By using separate branches for each feature and creating pull requests for these branches, teams can effectively manage concurrent development efforts. This approach ensures that the main branch remains stable and that new features are thoroughly reviewed and tested before integration.</p>
+<ul class="simple">
+<li><p><strong>Project Management</strong></p></li>
+</ul>
+<p>Pull requests serve as checkpoints in the project management process. They can be linked to specific issues or tasks, providing a clear trail of what changes were made and why. This linkage facilitates project tracking and helps in organizing the development workflow around the project’s objectives.</p>
+</section>
+<section id="workflow-integration">
+<h2>Workflow Integration<a class="headerlink" href="#workflow-integration" title="Permalink to this heading">#</a></h2>
+<p>Integrating pull requests into a development team’s workflow involves several key practices:</p>
+<ul class="simple">
+<li><p><strong>Branching Strategy</strong>: Adopting a branching strategy, such as Git Flow or GitHub Flow, provides a structured approach for managing branches and pull requests. This strategy dictates how features, releases, and hotfixes are handled, ensuring a clean and organized repository.</p></li>
+<li><p><strong>Continuous Integration (CI)</strong>: Pull requests can be integrated with CI tools to automatically build and test proposed changes. This integration provides immediate feedback on the impact of changes, helping to maintain code quality and stability.</p></li>
+<li><p><strong>Documentation</strong>: Including detailed descriptions and documentation in pull requests helps reviewers understand the context and rationale behind the changes. This practice is crucial for effective collaboration and decision-making.</p></li>
 </ul>
 </section>
-<div class="toctree-wrapper compound">
-</div>
+<section id="examples-of-usefulness">
+<h2>Examples of Usefulness<a class="headerlink" href="#examples-of-usefulness" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Feature Development</strong>: A developer working on a new feature creates a feature branch and later submits a pull request. The pull request triggers a review process, allowing the team to provide feedback and request changes if necessary, ensuring that the new feature aligns with the project standards and goals.</p></li>
+<li><p><strong>Bug Fixing</strong>: When fixing a bug, a developer submits a pull request with the fix. The pull request description links to the issue being addressed, providing context and justification for the changes. This process ensures that the fix is reviewed and tested before being merged, reducing the risk of introducing new issues.</p></li>
+<li><p><strong>Code Refactoring</strong>: Pull requests are also valuable for code refactoring efforts. A developer can propose refactoring changes that improve code maintainability and performance. The team can review these changes in isolation, ensuring that refactoring does not introduce regressions.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<p>GitHub pull requests are a cornerstone of modern software development workflows, enabling code review, collaborative development, and project management. By leveraging pull requests, development teams can improve code quality, facilitate communication, and streamline their development process. Adopting best practices around pull requests is essential for maximizing their benefits and ensuring a productive and efficient development environment.</p>
+<p><strong>Extra Notes:</strong></p>
+<ul class="simple">
+<li><p>Pull Requests are a great tool and often a necessary part of a given workflow. But they shouldn’t necessarily be a part of every workflow. A lot depends on the context. See here: <a class="reference external" href="https://www.youtube.com/watch?v=ASOSEiJCyEM">Why Pull Requests Are A BAD IDEA</a></p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -463,7 +498,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./lectures\Week2"
+            path: "./lectures\Week6"
         },
         predefinedOutput: true
     }
@@ -481,20 +516,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../../output/_01_repo_spikes.html"
+       href="bloomberg_terminal.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Rate Spikes in the Market for Repurchase Agreements</p>
+        <p class="prev-next-title">The Bloomberg Terminal</p>
       </div>
     </a>
     <a class="right-next"
-       href="virtual_environments.html"
+       href="../Misc/final_project.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Virtual Environments</p>
+        <p class="prev-next-title">Final Project</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -513,7 +548,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases-of-github-pull-requests">Use Cases of GitHub Pull Requests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-integration">Workflow Integration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-usefulness">Examples of Usefulness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
   </nav></div>
 

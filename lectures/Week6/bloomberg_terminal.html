@@ -1,0 +1,808 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>The Bloomberg Terminal &#8212; Data Science Tools for Finance</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Week6/bloomberg_terminal';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="GitHub Pull Requests: Enhancing Collaborative Development" href="GitHub_pull_requests.html" />
+    <link rel="prev" title="Week 6: Bloomberg and Social Coding with GitHub" href="overview_w6.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Data Science Tools for Finance - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Data Science Tools for Finance - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Data Science Tools for Finance
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Course Syllabus: FINM 32900, Winter 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Week1/HW0.html">Homework 0: Setting up your computing environment</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week1/overview_w1.html">Week 1: Introduction</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/what_is_this_course_about.html">What is Data Science? Where does this course fit in?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week1/HW1.html">Homework 1</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../output/_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week2/overview_w2.html">Week 2: Build Systems and Task Runners</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/virtual_environments.html">Virtual Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/what_is_a_build_system.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/project_structure.html">Project Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week2/HW2.html">Homework 2</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/_01_wage_growth_during_the_recession.html">HW Guide: Wage Growth During the Recession</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week3/overview_w3.html">Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/env_files.html">Env Files and the Separations of Settings from Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week3/HW3.html">Homework 3</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../output/_02_CRSP_market_index.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/_03_Fama_French_1993.html">HW Guide Part B: Replicate Fama-French 1993</a></li>
+
+
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week4/overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week5/overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview_w6.html">Week 6: Bloomberg and Social Coding with GitHub</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">The Bloomberg Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GitHub_pull_requests.html">GitHub Pull Requests: Enhancing Collaborative Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Misc/final_project.html">Final Project</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Misc/potential_final_projects.html">List of Potential Final Projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Misc/appendix.html">Appendix</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flectures/Week6/bloomberg_terminal.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lectures/Week6/bloomberg_terminal.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The Bloomberg Terminal</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inside-the-terminal-a-few-key-functions">Inside the Terminal: A Few Key Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research">Research</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#short-diversion-to-hw-crsp-index-and-fama-french-factors">Short Diversion to HW: CRSP Index and Fama-French Factors?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#charting-and-data-visualization">Charting and Data Visualization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-export">Data Export</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bloomberg-excel-plugin">The Bloomberg Excel Plugin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bdp-bloomberg-data-point"><code class="docutils literal notranslate"><span class="pre">BDP</span></code> Bloomberg Data Point</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bdh-bloomberg-data-history"><code class="docutils literal notranslate"><span class="pre">BDH</span></code> Bloomberg Data History</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bds-bloomberg-data-set"><code class="docutils literal notranslate"><span class="pre">BDS</span></code> Bloomberg Data Set</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-field-finder-flds">Data Field Finder: <code class="docutils literal notranslate"><span class="pre">FLDS</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bloomberg-via-python-using-xbbg">Bloomberg via Python using <code class="docutils literal notranslate"><span class="pre">xbbg</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-real-time-data-with-bdp">Fetching Real-time Data with <code class="docutils literal notranslate"><span class="pre">bdp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-historical-data-with-bdh">Fetching Historical Data with <code class="docutils literal notranslate"><span class="pre">bdh</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-bulk-data-with-bds">Fetching Bulk Data with <code class="docutils literal notranslate"><span class="pre">bds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="the-bloomberg-terminal">
+<h1>The Bloomberg Terminal<a class="headerlink" href="#the-bloomberg-terminal" title="Permalink to this heading">#</a></h1>
+<p>Learning the Bloomberg Terminal is valuable for quantitative researchers in finance because it offers a wide range of financial data, analytics, and tools necessary for detailed financial analysis.
+Although this class is centered around Python and the computing ecosystem that it lives in, it’s useful to
+learn about how Bloomberg and the Bloomberg Excel Plug-In works. I assume you either have some basic knowledge
+of the Bloomberg terminal or at least will find a full tutorial of the Terminal elsewhere. Here, I’ll just cover few of the basics. Then, we’ll discuss how to use the <code class="docutils literal notranslate"><span class="pre">xbbg</span></code> Python package to pull data from the Bloomberg Terminal via Python.</p>
+<section id="inside-the-terminal-a-few-key-functions">
+<h2>Inside the Terminal: A Few Key Functions<a class="headerlink" href="#inside-the-terminal-a-few-key-functions" title="Permalink to this heading">#</a></h2>
+<p>The Bloomberg Terminal is an great tool in the field of finance, offering access to real-time financial data, news, and analytics. Understanding how to navigate and utilize its vast array of functions is useful for professionals and students alike. Here are just a few useful functions that may help getting started.</p>
+<section id="research">
+<h3>Research<a class="headerlink" href="#research" title="Permalink to this heading">#</a></h3>
+<p><strong>Pattern: Ticker, Type, Function</strong></p>
+<ul class="simple">
+<li><p><strong>Entering Ticker and Ticker Type</strong>: Begin by entering the ticker symbol of the entity you’re interested in, followed by the function you wish to explore. The Bloomberg Terminal operates on a vast database of ticker symbols, representing various financial instruments and entities worldwide.</p></li>
+</ul>
+<p><img alt="Ticker, Ticker Type, Function" src="../../_images/security_type_function.png" /></p>
+<p>Once you’ve found the security or company that you’re interested in, there are a series of functions that act on that entry.</p>
+<p><img alt="Function Attached to Security" src="../../_images/function_attached_to_current_security.png" /></p>
+<ul class="simple">
+<li><p><strong>Financials</strong>:<code class="docutils literal notranslate"><span class="pre">FA</span></code> (Financial Analysis). This function provides a comprehensive financial summary of the selected company, including income statements, balance sheets, cash flow statements, and ratios. It’s instrumental in conducting a deep dive into a company’s financial health.</p></li>
+<li><p><strong>Company Filings</strong>:<code class="docutils literal notranslate"><span class="pre">CF</span></code> (Company Filings Function). Access official company documents filed with regulatory bodies. This includes annual reports, quarterly earnings, and more. The function also provides the date of the next expected filing, which is crucial for keeping up with corporate disclosures.</p></li>
+<li><p><strong>Earnings and Estimates</strong>:<code class="docutils literal notranslate"><span class="pre">ANR</span></code> (Analyst Recommendations and Performance History). This feature offers insights into analyst ratings, including buy, hold, or sell recommendations, and tracks the performance history of these recommendations. It’s a valuable tool for gauging market sentiment and expectations.</p></li>
+<li><p><strong>Comparative Analysis</strong>:<code class="docutils literal notranslate"><span class="pre">COMP</span></code> (Compare). This function allows users to compare financial metrics and performance across different companies, offering a side-by-side analysis to identify relative strengths and weaknesses.</p></li>
+<li><p><strong>Equity Research and Valuation</strong>:<code class="docutils literal notranslate"><span class="pre">EQRV</span></code>. A tool for conducting equity research and valuation, offering a range of metrics and models to assess a company’s fair value.</p></li>
+<li><p><strong>Bloomberg Intelligence</strong>:<code class="docutils literal notranslate"><span class="pre">BI</span></code> or <code class="docutils literal notranslate"><span class="pre">BICO</span></code> (Bloomberg Intelligence). Access in-depth research and analysis provided by Bloomberg’s team of experts. This covers industry trends, competitive landscapes, and company-specific analyses.</p></li>
+<li><p><strong>Supply Chain Analysis</strong>:<code class="docutils literal notranslate"><span class="pre">SPLC</span></code>. This function provides insights into a company’s suppliers, customers, and competitors, offering a comprehensive view of its supply chain dynamics. It’s crucial for assessing risks and opportunities within the supply chain.</p></li>
+<li><p><strong>Market Beta</strong>:<code class="docutils literal notranslate"><span class="pre">BETA</span></code> Function. Calculate the market beta of a security, providing insights into its volatility relative to the market. A higher beta indicates greater volatility and risk, while a lower beta suggests less risk.</p></li>
+</ul>
+</section>
+<section id="short-diversion-to-hw-crsp-index-and-fama-french-factors">
+<h3>Short Diversion to HW: CRSP Index and Fama-French Factors?<a class="headerlink" href="#short-diversion-to-hw-crsp-index-and-fama-french-factors" title="Permalink to this heading">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Discussion</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">crsptm1</span> <span class="pre">index</span></code>, which represents the “CRSP US Total Market Index”, as a benchmark in the <code class="docutils literal notranslate"><span class="pre">BETA</span></code> function. Why would we use this benchmark relative to the S&amp;P500?</p>
+</div>
+<p><img alt="CRSP Index" src="../../_images/HW_reminder_CRSP_index.png" /></p>
+<p><img alt="CRSP Benchmark in BETA function" src="../../_images/HW_reminder_CRSP_benchmark_BETA.png" /></p>
+<div class="note admonition">
+<p class="admonition-title">Discussion</p>
+<p>Why again do we care about exposures to factors like HML or SMB?</p>
+</div>
+<p>The following figures are from the classic article, <a class="reference external" href="https://static1.squarespace.com/static/5e6033a4ea02d801f37e15bb/t/5edeb38c12cd4f282840d446/1591653260788/ep3Q99_4.pdf">Cochrane (1999), “Portfolio advice for a multifactor world”</a></p>
+<p><img alt="CRSP Index" src="../../_images/cochrane_multifactor_fig1.png" /></p>
+<p><img alt="CRSP Benchmark in BETA function" src="../../_images/cochrane_multifactor_fig2.png" /></p>
+</section>
+<section id="charting-and-data-visualization">
+<h3>Charting and Data Visualization<a class="headerlink" href="#charting-and-data-visualization" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>GP (Line Chart)</strong>: Customize line charts by changing fields (e.g., from Last Price to others), adjusting periodicity (intraday vs. historical), and adding fundamentals like Price-to-Earnings ratios through the edit chart button.</p></li>
+<li><p><strong>GF (Graph Fundamentals)</strong>: Visualize a company’s fundamental data through interactive graphs, enhancing your analysis with visual aids.</p></li>
+</ul>
+<p>Some tips</p>
+<ul class="simple">
+<li><p><strong>Copying Charts</strong>: Right-click any chart to copy it into Word or PowerPoint for presentation purposes.</p></li>
+<li><p><strong>Data Sources</strong>: Click the data tab on any chart to review the underlying data sources, ensuring transparency and
+reliability.</p></li>
+</ul>
+</section>
+<section id="data-export">
+<h3>Data Export<a class="headerlink" href="#data-export" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Export Data to Excel</strong>: Seamlessly export data from the Bloomberg Terminal to Excel for further analysis, facilitating a flexible and efficient workflow.</p></li>
+</ul>
+</section>
+</section>
+<section id="the-bloomberg-excel-plugin">
+<h2>The Bloomberg Excel Plugin<a class="headerlink" href="#the-bloomberg-excel-plugin" title="Permalink to this heading">#</a></h2>
+<p>The Bloomberg Excel Plugin allows users to extract real-time data, historical data, and financial analytics directly into Excel, streamlining the process of financial analysis and modeling. Here we’ll covers the basics of using the Bloomberg Excel Plugin, focusing on the essential functions: <code class="docutils literal notranslate"><span class="pre">BDP</span></code> (Bloomberg Data Point), <code class="docutils literal notranslate"><span class="pre">BDH</span></code> (Bloomberg Data History), <code class="docutils literal notranslate"><span class="pre">BDS</span></code> (Bloomberg Data Set), and the <code class="docutils literal notranslate"><span class="pre">FLDS</span></code> (Field Finder) tool.</p>
+<p>Before you begin, ensure that the Bloomberg Excel Plugin is installed and activated in your Excel application. This plugin is available to Bloomberg Terminal subscribers and can be installed from the Bloomberg Terminal itself. Now, within excel,
+the <code class="docutils literal notranslate"><span class="pre">BDP</span></code>, <code class="docutils literal notranslate"><span class="pre">BDH</span></code>, or <code class="docutils literal notranslate"><span class="pre">BDS</span></code> functions can be used as follows:</p>
+<p><strong>Steps:</strong></p>
+<ul class="simple">
+<li><p>Choose the cell where you want the historical data to begin.</p></li>
+<li><p>Input the <code class="docutils literal notranslate"><span class="pre">BDH</span></code>, <code class="docutils literal notranslate"><span class="pre">BDH</span></code>, or <code class="docutils literal notranslate"><span class="pre">BDS</span></code> formula with the security and other required fields (following the syntax below).</p></li>
+<li><p>Execute the command by pressing Enter.</p></li>
+</ul>
+<section id="bdp-bloomberg-data-point">
+<h3><code class="docutils literal notranslate"><span class="pre">BDP</span></code> Bloomberg Data Point<a class="headerlink" href="#bdp-bloomberg-data-point" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">BDP</span></code> function retrieves real-time data for a specified security and data field.</p>
+<p><strong>Syntax</strong>: <code class="docutils literal notranslate"><span class="pre">=BDP(&quot;Security</span> <span class="pre">Ticker&quot;,</span> <span class="pre">&quot;Field&quot;)</span></code></p>
+<p><strong>Example</strong>: To get the last trading price of Apple Inc., you would use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=</span><span class="n">BDP</span><span class="p">(</span><span class="s2">&quot;AAPL US Equity&quot;</span><span class="p">,</span> <span class="s2">&quot;px_last&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="bdh-bloomberg-data-history">
+<h3><code class="docutils literal notranslate"><span class="pre">BDH</span></code> Bloomberg Data History<a class="headerlink" href="#bdh-bloomberg-data-history" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">BDH</span></code> function is used to fetch historical data for a specific security over a given time range.</p>
+<p><strong>Syntax</strong>: <code class="docutils literal notranslate"><span class="pre">=BDH(&quot;Security&quot;,</span> <span class="pre">&quot;Field&quot;,</span> <span class="pre">&quot;Start</span> <span class="pre">Date&quot;,</span> <span class="pre">&quot;End</span> <span class="pre">Date&quot;)</span></code></p>
+<p><strong>Example</strong>: To obtain the market capitalization history of Uber Technologies Inc. from January 1, 2020, to December 9, 2020, you would use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=</span><span class="n">BDH</span><span class="p">(</span><span class="s2">&quot;UBER US Equity&quot;</span><span class="p">,</span> <span class="s2">&quot;CUR_MKT_CAP&quot;</span><span class="p">,</span> <span class="s2">&quot;01/01/2020&quot;</span><span class="p">,</span> <span class="s2">&quot;12/09/2020&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="bds-bloomberg-data-set">
+<h3><code class="docutils literal notranslate"><span class="pre">BDS</span></code> Bloomberg Data Set<a class="headerlink" href="#bds-bloomberg-data-set" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">BDS</span></code> retrieves a table of data for a given security and field, useful for more complex queries like obtaining a bond’s payment schedule.</p>
+<p><strong>Syntax</strong>: <code class="docutils literal notranslate"><span class="pre">=BDS(&quot;Security&quot;,</span> <span class="pre">&quot;Field&quot;)</span></code></p>
+<p><strong>Example</strong>: For the payment schedule of an Apple Inc. corporate bond, use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=</span><span class="n">BDS</span><span class="p">(</span><span class="s2">&quot;AAPL 4 05/10/28 Corp&quot;</span><span class="p">,</span> <span class="s2">&quot;DES_CASH_FLOW&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="apple_fixed_rate_bond_terminal" src="../../_images/apple_fixed_rate_bond_terminal.png" />
+<img alt="apple_fixed_rate_bond_excel_BDS" src="../../_images/apple_fixed_rate_bond_excel_BDS.png" /></p>
+</section>
+<section id="data-field-finder-flds">
+<h3>Data Field Finder: <code class="docutils literal notranslate"><span class="pre">FLDS</span></code><a class="headerlink" href="#data-field-finder-flds" title="Permalink to this heading">#</a></h3>
+<p>Finding the correct field names for use with <code class="docutils literal notranslate"><span class="pre">BDP</span></code>, <code class="docutils literal notranslate"><span class="pre">BDH</span></code>, and <code class="docutils literal notranslate"><span class="pre">BDS</span></code> functions can be challenging. The <code class="docutils literal notranslate"><span class="pre">FLDS</span></code> function within Bloomberg Terminal assists in identifying the correct field names. Note that now a similar function is
+available within the Bloomberg Excel Plugin:</p>
+<p><strong>Steps:</strong></p>
+<ul class="simple">
+<li><p>On the Bloomberg Excel toolbar, click the <code class="docutils literal notranslate"><span class="pre">Field</span> <span class="pre">Search</span></code> button.</p></li>
+<li><p>Enter the name of the security or a keyword related to the data you need.</p></li>
+<li><p>Browse or search through the results to find the exact field name for your query.</p></li>
+</ul>
+</section>
+</section>
+<section id="bloomberg-via-python-using-xbbg">
+<h2>Bloomberg via Python using <code class="docutils literal notranslate"><span class="pre">xbbg</span></code><a class="headerlink" href="#bloomberg-via-python-using-xbbg" title="Permalink to this heading">#</a></h2>
+<p>Following the previous tutorial on using the Bloomberg Terminal’s Excel Plugin, we now turn our focus to achieving
+similar outcomes using the <code class="docutils literal notranslate"><span class="pre">xbbg</span></code> Python package. The <code class="docutils literal notranslate"><span class="pre">xbbg</span></code> package allows users to interface with Bloomberg data directly from Python, offering a programmatic approach to data retrieval that can be particularly useful for in-depth data analysis, automation, and integration into Python-based financial models.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">xbbg</span></code> Python package is a powerful tool for accessing Bloomberg data within a Python environment. It provides functionalities similar to the Bloomberg Excel Plugin, including real-time data (<code class="docutils literal notranslate"><span class="pre">bdp</span></code>), historical data (<code class="docutils literal notranslate"><span class="pre">bdh</span></code>), and bulk data (<code class="docutils literal notranslate"><span class="pre">bds</span></code>) queries. This tutorial will demonstrate how to use <code class="docutils literal notranslate"><span class="pre">xbbg</span></code> to fetch the same types of data as in the previous Excel-based examples.</p>
+<p><strong>Prerequisites</strong></p>
+<p>Before starting, ensure you have:</p>
+<ul class="simple">
+<li><p>A Bloomberg Terminal subscription with API access.</p></li>
+<li><p>Python installed on your machine.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">xbbg</span></code> package installed. If not, you can install it using pip:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>xbbg
+</pre></div>
+</div>
+<section id="fetching-real-time-data-with-bdp">
+<h3>Fetching Real-time Data with <code class="docutils literal notranslate"><span class="pre">bdp</span></code><a class="headerlink" href="#fetching-real-time-data-with-bdp" title="Permalink to this heading">#</a></h3>
+<p>Equivalent to the <code class="docutils literal notranslate"><span class="pre">BDP</span></code> function in Excel, <code class="docutils literal notranslate"><span class="pre">bdp</span></code> in <code class="docutils literal notranslate"><span class="pre">xbbg</span></code> retrieves real-time data for a specified security and field.</p>
+<p><strong>Example</strong>: To get the last trading price of Apple Inc., you would do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xbbg</span> <span class="kn">import</span> <span class="n">blp</span>
+
+<span class="c1"># Fetching the last trading price of Apple Inc.</span>
+<span class="n">last_price</span> <span class="o">=</span> <span class="n">blp</span><span class="o">.</span><span class="n">bdp</span><span class="p">(</span><span class="n">tickers</span><span class="o">=</span><span class="s1">&#39;AAPL US Equity&#39;</span><span class="p">,</span> <span class="n">flds</span><span class="o">=</span><span class="s1">&#39;px_last&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">last_price</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="fetching-historical-data-with-bdh">
+<h3>Fetching Historical Data with <code class="docutils literal notranslate"><span class="pre">bdh</span></code><a class="headerlink" href="#fetching-historical-data-with-bdh" title="Permalink to this heading">#</a></h3>
+<p>Similar to the <code class="docutils literal notranslate"><span class="pre">BDH</span></code> function in Excel, <code class="docutils literal notranslate"><span class="pre">bdh</span></code> in <code class="docutils literal notranslate"><span class="pre">xbbg</span></code> is used for fetching historical data.</p>
+<p><strong>Example</strong>: To obtain the market capitalization history of Uber Technologies Inc. for the year 2020:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xbbg</span> <span class="kn">import</span> <span class="n">blp</span>
+
+<span class="c1"># Historical market capitalization of Uber Technologies Inc.</span>
+<span class="n">mkt_cap_history</span> <span class="o">=</span> <span class="n">blp</span><span class="o">.</span><span class="n">bdh</span><span class="p">(</span>
+    <span class="n">tickers</span><span class="o">=</span><span class="s1">&#39;UBER US Equity&#39;</span><span class="p">,</span>
+    <span class="n">flds</span><span class="o">=</span><span class="s1">&#39;CUR_MKT_CAP&#39;</span><span class="p">,</span>
+    <span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span>
+    <span class="n">end_date</span><span class="o">=</span><span class="s1">&#39;2020-12-09&#39;</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mkt_cap_history</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Furthermore, here is another example with multiple securities:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xbbg</span> <span class="kn">import</span> <span class="n">blp</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="n">TODAY</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;today&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">START_DATE</span> <span class="o">=</span> <span class="n">TODAY</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">365</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">blp</span><span class="o">.</span><span class="n">bdh</span><span class="p">(</span>
+    <span class="c1"># 3-Month SOFR Futures, Maturing in Sep and Dec 2024, resp.</span>
+    <span class="n">tickers</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SFRU4 COMB Comdty&#39;</span><span class="p">,</span> <span class="s1">&#39;SFRZ4 COMB Comdty&#39;</span><span class="p">],</span> 
+    <span class="n">flds</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PX_LAST&#39;</span><span class="p">,],</span> 
+    <span class="n">start_date</span><span class="o">=</span><span class="n">START_DATE</span><span class="p">,</span> 
+    <span class="n">end_date</span><span class="o">=</span><span class="n">TODAY</span>
+<span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</section>
+<section id="fetching-bulk-data-with-bds">
+<h3>Fetching Bulk Data with <code class="docutils literal notranslate"><span class="pre">bds</span></code><a class="headerlink" href="#fetching-bulk-data-with-bds" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">bds</span></code> function is used for bulk queries, similar to the <code class="docutils literal notranslate"><span class="pre">BDS</span></code> function in Excel.</p>
+<p><strong>Example</strong>: For the payment schedule of an Apple Inc. corporate bond:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xbbg</span> <span class="kn">import</span> <span class="n">blp</span>
+
+<span class="c1"># Payment schedule for an Apple Inc. corporate bond</span>
+<span class="n">payment_schedule</span> <span class="o">=</span> <span class="n">blp</span><span class="o">.</span><span class="n">bds</span><span class="p">(</span>
+    <span class="n">tickers</span><span class="o">=</span><span class="s1">&#39;AAPL Float 05/11/22 Corp&#39;</span><span class="p">,</span>
+    <span class="n">flds</span><span class="o">=</span><span class="s1">&#39;DES_CASH_FLOW&#39;</span>
+<span class="p">)</span>
+<span class="c1"># Doesn&#39;t work!!</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">payment_schedule</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>I’ve had mixed success with <code class="docutils literal notranslate"><span class="pre">xbbg</span></code>. Sometimes, as you see above, the function returns nothing even if I know
+it works in the Excel Plugin (as the one above does). Sometimes, it only works for certain date ranges, even though
+I know those date ranges work in Excel.</p>
+</div>
+</section>
+<section id="best-practices">
+<h3>Best Practices<a class="headerlink" href="#best-practices" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>API Limitations</strong>: Be aware of Bloomberg’s API request limitations and manage your data queries accordingly to avoid exceeding your quota.</p></li>
+<li><p><strong>Error Handling</strong>: Implement error handling in your scripts to manage instances where data may not be available or requests fail.</p></li>
+<li><p><strong>Data Processing</strong>: Utilize pandas DataFrame functionalities for efficient data manipulation and analysis after retrieving data with <code class="docutils literal notranslate"><span class="pre">xbbg</span></code>.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures\Week6"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="overview_w6.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 6: Bloomberg and Social Coding with GitHub</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="GitHub_pull_requests.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">GitHub Pull Requests: Enhancing Collaborative Development</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inside-the-terminal-a-few-key-functions">Inside the Terminal: A Few Key Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#research">Research</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#short-diversion-to-hw-crsp-index-and-fama-french-factors">Short Diversion to HW: CRSP Index and Fama-French Factors?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#charting-and-data-visualization">Charting and Data Visualization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-export">Data Export</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bloomberg-excel-plugin">The Bloomberg Excel Plugin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bdp-bloomberg-data-point"><code class="docutils literal notranslate"><span class="pre">BDP</span></code> Bloomberg Data Point</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bdh-bloomberg-data-history"><code class="docutils literal notranslate"><span class="pre">BDH</span></code> Bloomberg Data History</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bds-bloomberg-data-set"><code class="docutils literal notranslate"><span class="pre">BDS</span></code> Bloomberg Data Set</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-field-finder-flds">Data Field Finder: <code class="docutils literal notranslate"><span class="pre">FLDS</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bloomberg-via-python-using-xbbg">Bloomberg via Python using <code class="docutils literal notranslate"><span class="pre">xbbg</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-real-time-data-with-bdp">Fetching Real-time Data with <code class="docutils literal notranslate"><span class="pre">bdp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-historical-data-with-bdh">Fetching Historical Data with <code class="docutils literal notranslate"><span class="pre">bdh</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-bulk-data-with-bds">Fetching Bulk Data with <code class="docutils literal notranslate"><span class="pre">bds</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeremy Bejarano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
