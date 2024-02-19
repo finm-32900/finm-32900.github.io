@@ -222,8 +222,10 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Week6/overview_w6.html">Week 6: Bloomberg and Social Coding with GitHub</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week6/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/GitHub_pull_requests.html">GitHub Pull Requests: Enhancing Collaborative Development</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../Week7/overview_w7.html">Week 7: Reviewing Sphinx and Unit Tests</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Misc/final_project.html">Final Project</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Misc/potential_final_projects.html">List of Potential Final Projects</a></li>
 </ul>
@@ -283,7 +285,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/finm-32900/finm-32900-data-science" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -300,7 +302,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flectures/Week5/sphinx.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/finm-32900/finm-32900-data-science/issues/new?title=Issue%20on%20page%20%2Flectures/Week5/sphinx.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -401,7 +403,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -417,6 +421,30 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx-for-python-documentation">Sphinx for Python Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features-of-sphinx">Key Features of Sphinx</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-sphinx">Getting Started with Sphinx</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book-an-opinionated-distribution-of-sphinx">Jupyter Book: An “Opinionated Distribution” of Sphinx</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-jupyter-book-differ-from-sphinx">How does Jupyter Book differ from Sphinx?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-jupyter-book">Getting Started with Jupyter Book</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-jupyter-book-with-myst-nb">Comparing Jupyter Book with myst_nb</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Further Reading</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -428,6 +456,132 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sphinx">
 <h1>Sphinx<a class="headerlink" href="#sphinx" title="Permalink to this heading">#</a></h1>
+<section id="sphinx-for-python-documentation">
+<h2>Sphinx for Python Documentation<a class="headerlink" href="#sphinx-for-python-documentation" title="Permalink to this heading">#</a></h2>
+<p>Sphinx is a powerful documentation generator widely used in the Python community. It transforms reStructuredText (reST) documents into various output formats, such as HTML, LaTeX (for printable PDF versions), ePub, Texinfo, manual pages, and plain text. Sphinx was originally created for the Python documentation and has since become the de facto standard for documenting Python projects.</p>
+<section id="key-features-of-sphinx">
+<h3>Key Features of Sphinx<a class="headerlink" href="#key-features-of-sphinx" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Extensible</strong>: Sphinx can be extended with plugins to support new output formats or add functionality.</p></li>
+<li><p><strong>Internationalization</strong>: Supports built-in message catalogs for easy translation of documentation.</p></li>
+<li><p><strong>Indexing and Search</strong>: Generates indexes and supports search functionality in the documentation website.</p></li>
+<li><p><strong>Cross-referencing</strong>: Allows linking to other documents or sections within the documentation for easy navigation.</p></li>
+</ul>
+</section>
+<section id="getting-started-with-sphinx">
+<h3>Getting Started with Sphinx<a class="headerlink" href="#getting-started-with-sphinx" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><strong>Installation</strong>: Sphinx can be installed via pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx
+</pre></div>
+</div>
+</li>
+<li><p><strong>Setup</strong>: To set up a documentation project, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-quickstart
+</pre></div>
+</div>
+<p>This command prompts you to answer some basic questions about your project and creates a documentation directory structure.</p>
+</li>
+<li><p><strong>Writing Documentation</strong>: Write your documentation using reStructuredText in the source directory. Use the <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file extension.</p></li>
+<li><p><strong>Building Documentation</strong>: To build the documentation, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>sourcedir<span class="w"> </span>builddir
+</pre></div>
+</div>
+<p>This command converts your reST files into HTML in the <code class="docutils literal notranslate"><span class="pre">builddir</span></code> directory.</p>
+</li>
+</ol>
+</section>
+<section id="further-reading">
+<h3>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Sphinx Documentation: <a class="reference external" href="https://www.sphinx-doc.org/en/master/">https://www.sphinx-doc.org/en/master/</a></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="jupyter-book-an-opinionated-distribution-of-sphinx">
+<h2>Jupyter Book: An “Opinionated Distribution” of Sphinx<a class="headerlink" href="#jupyter-book-an-opinionated-distribution-of-sphinx" title="Permalink to this heading">#</a></h2>
+<p>Jupyter Book is an open-source tool for building publication-quality books and documents from computational material. Jupyter Book extends Sphinx, enabling it to handle Jupyter Notebooks and other interactive content, making it highly suitable for academic and scientific documentation that includes code, outputs, and narrative text.</p>
+<section id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Support for Interactive Content</strong>: Embed code cells, outputs, interactive visualizations, and more.</p></li>
+<li><p><strong>Integration with Computational Environments</strong>: Directly integrate with Binder, allowing readers to interact with the book’s content live.</p></li>
+<li><p><strong>Markdown Support</strong>: In addition to reStructuredText, Jupyter Book supports Markdown, making it easier to write documentation.</p></li>
+</ul>
+</section>
+<section id="how-does-jupyter-book-differ-from-sphinx">
+<h3>How does Jupyter Book differ from Sphinx?<a class="headerlink" href="#how-does-jupyter-book-differ-from-sphinx" title="Permalink to this heading">#</a></h3>
+<p>Jupyter Book and Sphinx serve the broader goal of documentation and content publication but cater to slightly different use cases and user preferences through their distinct features, goals, and syntaxes. Here, we’ll explore how Jupyter Book differs from Sphinx, focusing on their respective goals and the syntaxes they use, namely MyST (Markedly Structured Text) for Jupyter Book and reStructuredText (reST) for Sphinx.</p>
+<p><strong>Goals of Sphinx:</strong></p>
+<ul class="simple">
+<li><p>Sphinx is primarily designed for generating comprehensive documentation for software projects, particularly in Python.</p></li>
+<li><p>It aims to produce high-quality, easily navigable, and cross-referenced documentation that can be outputted in various formats like HTML, PDF, and ePub.</p></li>
+<li><p>Sphinx supports documentation written in reStructuredText, a markup language that offers rich formatting options and directives specifically tailored for technical documentation.</p></li>
+</ul>
+<p><strong>Goals of Jupyter Book:</strong></p>
+<ul class="simple">
+<li><p>Jupyter Book extends Sphinx to cater specifically to academic, scientific, and technical documentation that benefits from interactive computing and narrative content.</p></li>
+<li><p>It aims to make it easier to publish computational narratives and documentation that includes live code, equations, visualizations, and narrative text.</p></li>
+<li><p>Jupyter Book emphasizes the integration of Jupyter Notebooks and other interactive content directly into the documentation, making it ideal for data science, academic research, and educational materials.</p></li>
+</ul>
+<p><strong>Syntax Differences</strong></p>
+<p>Sphinx by default uses reStructuredText:</p>
+<ul class="simple">
+<li><p>reStructuredText (reST) is the default markup language used by Sphinx. It is designed for readability and simplicity, making it suitable for detailed technical documentation.</p></li>
+<li><p>reST syntax includes special blocks for code, notes, warnings, and more, enabling detailed and structured documentation.</p></li>
+<li><p>While powerful, reST’s syntax can be more complex and less intuitive for those accustomed to Markdown, especially for users outside the software documentation sphere.</p></li>
+</ul>
+<p>Jupyter Book by default uses MyST:</p>
+<ul class="simple">
+<li><p>MyST (Markedly Structured Text) is a flavor of Markdown designed to support all the syntax features of Sphinx documentation in a Markdown format. MyST was created to bridge the gap between the simplicity of Markdown and the power of reStructuredText.</p></li>
+<li><p>It allows for the inclusion of executable code blocks, cross-references, citations, and other complex formatting directly within Markdown files, offering a more approachable syntax for those familiar with Markdown.</p></li>
+<li><p>MyST enables Jupyter Book to support both Markdown and reStructuredText, providing flexibility and ease of use for a broader audience.</p></li>
+</ul>
+<p>This comparison highlights the distinct goals and syntax preferences that Jupyter Book and Sphinx cater to, offering users a choice based on their specific documentation needs and preferences.</p>
+</section>
+<section id="getting-started-with-jupyter-book">
+<h3>Getting Started with Jupyter Book<a class="headerlink" href="#getting-started-with-jupyter-book" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><strong>Installation</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>jupyter-book
+</pre></div>
+</div>
+</li>
+<li><p><strong>Creating a New Book</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter-book<span class="w"> </span>create<span class="w"> </span>mybookname
+</pre></div>
+</div>
+</li>
+<li><p><strong>Building Your Book</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter-book<span class="w"> </span>build<span class="w"> </span>mybookname/
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="comparing-jupyter-book-with-myst-nb">
+<h2>Comparing Jupyter Book with myst_nb<a class="headerlink" href="#comparing-jupyter-book-with-myst-nb" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">myst_nb</span></code> is a Sphinx extension that parses Jupyter Notebooks using the Markedly Structured Text (MyST) Markdown syntax. While Jupyter Book and <code class="docutils literal notranslate"><span class="pre">myst_nb</span></code> are closely related, with Jupyter Book depending on <code class="docutils literal notranslate"><span class="pre">myst_nb</span></code> for notebook parsing, there are some distinctions:</p>
+<ul class="simple">
+<li><p><strong>Scope</strong>: Jupyter Book is a higher-level project that provides an easy-to-use interface and additional features for creating interactive documents and books. <code class="docutils literal notranslate"><span class="pre">myst_nb</span></code>, on the other hand, focuses specifically on integrating Jupyter Notebooks with Sphinx.</p></li>
+<li><p><strong>Flexibility vs. Convenience</strong>: <code class="docutils literal notranslate"><span class="pre">myst_nb</span></code> offers more flexibility for Sphinx users who want to integrate Jupyter Notebooks into their existing Sphinx projects. Jupyter Book offers a more opinionated and convenient approach, ideal for users who prefer a ready-to-go solution for creating interactive books and documents.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<p>Sphinx, Jupyter Book, and <code class="docutils literal notranslate"><span class="pre">myst_nb</span></code> offer powerful options for creating documentation in Python. Sphinx lays the foundation with robust documentation capabilities, Jupyter Book extends these capabilities for interactive and computational content, and <code class="docutils literal notranslate"><span class="pre">myst_nb</span></code> bridges Jupyter Notebooks with Sphinx for those needing fine-grained integration. Depending on the project’s needs, developers and writers can choose the tool that best fits their documentation strategy.</p>
+<section id="id1">
+<h3>Further Reading<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Sphinx Documentation: <a class="reference external" href="https://www.sphinx-doc.org/en/master/">https://www.sphinx-doc.org/en/master/</a></p></li>
+<li><p>Jupyter Book Documentation: <a class="reference external" href="https://jupyterbook.org/">https://jupyterbook.org/</a></p></li>
+<li><p>MyST Documentation: <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/">https://myst-parser.readthedocs.io/en/latest/</a></p></li>
+<li><p>MyST-NB Documentation: <a class="reference external" href="https://myst-nb.readthedocs.io/">https://myst-nb.readthedocs.io/</a></p></li>
+</ul>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -484,6 +638,36 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx-for-python-documentation">Sphinx for Python Documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features-of-sphinx">Key Features of Sphinx</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-sphinx">Getting Started with Sphinx</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book-an-opinionated-distribution-of-sphinx">Jupyter Book: An “Opinionated Distribution” of Sphinx</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-jupyter-book-differ-from-sphinx">How does Jupyter Book differ from Sphinx?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-jupyter-book">Getting Started with Jupyter Book</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-jupyter-book-with-myst-nb">Comparing Jupyter Book with myst_nb</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Further Reading</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

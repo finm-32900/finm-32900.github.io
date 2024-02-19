@@ -34,7 +34,7 @@ In lieu of a final exam, students will be organized into groups of 4 and will ea
 
 ## Assessment
 
-Grades will be based on 7 coding assignments (70%), a final group project (25%), and participation (5%). 
+Grades will be based on coding assignments (70%), a final group project (25%), and participation (5%). 
 
 - Assignments will be submitted individually and will be graded using GitHub’s automated testing tools. 
 - The final project will be completed in groups. Students will choose the project from among a few options provided at the beginning of the quarter. The project will be graded not only on how well it accomplishes the assigned data cleaning and analysis task, but will be primarily graded on whether (1) the steps to reproduce it are fully automated and well documented, (2) the code is written in a clean and reusable fashion, and (3) the results are presented clearly and presented in a way that convinces the reader that the results are correct. A more specific rubric will be provided in class.
