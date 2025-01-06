@@ -1,74 +1,69 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Rate Spikes in the Market for Repurchase Agreements &#8212; Data Science Tools for Finance</title>
+    <title>Rate Spikes in the Market for Repurchase Agreements &#8212; Full Stack Quantitative Finance</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'output/_01_repo_spikes';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Week 2: Build Systems and Task Runners" href="../lectures/Week2/overview_w2.html" />
-    <link rel="prev" title="Homework 1" href="../lectures/Week1/HW1.html" />
+    <link rel="next" title="Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL" href="../lectures/Week3/overview_w3.html" />
+    <link rel="prev" title="Homework 2" href="../lectures/Week2/HW2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -143,6 +141,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -155,83 +155,100 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Data Science Tools for Finance - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Data Science Tools for Finance - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Full Stack Quantitative Finance - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Full Stack Quantitative Finance - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Data Science Tools for Finance
+                    Full Stack Quantitative Finance
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Winter 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Winter 2025</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/Week1/HW0.html">Homework 0: Setting up your computing environment</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week1/overview_w1.html">Week 1: Introduction</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/Week1/what_is_this_course_about.html">What is Data Science? Where does this course fit in?</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week1/overview_w1.html">Week 1: Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week1/what_is_this_course_about.html">What is Full Stack Quantitative Finance? Why This Course?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../lectures/Week1/HW1.html">Homework 1</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week1/HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_01_wage_growth_during_the_recession.html">HW Guide: Wage Growth During the Recession</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/subject_to_change_after_this_week.html">Schedule subject to change after marker</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week2/overview_w2.html">Week 2: Build Systems and Task Runners</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/virtual_environments.html">Virtual Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/what_is_a_build_system.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/project_structure.html">Project Structure</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../lectures/Week2/HW2.html">Homework 2</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Rate Spikes in the Market for Repurchase Agreements</a></li>
 
 
 
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week2/overview_w2.html">Week 2: Build Systems and Task Runners</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/virtual_environments.html">Virtual Environments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/what_is_a_build_system.html">What is a build system or task runner?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/project_structure.html">Project Structure</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week2/HW2.html">Homework 2</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_01_wage_growth_during_the_recession.html">HW Guide: Wage Growth During the Recession</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week3/overview_w3.html">Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week3/overview_w3.html">Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week3/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week3/env_files.html">Env Files and the Separations of Settings from Code</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week3/HW3.html">Homework 3</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week3/HW3.html">Homework 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="_02_CRSP_market_index.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_03_Fama_French_1993.html">HW Guide Part B: Replicate Fama-French 1993</a></li>
 
 
 
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week4/overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week4/overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week5/overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week5/overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week5/sphinx.html">Sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week5/unit_tests.html">Unit Tests</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week6/overview_w6.html">Week 6: Bloomberg and Social Coding with GitHub</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week6/overview_w6.html">Week 6: Bloomberg and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week6/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week6/GitHub_pull_requests.html">GitHub Pull Requests: Enhancing Collaborative Development</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/Week7/overview_w7.html">Week 7: Reviewing Sphinx and Unit Tests</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Misc/final_project.html">Final Project</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week8/overview_w8.html">Week 8: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/Week8/HW4.html">Homework 4</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Misc/final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Misc/potential_final_projects.html">List of Potential Final Projects</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/Misc/appendix.html">Appendix</a></li>
 </ul>
 
@@ -248,7 +265,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -257,14 +274,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -389,10 +406,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -400,14 +417,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -461,12 +478,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="rate-spikes-in-the-market-for-repurchase-agreements">
-<h1>Rate Spikes in the Market for Repurchase Agreements<a class="headerlink" href="#rate-spikes-in-the-market-for-repurchase-agreements" title="Permalink to this heading">#</a></h1>
+<h1>Rate Spikes in the Market for Repurchase Agreements<a class="headerlink" href="#rate-spikes-in-the-market-for-repurchase-agreements" title="Link to this heading">#</a></h1>
 <section id="what-is-the-role-of-the-repo-market-and-why-is-it-important">
-<h2>What is the role of the repo market and why is it important?<a class="headerlink" href="#what-is-the-role-of-the-repo-market-and-why-is-it-important" title="Permalink to this heading">#</a></h2>
+<h2>What is the role of the repo market and why is it important?<a class="headerlink" href="#what-is-the-role-of-the-repo-market-and-why-is-it-important" title="Link to this heading">#</a></h2>
 <p>The market for repurchase agreements, commonly known as the repo market,
 serves as a cornerstone for short-term financing among financial institutions.
 This market enables entities, including banks, dealers, money market funds,
@@ -477,13 +494,13 @@ preferred avenue for secure, short-term lending and borrowing.</p>
 <p>Moreover, the repo market is critical in implementing monetary policy, especially considering the diminished role of the unsecured interbank market compared to the secured market following the 2007-2008 financial crisis. Its central role in providing liquidity and facilitating monetary policy execution underscores the necessity of the repo market’s efficient functioning for financial stability and the broader economy. Disruptions within this market can have widespread impacts, affecting various financial participants, including banks, money market funds, hedge funds, and corporations.</p>
 </section>
 <section id="what-is-a-repurchase-agreement">
-<h2>What is a repurchase agreement?<a class="headerlink" href="#what-is-a-repurchase-agreement" title="Permalink to this heading">#</a></h2>
+<h2>What is a repurchase agreement?<a class="headerlink" href="#what-is-a-repurchase-agreement" title="Link to this heading">#</a></h2>
 <p>A repurchase agreement, often referred to as a repo, is a form of short-term borrowing mainly used in the money markets.
 A repurchase agreement can be visualized as follows. The following Figure is from <em>Fixed Income Securities</em>, by Veronsi.
 This demonstrates a trader purchasing a bond in the market and financing the purchase via a repurchase agreement.</p>
 <p><img alt="" src="../_images/hw01_repo_diagram_veronesi.png" /></p>
 <section id="at-time-t">
-<h3>At Time <span class="math notranslate nohighlight">\(t\)</span><a class="headerlink" href="#at-time-t" title="Permalink to this heading">#</a></h3>
+<h3>At Time <span class="math notranslate nohighlight">\(t\)</span><a class="headerlink" href="#at-time-t" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p><strong>Choosing Bond to Finance</strong>:</p>
 <ul class="simple">
@@ -500,7 +517,7 @@ This demonstrates a trader purchasing a bond in the market and financing the pur
 </ol>
 </section>
 <section id="at-time-t-t-n-text-days">
-<h3>At Time <span class="math notranslate nohighlight">\(T = t + n \text{ days}\)</span><a class="headerlink" href="#at-time-t-t-n-text-days" title="Permalink to this heading">#</a></h3>
+<h3>At Time <span class="math notranslate nohighlight">\(T = t + n \text{ days}\)</span><a class="headerlink" href="#at-time-t-t-n-text-days" title="Link to this heading">#</a></h3>
 <ol class="arabic simple" start="3">
 <li><p><strong>Repurchase of the Bond</strong>:</p>
 <ul class="simple">
@@ -542,12 +559,12 @@ Full leverage, interest rates go up from 4% to 5%</p>
 </section>
 </section>
 <section id="money-market-dislocations-and-the-repo-rate-spikes-of-2018-2019">
-<h2>Money market dislocations and the repo rate spikes of 2018-2019<a class="headerlink" href="#money-market-dislocations-and-the-repo-rate-spikes-of-2018-2019" title="Permalink to this heading">#</a></h2>
+<h2>Money market dislocations and the repo rate spikes of 2018-2019<a class="headerlink" href="#money-market-dislocations-and-the-repo-rate-spikes-of-2018-2019" title="Link to this heading">#</a></h2>
 <p>Repo rates are the interest rates at which financial institutions borrow or lend funds via repurchase agreements (repos). In recent years, there have been several notable spikes in these rates. The most significant spike occurred in September 2019, although smaller spikes also occurred throughout 2018 and 2019. A repo spike refers to a sudden, substantial increase in repo rates within the financial market. These spikes indicate an abrupt imbalance in the supply and demand for funds in the repo market, leading to an increase in borrowing costs. Such spikes can disrupt the financial system and may signal deeper issues related to liquidity and funding stress.</p>
 <p>Additionally, these rate spikes can be seen as dislocations in the money markets. Specifically, these repo spikes represented significant deviations between repo rates and the interest on reserve balances or the Federal Reserve’s Overnight Reverse Repo Facility rate (ON/RRP rate). These dislocations imply potential arbitrage opportunities, suggesting that institutions capable of earning interest on reserves or with access to the Fed’s ON/RRP facility should theoretically show no preference between using these facilities and lending in the repo markets. Since lending in repo markets typically involves overcollateralization with Treasury securities and occurs overnight, repo market rates should align closely with other near risk-free rates. Understanding the causes of these deviations is crucial for grasping their implications for the financial sector.</p>
 </section>
 <section id="relationship-to-quantitative-investors">
-<h2>Relationship to Quantitative Investors<a class="headerlink" href="#relationship-to-quantitative-investors" title="Permalink to this heading">#</a></h2>
+<h2>Relationship to Quantitative Investors<a class="headerlink" href="#relationship-to-quantitative-investors" title="Link to this heading">#</a></h2>
 <p>See here: <a class="reference external" href="https://www.bloomberg.com/news/articles/2023-12-20/inside-the-basis-trade-hedge-fund-traders-dominate-gigantic-bond-bet">https://www.bloomberg.com/news/articles/2023-12-20/inside-the-basis-trade-hedge-fund-traders-dominate-gigantic-bond-bet</a></p>
 <p><img alt="The Hedge Fund Traders Dominating a Massive Bet on Bonds" src="../_images/hw01_basis_hf.png" /></p>
 <p>And here: <a class="reference external" href="https://www.bloomberg.com/opinion/articles/2024-01-08/the-fed-won-t-do-slow-and-steady-if-the-labor-market-wobbles">https://www.bloomberg.com/opinion/articles/2024-01-08/the-fed-won-t-do-slow-and-steady-if-the-labor-market-wobbles</a></p>
@@ -567,38 +584,38 @@ Full leverage, interest rates go up from 4% to 5%</p>
 </ul>
 </section>
 <section id="understanding-repo-markets-are-important-to-understanding-the-risks-involved-in-this-trade">
-<h2>Understanding Repo Markets Are Important to Understanding the Risks involved in this Trade<a class="headerlink" href="#understanding-repo-markets-are-important-to-understanding-the-risks-involved-in-this-trade" title="Permalink to this heading">#</a></h2>
+<h2>Understanding Repo Markets Are Important to Understanding the Risks involved in this Trade<a class="headerlink" href="#understanding-repo-markets-are-important-to-understanding-the-risks-involved-in-this-trade" title="Link to this heading">#</a></h2>
 <p>In this homework assignment, we’ll create some charts to better understand this market. I also recommend reading this paper, <a class="reference external" href="https://elischolar.library.yale.edu/journal-of-financial-crises/vol5/iss4/1/">Kahn et al (2023). “Anatomy of the Repo Rate Spikes in September 2019.” Journal of Financial Crises 5, no. 4 (2023): 1-25.</a></p>
 <p>We’ll replicate Figure 1 from this paper.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
-<span class="kn">import</span> <span class="nn">load_repo_data</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">load_repo_data</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span> <span class="nn">config</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
 
-<span class="n">OUTPUT_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">output_dir</span><span class="p">)</span>
-<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">data_dir</span><span class="p">)</span>
+<span class="n">OUTPUT_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">OUTPUT_DIR</span><span class="p">)</span>
+<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">DATA_DIR</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="repo-rates-and-fed-funds-rates">
-<h2>Repo Rates and Fed Funds Rates<a class="headerlink" href="#repo-rates-and-fed-funds-rates" title="Permalink to this heading">#</a></h2>
+<h2>Repo Rates and Fed Funds Rates<a class="headerlink" href="#repo-rates-and-fed-funds-rates" title="Link to this heading">#</a></h2>
 <p>Replicate Figure 1 from “Anatomy of the Repo Rate Spikes”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">load_repo_data</span><span class="o">.</span><span class="n">series_descriptions</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">load_repo_data</span><span class="o">.</span><span class="n">series_descriptions</span>
 </pre></div>
 </div>
 </div>
@@ -644,7 +661,7 @@ Full leverage, interest rates go up from 4% to 5%</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_labels</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_labels</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;REPO-TRI_AR_OO-P&#39;</span><span class="p">:</span><span class="s1">&#39;Tri-Party Overnight Average Rate&#39;</span><span class="p">,</span>
     <span class="s1">&#39;RRPONTSYAWARD&#39;</span><span class="p">:</span> <span class="s1">&#39;ON-RRP facility rate&#39;</span><span class="p">,</span>
     <span class="s1">&#39;Gen_IORB&#39;</span><span class="p">:</span> <span class="s1">&#39;Interest on Reserves&#39;</span><span class="p">,</span> <span class="c1"># This series uses FRED&#39;s Interest on </span>
@@ -657,63 +674,172 @@ Full leverage, interest rates go up from 4% to 5%</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">load_repo_data</span><span class="o">.</span><span class="n">load_all</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">=</span> <span class="n">DATA_DIR</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">load_repo_data</span><span class="o">.</span><span class="n">load_all</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">=</span> <span class="n">DATA_DIR</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>The following plot show the effective fed funds rate (from FRED), the tri-party overnight average rate (from the OFR series <code class="docutils literal notranslate"><span class="pre">REPO-TRI_AR_OO-P</span></code>), and the shaded region shows the lower and upper limit of the federal funds target range (<code class="docutils literal notranslate"><span class="pre">DFEDTARL</span></code> and <code class="docutils literal notranslate"><span class="pre">DFEDTARU</span></code>).</p>
-<div class="cell tag_remove-input docutils container">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;DFEDTARU&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;DFEDTARL&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;REPO-TRI_AR_OO-P&#39;</span><span class="p">,</span> <span class="s1">&#39;EFFR&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">new_labels</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;DATE&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/4bdfae448dd93e7b281514a8c8ffdc32f8dd5ad8d7999ed8329835b1d77def6c.png" src="../_images/4bdfae448dd93e7b281514a8c8ffdc32f8dd5ad8d7999ed8329835b1d77def6c.png" />
+<img alt="../_images/2a67271c01c17298be92f2bb67a0755bb10a2444d933a10c014ac4993357d6a6.png" src="../_images/2a67271c01c17298be92f2bb67a0755bb10a2444d933a10c014ac4993357d6a6.png" />
 </div>
 </div>
 <p>In the following plot, we zoom in a little to see just how large these spikes were.</p>
-<div class="cell tag_remove-input docutils container">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">date_start</span> <span class="o">=</span> <span class="s1">&#39;2014-Aug&#39;</span>
+<span class="n">date_end</span> <span class="o">=</span> <span class="s1">&#39;2019-Dec&#39;</span>
+<span class="n">_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date_start</span><span class="p">:</span><span class="n">date_end</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">_df</span><span class="p">[</span><span class="s1">&#39;DFEDTARU&#39;</span><span class="p">],</span> <span class="n">_df</span><span class="p">[</span><span class="s1">&#39;DFEDTARL&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">_df</span><span class="p">[[</span><span class="s1">&#39;REPO-TRI_AR_OO-P&#39;</span><span class="p">,</span> <span class="s1">&#39;EFFR&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">new_labels</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="c1"># plt.ylim(-0.2, 1.0)</span>
+</pre></div>
+</div>
+</div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;DATE&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/1608c95411deb41b71e29ce10b905010b15ba47eec34239e18f67e8f46a21e8f.png" src="../_images/1608c95411deb41b71e29ce10b905010b15ba47eec34239e18f67e8f46a21e8f.png" />
+<img alt="../_images/b1ab92a681e2e4fd3ebf0fb508a9e56fe4a26717c66062d32d7b85662c8b8551.png" src="../_images/b1ab92a681e2e4fd3ebf0fb508a9e56fe4a26717c66062d32d7b85662c8b8551.png" />
 </div>
 </div>
 <p>Normalize rates to be centered at the fed funds target window midpoint.</p>
-<div class="cell tag_remove-input docutils container">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_norm</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;target_midpoint&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;DFEDTARU&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;DFEDTARL&#39;</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;DFEDTARU&#39;</span><span class="p">,</span> <span class="s1">&#39;DFEDTARL&#39;</span><span class="p">,</span> <span class="s1">&#39;REPO-TRI_AR_OO-P&#39;</span><span class="p">,</span> 
+          <span class="s1">&#39;EFFR&#39;</span><span class="p">,</span> <span class="s1">&#39;target_midpoint&#39;</span><span class="p">,</span> 
+          <span class="s1">&#39;Gen_IORB&#39;</span><span class="p">,</span> <span class="s1">&#39;RRPONTSYAWARD&#39;</span><span class="p">,</span> <span class="s1">&#39;SOFR&#39;</span><span class="p">]:</span>
+    <span class="n">df_norm</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;target_midpoint&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
 </div>
 <p>Now, plot the series that is normalized by the fed funds target midpoint.</p>
-<div class="cell tag_remove-input docutils container">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">date_start</span> <span class="o">=</span> <span class="s1">&#39;2014-Aug&#39;</span>
+<span class="n">date_end</span> <span class="o">=</span> <span class="s1">&#39;2019-Dec&#39;</span>
+<span class="n">_df</span> <span class="o">=</span> <span class="n">df_norm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date_start</span><span class="p">:</span><span class="n">date_end</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">_df</span><span class="p">[</span><span class="s1">&#39;DFEDTARU&#39;</span><span class="p">],</span> <span class="n">_df</span><span class="p">[</span><span class="s1">&#39;DFEDTARL&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">_df</span><span class="p">[[</span><span class="s1">&#39;REPO-TRI_AR_OO-P&#39;</span><span class="p">,</span> <span class="s1">&#39;EFFR&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">new_labels</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Spread of federal feds target midpoint (percent)&quot;</span><span class="p">)</span>
+<span class="n">arrowprops</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> 
+    <span class="n">arrowstyle</span> <span class="o">=</span> <span class="s2">&quot;-&gt;&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Sep. 17, 2019: 3.06%&#39;</span><span class="p">,</span> 
+            <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;2019-Sep-17&#39;</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">),</span> 
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;2017-Oct-27&#39;</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">),</span>
+            <span class="n">arrowprops</span> <span class="o">=</span> <span class="n">arrowprops</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
 <div class="cell_output docutils container">
-<img alt="../_images/f3c3029eebc5d6861e94c32bf4022e0603e9cc1c2a813b31b4af4c1292a7fc7c.png" src="../_images/f3c3029eebc5d6861e94c32bf4022e0603e9cc1c2a813b31b4af4c1292a7fc7c.png" />
+<img alt="../_images/b8f52933e2df8ebe1a13e1cf4fe62109a29f6ac351220fbc540b3a122b90c173.png" src="../_images/b8f52933e2df8ebe1a13e1cf4fe62109a29f6ac351220fbc540b3a122b90c173.png" />
 </div>
 </div>
 <p>Now, let’s consider interest on reserves as well as the ON-RRP rate, as these in theory put bounds on the repo rate.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="../_images/5f7a749d37e56d4a9af8ea934fa3e6e0fc1f015c4bdb4ae36f16b0d94a663567.png" src="../_images/5f7a749d37e56d4a9af8ea934fa3e6e0fc1f015c4bdb4ae36f16b0d94a663567.png" />
-</div>
-</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x24ec8c430e0&gt;
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">date_start</span> <span class="o">=</span> <span class="s1">&#39;2014-Aug&#39;</span>
+<span class="n">date_end</span> <span class="o">=</span> <span class="s1">&#39;2019-Dec&#39;</span>
+<span class="n">_df</span> <span class="o">=</span> <span class="n">df_norm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date_start</span><span class="p">:</span><span class="n">date_end</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">_df</span><span class="p">[</span><span class="s1">&#39;DFEDTARU&#39;</span><span class="p">],</span> <span class="n">_df</span><span class="p">[</span><span class="s1">&#39;DFEDTARL&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">_df</span><span class="p">[[</span><span class="s1">&#39;REPO-TRI_AR_OO-P&#39;</span><span class="p">,</span> <span class="s1">&#39;EFFR&#39;</span><span class="p">,</span> <span class="s1">&#39;Gen_IORB&#39;</span><span class="p">,</span> <span class="s1">&#39;RRPONTSYAWARD&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">new_labels</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Spread of federal feds target midpoint (percent)&quot;</span><span class="p">)</span>
+<span class="n">arrowprops</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> 
+    <span class="n">arrowstyle</span> <span class="o">=</span> <span class="s2">&quot;-&gt;&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Sep. 17, 2019: 3.06%&#39;</span><span class="p">,</span> 
+            <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;2019-Sep-17&#39;</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">),</span> 
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;2017-Oct-27&#39;</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">),</span>
+            <span class="n">arrowprops</span> <span class="o">=</span> <span class="n">arrowprops</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../_images/1d46ef6f640cbad9e1ebaa1029ff59dac060ade413dc4ba79d5c9ae358db393a.png" src="../_images/1d46ef6f640cbad9e1ebaa1029ff59dac060ade413dc4ba79d5c9ae358db393a.png" />
 </div>
-</div>
-<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x24ec8d1f470&gt;
-</pre></div>
-</div>
-<img alt="../_images/7ae84491f56289bcbbb70464048c6c95ef36b4165b97cee4031a99a6dd4b878d.png" src="../_images/7ae84491f56289bcbbb70464048c6c95ef36b4165b97cee4031a99a6dd4b878d.png" />
+<img alt="../_images/39e04d8341ef150db671edfbd39b39e0fc2ccc6ad369006877cc31631c4568e8.png" src="../_images/39e04d8341ef150db671edfbd39b39e0fc2ccc6ad369006877cc31631c4568e8.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SOFR&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gen_IORB&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">date_start</span> <span class="o">=</span> <span class="s1">&#39;2018-Apr&#39;</span>
+<span class="n">date_end</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">_df</span> <span class="o">=</span> <span class="n">df_norm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date_start</span><span class="p">:</span><span class="n">date_end</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">_df</span><span class="p">[</span><span class="s1">&#39;DFEDTARU&#39;</span><span class="p">],</span> <span class="n">_df</span><span class="p">[</span><span class="s1">&#39;DFEDTARL&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">_df</span><span class="p">[[</span><span class="s1">&#39;SOFR&#39;</span><span class="p">,</span> <span class="s1">&#39;EFFR&#39;</span><span class="p">,</span> <span class="s1">&#39;Gen_IORB&#39;</span><span class="p">,</span> <span class="s1">&#39;RRPONTSYAWARD&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">new_labels</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Spread of federal feds target midpoint (percent)&quot;</span><span class="p">)</span>
+<span class="n">arrowprops</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> 
+    <span class="n">arrowstyle</span> <span class="o">=</span> <span class="s2">&quot;-&gt;&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="c1"># ax.annotate(&#39;Sep. 17, 2019: 3.06%&#39;, </span>
+<span class="c1">#             xy=(&#39;2019-Sep-17&#39;, 0.95), </span>
+<span class="c1">#             xytext=(&#39;2015-Oct-27&#39;, 0.9),</span>
+<span class="c1">#             arrowprops = arrowprops);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x16d290950&gt;
+</pre></div>
+</div>
+<img alt="../_images/4f1656596565662c1c713e4039ea202caae0d8ae853679d31ea8e9b0eb725b79.png" src="../_images/4f1656596565662c1c713e4039ea202caae0d8ae853679d31ea8e9b0eb725b79.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">date_start</span> <span class="o">=</span> <span class="s1">&#39;2023-Jul&#39;</span>
+<span class="n">date_end</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">_df</span> <span class="o">=</span> <span class="n">df_norm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">date_start</span><span class="p">:</span><span class="n">date_end</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">_df</span><span class="p">[</span><span class="s1">&#39;DFEDTARU&#39;</span><span class="p">],</span> <span class="n">_df</span><span class="p">[</span><span class="s1">&#39;DFEDTARL&#39;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">_df</span><span class="p">[[</span><span class="s1">&#39;SOFR&#39;</span><span class="p">,</span> <span class="s1">&#39;EFFR&#39;</span><span class="p">,</span> <span class="s1">&#39;Gen_IORB&#39;</span><span class="p">,</span> <span class="s1">&#39;RRPONTSYAWARD&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">new_labels</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Spread of federal feds target midpoint (percent)&quot;</span><span class="p">)</span>
+<span class="n">arrowprops</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> 
+    <span class="n">arrowstyle</span> <span class="o">=</span> <span class="s2">&quot;-&gt;&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="c1"># ax.annotate(&#39;Sep. 17, 2019: 3.06%&#39;, </span>
+<span class="c1">#             xy=(&#39;2019-Sep-17&#39;, 0.95), </span>
+<span class="c1">#             xytext=(&#39;2015-Oct-27&#39;, 0.9),</span>
+<span class="c1">#             arrowprops = arrowprops);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x16d711fa0&gt;
+</pre></div>
+</div>
+<img alt="../_images/eba34f76f3183eabec26e750c97a2dce9e755ac0f64aa2cb1c6a0a9394d2253a.png" src="../_images/eba34f76f3183eabec26e750c97a2dce9e755ac0f64aa2cb1c6a0a9394d2253a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SOFR&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gen_IORB&#39;</span><span class="p">]</span>
 <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2018&#39;</span><span class="p">:</span><span class="s1">&#39;2020&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -722,12 +848,12 @@ Full leverage, interest rates go up from 4% to 5%</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;DATE&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/76d8f78e24a5fb04f1af959165c882c64118c7a1a940ebe3fc2132e2026c38e8.png" src="../_images/76d8f78e24a5fb04f1af959165c882c64118c7a1a940ebe3fc2132e2026c38e8.png" />
+<img alt="../_images/664d54020ccf61685f633fe8ab6b5988df142b970a377b3d3de8ef475ba0b07c.png" src="../_images/664d54020ccf61685f633fe8ab6b5988df142b970a377b3d3de8ef475ba0b07c.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2018&#39;</span><span class="p">:,</span> <span class="p">[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2018&#39;</span><span class="p">:,</span> <span class="p">[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -735,20 +861,20 @@ Full leverage, interest rates go up from 4% to 5%</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;DATE&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/6286fdba25e3af53442d98e09f10582c5f4640d4c2388b763c4da17642cb0e69.png" src="../_images/6286fdba25e3af53442d98e09f10582c5f4640d4c2388b763c4da17642cb0e69.png" />
+<img alt="../_images/6cec2809ec198bad984ceb1dbccf9d0dee682f696120160746414148ee7afa6e.png" src="../_images/6cec2809ec198bad984ceb1dbccf9d0dee682f696120160746414148ee7afa6e.png" />
 </div>
 </div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="understanding-this-plot">
-<h1>Understanding this plot<a class="headerlink" href="#understanding-this-plot" title="Permalink to this heading">#</a></h1>
+<h1>Understanding this plot<a class="headerlink" href="#understanding-this-plot" title="Link to this heading">#</a></h1>
 <p>Now, let’s spend some time trying to understand this plot.</p>
 <section id="reserve-levels-vs-spikes">
-<h2>Reserve Levels vs Spikes<a class="headerlink" href="#reserve-levels-vs-spikes" title="Permalink to this heading">#</a></h2>
+<h2>Reserve Levels vs Spikes<a class="headerlink" href="#reserve-levels-vs-spikes" title="Link to this heading">#</a></h2>
 <p>First of all, depository intitutions have a choice between keeping their reserves at the Fed and earning interest on reserve balances or lending the money into repo. When the repo rates were spiking in 2018 and 2019, I would imagine that total reserve levels would be low.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;net_fed_repo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;RPONTSYD&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;RRPONTSYD&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">1000</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;net_fed_repo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;RPONTSYD&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;RRPONTSYD&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">1000</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;triparty_less_fed_onrrp_rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;REPO-TRI_AR_OO-P&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;RRPONTSYAWARD&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="mi">100</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;total reserves / currency&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;TOTRESNS&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;CURRCIR&#39;</span><span class="p">]</span>
 </pre></div>
@@ -757,7 +883,7 @@ Full leverage, interest rates go up from 4% to 5%</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
 <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;TOTRESNS&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
     <span class="n">columns</span><span class="o">=</span><span class="n">load_repo_data</span><span class="o">.</span><span class="n">series_descriptions</span>
@@ -773,13 +899,13 @@ Full leverage, interest rates go up from 4% to 5%</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e685122e272a288fd0f414ab318a4992895bc325118a48ad99e0ca2587314807.png" src="../_images/e685122e272a288fd0f414ab318a4992895bc325118a48ad99e0ca2587314807.png" />
+<img alt="../_images/c735ef936f16e29daa48bc4fbe15c906a706927e214280b4258f05720d163a2e.png" src="../_images/c735ef936f16e29daa48bc4fbe15c906a706927e214280b4258f05720d163a2e.png" />
 </div>
 </div>
 <p>Now, let’s normalize by currency in circulation, so as to account for the normal growth in the economy or the financial system. This is done because total reserves is not stationary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
 <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;total reserves / currency&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;triparty_less_fed_onrrp_rate&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
@@ -794,15 +920,15 @@ Full leverage, interest rates go up from 4% to 5%</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1ed0ea3eb8eb46c4d229b0c67240501a5ff7be9b1d5dbc189a1d1b86060613ab.png" src="../_images/1ed0ea3eb8eb46c4d229b0c67240501a5ff7be9b1d5dbc189a1d1b86060613ab.png" />
+<img alt="../_images/cd7d65b171c1308bf5d31bcbf9193a16bc7088a7705a7adc2c8c833db33a93b2.png" src="../_images/cd7d65b171c1308bf5d31bcbf9193a16bc7088a7705a7adc2c8c833db33a93b2.png" />
 </div>
 </div>
 </section>
 <section id="fed-repo-and-reverse-repo-facility-takeup">
-<h2>Fed Repo and Reverse Repo Facility Takeup<a class="headerlink" href="#fed-repo-and-reverse-repo-facility-takeup" title="Permalink to this heading">#</a></h2>
+<h2>Fed Repo and Reverse Repo Facility Takeup<a class="headerlink" href="#fed-repo-and-reverse-repo-facility-takeup" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;RPONTSYD&#39;</span><span class="p">,</span><span class="s1">&#39;RRPONTSYD&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;RPONTSYD&#39;</span><span class="p">,</span><span class="s1">&#39;RRPONTSYD&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
     <span class="n">columns</span><span class="o">=</span><span class="n">load_repo_data</span><span class="o">.</span><span class="n">series_descriptions</span>
 <span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
@@ -812,12 +938,12 @@ Full leverage, interest rates go up from 4% to 5%</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;DATE&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/a49f14b481a9b7d3faa1f995772fbec6eb09d8b82a891574c42b503eeddda305.png" src="../_images/a49f14b481a9b7d3faa1f995772fbec6eb09d8b82a891574c42b503eeddda305.png" />
+<img alt="../_images/8c152c7c247be4056e655c79f06973f6e5c7213da613e97bb99610b9eb278bcf.png" src="../_images/8c152c7c247be4056e655c79f06973f6e5c7213da613e97bb99610b9eb278bcf.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Net Fed Repo Lending (positive is net lending by the Fed.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Net Fed Repo Lending (positive is net lending by the Fed.</span>
 <span class="c1"># Negative is the use of the reverse repo facility.)</span>
 <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;net_fed_repo&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$ Trillions&#39;</span><span class="p">);</span>
@@ -825,12 +951,12 @@ Full leverage, interest rates go up from 4% to 5%</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0b3e0ef26faff1175cab3c26b08611d75924deef99b4f781a70bac40b32c8d84.png" src="../_images/0b3e0ef26faff1175cab3c26b08611d75924deef99b4f781a70bac40b32c8d84.png" />
+<img alt="../_images/972d5a4d3319393d91bc0ce4b4284c60f9b21198a2de4f3697a8c2aeb4a68d06.png" src="../_images/972d5a4d3319393d91bc0ce4b4284c60f9b21198a2de4f3697a8c2aeb4a68d06.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO</span>
 <span class="c1"># # Net Fed Repo Lending (positive is net lending by the Fed.</span>
 <span class="c1"># # Negative is the use of the reverse repo facility.)</span>
 <span class="c1"># df.loc[&#39;2023&#39;,[&#39;net_fed_repo&#39;]].plot()</span>
@@ -841,7 +967,7 @@ Full leverage, interest rates go up from 4% to 5%</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;net_fed_repo&#39;</span><span class="p">,</span> <span class="s1">&#39;triparty_less_fed_onrrp_rate&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;net_fed_repo&#39;</span><span class="p">,</span> <span class="s1">&#39;triparty_less_fed_onrrp_rate&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -850,13 +976,13 @@ Full leverage, interest rates go up from 4% to 5%</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-50.0, 100.0)
 </pre></div>
 </div>
-<img alt="../_images/c7234da22376b19653387d21ba946a9db5663a0411b9ab153679ded133404bc7.png" src="../_images/c7234da22376b19653387d21ba946a9db5663a0411b9ab153679ded133404bc7.png" />
+<img alt="../_images/71e7654e8c5097ab38f1e8f4ba9b76096e95512b7cb4eb0ae9574532fc509deb.png" src="../_images/71e7654e8c5097ab38f1e8f4ba9b76096e95512b7cb4eb0ae9574532fc509deb.png" />
 </div>
 </div>
 <p>The Fed is lending money when the repo rate is spiking. When the repo rate is low relative to the ON/RRP rate, usage of the ON/RRP facility goes up, as can be seen here.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
 <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;net_fed_repo&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;triparty_less_fed_onrrp_rate&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
@@ -867,28 +993,28 @@ Full leverage, interest rates go up from 4% to 5%</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;DATE&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/70bbe5d7ede2522341c6c61a4c1d55647e03580956d11a089aaa0f530bc30d33.png" src="../_images/70bbe5d7ede2522341c6c61a4c1d55647e03580956d11a089aaa0f530bc30d33.png" />
+<img alt="../_images/ed618f638bca94075997b0d4896e7ee9671bf4bdb2a7ed4ee7ef72f4ae8d38bf.png" src="../_images/ed618f638bca94075997b0d4896e7ee9671bf4bdb2a7ed4ee7ef72f4ae8d38bf.png" />
 </div>
 </div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="how-should-we-define-a-repo-spike">
-<h1>How should we define a repo spike?<a class="headerlink" href="#how-should-we-define-a-repo-spike" title="Permalink to this heading">#</a></h1>
+<h1>How should we define a repo spike?<a class="headerlink" href="#how-should-we-define-a-repo-spike" title="Link to this heading">#</a></h1>
 <p>Now, I turn to the question of how to define a repo rate spike.</p>
 <section id="fed-funds-target-range">
-<h2>Fed Fund’s Target Range<a class="headerlink" href="#fed-funds-target-range" title="Permalink to this heading">#</a></h2>
+<h2>Fed Fund’s Target Range<a class="headerlink" href="#fed-funds-target-range" title="Link to this heading">#</a></h2>
 <p>The first way to approach this is to just look at when the triparty rate exceeded the upper bound of the fed’s federal funds rate target range.</p>
 <p><strong>Tri-Party Ave vs Fed Upper Limit</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_tri_above_fed_upper&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;REPO-TRI_AR_OO-P&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;DFEDTARU&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_tri_above_fed_upper&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;REPO-TRI_AR_OO-P&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;DFEDTARU&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_tri_above_fed_upper&#39;</span><span class="p">]]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_tri_above_fed_upper&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -909,7 +1035,7 @@ Full leverage, interest rates go up from 4% to 5%</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_tri_above_fed_upper&#39;</span><span class="p">]])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_tri_above_fed_upper&#39;</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
@@ -922,20 +1048,20 @@ Full leverage, interest rates go up from 4% to 5%</p>
 <p><strong>SOFR vs Fed Upper Limit</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_above_fed_upper&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SOFR&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;DFEDTARU&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_above_fed_upper&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SOFR&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;DFEDTARU&#39;</span><span class="p">]</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_above_fed_upper&#39;</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>44
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_above_fed_upper&#39;</span><span class="p">]]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_above_fed_upper&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -950,7 +1076,7 @@ Full leverage, interest rates go up from 4% to 5%</p>
                &#39;2019-05-01&#39;, &#39;2019-07-02&#39;, &#39;2019-07-03&#39;, &#39;2019-07-05&#39;,
                &#39;2019-07-31&#39;, &#39;2019-09-16&#39;, &#39;2019-09-17&#39;, &#39;2019-09-18&#39;,
                &#39;2019-09-25&#39;, &#39;2019-09-30&#39;, &#39;2019-10-16&#39;, &#39;2019-10-31&#39;,
-               &#39;2020-03-16&#39;, &#39;2020-03-17&#39;],
+               &#39;2020-03-16&#39;, &#39;2020-03-17&#39;, &#39;2024-10-01&#39;, &#39;2024-12-26&#39;],
               dtype=&#39;datetime64[ns]&#39;, name=&#39;DATE&#39;, freq=None)
 </pre></div>
 </div>
@@ -960,7 +1086,7 @@ Full leverage, interest rates go up from 4% to 5%</p>
 <p>This measure is good because it represents a kind of arbitrage opportunity. Either leave money at Fed to earn interest, or put money into repo market. This is what the paper, “Reserves were not so amply after all” uses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -968,25 +1094,25 @@ Full leverage, interest rates go up from 4% to 5%</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;DATE&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/2efe6571bdc4966044df984eef605ac21f5ef0ee6ae2d0ecb76c7e0691222ad3.png" src="../_images/2efe6571bdc4966044df984eef605ac21f5ef0ee6ae2d0ecb76c7e0691222ad3.png" />
+<img alt="../_images/ff7782a28670025656ff6aaa63aae42fb20c8875e9af2a91b9d261d3207421bc.png" src="../_images/ff7782a28670025656ff6aaa63aae42fb20c8875e9af2a91b9d261d3207421bc.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_above_IORB&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_above_IORB&#39;</span><span class="p">]</span> <span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_above_IORB&#39;</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>257
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>263
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_above_IORB&#39;</span><span class="p">]]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_above_IORB&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -995,10 +1121,10 @@ Full leverage, interest rates go up from 4% to 5%</p>
                &#39;2018-04-30&#39;, &#39;2018-05-01&#39;, &#39;2018-05-15&#39;, &#39;2018-05-31&#39;,
                &#39;2018-06-01&#39;, &#39;2018-06-04&#39;,
                ...
-               &#39;2020-07-02&#39;, &#39;2020-07-14&#39;, &#39;2020-07-15&#39;, &#39;2020-07-16&#39;,
-               &#39;2020-07-17&#39;, &#39;2020-07-20&#39;, &#39;2020-07-21&#39;, &#39;2020-11-02&#39;,
-               &#39;2020-11-05&#39;, &#39;2021-01-05&#39;],
-              dtype=&#39;datetime64[ns]&#39;, name=&#39;DATE&#39;, length=257, freq=None)
+               &#39;2020-07-21&#39;, &#39;2020-11-02&#39;, &#39;2020-11-05&#39;, &#39;2021-01-05&#39;,
+               &#39;2024-09-30&#39;, &#39;2024-10-01&#39;, &#39;2024-10-02&#39;, &#39;2024-12-26&#39;,
+               &#39;2024-12-27&#39;, &#39;2024-12-31&#39;],
+              dtype=&#39;datetime64[ns]&#39;, name=&#39;DATE&#39;, length=263, freq=None)
 </pre></div>
 </div>
 </div>
@@ -1006,19 +1132,19 @@ Full leverage, interest rates go up from 4% to 5%</p>
 <p>Now, let’s ask if it’s 2 standard deviations above IORB</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.11369201892622588
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10636347565117556
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_2std_above_IORB&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_2std_above_IORB&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_2std_above_IORB&#39;</span><span class="p">]])</span>
 </pre></div>
 </div>
@@ -1031,7 +1157,7 @@ Full leverage, interest rates go up from 4% to 5%</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_2std_above_IORB&#39;</span><span class="p">]]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_2std_above_IORB&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -1046,19 +1172,19 @@ Full leverage, interest rates go up from 4% to 5%</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;SOFR-IORB&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.04406767955801116
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.04748815165876793
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_2std_above_IORB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_above_fed_upper&#39;</span><span class="p">]])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_2std_above_IORB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_above_fed_upper&#39;</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
@@ -1073,7 +1199,7 @@ Full leverage, interest rates go up from 4% to 5%</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_2std_above_IORB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_above_fed_upper&#39;</span><span class="p">]]))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_2std_above_IORB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;is_SOFR_above_fed_upper&#39;</span><span class="p">]]))</span>
 </pre></div>
 </div>
 </div>
@@ -1085,7 +1211,7 @@ Full leverage, interest rates go up from 4% to 5%</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># filedir = Path(OUTPUT_DIR)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># filedir = Path(OUTPUT_DIR)</span>
 <span class="c1"># df[</span>
 <span class="c1">#     [&#39;is_SOFR_above_fed_upper&#39;, &#39;is_SOFR_2std_above_IORB&#39;, </span>
 <span class="c1">#     &#39;is_SOFR_above_IORB&#39;, &#39;is_tri_above_fed_upper&#39;]</span>
@@ -1097,65 +1223,65 @@ Full leverage, interest rates go up from 4% to 5%</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="summary-stats-about-various-repo-rates">
-<h1>Summary Stats about Various Repo Rates<a class="headerlink" href="#summary-stats-about-various-repo-rates" title="Permalink to this heading">#</a></h1>
+<h1>Summary Stats about Various Repo Rates<a class="headerlink" href="#summary-stats-about-various-repo-rates" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-DatetimeIndex: 4402 entries, 2012-01-01 to 2024-01-19
+DatetimeIndex: 4755 entries, 2012-01-01 to 2025-01-06
 Freq: D
 Data columns (total 43 columns):
  #   Column                        Non-Null Count  Dtype  
 ---  ------                        --------------  -----  
- 0   DPCREDIT                      4401 non-null   float64
- 1   EFFR                          3026 non-null   float64
- 2   OBFR                          2881 non-null   float64
- 3   SOFR                          1448 non-null   float64
+ 0   DPCREDIT                      4754 non-null   float64
+ 1   EFFR                          3267 non-null   float64
+ 2   OBFR                          3234 non-null   float64
+ 3   SOFR                          1688 non-null   float64
  4   IORR                          3497 non-null   float64
  5   IOER                          3497 non-null   float64
- 6   IORB                          905 non-null    float64
- 7   DFEDTARU                      4402 non-null   float64
- 8   DFEDTARL                      4402 non-null   float64
- 9   WALCL                         4399 non-null   float64
- 10  TOTRESNS                      4402 non-null   float64
- 11  TREAST                        4399 non-null   float64
- 12  CURRCIR                       4402 non-null   float64
- 13  GFDEBTN                       47 non-null     float64
- 14  WTREGEN                       4399 non-null   float64
- 15  RRPONTSYAWARD                 3771 non-null   float64
- 16  RRPONTSYD                     4402 non-null   float64
- 17  RPONTSYD                      4402 non-null   float64
- 18  WSDONTL                       4399 non-null   float64
- 19  Gen_IORB                      4402 non-null   float64
- 20  ONRRP_CTPY_LIMIT              3772 non-null   float64
- 21  ONRP_AGG_LIMIT                906 non-null    float64
- 22  REPO-TRI_AR_OO-P              2329 non-null   float64
- 23  REPO-TRI_TV_OO-P              2329 non-null   float64
- 24  REPO-TRI_TV_TOT-P             2330 non-null   float64
- 25  REPO-DVP_AR_OO-P              1000 non-null   float64
- 26  REPO-DVP_TV_OO-P              1000 non-null   float64
- 27  REPO-DVP_TV_TOT-P             1060 non-null   float64
- 28  REPO-DVP_OV_TOT-P             1060 non-null   float64
- 29  REPO-GCF_AR_OO-P              59 non-null     float64
- 30  REPO-GCF_TV_OO-P              59 non-null     float64
- 31  REPO-GCF_TV_TOT-P             1020 non-null   float64
- 32  FNYR-BGCR-A                   1449 non-null   float64
- 33  FNYR-TGCR-A                   1449 non-null   float64
- 34  target_midpoint               4402 non-null   float64
- 35  SOFR-IORB                     1448 non-null   float64
- 36  net_fed_repo                  4402 non-null   float64
- 37  triparty_less_fed_onrrp_rate  2329 non-null   float64
- 38  total reserves / currency     4402 non-null   float64
- 39  is_tri_above_fed_upper        4402 non-null   bool   
- 40  is_SOFR_above_fed_upper       4402 non-null   bool   
- 41  is_SOFR_above_IORB            4402 non-null   bool   
- 42  is_SOFR_2std_above_IORB       4402 non-null   bool   
+ 6   IORB                          1258 non-null   float64
+ 7   DFEDTARU                      4755 non-null   float64
+ 8   DFEDTARL                      4755 non-null   float64
+ 9   WALCL                         4752 non-null   float64
+ 10  TOTRESNS                      4755 non-null   float64
+ 11  TREAST                        4752 non-null   float64
+ 12  CURRCIR                       4755 non-null   float64
+ 13  GFDEBTN                       51 non-null     float64
+ 14  WTREGEN                       4752 non-null   float64
+ 15  RRPONTSYAWARD                 4124 non-null   float64
+ 16  RRPONTSYD                     4755 non-null   float64
+ 17  RPONTSYD                      4755 non-null   float64
+ 18  WSDONTL                       4752 non-null   float64
+ 19  Gen_IORB                      4755 non-null   float64
+ 20  ONRRP_CTPY_LIMIT              4125 non-null   float64
+ 21  ONRP_AGG_LIMIT                1259 non-null   float64
+ 22  REPO-TRI_AR_OO-P              2569 non-null   float64
+ 23  REPO-TRI_TV_OO-P              2569 non-null   float64
+ 24  REPO-TRI_TV_TOT-P             2570 non-null   float64
+ 25  REPO-DVP_AR_OO-P              1569 non-null   float64
+ 26  REPO-DVP_TV_OO-P              1569 non-null   float64
+ 27  REPO-DVP_TV_TOT-P             1663 non-null   float64
+ 28  REPO-DVP_OV_TOT-P             1663 non-null   float64
+ 29  REPO-GCF_AR_OO-P              106 non-null    float64
+ 30  REPO-GCF_TV_OO-P              106 non-null    float64
+ 31  REPO-GCF_TV_TOT-P             1663 non-null   float64
+ 32  FNYR-BGCR-A                   1688 non-null   float64
+ 33  FNYR-TGCR-A                   1688 non-null   float64
+ 34  target_midpoint               4755 non-null   float64
+ 35  SOFR-IORB                     1688 non-null   float64
+ 36  net_fed_repo                  4755 non-null   float64
+ 37  triparty_less_fed_onrrp_rate  2569 non-null   float64
+ 38  total reserves / currency     4755 non-null   float64
+ 39  is_tri_above_fed_upper        4755 non-null   bool   
+ 40  is_SOFR_above_fed_upper       4755 non-null   bool   
+ 41  is_SOFR_above_IORB            4755 non-null   bool   
+ 42  is_SOFR_2std_above_IORB       4755 non-null   bool   
 dtypes: bool(4), float64(39)
-memory usage: 1.5 MB
+memory usage: 1.6 MB
 </pre></div>
 </div>
 </div>
@@ -1165,7 +1291,7 @@ memory usage: 1.5 MB
 <p>Notice, however, that this is different when comparing the 75% percentiles. SOFR is higher than triparty and DVP is even higher.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;SOFR&#39;</span><span class="p">,</span> <span class="s1">&#39;REPO-TRI_AR_OO-P&#39;</span><span class="p">,</span> <span class="s1">&#39;REPO-DVP_AR_OO-P&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;SOFR&#39;</span><span class="p">,</span> <span class="s1">&#39;REPO-TRI_AR_OO-P&#39;</span><span class="p">,</span> <span class="s1">&#39;REPO-DVP_AR_OO-P&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1196,21 +1322,21 @@ memory usage: 1.5 MB
   <tbody>
     <tr>
       <th>count</th>
-      <td>999.000000</td>
-      <td>999.000000</td>
-      <td>999.000000</td>
+      <td>1568.000000</td>
+      <td>1568.000000</td>
+      <td>1568.000000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>1.794575</td>
-      <td>1.797548</td>
-      <td>1.768759</td>
+      <td>2.349522</td>
+      <td>2.335153</td>
+      <td>2.330606</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>2.090504</td>
-      <td>2.077752</td>
-      <td>2.087952</td>
+      <td>2.025624</td>
+      <td>2.000532</td>
+      <td>2.029859</td>
     </tr>
     <tr>
       <th>min</th>
@@ -1220,21 +1346,21 @@ memory usage: 1.5 MB
     </tr>
     <tr>
       <th>25%</th>
-      <td>0.050000</td>
-      <td>0.060000</td>
-      <td>0.030000</td>
+      <td>0.090000</td>
+      <td>0.100000</td>
+      <td>0.090000</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>0.300000</td>
-      <td>0.300000</td>
-      <td>0.250000</td>
+      <td>2.145000</td>
+      <td>2.140000</td>
+      <td>2.130000</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>4.300000</td>
-      <td>4.290000</td>
-      <td>4.240000</td>
+      <td>4.605000</td>
+      <td>4.540000</td>
+      <td>4.620000</td>
     </tr>
     <tr>
       <th>max</th>
@@ -1249,7 +1375,7 @@ memory usage: 1.5 MB
 <p>Now, I include GCF. It appears that GCF is the highest. Borrow low at tri-party, lend higher into SOFR (but lower to specials) and lend highest to GCF.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;SOFR&#39;</span><span class="p">,</span> <span class="s1">&#39;REPO-TRI_AR_OO-P&#39;</span><span class="p">,</span> <span class="s1">&#39;REPO-DVP_AR_OO-P&#39;</span><span class="p">,</span> <span class="s1">&#39;REPO-GCF_AR_OO-P&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;SOFR&#39;</span><span class="p">,</span> <span class="s1">&#39;REPO-TRI_AR_OO-P&#39;</span><span class="p">,</span> <span class="s1">&#39;REPO-DVP_AR_OO-P&#39;</span><span class="p">,</span> <span class="s1">&#39;REPO-GCF_AR_OO-P&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1281,24 +1407,24 @@ memory usage: 1.5 MB
   <tbody>
     <tr>
       <th>count</th>
-      <td>59.000000</td>
-      <td>59.000000</td>
-      <td>59.000000</td>
-      <td>59.000000</td>
+      <td>106.000000</td>
+      <td>106.000000</td>
+      <td>106.000000</td>
+      <td>106.000000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>3.805763</td>
-      <td>3.794576</td>
-      <td>3.777458</td>
-      <td>3.866271</td>
+      <td>3.293962</td>
+      <td>3.276604</td>
+      <td>3.272830</td>
+      <td>3.363302</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>1.933254</td>
-      <td>1.921691</td>
-      <td>1.936332</td>
-      <td>1.952462</td>
+      <td>1.721574</td>
+      <td>1.714196</td>
+      <td>1.723694</td>
+      <td>1.730514</td>
     </tr>
     <tr>
       <th>min</th>
@@ -1309,31 +1435,31 @@ memory usage: 1.5 MB
     </tr>
     <tr>
       <th>25%</th>
-      <td>3.390000</td>
-      <td>3.400000</td>
-      <td>3.285000</td>
-      <td>3.430000</td>
+      <td>2.075000</td>
+      <td>2.042500</td>
+      <td>2.042500</td>
+      <td>2.170000</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>4.570000</td>
-      <td>4.540000</td>
-      <td>4.550000</td>
-      <td>4.650000</td>
+      <td>2.735000</td>
+      <td>2.730000</td>
+      <td>2.665000</td>
+      <td>2.830000</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>5.190000</td>
-      <td>5.170000</td>
-      <td>5.175000</td>
-      <td>5.280000</td>
+      <td>5.050000</td>
+      <td>5.040000</td>
+      <td>5.027500</td>
+      <td>5.130000</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>5.350000</td>
-      <td>5.300000</td>
-      <td>5.340000</td>
-      <td>5.430000</td>
+      <td>5.400000</td>
+      <td>5.320000</td>
+      <td>5.390000</td>
+      <td>5.470000</td>
     </tr>
   </tbody>
 </table>
@@ -1368,24 +1494,24 @@ memory usage: 1.5 MB
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../lectures/Week1/HW1.html"
+       href="../lectures/Week2/HW2.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Homework 1</p>
+        <p class="prev-next-title">Homework 2</p>
       </div>
     </a>
     <a class="right-next"
-       href="../lectures/Week2/overview_w2.html"
+       href="../lectures/Week3/overview_w3.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 2: Build Systems and Task Runners</p>
+        <p class="prev-next-title">Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1397,6 +1523,7 @@ memory usage: 1.5 MB
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1452,7 +1579,7 @@ By Jeremy Bejarano
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -1476,8 +1603,8 @@ By Jeremy Bejarano
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

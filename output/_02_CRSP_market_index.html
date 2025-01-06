@@ -1,67 +1,62 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>HW Guide Part A: CRSP Market Returns Indices &#8212; Data Science Tools for Finance</title>
+    <title>HW Guide Part A: CRSP Market Returns Indices &#8212; Full Stack Quantitative Finance</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'output/_02_CRSP_market_index';</script>
@@ -78,28 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -121,12 +111,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -143,6 +141,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -155,83 +155,100 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Data Science Tools for Finance - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Data Science Tools for Finance - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Full Stack Quantitative Finance - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Full Stack Quantitative Finance - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Data Science Tools for Finance
+                    Full Stack Quantitative Finance
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Winter 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Winter 2025</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/Week1/HW0.html">Homework 0: Setting up your computing environment</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week1/overview_w1.html">Week 1: Introduction</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/Week1/what_is_this_course_about.html">What is Data Science? Where does this course fit in?</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week1/overview_w1.html">Week 1: Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week1/what_is_this_course_about.html">What is Full Stack Quantitative Finance? Why This Course?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week1/HW1.html">Homework 1</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week1/HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_01_wage_growth_during_the_recession.html">HW Guide: Wage Growth During the Recession</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/subject_to_change_after_this_week.html">Schedule subject to change after marker</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week2/overview_w2.html">Week 2: Build Systems and Task Runners</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/virtual_environments.html">Virtual Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/what_is_a_build_system.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/project_structure.html">Project Structure</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week2/HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
 
 
 
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week2/overview_w2.html">Week 2: Build Systems and Task Runners</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/virtual_environments.html">Virtual Environments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/what_is_a_build_system.html">What is a build system or task runner?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/project_structure.html">Project Structure</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week2/HW2.html">Homework 2</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_01_wage_growth_during_the_recession.html">HW Guide: Wage Growth During the Recession</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week3/overview_w3.html">Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week3/overview_w3.html">Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week3/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week3/env_files.html">Env Files and the Separations of Settings from Code</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../lectures/Week3/HW3.html">Homework 3</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../lectures/Week3/HW3.html">Homework 3</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">HW Guide Part A: CRSP Market Returns Indices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_03_Fama_French_1993.html">HW Guide Part B: Replicate Fama-French 1993</a></li>
 
 
 
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week4/overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week4/overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week5/overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week5/overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week5/sphinx.html">Sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week5/unit_tests.html">Unit Tests</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week6/overview_w6.html">Week 6: Bloomberg and Social Coding with GitHub</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week6/overview_w6.html">Week 6: Bloomberg and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week6/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week6/GitHub_pull_requests.html">GitHub Pull Requests: Enhancing Collaborative Development</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/Week7/overview_w7.html">Week 7: Reviewing Sphinx and Unit Tests</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Misc/final_project.html">Final Project</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week8/overview_w8.html">Week 8: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/Week8/HW4.html">Homework 4</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Misc/final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Misc/potential_final_projects.html">List of Potential Final Projects</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/Misc/appendix.html">Appendix</a></li>
 </ul>
 
@@ -248,7 +265,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -257,14 +274,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -389,10 +406,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -400,14 +417,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -439,10 +456,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hw-guide-part-a-crsp-market-returns-indices">
-<h1>HW Guide Part A: CRSP Market Returns Indices<a class="headerlink" href="#hw-guide-part-a-crsp-market-returns-indices" title="Permalink to this heading">#</a></h1>
+<h1>HW Guide Part A: CRSP Market Returns Indices<a class="headerlink" href="#hw-guide-part-a-crsp-market-returns-indices" title="Link to this heading">#</a></h1>
 <p>The CRSP (Center for Research in Security Prices) dataset provides two indices
 for market returns: an equal-weighted index and a value-weighted index (both provided
 in terms of returns with and without dividends). The equal-weighted index
@@ -452,12 +469,12 @@ The value-Weighted Returns index represents a stock market index that calculates
 <p>These suggestions boil down to the most important part: we must select the correct universe of stocks that comprise “the market”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="kn">import</span> <span class="nn">config</span>
-<span class="kn">import</span> <span class="nn">load_CRSP_stock</span>
-<span class="kn">import</span> <span class="nn">calc_CRSP_indices</span>
-<span class="kn">import</span> <span class="nn">misc_tools</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pull_CRSP_stock</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">calc_CRSP_indices</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">misc_tools</span>
 
 <span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">DATA_DIR</span>
 </pre></div>
@@ -466,8 +483,8 @@ The value-Weighted Returns index represents a stock market index that calculates
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_msf</span> <span class="o">=</span> <span class="n">load_CRSP_stock</span><span class="o">.</span><span class="n">load_CRSP_monthly_file</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">DATA_DIR</span><span class="p">)</span>
-<span class="n">df_msix</span> <span class="o">=</span> <span class="n">load_CRSP_stock</span><span class="o">.</span><span class="n">load_CRSP_index_files</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">DATA_DIR</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_msf</span> <span class="o">=</span> <span class="n">pull_CRSP_stock</span><span class="o">.</span><span class="n">load_CRSP_monthly_file</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">DATA_DIR</span><span class="p">)</span>
+<span class="n">df_msix</span> <span class="o">=</span> <span class="n">pull_CRSP_stock</span><span class="o">.</span><span class="n">load_CRSP_index_files</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">DATA_DIR</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -480,47 +497,47 @@ The value-Weighted Returns index represents a stock market index that calculates
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 72 entries, 0 to 71
+RangeIndex: 1174 entries, 0 to 1173
 Data columns (total 35 columns):
  #   Column    Non-Null Count  Dtype         
 ---  ------    --------------  -----         
- 0   caldt     72 non-null     datetime64[ns]
- 1   vwretd    72 non-null     float64       
- 2   vwindd    72 non-null     float64       
- 3   vwretx    72 non-null     float64       
- 4   vwindx    72 non-null     float64       
- 5   ewretd    72 non-null     float64       
- 6   ewindd    72 non-null     float64       
- 7   ewretx    72 non-null     float64       
- 8   ewindx    72 non-null     float64       
- 9   sprtrn    72 non-null     float64       
- 10  spindx    72 non-null     float64       
- 11  decret1   72 non-null     float64       
- 12  decind1   72 non-null     float64       
- 13  decret2   72 non-null     float64       
- 14  decind2   72 non-null     float64       
- 15  decret3   72 non-null     float64       
- 16  decind3   72 non-null     float64       
- 17  decret4   72 non-null     float64       
- 18  decind4   72 non-null     float64       
- 19  decret5   72 non-null     float64       
- 20  decind5   72 non-null     float64       
- 21  decret6   72 non-null     float64       
- 22  decind6   72 non-null     float64       
- 23  decret7   72 non-null     float64       
- 24  decind7   72 non-null     float64       
- 25  decret8   72 non-null     float64       
- 26  decind8   72 non-null     float64       
- 27  decret9   72 non-null     float64       
- 28  decind9   72 non-null     float64       
- 29  decret10  72 non-null     float64       
- 30  decind10  72 non-null     float64       
- 31  totval    72 non-null     float64       
- 32  totcnt    72 non-null     float64       
- 33  usdval    72 non-null     float64       
- 34  usdcnt    72 non-null     float64       
-dtypes: datetime64[ns](1), float64(34)
-memory usage: 19.8 KB
+ 0   caldt     1174 non-null   datetime64[ns]
+ 1   vwretd    1173 non-null   float64       
+ 2   vwindd    1174 non-null   float64       
+ 3   vwretx    1173 non-null   float64       
+ 4   vwindx    1174 non-null   float64       
+ 5   ewretd    1173 non-null   float64       
+ 6   ewindd    1174 non-null   float64       
+ 7   ewretx    1173 non-null   float64       
+ 8   ewindx    1174 non-null   float64       
+ 9   sprtrn    1173 non-null   float64       
+ 10  spindx    1174 non-null   float64       
+ 11  decret1   1173 non-null   float64       
+ 12  decind1   1174 non-null   float64       
+ 13  decret2   1173 non-null   float64       
+ 14  decind2   1174 non-null   float64       
+ 15  decret3   1173 non-null   float64       
+ 16  decind3   1174 non-null   float64       
+ 17  decret4   1173 non-null   float64       
+ 18  decind4   1174 non-null   float64       
+ 19  decret5   1173 non-null   float64       
+ 20  decind5   1174 non-null   float64       
+ 21  decret6   1173 non-null   float64       
+ 22  decind6   1174 non-null   float64       
+ 23  decret7   1173 non-null   float64       
+ 24  decind7   1174 non-null   float64       
+ 25  decret8   1173 non-null   float64       
+ 26  decind8   1174 non-null   float64       
+ 27  decret9   1173 non-null   float64       
+ 28  decind9   1174 non-null   float64       
+ 29  decret10  1173 non-null   float64       
+ 30  decind10  1174 non-null   float64       
+ 31  totval    1174 non-null   float64       
+ 32  totcnt    1174 non-null   int64         
+ 33  usdval    1173 non-null   float64       
+ 34  usdcnt    1173 non-null   float64       
+dtypes: datetime64[ns](1), float64(33), int64(1)
+memory usage: 321.1 KB
 </pre></div>
 </div>
 </div>
@@ -566,56 +583,56 @@ memory usage: 19.8 KB
   </thead>
   <tbody>
     <tr>
-      <th>67</th>
-      <td>2022-08-31</td>
-      <td>-0.036390</td>
-      <td>-0.038192</td>
-      <td>3108.969</td>
-      <td>-0.007505</td>
-      <td>-0.009162</td>
+      <th>1169</th>
+      <td>2023-05-31</td>
+      <td>0.002027</td>
+      <td>0.000129</td>
+      <td>3222.812</td>
+      <td>-0.006612</td>
+      <td>-0.008389</td>
     </tr>
     <tr>
-      <th>68</th>
-      <td>2022-09-30</td>
-      <td>-0.092082</td>
-      <td>-0.093550</td>
-      <td>2818.124</td>
-      <td>-0.106628</td>
-      <td>-0.108430</td>
+      <th>1170</th>
+      <td>2023-06-30</td>
+      <td>0.067583</td>
+      <td>0.066073</td>
+      <td>3435.752</td>
+      <td>0.054809</td>
+      <td>0.052556</td>
     </tr>
     <tr>
-      <th>69</th>
-      <td>2022-10-31</td>
-      <td>0.078679</td>
-      <td>0.077474</td>
-      <td>3036.457</td>
-      <td>0.051363</td>
-      <td>0.050314</td>
+      <th>1171</th>
+      <td>2023-07-31</td>
+      <td>0.035849</td>
+      <td>0.034858</td>
+      <td>3555.517</td>
+      <td>0.046141</td>
+      <td>0.045216</td>
     </tr>
     <tr>
-      <th>70</th>
-      <td>2022-11-30</td>
-      <td>0.051444</td>
-      <td>0.049416</td>
-      <td>3186.506</td>
-      <td>0.019866</td>
-      <td>0.018111</td>
+      <th>1172</th>
+      <td>2023-08-31</td>
+      <td>-0.020300</td>
+      <td>-0.022082</td>
+      <td>3477.003</td>
+      <td>-0.060090</td>
+      <td>-0.061725</td>
     </tr>
     <tr>
-      <th>71</th>
-      <td>2022-12-30</td>
-      <td>-0.058715</td>
-      <td>-0.060322</td>
-      <td>2994.289</td>
-      <td>-0.050828</td>
-      <td>-0.053276</td>
+      <th>1173</th>
+      <td>2023-09-29</td>
+      <td>-0.048003</td>
+      <td>-0.049226</td>
+      <td>3305.845</td>
+      <td>-0.061929</td>
+      <td>-0.063713</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
 <section id="inclusion-into-the-crsp-market-index">
-<h2>Inclusion into the CRSP Market Index:<a class="headerlink" href="#inclusion-into-the-crsp-market-index" title="Permalink to this heading">#</a></h2>
+<h2>Inclusion into the CRSP Market Index:<a class="headerlink" href="#inclusion-into-the-crsp-market-index" title="Link to this heading">#</a></h2>
 <p>From  <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/support/support-articles/crsp/index-and-deciles/constructing-value-weighted-return-series-matches-vwretd-crsp-monthly-value-weighted-returns-includes-distributions/">https://wrds-www.wharton.upenn.edu/pages/support/support-articles/crsp/index-and-deciles/constructing-value-weighted-return-series-matches-vwretd-crsp-monthly-value-weighted-returns-includes-distributions/</a> ,</p>
 <blockquote>
 <div><p>Our experiments with different VWRETD replication methods show that it is relatively easy to come close to this data series using PERMNO-based returns in the CRSP datasets, but exact matches to every data month is not possible because we do not know the exact sample set of PERMNOs used by CRSP.  Their criteria is listed in the CRSP manual and is roughly:</p>
@@ -670,7 +687,7 @@ memory usage: 19.8 KB
 <p>To best understand this, please look up <code class="docutils literal notranslate"><span class="pre">shrcd</span></code> in the Data Manual here: <a class="reference external" href="https://wrds-www.wharton.upenn.edu/documents/396/CRSP_US_Stock_Indices_Data_Descriptions.pdf">https://wrds-www.wharton.upenn.edu/documents/396/CRSP_US_Stock_Indices_Data_Descriptions.pdf</a> . You’ll find the information on p. 81.</p>
 </section>
 <section id="calculation-of-equal-weighted-returns-and-value-weighted-returns">
-<h2>Calculation of Equal-Weighted Returns and Value-Weighted Returns<a class="headerlink" href="#calculation-of-equal-weighted-returns-and-value-weighted-returns" title="Permalink to this heading">#</a></h2>
+<h2>Calculation of Equal-Weighted Returns and Value-Weighted Returns<a class="headerlink" href="#calculation-of-equal-weighted-returns-and-value-weighted-returns" title="Link to this heading">#</a></h2>
 <p>With the proper universe of stocks in hand, all that is left is to group the returns by <code class="docutils literal notranslate"><span class="pre">permno</span></code> (the identifier of choice here) and average. However, the equal weighted average is a mere simple average. To calculate the value-weighted average, we need to calculate the <em>lagged</em> market cap of each stock <span class="math notranslate nohighlight">\(i\)</span> at time <span class="math notranslate nohighlight">\(t\)</span>.</p>
 <p>That is, the value-weighted return is given by the following formula:</p>
 <div class="math notranslate nohighlight">
@@ -736,59 +753,59 @@ w_{it} = \text{SHROUT}_{it} \times \text{PRC}_{it}.
   </thead>
   <tbody>
     <tr>
-      <th>2017-01-31</th>
-      <td>0.022336</td>
-      <td>0.021233</td>
-      <td>0.027054</td>
-      <td>0.026029</td>
-      <td>0.020352</td>
-      <td>0.019369</td>
-      <td>0.020099</td>
-      <td>0.019627</td>
+      <th>1926-01-30</th>
+      <td>0.000561</td>
+      <td>-0.001395</td>
+      <td>0.023174</td>
+      <td>0.021395</td>
+      <td>-0.003073</td>
+      <td>-0.004792</td>
+      <td>0.023352</td>
+      <td>0.021655</td>
     </tr>
     <tr>
-      <th>2017-02-28</th>
-      <td>0.033241</td>
-      <td>0.031002</td>
-      <td>0.017376</td>
-      <td>0.015540</td>
-      <td>0.034491</td>
-      <td>0.032342</td>
-      <td>0.017413</td>
-      <td>0.016115</td>
+      <th>1926-02-27</th>
+      <td>-0.033046</td>
+      <td>-0.036587</td>
+      <td>-0.053510</td>
+      <td>-0.055547</td>
+      <td>-0.032606</td>
+      <td>-0.036196</td>
+      <td>-0.053742</td>
+      <td>-0.055775</td>
     </tr>
     <tr>
-      <th>2017-03-31</th>
-      <td>0.001911</td>
-      <td>0.000143</td>
-      <td>0.006693</td>
-      <td>0.004630</td>
-      <td>0.002082</td>
-      <td>0.000531</td>
-      <td>0.005756</td>
-      <td>0.004504</td>
+      <th>1926-03-31</th>
+      <td>-0.064002</td>
+      <td>-0.070021</td>
+      <td>-0.096824</td>
+      <td>-0.101404</td>
+      <td>-0.064735</td>
+      <td>-0.070453</td>
+      <td>-0.098592</td>
+      <td>-0.103309</td>
     </tr>
     <tr>
-      <th>2017-04-28</th>
-      <td>0.009677</td>
-      <td>0.008499</td>
-      <td>0.002969</td>
-      <td>0.001865</td>
-      <td>0.011053</td>
-      <td>0.010024</td>
-      <td>0.004030</td>
-      <td>0.003422</td>
+      <th>1926-04-30</th>
+      <td>0.037029</td>
+      <td>0.034043</td>
+      <td>0.032975</td>
+      <td>0.030156</td>
+      <td>0.038126</td>
+      <td>0.035349</td>
+      <td>0.032103</td>
+      <td>0.029329</td>
     </tr>
     <tr>
-      <th>2017-05-31</th>
-      <td>0.009309</td>
-      <td>0.006795</td>
-      <td>-0.015587</td>
-      <td>-0.017561</td>
-      <td>0.010470</td>
-      <td>0.008197</td>
-      <td>-0.012213</td>
-      <td>-0.013440</td>
+      <th>1926-05-28</th>
+      <td>0.012095</td>
+      <td>0.008585</td>
+      <td>0.001035</td>
+      <td>-0.001752</td>
+      <td>0.014286</td>
+      <td>0.010558</td>
+      <td>0.001073</td>
+      <td>-0.001800</td>
     </tr>
   </tbody>
 </table>
@@ -835,89 +852,89 @@ w_{it} = \text{SHROUT}_{it} \times \text{PRC}_{it}.
     <tr>
       <th>vwretd</th>
       <td>1.000000</td>
-      <td>0.999960</td>
-      <td>0.901023</td>
-      <td>0.901571</td>
-      <td>0.999399</td>
-      <td>0.999378</td>
-      <td>0.924494</td>
-      <td>0.925279</td>
+      <td>0.999229</td>
+      <td>0.906159</td>
+      <td>0.905336</td>
+      <td>0.998118</td>
+      <td>0.997479</td>
+      <td>0.904999</td>
+      <td>0.904221</td>
     </tr>
     <tr>
       <th>vwretx</th>
-      <td>0.999960</td>
+      <td>0.999229</td>
       <td>1.000000</td>
-      <td>0.900924</td>
-      <td>0.901522</td>
-      <td>0.999341</td>
-      <td>0.999395</td>
-      <td>0.924397</td>
-      <td>0.925222</td>
+      <td>0.906477</td>
+      <td>0.906376</td>
+      <td>0.997160</td>
+      <td>0.998131</td>
+      <td>0.905324</td>
+      <td>0.905326</td>
     </tr>
     <tr>
       <th>ewretd</th>
-      <td>0.901023</td>
-      <td>0.900924</td>
+      <td>0.906159</td>
+      <td>0.906477</td>
       <td>1.000000</td>
-      <td>0.999966</td>
-      <td>0.895267</td>
-      <td>0.895134</td>
-      <td>0.997283</td>
-      <td>0.997176</td>
+      <td>0.999730</td>
+      <td>0.897040</td>
+      <td>0.897335</td>
+      <td>0.998899</td>
+      <td>0.998576</td>
     </tr>
     <tr>
       <th>ewretx</th>
-      <td>0.901571</td>
-      <td>0.901522</td>
-      <td>0.999966</td>
+      <td>0.905336</td>
+      <td>0.906376</td>
+      <td>0.999730</td>
       <td>1.000000</td>
-      <td>0.895820</td>
-      <td>0.895744</td>
-      <td>0.997279</td>
-      <td>0.997264</td>
+      <td>0.896162</td>
+      <td>0.897175</td>
+      <td>0.998649</td>
+      <td>0.998899</td>
     </tr>
     <tr>
       <th>vwretd_manual</th>
-      <td>0.999399</td>
-      <td>0.999341</td>
-      <td>0.895267</td>
-      <td>0.895820</td>
+      <td>0.998118</td>
+      <td>0.997160</td>
+      <td>0.897040</td>
+      <td>0.896162</td>
       <td>1.000000</td>
-      <td>0.999961</td>
-      <td>0.919795</td>
-      <td>0.920592</td>
+      <td>0.999147</td>
+      <td>0.896282</td>
+      <td>0.895439</td>
     </tr>
     <tr>
       <th>vwretx_manual</th>
-      <td>0.999378</td>
-      <td>0.999395</td>
-      <td>0.895134</td>
-      <td>0.895744</td>
-      <td>0.999961</td>
+      <td>0.997479</td>
+      <td>0.998131</td>
+      <td>0.897335</td>
+      <td>0.897175</td>
+      <td>0.999147</td>
       <td>1.000000</td>
-      <td>0.919659</td>
-      <td>0.920521</td>
+      <td>0.896581</td>
+      <td>0.896520</td>
     </tr>
     <tr>
       <th>ewretd_manual</th>
-      <td>0.924494</td>
-      <td>0.924397</td>
-      <td>0.997283</td>
-      <td>0.997279</td>
-      <td>0.919795</td>
-      <td>0.919659</td>
+      <td>0.904999</td>
+      <td>0.905324</td>
+      <td>0.998899</td>
+      <td>0.998649</td>
+      <td>0.896282</td>
+      <td>0.896581</td>
       <td>1.000000</td>
-      <td>0.999912</td>
+      <td>0.999690</td>
     </tr>
     <tr>
       <th>ewretx_manual</th>
-      <td>0.925279</td>
-      <td>0.925222</td>
-      <td>0.997176</td>
-      <td>0.997264</td>
-      <td>0.920592</td>
-      <td>0.920521</td>
-      <td>0.999912</td>
+      <td>0.904221</td>
+      <td>0.905326</td>
+      <td>0.998576</td>
+      <td>0.998899</td>
+      <td>0.895439</td>
+      <td>0.896520</td>
+      <td>0.999690</td>
       <td>1.000000</td>
     </tr>
   </tbody>
@@ -1181,7 +1198,7 @@ Name: value, dtype: float64
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1210,6 +1227,7 @@ Name: value, dtype: float64
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1243,7 +1261,7 @@ By Jeremy Bejarano
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -1267,8 +1285,8 @@ By Jeremy Bejarano
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

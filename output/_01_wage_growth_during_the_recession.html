@@ -1,71 +1,66 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>HW Guide: Wage Growth During the Recession &#8212; Data Science Tools for Finance</title>
+    <title>HW Guide: Wage Growth During the Recession &#8212; Full Stack Quantitative Finance</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'output/_01_wage_growth_during_the_recession';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL" href="../lectures/Week3/overview_w3.html" />
+    <link rel="next" title="Schedule subject to change after marker" href="../lectures/subject_to_change_after_this_week.html" />
     <link rel="prev" title="Case Study: Atlanta Fed Wage Growth Tracker" href="../lectures/Week2/case_study_atlanta_fed_wage_growth_tracker.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -76,28 +71,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -119,12 +109,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -141,6 +139,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -153,83 +153,100 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Data Science Tools for Finance - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Data Science Tools for Finance - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Full Stack Quantitative Finance - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Full Stack Quantitative Finance - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Data Science Tools for Finance
+                    Full Stack Quantitative Finance
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Winter 2024</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Winter 2025</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/Week1/HW0.html">Homework 0: Setting up your computing environment</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week1/overview_w1.html">Week 1: Introduction</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/Week1/what_is_this_course_about.html">What is Data Science? Where does this course fit in?</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week1/overview_w1.html">Week 1: Introduction</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week1/what_is_this_course_about.html">What is Full Stack Quantitative Finance? Why This Course?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week1/HW1.html">Homework 1</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../lectures/Week1/HW1.html">Homework 1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">HW Guide: Wage Growth During the Recession</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/subject_to_change_after_this_week.html">Schedule subject to change after marker</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week2/overview_w2.html">Week 2: Build Systems and Task Runners</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/virtual_environments.html">Virtual Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/what_is_a_build_system.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/project_structure.html">Project Structure</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week2/HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
 
 
 
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week2/overview_w2.html">Week 2: Build Systems and Task Runners</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/virtual_environments.html">Virtual Environments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/what_is_a_build_system.html">What is a build system or task runner?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/project_structure.html">Project Structure</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../lectures/Week2/HW2.html">Homework 2</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../lectures/Week2/case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">HW Guide: Wage Growth During the Recession</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week3/overview_w3.html">Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week3/overview_w3.html">Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week3/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week3/env_files.html">Env Files and the Separations of Settings from Code</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week3/HW3.html">Homework 3</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week3/HW3.html">Homework 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="_02_CRSP_market_index.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_03_Fama_French_1993.html">HW Guide Part B: Replicate Fama-French 1993</a></li>
 
 
 
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week4/overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week4/overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week5/overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week5/overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week5/sphinx.html">Sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week5/unit_tests.html">Unit Tests</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week6/overview_w6.html">Week 6: Bloomberg and Social Coding with GitHub</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week6/overview_w6.html">Week 6: Bloomberg and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week6/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week6/GitHub_pull_requests.html">GitHub Pull Requests: Enhancing Collaborative Development</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/Week7/overview_w7.html">Week 7: Reviewing Sphinx and Unit Tests</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Misc/final_project.html">Final Project</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week8/overview_w8.html">Week 8: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/Week8/HW4.html">Homework 4</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Misc/final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Misc/potential_final_projects.html">List of Potential Final Projects</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../lectures/Misc/appendix.html">Appendix</a></li>
 </ul>
 
@@ -246,7 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -255,14 +272,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -387,10 +404,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -398,14 +415,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -485,24 +502,24 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hw-guide-wage-growth-during-the-recession">
-<h1>HW Guide: Wage Growth During the Recession<a class="headerlink" href="#hw-guide-wage-growth-during-the-recession" title="Permalink to this heading">#</a></h1>
+<h1>HW Guide: Wage Growth During the Recession<a class="headerlink" href="#hw-guide-wage-growth-during-the-recession" title="Link to this heading">#</a></h1>
 <p>This note is designed to help you understand the full scope of the task. The homework will have you fill in the code to implement some of the functions used here. This notebook will put together all of those functions so as to visualize the final result. If you want, you can first follow the steps of this notebook to help you write the code. You can then refactor the code by moving it into separate files and functions that are covered by the unit tests. The point of this document is to help guide you on the homework.</p>
 <p>Before you start this assignment, you’ll have to install the <code class="docutils literal notranslate"><span class="pre">weightedstats</span></code> package. You can do this by running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">weightedstats</span></code> in a terminal. For more information, see here: <a class="reference external" href="https://pypi.org/project/weightedstats/">https://pypi.org/project/weightedstats/</a> . We will use this package to compute a weighted median. The package is included in the <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> for the HW repo, so you can just use that if you’d like.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">import</span> <span class="nn">weightedstats</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">weightedstats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
 
-<span class="kn">import</span> <span class="nn">config</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span> <span class="nn">load_fred</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">load_fred</span>
 
 <span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">DATA_DIR</span><span class="p">)</span>
 </pre></div>
@@ -511,15 +528,15 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">load_cps</span>
-<span class="kn">import</span> <span class="nn">wage_growth_analytics</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">load_cps</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">wage_growth_analytics</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change default pandas display options</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change default pandas display options</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_columns</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">500</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_colwidth</span> <span class="o">=</span> <span class="mi">100</span>
@@ -532,7 +549,7 @@ document.write(`
 </div>
 </div>
 <section id="introduction">
-<h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>Wages at the aggregate level have been found to rise during the recent recession (or at least not decline). This is surprising given that aggregate labor conditions were so weak. Many economists have viewed this as a puzzle. The goal in this question is to assess whether this is a puzzle, given that the composition of workers are changing over time. We begin by establishing the facts from which this puzzle arises.</p>
 <p>The great recession is generally defined as having lasted from December 2007 to June 2009. For example, see the corresponding article on Wikipedia: <a class="reference external" href="https://en.wikipedia.org/wiki/Great_Recession_in_the_United_States">https://en.wikipedia.org/wiki/Great_Recession_in_the_United_States</a></p>
 <blockquote>
@@ -541,7 +558,7 @@ document.write(`
 <p>Consider the following graph. This graph plots the median weekly real earnings for wage and salary workers ages 16 years and older. The shaded areas in the plots denote officially defined periods of recession, as defined by NBER. Notice that wages during the period of the great recession appear to be increasing. In this document we will be investigating this fact.</p>
 <p><img alt="Median Real Earnings" src="../_images/median_real_earnings_FRED1.png" /></p>
 <section id="step-1-retrieve-and-plot-this-data-from-fred">
-<h3>Step 1. Retrieve and plot this data from FRED<a class="headerlink" href="#step-1-retrieve-and-plot-this-data-from-fred" title="Permalink to this heading">#</a></h3>
+<h3>Step 1. Retrieve and plot this data from FRED<a class="headerlink" href="#step-1-retrieve-and-plot-this-data-from-fred" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Find the data for the FRED plot shown above. You can find it using Google and the title.</p></li>
 <li><p>Also, find the data for the same figure, except restricted to “men”. This is called “Employed full time: Median usual weekly real earnings: Wage and salary workers: 16 years and over: Men (LES1252881900Q)” To eliminate other potentially confounding factors, we will try to narrow the demographic group we are studying.</p></li>
@@ -550,7 +567,7 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_fred</span> <span class="o">=</span> <span class="n">load_fred</span><span class="o">.</span><span class="n">pull_all</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_fred</span> <span class="o">=</span> <span class="n">load_fred</span><span class="o">.</span><span class="n">pull_all</span><span class="p">()</span>
 <span class="n">load_fred</span><span class="o">.</span><span class="n">series_descriptions</span>
 </pre></div>
 </div>
@@ -564,7 +581,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_fred</span> <span class="o">=</span> <span class="n">df_fred</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;LES1252881600Q&#39;</span><span class="p">:</span><span class="s1">&#39;Median wages (all)&#39;</span><span class="p">})</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_fred</span> <span class="o">=</span> <span class="n">df_fred</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;LES1252881600Q&#39;</span><span class="p">:</span><span class="s1">&#39;Median wages (all)&#39;</span><span class="p">})</span>
 <span class="n">df_fred</span> <span class="o">=</span> <span class="n">df_fred</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;LES1252881900Q&#39;</span><span class="p">:</span><span class="s1">&#39;Median wages (men)&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
@@ -572,37 +589,37 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_fred</span><span class="p">[</span><span class="s1">&#39;2000&#39;</span><span class="p">:</span><span class="s1">&#39;2017&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_fred</span><span class="p">[</span><span class="s1">&#39;2000&#39;</span><span class="p">:</span><span class="s1">&#39;2017&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Median usual weekly real earnings&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/69bd2007a0a142ee5479eaa8032b9bff69d4fc0465ecdd200fae0ce7f5842dbb.png" src="../_images/69bd2007a0a142ee5479eaa8032b9bff69d4fc0465ecdd200fae0ce7f5842dbb.png" />
+<img alt="../_images/78a54b5ec30103519b48775eec37fefcfa557cbc60edfbac533b72c6d3bb3812.png" src="../_images/78a54b5ec30103519b48775eec37fefcfa557cbc60edfbac533b72c6d3bb3812.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_fred</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_fred</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Median usual weekly real earnings&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f63ba74a0efa27e874d5cf174b89878500d1e8cf176aa065a11fb27283d7da3d.png" src="../_images/f63ba74a0efa27e874d5cf174b89878500d1e8cf176aa065a11fb27283d7da3d.png" />
+<img alt="../_images/801ff09f05c103977078a4a76238051eb314da92380ef6bfe248d1e413eba39f.png" src="../_images/801ff09f05c103977078a4a76238051eb314da92380ef6bfe248d1e413eba39f.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="demographic-data-from-us-current-population-survey">
-<h2>2. Demographic data from US Current Population Survey<a class="headerlink" href="#demographic-data-from-us-current-population-survey" title="Permalink to this heading">#</a></h2>
+<h2>2. Demographic data from US Current Population Survey<a class="headerlink" href="#demographic-data-from-us-current-population-survey" title="Link to this heading">#</a></h2>
 <p>To study this puzzling fact, we will analyze how changing demographics might affect our aggregate measures of wages. One of our biggest concerns is that as employment rates fell, they fell more for low educated workers than high educated workers. That means the average wages we are measuring will actually be comparing different types of workers in 2010 relative to 2006. This could potentially explain why wages are rising. We will attempt to compensate for this by constructing a demographically adjusted time series for wages.</p>
 <section id="game-plan">
-<h3>Game Plan<a class="headerlink" href="#game-plan" title="Permalink to this heading">#</a></h3>
+<h3>Game Plan<a class="headerlink" href="#game-plan" title="Link to this heading">#</a></h3>
 <p>Here is a summary of what we will do. I will give you more specific instructions afterwards to walk you through this.</p>
 <p>Use data from the 2000-2023 March CPS (downloaded from IPUMS CPS web site) to examine the time series (annual) trend in both nominal and real wages for 25-54 year old men not living in group quarters.  (You need to download the group quarters variable).  Wages will be defined as annual earnings (last year) divided by annual hours (last year).  Annual hours can be computed by multiplying weeks worked last year by usual hours worked (last year). You should do this for a sample of all workers with a positive wage last year. Typically, you can convert to real wages using any deflator you wish. Here, I will require using the CPI99 variable to convert to 1999 dollars. (Note: Many economists like to use the June CPI-U. June is in the middle of the year and, for that reason, avoids some issues with seasonality. The choice of year doesn’t matter.)</p>
 <section id="note-about-asec">
-<h4>Note about ASEC<a class="headerlink" href="#note-about-asec" title="Permalink to this heading">#</a></h4>
+<h4>Note about ASEC<a class="headerlink" href="#note-about-asec" title="Link to this heading">#</a></h4>
 <p>Be sure to download <strong>only</strong> the ASEC samples. The ASEC supplement <em>is</em> the March CPS. The ASEC includes extra variables that are not included in the basic monthly CPS survey. From <a class="reference external" href="https://en.wikipedia.org/wiki/Current_Population_Survey#CPS_Annual_Social_and_Economic_Supplement_(ASEC)-_the_March_Supplement">Wikipedia, the ASEC is described as the following:</a>,</p>
 <blockquote>
 <div><p>Since 1948, the CPS has included supplemental questions (at first, in April; later, in March) on income received in the previous calendar year, which are used to estimate the data on income and work experience. These data are the source of the annual Census Bureau report on income, poverty, and health insurance coverage…</p>
@@ -612,42 +629,8 @@ document.write(`
 </section>
 </section>
 <section id="step-2-download-and-read-the-cps-data-from-ipums">
-<h3>Step 2. Download and Read the CPS Data from IPUMS<a class="headerlink" href="#step-2-download-and-read-the-cps-data-from-ipums" title="Permalink to this heading">#</a></h3>
+<h3>Step 2. Download and Read the CPS Data from IPUMS<a class="headerlink" href="#step-2-download-and-read-the-cps-data-from-ipums" title="Link to this heading">#</a></h3>
 <p>When you download the data from IPUMS, <em>only download the data that you need</em>. This is important, because the data gets very big very fast when you start adding other variables. IPUMS will automatically add certain variables to your “cart”. Go ahead and remove the ones that you don’t need. This will make things much easier. The list of variables that you need are listed below. Make sure to stick to just those variables. You will fill in the code in the file called <code class="docutils literal notranslate"><span class="pre">load_cps.py</span></code> that will clean the raw IPUMS CPS data. This fill assumes that you have downloaded the data manually from the IPUMS CPS website as described above and saved it in the directory <code class="docutils literal notranslate"><span class="pre">../data/manual</span></code> relative to the source file. Relative to the project home directory, this is <code class="docutils literal notranslate"><span class="pre">./data/manual</span></code>. Recall that we are putting it in the <code class="docutils literal notranslate"><span class="pre">manual</span></code> directory instead of the <code class="docutils literal notranslate"><span class="pre">pulled</span></code> directory, because the data was not automatically pulled from the source.</p>
-<p>Also, note that the to pass the unit tests used by the autograder, you must put the data in a file called <code class="docutils literal notranslate"><span class="pre">cps.csv</span></code> in the directory <code class="docutils literal notranslate"><span class="pre">./data/manual</span></code>. Also, please do NOT commit the data to your Git repository, because the data is very large. Here is a hint of what the file <code class="docutils literal notranslate"><span class="pre">load_cps.py</span></code> should look like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="kn">import</span> <span class="nn">config</span>
-<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">DATA_DIR</span>
-
-<span class="k">def</span> <span class="nf">load_raw</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">DATA_DIR</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">):</span>
-    
-    <span class="c1">## Read and Prepare the Data</span>
-
-    <span class="c1"># When you save the file, it must be named `cps.csv`</span>
-    <span class="c1"># and saved in the directory `../data/manual`.</span>
-    <span class="c1"># It is placed in the `manual` directory because it is not</span>
-    <span class="c1"># automatically downloaded from the internet.</span>
-    <span class="n">path</span> <span class="o">=</span> <span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;manual&#39;</span> <span class="o">/</span> <span class="s1">&#39;cps.csv&#39;</span>
-
-    <span class="c1"># YOUR CODE HERE</span>
-
-    <span class="k">return</span> <span class="n">df</span>
-
-<span class="k">def</span> <span class="nf">load_clean</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">DATA_DIR</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">,</span> <span class="n">end_date</span><span class="o">=</span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">):</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">load_raw</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
-    <span class="c1">## Fill in Missing Values or NIU</span>
-    
-    <span class="c1"># YOUR CODE HERE</span>
-
-    <span class="k">return</span> <span class="n">df</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="k">pass</span>
-</pre></div>
-</div>
 <p>The data should contain the following variables:</p>
 <ol class="arabic simple">
 <li><p>YEAR (Survey year)</p></li>
@@ -665,15 +648,16 @@ document.write(`
 <p>When you’re finished, run the following code to see how much memory your data set is using, the list of variables, and the data types each variable is saved as:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">DATA_DIR</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">load_cps</span><span class="o">.</span><span class="n">load_raw</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">DATA_DIR</span>
+<span class="n">MANUAL_DATA_DIR</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">MANUAL_DATA_DIR</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">load_cps</span><span class="o">.</span><span class="n">load_raw</span><span class="p">(</span><span class="n">MANUAL_DATA_DIR</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 4608387 entries, 0 to 4608386
+RangeIndex: 4752652 entries, 0 to 4752651
 Data columns (total 12 columns):
  #   Column      Dtype         
 ---  ------      -----         
@@ -690,7 +674,7 @@ Data columns (total 12 columns):
  10  UHRSWORKLY  int64         
  11  INCWAGE     int64         
 dtypes: category(4), datetime64[ns](1), float64(2), int64(5)
-memory usage: 298.9 MB
+memory usage: 308.2 MB
 </pre></div>
 </div>
 </div>
@@ -720,7 +704,7 @@ memory usage: 298.9 MB
 <p>If you use restrict your data set to exactly these variables and follow the instructions precisely, you should be able to replicate the exact numbers that I get. (For example, don’t drop missing data until the instructions tell you to.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -756,30 +740,30 @@ memory usage: 298.9 MB
   <tbody>
     <tr>
       <th>count</th>
-      <td>4608387</td>
-      <td>4608387.000</td>
-      <td>4608387.000</td>
-      <td>4608387.000</td>
-      <td>4608387.000</td>
-      <td>4608387.000</td>
-      <td>4608387.000</td>
-      <td>4608387.000</td>
+      <td>4752652</td>
+      <td>4752652.000</td>
+      <td>4752652.000</td>
+      <td>4752652.000</td>
+      <td>4752652.000</td>
+      <td>4752652.000</td>
+      <td>4752652.000</td>
+      <td>4752652.000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>2011-01-03 04:15:05.989538816</td>
-      <td>0.779</td>
-      <td>130758231204187.125</td>
-      <td>1663.893</td>
-      <td>35.299</td>
-      <td>23.545</td>
-      <td>511.494</td>
-      <td>23437302.472</td>
+      <td>2011-05-27 05:38:11.579523328</td>
+      <td>0.772</td>
+      <td>130839243535879.688</td>
+      <td>1683.323</td>
+      <td>35.410</td>
+      <td>23.563</td>
+      <td>511.442</td>
+      <td>23325037.674</td>
     </tr>
     <tr>
       <th>min</th>
       <td>2000-01-01 00:00:00</td>
-      <td>0.569</td>
+      <td>0.547</td>
       <td>0.000</td>
       <td>21.090</td>
       <td>0.000</td>
@@ -792,8 +776,8 @@ memory usage: 298.9 MB
       <td>2005-01-01 00:00:00</td>
       <td>0.694</td>
       <td>0.000</td>
-      <td>809.490</td>
-      <td>15.000</td>
+      <td>817.808</td>
+      <td>16.000</td>
       <td>0.000</td>
       <td>40.000</td>
       <td>0.000</td>
@@ -802,8 +786,8 @@ memory usage: 298.9 MB
       <th>50%</th>
       <td>2011-01-01 00:00:00</td>
       <td>0.764</td>
-      <td>200403026765031.000</td>
-      <td>1493.780</td>
+      <td>200412011918016.000</td>
+      <td>1506.560</td>
       <td>35.000</td>
       <td>6.000</td>
       <td>70.000</td>
@@ -813,18 +797,18 @@ memory usage: 298.9 MB
       <th>75%</th>
       <td>2017-01-01 00:00:00</td>
       <td>0.882</td>
-      <td>201301054209016.000</td>
-      <td>2178.210</td>
+      <td>201303039922031.000</td>
+      <td>2211.361</td>
       <td>52.000</td>
       <td>52.000</td>
       <td>999.000</td>
-      <td>145000.000</td>
+      <td>142000.000</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>2023-01-01 00:00:00</td>
+      <td>2024-01-01 00:00:00</td>
       <td>1.000</td>
-      <td>202303068702011.000</td>
+      <td>202403069322011.000</td>
       <td>44423.830</td>
       <td>90.000</td>
       <td>52.000</td>
@@ -834,13 +818,13 @@ memory usage: 298.9 MB
     <tr>
       <th>std</th>
       <td>NaN</td>
-      <td>0.112</td>
-      <td>95860476618055.766</td>
-      <td>1212.633</td>
-      <td>22.322</td>
-      <td>24.775</td>
-      <td>480.187</td>
-      <td>42335696.104</td>
+      <td>0.117</td>
+      <td>95862336975917.375</td>
+      <td>1224.023</td>
+      <td>22.360</td>
+      <td>24.782</td>
+      <td>480.190</td>
+      <td>42264633.688</td>
     </tr>
   </tbody>
 </table>
@@ -849,7 +833,7 @@ memory usage: 298.9 MB
 <p>When filling in the missing values, keep in mind the codings for each variable. Consult the associated codebook and IPUMS documentation for complete information. (I’ve included the codebook from my data extract in the file named: <code class="docutils literal notranslate"><span class="pre">cps_00007_codebook.pdf</span></code>)</p>
 <p>For your convenience, I’ve reproduced some information about some of our variables below.</p>
 <section id="uhrsworkly">
-<h4>UHRSWORKLY<a class="headerlink" href="#uhrsworkly" title="Permalink to this heading">#</a></h4>
+<h4>UHRSWORKLY<a class="headerlink" href="#uhrsworkly" title="Link to this heading">#</a></h4>
 <p>For UHRSWORKLY: Usual hours worked per week (last yr) <a class="reference external" href="https://cps.ipums.org/cps-action/variables/UHRSWORKLY#codes_section">https://cps.ipums.org/cps-action/variables/UHRSWORKLY#codes_section</a></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>UHRSWORKLY is a 2-digit numeric value.
 
@@ -862,7 +846,7 @@ memory usage: 298.9 MB
 </div></blockquote>
 </section>
 <section id="incwage">
-<h4>INCWAGE<a class="headerlink" href="#incwage" title="Permalink to this heading">#</a></h4>
+<h4>INCWAGE<a class="headerlink" href="#incwage" title="Link to this heading">#</a></h4>
 <p>For INCWAGE: Wage and salary income <a class="reference external" href="https://cps.ipums.org/cps-action/variables/INCWAGE#description_section">https://cps.ipums.org/cps-action/variables/INCWAGE#description_section</a></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Codes
 9999999 = N.I.U. (Not in Universe). 
@@ -877,7 +861,7 @@ memory usage: 298.9 MB
 </div></blockquote>
 </section>
 <section id="cpi99">
-<h4>CPI99<a class="headerlink" href="#cpi99" title="Permalink to this heading">#</a></h4>
+<h4>CPI99<a class="headerlink" href="#cpi99" title="Link to this heading">#</a></h4>
 <p>For CPI99: CPI99 is a 4-digit variable with three implied decimal places. <a class="reference external" href="https://cps.ipums.org/cps-action/variables/CPI99#description_section">https://cps.ipums.org/cps-action/variables/CPI99#description_section</a></p>
 <blockquote>
 <div><p>CPI99 provides the CPI-U multiplier (available from the Bureau of Labor Statistics) to convert dollar figures to constant 1999 dollars. (This corresponds to the dollar amounts in the 2000 CPS, which inquired about income in 1999.) Multiplying dollar amounts by this variable (which is constant within years) will render them comparable across time and thus suitable for multivariate analysis.</p>
@@ -887,7 +871,7 @@ memory usage: 298.9 MB
 </div></blockquote>
 </section>
 <section id="labforce">
-<h4>LABFORCE<a class="headerlink" href="#labforce" title="Permalink to this heading">#</a></h4>
+<h4>LABFORCE<a class="headerlink" href="#labforce" title="Link to this heading">#</a></h4>
 <p><a class="reference external" href="https://cps.ipums.org/cps-action/variables/LABFORCE#codes_section">https://cps.ipums.org/cps-action/variables/LABFORCE#codes_section</a></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Codes:
 0   NIU
@@ -904,20 +888,20 @@ memory usage: 298.9 MB
 </section>
 </section>
 <section id="step-3-recode-the-missing-data">
-<h3>Step 3. Recode the missing data<a class="headerlink" href="#step-3-recode-the-missing-data" title="Permalink to this heading">#</a></h3>
+<h3>Step 3. Recode the missing data<a class="headerlink" href="#step-3-recode-the-missing-data" title="Link to this heading">#</a></h3>
 <p>Each variable in the CPS data that we downloaded has specific codes used to represent missing data. There is also a difference between data that is missing and data that is considered “NIU”, meaning “Not in Universe.” Consult the documentation for the meaning of each of the codes for each of the variables. Convert all missing values and NIU values to <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
 <p>For example, you should include the following code for INCWAGE:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># INCWAGE: Missing values</span>
-<span class="c1"># 9999999 = N.I.U. (Not in Universe). </span>
-<span class="c1"># 9999998 = Missing.</span>
-<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;INCWAGE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">9999999</span><span class="p">,</span> <span class="s1">&#39;INCWAGE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;INCWAGE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">9999998</span><span class="p">,</span> <span class="s1">&#39;INCWAGE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="c1"># 99999999 = N.I.U. (Not in Universe). </span>
+<span class="c1"># 99999998 = Missing.</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;INCWAGE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">99999999</span><span class="p">,</span> <span class="s1">&#39;INCWAGE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;INCWAGE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">99999998</span><span class="p">,</span> <span class="s1">&#39;INCWAGE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 </pre></div>
 </div>
 <p><em>Be sure to look at the encodings on IPUMS to make sure you’re properly coding all variables in your dataset—not just the ones that I listed above (not necessarily comprehensive).</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">load_cps</span><span class="o">.</span><span class="n">load_clean</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">load_cps</span><span class="o">.</span><span class="n">load_clean</span><span class="p">(</span><span class="n">MANUAL_DATA_DIR</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -954,30 +938,30 @@ memory usage: 298.9 MB
   <tbody>
     <tr>
       <th>count</th>
-      <td>4608387</td>
-      <td>4608387.000</td>
-      <td>4608387.000</td>
-      <td>4608387.000</td>
-      <td>4608387.000</td>
-      <td>4608387.000</td>
-      <td>2339421.000</td>
-      <td>3529280.000</td>
+      <td>4752652</td>
+      <td>4752652.000</td>
+      <td>4752652.000</td>
+      <td>4752652.000</td>
+      <td>4752652.000</td>
+      <td>4752652.000</td>
+      <td>2412892.000</td>
+      <td>3645116.000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>2011-01-03 04:15:05.989538816</td>
-      <td>0.779</td>
-      <td>130758231204187.125</td>
-      <td>1663.893</td>
-      <td>35.299</td>
-      <td>23.545</td>
-      <td>38.670</td>
-      <td>27615.011</td>
+      <td>2011-05-27 05:38:11.579523328</td>
+      <td>0.772</td>
+      <td>130839243535879.688</td>
+      <td>1683.323</td>
+      <td>35.410</td>
+      <td>23.563</td>
+      <td>38.661</td>
+      <td>28034.241</td>
     </tr>
     <tr>
       <th>min</th>
       <td>2000-01-01 00:00:00</td>
-      <td>0.569</td>
+      <td>0.547</td>
       <td>0.000</td>
       <td>21.090</td>
       <td>0.000</td>
@@ -990,8 +974,8 @@ memory usage: 298.9 MB
       <td>2005-01-01 00:00:00</td>
       <td>0.694</td>
       <td>0.000</td>
-      <td>809.490</td>
-      <td>15.000</td>
+      <td>817.808</td>
+      <td>16.000</td>
       <td>0.000</td>
       <td>36.000</td>
       <td>0.000</td>
@@ -1000,8 +984,8 @@ memory usage: 298.9 MB
       <th>50%</th>
       <td>2011-01-01 00:00:00</td>
       <td>0.764</td>
-      <td>200403026765031.000</td>
-      <td>1493.780</td>
+      <td>200412011918016.000</td>
+      <td>1506.560</td>
       <td>35.000</td>
       <td>6.000</td>
       <td>40.000</td>
@@ -1011,8 +995,8 @@ memory usage: 298.9 MB
       <th>75%</th>
       <td>2017-01-01 00:00:00</td>
       <td>0.882</td>
-      <td>201301054209016.000</td>
-      <td>2178.210</td>
+      <td>201303039922031.000</td>
+      <td>2211.361</td>
       <td>52.000</td>
       <td>52.000</td>
       <td>40.000</td>
@@ -1020,9 +1004,9 @@ memory usage: 298.9 MB
     </tr>
     <tr>
       <th>max</th>
-      <td>2023-01-01 00:00:00</td>
+      <td>2024-01-01 00:00:00</td>
       <td>1.000</td>
-      <td>202303068702011.000</td>
+      <td>202403069322011.000</td>
       <td>44423.830</td>
       <td>90.000</td>
       <td>52.000</td>
@@ -1032,13 +1016,13 @@ memory usage: 298.9 MB
     <tr>
       <th>std</th>
       <td>NaN</td>
-      <td>0.112</td>
-      <td>95860476618055.766</td>
-      <td>1212.633</td>
-      <td>22.322</td>
-      <td>24.775</td>
-      <td>12.143</td>
-      <td>50830.984</td>
+      <td>0.117</td>
+      <td>95862336975917.375</td>
+      <td>1224.023</td>
+      <td>22.360</td>
+      <td>24.782</td>
+      <td>12.122</td>
+      <td>51670.193</td>
     </tr>
   </tbody>
 </table>
@@ -1046,7 +1030,7 @@ memory usage: 298.9 MB
 </div>
 </section>
 <section id="step-4-select-the-desired-subsample-of-the-data">
-<h3>Step 4. Select the desired subsample of the data<a class="headerlink" href="#step-4-select-the-desired-subsample-of-the-data" title="Permalink to this heading">#</a></h3>
+<h3>Step 4. Select the desired subsample of the data<a class="headerlink" href="#step-4-select-the-desired-subsample-of-the-data" title="Link to this heading">#</a></h3>
 <p>As we mentioned, we want to narrow the demographic group under consideration. Drop all observations from <code class="docutils literal notranslate"><span class="pre">df</span></code> that don’t match the following conditions.</p>
 <blockquote>
 <div><p>Use data from the 2000-2023 March CPS for 25-54 year old men not living in group quarters. Only consider individuals with a strictly positive income from wages.</p>
@@ -1058,7 +1042,7 @@ memory usage: 298.9 MB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s04_subsample</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s04_subsample</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1095,30 +1079,30 @@ memory usage: 298.9 MB
   <tbody>
     <tr>
       <th>count</th>
-      <td>769289</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
+      <td>792456</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>2010-09-12 14:19:39.280088576</td>
-      <td>0.784</td>
-      <td>129017301880106.188</td>
-      <td>1680.482</td>
-      <td>39.524</td>
-      <td>49.189</td>
-      <td>43.372</td>
-      <td>58904.663</td>
+      <td>2011-02-01 15:06:39.915200512</td>
+      <td>0.777</td>
+      <td>129026943321680.312</td>
+      <td>1699.807</td>
+      <td>39.518</td>
+      <td>49.204</td>
+      <td>43.340</td>
+      <td>59718.730</td>
     </tr>
     <tr>
       <th>min</th>
       <td>2000-01-01 00:00:00</td>
-      <td>0.569</td>
+      <td>0.547</td>
       <td>0.000</td>
       <td>25.330</td>
       <td>25.000</td>
@@ -1129,41 +1113,41 @@ memory usage: 298.9 MB
     <tr>
       <th>25%</th>
       <td>2005-01-01 00:00:00</td>
-      <td>0.703</td>
+      <td>0.694</td>
       <td>0.000</td>
-      <td>816.090</td>
+      <td>825.017</td>
       <td>33.000</td>
       <td>52.000</td>
       <td>40.000</td>
-      <td>26000.000</td>
+      <td>27000.000</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>2010-01-01 00:00:00</td>
-      <td>0.774</td>
-      <td>200312067062011.000</td>
-      <td>1503.350</td>
+      <td>2011-01-01 00:00:00</td>
+      <td>0.764</td>
+      <td>200401045625016.000</td>
+      <td>1516.550</td>
       <td>40.000</td>
       <td>52.000</td>
       <td>40.000</td>
-      <td>44000.000</td>
+      <td>45000.000</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>2016-01-01 00:00:00</td>
+      <td>2017-01-01 00:00:00</td>
       <td>0.882</td>
-      <td>201203011452011.000</td>
-      <td>2177.640</td>
-      <td>47.000</td>
+      <td>201212064455521.000</td>
+      <td>2209.660</td>
+      <td>46.000</td>
       <td>52.000</td>
-      <td>48.000</td>
+      <td>47.000</td>
       <td>70000.000</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>2023-01-01 00:00:00</td>
+      <td>2024-01-01 00:00:00</td>
       <td>1.000</td>
-      <td>202303068387021.000</td>
+      <td>202403069322011.000</td>
       <td>44423.830</td>
       <td>54.000</td>
       <td>52.000</td>
@@ -1173,13 +1157,13 @@ memory usage: 298.9 MB
     <tr>
       <th>std</th>
       <td>NaN</td>
-      <td>0.113</td>
-      <td>96368008905273.844</td>
-      <td>1246.006</td>
-      <td>8.324</td>
-      <td>8.458</td>
-      <td>9.639</td>
-      <td>67907.862</td>
+      <td>0.118</td>
+      <td>96391382223115.375</td>
+      <td>1257.945</td>
+      <td>8.325</td>
+      <td>8.436</td>
+      <td>9.618</td>
+      <td>68994.539</td>
     </tr>
   </tbody>
 </table>
@@ -1187,7 +1171,7 @@ memory usage: 298.9 MB
 </div>
 </section>
 <section id="step-5-construct-new-variables">
-<h3>Step 5. Construct new  variables<a class="headerlink" href="#step-5-construct-new-variables" title="Permalink to this heading">#</a></h3>
+<h3>Step 5. Construct new  variables<a class="headerlink" href="#step-5-construct-new-variables" title="Link to this heading">#</a></h3>
 <p>Now, construct new variables called <code class="docutils literal notranslate"><span class="pre">real_incwage</span></code>, <code class="docutils literal notranslate"><span class="pre">annual_hours</span></code>, <code class="docutils literal notranslate"><span class="pre">real_wage</span></code>, and <code class="docutils literal notranslate"><span class="pre">in_labor_force</span></code>.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">real_incwage</span></code> is the CPI99 deflator times annual earnings (last year)</p></li>
@@ -1203,7 +1187,7 @@ memory usage: 298.9 MB
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s05_new_vars</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s05_new_vars</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1243,36 +1227,36 @@ memory usage: 298.9 MB
   <tbody>
     <tr>
       <th>count</th>
-      <td>769289</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
+      <td>792456</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>2010-09-12 14:19:39.280088576</td>
-      <td>0.784</td>
-      <td>129017301880106.188</td>
-      <td>1680.482</td>
-      <td>39.524</td>
-      <td>49.189</td>
-      <td>43.372</td>
-      <td>58904.663</td>
-      <td>45146.824</td>
-      <td>2146.530</td>
-      <td>21.946</td>
+      <td>2011-02-01 15:06:39.915200512</td>
+      <td>0.777</td>
+      <td>129026943321680.312</td>
+      <td>1699.807</td>
+      <td>39.518</td>
+      <td>49.204</td>
+      <td>43.340</td>
+      <td>59718.730</td>
+      <td>45214.235</td>
+      <td>2145.548</td>
+      <td>22.022</td>
     </tr>
     <tr>
       <th>min</th>
       <td>2000-01-01 00:00:00</td>
-      <td>0.569</td>
+      <td>0.547</td>
       <td>0.000</td>
       <td>25.330</td>
       <td>25.000</td>
@@ -1286,50 +1270,50 @@ memory usage: 298.9 MB
     <tr>
       <th>25%</th>
       <td>2005-01-01 00:00:00</td>
-      <td>0.703</td>
+      <td>0.694</td>
       <td>0.000</td>
-      <td>816.090</td>
+      <td>825.017</td>
       <td>33.000</td>
       <td>52.000</td>
       <td>40.000</td>
-      <td>26000.000</td>
-      <td>20904.000</td>
+      <td>27000.000</td>
+      <td>20979.000</td>
       <td>2080.000</td>
-      <td>10.385</td>
+      <td>10.414</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>2010-01-01 00:00:00</td>
-      <td>0.774</td>
-      <td>200312067062011.000</td>
-      <td>1503.350</td>
+      <td>2011-01-01 00:00:00</td>
+      <td>0.764</td>
+      <td>200401045625016.000</td>
+      <td>1516.550</td>
       <td>40.000</td>
       <td>52.000</td>
       <td>40.000</td>
-      <td>44000.000</td>
-      <td>34086.000</td>
+      <td>45000.000</td>
+      <td>34120.000</td>
       <td>2080.000</td>
-      <td>15.772</td>
+      <td>15.779</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>2016-01-01 00:00:00</td>
+      <td>2017-01-01 00:00:00</td>
       <td>0.882</td>
-      <td>201203011452011.000</td>
-      <td>2177.640</td>
-      <td>47.000</td>
+      <td>201212064455521.000</td>
+      <td>2209.660</td>
+      <td>46.000</td>
       <td>52.000</td>
-      <td>48.000</td>
+      <td>47.000</td>
       <td>70000.000</td>
-      <td>53625.000</td>
+      <td>53637.000</td>
       <td>2340.000</td>
-      <td>24.188</td>
+      <td>24.228</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>2023-01-01 00:00:00</td>
+      <td>2024-01-01 00:00:00</td>
       <td>1.000</td>
-      <td>202303068387021.000</td>
+      <td>202403069322011.000</td>
       <td>44423.830</td>
       <td>54.000</td>
       <td>52.000</td>
@@ -1342,16 +1326,16 @@ memory usage: 298.9 MB
     <tr>
       <th>std</th>
       <td>NaN</td>
-      <td>0.113</td>
-      <td>96368008905273.844</td>
-      <td>1246.006</td>
-      <td>8.324</td>
-      <td>8.458</td>
-      <td>9.639</td>
-      <td>67907.862</td>
-      <td>50168.412</td>
-      <td>607.767</td>
-      <td>368.105</td>
+      <td>0.118</td>
+      <td>96391382223115.375</td>
+      <td>1257.945</td>
+      <td>8.325</td>
+      <td>8.436</td>
+      <td>9.618</td>
+      <td>68994.539</td>
+      <td>50216.603</td>
+      <td>606.098</td>
+      <td>364.976</td>
     </tr>
   </tbody>
 </table>
@@ -1359,7 +1343,7 @@ memory usage: 298.9 MB
 </div>
 </section>
 <section id="step-6-drop-data-that-we-no-longer-need">
-<h3>Step 6. Drop data that we no longer need.<a class="headerlink" href="#step-6-drop-data-that-we-no-longer-need" title="Permalink to this heading">#</a></h3>
+<h3>Step 6. Drop data that we no longer need.<a class="headerlink" href="#step-6-drop-data-that-we-no-longer-need" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Run the code below to drop data that we don’t need.</p></li>
 </ul>
@@ -1378,21 +1362,21 @@ memory usage: 298.9 MB
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s06_drop</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s06_drop</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="step-7-generate-summary-statistics">
-<h3>Step 7. Generate summary statistics<a class="headerlink" href="#step-7-generate-summary-statistics" title="Permalink to this heading">#</a></h3>
+<h3>Step 7. Generate summary statistics<a class="headerlink" href="#step-7-generate-summary-statistics" title="Link to this heading">#</a></h3>
 <p>Use <code class="docutils literal notranslate"><span class="pre">describe</span></code> to generate summary statistics for at least the following variables:
 <code class="docutils literal notranslate"><span class="pre">AGE</span></code>, <code class="docutils literal notranslate"><span class="pre">INCWAGE</span></code>, <code class="docutils literal notranslate"><span class="pre">real_incwage</span></code>, <code class="docutils literal notranslate"><span class="pre">annual_hours</span></code>, <code class="docutils literal notranslate"><span class="pre">real_wage</span></code>. (For now, disregard the fact that we need to use the survey weights to compute these figures.) What do you notice about the top end of the distribution of <code class="docutils literal notranslate"><span class="pre">real_wage</span></code>?</p>
 <p>At this point, your answer should look like this:
 <img alt="" src="../_images/q7_df_describe.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># There seem to be some very large wages at the top end of `real_wage`</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># There seem to be some very large wages at the top end of `real_wage`</span>
 <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1430,27 +1414,27 @@ memory usage: 298.9 MB
   <tbody>
     <tr>
       <th>count</th>
-      <td>769289</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
-      <td>769289.000</td>
+      <td>792456</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
+      <td>792456.000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>2010-09-12 14:19:39.280088576</td>
-      <td>129017301880106.188</td>
-      <td>1680.482</td>
-      <td>39.524</td>
-      <td>43.372</td>
-      <td>58904.663</td>
-      <td>45146.824</td>
-      <td>2146.530</td>
-      <td>21.946</td>
+      <td>2011-02-01 15:06:39.915200512</td>
+      <td>129026943321680.312</td>
+      <td>1699.807</td>
+      <td>39.518</td>
+      <td>43.340</td>
+      <td>59718.730</td>
+      <td>45214.235</td>
+      <td>2145.548</td>
+      <td>22.022</td>
     </tr>
     <tr>
       <th>min</th>
@@ -1468,42 +1452,42 @@ memory usage: 298.9 MB
       <th>25%</th>
       <td>2005-01-01 00:00:00</td>
       <td>0.000</td>
-      <td>816.090</td>
+      <td>825.017</td>
       <td>33.000</td>
       <td>40.000</td>
-      <td>26000.000</td>
-      <td>20904.000</td>
+      <td>27000.000</td>
+      <td>20979.000</td>
       <td>2080.000</td>
-      <td>10.385</td>
+      <td>10.414</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>2010-01-01 00:00:00</td>
-      <td>200312067062011.000</td>
-      <td>1503.350</td>
+      <td>2011-01-01 00:00:00</td>
+      <td>200401045625016.000</td>
+      <td>1516.550</td>
       <td>40.000</td>
       <td>40.000</td>
-      <td>44000.000</td>
-      <td>34086.000</td>
+      <td>45000.000</td>
+      <td>34120.000</td>
       <td>2080.000</td>
-      <td>15.772</td>
+      <td>15.779</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>2016-01-01 00:00:00</td>
-      <td>201203011452011.000</td>
-      <td>2177.640</td>
+      <td>2017-01-01 00:00:00</td>
+      <td>201212064455521.000</td>
+      <td>2209.660</td>
+      <td>46.000</td>
       <td>47.000</td>
-      <td>48.000</td>
       <td>70000.000</td>
-      <td>53625.000</td>
+      <td>53637.000</td>
       <td>2340.000</td>
-      <td>24.188</td>
+      <td>24.228</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>2023-01-01 00:00:00</td>
-      <td>202303068387021.000</td>
+      <td>2024-01-01 00:00:00</td>
+      <td>202403069322011.000</td>
       <td>44423.830</td>
       <td>54.000</td>
       <td>99.000</td>
@@ -1515,14 +1499,14 @@ memory usage: 298.9 MB
     <tr>
       <th>std</th>
       <td>NaN</td>
-      <td>96368008905273.844</td>
-      <td>1246.006</td>
-      <td>8.324</td>
-      <td>9.639</td>
-      <td>67907.862</td>
-      <td>50168.412</td>
-      <td>607.767</td>
-      <td>368.105</td>
+      <td>96391382223115.375</td>
+      <td>1257.945</td>
+      <td>8.325</td>
+      <td>9.618</td>
+      <td>68994.539</td>
+      <td>50216.603</td>
+      <td>606.098</td>
+      <td>364.976</td>
     </tr>
   </tbody>
 </table>
@@ -1530,7 +1514,7 @@ memory usage: 298.9 MB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;real_wage &gt; 300000&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;real_wage &gt; 300000&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1587,31 +1571,31 @@ memory usage: 298.9 MB
 </div>
 </section>
 <section id="step-8-plot-a-histogram-of-the-average-weekly-hours-and-the-average-annual-hours-worked">
-<h3>Step 8. Plot a histogram of the average weekly hours and the average annual hours worked.<a class="headerlink" href="#step-8-plot-a-histogram-of-the-average-weekly-hours-and-the-average-annual-hours-worked" title="Permalink to this heading">#</a></h3>
+<h3>Step 8. Plot a histogram of the average weekly hours and the average annual hours worked.<a class="headerlink" href="#step-8-plot-a-histogram-of-the-average-weekly-hours-and-the-average-annual-hours-worked" title="Link to this heading">#</a></h3>
 <p>That is, plot a histogram of <code class="docutils literal notranslate"><span class="pre">UHRSWORKLY</span></code> and for a histogram of <code class="docutils literal notranslate"><span class="pre">annual_hours</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;UHRSWORKLY&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;UHRSWORKLY&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0fc3c222e36694c4e0fabbec85b9df2e4c2cdf0109262454ad228ed8ee49c96f.png" src="../_images/0fc3c222e36694c4e0fabbec85b9df2e4c2cdf0109262454ad228ed8ee49c96f.png" />
+<img alt="../_images/e7b97c7715b27ed2b93b5feb40a402685e36ec6694f08f6c4ce338de156b6394.png" src="../_images/e7b97c7715b27ed2b93b5feb40a402685e36ec6694f08f6c4ce338de156b6394.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;annual_hours&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;annual_hours&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d76c27104ad55572602e71464f9df1cc91788a0d2c01fec553fd907dc665385c.png" src="../_images/d76c27104ad55572602e71464f9df1cc91788a0d2c01fec553fd907dc665385c.png" />
+<img alt="../_images/c8f054bdea852c1055443d528b89a2ede6d31412ad15b46a82af7c614f85ea3a.png" src="../_images/c8f054bdea852c1055443d528b89a2ede6d31412ad15b46a82af7c614f85ea3a.png" />
 </div>
 </div>
 </section>
 <section id="step-9-plot-a-histogram-of-real-wages">
-<h3>Step 9. Plot a histogram of real wages.<a class="headerlink" href="#step-9-plot-a-histogram-of-real-wages" title="Permalink to this heading">#</a></h3>
+<h3>Step 9. Plot a histogram of real wages.<a class="headerlink" href="#step-9-plot-a-histogram-of-real-wages" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Plot a histogram of <code class="docutils literal notranslate"><span class="pre">real_wage</span></code> using the default number of bins in pandas.</p></li>
 <li><p>Plot a histogram of <code class="docutils literal notranslate"><span class="pre">real_wage</span></code> for only those with <code class="docutils literal notranslate"><span class="pre">real_wage</span></code> less than 200. Use the default number of bins.</p></li>
@@ -1619,49 +1603,49 @@ memory usage: 298.9 MB
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;real_wage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;real_wage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6a2439e1bd7056f3d27e2c53f79a700f7d67e1261c88f0bf0dbddf4f26c0a1bf.png" src="../_images/6a2439e1bd7056f3d27e2c53f79a700f7d67e1261c88f0bf0dbddf4f26c0a1bf.png" />
+<img alt="../_images/ffcb01f3ef066dd9f22bdabfcc772163a96288eb93558f787bfc125f65541506.png" src="../_images/ffcb01f3ef066dd9f22bdabfcc772163a96288eb93558f787bfc125f65541506.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;real_wage&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">,</span><span class="s1">&#39;real_wage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;real_wage&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">,</span><span class="s1">&#39;real_wage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2afa5eed77bb2ac99c2b5aa61e79a194aa1beb58976af945cfbff1c0db036ec3.png" src="../_images/2afa5eed77bb2ac99c2b5aa61e79a194aa1beb58976af945cfbff1c0db036ec3.png" />
+<img alt="../_images/464f813ffa407bf20a27278fa12c99d880afe81ddd0254eb737477cbebc0e45d.png" src="../_images/464f813ffa407bf20a27278fa12c99d880afe81ddd0254eb737477cbebc0e45d.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;real_wage&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">,</span><span class="s1">&#39;real_wage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;real_wage&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">,</span><span class="s1">&#39;real_wage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Wages in sample&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/41ac4563b6c348e7e00acd6d7efe33d31084e170b6b99b63d05e4093f977441b.png" src="../_images/41ac4563b6c348e7e00acd6d7efe33d31084e170b6b99b63d05e4093f977441b.png" />
+<img alt="../_images/362637884da0ce55ea6235eba5ed9a6fe20ca33521ca27b7c73c267f33361bbf.png" src="../_images/362637884da0ce55ea6235eba5ed9a6fe20ca33521ca27b7c73c267f33361bbf.png" />
 </div>
 </div>
 </section>
 <section id="step-10-drop-all-rows-that-have-wages-above-the-99th-percentile-and-below-the-1st-percentile">
-<h3>Step 10. Drop all rows that have wages above the 99th percentile and below the 1st percentile.<a class="headerlink" href="#step-10-drop-all-rows-that-have-wages-above-the-99th-percentile-and-below-the-1st-percentile" title="Permalink to this heading">#</a></h3>
+<h3>Step 10. Drop all rows that have wages above the 99th percentile and below the 1st percentile.<a class="headerlink" href="#step-10-drop-all-rows-that-have-wages-above-the-99th-percentile-and-below-the-1st-percentile" title="Link to this heading">#</a></h3>
 <p>For example, use the code <code class="docutils literal notranslate"><span class="pre">q01</span> <span class="pre">=</span> <span class="pre">df.real_wage.quantile(q=0.01)</span></code> to compute the 1st percentile. Then use <code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df[YOUR_MASK_HERE]</span></code> or use <code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df.query(YOUR_CODE_HERE)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s10_drop_by_percentiles</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s10_drop_by_percentiles</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1698,27 +1682,27 @@ memory usage: 298.9 MB
   <tbody>
     <tr>
       <th>count</th>
-      <td>753893</td>
-      <td>753893.000</td>
-      <td>753893.000</td>
-      <td>753893.000</td>
-      <td>753893.000</td>
-      <td>753893.000</td>
-      <td>753893.000</td>
-      <td>753893.000</td>
-      <td>753893.000</td>
+      <td>776592</td>
+      <td>776592.000</td>
+      <td>776592.000</td>
+      <td>776592.000</td>
+      <td>776592.000</td>
+      <td>776592.000</td>
+      <td>776592.000</td>
+      <td>776592.000</td>
+      <td>776592.000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>2010-09-15 20:14:58.255853568</td>
-      <td>129070305877238.188</td>
-      <td>1680.891</td>
-      <td>39.499</td>
-      <td>43.397</td>
-      <td>55359.313</td>
-      <td>42445.377</td>
-      <td>2150.577</td>
-      <td>19.419</td>
+      <td>2011-02-05 00:10:56.072686848</td>
+      <td>129074592829024.172</td>
+      <td>1700.176</td>
+      <td>39.494</td>
+      <td>43.366</td>
+      <td>56126.002</td>
+      <td>42509.740</td>
+      <td>2149.628</td>
+      <td>19.461</td>
     </tr>
     <tr>
       <th>min</th>
@@ -1730,67 +1714,67 @@ memory usage: 298.9 MB
       <td>8.000</td>
       <td>6.432</td>
       <td>1.000</td>
-      <td>2.375</td>
+      <td>2.383</td>
     </tr>
     <tr>
       <th>25%</th>
       <td>2005-01-01 00:00:00</td>
       <td>0.000</td>
-      <td>816.240</td>
-      <td>33.000</td>
+      <td>825.170</td>
+      <td>32.000</td>
       <td>40.000</td>
       <td>27000.000</td>
-      <td>21168.000</td>
+      <td>21252.000</td>
       <td>2080.000</td>
-      <td>10.471</td>
+      <td>10.494</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>2010-01-01 00:00:00</td>
-      <td>200312068805051.000</td>
-      <td>1503.170</td>
+      <td>2011-01-01 00:00:00</td>
+      <td>200401049872011.000</td>
+      <td>1516.385</td>
       <td>40.000</td>
       <td>40.000</td>
-      <td>44000.000</td>
+      <td>45000.000</td>
       <td>34120.000</td>
       <td>2080.000</td>
-      <td>15.772</td>
+      <td>15.779</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>2016-01-01 00:00:00</td>
-      <td>201203018008021.000</td>
-      <td>2178.200</td>
+      <td>2017-01-01 00:00:00</td>
+      <td>201212070162021.000</td>
+      <td>2210.150</td>
       <td>46.000</td>
-      <td>47.000</td>
+      <td>46.000</td>
       <td>70000.000</td>
-      <td>53040.000</td>
+      <td>53091.000</td>
       <td>2340.000</td>
-      <td>23.930</td>
+      <td>23.986</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>2023-01-01 00:00:00</td>
-      <td>202303068387021.000</td>
+      <td>2024-01-01 00:00:00</td>
+      <td>202403069322011.000</td>
       <td>44423.830</td>
       <td>54.000</td>
       <td>99.000</td>
       <td>850000.000</td>
       <td>554200.000</td>
       <td>5148.000</td>
-      <td>116.576</td>
+      <td>116.763</td>
     </tr>
     <tr>
       <th>std</th>
       <td>NaN</td>
-      <td>96352940439692.078</td>
-      <td>1246.555</td>
-      <td>8.321</td>
-      <td>9.507</td>
-      <td>46939.778</td>
-      <td>35094.710</td>
-      <td>598.662</td>
-      <td>13.974</td>
+      <td>96377910514422.531</td>
+      <td>1258.375</td>
+      <td>8.322</td>
+      <td>9.485</td>
+      <td>47781.583</td>
+      <td>35118.563</td>
+      <td>596.974</td>
+      <td>14.015</td>
     </tr>
   </tbody>
 </table>
@@ -1798,7 +1782,7 @@ memory usage: 298.9 MB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;real_wage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;real_wage&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1806,15 +1790,15 @@ memory usage: 298.9 MB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/d7ab3e977cb4b294fa7fe9d89e0acab04be7c7e99be5367605e3e576abf01e61.png" src="../_images/d7ab3e977cb4b294fa7fe9d89e0acab04be7c7e99be5367605e3e576abf01e61.png" />
+<img alt="../_images/50377f7f49ab9b8b0eab34a36bf7fe4eb6272d853ce9e5d7b8beae508965f06f.png" src="../_images/50377f7f49ab9b8b0eab34a36bf7fe4eb6272d853ce9e5d7b8beae508965f06f.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="recreate-a-wage-series-like-the-one-from-fred">
-<h2>3. Recreate a Wage Series Like The One From FRED<a class="headerlink" href="#recreate-a-wage-series-like-the-one-from-fred" title="Permalink to this heading">#</a></h2>
+<h2>3. Recreate a Wage Series Like The One From FRED<a class="headerlink" href="#recreate-a-wage-series-like-the-one-from-fred" title="Link to this heading">#</a></h2>
 <section id="step-11-create-time-series-for-wages-and-employment">
-<h3>Step 11. Create time series for wages and employment<a class="headerlink" href="#step-11-create-time-series-for-wages-and-employment" title="Permalink to this heading">#</a></h3>
+<h3>Step 11. Create time series for wages and employment<a class="headerlink" href="#step-11-create-time-series-for-wages-and-employment" title="Link to this heading">#</a></h3>
 <p>These first series that we create will not be demographically adjusted. Create these series with the following variable names: <code class="docutils literal notranslate"><span class="pre">median_wages</span></code>, <code class="docutils literal notranslate"><span class="pre">ave_wages</span></code>, and <code class="docutils literal notranslate"><span class="pre">employment</span></code>. Each of these should be computed using the survey weights. Notice that <code class="docutils literal notranslate"><span class="pre">np.average</span></code> has a keyword argument for weights. To construct a weighted median, we will use the <code class="docutils literal notranslate"><span class="pre">weightedstats</span></code> package.</p>
 <p>Here is the code to compute the weighted median. Fill in the rest of the code for the other variables.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col</span> <span class="o">=</span> <span class="s1">&#39;real_wage&#39;</span>
@@ -1833,7 +1817,7 @@ memory usage: 298.9 MB
 <p>NOTE: Wage data needs to be shifted backwards, but employment data does not need to be.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">median_wages</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s11_median_wages</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">median_wages</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s11_median_wages</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="n">ave_wages</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s11_ave_wages</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="n">employment</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s11_employment</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
@@ -1842,20 +1826,20 @@ memory usage: 298.9 MB
 </div>
 </section>
 <section id="step-12-concatenate-these-time-series-variables-together">
-<h3>Step 12. Concatenate these time series variables together.<a class="headerlink" href="#step-12-concatenate-these-time-series-variables-together" title="Permalink to this heading">#</a></h3>
+<h3>Step 12. Concatenate these time series variables together.<a class="headerlink" href="#step-12-concatenate-these-time-series-variables-together" title="Link to this heading">#</a></h3>
 <p>Use <code class="docutils literal notranslate"><span class="pre">pd.concat</span></code> to create a new DataFrame called <code class="docutils literal notranslate"><span class="pre">tdf</span></code> that contains <code class="docutils literal notranslate"><span class="pre">median_wages</span></code>, <code class="docutils literal notranslate"><span class="pre">ave_wages</span></code>, and <code class="docutils literal notranslate"><span class="pre">employment</span></code>. Make sure that the column names are preserved in <code class="docutils literal notranslate"><span class="pre">tdf</span></code>.</p>
 <p>Running <code class="docutils literal notranslate"><span class="pre">tdf.head()</span></code> should produce the following result at this point.</p>
 <p><img alt="" src="../_images/time_series.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s12_time_series</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s12_time_series</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1892,7 +1876,7 @@ memory usage: 298.9 MB
   <tbody>
     <tr>
       <th>2000-01-01</th>
-      <td>18.930</td>
+      <td>18.932</td>
       <td>15.807</td>
       <td>0.966</td>
     </tr>
@@ -1904,7 +1888,7 @@ memory usage: 298.9 MB
     </tr>
     <tr>
       <th>2002-01-01</th>
-      <td>19.178</td>
+      <td>19.179</td>
       <td>15.582</td>
       <td>0.966</td>
     </tr>
@@ -1926,22 +1910,22 @@ memory usage: 298.9 MB
 </div>
 </section>
 <section id="step-13-plot-the-series">
-<h3>Step 13. Plot the series<a class="headerlink" href="#step-13-plot-the-series" title="Permalink to this heading">#</a></h3>
+<h3>Step 13. Plot the series<a class="headerlink" href="#step-13-plot-the-series" title="Link to this heading">#</a></h3>
 <p>Plot <code class="docutils literal notranslate"><span class="pre">ave_wages</span></code> and <code class="docutils literal notranslate"><span class="pre">median_wages</span></code> on the same plot. Make another plot for <code class="docutils literal notranslate"><span class="pre">employment</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span><span class="p">[[</span><span class="s1">&#39;ave_wages&#39;</span><span class="p">,</span> <span class="s1">&#39;median_wages&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Wages over time&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span><span class="p">[[</span><span class="s1">&#39;ave_wages&#39;</span><span class="p">,</span> <span class="s1">&#39;median_wages&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Wages over time&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/10a7cc6134620acdbace87c83ad0354f83a3ca39f7de359859ca3eff1930f835.png" src="../_images/10a7cc6134620acdbace87c83ad0354f83a3ca39f7de359859ca3eff1930f835.png" />
+<img alt="../_images/ca13905b2ed9ced95f4bb53c1e507dd8a3cfdbb45662b077b23826193b804008.png" src="../_images/ca13905b2ed9ced95f4bb53c1e507dd8a3cfdbb45662b077b23826193b804008.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">employment</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Employment&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">employment</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Employment&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1949,24 +1933,24 @@ memory usage: 298.9 MB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Employment&#39;}, xlabel=&#39;YEAR&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/8bef56c99965888874ca544a1496d1e599adc433e790cde99abf898232673166.png" src="../_images/8bef56c99965888874ca544a1496d1e599adc433e790cde99abf898232673166.png" />
+<img alt="../_images/2f45f421078d22a16f110833db8b35aceb5a088641335d9f1a32a6db54d30ac3.png" src="../_images/2f45f421078d22a16f110833db8b35aceb5a088641335d9f1a32a6db54d30ac3.png" />
 </div>
 </div>
 </section>
 <section id="step-14-compute-the-autocorrelation-of-each-variables-in-tdf">
-<h3>Step 14. Compute the autocorrelation of each variables in <code class="docutils literal notranslate"><span class="pre">tdf</span></code><a class="headerlink" href="#step-14-compute-the-autocorrelation-of-each-variables-in-tdf" title="Permalink to this heading">#</a></h3>
+<h3>Step 14. Compute the autocorrelation of each variables in <code class="docutils literal notranslate"><span class="pre">tdf</span></code><a class="headerlink" href="#step-14-compute-the-autocorrelation-of-each-variables-in-tdf" title="Link to this heading">#</a></h3>
 <p>HINT: You can compute the autocorrelation of a single series using, e.g., <code class="docutils literal notranslate"><span class="pre">tdf.ave_wages.autocorr()</span></code>. You can do this for each series in <code class="docutils literal notranslate"><span class="pre">tdf</span></code> in one go by using <code class="docutils literal notranslate"><span class="pre">tdf.apply(lambda</span> <span class="pre">x:</span> <span class="pre">YOUR_CODE_HERE)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#autocorrelation</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#autocorrelation</span>
 <span class="n">tdf</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">autocorr</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ave_wages      0.895
-median_wages   0.795
-employment     0.189
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ave_wages      0.906
+median_wages   0.797
+employment     0.177
 dtype: float64
 </pre></div>
 </div>
@@ -1974,11 +1958,11 @@ dtype: float64
 </div>
 </section>
 <section id="step-15-compute-the-contemporeneous-correlation-between-the-variables-in-tdf">
-<h3>Step 15. Compute the contemporeneous correlation between the variables in <code class="docutils literal notranslate"><span class="pre">tdf</span></code>.<a class="headerlink" href="#step-15-compute-the-contemporeneous-correlation-between-the-variables-in-tdf" title="Permalink to this heading">#</a></h3>
+<h3>Step 15. Compute the contemporeneous correlation between the variables in <code class="docutils literal notranslate"><span class="pre">tdf</span></code>.<a class="headerlink" href="#step-15-compute-the-contemporeneous-correlation-between-the-variables-in-tdf" title="Link to this heading">#</a></h3>
 <p>This amounts to simply calculating the correlation matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2010,19 +1994,19 @@ dtype: float64
     <tr>
       <th>ave_wages</th>
       <td>1.000</td>
-      <td>0.856</td>
-      <td>-0.280</td>
+      <td>0.844</td>
+      <td>-0.193</td>
     </tr>
     <tr>
       <th>median_wages</th>
-      <td>0.856</td>
+      <td>0.844</td>
       <td>1.000</td>
-      <td>-0.211</td>
+      <td>-0.180</td>
     </tr>
     <tr>
       <th>employment</th>
-      <td>-0.280</td>
-      <td>-0.211</td>
+      <td>-0.193</td>
+      <td>-0.180</td>
       <td>1.000</td>
     </tr>
   </tbody>
@@ -2031,7 +2015,7 @@ dtype: float64
 </div>
 </section>
 <section id="step-16-plot-median-wages-and-employment-on-the-same-graph">
-<h3>Step 16. Plot median wages and employment on the same graph<a class="headerlink" href="#step-16-plot-median-wages-and-employment-on-the-same-graph" title="Permalink to this heading">#</a></h3>
+<h3>Step 16. Plot median wages and employment on the same graph<a class="headerlink" href="#step-16-plot-median-wages-and-employment-on-the-same-graph" title="Link to this heading">#</a></h3>
 <p>Use the following starter code to plot these two series on the same graph, with separate y-axes (a left y-axis and a right y-axis).</p>
 <!--
 ```python
@@ -2046,7 +2030,7 @@ ax.figure.legend()
 ```
 --><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">tdf</span><span class="p">[[</span><span class="s1">&#39;median_wages&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Wght. Median Wages&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">tdf</span><span class="p">[[</span><span class="s1">&#39;median_wages&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Wght. Median Wages&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Median Wages&#39;</span><span class="p">)</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
@@ -2058,20 +2042,20 @@ ax.figure.legend()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1b6e910d520&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x15ff67b60&gt;
 </pre></div>
 </div>
-<img alt="../_images/a36f1f567595b46e0e99b89b250580d1e66fe59fb8eb2e7d11bcc925a534adb7.png" src="../_images/a36f1f567595b46e0e99b89b250580d1e66fe59fb8eb2e7d11bcc925a534adb7.png" />
+<img alt="../_images/e0488f94f4cc3f645795eaa1bdb1865443c1b0ddf6c5867755618bff51e748ce.png" src="../_images/e0488f94f4cc3f645795eaa1bdb1865443c1b0ddf6c5867755618bff51e748ce.png" />
 </div>
 </div>
 </section>
 <section id="step-17-plot-median-wages-growth-and-employment-on-the-same-graph">
-<h3>Step 17. Plot median wages growth and employment on the same graph<a class="headerlink" href="#step-17-plot-median-wages-growth-and-employment-on-the-same-graph" title="Permalink to this heading">#</a></h3>
+<h3>Step 17. Plot median wages growth and employment on the same graph<a class="headerlink" href="#step-17-plot-median-wages-growth-and-employment-on-the-same-graph" title="Link to this heading">#</a></h3>
 <p>First, create new variables in <code class="docutils literal notranslate"><span class="pre">tdf</span></code> called <code class="docutils literal notranslate"><span class="pre">ave_wage_growth</span></code> and <code class="docutils literal notranslate"><span class="pre">median_wage_growth</span></code>. Apply the method <code class="docutils literal notranslate"><span class="pre">pct_change()</span></code> to the appropriate columns to create the new variable. This will compute the percent changes in each variable over time. Use the same code as from before to make the plot, but substitute in your new variable. Be sure to update the label on the axes.</p>
 <p>Note: When computing various statistics, for example correlations, we want to beware of variables that are steadily growing or shrinking over time. Variables like this are said to be <em>non-stationary.</em> Usage of such variables without care can often lead to <a class="reference external" href="https://en.wikipedia.org/wiki/Spurious_relationship#Examples">spurious correlations.</a> In time series econometrics, there are various ways of transforming these variables into stationary variables. One method, which we’ll use here, is to compute percentage differences. Since we believe wages tend to increase over time, we want to difference (in our case, compute percentage differences) the wage variable. Our employment variable, however, is a ratio between zero and one that is not steadily growing or shrinking. So it’s ok.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span><span class="p">[</span><span class="s1">&#39;ave_wage_growth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tdf</span><span class="p">[</span><span class="s1">&#39;ave_wages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(</span><span class="n">fill_method</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span><span class="p">[</span><span class="s1">&#39;ave_wage_growth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tdf</span><span class="p">[</span><span class="s1">&#39;ave_wages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(</span><span class="n">fill_method</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="n">tdf</span><span class="p">[</span><span class="s1">&#39;median_wage_growth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tdf</span><span class="p">[</span><span class="s1">&#39;median_wages&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(</span><span class="n">fill_method</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2079,7 +2063,7 @@ ax.figure.legend()
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">tdf</span><span class="p">[</span><span class="s1">&#39;median_wage_growth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">tdf</span><span class="p">[</span><span class="s1">&#39;median_wage_growth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Median Wages Growth&#39;</span><span class="p">)</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
@@ -2091,12 +2075,12 @@ ax.figure.legend()
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9584094eece2879166dc1af8cfda0baf6745595776f3c5ad8fdcd0952e3d460e.png" src="../_images/9584094eece2879166dc1af8cfda0baf6745595776f3c5ad8fdcd0952e3d460e.png" />
+<img alt="../_images/343e920a3e1663c9aad89fe57d9bcf27dc9ba447aac0bd6473263a69de0c1463.png" src="../_images/343e920a3e1663c9aad89fe57d9bcf27dc9ba447aac0bd6473263a69de0c1463.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Extra:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Extra:</span>
 <span class="c1"># Note that it appears that employment and wage growth</span>
 <span class="c1"># is slightly out of phase. This could be because the two</span>
 <span class="c1"># are negatively correlated. Or maybe it&#39;s because we shouldn&#39;t</span>
@@ -2109,9 +2093,9 @@ ax.figure.legend()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>median_wage_growth   -0.009
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>median_wage_growth   -0.039
 dtype: float64
-median_wage_growth   -0.151
+median_wage_growth   -0.144
 dtype: float64
 </pre></div>
 </div>
@@ -2119,19 +2103,19 @@ dtype: float64
 </div>
 </section>
 <section id="step-18-plot-median-wages-growth-and-employment-growth-on-the-same-graph">
-<h3>Step 18. Plot median wages growth and employment <em>growth</em> on the same graph<a class="headerlink" href="#step-18-plot-median-wages-growth-and-employment-growth-on-the-same-graph" title="Permalink to this heading">#</a></h3>
+<h3>Step 18. Plot median wages growth and employment <em>growth</em> on the same graph<a class="headerlink" href="#step-18-plot-median-wages-growth-and-employment-growth-on-the-same-graph" title="Link to this heading">#</a></h3>
 <p>Create a new variable in <code class="docutils literal notranslate"><span class="pre">tdf</span></code> called <code class="docutils literal notranslate"><span class="pre">employment_growth</span></code>. Again use <code class="docutils literal notranslate"><span class="pre">.pct_change()</span></code> to create it.
 Use the same code as from before. However, this time let’s explore the relationship of wages with employment <em>growth</em> rather than the employment <em>level</em>. Be sure to update the labels of the axes so that we know what we’re looking at.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span><span class="p">[</span><span class="s1">&#39;employment_growth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tdf</span><span class="p">[</span><span class="s1">&#39;employment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(</span><span class="n">fill_method</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span><span class="p">[</span><span class="s1">&#39;employment_growth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tdf</span><span class="p">[</span><span class="s1">&#39;employment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(</span><span class="n">fill_method</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">tdf</span><span class="p">[</span><span class="s1">&#39;median_wage_growth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">tdf</span><span class="p">[</span><span class="s1">&#39;median_wage_growth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Median wage growth&#39;</span><span class="p">)</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
@@ -2143,19 +2127,19 @@ Use the same code as from before. However, this time let’s explore the relatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1b6eb58d550&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x347e40920&gt;
 </pre></div>
 </div>
-<img alt="../_images/d7b1c67f56a6d9ba7f9cbfc64f792e2523bb9389e188423d677a898ece5cc410.png" src="../_images/d7b1c67f56a6d9ba7f9cbfc64f792e2523bb9389e188423d677a898ece5cc410.png" />
+<img alt="../_images/675f80e4bc3f9c4e1a3d9028edf6ddfc620a5a9d760b2635601f59465d419cf7.png" src="../_images/675f80e4bc3f9c4e1a3d9028edf6ddfc620a5a9d760b2635601f59465d419cf7.png" />
 </div>
 </div>
 </section>
 <section id="step-19-use-the-code-below-as-well-as-the-graphs-from-before-to-describe-what-were-seeing-in-the-data">
-<h3>Step 19. Use the code below as well as the graphs from before to describe what we’re seeing in the data.<a class="headerlink" href="#step-19-use-the-code-below-as-well-as-the-graphs-from-before-to-describe-what-were-seeing-in-the-data" title="Permalink to this heading">#</a></h3>
+<h3>Step 19. Use the code below as well as the graphs from before to describe what we’re seeing in the data.<a class="headerlink" href="#step-19-use-the-code-below-as-well-as-the-graphs-from-before-to-describe-what-were-seeing-in-the-data" title="Link to this heading">#</a></h3>
 <p>Use <code class="docutils literal notranslate"><span class="pre">.corr()</span></code> to compute the correlations between the various wage growth series and the measures of employment in <code class="docutils literal notranslate"><span class="pre">tdf</span></code>. Give a summary of what you’re seeing in the data. How does it match up with your intution and with your understanding of supply and demand in labor markets?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2190,55 +2174,55 @@ Use the same code as from before. However, this time let’s explore the relatio
     <tr>
       <th>ave_wages</th>
       <td>1.000</td>
-      <td>0.856</td>
-      <td>-0.280</td>
-      <td>0.339</td>
-      <td>0.247</td>
-      <td>-0.113</td>
+      <td>0.844</td>
+      <td>-0.193</td>
+      <td>0.323</td>
+      <td>0.190</td>
+      <td>-0.102</td>
     </tr>
     <tr>
       <th>median_wages</th>
-      <td>0.856</td>
+      <td>0.844</td>
       <td>1.000</td>
-      <td>-0.211</td>
-      <td>0.233</td>
-      <td>0.345</td>
-      <td>-0.147</td>
+      <td>-0.180</td>
+      <td>0.231</td>
+      <td>0.322</td>
+      <td>-0.142</td>
     </tr>
     <tr>
       <th>employment</th>
-      <td>-0.280</td>
-      <td>-0.211</td>
+      <td>-0.193</td>
+      <td>-0.180</td>
       <td>1.000</td>
-      <td>0.113</td>
-      <td>-0.009</td>
-      <td>0.645</td>
+      <td>0.110</td>
+      <td>-0.039</td>
+      <td>0.639</td>
     </tr>
     <tr>
       <th>ave_wage_growth</th>
-      <td>0.339</td>
-      <td>0.233</td>
-      <td>0.113</td>
+      <td>0.323</td>
+      <td>0.231</td>
+      <td>0.110</td>
       <td>1.000</td>
-      <td>0.601</td>
+      <td>0.596</td>
       <td>-0.287</td>
     </tr>
     <tr>
       <th>median_wage_growth</th>
-      <td>0.247</td>
-      <td>0.345</td>
-      <td>-0.009</td>
-      <td>0.601</td>
+      <td>0.190</td>
+      <td>0.322</td>
+      <td>-0.039</td>
+      <td>0.596</td>
       <td>1.000</td>
-      <td>-0.262</td>
+      <td>-0.260</td>
     </tr>
     <tr>
       <th>employment_growth</th>
-      <td>-0.113</td>
-      <td>-0.147</td>
-      <td>0.645</td>
+      <td>-0.102</td>
+      <td>-0.142</td>
+      <td>0.639</td>
       <td>-0.287</td>
-      <td>-0.262</td>
+      <td>-0.260</td>
       <td>1.000</td>
     </tr>
   </tbody>
@@ -2251,10 +2235,10 @@ wages growth is slightly positively correlated with the level of employment. It�
 </section>
 </section>
 <section id="create-demographically-adjusted-series">
-<h2>4. Create Demographically Adjusted Series<a class="headerlink" href="#create-demographically-adjusted-series" title="Permalink to this heading">#</a></h2>
+<h2>4. Create Demographically Adjusted Series<a class="headerlink" href="#create-demographically-adjusted-series" title="Link to this heading">#</a></h2>
 <p>Here we will demographically adjust the data to adjust for composition changes over time (based on observables).  As employment rates fell, they fell more for low educated workers than high educated workers.  That means the average wages you measured previously will actually be comparing different types of workers in 2010 relative to 2006. To demographically adjust the data, create age-skill groups in each year. Use 5 year age ranges (25-29, 30-34, etc.) and 5 education groupings (less than high school, high school only, some college, bachelor’s degree, more than a bachelor’s degree). Compute wages within these cells for each year (again weighting the data using survey weights). However, when computing time series trends, we will fix the population weights for each cell at year 2000 levels (i.e., the share of the population that lives in each group). So, for each year, you will compute a measure of wages by multiplying the means within each cell during that year by the 2000 shares of population in each cell (and then sum across cells within the year). By doing this, you will be able to compute a demographically adjusted wage series during the 2000 – 2022 period (we have data up to 2023, but the wage variables refer to the wages earned in the previous year). We will discuss how these demographically adjusted wage series compare to your series from before.</p>
 <section id="step-20-create-new-variables-in-df-for-age-and-education-bins">
-<h3>Step 20. Create new variables in <code class="docutils literal notranslate"><span class="pre">df</span></code> for age and education bins.<a class="headerlink" href="#step-20-create-new-variables-in-df-for-age-and-education-bins" title="Permalink to this heading">#</a></h3>
+<h3>Step 20. Create new variables in <code class="docutils literal notranslate"><span class="pre">df</span></code> for age and education bins.<a class="headerlink" href="#step-20-create-new-variables-in-df-for-age-and-education-bins" title="Link to this heading">#</a></h3>
 <p>To demographically adjust the data, create age-skill groups in each year. Use 5 year age ranges (25-29, 30-34, etc.) and 5 education groupings (less than high school, high school only, some college, bachelor’s degree, more than a bachelor’s degree).</p>
 <p>I have provided starter code here:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add bins to `df` for the AGE and EDUC variables as described in</span>
@@ -2270,61 +2254,61 @@ wages growth is slightly positively correlated with the level of employment. It�
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s20_bin_vars</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s20_bin_vars</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="step-21-compute-the-average-wages-within-each-education-and-age-group-as-defined-above">
-<h3>Step 21. Compute the average wages within each education and age group as defined above.<a class="headerlink" href="#step-21-compute-the-average-wages-within-each-education-and-age-group-as-defined-above" title="Permalink to this heading">#</a></h3>
+<h3>Step 21. Compute the average wages within each education and age group as defined above.<a class="headerlink" href="#step-21-compute-the-average-wages-within-each-education-and-age-group-as-defined-above" title="Link to this heading">#</a></h3>
 <p>Within in “cell”, compute the average wage. You will need to use the survey weights to compute each mean within each cell. The result will be average real wages (deflated with CPI 99) computed over the cross-section and over time.</p>
 <p>For a nicer display at the end, run a code cell with the code <code class="docutils literal notranslate"><span class="pre">pd.DataFrame(group_means)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group_means</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s21_within_group_averages</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">group_means</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s21_within_group_averages</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group_means</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">group_means</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>age_binned  educ_binned        
-[25, 30)    Some_High_School       9.827
-            High_School_Diploma   12.161
-            Some_College          13.493
-            Bachelors_Degree      18.297
-            Beyond_Bachelors      21.492
-[30, 35)    Some_High_School      10.574
-            High_School_Diploma   13.539
-            Some_College          15.705
-            Bachelors_Degree      22.004
-            Beyond_Bachelors      26.648
-[35, 40)    Some_High_School      11.109
-            High_School_Diploma   14.907
-            Some_College          17.823
-            Bachelors_Degree      25.529
-            Beyond_Bachelors      31.476
-[40, 45)    Some_High_School      11.696
-            High_School_Diploma   15.616
-            Some_College          18.792
-            Bachelors_Degree      26.957
-            Beyond_Bachelors      33.666
-[45, 50)    Some_High_School      12.049
-            High_School_Diploma   16.020
-            Some_College          19.561
-            Bachelors_Degree      27.783
-            Beyond_Bachelors      34.611
-[50, 55)    Some_High_School      12.237
-            High_School_Diploma   16.587
-            Some_College          19.932
-            Bachelors_Degree      27.758
-            Beyond_Bachelors      34.839
+[25, 30)    Some_High_School       9.869
+            High_School_Diploma   12.180
+            Some_College          13.508
+            Bachelors_Degree      18.384
+            Beyond_Bachelors      21.619
+[30, 35)    Some_High_School      10.593
+            High_School_Diploma   13.535
+            Some_College          15.734
+            Bachelors_Degree      22.128
+            Beyond_Bachelors      26.842
+[35, 40)    Some_High_School      11.105
+            High_School_Diploma   14.877
+            Some_College          17.820
+            Bachelors_Degree      25.552
+            Beyond_Bachelors      31.572
+[40, 45)    Some_High_School      11.688
+            High_School_Diploma   15.601
+            Some_College          18.768
+            Bachelors_Degree      26.943
+            Beyond_Bachelors      33.668
+[45, 50)    Some_High_School      12.038
+            High_School_Diploma   16.029
+            Some_College          19.536
+            Bachelors_Degree      27.818
+            Beyond_Bachelors      34.648
+[50, 55)    Some_High_School      12.267
+            High_School_Diploma   16.575
+            Some_College          19.923
+            Bachelors_Degree      27.838
+            Beyond_Bachelors      34.816
 Name: average_wage, dtype: float64
 </pre></div>
 </div>
@@ -2332,7 +2316,7 @@ Name: average_wage, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">group_means</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">group_means</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2368,128 +2352,128 @@ Name: average_wage, dtype: float64
     <tr>
       <th rowspan="5" valign="top">[25, 30)</th>
       <th>Some_High_School</th>
-      <td>9.827</td>
+      <td>9.869</td>
     </tr>
     <tr>
       <th>High_School_Diploma</th>
-      <td>12.161</td>
+      <td>12.180</td>
     </tr>
     <tr>
       <th>Some_College</th>
-      <td>13.493</td>
+      <td>13.508</td>
     </tr>
     <tr>
       <th>Bachelors_Degree</th>
-      <td>18.297</td>
+      <td>18.384</td>
     </tr>
     <tr>
       <th>Beyond_Bachelors</th>
-      <td>21.492</td>
+      <td>21.619</td>
     </tr>
     <tr>
       <th rowspan="5" valign="top">[30, 35)</th>
       <th>Some_High_School</th>
-      <td>10.574</td>
+      <td>10.593</td>
     </tr>
     <tr>
       <th>High_School_Diploma</th>
-      <td>13.539</td>
+      <td>13.535</td>
     </tr>
     <tr>
       <th>Some_College</th>
-      <td>15.705</td>
+      <td>15.734</td>
     </tr>
     <tr>
       <th>Bachelors_Degree</th>
-      <td>22.004</td>
+      <td>22.128</td>
     </tr>
     <tr>
       <th>Beyond_Bachelors</th>
-      <td>26.648</td>
+      <td>26.842</td>
     </tr>
     <tr>
       <th rowspan="5" valign="top">[35, 40)</th>
       <th>Some_High_School</th>
-      <td>11.109</td>
+      <td>11.105</td>
     </tr>
     <tr>
       <th>High_School_Diploma</th>
-      <td>14.907</td>
+      <td>14.877</td>
     </tr>
     <tr>
       <th>Some_College</th>
-      <td>17.823</td>
+      <td>17.820</td>
     </tr>
     <tr>
       <th>Bachelors_Degree</th>
-      <td>25.529</td>
+      <td>25.552</td>
     </tr>
     <tr>
       <th>Beyond_Bachelors</th>
-      <td>31.476</td>
+      <td>31.572</td>
     </tr>
     <tr>
       <th rowspan="5" valign="top">[40, 45)</th>
       <th>Some_High_School</th>
-      <td>11.696</td>
+      <td>11.688</td>
     </tr>
     <tr>
       <th>High_School_Diploma</th>
-      <td>15.616</td>
+      <td>15.601</td>
     </tr>
     <tr>
       <th>Some_College</th>
-      <td>18.792</td>
+      <td>18.768</td>
     </tr>
     <tr>
       <th>Bachelors_Degree</th>
-      <td>26.957</td>
+      <td>26.943</td>
     </tr>
     <tr>
       <th>Beyond_Bachelors</th>
-      <td>33.666</td>
+      <td>33.668</td>
     </tr>
     <tr>
       <th rowspan="5" valign="top">[45, 50)</th>
       <th>Some_High_School</th>
-      <td>12.049</td>
+      <td>12.038</td>
     </tr>
     <tr>
       <th>High_School_Diploma</th>
-      <td>16.020</td>
+      <td>16.029</td>
     </tr>
     <tr>
       <th>Some_College</th>
-      <td>19.561</td>
+      <td>19.536</td>
     </tr>
     <tr>
       <th>Bachelors_Degree</th>
-      <td>27.783</td>
+      <td>27.818</td>
     </tr>
     <tr>
       <th>Beyond_Bachelors</th>
-      <td>34.611</td>
+      <td>34.648</td>
     </tr>
     <tr>
       <th rowspan="5" valign="top">[50, 55)</th>
       <th>Some_High_School</th>
-      <td>12.237</td>
+      <td>12.267</td>
     </tr>
     <tr>
       <th>High_School_Diploma</th>
-      <td>16.587</td>
+      <td>16.575</td>
     </tr>
     <tr>
       <th>Some_College</th>
-      <td>19.932</td>
+      <td>19.923</td>
     </tr>
     <tr>
       <th>Bachelors_Degree</th>
-      <td>27.758</td>
+      <td>27.838</td>
     </tr>
     <tr>
       <th>Beyond_Bachelors</th>
-      <td>34.839</td>
+      <td>34.816</td>
     </tr>
   </tbody>
 </table>
@@ -2497,13 +2481,13 @@ Name: average_wage, dtype: float64
 </div>
 </section>
 <section id="step-22-display-average-wages-within-each-education-and-age-group-as-a-table">
-<h3>Step 22. Display average wages within each education and age group as a table.<a class="headerlink" href="#step-22-display-average-wages-within-each-education-and-age-group-as-a-table" title="Permalink to this heading">#</a></h3>
+<h3>Step 22. Display average wages within each education and age group as a table.<a class="headerlink" href="#step-22-display-average-wages-within-each-education-and-age-group-as-a-table" title="Link to this heading">#</a></h3>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">group_means</span></code> variable from before. Use <code class="docutils literal notranslate"><span class="pre">unstack</span></code>. Be sure to rearrange to columns so that the education levels appear in the correct order, from lowest educated to highest.</p>
 <p>The end results should look like this:</p>
 <p><img alt="Means within each group" src="../_images/table_groups.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">group_means</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">group_means</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
 <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Some_High_School&#39;</span><span class="p">,</span> <span class="s1">&#39;High_School_Diploma&#39;</span><span class="p">,</span> <span class="s1">&#39;Some_College&#39;</span><span class="p">,</span> <span class="s1">&#39;Bachelors_Degree&#39;</span><span class="p">,</span> <span class="s1">&#39;Beyond_Bachelors&#39;</span><span class="p">]</span>
 <span class="c1"># I am doing this to reorder the columns in the way that I want.</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
@@ -2548,51 +2532,51 @@ Name: average_wage, dtype: float64
   <tbody>
     <tr>
       <th>[25, 30)</th>
-      <td>9.827</td>
-      <td>12.161</td>
-      <td>13.493</td>
-      <td>18.297</td>
-      <td>21.492</td>
+      <td>9.869</td>
+      <td>12.180</td>
+      <td>13.508</td>
+      <td>18.384</td>
+      <td>21.619</td>
     </tr>
     <tr>
       <th>[30, 35)</th>
-      <td>10.574</td>
-      <td>13.539</td>
-      <td>15.705</td>
-      <td>22.004</td>
-      <td>26.648</td>
+      <td>10.593</td>
+      <td>13.535</td>
+      <td>15.734</td>
+      <td>22.128</td>
+      <td>26.842</td>
     </tr>
     <tr>
       <th>[35, 40)</th>
-      <td>11.109</td>
-      <td>14.907</td>
-      <td>17.823</td>
-      <td>25.529</td>
-      <td>31.476</td>
+      <td>11.105</td>
+      <td>14.877</td>
+      <td>17.820</td>
+      <td>25.552</td>
+      <td>31.572</td>
     </tr>
     <tr>
       <th>[40, 45)</th>
-      <td>11.696</td>
-      <td>15.616</td>
-      <td>18.792</td>
-      <td>26.957</td>
-      <td>33.666</td>
+      <td>11.688</td>
+      <td>15.601</td>
+      <td>18.768</td>
+      <td>26.943</td>
+      <td>33.668</td>
     </tr>
     <tr>
       <th>[45, 50)</th>
-      <td>12.049</td>
-      <td>16.020</td>
-      <td>19.561</td>
-      <td>27.783</td>
-      <td>34.611</td>
+      <td>12.038</td>
+      <td>16.029</td>
+      <td>19.536</td>
+      <td>27.818</td>
+      <td>34.648</td>
     </tr>
     <tr>
       <th>[50, 55)</th>
-      <td>12.237</td>
-      <td>16.587</td>
-      <td>19.932</td>
-      <td>27.758</td>
-      <td>34.839</td>
+      <td>12.267</td>
+      <td>16.575</td>
+      <td>19.923</td>
+      <td>27.838</td>
+      <td>34.816</td>
     </tr>
   </tbody>
 </table>
@@ -2600,22 +2584,22 @@ Name: average_wage, dtype: float64
 </div>
 </section>
 <section id="step-23-plot-the-previous-table-as-a-heatmat">
-<h3>Step 23. Plot the previous table as a heatmat.<a class="headerlink" href="#step-23-plot-the-previous-table-as-a-heatmat" title="Permalink to this heading">#</a></h3>
+<h3>Step 23. Plot the previous table as a heatmat.<a class="headerlink" href="#step-23-plot-the-previous-table-as-a-heatmat" title="Link to this heading">#</a></h3>
 <p>Use seaborn’s <code class="docutils literal notranslate"><span class="pre">heatmap</span></code> function. Just input the table from before into <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code>. Be sure to use <code class="docutils literal notranslate"><span class="pre">plt.title</span></code> to give the plot an appropriate title.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Average Wages, by group&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/49d031fdba19b5c84ead86b3e9dfb937c6ba0efbfeb8125a0b87561e1d05d0f5.png" src="../_images/49d031fdba19b5c84ead86b3e9dfb937c6ba0efbfeb8125a0b87561e1d05d0f5.png" />
+<img alt="../_images/cb17bcddba7ef01602769473a09074b0ee473235871bb56e113dbdd6e4db6b25.png" src="../_images/cb17bcddba7ef01602769473a09074b0ee473235871bb56e113dbdd6e4db6b25.png" />
 </div>
 </div>
 </section>
 <section id="step-24-create-the-demographically-adjusted-series">
-<h3>Step 24. Create the demographically adjusted series<a class="headerlink" href="#step-24-create-the-demographically-adjusted-series" title="Permalink to this heading">#</a></h3>
+<h3>Step 24. Create the demographically adjusted series<a class="headerlink" href="#step-24-create-the-demographically-adjusted-series" title="Link to this heading">#</a></h3>
 <p>Now we will compute a demographically adjusted average wage series. To do this, average real wages within demographic groups. These groups will be grouped by year, age bin, and education level. These <code class="docutils literal notranslate"><span class="pre">inner_means</span></code> will be weighted using survey weights. Recall that the survey weights are given in the CPS data to tell us how to weight the data so that it is a statisitcally representative sample. We will then sum these survey weights within each group, or “cell”. We will then use these summed survey weights from the age and education groups, and freeze them at year 2000. We will use these frozen weights to compute an adjusted time series for average wages for the rest of the years. Specifically, we will compute an average of the average group wages. (Note that an average of an average has a mathematically reasonable meaning.)</p>
 <p>Use the following started code to complete this:</p>
 <!--
@@ -2646,14 +2630,14 @@ tdf['adj_ave_wages'] = adj_series
 <p>After doing this, construct the variable <code class="docutils literal notranslate"><span class="pre">adj_ave_wage_growth</span></code> using <code class="docutils literal notranslate"><span class="pre">.pct_change</span></code> as before.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s24_demographically_adj_series</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">tdf</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span> <span class="o">=</span> <span class="n">wage_growth_analytics</span><span class="o">.</span><span class="n">s24_demographically_adj_series</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">tdf</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2699,25 +2683,14 @@ tdf['adj_ave_wages'] = adj_series
   </thead>
   <tbody>
     <tr>
-      <th>2019-01-01</th>
-      <td>20.416</td>
-      <td>15.980</td>
-      <td>0.967</td>
-      <td>0.034</td>
-      <td>0.003</td>
-      <td>-0.001</td>
-      <td>19.369</td>
-      <td>0.022</td>
-    </tr>
-    <tr>
       <th>2020-01-01</th>
-      <td>21.311</td>
+      <td>21.313</td>
       <td>16.843</td>
       <td>0.960</td>
       <td>0.044</td>
       <td>0.054</td>
       <td>-0.007</td>
-      <td>20.127</td>
+      <td>20.129</td>
       <td>0.039</td>
     </tr>
     <tr>
@@ -2728,8 +2701,8 @@ tdf['adj_ave_wages'] = adj_series
       <td>-0.026</td>
       <td>-0.034</td>
       <td>-0.004</td>
-      <td>19.554</td>
-      <td>-0.028</td>
+      <td>19.555</td>
+      <td>-0.029</td>
     </tr>
     <tr>
       <th>2022-01-01</th>
@@ -2744,12 +2717,23 @@ tdf['adj_ave_wages'] = adj_series
     </tr>
     <tr>
       <th>2023-01-01</th>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>20.542</td>
+      <td>15.779</td>
       <td>0.968</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>0.004</td>
+      <td>-0.014</td>
       <td>0.000</td>
+      <td>19.167</td>
+      <td>0.002</td>
+    </tr>
+    <tr>
+      <th>2024-01-01</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.964</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.004</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -2759,24 +2743,24 @@ tdf['adj_ave_wages'] = adj_series
 </div>
 </section>
 <section id="step-25-check-understanding-of-usage-of-groupby-above">
-<h3>Step 25. Check understanding of usage of <code class="docutils literal notranslate"><span class="pre">groupby</span></code> above.<a class="headerlink" href="#step-25-check-understanding-of-usage-of-groupby-above" title="Permalink to this heading">#</a></h3>
+<h3>Step 25. Check understanding of usage of <code class="docutils literal notranslate"><span class="pre">groupby</span></code> above.<a class="headerlink" href="#step-25-check-understanding-of-usage-of-groupby-above" title="Link to this heading">#</a></h3>
 <p>Explain the following. Why did I use <code class="docutils literal notranslate"><span class="pre">groupby(by=[])</span></code> in one place and <code class="docutils literal notranslate"><span class="pre">groupby(level=...)</span></code> in another place? Explain the difference between the <code class="docutils literal notranslate"><span class="pre">by</span></code> keyword and the <code class="docutils literal notranslate"><span class="pre">level</span></code> keyword in the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> function. (HINT: Check the documentation and run the code line by line if it’s unclear.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The difference is that one groups by columns and the other groups by a level in a multi-index.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The difference is that one groups by columns and the other groups by a level in a multi-index.</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="step-26-plot-the-unadjusted-and-the-demographically-adjusted-series-for-average-wages-on-the-same-plot">
-<h3>Step 26. Plot the unadjusted and the demographically adjusted series for average wages on the same plot.<a class="headerlink" href="#step-26-plot-the-unadjusted-and-the-demographically-adjusted-series-for-average-wages-on-the-same-plot" title="Permalink to this heading">#</a></h3>
+<h3>Step 26. Plot the unadjusted and the demographically adjusted series for average wages on the same plot.<a class="headerlink" href="#step-26-plot-the-unadjusted-and-the-demographically-adjusted-series-for-average-wages-on-the-same-plot" title="Link to this heading">#</a></h3>
 <p>Also, explain what you see.</p>
 <p>ANSWER:</p>
 <p>In the plot immediately below, we see that the demographically adjusted wage series (<code class="docutils literal notranslate"><span class="pre">adj_ave_age</span></code>) coincides with the unadjusted series in the year 1999 (data from 2000). They diverge as time goes on. This is as expected, and serves as a check that we have performed our calculations correctly. The adjusted wage series is lower than the unadjusted. This suggests that the composition of the labor force was tilting towards higher earning demographics.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In the plot immediately below, we see that the demographically </span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In the plot immediately below, we see that the demographically </span>
 <span class="c1"># adjusted wage series (`adj_ave_age`) coincides with the unadjusted </span>
 <span class="c1"># series in the year 1999 (data from 2000). </span>
 <span class="c1"># They diverge as time goes on. This is as expected, and serves as a </span>
@@ -2790,18 +2774,18 @@ tdf['adj_ave_wages'] = adj_series
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d27b92a712565fed475217f7e040c3c0faaa3f7923693d2a719dbaf1f87e88dd.png" src="../_images/d27b92a712565fed475217f7e040c3c0faaa3f7923693d2a719dbaf1f87e88dd.png" />
+<img alt="../_images/1228bdb1f21166bdfa1f6afdeda302a615ecb5f6731cd0e6a74e26d5097e9243.png" src="../_images/1228bdb1f21166bdfa1f6afdeda302a615ecb5f6731cd0e6a74e26d5097e9243.png" />
 </div>
 </div>
 </section>
 <section id="step-27-repeat-the-calculations-from-q19-except-include-the-new-adjusted-series-as-well">
-<h3>Step 27. Repeat the calculations from Q19, except include the new adjusted series as well.<a class="headerlink" href="#step-27-repeat-the-calculations-from-q19-except-include-the-new-adjusted-series-as-well" title="Permalink to this heading">#</a></h3>
+<h3>Step 27. Repeat the calculations from Q19, except include the new adjusted series as well.<a class="headerlink" href="#step-27-repeat-the-calculations-from-q19-except-include-the-new-adjusted-series-as-well" title="Link to this heading">#</a></h3>
 <p>What do you see? Is it still puzzling? (NOTE: This is mostly an open-ended question.)</p>
 <p>ANSWER:</p>
 <p>Now, if we repeat our calculations with regards to the time series correlation between wage growth and employment, we see that demographically adjusting wage growth lowers the correlation. The correlation of wage growth and employment growth become more negative. This is also a little puzzling.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tdf</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2838,87 +2822,87 @@ tdf['adj_ave_wages'] = adj_series
     <tr>
       <th>ave_wages</th>
       <td>1.000</td>
-      <td>0.856</td>
-      <td>-0.280</td>
-      <td>0.339</td>
-      <td>0.247</td>
-      <td>-0.113</td>
-      <td>0.842</td>
-      <td>0.276</td>
+      <td>0.844</td>
+      <td>-0.193</td>
+      <td>0.323</td>
+      <td>0.190</td>
+      <td>-0.102</td>
+      <td>0.833</td>
+      <td>0.269</td>
     </tr>
     <tr>
       <th>median_wages</th>
-      <td>0.856</td>
+      <td>0.844</td>
       <td>1.000</td>
-      <td>-0.211</td>
-      <td>0.233</td>
-      <td>0.345</td>
-      <td>-0.147</td>
-      <td>0.926</td>
-      <td>0.202</td>
+      <td>-0.180</td>
+      <td>0.231</td>
+      <td>0.322</td>
+      <td>-0.142</td>
+      <td>0.927</td>
+      <td>0.203</td>
     </tr>
     <tr>
       <th>employment</th>
-      <td>-0.280</td>
-      <td>-0.211</td>
+      <td>-0.193</td>
+      <td>-0.180</td>
       <td>1.000</td>
-      <td>0.113</td>
-      <td>-0.009</td>
-      <td>0.645</td>
-      <td>-0.266</td>
-      <td>0.078</td>
+      <td>0.110</td>
+      <td>-0.039</td>
+      <td>0.639</td>
+      <td>-0.230</td>
+      <td>0.081</td>
     </tr>
     <tr>
       <th>ave_wage_growth</th>
-      <td>0.339</td>
-      <td>0.233</td>
-      <td>0.113</td>
+      <td>0.323</td>
+      <td>0.231</td>
+      <td>0.110</td>
       <td>1.000</td>
-      <td>0.601</td>
+      <td>0.596</td>
       <td>-0.287</td>
-      <td>0.350</td>
+      <td>0.347</td>
       <td>0.974</td>
     </tr>
     <tr>
       <th>median_wage_growth</th>
-      <td>0.247</td>
-      <td>0.345</td>
-      <td>-0.009</td>
-      <td>0.601</td>
+      <td>0.190</td>
+      <td>0.322</td>
+      <td>-0.039</td>
+      <td>0.596</td>
       <td>1.000</td>
-      <td>-0.262</td>
-      <td>0.214</td>
-      <td>0.581</td>
+      <td>-0.260</td>
+      <td>0.192</td>
+      <td>0.573</td>
     </tr>
     <tr>
       <th>employment_growth</th>
-      <td>-0.113</td>
-      <td>-0.147</td>
-      <td>0.645</td>
+      <td>-0.102</td>
+      <td>-0.142</td>
+      <td>0.639</td>
       <td>-0.287</td>
-      <td>-0.262</td>
+      <td>-0.260</td>
       <td>1.000</td>
-      <td>-0.271</td>
+      <td>-0.267</td>
       <td>-0.370</td>
     </tr>
     <tr>
       <th>adj_ave_wages</th>
-      <td>0.842</td>
-      <td>0.926</td>
-      <td>-0.266</td>
-      <td>0.350</td>
-      <td>0.214</td>
-      <td>-0.271</td>
+      <td>0.833</td>
+      <td>0.927</td>
+      <td>-0.230</td>
+      <td>0.347</td>
+      <td>0.192</td>
+      <td>-0.267</td>
       <td>1.000</td>
       <td>0.340</td>
     </tr>
     <tr>
       <th>adj_ave_wage_growth</th>
-      <td>0.276</td>
-      <td>0.202</td>
-      <td>0.078</td>
+      <td>0.269</td>
+      <td>0.203</td>
+      <td>0.081</td>
       <td>0.974</td>
-      <td>0.581</td>
+      <td>0.573</td>
       <td>-0.370</td>
       <td>0.340</td>
       <td>1.000</td>
@@ -2930,7 +2914,7 @@ tdf['adj_ave_wages'] = adj_series
 </section>
 </section>
 <section id="conclusion">
-<h2>5. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<h2>5. Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
 <p>Note that there is more that we could do with this. For one, we could try to account for changes in employment. For example, the procedure would work like this:</p>
 <blockquote>
 <div><p>We could impute wages for those not working.  So your sample will now expand to all workers – even those without a measured wage.   We can do the imputation in a crude way. Using this new sample, define demographic groups by age-skill for each year. For each person without out a wage in a given year – match them to their demographic cell in that year.  For your imputation, assign those with a missing wage in that year to the 33rd percentile of the wages within that cell (for that year).   Note – those with the highest wages will be at the 99th percentile.  This assumes that those with a missing wage (of a given age-skill type) are disproportionately drawn from the bottom part of their age-skill wage distribution.   Still adjust the wages for changing demographic composition by fixing the weights for each demographic cell at their 2000 level (using the full sample including the zeros).</p>
@@ -2971,7 +2955,7 @@ For fun, below is an attempt at creating something similar to a demographically 
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -2984,11 +2968,11 @@ For fun, below is an attempt at creating something similar to a demographically 
       </div>
     </a>
     <a class="right-next"
-       href="../lectures/Week3/overview_w3.html"
+       href="../lectures/subject_to_change_after_this_week.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 3: Env Files, Secrets, Automating Queries, and the Basics of SQL</p>
+        <p class="prev-next-title">Schedule subject to change after marker</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -3000,6 +2984,7 @@ For fun, below is an attempt at creating something similar to a demographically 
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -3081,7 +3066,7 @@ By Jeremy Bejarano
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>
@@ -3105,8 +3090,8 @@ By Jeremy Bejarano
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

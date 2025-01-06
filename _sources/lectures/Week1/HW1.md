@@ -7,7 +7,7 @@
     - Make sure students know how to clone HW repository
     - Learn basic usage of PyTest to test HW solutions
     - Learn how to submit HW via GitHub Education
-- **Do on own:** Learn how to pull data from FRED and pulling from a simple API (OFR data api)
+- **Do on own:** Explore the IPUMS CPS data.
 - **Discuss in Class:** Experience with analyzing wholesale funding markets with data from FRED 
 
 ## Assignment
@@ -20,9 +20,12 @@ In order to start mastering the many features of Github, please complete the fol
  - [Communicate using Markdown](https://github.com/skills/communicate-using-markdown)
  - [GitHub Pages](https://github.com/skills/github-pages)
  
+These tutorials are not graded, but please make sure to complete them before the next class.
+
 ### Part 2
 
-Next, a coding assignment is located at the following GitHub Education link: https://classroom.github.com/a/fhO2s7CT
+Next, a coding assignment is located at the following GitHub Education link: https://classroom.github.com/a/uDoKANYN
 
-There are a total of TBD exercises. Each exercise is described in a file called `test_exercise_XX.py`. For example, exercise 1 is described in `test_exercise_01.py` and exercise 2 is described in `test_exercise_02.py`. Each exercise may have sub-parts in them. Each subpart is worth 1 point. The total points available for the assignment can be obtained by summing the number of subparts across all exercises.
+The assignments follow a test-driven development approach. Your objective is to write the code that passes all the tests.
+You should run `pytest` to check if your code passes all the tests. When you are ready to submit, you can push your changes to the repository and submit the assignment on GitHub Classroom. Every time you push your changes, the tests will be run again on GitHub and your assignment will be graded. You can submit as many times as you want until the deadline. Each time you submit, you will be regraded.
 
