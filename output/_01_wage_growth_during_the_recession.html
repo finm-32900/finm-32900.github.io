@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -681,7 +681,7 @@ memory usage: 308.2 MB
 </div>
 <p>As you can see, this results in</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 4608387 entries, 0 to 4608386
+RangeIndex: 4752652 entries, 0 to 4752651
 Data columns (total 12 columns):
  #   Column      Dtype         
 ---  ------      -----         
@@ -698,7 +698,7 @@ Data columns (total 12 columns):
  10  UHRSWORKLY  int64         
  11  INCWAGE     int64         
 dtypes: category(4), datetime64[ns](1), float64(2), int64(5)
-memory usage: 298.9 MB
+memory usage: 308.2 MB
 </pre></div>
 </div>
 <p>If you use restrict your data set to exactly these variables and follow the instructions precisely, you should be able to replicate the exact numbers that I get. (For example, don’t drop missing data until the instructions tell you to.)</p>
@@ -849,8 +849,8 @@ memory usage: 298.9 MB
 <h4>INCWAGE<a class="headerlink" href="#incwage" title="Link to this heading">#</a></h4>
 <p>For INCWAGE: Wage and salary income <a class="reference external" href="https://cps.ipums.org/cps-action/variables/INCWAGE#description_section">https://cps.ipums.org/cps-action/variables/INCWAGE#description_section</a></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Codes
-9999999 = N.I.U. (Not in Universe). 
-9999998 = Missing.
+99999999 = N.I.U. (Not in Universe). 
+99999998 = Missing.
 </pre></div>
 </div>
 <blockquote>
@@ -2042,7 +2042,7 @@ ax.figure.legend()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x15ff67b60&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x177e67c50&gt;
 </pre></div>
 </div>
 <img alt="../_images/e0488f94f4cc3f645795eaa1bdb1865443c1b0ddf6c5867755618bff51e748ce.png" src="../_images/e0488f94f4cc3f645795eaa1bdb1865443c1b0ddf6c5867755618bff51e748ce.png" />
@@ -2127,7 +2127,7 @@ Use the same code as from before. However, this time let’s explore the relatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x347e40920&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x34fe7b890&gt;
 </pre></div>
 </div>
 <img alt="../_images/675f80e4bc3f9c4e1a3d9028edf6ddfc620a5a9d760b2635601f59465d419cf7.png" src="../_images/675f80e4bc3f9c4e1a3d9028edf6ddfc620a5a9d760b2635601f59465d419cf7.png" />
