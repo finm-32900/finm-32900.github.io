@@ -4,13 +4,18 @@
 
 Please watch the following videos to better familiarize yourself with CRSP and Compustat in WRDS.
 
- - Watch the CRSP and Compustat videos linked in the class notes from earlier, [found here.](WRDS_intro_and_web_queries.md)
- - [CRSP Coverage](https://vimeo.com/417302309)
- - [CRSP - Useful Variale](https://wrds-www.wharton.upenn.edu/pages/grid-items/crsp-useful-variables/)
-   - This video goes over some points we made in class as well and is helpful for cleaning the CRSP data (e.g., negative prices).
- - [CRSP Stock Database Coverage](https://wrds-www.wharton.upenn.edu/pages/grid-items/crsp-stock-database-structure/)
-   - Useful for merging stock files and event files in CRSP via SQL. This is useful, for example, to incorporate delisting returns.
+ - Watch the following videos about Compustat. The slides to accompany the videos are available [here](https://wrds-www.wharton.upenn.edu/documents/1374/intro_comp_access_link.pptx).
+   - [Introduction to Compustat | Part 1](https://vimeo.com/417303405)
+   - [Introduction to Compustat | Part 2](https://vimeo.com/417302901)
+   - [Merging CRSP and Compustat Data](https://vimeo.com/447503392)
 
+ - You may also find the following videos helpful:
+   - [Fama-French SMB and HML | SAS Replication](https://vimeo.com/447603278)
+   - [Fama-French SMB and HML | 1. Book-Equity](https://vimeo.com/447631819)
+   - [Fama-French SMB and HML | 2. CRSP Stock Data](https://vimeo.com/447635241)
+   - [Fama-French SMB and HML | 3. CRSP](https://vimeo.com/447867614)
+   - [Fama-French SMB and HML | 4. Merge CRSP and Compustat. B/M Ratio](https://vimeo.com/447871296)
+   - [Fama-French SMB and HML | 5. Calculating Fama-French Factors]https://vimeo.com/447876324)
 
 ## Part 1 (graded)
 

@@ -34,7 +34,7 @@ assumed.
     encouraged to post questions on the discussion page of the class GitHub
     repository here.
 
-- **TA Session/TA Office Hours:** TBD
+- **TA Session/TA Office Hours:** Fridays from 12-1 pm CT on Zoom. See the Zoom link on the Canvas calendar.
 
 - **Website:** Canvas will be used for grades and for publishing Zoom links
   only. Homework and notes will be posted on the course GitHub repo:
@@ -43,7 +43,7 @@ assumed.
 - **Textbook:** The text for the course will be published incrementally here:
   https://finm-32900.github.io/
 
-**NOTE:** Due to the holiday on January 20, a makeup class will be scheduled. This is also TBD.
+**NOTE:** Due to the holiday on January 20, a makeup class will be scheduled. This makeup class will be held on Friday, January 24 during the TA office hours. I will use the same Zoom link as the TA office hours, which you can find on the Canvas calendar.
 
 
 ### Assignments

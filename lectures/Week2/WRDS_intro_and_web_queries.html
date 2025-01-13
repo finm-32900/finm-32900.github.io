@@ -1,0 +1,690 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction to WRDS &#8212; Full Stack Quantitative Finance</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Week2/WRDS_intro_and_web_queries';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Example: Connecting to the WRDS Platform With Python" href="../../output/_01_wrds_python_package.html" />
+    <link rel="prev" title="Week 2: Task Runners, Env Files, and Secrets" href="overview_w2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Full Stack Quantitative Finance - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Full Stack Quantitative Finance - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Full Stack Quantitative Finance
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Course Syllabus: FINM 32900, Winter 2025</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Week1/HW0.html">Homework 0: Setting up your computing environment</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week1/overview_w1.html">Week 1: GitHub, GitHub Classroom, and Virtual Environments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/what_is_this_course_about.html">What is Full Stack Quantitative Finance? Why This Course?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/virtual_environments.html">Virtual Environments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week1/HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/_01_wage_growth_during_the_recession.html">HW Guide: Wage Growth During the Recession</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview_w2.html">Week 2: Task Runners, Env Files, and Secrets</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Introduction to WRDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="what_is_a_task_runner.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_structure.html">Project Structure</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../output/_02_CRSP_market_index.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week3/overview_w3.html">Week 3: Automating Queries and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week3/HW3.html">Homework 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../output/_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../output/_03_Fama_French_1993.html">HW Guide Part B: Replicate Fama-French 1993</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week4/overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week5/overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week6/overview_w6.html">Week 6: Bloomberg and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/GitHub_pull_requests.html">GitHub Pull Requests: Enhancing Collaborative Development</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Week7/overview_w7.html">Week 7: Reviewing Sphinx and Unit Tests</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week8/overview_w8.html">Week 8: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Week8/HW4.html">Homework 4</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Misc/final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Misc/potential_final_projects.html">List of Potential Final Projects</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Misc/appendix.html">Appendix</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/finm-32900/finm-32900-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/finm-32900/finm-32900-data-science/issues/new?title=Issue%20on%20page%20%2Flectures/Week2/WRDS_intro_and_web_queries.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/lectures/Week2/WRDS_intro_and_web_queries.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to WRDS</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-platform-for-financial-data">A Platform For Financial Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-core-data-sets">The Core Data Sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compustat">Compustat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crsp">CRSP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-these-compare-with-bloomberg-or-datastream">How do these compare with Bloomberg or Datastream?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrds-web-queries">WRDS Web Queries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helpful-resources">Helpful Resources</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-wrds">
+<h1>Introduction to WRDS<a class="headerlink" href="#introduction-to-wrds" title="Link to this heading">#</a></h1>
+<section id="a-platform-for-financial-data">
+<h2>A Platform For Financial Data<a class="headerlink" href="#a-platform-for-financial-data" title="Link to this heading">#</a></h2>
+<p>Wharton Research Data Services (WRDS) is a data research platform and business intelligence tool widely used in academic, government, and corporate sectors. It provides access to a vast repository of financial, economic, and marketing data, which is pivotal for conducting rigorous research in various fields, especially in finance and economics. The platform is known for its comprehensive and high-quality datasets.</p>
+<p><a class="reference external" href="https://wrds-www.wharton.upenn.edu/"><img alt="WRDS Logo" src="../../_images/wrds_logo.png" /></a></p>
+<p>WRDS offers a variety of datasets from numerous sources, including leading data providers like Compustat, CRSP, IBES, and Bloomberg. It covers a wide range of data types, including:</p>
+<ul class="simple">
+<li><p>Stock prices and trading volumes</p></li>
+<li><p>Financial statement data</p></li>
+<li><p>Analyst forecasts</p></li>
+<li><p>Corporate governance data</p></li>
+<li><p>Mutual fund and bond data</p></li>
+<li><p>Macroeconomic data</p></li>
+</ul>
+<p><img alt="WRDS Datasets" src="../../_images/wrds_subscriptions.png" /></p>
+<p>One of the key strengths of WRDS is its user-friendly interface, which allows for easy data extraction and manipulation. It provides powerful tools for data analysis, including the ability to execute custom queries and perform complex statistical analyses. In academic settings, WRDS is particularly valued for its role in facilitating empirical research in finance and economics. It allows researchers, professors, and students to access a wealth of data necessary for testing financial theories, exploring economic trends, and developing new insights in the field of quantitative finance.</p>
+</section>
+<section id="the-core-data-sets">
+<h2>The Core Data Sets<a class="headerlink" href="#the-core-data-sets" title="Link to this heading">#</a></h2>
+<p>WRDS provides some usage statistics on their website in an introduction presentation <a class="reference external" href="https://wrds-www.wharton.upenn.edu/documents/1400/wrds_research_data_overview.pdf">here</a>. This chart shows
+the percentage of usage across all WRDS data sets.</p>
+<p><img alt="WRDS Database Usage" src="../../_images/wrds_database_usage.png" /></p>
+<p>The two most popular data sets are CRSP and Compustat.</p>
+<p>WRDS did an analysis finance papers published in the top 3 finance journals—the Journal of Finance, the Journal of Financial Economics, and the Review of Financial Studies—from the years 2004-2016. Out of all of these papers, the following chart shows how many times each data set was cited.</p>
+<p><img alt="Top 10 Databases" src="../../_images/wrds_top_10_databases.png" /></p>
+<p>All of the listed data sets, except for those colored in red, are available in WRDS.</p>
+</section>
+<section id="compustat">
+<h2>Compustat<a class="headerlink" href="#compustat" title="Link to this heading">#</a></h2>
+<p><img alt="Compustat Logo" src="../../_images/Compustat_Logo.png" /></p>
+<p><a class="reference external" href="https://www.marketplace.spglobal.com/en/datasets/compustat-financials-(8)">Compustat Financials, S&amp;P Global Market Intelligence</a></p>
+<p>Compustat is a comprehensive database of financial, statistical, and market information, primarily focused on publicly traded companies. It is widely used in academic research, particularly in the fields of finance and economics, for conducting in-depth analysis of company performance and market trends. The dataset includes information from various countries and markets, making it a valuable resource for both domestic and international financial research.</p>
+<p>Key features of the Compustat dataset include:</p>
+<ol class="arabic simple">
+<li><p><strong>Financial Statements:</strong> Detailed income statements, balance sheets, and cash flow statements for a wide range of companies.</p></li>
+<li><p><strong>Historical Data:</strong> Longitudinal data that allows for historical trend analysis and time-series studies.</p></li>
+<li><p><strong>Global Coverage:</strong> Data on companies from various global markets, including North America, Europe, Asia, and more.</p></li>
+<li><p><strong>Segment Data:</strong> Information on business segments and geographical segments of companies.</p></li>
+<li><p><strong>Market Data:</strong> Includes stock prices, trading volume, and other market-related information.</p></li>
+<li><p><strong>Corporate Actions:</strong> Data on dividends, stock splits, mergers and acquisitions, and other corporate events.</p></li>
+<li><p><strong>Ratios and Metrics:</strong> Key financial ratios and metrics that are pre-calculated for ease of analysis, such as ROE, ROA, and EBITDA.</p></li>
+</ol>
+<p>Compustat is highly regarded for its accuracy, depth, and consistency, making it a fundamental resource for both theoretical and empirical research in finance. It’s extensively used for tasks like asset pricing models, risk management, portfolio construction, and corporate finance studies. For students and researchers in quantitative finance, Compustat provides a rich dataset for modeling, back-testing theories, and conducting robust financial analyses.</p>
+<p>The following two videos provide a short introduction to Compustat on WRDS.</p>
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/417303405?h=fa2a1a3b2d" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/417302901?h=f9f976a573" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+<!-- 
+[![Compustat on WRDS Part 1](./assets/compustat_on_WRDS_p1.png)](https://wrds-www.wharton.upenn.edu/pages/grid-items/introduction-compustat-part-1/)
+[![Compustat on WRDS Part 2](./assets/compustat_on_WRDS_p2.png)](https://wrds-www.wharton.upenn.edu/pages/grid-items/introduction-compustat-part-2/) -->
+</section>
+<section id="crsp">
+<h2>CRSP<a class="headerlink" href="#crsp" title="Link to this heading">#</a></h2>
+<p><img alt="CRSP Logo" src="../../_images/crsp-llc-logo-web-01_3.png" /></p>
+<p><a class="reference external" href="https://www.crsp.org/">Center for Research in Security Prices</a></p>
+<p>The Center for Research in Security Prices (CRSP) is a renowned financial research database, primarily recognized for its comprehensive historical data on securities traded in the United States. Established at the University of Chicago’s Booth School of Business, CRSP is a crucial resource for academic, commercial, and governmental research in finance.</p>
+<p>Key characteristics of the CRSP database include:</p>
+<ol class="arabic simple">
+<li><p><strong>Extensive Historical Data:</strong> CRSP is particularly noted for its long historical time series, which in some cases go back as far as 1925. This historical depth is invaluable for long-term financial studies and analyses.</p></li>
+<li><p><strong>Stock Data:</strong> The database provides detailed information on stocks listed on NYSE, AMEX, and NASDAQ, including prices, returns, trading volumes, and other market indicators.</p></li>
+<li><p><strong>Indices:</strong> CRSP develops and maintains a series of stock indices that serve as benchmarks for the investment industry, including value- and equal-weighted indices.</p></li>
+<li><p><strong>Corporate Actions:</strong> Information on dividends, stock splits, and other corporate events that impact stock valuation is extensively covered.</p></li>
+<li><p><strong>Treasury and Mutual Fund Data:</strong> Beyond stocks, CRSP also includes data on US Treasury bills, bonds, and mutual funds, expanding its utility for various types of financial research.</p></li>
+<li><p><strong>Survivorship Bias-Free Data:</strong> CRSP’s dataset is known for being free of survivorship bias, as it includes data on companies that have ceased to exist, which is crucial for accurate historical analysis.</p></li>
+<li><p><strong>Research Quality:</strong> The accuracy, completeness, and cleanliness of the data make CRSP a gold standard for financial research, particularly in academic settings.</p></li>
+</ol>
+<p>For students and researchers in quantitative finance, CRSP provides essential data for analyzing stock performance, conducting empirical tests of asset pricing models, and studying market anomalies and behaviors. Its extensive historical data and robustness make it a fundamental tool for both historical analysis and contemporary market studies.</p>
+<p>The following <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/grid-items/crsp-basics/">video</a> provides a nice introduction to the basics of CRSP.</p>
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/417301517?h=5811b9a488" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+<!-- 
+[![CRSP in WRDS Basics](./assets/crsp_in_wrds_thumbnail.png)](https://wrds-www.wharton.upenn.edu/pages/grid-items/crsp-basics/) -->
+</section>
+<section id="how-do-these-compare-with-bloomberg-or-datastream">
+<h2>How do these compare with Bloomberg or Datastream?<a class="headerlink" href="#how-do-these-compare-with-bloomberg-or-datastream" title="Link to this heading">#</a></h2>
+<p>Choosing between financial databases like CRSP, Bloomberg, or Datastream depends on the specific requirements of the research or analysis being conducted. Each of these platforms has unique strengths and features that make them suitable for different purposes. Here are some reasons why someone might opt for CRSP over Bloomberg or Datastream:</p>
+<ul class="simple">
+<li><p><strong>Historical Depth:</strong> CRSP is renowned for its extensive historical data, particularly for U.S. securities. It offers data going back as far as 1925, which is invaluable for long-term historical research and analysis. This level of historical depth might not be matched by Bloomberg or Datastream.</p></li>
+<li><p><strong>Survivorship Bias-Free Data:</strong> CRSP’s data includes companies that have ceased to exist, which is crucial for accurate historical analyses. This feature helps in avoiding survivorship bias, making it a robust choice for academic studies that require comprehensive historical perspectives.</p></li>
+<li><p><strong>Data Consistency and Quality:</strong> CRSP is known for its high standards in data accuracy, consistency, and cleanliness, which are critical for reliable academic research.</p></li>
+</ul>
+<p>On the other hand, there are some drawbacks of CRSP relative to Bloomberg or Datastream.</p>
+<ul class="simple">
+<li><p><strong>Limited Scope</strong>: CRSP has a limited scope relative to Bloomberg or Datastream. It primarily focuses on US markets and lacks the global coverage found in Bloomberg.</p></li>
+<li><p><strong>Real-Time Data</strong>: Does not offer real-time data, which is essential for current market analysis.</p></li>
+<li><p><strong>Less Comprehensive</strong>: Fewer types of financial data compared to Bloomberg (e.g., lacks extensive international data, commodities, real-time news).</p></li>
+</ul>
+<p>Broadly speaking, CRSP is more suited for academic research focused on historical analysis of the U.S. stock market, offering in-depth and high-quality data with a bias-free historical perspective. Bloomberg, on the other hand, excels in providing a wide range of real-time global financial data and tools, catering more to finance professionals and analysts who require real-time data and sophisticated analysis tools. The choice between them largely depends on the specific needs, goals, and resources of the user.</p>
+</section>
+<section id="wrds-web-queries">
+<h2>WRDS Web Queries<a class="headerlink" href="#wrds-web-queries" title="Link to this heading">#</a></h2>
+<p>To familiarize yourselves to using WRDS, please <a class="reference external" href="https://player.vimeo.com/video/1019787855?h=83ee06d532">watch the following video</a> about WRDS Web Queries. While we will be automating the query process using the WRDS Python package <a class="reference external" href="https://pypi.org/project/wrds/"><code class="docutils literal notranslate"><span class="pre">wrds</span></code></a>, using the web query system is a good way for initial exploration of the data.</p>
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/1019787855?h=83ee06d532" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+</section>
+<section id="helpful-resources">
+<h2>Helpful Resources<a class="headerlink" href="#helpful-resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>WRDS provides many helpful instructional videos here: <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/video-support/">https://wrds-www.wharton.upenn.edu/pages/video-support/</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures/Week2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="overview_w2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 2: Task Runners, Env Files, and Secrets</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../output/_01_wrds_python_package.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Example: Connecting to the WRDS Platform With Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-platform-for-financial-data">A Platform For Financial Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-core-data-sets">The Core Data Sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compustat">Compustat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crsp">CRSP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-these-compare-with-bloomberg-or-datastream">How do these compare with Bloomberg or Datastream?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrds-web-queries">WRDS Web Queries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helpful-resources">Helpful Resources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeremy Bejarano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
