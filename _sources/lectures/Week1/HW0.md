@@ -17,3 +17,8 @@ Students should also sign up for an account with the following websites. We will
  - [GitHub](https://github.com/)
  - [IPUMS CPS](https://cps.ipums.org/cps/)
  - [Wharton Research Data Services (WRDS)](https://wrds-www.wharton.upenn.edu/) Apply for access through the University of Chicago, using the registration form [here.](https://wrds-www.wharton.upenn.edu/register/) For any issues that may arise, please contact the WRDS representative for UChicago's Mathematics department, John Zekos, zekos@math.uchicago.edu. 
+
+## Additional Resources
+
+See the [Appendix](../Misc/appendix.md) for a video tutorial on setting up Python and Visual Studio Code.
+
