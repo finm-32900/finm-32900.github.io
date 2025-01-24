@@ -31,7 +31,7 @@ index of market returns and an exercise related to the seminal paper [Fama and F
 You can find guides here:
 
  - [Part A: CRSP Market Returns Indices](./../../output/_02_CRSP_market_index.ipynb)
- - [Part B: Replicate Fama-French 1993](./../../output/_03_Fama_French_1993.ipynb)
+ - [Part B: Replicate Fama-French 1993](./../../output/_04_Fama_French_1993.ipynb)
 
 The data will be downloaded using the WRDS Python package. The code for this is included in the HW. This data download step will be fully automated. 
 

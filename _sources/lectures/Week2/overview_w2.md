@@ -1,4 +1,4 @@
-# Week 2: Task Runners, Env Files, and Secrets
+# Week 2: Env Files and Secrets
 
 ## Objectives
 
@@ -28,7 +28,6 @@ This will be on Zoom. See the Zoom link on the Canvas calendar. I will use the s
 - Given the motivation for automating data downloads and the inspiration to create various financial reports, let's discuss the main platform for data that we'll use in this course: WRDS. 
   - [Introduction to WRDS and WRDS Web Queries](./WRDS_intro_and_web_queries.md) 
   - [Demo of the WRDS Python package](../../output/_01_wrds_python_package.ipynb).
-- Now, discuss incorporating automated data downloads into our workflow. Discuss [Build Systems and Task Runners](./what_is_a_task_runner.md)
 - Discuss `.env` files and secretes, and how to use them in our workflow. See [Env Files](./env_files.md)
 - CRSP value weighted index example
 - Discuss [HW 2](./HW2.md)

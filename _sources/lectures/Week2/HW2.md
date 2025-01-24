@@ -25,4 +25,4 @@ Also, if you're looking for more instruction about how to use Git, here are two 
 
 ## Part 2 (graded)
 
-TDB. This will include a task of replicating the CRSP market index example from the lecture as well as a task of replicating the S&P 500 index from its constituent companies. This will be released in the next 2 days.
+This will include a task of replicating the CRSP market index example from the lecture as well as a task of replicating the S&P 500 index from its constituent companies. The link to accept the assignment is here: https://classroom.github.com/a/KMvpqo_F

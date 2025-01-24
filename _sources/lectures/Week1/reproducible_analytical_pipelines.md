@@ -8,7 +8,7 @@ suppose you are trying to manage a complex data science workflow
 in a research setting. In a finance research setting, 
 a data science project often involves several interdependent stages: data collection, preprocessing, analysis, model training, validation, and reporting. Each stage may depend on the output of the previous stages, and the project might include a mix of Python scripts, Jupyter notebooks, and data files in various formats.
 
-![A data science project with several interdependent stages: data collection, preprocessing, analysis, model training, validation, and reporting.](../Week2/assets/example_workflow.png)
+![A data science project with several interdependent stages: data collection, preprocessing, analysis, model training, validation, and reporting.](../Week3/assets/example_workflow.png)
 
 In such a multi-faceted environment, RAP plays a pivotal role in maintaining the integrity and consistency of the workflow. For instance, if new data becomes available or if there's a need to modify the analysis model, RAP facilitates the seamless integration of these changes across all stages. This integration is crucial in financial research, where the accuracy and timeliness of insights can significantly impact decision-making and strategy formulation. The automated and structured nature of RAP not only ensures that each step of the process adheres to predefined standards but also allows for easy tracking of changes and quick adaptation to new requirements or data. This agility, coupled with the robustness of reproducible results, makes RAP an indispensable tool in modern quantitative finance research.
 

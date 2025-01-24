@@ -13,6 +13,8 @@
 
 ## Agenda
 
+- Introduction Compustat and CRSP/Compustat Merged Data
+- CRSP industry merge example
 - Review HW 2. Meaning of new series? Lessons learned note? What were some gotchas?
     - People downloaded data in different ways. Some in fixed-width format, some in CSV format. Some included different samples, e.g. different time periods. Some included extra columns than others.
     - Some people had errors with the handling of the dates when using `.describe()`. This came up because they were using the wrong version of Pandas. Importance of using `requirements.txt` and `conda` environments.

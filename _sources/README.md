@@ -100,8 +100,8 @@ agenda is listed in the first sub-section of the chapter.
 ### HW Due Dates
 
 - [HW 0: Ungraded. Due ASAP](lectures/Week1/HW0.md)
-- [HW 1: Due Friday, Jan 17 at 6 pm](lectures/Week1/HW1.md)
-- HW 2: TBD
+- [HW 1: Due Friday, Jan  at 6 pm](lectures/Week1/HW1.md)
+- [HW 2: Due Friday, Jan  at 31 pm](lectures/Week2/HW2.md)
 - HW 3: TBD
 - HW 4: TBD
 - HW 5: TBD
