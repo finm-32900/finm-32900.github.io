@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -1428,25 +1428,24 @@ memory usage: 190.4 KB
 </section>
 <section id="method-a-simple-sum-of-market-caps">
 <h3>Method A: Simple Sum of Market Caps<a class="headerlink" href="#method-a-simple-sum-of-market-caps" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p><strong>Market Cap Calculation</strong>: For each stock in the index, compute the market capitalization as:
-$<span class="math notranslate nohighlight">\(
-\text{MarketCap}_{i, t} = P_{i,t} \times \text{Shrout}_{i,t}.
-\)</span><span class="math notranslate nohighlight">\(
-The total market cap of the index is:
-\)</span><span class="math notranslate nohighlight">\(
-\text{MarketCapSP500}_{t} = \sum_{i \in \mathcal{I}_{S\&amp;P, t}} \text{MarketCap}_{i, t},
-\)</span><span class="math notranslate nohighlight">\(
-where \)</span>\mathcal{I}_{S&amp;P, t}<span class="math notranslate nohighlight">\( represents the set of constituents at time \)</span>t$.</p></li>
-<li><p><strong>Index Level Approximation</strong>: Using the market cap ratio, calculate the approximated index level:
-$<span class="math notranslate nohighlight">\(
-\text{IndexLevelApproxA}_{t} = \frac{\text{MarketCapSP500}_{t}}{\text{MarketCapSP500}_{t-1}} \times \text{IndexLevelApproxA}_{t-1}.
-\)</span><span class="math notranslate nohighlight">\(
-Normalize \)</span>\text{IndexLevelApproxA}$ at the start date to match the actual S&amp;P 500 level.</p></li>
-<li><p><strong>Return Approximation</strong>: Calculate the returns as:
-$<span class="math notranslate nohighlight">\(
-R_{A, t} = \frac{\text{IndexLevelApproxA}_{t}}{\text{IndexLevelApproxA}_{t-1}} - 1.
-\)</span>$</p></li>
+<ol class="arabic">
+<li><p><strong>Market Cap Calculation</strong>: For each stock in the index, compute the market capitalization as:</p>
+<div class="math notranslate nohighlight">
+\[\text{MarketCap}_{i, t} = P_{i,t} \times \text{Shrout}_{i,t}.\]</div>
+<p>The total market cap of the index is:</p>
+<div class="math notranslate nohighlight">
+\[\text{MarketCapSP500}_{t} = \sum_{i \in \mathcal{I}_{S\&amp;P, t}} \text{MarketCap}_{i, t},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathcal{I}_{S\&amp;P, t}\)</span> represents the set of constituents at time <span class="math notranslate nohighlight">\(t\)</span>.</p>
+</li>
+<li><p><strong>Index Level Approximation</strong>: Using the market cap ratio, calculate the approximated index level:</p>
+<div class="math notranslate nohighlight">
+\[\text{IndexLevelApproxA}_{t} = \frac{\text{MarketCapSP500}_{t}}{\text{MarketCapSP500}_{t-1}} \times \text{IndexLevelApproxA}_{t-1}. \]</div>
+<p>Normalize <span class="math notranslate nohighlight">\(\text{IndexLevelApproxA}\)</span> at the start date to match the actual S&amp;P 500 level.</p>
+</li>
+<li><p><strong>Return Approximation</strong>: Calculate the returns as:</p>
+<div class="math notranslate nohighlight">
+\[R_{A, t} = \frac{\text{IndexLevelApproxA}_{t}}{\text{IndexLevelApproxA}_{t-1}} - 1.\]</div>
+</li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1622,28 +1621,19 @@ just shows the consequences of compounding small differences over a long period 
 <section id="method-b-portfolio-rebalancing">
 <h3>Method B: Portfolio Rebalancing<a class="headerlink" href="#method-b-portfolio-rebalancing" title="Link to this heading">#</a></h3>
 <p>This method assumes that a trader forms a porfolio holding the index’s constituents and rebalances the portfolio quarterly. Let’s assume that the total amount of money in the portfolio at the beginning of the period is 1 (e.g. $1 million). Then, assume that at each rebalancing date (in this case, quarterly), the trader buys and sells stocks such that the portfolio weights are equal to the weights of the index’s constituents with respect to the ratio of the market cap of each stock to the total market cap of the index.</p>
-<ol class="arabic simple">
-<li><p><strong>Weight Calculation</strong>: For each stock <span class="math notranslate nohighlight">\(i\)</span>, calculate its weight in the index:
-$<span class="math notranslate nohighlight">\(
-w_{i, t} = \begin{cases} 
-\frac{\text{MarketCap}_{i, t}}{\text{MarketCapSP500}_{t}} &amp; \text{if } i \in \mathcal{I}_{S\&amp;P, t} \\
-0 &amp; \text{otherwise}
-\end{cases}
-\)</span>$</p></li>
+<ol class="arabic">
+<li><p><strong>Weight Calculation</strong>: For each stock <span class="math notranslate nohighlight">\(i\)</span>, calculate its weight in the index:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}w_{i, t} = \begin{cases} \frac{\text{MarketCap}_{i, t}}{\text{MarketCapSP500}_{t}} &amp; \text{if } i \in \mathcal{I}_{S\&amp;P, t} \\ 0 &amp; \text{otherwise} \end{cases}\end{split}\]</div>
+</li>
 <li><p><strong>Portfolio Rebalancing</strong>: Implement quarterly rebalancing. The portfolio weights <span class="math notranslate nohighlight">\(w^p_{i, t}\)</span> are given by
-$<span class="math notranslate nohighlight">\(
-w^p_{i, t} = 
-\begin{cases} 
-w_{i, t} &amp; \text{if } t \text{ is a rebalancing date}, \\ 
-w^p_{i, t-1} &amp; \text{otherwise},
-\end{cases}
-\)</span><span class="math notranslate nohighlight">\(
+$<span class="math notranslate nohighlight">\( w^p_{i, t} = \begin{cases} w_{i, t} &amp; \text{if } t \text{ is a rebalancing date}, \\ w^p_{i, t-1} &amp; \text{otherwise},\end{cases} \)</span><span class="math notranslate nohighlight">\(
 for all \)</span>i<span class="math notranslate nohighlight">\( and \)</span>t$.</p></li>
-<li><p><strong>Return Approximation</strong>: Calculate the portfolio return as:
-$<span class="math notranslate nohighlight">\(
-R_{B, t+1} = \sum_{i} w^p_{i, t} \times R_{i, t+1},
-\)</span><span class="math notranslate nohighlight">\(
-where \)</span>R_{i, t+1}<span class="math notranslate nohighlight">\( is the return of stock \)</span>i<span class="math notranslate nohighlight">\( between \)</span>t<span class="math notranslate nohighlight">\( and \)</span>t+1$.</p></li>
+<li><p><strong>Return Approximation</strong>: Calculate the portfolio return as:</p>
+<div class="math notranslate nohighlight">
+\[ R_{B, t+1} = \sum_{i} w^p_{i, t} \times R_{i, t+1}, \]</div>
+<p>where <span class="math notranslate nohighlight">\(R_{i, t+1}\)</span> is the return of stock <span class="math notranslate nohighlight">\(i\)</span> between <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(t+1\)</span>.</p>
+</li>
 <li><p><strong>Index Level Approximation</strong>: Use the approximated returns to calculate the index level, normalized to match the official S&amp;P 500 at the start date.</p></li>
 </ol>
 <p><strong>IMPORTANT</strong>: To make this method work as accurately as possible, use the <code class="docutils literal notranslate"><span class="pre">retx</span></code> variable for <span class="math notranslate nohighlight">\(R_{i, t+1}\)</span>. This is because the <code class="docutils literal notranslate"><span class="pre">ret</span></code> variable includes dividends, which are not part of the S&amp;P 500 index.</p>
