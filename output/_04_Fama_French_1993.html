@@ -453,7 +453,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-calculate-book-equity">Step 2. Calculate Book Equity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-subset-crsp-to-common-stock-and-proper-exchanges">Step 3. Subset CRSP to Common Stock and Proper Exchanges</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-calculate-market-equity">Step 4.  Calculate Market Equity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-merge-crsp-and-compustat">Step 5. Merge CRSP and Compustat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-merge-crsp-and-compustat">Step 5. Merge CRSP and Compustat</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-crsp-compustat-merged-ccm-database">What is the CRSP/Compustat Merged (CCM) database?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuing-with-the-methodology">Continuing with the methodology</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-portfolios-and-factors">Create Portfolios and Factors</a><ul class="visible nav section-nav flex-column">
@@ -485,6 +489,13 @@ document.write(`
 <p><strong>Summary</strong></p>
 <p>The Fama and French (1993) paper, “Common Risk Factors in the Returns on Stocks and Bonds,” revolutionized asset pricing theory by challenging the Capital Asset Pricing Model (CAPM) with a three-factor model that includes market risk, size (market capitalization), and book-to-market value as predictors of stock returns. They demonstrated that the market factor alone does not fully explain stock returns and that small stocks and stocks with high book-to-market ratios yield higher returns than can be explained
 by market beta alone, suggesting that these factors capture additional risks not accounted for by the CAPM. This seminal work has significantly influenced academic research and investment practices by highlighting the importance of size and value factors in asset pricing, thereby laying the groundwork for more sophisticated models and strategies in finance.</p>
+<p><strong>Learning Outcomes</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Work with CRSP and Compustat datasets</strong>: Gain hands-on experience in using financial data sources that provide stock market prices and firm-level accounting data, which are essential for empirical research in finance.</p></li>
+<li><p><strong>Leverage the CRSP/Compustat Merged (CCM) database</strong>: Understand the purpose and structure of the CCM linking table, and use it to accurately merge CRSP’s market data with Compustat’s fundamental data.</p></li>
+<li><p><strong>Construct Fama-French portfolios and factors</strong>: Use market capitalization and book-to-market ratios to classify firms into portfolios, calculate value-weighted returns, and compute the size (SMB) and value (HML) factors.</p></li>
+<li><p><strong>Compare your results with established benchmarks</strong>: Validate your manually computed Fama-French factors against the official data from Kenneth French’s library and analyze any differences.</p></li>
+</ol>
 <p><strong>Game Plan</strong></p>
 <p>The code underlying this notebook follows the methodology described in <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/wrds-research/applications/risk-factors-and-industry-benchmarks/fama-french-factors/">https://wrds-www.wharton.upenn.edu/pages/wrds-research/applications/risk-factors-and-industry-benchmarks/fama-french-factors/</a> . I will quote from that methodology extensively. There is also a set
 of videos on this linked website. Those may be helpful for this exercise.</p>
@@ -547,15 +558,15 @@ provided by CRSP and available on WRDS.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Index: 571497 entries, 0 to 71496
+Index: 571566 entries, 0 to 71565
 Data columns (total 5 columns):
  #   Column    Non-Null Count   Dtype         
 ---  ------    --------------   -----         
- 0   gvkey     571497 non-null  object        
- 1   datadate  571497 non-null  datetime64[ns]
- 2   year      571497 non-null  int32         
- 3   be        418731 non-null  float64       
- 4   count     571497 non-null  int64         
+ 0   gvkey     571566 non-null  object        
+ 1   datadate  571566 non-null  datetime64[ns]
+ 2   year      571566 non-null  int32         
+ 3   be        418797 non-null  float64       
+ 4   count     571566 non-null  int64         
 dtypes: datetime64[ns](1), float64(1), int32(1), int64(1), object(1)
 memory usage: 24.0+ MB
 </pre></div>
@@ -582,7 +593,7 @@ memory usage: 24.0+ MB
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Index: 3401621 entries, 0 to 51596
+Index: 3451950 entries, 0 to 165348
 Data columns (total 16 columns):
  #   Column            Dtype         
 ---  ------            -----         
@@ -603,7 +614,7 @@ Data columns (total 16 columns):
  14  mthprc            float64       
  15  jdate             datetime64[ns]
 dtypes: datetime64[ns](2), float64(4), int64(2), object(8)
-memory usage: 441.2+ MB
+memory usage: 447.7+ MB
 </pre></div>
 </div>
 </div>
@@ -767,8 +778,28 @@ memory usage: 441.2+ MB
 </section>
 <section id="step-5-merge-crsp-and-compustat">
 <h2>Step 5. Merge CRSP and Compustat<a class="headerlink" href="#step-5-merge-crsp-and-compustat" title="Link to this heading">#</a></h2>
-<p>“We merged CRSP and Compustat using the CRSP CCM product (as of April 2010). We matched Compustat’s gvkey (from calendar year t-1) to CRSP’s permno as of June year t. Data was cleaned for unnecessary duplicates. First there were cases when different gvkeys exist for same permno-date. We solved these duplicates by only keeping those cases that are flagged as ‘primary’ matches by CRSP’s CCM (linkprim=‘P’ ). There were other unnecessary duplicates that were removed. Some companies may have two annual accounting records in the same calendar year. This is produced by change in the fiscal year end during the same calendar year. In these cases, we selected the last annual record for a given calendar year.</p>
-<p>After data cleaning, the book-to-market ratio for every firm in the sample were calculated by dividing Book Equity (for fiscal year that ends on year t-1) over the market value of its common equity at the end of December year t -1. These book-to-market ratios and Market Capitalization (as of December year t-1) were assigned to June year t in order to create portfolios.”</p>
+<section id="what-is-the-crsp-compustat-merged-ccm-database">
+<h3>What is the CRSP/Compustat Merged (CCM) database?<a class="headerlink" href="#what-is-the-crsp-compustat-merged-ccm-database" title="Link to this heading">#</a></h3>
+<p>To successfully replicate the Fama-French factors, we need to merge the CRSP and Compustat datasets. This step is not straightforward due to the differences in their data structures, coverage, and primary identifiers. CRSP data primarily tracks securities, while Compustat focuses on firm-level accounting data, making it necessary to carefully link the two. For this purpose, we use the <strong>CRSP/Compustat Merged (CCM) database</strong>, which serves as an intermediary table designed to simplify the merging process by providing pre-established links between the datasets.</p>
+<p>It is important to note that the CCM database is not a direct merging of the CRSP and Compustat datasets. Instead, it is a linking table that matches CRSP identifiers (such as PERMNO and PERMCO) with Compustat’s GVKEY identifier. By leveraging CCM, we can handle complexities such as companies with multiple securities, historical changes due to mergers and acquisitions, and discrepancies in data coverage between the two datasets. For example, the linking table includes fields to identify “primary” matches (e.g., <code class="docutils literal notranslate"><span class="pre">linkprim</span> <span class="pre">=</span> <span class="pre">'P'</span></code>) and remove duplicate or ambiguous links, ensuring the integrity of the merged data.</p>
+<p>The CCM database is critical because it eliminates the need to manually match identifiers across datasets, a process that can be error-prone and time-consuming. Using CCM ensures that we can accurately align CRSP’s market data with Compustat’s fundamental data, allowing us to calculate variables like the book-to-market ratio and market capitalization, which are essential for constructing Fama-French portfolios and factors. In this step, we will merge the datasets using CCM while cleaning the data to handle duplicates and ambiguities, laying the foundation for the next steps in the analysis.</p>
+<p>In summary, the CCM provides link identifiers between CRSP’s PERMNO/PERMCO and Compustat’s GVKEY. This linking is complex because:</p>
+<ul class="simple">
+<li><p>Companies can have multiple securities (PERMNOs)</p></li>
+<li><p>Companies merge, split, or change names</p></li>
+<li><p>Corporate structures change over time</p></li>
+</ul>
+<p>The CCM database handles these complexities for us.</p>
+</section>
+<section id="continuing-with-the-methodology">
+<h3>Continuing with the methodology<a class="headerlink" href="#continuing-with-the-methodology" title="Link to this heading">#</a></h3>
+<p>Following along with the linked methodology,</p>
+<blockquote>
+<div><p>“We merged CRSP and Compustat using the CRSP CCM product (as of April 2010). We matched Compustat’s gvkey (from calendar year t-1) to CRSP’s permno as of June year t. Data was cleaned for unnecessary duplicates. First there were cases when different gvkeys exist for same permno-date. We solved these duplicates by only keeping those cases that are flagged as ‘primary’ matches by CRSP’s CCM (linkprim=‘P’ ). There were other unnecessary duplicates that were removed. Some companies may have two annual accounting records in the same calendar year. This is produced by change in the fiscal year end during the same calendar year. In these cases, we selected the last annual record for a given calendar year.</p>
+</div></blockquote>
+<blockquote>
+<div><p>After data cleaning, the book-to-market ratio for every firm in the sample were calculated by dividing Book Equity (for fiscal year that ends on year t-1) over the market value of its common equity at the end of December year t -1. These book-to-market ratios and Market Capitalization (as of December year t-1) were assigned to June year t in order to create portfolios.”</p>
+</div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ccm_jun</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993_factors</span><span class="o">.</span><span class="n">merge_CRSP_and_Compustat</span><span class="p">(</span><span class="n">crsp_jun</span><span class="p">,</span> <span class="n">comp</span><span class="p">,</span> <span class="n">ccm</span><span class="p">)</span>
@@ -776,6 +807,7 @@ memory usage: 441.2+ MB
 </div>
 </div>
 </div>
+</section>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="create-portfolios-and-factors">
@@ -851,8 +883,8 @@ memory usage: 441.2+ MB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PearsonRResult(statistic=0.9959531911195754, pvalue=0.0)
-PearsonRResult(statistic=0.9839966529300054, pvalue=0.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PearsonRResult(statistic=0.995884357414106, pvalue=0.0)
+PearsonRResult(statistic=0.9837661086268665, pvalue=0.0)
 </pre></div>
 </div>
 </div>
@@ -897,18 +929,18 @@ PearsonRResult(statistic=0.9839966529300054, pvalue=0.0)
   </thead>
   <tbody>
     <tr>
-      <th>2022-11-30</th>
-      <td>-0.0351</td>
-      <td>0.0141</td>
-      <td>-0.039093</td>
-      <td>0.017649</td>
+      <th>2023-11-30</th>
+      <td>-0.0003</td>
+      <td>0.0166</td>
+      <td>0.001777</td>
+      <td>-0.001191</td>
     </tr>
     <tr>
-      <th>2022-12-31</th>
-      <td>-0.0069</td>
-      <td>0.0134</td>
-      <td>-0.009436</td>
-      <td>0.011951</td>
+      <th>2023-12-31</th>
+      <td>0.0636</td>
+      <td>0.0492</td>
+      <td>0.072666</td>
+      <td>0.026592</td>
     </tr>
   </tbody>
 </table>
@@ -1017,7 +1049,11 @@ PearsonRResult(statistic=0.9839966529300054, pvalue=0.0)
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-calculate-book-equity">Step 2. Calculate Book Equity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-subset-crsp-to-common-stock-and-proper-exchanges">Step 3. Subset CRSP to Common Stock and Proper Exchanges</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-calculate-market-equity">Step 4.  Calculate Market Equity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-merge-crsp-and-compustat">Step 5. Merge CRSP and Compustat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-merge-crsp-and-compustat">Step 5. Merge CRSP and Compustat</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-crsp-compustat-merged-ccm-database">What is the CRSP/Compustat Merged (CCM) database?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuing-with-the-methodology">Continuing with the methodology</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-portfolios-and-factors">Create Portfolios and Factors</a><ul class="visible nav section-nav flex-column">
