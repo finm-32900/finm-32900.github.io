@@ -10,7 +10,6 @@ Please watch the following videos to better familiarize yourself with CRSP and C
    - [CRSP - Useful Variale](https://wrds-www.wharton.upenn.edu/pages/grid-items/crsp-useful-variables/). This video goes over some points we made in class as well and is helpful for cleaning the CRSP data (e.g., negative prices).
    - [CRSP Stock Database Coverage](https://wrds-www.wharton.upenn.edu/pages/grid-items/crsp-stock-database-structure/) Useful for merging stock files and event files in CRSP via SQL. This is useful, for example, to incorporate delisting returns.
 
-
 ## Part 1 (graded)
 
 In order to continue on our journey mastering the many features of Github, please complete next 2 tutorials from the [GitHub Skills](https://skills.github.com/) page. Please make sure to use **public repositories** for this in your own GitHub user account. You will provide a link later to demonstrate that it was completed.
@@ -33,4 +32,6 @@ To complete this assignment, please read the two HW guides here:
 - [HW Guide Part B: Reconstructing the S&P 500 Index](../../output/_03_SP500_constituents_and_index.ipynb)
 
 Recall that the way to go about this assignment is to run `pytest` and then determine how to write the code to pass the tests. As a tip, make sure to run the `doit` command before running `pytest`. This will ensure that all the data is pulled before running the tests.
+
+Note, in order to complete this assignment, you will need to have the `wrds` package installed and you will need to have created a `.pgpass` file so that you can automatically authenticate to WRDS to pull the required data. Please refer to the textbook page [Example: Connecting to the WRDS Platform With Python](../../output/_01_wrds_python_package.ipynb) for more information, specifically the section "Creating a .pgpass file".
 

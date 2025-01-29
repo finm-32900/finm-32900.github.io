@@ -211,13 +211,13 @@
 <li class="toctree-l2"><a class="reference internal" href="_05_basics_of_SQL.html">Basics of SQL</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week4/overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week3/HW3.html">Homework 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
 
@@ -454,6 +454,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-wrds-data">Querying WRDS Data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-get-table">Using <code class="docutils literal notranslate"><span class="pre">get_table</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-raw-sql">Using <code class="docutils literal notranslate"><span class="pre">raw_sql</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-pgpass-file">Creating a .pgpass file</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#misc">Misc</a></li>
 </ul>
 </li>
@@ -1506,7 +1509,69 @@ Set up a <code class="docutils literal notranslate"><span class="pre">pgpass</sp
 </table>
 </div></div></div>
 </div>
+<p>When you are done with your queries, you should close the connection to the WRDS server. This can be done by calling the <code class="docutils literal notranslate"><span class="pre">close()</span></code> method on the <code class="docutils literal notranslate"><span class="pre">db</span></code> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
+</section>
+<section id="creating-a-pgpass-file">
+<h2>Creating a .pgpass file<a class="headerlink" href="#creating-a-pgpass-file" title="Link to this heading">#</a></h2>
+<p>In this course, we want to be able to automate our data pulls. One obstacle to this is that we need to supply our password each time we run a query. To avoid this, the <code class="docutils literal notranslate"><span class="pre">wrds</span></code> package makes it easy to create a <code class="docutils literal notranslate"><span class="pre">.pgpass</span></code> file. With a <code class="docutils literal notranslate"><span class="pre">.pgpass</span></code> file, we can access WRDS without a password. We will subsequently only need to supply our username, via <code class="docutils literal notranslate"><span class="pre">wrds_username=WRDS_USERNAME</span></code>. As you will see, we will save our <code class="docutils literal notranslate"><span class="pre">WRDS_USERNAME</span></code> in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file, so as to avoid hardcoding it in the source code. (Recall that the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file is a file that contains environment variables used by the project and that the <code class="docutils literal notranslate"><span class="pre">.env</span></code> is not tracked by git because we have it in the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file.)</p>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">.pgpass</span></code> file as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">settings</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
+<span class="c1"># Make sure that you have included the line</span>
+<span class="c1"># WRDS_USERNAME = your_wrds_username</span>
+<span class="c1"># in the .env file</span>
+<span class="n">WRDS_USERNAME</span> <span class="o">=</span> <span class="n">config</span><span class="p">(</span><span class="s2">&quot;WRDS_USERNAME&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">WRDS_USERNAME</span><span class="p">)</span> <span class="c1"># Make sure that the username is correct</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">wrds</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span><span class="n">wrds_username</span><span class="o">=</span><span class="n">WRDS_USERNAME</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once you run this code for the first time, you will be asked to supply your password. After you supply your password, you will be asked to create a <code class="docutils literal notranslate"><span class="pre">.pgpass</span></code> file. Select yes. This should create a <code class="docutils literal notranslate"><span class="pre">.pgpass</span></code> file on your computer.</p>
+<p>The next time you run the code, you will not be asked to supply your password as long as you supply your username. Test to make sure that this works by closing the connection and then running the code again.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">db</span> <span class="o">=</span> <span class="n">wrds</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span><span class="n">wrds_username</span><span class="o">=</span><span class="n">WRDS_USERNAME</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading library list...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This subsequent run should work without a password.</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">wrds</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span><span class="n">wrds_username</span><span class="o">=</span><span class="n">WRDS_USERNAME</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading library list...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done
+</pre></div>
+</div>
+</div>
+</div>
 <section id="misc">
 <h3>Misc<a class="headerlink" href="#misc" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -1606,6 +1671,9 @@ Set up a <code class="docutils literal notranslate"><span class="pre">pgpass</sp
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#querying-wrds-data">Querying WRDS Data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-get-table">Using <code class="docutils literal notranslate"><span class="pre">get_table</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-raw-sql">Using <code class="docutils literal notranslate"><span class="pre">raw_sql</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-pgpass-file">Creating a .pgpass file</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#misc">Misc</a></li>
 </ul>
 </li>
