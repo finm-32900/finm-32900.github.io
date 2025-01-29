@@ -1533,7 +1533,9 @@ Set up a <code class="docutils literal notranslate"><span class="pre">pgpass</sp
 </pre></div>
 </div>
 <p>Once you run this code for the first time, you will be asked to supply your password. After you supply your password, you will be asked to create a <code class="docutils literal notranslate"><span class="pre">.pgpass</span></code> file. Select yes. This should create a <code class="docutils literal notranslate"><span class="pre">.pgpass</span></code> file on your computer.</p>
-<p>The next time you run the code, you will not be asked to supply your password as long as you supply your username. Test to make sure that this works by closing the connection and then running the code again.</p>
+<p>Note that if you do this in Visual Studio Code in an interactive window, the prompt for your username and password will appear at the top of the window (see screenshot below).</p>
+<p><img alt="Screenshot of prompt for username and password in Visual Studio Code" src="../_images/prompt_username_password.png" /></p>
+<p>As long as you do this once, you will not be asked to supply your password as long as you supply your username. Test to make sure that this works by closing the connection and then running the code again.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">db</span> <span class="o">=</span> <span class="n">wrds</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span><span class="n">wrds_username</span><span class="o">=</span><span class="n">WRDS_USERNAME</span><span class="p">)</span>
