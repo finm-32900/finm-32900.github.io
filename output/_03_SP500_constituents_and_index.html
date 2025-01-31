@@ -1615,7 +1615,12 @@ memory usage: 49.1 KB
 <p>Notice that the difference in the cumulative returns is quite large by the end of the sample. However, the correlation between the returns is quite high (over 0.99). This
 just shows the consequences of compounding small differences over a long period of time.</p>
 <p>Part of the reason why these series are so different is that the approximation method does not account for quarterly rebalancing.</p>
-<p>This method assumes that the index composition remains fixed and does not account for quarterly rebalancing. Also, this method does not represent a tradable portfolio strategy. When a stock is removed from the index and a new stock is added, this represents selling a stock that has since dropped in value and buying a new stock that has since increased in value. The returns of the index should represent the fact that a self-financing portfolio strategy is used, and this method does not represent this. The next method does.</p>
+<p>There are two reasons why this method fails:</p>
+<ol class="arabic simple">
+<li><p>It does not account for quarterly rebalancing. It does rebalance, but it in-effect rebalances <em>too frequently</em>. Since this is just summing the market caps of the index’s constituents, it is in-effect rebalancing every day. However, this rebalancing is not handled correctly, which leads to the second problem.</p></li>
+<li><p>It does not represent a tradable portfolio strategy. When a stock is removed from the index and a new stock is added, this represents selling a stock that has since dropped in value and buying a new stock that has since increased in value. The returns of the index should represent the fact that a self-financing portfolio strategy is used, and this method does not represent this. That is, this strategy is not representing the profits and losses (P&amp;L) of the index properly.</p></li>
+</ol>
+<p>The next method will address both of these issues.</p>
 </section>
 <hr class="docutils" />
 <section id="method-b-portfolio-rebalancing">
@@ -1627,8 +1632,9 @@ just shows the consequences of compounding small differences over a long period 
 \[\begin{split}w_{i, t} = \begin{cases} \frac{\text{MarketCap}_{i, t}}{\text{MarketCapSP500}_{t}} &amp; \text{if } i \in \mathcal{I}_{S\&amp;P, t} \\ 0 &amp; \text{otherwise} \end{cases}\end{split}\]</div>
 </li>
 <li><p><strong>Portfolio Rebalancing</strong>: Implement quarterly rebalancing. The portfolio weights <span class="math notranslate nohighlight">\(w^p_{i, t}\)</span> are given by
-$<span class="math notranslate nohighlight">\( w^p_{i, t} = \begin{cases} w_{i, t} &amp; \text{if } t \text{ is a rebalancing date}, \\ w^p_{i, t-1} &amp; \text{otherwise},\end{cases} \)</span><span class="math notranslate nohighlight">\(
-for all \)</span>i<span class="math notranslate nohighlight">\( and \)</span>t$.</p></li>
+$<span class="math notranslate nohighlight">\( w^p_{i, t} = \begin{cases} w_{i, t} &amp; \text{if } t \text{ is a rebalancing date}, \\ w^p_{i, t-1} &amp; \text{otherwise},\end{cases} \)</span>$</p>
+<p>for all <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(t\)</span>.</p>
+</li>
 <li><p><strong>Return Approximation</strong>: Calculate the portfolio return as:</p>
 <div class="math notranslate nohighlight">
 \[ R_{B, t+1} = \sum_{i} w^p_{i, t} \times R_{i, t+1}, \]</div>
