@@ -219,16 +219,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week3/HW3.html">Homework 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="_04_Fama_French_1993.html">HW Guide Part B: Replicate Fama-French 1993</a></li>
-
-
-
+<li class="toctree-l2"><a class="reference internal" href="04_Fama_French_1993.html">HW Guide: Replicate Fama-French 1993</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week5/overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -236,6 +228,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week5/unit_tests.html">Unit Tests</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week6/overview_w6.html">Week 6: Bloomberg and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week6/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week6/GitHub_pull_requests.html">GitHub Pull Requests: Enhancing Collaborative Development</a></li>
@@ -1631,8 +1624,8 @@ just shows the consequences of compounding small differences over a long period 
 <div class="math notranslate nohighlight">
 \[\begin{split}w_{i, t} = \begin{cases} \frac{\text{MarketCap}_{i, t}}{\text{MarketCapSP500}_{t}} &amp; \text{if } i \in \mathcal{I}_{S\&amp;P, t} \\ 0 &amp; \text{otherwise} \end{cases}\end{split}\]</div>
 </li>
-<li><p><strong>Portfolio Rebalancing</strong>: Implement quarterly rebalancing. The portfolio weights <span class="math notranslate nohighlight">\(w^p_{i, t}\)</span> are given by
-$<span class="math notranslate nohighlight">\( w^p_{i, t} = \begin{cases} w_{i, t} &amp; \text{if } t \text{ is a rebalancing date}, \\ w^p_{i, t-1} &amp; \text{otherwise},\end{cases} \)</span>$</p>
+<li><p><strong>Portfolio Rebalancing</strong>: Implement quarterly rebalancing. The portfolio weights <span class="math notranslate nohighlight">\(w^p_{i, t}\)</span> are given by</p>
+<p><span class="math notranslate nohighlight">\( w^p_{i, t} = \begin{cases} w_{i, t} &amp; \text{if } t \text{ is a rebalancing date}, \\ w^p_{i, t-1} &amp; \text{otherwise},\end{cases} \)</span></p>
 <p>for all <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(t\)</span>.</p>
 </li>
 <li><p><strong>Return Approximation</strong>: Calculate the portfolio return as:</p>

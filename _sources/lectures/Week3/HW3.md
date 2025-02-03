@@ -15,7 +15,7 @@ Please watch the following videos to better familiarize yourself with CRSP and C
    - [Fama-French SMB and HML | 2. CRSP Stock Data](https://vimeo.com/447635241)
    - [Fama-French SMB and HML | 3. CRSP](https://vimeo.com/447867614)
    - [Fama-French SMB and HML | 4. Merge CRSP and Compustat. B/M Ratio](https://vimeo.com/447871296)
-   - [Fama-French SMB and HML | 5. Calculating Fama-French Factors]https://vimeo.com/447876324)
+   - [Fama-French SMB and HML | 5. Calculating Fama-French Factors](https://vimeo.com/447876324)
 
 ## Part 1 (graded)
 
@@ -30,16 +30,23 @@ In this second part, you'll complete an exercise in which we create a value-weig
 index of market returns and an exercise related to the seminal paper [Fama and French (1993)](https://www.jufinance.com/mag/fin534_16/Common_risk_factors_Fama_French_JFE1993.pdf). These will comprise parts 2A and 2B.
 You can find guides here:
 
- - [Part A: CRSP Market Returns Indices](./../../output/_02_CRSP_market_index.ipynb)
- - [Part B: Replicate Fama-French 1993](./../../output/_04_Fama_French_1993.ipynb)
+ - [HW Guide: Replicate Fama-French 1993](./../../output/04_Fama_French_1993.ipynb)
 
 The data will be downloaded using the WRDS Python package. The code for this is included in the HW. This data download step will be fully automated. 
 
-The link to accept the HW is here: https://classroom.github.com/a/LPXKkmHU
+The link to accept the HW is here: https://classroom.github.com/a/TF5xbCE8
 
-<!-- 
-The following is a guide that will help you complete the homework: [HW Guide: Wage Growth During the Recession](../../output/_01_wage_growth_during_the_recession.ipynb)
--->
+
+## Part 3 (graded)
+
+Note that within the HW repository above, you will find a file called `github_pages_tearsheet.py`. In this module, you will indicate whether or not you ahve created a tearsheet based off of a trading strategy of your choice. You must publish this tearsheet to the internet using GitHub pages, as we did in class.
+That is, you will create a Jupyter notebook that reports some statistics about your trading strategy. Then, the `dodo.py` file will convert this notebook to HTML and publish it to the internet.
+
+This is an example of what yours might look like:
+
+ - Homepage: https://finm-32900.github.io/hw3--solutions/
+ - Tearsheet: https://finm-32900.github.io/hw3--solutions/tearsheet_investment_profitability.html
+
 
 **Citations:**
 
