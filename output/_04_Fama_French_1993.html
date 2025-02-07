@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>HW Guide Part B: Replicate Fama-French 1993 &#8212; Full Stack Quantitative Finance</title>
+    <title>HW Guide Part A: Replicate Fama-French 1993 &#8212; Full Stack Quantitative Finance</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'output/_04_Fama_French_1993';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Week 5: Unit Tests and Documentation with Sphinx" href="../lectures/Week5/overview_w5.html" />
-    <link rel="prev" title="Rate Spikes in the Market for Repurchase Agreements" href="_01_repo_spikes.html" />
+    <link rel="next" title="Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX" href="../lectures/Week4/overview_w4.html" />
+    <link rel="prev" title="Homework 3" href="../lectures/Week3/HW3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -211,22 +211,14 @@
 <li class="toctree-l2"><a class="reference internal" href="_05_basics_of_SQL.html">Basics of SQL</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../lectures/Week3/HW3.html">Homework 3</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">HW Guide Part A: Replicate Fama-French 1993</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week4/overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week4/latex_essentials.html">LaTeX Essentials</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../lectures/Week3/HW3.html">Homework 3</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
-
-
-
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">HW Guide Part B: Replicate Fama-French 1993</a></li>
-
-
-
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week5/overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -234,6 +226,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week5/unit_tests.html">Unit Tests</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week6/overview_w6.html">Week 6: Bloomberg and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week6/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week6/GitHub_pull_requests.html">GitHub Pull Requests: Enhancing Collaborative Development</a></li>
@@ -435,7 +428,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>HW Guide Part B: Replicate Fama-French 1993</h1>
+    <h1>HW Guide Part A: Replicate Fama-French 1993</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -445,35 +438,31 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">HW Guide Part B: Replicate Fama-French 1993</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-load-data">Step 1. Load Data</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#prep-data">Prep Data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-calculate-book-equity">Step 2. Calculate Book Equity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-subset-crsp-to-common-stock-and-proper-exchanges">Step 3. Subset CRSP to Common Stock and Proper Exchanges</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-calculate-market-equity">Step 4.  Calculate Market Equity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-merge-crsp-and-compustat">Step 5. Merge CRSP and Compustat</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-crsp-compustat-merged-ccm-database">What is the CRSP/Compustat Merged (CCM) database?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuing-with-the-methodology">Continuing with the methodology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prep-data">Prep Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-load-data">Step 1. Load Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-calculate-book-equity">Step 2. Calculate Book Equity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-subset-crsp-to-common-stock-and-proper-exchanges">Step 3. Subset CRSP to Common Stock and Proper Exchanges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-calculate-market-equity">Step 4.  Calculate Market Equity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-merge-crsp-and-compustat">Step 5. Merge CRSP and Compustat</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-crsp-compustat-merged-ccm-database">What is the CRSP/Compustat Merged (CCM) database?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#continuing-with-the-methodology">Continuing with the methodology</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-portfolios-and-factors">Create Portfolios and Factors</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-create-portfolios-by-size-and-book-to-market">Step 6. Create Portfolios by Size and Book-to-Market.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-calculation-of-ff-factors">Step 7. Calculation of FF factors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-portfolios-and-factors">Create Portfolios and Factors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-create-portfolios-by-size-and-book-to-market">Step 6. Create Portfolios by Size and Book-to-Market.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-calculation-of-ff-factors">Step 7. Calculation of FF factors</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-results-of-our-manual-calculation-to-the-actual-factors">Compare Results of Our Manual Calculation to the Actual Factors</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-load-actual-ff1993-factors-from-ken-french-data-library-via-wrds">Step 8. Load actual FF1993 factors from Ken French Data Library (via WRDS)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-merge-actual-with-manual-factors">Step 9. Merge Actual with Manual Factors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-10-compare-using-correlation">Step 10. Compare using correlation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-11-plot-factors-to-compare">Step 11. Plot Factors to Compare</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-results-of-our-manual-calculation-to-the-actual-factors">Compare Results of Our Manual Calculation to the Actual Factors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-load-actual-ff1993-factors-from-ken-french-data-library-via-wrds">Step 8. Load actual FF1993 factors from Ken French Data Library (via WRDS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-merge-actual-with-manual-factors">Step 9. Merge Actual with Manual Factors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-10-compare-using-correlation">Step 10. Compare using correlation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-11-plot-factors-to-compare">Step 11. Plot Factors to Compare</a></li>
 </ul>
 </li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -484,8 +473,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="hw-guide-part-b-replicate-fama-french-1993">
-<h1>HW Guide Part B: Replicate Fama-French 1993<a class="headerlink" href="#hw-guide-part-b-replicate-fama-french-1993" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="hw-guide-part-a-replicate-fama-french-1993">
+<h1>HW Guide Part A: Replicate Fama-French 1993<a class="headerlink" href="#hw-guide-part-a-replicate-fama-french-1993" title="Link to this heading">#</a></h1>
 <p><strong>Summary</strong></p>
 <p>The Fama and French (1993) paper, “Common Risk Factors in the Returns on Stocks and Bonds,” revolutionized asset pricing theory by challenging the Capital Asset Pricing Model (CAPM) with a three-factor model that includes market risk, size (market capitalization), and book-to-market value as predictors of stock returns. They demonstrated that the market factor alone does not fully explain stock returns and that small stocks and stocks with high book-to-market ratios yield higher returns than can be explained
 by market beta alone, suggesting that these factors capture additional risks not accounted for by the CAPM. This seminal work has significantly influenced academic research and investment practices by highlighting the importance of size and value factors in asset pricing, thereby laying the groundwork for more sophisticated models and strategies in finance.</p>
@@ -504,13 +493,11 @@ of videos on this linked website. Those may be helpful for this exercise.</p>
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pandas.tseries.offsets</span><span class="w"> </span><span class="kn">import</span> <span class="n">MonthEnd</span><span class="p">,</span> <span class="n">YearEnd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">pull_CRSP_Compustat</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">calc_Fama_French_1993_factors</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">calc_Fama_French_1993</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">settings</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
 
@@ -519,8 +506,10 @@ of videos on this linked website. Those may be helpful for this exercise.</p>
 </div>
 </div>
 </div>
+<section id="prep-data">
+<h2>Prep Data<a class="headerlink" href="#prep-data" title="Link to this heading">#</a></h2>
 <section id="step-1-load-data">
-<h2>Step 1. Load Data<a class="headerlink" href="#step-1-load-data" title="Link to this heading">#</a></h2>
+<h3>Step 1. Load Data<a class="headerlink" href="#step-1-load-data" title="Link to this heading">#</a></h3>
 <p>In order to replicate the factors from this paper, we need data from CRSP and Compustat. The CRSP data provides the stock prices while Compustat provides the fundamentals. We also use the CRSP/Compustat Linking Table to merge the two datasets. The merge is not straightforward, but there is a standard procedure used that is embodied in the linking table provided by CRSP and available on WRDS.</p>
 <ul class="simple">
 <li><p>The <strong>CRSP dataset</strong> contains stock market data, including prices, returns, and shares outstanding, for securities traded on major U.S. exchanges. This dataset is essential for measuring market performance and calculating variables such as market equity.</p></li>
@@ -538,16 +527,13 @@ of videos on this linked website. Those may be helpful for this exercise.</p>
 </div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="prep-data">
-<h1>Prep Data<a class="headerlink" href="#prep-data" title="Link to this heading">#</a></h1>
 <section id="step-2-calculate-book-equity">
-<h2>Step 2. Calculate Book Equity<a class="headerlink" href="#step-2-calculate-book-equity" title="Link to this heading">#</a></h2>
+<h3>Step 2. Calculate Book Equity<a class="headerlink" href="#step-2-calculate-book-equity" title="Link to this heading">#</a></h3>
 <p>“We used Compustat XpressFeed (annual data) as the source of historical accounting data in order to calculate the value of Book Equity. Different from quarterly data, annual data is unrestated (ideal for backtesting). Book Equity is defined as the Compustat book value of stockholders’ equity plus balance sheet deferred taxes and investment tax credit (if available) minus book value of preferred stock. We did not modify the original formula that adds deferred taxes and investment tax credit. According to Kenneth French’s website (as of May 2018) , it had been changes to the treatment of deferred taxes described in FASB 109.</p>
 <p>To estimate book value of preferred stock they use the redemption or liquidation or par value of preferred stock (in that order). Since Book Equity is almost missing for the whole sample during the 1950’s, we constrained our sample to begin in 1960. Additionally, we created a variable that counts number of annual records in Compustat files.”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">comp</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993_factors</span><span class="o">.</span><span class="n">calc_book_equity_and_years_in_compustat</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">comp</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993</span><span class="o">.</span><span class="n">calc_book_equity_and_years_in_compustat</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -560,15 +546,15 @@ of videos on this linked website. Those may be helpful for this exercise.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Index: 571566 entries, 0 to 71565
+Index: 571815 entries, 0 to 71814
 Data columns (total 5 columns):
  #   Column    Non-Null Count   Dtype         
 ---  ------    --------------   -----         
- 0   gvkey     571566 non-null  object        
- 1   datadate  571566 non-null  datetime64[ns]
- 2   year      571566 non-null  int32         
- 3   be        418797 non-null  float64       
- 4   count     571566 non-null  int64         
+ 0   gvkey     571815 non-null  object        
+ 1   datadate  571815 non-null  datetime64[ns]
+ 2   year      571815 non-null  int32         
+ 3   be        419033 non-null  float64       
+ 4   count     571815 non-null  int64         
 dtypes: datetime64[ns](1), float64(1), int32(1), int64(1), object(1)
 memory usage: 24.0+ MB
 </pre></div>
@@ -577,12 +563,12 @@ memory usage: 24.0+ MB
 </div>
 </section>
 <section id="step-3-subset-crsp-to-common-stock-and-proper-exchanges">
-<h2>Step 3. Subset CRSP to Common Stock and Proper Exchanges<a class="headerlink" href="#step-3-subset-crsp-to-common-stock-and-proper-exchanges" title="Link to this heading">#</a></h2>
+<h3>Step 3. Subset CRSP to Common Stock and Proper Exchanges<a class="headerlink" href="#step-3-subset-crsp-to-common-stock-and-proper-exchanges" title="Link to this heading">#</a></h3>
 <p>NOTE: I am using the updates CIZ version of the CRSP flat file. This means that I don’t have to merge the CRSP event files with the time series files and I don’t need to apply delisting returns, as they are already applied.</p>
 <p>“For the purpose of this procedure we used CRSP monthly data (users can extend this calculation to daily data). The first step in working with CRSP was to merge CRSP “event” and “time-series” files. CRSP event files contain historical information on the exchange code (crucial to identify firms listed in NYSE), share codes (to identify common stocks) and delisting returns. CRSP time-series files (as CRSP.MSF) contain information such as prices, returns and shares outstanding. We merged both files using a macro program (named ‘crspmerge’).”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">crsp</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993_factors</span><span class="o">.</span><span class="n">subset_CRSP_to_common_stock_and_exchanges</span><span class="p">(</span><span class="n">crsp</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">crsp</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993</span><span class="o">.</span><span class="n">subset_CRSP_to_common_stock_and_exchanges</span><span class="p">(</span><span class="n">crsp</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -764,25 +750,367 @@ memory usage: 447.7+ MB
 </table>
 </div></div></div>
 </div>
+<p>Note that when we do this with the new CIZ format, we also need to apply the following filters:</p>
+<p><strong>1. <code class="docutils literal notranslate"><span class="pre">conditionaltype</span> <span class="pre">=</span> <span class="pre">'RW'</span></code></strong></p>
+<ul class="simple">
+<li><p>Filters securities with a “Regular Way” trading status, indicating standard settlement transactions (typically T+2 for equities) without special conditions like halted or suspended trading.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RW</span></code> (Regular Way) ensures the security is traded under normal market operations.</p></li>
+<li><p>Excludes securities with conditional trading statuses (e.g., halted, suspended, or special settlement terms).</p></li>
+</ul>
+<p><strong>2. <code class="docutils literal notranslate"><span class="pre">TradingStatusFlg</span> <span class="pre">=</span> <span class="pre">'A'</span></code></strong></p>
+<ul class="simple">
+<li><p>Identifies securities that are <strong>actively trading</strong> (not halted or suspended).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">A</span></code> (Active) means the security is actively traded on the exchange during the period.</p></li>
+<li><p>Contrasts with flags like <code class="docutils literal notranslate"><span class="pre">H</span></code> (Halted) or <code class="docutils literal notranslate"><span class="pre">S</span></code> (Suspended), which indicate temporary trading interruptions.</p></li>
+</ul>
 </section>
 <section id="step-4-calculate-market-equity">
-<h2>Step 4.  Calculate Market Equity<a class="headerlink" href="#step-4-calculate-market-equity" title="Link to this heading">#</a></h2>
+<h3>Step 4.  Calculate Market Equity<a class="headerlink" href="#step-4-calculate-market-equity" title="Link to this heading">#</a></h3>
 <p>NOTE: I am using the updates CIZ version of the CRSP flat file. This means that I don’t have to merge the CRSP event files with the time series files and I don’t need to apply delisting returns, as they are already applied.</p>
 <p>“Second, we added delisting returns (to reduce any bias in portfolio returns) and calculated Market Capitalization (ME) for each CRSP security (abs(prc)*shrout). There were cases when the same firm (permco) had two or more securities (permno) on the same date. For the purpose of ME for the firm, we aggregated all ME for a given permco, date. This aggregated ME was assigned to the CRSP permno that has the largest ME. Finally, ME at June and December were flagged since (1) December ME will be used to create Book-to-Market ratio (BEME) and (2) June ME has to be positive in order to be part of the portfolio.”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">crsp2</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993_factors</span><span class="o">.</span><span class="n">calculate_market_equity</span><span class="p">(</span><span class="n">crsp</span><span class="p">)</span>
-<span class="n">crsp3</span><span class="p">,</span> <span class="n">crsp_jun</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993_factors</span><span class="o">.</span><span class="n">use_dec_market_equity</span><span class="p">(</span><span class="n">crsp2</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">crsp2</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993</span><span class="o">.</span><span class="n">calculate_market_equity</span><span class="p">(</span><span class="n">crsp</span><span class="p">)</span>
+<span class="n">crsp3</span><span class="p">,</span> <span class="n">crsp_jun</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993</span><span class="o">.</span><span class="n">use_dec_market_equity</span><span class="p">(</span><span class="n">crsp2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">crsp3</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>permno</th>
+      <th>permco</th>
+      <th>mthcaldt</th>
+      <th>issuertype</th>
+      <th>securitytype</th>
+      <th>securitysubtype</th>
+      <th>sharetype</th>
+      <th>usincflg</th>
+      <th>primaryexch</th>
+      <th>conditionaltype</th>
+      <th>...</th>
+      <th>ffdate</th>
+      <th>ffyear</th>
+      <th>ffmonth</th>
+      <th>1+retx</th>
+      <th>cumretx</th>
+      <th>L_cumretx</th>
+      <th>L_me</th>
+      <th>count</th>
+      <th>mebase</th>
+      <th>wt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3417043</th>
+      <td>93436</td>
+      <td>53453</td>
+      <td>2023-08-31</td>
+      <td>CORP</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>NS</td>
+      <td>Y</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>...</td>
+      <td>2023-02-28</td>
+      <td>2023</td>
+      <td>2</td>
+      <td>0.965038</td>
+      <td>0.985904</td>
+      <td>1.021622</td>
+      <td>8.488212e+08</td>
+      <td>158</td>
+      <td>830857980.0</td>
+      <td>8.488228e+08</td>
+    </tr>
+    <tr>
+      <th>3417044</th>
+      <td>93436</td>
+      <td>53453</td>
+      <td>2023-09-29</td>
+      <td>CORP</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>NS</td>
+      <td>Y</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>...</td>
+      <td>2023-03-31</td>
+      <td>2023</td>
+      <td>3</td>
+      <td>0.969544</td>
+      <td>0.955877</td>
+      <td>0.985904</td>
+      <td>8.191444e+08</td>
+      <td>159</td>
+      <td>830857980.0</td>
+      <td>8.191462e+08</td>
+    </tr>
+    <tr>
+      <th>3417045</th>
+      <td>93436</td>
+      <td>53453</td>
+      <td>2023-10-31</td>
+      <td>CORP</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>NS</td>
+      <td>Y</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>...</td>
+      <td>2023-04-30</td>
+      <td>2023</td>
+      <td>4</td>
+      <td>0.802654</td>
+      <td>0.767239</td>
+      <td>0.955877</td>
+      <td>7.954494e+08</td>
+      <td>160</td>
+      <td>830857980.0</td>
+      <td>7.941983e+08</td>
+    </tr>
+    <tr>
+      <th>3417046</th>
+      <td>93436</td>
+      <td>53453</td>
+      <td>2023-11-30</td>
+      <td>CORP</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>NS</td>
+      <td>Y</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>...</td>
+      <td>2023-05-31</td>
+      <td>2023</td>
+      <td>5</td>
+      <td>1.195379</td>
+      <td>0.917141</td>
+      <td>0.767239</td>
+      <td>6.384545e+08</td>
+      <td>161</td>
+      <td>830857980.0</td>
+      <td>6.374665e+08</td>
+    </tr>
+    <tr>
+      <th>3417047</th>
+      <td>93436</td>
+      <td>53453</td>
+      <td>2023-12-29</td>
+      <td>CORP</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>NS</td>
+      <td>Y</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>...</td>
+      <td>2023-06-30</td>
+      <td>2023</td>
+      <td>6</td>
+      <td>1.034988</td>
+      <td>0.949230</td>
+      <td>0.917141</td>
+      <td>7.631954e+08</td>
+      <td>162</td>
+      <td>830857980.0</td>
+      <td>7.620140e+08</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 27 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">crsp_jun</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>permno</th>
+      <th>mthcaldt</th>
+      <th>jdate</th>
+      <th>sharetype</th>
+      <th>securitytype</th>
+      <th>securitysubtype</th>
+      <th>usincflg</th>
+      <th>issuertype</th>
+      <th>primaryexch</th>
+      <th>conditionaltype</th>
+      <th>tradingstatusflg</th>
+      <th>mthret</th>
+      <th>me</th>
+      <th>wt</th>
+      <th>cumretx</th>
+      <th>mebase</th>
+      <th>L_me</th>
+      <th>dec_me</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>272260</th>
+      <td>93436</td>
+      <td>2019-06-28</td>
+      <td>2019-06-30</td>
+      <td>NS</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>Y</td>
+      <td>CORP</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>A</td>
+      <td>0.206848</td>
+      <td>4.002571e+07</td>
+      <td>3.157278e+07</td>
+      <td>0.651583</td>
+      <td>5.847846e+07</td>
+      <td>3.282331e+07</td>
+      <td>5.744195e+07</td>
+    </tr>
+    <tr>
+      <th>272261</th>
+      <td>93436</td>
+      <td>2020-06-30</td>
+      <td>2020-06-30</td>
+      <td>NS</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>Y</td>
+      <td>CORP</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>A</td>
+      <td>0.293186</td>
+      <td>2.008447e+08</td>
+      <td>1.495638e+08</td>
+      <td>4.832239</td>
+      <td>4.002571e+07</td>
+      <td>1.547848e+08</td>
+      <td>7.574367e+07</td>
+    </tr>
+    <tr>
+      <th>272262</th>
+      <td>93436</td>
+      <td>2021-06-30</td>
+      <td>2021-06-30</td>
+      <td>NS</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>Y</td>
+      <td>CORP</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>A</td>
+      <td>0.087137</td>
+      <td>6.688268e+08</td>
+      <td>5.814550e+08</td>
+      <td>3.147314</td>
+      <td>2.008447e+08</td>
+      <td>6.022932e+08</td>
+      <td>6.773402e+08</td>
+    </tr>
+    <tr>
+      <th>272263</th>
+      <td>93436</td>
+      <td>2022-06-30</td>
+      <td>2022-06-30</td>
+      <td>NS</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>Y</td>
+      <td>CORP</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>A</td>
+      <td>-0.111888</td>
+      <td>7.010302e+08</td>
+      <td>7.461301e+08</td>
+      <td>0.990760</td>
+      <td>6.688268e+08</td>
+      <td>7.855649e+08</td>
+      <td>1.092191e+09</td>
+    </tr>
+    <tr>
+      <th>272264</th>
+      <td>93436</td>
+      <td>2023-06-30</td>
+      <td>2023-06-30</td>
+      <td>NS</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>Y</td>
+      <td>CORP</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>A</td>
+      <td>0.283627</td>
+      <td>8.308580e+08</td>
+      <td>6.368738e+08</td>
+      <td>1.166153</td>
+      <td>7.010302e+08</td>
+      <td>6.463570e+08</td>
+      <td>3.897415e+08</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </section>
 <section id="step-5-merge-crsp-and-compustat">
-<h2>Step 5. Merge CRSP and Compustat<a class="headerlink" href="#step-5-merge-crsp-and-compustat" title="Link to this heading">#</a></h2>
+<h3>Step 5. Merge CRSP and Compustat<a class="headerlink" href="#step-5-merge-crsp-and-compustat" title="Link to this heading">#</a></h3>
 <section id="what-is-the-crsp-compustat-merged-ccm-database">
-<h3>What is the CRSP/Compustat Merged (CCM) database?<a class="headerlink" href="#what-is-the-crsp-compustat-merged-ccm-database" title="Link to this heading">#</a></h3>
-<p>To successfully replicate the Fama-French factors, we need to merge the CRSP and Compustat datasets. This step is not straightforward due to the differences in their data structures, coverage, and primary identifiers. CRSP data primarily tracks securities, while Compustat focuses on firm-level accounting data, making it necessary to carefully link the two. For this purpose, we use the <strong>CRSP/Compustat Merged (CCM) database</strong>, which serves as an intermediary table designed to simplify the merging process by providing pre-established links between the datasets.</p>
+<h4>What is the CRSP/Compustat Merged (CCM) database?<a class="headerlink" href="#what-is-the-crsp-compustat-merged-ccm-database" title="Link to this heading">#</a></h4>
+<p>To successfully replicate the Fama-French factors, we need to merge the CRSP and Compustat datasets. This step is not straightforward due to the differences in their data structures, coverage, and primary identifiers. CRSP data primarily tracks securities, while Compustat focuses on firm-level accounting data, making it necessary to carefully link the two. Luckily, we have access to the <strong>CRSP/Compustat Merged (CCM) database</strong>, which serves as an intermediary table designed to simplify the merging process by providing pre-established links between the datasets.</p>
 <p>It is important to note that the CCM database is not a direct merging of the CRSP and Compustat datasets. Instead, it is a linking table that matches CRSP identifiers (such as PERMNO and PERMCO) with Compustat’s GVKEY identifier. By leveraging CCM, we can handle complexities such as companies with multiple securities, historical changes due to mergers and acquisitions, and discrepancies in data coverage between the two datasets. For example, the linking table includes fields to identify “primary” matches (e.g., <code class="docutils literal notranslate"><span class="pre">linkprim</span> <span class="pre">=</span> <span class="pre">'P'</span></code>) and remove duplicate or ambiguous links, ensuring the integrity of the merged data.</p>
 <p>The CCM database is critical because it eliminates the need to manually match identifiers across datasets, a process that can be error-prone and time-consuming. Using CCM ensures that we can accurately align CRSP’s market data with Compustat’s fundamental data, allowing us to calculate variables like the book-to-market ratio and market capitalization, which are essential for constructing Fama-French portfolios and factors. In this step, we will merge the datasets using CCM while cleaning the data to handle duplicates and ambiguities, laying the foundation for the next steps in the analysis.</p>
 <p>In summary, the CCM provides link identifiers between CRSP’s PERMNO/PERMCO and Compustat’s GVKEY. This linking is complex because:</p>
@@ -794,8 +1122,8 @@ memory usage: 447.7+ MB
 <p>The CCM database handles these complexities for us.</p>
 </section>
 <section id="continuing-with-the-methodology">
-<h3>Continuing with the methodology<a class="headerlink" href="#continuing-with-the-methodology" title="Link to this heading">#</a></h3>
-<p>Following along with the linked methodology,</p>
+<h4>Continuing with the methodology<a class="headerlink" href="#continuing-with-the-methodology" title="Link to this heading">#</a></h4>
+<p>Following along with the linked methodology from above,</p>
 <blockquote>
 <div><p>“We merged CRSP and Compustat using the CRSP CCM product (as of April 2010). We matched Compustat’s gvkey (from calendar year t-1) to CRSP’s permno as of June year t. Data was cleaned for unnecessary duplicates. First there were cases when different gvkeys exist for same permno-date. We solved these duplicates by only keeping those cases that are flagged as ‘primary’ matches by CRSP’s CCM (linkprim=‘P’ ). There were other unnecessary duplicates that were removed. Some companies may have two annual accounting records in the same calendar year. This is produced by change in the fiscal year end during the same calendar year. In these cases, we selected the last annual record for a given calendar year.</p>
 </div></blockquote>
@@ -804,46 +1132,396 @@ memory usage: 447.7+ MB
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ccm_jun</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993_factors</span><span class="o">.</span><span class="n">merge_CRSP_and_Compustat</span><span class="p">(</span><span class="n">crsp_jun</span><span class="p">,</span> <span class="n">comp</span><span class="p">,</span> <span class="n">ccm</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ccm_jun</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993</span><span class="o">.</span><span class="n">merge_CRSP_and_Compustat</span><span class="p">(</span><span class="n">crsp_jun</span><span class="p">,</span> <span class="n">comp</span><span class="p">,</span> <span class="n">ccm</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="create-portfolios-and-factors">
-<h1>Create Portfolios and Factors<a class="headerlink" href="#create-portfolios-and-factors" title="Link to this heading">#</a></h1>
-<section id="step-6-create-portfolios-by-size-and-book-to-market">
-<h2>Step 6. Create Portfolios by Size and Book-to-Market.<a class="headerlink" href="#step-6-create-portfolios-by-size-and-book-to-market" title="Link to this heading">#</a></h2>
-<p>“Every June (year t) we calculated the median equity value of NYSE-listed firms using Market Capitalization at June t. We used this median to classify firms as Small or Big on portfolios created at the end of June year t. In a similar fashion, as of June year t, firms are broken into three book-to-market equity groups (Low, Medium, and High) based on the 30% and 70% break-points of the NYSE-firms with positive book-to-market equity. In both cases (for size and book-to-market classification), we restricted our sample to those firms with positive book-to-market, positive market cap at June, common equity (share code 10 and 11) and at least two years in Compustat annual file.</p>
-<p>We created a total of six size and book-to-market equity portfolios. Portfolios are created at the end of June and kept for 12 months. Within each portfolio a monthly value-weighted return is calculated (each month, the weight is the Market Capitalization as of June year t adjusted by any change in price between the end June t and the end of the previous month).”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ccm4</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993_factors</span><span class="o">.</span><span class="n">assign_size_and_bm_portfolios</span><span class="p">(</span><span class="n">ccm_jun</span><span class="p">,</span> <span class="n">crsp3</span><span class="p">)</span>
-<span class="n">vwret</span><span class="p">,</span> <span class="n">vwret_n</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993_factors</span><span class="o">.</span><span class="n">create_fama_french_portfolios</span><span class="p">(</span><span class="n">ccm4</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ccm_jun</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>permno</th>
+      <th>mthcaldt</th>
+      <th>jdate</th>
+      <th>sharetype</th>
+      <th>securitytype</th>
+      <th>securitysubtype</th>
+      <th>usincflg</th>
+      <th>issuertype</th>
+      <th>primaryexch</th>
+      <th>conditionaltype</th>
+      <th>...</th>
+      <th>cumretx</th>
+      <th>mebase</th>
+      <th>L_me</th>
+      <th>dec_me</th>
+      <th>gvkey</th>
+      <th>datadate</th>
+      <th>yearend</th>
+      <th>be</th>
+      <th>count</th>
+      <th>beme</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>252156</th>
+      <td>93436</td>
+      <td>2019-06-28</td>
+      <td>2019-06-30</td>
+      <td>NS</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>Y</td>
+      <td>CORP</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>...</td>
+      <td>0.651583</td>
+      <td>5.847846e+07</td>
+      <td>3.282331e+07</td>
+      <td>5.744195e+07</td>
+      <td>184996</td>
+      <td>2018-12-31</td>
+      <td>2018-12-31</td>
+      <td>4923.243</td>
+      <td>10</td>
+      <td>0.085708</td>
+    </tr>
+    <tr>
+      <th>252157</th>
+      <td>93436</td>
+      <td>2020-06-30</td>
+      <td>2020-06-30</td>
+      <td>NS</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>Y</td>
+      <td>CORP</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>...</td>
+      <td>4.832239</td>
+      <td>4.002571e+07</td>
+      <td>1.547848e+08</td>
+      <td>7.574367e+07</td>
+      <td>184996</td>
+      <td>2019-12-31</td>
+      <td>2019-12-31</td>
+      <td>6618.000</td>
+      <td>11</td>
+      <td>0.087374</td>
+    </tr>
+    <tr>
+      <th>252158</th>
+      <td>93436</td>
+      <td>2021-06-30</td>
+      <td>2021-06-30</td>
+      <td>NS</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>Y</td>
+      <td>CORP</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>...</td>
+      <td>3.147314</td>
+      <td>2.008447e+08</td>
+      <td>6.022932e+08</td>
+      <td>6.773402e+08</td>
+      <td>184996</td>
+      <td>2020-12-31</td>
+      <td>2020-12-31</td>
+      <td>22376.000</td>
+      <td>12</td>
+      <td>0.033035</td>
+    </tr>
+    <tr>
+      <th>252159</th>
+      <td>93436</td>
+      <td>2022-06-30</td>
+      <td>2022-06-30</td>
+      <td>NS</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>Y</td>
+      <td>CORP</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>...</td>
+      <td>0.990760</td>
+      <td>6.688268e+08</td>
+      <td>7.855649e+08</td>
+      <td>1.092191e+09</td>
+      <td>184996</td>
+      <td>2021-12-31</td>
+      <td>2021-12-31</td>
+      <td>30213.000</td>
+      <td>13</td>
+      <td>0.027663</td>
+    </tr>
+    <tr>
+      <th>252160</th>
+      <td>93436</td>
+      <td>2023-06-30</td>
+      <td>2023-06-30</td>
+      <td>NS</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>Y</td>
+      <td>CORP</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>...</td>
+      <td>1.166153</td>
+      <td>7.010302e+08</td>
+      <td>6.463570e+08</td>
+      <td>3.897415e+08</td>
+      <td>184996</td>
+      <td>2022-12-31</td>
+      <td>2022-12-31</td>
+      <td>44786.000</td>
+      <td>14</td>
+      <td>0.114912</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 24 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+</section>
+<section id="create-portfolios-and-factors">
+<h2>Create Portfolios and Factors<a class="headerlink" href="#create-portfolios-and-factors" title="Link to this heading">#</a></h2>
+<section id="step-6-create-portfolios-by-size-and-book-to-market">
+<h3>Step 6. Create Portfolios by Size and Book-to-Market.<a class="headerlink" href="#step-6-create-portfolios-by-size-and-book-to-market" title="Link to this heading">#</a></h3>
+<p>“Every June (year t) we calculated the median equity value of NYSE-listed firms using Market Capitalization at June t. We used this median to classify firms as Small or Big on portfolios created at the end of June year t. In a similar fashion, as of June year t, firms are broken into three book-to-market equity groups (Low, Medium, and High) based on the 30% and 70% break-points of the NYSE-firms with positive book-to-market equity. In both cases (for size and book-to-market classification), we restricted our sample to those firms with positive book-to-market, positive market cap at June, common equity (share code 10 and 11) and at least two years in Compustat annual file.</p>
+<p>We created a total of six size and book-to-market equity portfolios. Portfolios are created at the end of June and kept for 12 months. Within each portfolio a monthly value-weighted return is calculated (each month, the weight is the Market Capitalization as of June year t adjusted by any change in price between the end June t and the end of the previous month).”</p>
+<p><img alt="Fama-French Portfolio Splits" src="../_images/fama_french_portfolio_splits.gif" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ccm4</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993</span><span class="o">.</span><span class="n">assign_size_and_bm_portfolios</span><span class="p">(</span><span class="n">ccm_jun</span><span class="p">,</span> <span class="n">crsp3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ccm4</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mthcaldt</th>
+      <th>permno</th>
+      <th>sharetype</th>
+      <th>securitytype</th>
+      <th>securitysubtype</th>
+      <th>usincflg</th>
+      <th>issuertype</th>
+      <th>primaryexch</th>
+      <th>conditionaltype</th>
+      <th>tradingstatusflg</th>
+      <th>mthret</th>
+      <th>me</th>
+      <th>wt</th>
+      <th>cumretx</th>
+      <th>ffyear</th>
+      <th>jdate</th>
+      <th>szport</th>
+      <th>bmport</th>
+      <th>posbm</th>
+      <th>nonmissport</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3428385</th>
+      <td>2023-08-31</td>
+      <td>93436</td>
+      <td>NS</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>Y</td>
+      <td>CORP</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>A</td>
+      <td>-0.034962</td>
+      <td>8.191444e+08</td>
+      <td>8.488228e+08</td>
+      <td>0.985904</td>
+      <td>2023</td>
+      <td>2023-08-31</td>
+      <td>B</td>
+      <td>L</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3428386</th>
+      <td>2023-09-29</td>
+      <td>93436</td>
+      <td>NS</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>Y</td>
+      <td>CORP</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>A</td>
+      <td>-0.030456</td>
+      <td>7.954494e+08</td>
+      <td>8.191462e+08</td>
+      <td>0.955877</td>
+      <td>2023</td>
+      <td>2023-09-30</td>
+      <td>B</td>
+      <td>L</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3428387</th>
+      <td>2023-10-31</td>
+      <td>93436</td>
+      <td>NS</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>Y</td>
+      <td>CORP</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>A</td>
+      <td>-0.197346</td>
+      <td>6.384545e+08</td>
+      <td>7.941983e+08</td>
+      <td>0.767239</td>
+      <td>2023</td>
+      <td>2023-10-31</td>
+      <td>B</td>
+      <td>L</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3428388</th>
+      <td>2023-11-30</td>
+      <td>93436</td>
+      <td>NS</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>Y</td>
+      <td>CORP</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>A</td>
+      <td>0.195379</td>
+      <td>7.631954e+08</td>
+      <td>6.374665e+08</td>
+      <td>0.917141</td>
+      <td>2023</td>
+      <td>2023-11-30</td>
+      <td>B</td>
+      <td>L</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3428389</th>
+      <td>2023-12-29</td>
+      <td>93436</td>
+      <td>NS</td>
+      <td>EQTY</td>
+      <td>COM</td>
+      <td>Y</td>
+      <td>CORP</td>
+      <td>Q</td>
+      <td>RW</td>
+      <td>A</td>
+      <td>0.034988</td>
+      <td>7.898983e+08</td>
+      <td>7.620140e+08</td>
+      <td>0.949230</td>
+      <td>2023</td>
+      <td>2023-12-31</td>
+      <td>B</td>
+      <td>L</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create_fama_french_portfolios puts it all together and then uses</span>
+<span class="c1"># the weights to create the portfolios</span>
+<span class="n">vwret</span><span class="p">,</span> <span class="n">vwret_n</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993</span><span class="o">.</span><span class="n">create_fama_french_portfolios</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">DATA_DIR</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="step-7-calculation-of-ff-factors">
-<h2>Step 7. Calculation of FF factors<a class="headerlink" href="#step-7-calculation-of-ff-factors" title="Link to this heading">#</a></h2>
+<h3>Step 7. Calculation of FF factors<a class="headerlink" href="#step-7-calculation-of-ff-factors" title="Link to this heading">#</a></h3>
 <p>“The size factor, Small minus Big (SMB) , is the difference of average return on the three Small-firm portfolios and the average return on the three Big-firm portfolios.</p>
 <p>The value factor, High minus Low (HML) , is the difference between the average return on the two High book-to-market equity portfolios and the average return on the two Low book-to-market equity portfolios. For comparison purpose, we also calculate the number of firms in each portfolio.”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ff_factors</span><span class="p">,</span> <span class="n">ff_nfirms</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993_factors</span><span class="o">.</span><span class="n">create_factors_from_portfolios</span><span class="p">(</span><span class="n">vwret</span><span class="p">,</span> <span class="n">vwret_n</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ff_factors</span><span class="p">,</span> <span class="n">ff_nfirms</span> <span class="o">=</span> <span class="n">calc_Fama_French_1993</span><span class="o">.</span><span class="n">create_factors_from_portfolios</span><span class="p">(</span><span class="n">vwret</span><span class="p">,</span> <span class="n">vwret_n</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="compare-results-of-our-manual-calculation-to-the-actual-factors">
-<h1>Compare Results of Our Manual Calculation to the Actual Factors<a class="headerlink" href="#compare-results-of-our-manual-calculation-to-the-actual-factors" title="Link to this heading">#</a></h1>
+<section id="compare-results-of-our-manual-calculation-to-the-actual-factors">
+<h2>Compare Results of Our Manual Calculation to the Actual Factors<a class="headerlink" href="#compare-results-of-our-manual-calculation-to-the-actual-factors" title="Link to this heading">#</a></h2>
 <section id="step-8-load-actual-ff1993-factors-from-ken-french-data-library-via-wrds">
-<h2>Step 8. Load actual FF1993 factors from Ken French Data Library (via WRDS)<a class="headerlink" href="#step-8-load-actual-ff1993-factors-from-ken-french-data-library-via-wrds" title="Link to this heading">#</a></h2>
+<h3>Step 8. Load actual FF1993 factors from Ken French Data Library (via WRDS)<a class="headerlink" href="#step-8-load-actual-ff1993-factors-from-ken-french-data-library-via-wrds" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">actual_ff</span> <span class="o">=</span> <span class="n">pull_CRSP_Compustat</span><span class="o">.</span><span class="n">load_Fama_French_factors</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">DATA_DIR</span><span class="p">)</span>
@@ -854,16 +1532,16 @@ memory usage: 447.7+ MB
 </div>
 </section>
 <section id="step-9-merge-actual-with-manual-factors">
-<h2>Step 9. Merge Actual with Manual Factors<a class="headerlink" href="#step-9-merge-actual-with-manual-factors" title="Link to this heading">#</a></h2>
+<h3>Step 9. Merge Actual with Manual Factors<a class="headerlink" href="#step-9-merge-actual-with-manual-factors" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ff_compare</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">actual_ff</span><span class="p">,</span> <span class="n">ff_factors</span><span class="p">[[</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;WSMB&quot;</span><span class="p">,</span> <span class="s2">&quot;WHML&quot;</span><span class="p">]],</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ff_compare</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">actual_ff</span><span class="p">,</span> <span class="n">ff_factors</span><span class="p">[[</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;SMB&quot;</span><span class="p">,</span> <span class="s2">&quot;HML&quot;</span><span class="p">]],</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
 
 <span class="n">ff_compare</span> <span class="o">=</span> <span class="n">ff_compare</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
     <span class="s2">&quot;smb&quot;</span><span class="p">:</span> <span class="s2">&quot;smb_actual&quot;</span><span class="p">,</span> 
     <span class="s2">&quot;hml&quot;</span><span class="p">:</span> <span class="s2">&quot;hml_actual&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;WSMB&quot;</span><span class="p">:</span> <span class="s2">&quot;smb_manual&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;WHML&quot;</span><span class="p">:</span> <span class="s2">&quot;hml_manual&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SMB&quot;</span><span class="p">:</span> <span class="s2">&quot;smb_manual&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;HML&quot;</span><span class="p">:</span> <span class="s2">&quot;hml_manual&quot;</span><span class="p">,</span>
     <span class="p">})</span>
 
 <span class="n">ff_compare_post_1970</span> <span class="o">=</span> <span class="n">ff_compare</span><span class="p">[</span><span class="n">ff_compare</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="s2">&quot;01/01/1970&quot;</span><span class="p">]</span>
@@ -874,26 +1552,9 @@ memory usage: 447.7+ MB
 </div>
 </div>
 </div>
-</section>
-<section id="step-10-compare-using-correlation">
-<h2>Step 10. Compare using correlation<a class="headerlink" href="#step-10-compare-using-correlation" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">ff_compare_post_1970</span><span class="p">[</span><span class="s2">&quot;smb_actual&quot;</span><span class="p">],</span> <span class="n">ff_compare_post_1970</span><span class="p">[</span><span class="s2">&quot;smb_manual&quot;</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">ff_compare_post_1970</span><span class="p">[</span><span class="s2">&quot;hml_actual&quot;</span><span class="p">],</span> <span class="n">ff_compare_post_1970</span><span class="p">[</span><span class="s2">&quot;hml_manual&quot;</span><span class="p">]))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PearsonRResult(statistic=0.995884357414106, pvalue=0.0)
-PearsonRResult(statistic=0.9837661086268665, pvalue=0.0)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ff_compare</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ff_compare_post_1970</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -931,6 +1592,122 @@ PearsonRResult(statistic=0.9837661086268665, pvalue=0.0)
   </thead>
   <tbody>
     <tr>
+      <th>1970-01-31</th>
+      <td>0.0293</td>
+      <td>0.0313</td>
+      <td>0.030789</td>
+      <td>0.028929</td>
+    </tr>
+    <tr>
+      <th>1970-02-28</th>
+      <td>-0.0258</td>
+      <td>0.0393</td>
+      <td>-0.025922</td>
+      <td>0.039603</td>
+    </tr>
+    <tr>
+      <th>1970-03-31</th>
+      <td>-0.0232</td>
+      <td>0.0399</td>
+      <td>-0.018023</td>
+      <td>0.043425</td>
+    </tr>
+    <tr>
+      <th>1970-04-30</th>
+      <td>-0.0615</td>
+      <td>0.0618</td>
+      <td>-0.056743</td>
+      <td>0.064584</td>
+    </tr>
+    <tr>
+      <th>1970-05-31</th>
+      <td>-0.0459</td>
+      <td>0.0333</td>
+      <td>-0.047235</td>
+      <td>0.036884</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="step-10-compare-using-correlation">
+<h3>Step 10. Compare using correlation<a class="headerlink" href="#step-10-compare-using-correlation" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">ff_compare_post_1970</span><span class="p">[</span><span class="s2">&quot;smb_actual&quot;</span><span class="p">],</span> <span class="n">ff_compare_post_1970</span><span class="p">[</span><span class="s2">&quot;smb_manual&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">ff_compare_post_1970</span><span class="p">[</span><span class="s2">&quot;hml_actual&quot;</span><span class="p">],</span> <span class="n">ff_compare_post_1970</span><span class="p">[</span><span class="s2">&quot;hml_manual&quot;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PearsonRResult(statistic=0.995884357414106, pvalue=0.0)
+PearsonRResult(statistic=0.9837661086268665, pvalue=0.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ff_compare</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>smb_actual</th>
+      <th>hml_actual</th>
+      <th>smb_manual</th>
+      <th>hml_manual</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-08-31</th>
+      <td>-0.0320</td>
+      <td>-0.0108</td>
+      <td>-0.036583</td>
+      <td>-0.005446</td>
+    </tr>
+    <tr>
+      <th>2023-09-30</th>
+      <td>-0.0249</td>
+      <td>0.0145</td>
+      <td>-0.025185</td>
+      <td>0.013751</td>
+    </tr>
+    <tr>
+      <th>2023-10-31</th>
+      <td>-0.0388</td>
+      <td>0.0019</td>
+      <td>-0.044499</td>
+      <td>0.005002</td>
+    </tr>
+    <tr>
       <th>2023-11-30</th>
       <td>-0.0003</td>
       <td>0.0166</td>
@@ -950,7 +1727,7 @@ PearsonRResult(statistic=0.9837661086268665, pvalue=0.0)
 </div>
 </section>
 <section id="step-11-plot-factors-to-compare">
-<h2>Step 11. Plot Factors to Compare<a class="headerlink" href="#step-11-plot-factors-to-compare" title="Link to this heading">#</a></h2>
+<h3>Step 11. Plot Factors to Compare<a class="headerlink" href="#step-11-plot-factors-to-compare" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
@@ -973,9 +1750,10 @@ PearsonRResult(statistic=0.9837661086268665, pvalue=0.0)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ba11796a1aa5a406f414281279f7b3fdd53f001c37fe0026927f35192d3f1eed.png" src="../_images/ba11796a1aa5a406f414281279f7b3fdd53f001c37fe0026927f35192d3f1eed.png" />
+<img alt="../_images/9f30e1072ada484c088869546e9e03735d295f0c8ff60649e46b1de62ba23128.png" src="../_images/9f30e1072ada484c088869546e9e03735d295f0c8ff60649e46b1de62ba23128.png" />
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -1010,20 +1788,20 @@ PearsonRResult(statistic=0.9837661086268665, pvalue=0.0)
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="_01_repo_spikes.html"
+       href="../lectures/Week3/HW3.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Rate Spikes in the Market for Repurchase Agreements</p>
+        <p class="prev-next-title">Homework 3</p>
       </div>
     </a>
     <a class="right-next"
-       href="../lectures/Week5/overview_w5.html"
+       href="../lectures/Week4/overview_w4.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 5: Unit Tests and Documentation with Sphinx</p>
+        <p class="prev-next-title">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1043,35 +1821,31 @@ PearsonRResult(statistic=0.9837661086268665, pvalue=0.0)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">HW Guide Part B: Replicate Fama-French 1993</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-load-data">Step 1. Load Data</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#prep-data">Prep Data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-calculate-book-equity">Step 2. Calculate Book Equity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-subset-crsp-to-common-stock-and-proper-exchanges">Step 3. Subset CRSP to Common Stock and Proper Exchanges</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-calculate-market-equity">Step 4.  Calculate Market Equity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-merge-crsp-and-compustat">Step 5. Merge CRSP and Compustat</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-crsp-compustat-merged-ccm-database">What is the CRSP/Compustat Merged (CCM) database?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuing-with-the-methodology">Continuing with the methodology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prep-data">Prep Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-load-data">Step 1. Load Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-calculate-book-equity">Step 2. Calculate Book Equity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-subset-crsp-to-common-stock-and-proper-exchanges">Step 3. Subset CRSP to Common Stock and Proper Exchanges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-calculate-market-equity">Step 4.  Calculate Market Equity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-merge-crsp-and-compustat">Step 5. Merge CRSP and Compustat</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-crsp-compustat-merged-ccm-database">What is the CRSP/Compustat Merged (CCM) database?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#continuing-with-the-methodology">Continuing with the methodology</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-portfolios-and-factors">Create Portfolios and Factors</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-create-portfolios-by-size-and-book-to-market">Step 6. Create Portfolios by Size and Book-to-Market.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-calculation-of-ff-factors">Step 7. Calculation of FF factors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-portfolios-and-factors">Create Portfolios and Factors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-create-portfolios-by-size-and-book-to-market">Step 6. Create Portfolios by Size and Book-to-Market.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-calculation-of-ff-factors">Step 7. Calculation of FF factors</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-results-of-our-manual-calculation-to-the-actual-factors">Compare Results of Our Manual Calculation to the Actual Factors</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-load-actual-ff1993-factors-from-ken-french-data-library-via-wrds">Step 8. Load actual FF1993 factors from Ken French Data Library (via WRDS)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-merge-actual-with-manual-factors">Step 9. Merge Actual with Manual Factors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-10-compare-using-correlation">Step 10. Compare using correlation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-11-plot-factors-to-compare">Step 11. Plot Factors to Compare</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-results-of-our-manual-calculation-to-the-actual-factors">Compare Results of Our Manual Calculation to the Actual Factors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-load-actual-ff1993-factors-from-ken-french-data-library-via-wrds">Step 8. Load actual FF1993 factors from Ken French Data Library (via WRDS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-merge-actual-with-manual-factors">Step 9. Merge Actual with Manual Factors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-10-compare-using-correlation">Step 10. Compare using correlation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-11-plot-factors-to-compare">Step 11. Plot Factors to Compare</a></li>
 </ul>
 </li>
 </ul>
-
   </nav></div>
 
 </div></div>
