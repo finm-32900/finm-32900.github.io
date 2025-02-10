@@ -6,9 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>GitHub Pull Requests: Enhancing Collaborative Development &#8212; Full Stack Quantitative Finance</title>
+    <title>GitHub Issues and Pull Requests: Enhancing Collaborative Development &#8212; Full Stack Quantitative Finance</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Week6/GitHub_pull_requests';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Week 7: Reviewing Sphinx and Unit Tests" href="../Week7/overview_w7.html" />
-    <link rel="prev" title="The Bloomberg Terminal" href="bloomberg_terminal.html" />
+    <link rel="next" title="Writing and Publishing Your Own Python Packages" href="python_packaging_with_hatch.html" />
+    <link rel="prev" title="Week 6: Python Package Development and Social Coding with GitHub" href="overview_w6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -226,19 +226,23 @@
 <li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview_w6.html">Week 6: Bloomberg and Social Coding with GitHub</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="bloomberg_terminal.html">The Bloomberg Terminal</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">GitHub Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../Week7/overview_w7.html">Week 7: Reviewing Sphinx and Unit Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week7/overview_w7.html">Week 7: Bloomberg</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Week8/overview_w8.html">Week 8: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../Week8/HW4.html">Homework 4</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Misc/final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Misc/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Misc/potential_final_projects.html">List of Potential Final Projects</a></li>
 </ul>
 </details></li>
@@ -428,7 +432,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>GitHub Pull Requests: Enhancing Collaborative Development</h1>
+    <h1>GitHub Issues and Pull Requests: Enhancing Collaborative Development</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -438,6 +442,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-issues">GitHub Issues</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases-of-github-pull-requests">Use Cases of GitHub Pull Requests</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-integration">Workflow Integration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-usefulness">Examples of Usefulness</a></li>
@@ -453,9 +458,23 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="github-pull-requests-enhancing-collaborative-development">
-<h1>GitHub Pull Requests: Enhancing Collaborative Development<a class="headerlink" href="#github-pull-requests-enhancing-collaborative-development" title="Link to this heading">#</a></h1>
-<p>GitHub, a pivotal platform in the software development domain, leverages <em>pull requests</em> as a fundamental mechanism for fostering collaboration, code quality, and project management. Pull requests are a formalized way of notifying team members about changes one has pushed to a GitHub repository. Through this process, team members can review, discuss, and eventually merge the change into the main branch of the project. This chapter explores the various use cases and the integral role pull requests play in a development team’s workflow.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="github-issues-and-pull-requests-enhancing-collaborative-development">
+<h1>GitHub Issues and Pull Requests: Enhancing Collaborative Development<a class="headerlink" href="#github-issues-and-pull-requests-enhancing-collaborative-development" title="Link to this heading">#</a></h1>
+<p>GitHub, a pivotal platform in the software development domain, leverages <em>issues</em> for tracking tasks and bugs, and <em>pull requests</em> as a fundamental mechanism for fostering collaboration, code quality, and project management. While issues help teams organize and discuss requirements and problems, pull requests provide a formalized way to propose and review code changes. Through these integrated features, team members can coordinate work, review modifications, and merge changes into the main branch while maintaining clear connections between problem reports and their solutions. This chapter briefly introduces both features.</p>
+<ul class="simple">
+<li><p><strong>GitHub Issue Tracker</strong>: A collaborative tool for reporting bugs, requesting features, and tracking project tasks. Issues serve as discussion forums for technical problems and act as a central hub for work item management.</p></li>
+<li><p><strong>Pull Request (PR)</strong>: A formal proposal to merge code changes from a development branch into a project’s main branch. PRs provide a structured interface for code review, continuous integration testing, and maintaining documentation of changes.</p></li>
+</ul>
+<section id="github-issues">
+<h2>GitHub Issues<a class="headerlink" href="#github-issues" title="Link to this heading">#</a></h2>
+<p>GitHub’s issue tracker provides a powerful complement to pull requests in managing software development workflows. The issue tracker is more than just a “to-do” list. It integrates with the pull request feature. The two features integrate seamlessly through:</p>
+<ul class="simple">
+<li><p><strong>Issue-Reference Links</strong>: Pull requests can reference issues using keywords like <code class="docutils literal notranslate"><span class="pre">fixes</span> <span class="pre">#123</span></code> or <code class="docutils literal notranslate"><span class="pre">closes</span> <span class="pre">[issue</span> <span class="pre">number]</span></code> in descriptions. When merged, this automatically closes the linked issue and creates a visible connection between them.</p></li>
+<li><p><strong>Contextual Tracking</strong>: Each pull request shows linked issues in the sidebar, while issues display associated PRs, maintaining full visibility of related work.</p></li>
+<li><p><strong>Project Management</strong>: Teams often use GitHub Projects to create boards that track both open issues and their corresponding pull requests, providing a unified view of work in progress.</p></li>
+<li><p><strong>Discussion Threads</strong>: Both issues and pull requests maintain comment threads, allowing teams to continue design discussions from initial problem reporting (issue) through implementation (PR).</p></li>
+</ul>
+</section>
 <section id="use-cases-of-github-pull-requests">
 <h2>Use Cases of GitHub Pull Requests<a class="headerlink" href="#use-cases-of-github-pull-requests" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -484,7 +503,7 @@ document.write(`
 <h2>Examples of Usefulness<a class="headerlink" href="#examples-of-usefulness" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Feature Development</strong>: A developer working on a new feature creates a feature branch and later submits a pull request. The pull request triggers a review process, allowing the team to provide feedback and request changes if necessary, ensuring that the new feature aligns with the project standards and goals.</p></li>
-<li><p><strong>Bug Fixing</strong>: When fixing a bug, a developer submits a pull request with the fix. The pull request description links to the issue being addressed, providing context and justification for the changes. This process ensures that the fix is reviewed and tested before being merged, reducing the risk of introducing new issues.</p></li>
+<li><p><strong>Bug Tracking</strong>: When addressing a reported bug from the issue tracker, developers include <code class="docutils literal notranslate"><span class="pre">fixes</span> <span class="pre">#456</span></code> in their PR description. This automatically links the solution to the original problem report and closes the issue when merged.</p></li>
 <li><p><strong>Code Refactoring</strong>: Pull requests are also valuable for code refactoring efforts. A developer can propose refactoring changes that improve code maintainability and performance. The team can review these changes in isolation, ensuring that refactoring does not introduce regressions.</p></li>
 </ul>
 </section>
@@ -529,20 +548,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="bloomberg_terminal.html"
+       href="overview_w6.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">The Bloomberg Terminal</p>
+        <p class="prev-next-title">Week 6: Python Package Development and Social Coding with GitHub</p>
       </div>
     </a>
     <a class="right-next"
-       href="../Week7/overview_w7.html"
+       href="python_packaging_with_hatch.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Week 7: Reviewing Sphinx and Unit Tests</p>
+        <p class="prev-next-title">Writing and Publishing Your Own Python Packages</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -562,6 +581,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-issues">GitHub Issues</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-cases-of-github-pull-requests">Use Cases of GitHub Pull Requests</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-integration">Workflow Integration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-usefulness">Examples of Usefulness</a></li>

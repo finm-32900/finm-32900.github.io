@@ -1,132 +1,154 @@
 # List of Potential Final Projects
 
-The project that you are assigned will come from one of the following three categories: papers, data series from "Evidence from Many Asset Classes", or "other".
+The project that you are assigned will come from one of the following three categories: white papers, data series from "Evidence from Many Asset Classes", or replications of arbitrage spreads from the paper "Segmented Arbitrage".
 
-## Papers
+- If you can't access the papers below, you can find a link to them here: https://drive.google.com/drive/folders/10OvVRXb-G31PHV95smF06HkahRpnCh_d?usp=sharing
 
-1. [Lewellen (2015), Critical Finance Review. “The Cross-section of Expected Stock Returns”](https://faculty.tuck.dartmouth.edu/images/uploads/faculty/jonathan-lewellen/ExpectedStockReturns.pdf)
+## White Papers
 
-    - Replicate Table 1, Table 2, and Figure 1
-    - Data used: CRSP and Compustat
+### 1. [Lewellen (2015), Critical Finance Review. “The Cross-section of Expected Stock Returns”](https://faculty.tuck.dartmouth.edu/images/uploads/faculty/jonathan-lewellen/ExpectedStockReturns.pdf)
 
-2. [Jiang et al (2023). Monetary Tightening and US Bank Fragility in 2023: Mark-to-Market Losses and Uninsured Depositor Runs?. No. w31048. National Bureau of Economic Research, 2023.](https://www.nber.org/papers/w31048)
+This paper will teach you how to combine many firm characteristics into real-time forecasts of a stock’s expected returns. See the abstract: "This paper studies the cross-sectional properties of return forecasts derived from Fama-MacBeth regressions. These forecasts mimic how an investor could, in real time, combine many firm characteristics to obtain a composite estimate of a stock’s expected return. Empirically, the forecasts vary substantially across stocks and have strong predictive power for actual returns. For example, using ten-year rolling estimates of Fama-MacBeth slopes and a cross-sectional model with 15 firm characteristics (all based on low-frequency data), the expected-return estimates have a cross-sectional standard deviation of 0.87% monthly and a predictive slope for future monthly returns of 0.74, with a standard error of 0.07."
 
-    - Replicate Table 1
-    - Data used: Bank Call Reports. See https://wrds-www.wharton.upenn.edu/pages/get-data/bank-regulatory/
+  - Task: Replicate Table 1, Table 2, and Figure 1
+  - Data sources: CRSP and Compustat
+  - Citation: Lewellen, Jonathan W., The Cross Section of Expected Stock Returns (August 22, 2014). Forthcoming in Critical Finance Review, Tuck School of Business Working Paper No. 2511246, Available at SSRN: https://ssrn.com/abstract=2511246 or http://dx.doi.org/10.2139/ssrn.2511246
+  - Notes: I will provide some starter code that partially constructs some of these tables. In this project, you'll have to complete the code.
 
-3. [Jiang et al (2023). Monetary Tightening and US Bank Fragility in 2023: Mark-to-Market Losses and Uninsured Depositor Runs?. No. w31048. National Bureau of Economic Research, 2023.](https://www.nber.org/papers/w31048)
+### 2.	[Monetary Tightening and US Bank Fragility in 2023](https://www.nber.org/papers/w31048)
 
-    - Replicate Table A1 and Figure A1
-    - Data used: Bank Call Reports. See https://wrds-www.wharton.upenn.edu/pages/get-data/bank-regulatory/
+This paper will teach you how to use bank call reports to construct measures of the financial condition of banks. This is especially useful if you have interest in specializing, for example, in specializing in equities covering the financial sector.
 
-4. [Koijen and Yogo, A Demand System Approach to Asset Pricing (2019). Journal of Political Economy](https://ssrn.com/abstract=2537559)
-
-    - Replicate Table D1
-    - Data used: Securities and Exchange Commission Form 13F, via Thomson Reuters. See https://wrds-www.wharton.upenn.edu/pages/get-data/thomson-reuters/
-
-5. [Li Wang (2023), Valuation Duration of the Stock Market](https://chenwang.one/publication/dr/)
-
-    - Replicate Table 1
-    - Data used: S&P500 Futures (authors use Datastream, you may use the Bloomberg terminal), Fama-Bliss database, CRSP, and S&P Global via Goyal and Welch (2007).
-
-6. [Peng Wang (2023), Factor Demand and Factor Returns](https://chenwang.one/files/fdfr.pdf)
-
-    - Replicate Table 1 and Table 2
-    - Data used: CRSP, Securities and Exchange Commission Form 13F, via Thomson Reuters. See https://wrds-www.wharton.upenn.edu/pages/get-data/thomson-reuters/
-
-7. [Li Wang (2023), Rediscover Predictability: Information from the Relative Prices of Long-term and Short-term Dividends](https://chenwang.one/files/pr.pdf)
-
-    - Replicate Table 1 and part of Table 2 (the betas and the R-squared, but not the standard errors)
-    - Data used: S&P 500 futures (Source: Bloomberg) and Fama-Bliss database
-
-8. [Nagel, Stefan. "Evaporating liquidity." The Review of Financial Studies 25, no. 7 (2012): 2005-2039](https://bpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/f/575/files/2020/07/LiqSupply.pdf)
-
-    - Replicate Table 1 and Table 2 
-    - Data used: CRSP
-    - Some helpful code may be found online: https://voices.uchicago.edu/stefannagel/code-and-data/
-
-9. [Siriwardane, Sunderam, Wallen (2022). Segmented Arbitrage](https://www.nber.org/papers/w30561)
-
-    - Replicate Figure 1 and Table 1
-    - Data used: Bloomberg
-
-10. [Bao, Pan, and Wang (2010). The Illiquidity of Corporate Bonds](https://www.mit.edu/~junpan/bond_liquidity.pdf)
-
-    - Replicate Table 1 and Table 2
-    - Data used: [FINRA TRACE](https://wrds-www.wharton.upenn.edu/pages/get-data/otc-corporate-bond-and-agency-debt-bond-transaction-data/)
-    - Some code is available online. See [here.](https://github.com/Alexander-M-Dickerson/TRACE-corporate-bond-processing/blob/main/TRACE/MakeIlliquidity.py)
-
-11. [Dickerson, Alexander and Robotti, Cesare and Rossetti, Giulio, Noisy Prices and Return-based Anomalies in Corporate Bonds (September 19, 2023)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4575879)
-
-    - Replicate Table 1
-    - Data used: [FINRA TRACE](https://wrds-www.wharton.upenn.edu/pages/get-data/otc-corporate-bond-and-agency-debt-bond-transaction-data/)
-    - Coda and data is available online: https://openbondassetpricing.com/code/ 
-    - Since code and data is available, part of this project is cleaning up the code and making it as presentable and well-documented as possible.
-
-12. [He, Zhiguo, Bryan Kelly, and Asaf Manela. "Intermediary asset pricing: New evidence from many asset classes." Journal of Financial Economics 126, no. 1 (2017): 1-35.](https://zhiguohe.net/wp-content/uploads/2023/12/jfepublishedversion.pdf)
-
-    - Replicate Table 1 (just typeset it in LaTeX), Table A1 (just typeset it in LaTeX), Table 2, and Table 3 (Panel A only, but Panel B for bonus)
-    - Data used: CRSP, Compustat, Datastream
-    - Some code and data is available online [here](https://zhiguohe.net/publications/research/) and [here](https://zhiguohe.net/data-and-empirical-patterns/intermediary-capital-ratio-and-risk-factor/).
-
-## Data Series from "Evidence from Many Asset Classes"
-
-[He, Kelly, and Manela (2017)](https://zhiguohe.net/wp-content/uploads/2023/12/jfepublishedversion.pdf) above is a  well known paper that examines the effects that intermediaries' balance sheets have on asset prices. This paper happens to test this theory on a variety of asset classes, going beyond just debt and equity. The projects in this section will be to replicate the test asset returns across this variety of asset classes. Each project below focuses on a different asset class. 
-The returns of these tests assets are provided [here](https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip). The data provided in that file goes up until 2012. Your project will be to replicate that data up until 2012 and then provide updated returns going as close to the present as possible. The derivation of the returns is defined by a separate paper. These are listed below.
+ - Task: Replicate Table 1, Table A1 and Figure A1
+ - Citation: Jiang et al (2023). Monetary Tightening and US Bank Fragility in 2023: Mark-to-Market Losses and Uninsured Depositor Runs?. No. w31048. National Bureau of Economic Research, 2023. https://www.nber.org/papers/w31048
+ - Data sources: Bank Call Reports. See https://wrds-www.wharton.upenn.edu/pages/get-data/bank-regulatory/
+ - Notes: I will provide some starter code that will replicate most of Table 1.
 
 
-13. [Nozawa, Yoshio. "What Drives the Cross‐Section of Credit Spreads?: A Variance Decomposition Approach." The Journal of Finance 72, no. 5 (2017): 2045-2072.](https://onlinelibrary.wiley.com/doi/epdf/10.1111/jofi.12524)
+### 3. [Intermediary Asset Pricing: New Evidence from Many Asset Classes](https://zhiguohe.net/wp-content/uploads/2023/12/jfepublishedversion.pdf)
 
-    - Replicate the corporate bond columns from [He_Kelly_Manela_Factors_And_Test_Assets_monthly.csv](https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip)
-    - Data used: [Bond Returns by WRDS](https://wrds-www.wharton.upenn.edu/pages/get-data/wrds-bond-returns/), but maybe also [FINRA TRACE](https://wrds-www.wharton.upenn.edu/pages/get-data/otc-corporate-bond-and-agency-debt-bond-transaction-data/), Mergent FISD/NAIC, TRACE, Lehman Brothers Fixed Income Database.
-    - You may use data from [openbondassetpricing.com/](https://openbondassetpricing.com/) and [here](https://github.com/Alexander-M-Dickerson/TRACE-corporate-bond-processing/blob/main/WRDS/MakeCreditSpreads.py) if it's helpful.
+This project will give you experience in analyzing the balance sheet fundamentals of large broker-dealers, in this case the full set of primary dealers in the US, and how the financial condition of these primary dealers affect the US stock market as a whole.
+
+ - Task: Replicate Table 2, and Table 3 (Panel A only, but Panel B for bonus)
+ - Data used: CRSP, Compustat, Datastream
+ - Some code and data is available online [here](https://zhiguohe.net/publications/research/) and [here](https://zhiguohe.net/data-and-empirical-patterns/intermediary-capital-ratio-and-risk-factor/).
+ - Citation: He, Zhiguo, Bryan Kelly, and Asaf Manela. "Intermediary asset pricing: New evidence from many asset classes." Journal of Financial Economics 126, no. 1 (2017): 1-35.
+ - Note: I will provide some code that will help you get started.
+
+### 4.	[Dividend growth expectations from changes in dividend strips, from “Coronavirus: Impact on Stock Prices and Growth Expectations”](https://ssrn.com/abstract=3555917)
+
+This paper will teach you how to construct forecasts of the cash flows of stocks. That is, you will separate out the effects of changes in discount rates from changes in dividend growth. From the abstract, “Dividend futures, which are claims to dividends on the aggregate stock market in a particular year, can be used to directly compute a lower bound on growth expectations across maturities or to estimate expected growth using a forecasting model. We show how the actual forecast and the bound evolve over time.”
+
+ - Task: Replicate Figure 1, Figure 5, and Table 1
+ - Citation: Gormsen, Niels Joachim and Koijen, Ralph S. J., Coronavirus: Impact on Stock Prices and Growth Expectations (August 3, 2020). University of Chicago, Becker Friedman Institute for Economics Working Paper No. 2020-22, Available at SSRN: https://ssrn.com/abstract=3555917 or http://dx.doi.org/10.2139/ssrn.3555917 
+ - Data source: Bloomberg
+
+### 5.	[Forward Return Expectations](https://ssrn.com/abstract=4565351)
+
+This paper deals with extracting return expectations from option prices. More than simply measuring return expectations as a whole, this paper constructs expectations as different horizons. See the abstract: “We measure investors' short- and long-term stock-return expectations using both options and survey data. These expectations at different horizons reveal what investors think their own short-term expectations will be in the future, or forward return expectations. While contemporaneous short-term expectations are not countercyclical across all data sources, we find that forward expectations are consistently countercyclical, and excessively so: in bad times, forward expectations are higher than justified by investors' own subsequent short-term return expectations. This excess volatility in forward expectations helps account for excess volatility in prices, inelastic demand for equities, and stylized facts about the equity term structure.”
+
+ - Task: Replicate Table 1 and Figure 1
+ - Data: OptionMetrics
+ - Citation: Gandhi, Mihir and Gormsen, Niels Joachim and Lazarus, Eben, Forward Return Expectations (September 7, 2023). Available at SSRN: https://ssrn.com/abstract=4565351 or http://dx.doi.org/10.2139/ssrn.4565351
+
+### 6.	[Market Expectations in the Cross-Section of Present Values](https://doi.org/10.1111/jofi.12060)
+
+This paper demonstrates that returns and cash flows for the aggregate US stock market are highly predictable. It demonstrates this by constructing a univariate predictor from the cross section of stocks. See the abstract:
+
+ > Returns and cash flow growth for the aggregate U.S. stock market are highly and robustly predictable. Using a single factor extracted from the cross-section of book-to market ratios, we find an out-of-sample return forecasting R2 of 13% at the annual frequency (0.9% monthly). We document similar out-of-sample predictability for returns on value, size, momentum, and industry portfolios. We present a model linking aggregate market expectations to disaggregated valuation ratios in a latent factor system. Spreads in value portfolios’ exposures to economic shocks are key to identifying predictability and are consistent with duration-based theories of the value premium.
+
+Also, from their paper, 
+
+ > “Our approach attacks a challenging problem in empirical asset pricing: how does one exploit a wealth of predictors in relatively short time series? If the predictors number near or more than the number of observations, the standard ordinary least squares (OLS) forecaster will be poorly behaved or nonexistent (see Huber (1973)). Our solution is to use partial least squares (PLS; Wold (1975)), which is a simple regression-based procedure designed to parsimoniously forecast a single time series using a large panel of predictors. We use it to construct a univariate forecaster for market returns (or dividend growth) that is a linear combination of assets’ valuation ratios.”
+
+ - Task: Replicate Table 1
+ - Data sources: CRSP and Compustat
+ - Citation: KELLY, B. and PRUITT, S. (2013), Market Expectations in the Cross-Section of Present Values. THE JOURNAL OF FINANCE, 68: 1721-1756. https://doi.org/10.1111/jofi.12060
 
 
-14. [Constantinides, George M., Jens Carsten Jackwerth, and Alexi Savov. "The puzzle of index option returns." Review of Asset Pricing Studies 3, no. 2 (2013): 229-257.](https://academic.oup.com/raps/article/3/2/229/1508435)
+## Replications of data series from “Evidence from Many Asset Classes”
 
-    - Replicate Table 2 and Table B1. Table 3 or 4 may be difficult, but may be attempted as a stretch goal.
-    - Data used: [OptionMetrics](https://wrds-www.wharton.upenn.edu/pages/get-data/optionmetrics/). [CBOE Options data](https://wrds-www.wharton.upenn.edu/pages/get-data/cboe-indexes/) or [Option Suite by WRDS](https://wrds-www.wharton.upenn.edu/pages/get-data/option-suite-wrds/) may be helpful.
+He, Kelly, and Manela (2017) is a well known paper that examines the effects that intermediaries’ balance sheets have on asset prices. This paper happens to test this theory on a variety of asset classes, going beyond just debt and equity. The projects in this section will be to replicate the test asset returns across this variety of asset classes. Each project below focuses on a different asset class. The returns of these tests assets are provided here. The data provided in that file goes up until 2012. Your project will be to replicate that data up until 2012 and then provide updated returns going as close to the present as possible. The derivation of the returns is defined by a separate paper. These are listed below.
 
-15. [Palhares, Diogo. Cash-flow maturity and risk premia in CDS markets. The University of Chicago, 2013.](https://www.proquest.com/docview/1426387803?pq-origsite=gscholar&fromopenview=true&sourcetype=Dissertations%20&%20Theses)
+### 7.	Corporate Bond Portfolio Returns
+This will give you experience in working with corporate bonds.
 
-    - Replicate the Credit Default Swap columns from [He_Kelly_Manela_Factors_And_Test_Assets_monthly.csv](https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip)
-    - These columns are described in [He, Kelly, and Manela. (2017)](https://zhiguohe.net/wp-content/uploads/2023/12/jfepublishedversion.pdf), but the definition of returns on CDS contracts comes from Palhares (2013).
-    - Data used: [Markit](https://wrds-www.wharton.upenn.edu/pages/get-data/markit/)
-    
-16. [Borri and Verdelhan (2011), "Sovereign Risk Premia"](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1343746)
+ - Task: Replicate the corporate bond columns from He_Kelly_Manela_Factors_And_Test_Assets_monthly.csv (https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip )
+ - Data used: Bond Returns by WRDS (https://wrds-www.wharton.upenn.edu/pages/get-data/wrds-bond-returns/), but maybe also FINRA TRACE (https://wrds-www.wharton.upenn.edu/pages/get-data/otc-corporate-bond-and-agency-debt-bond-transaction-data/) , Mergent FISD/NAIC, TRACE, and Lehman Brothers Fixed Income Database.
+ - Citation: Nozawa, Yoshio. “What Drives the Cross‐Section of Credit Spreads?: A Variance Decomposition Approach.” The Journal of Finance 72, no. 5 (2017): 2045-2072.
+ - Note: You may use data from openbondassetpricing.com/ and here (https://github.com/Alexander-M-Dickerson/TRACE-corporate-bond-processing/blob/main/WRDS/MakeCreditSpreads.py) if it’s helpful.
 
-    - Replicate Table 1 and the Sovereign Bond Columns from [He_Kelly_Manela_Factors_And_Test_Assets_monthly.csv](https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip)
-    - Data used: [Datastream](https://wrds-www.wharton.upenn.edu/pages/get-data/thomson-reuters/datastream/) or Bloomberg
+### 8. 	Credit Default Swap Returns
 
-17. [Lettau, Martin, Matteo Maggiori, and Michael Weber. "Conditional risk premia in currency markets and other asset classes." Journal of Financial Economics 114, no. 2 (2014): 197-225.](https://www.sciencedirect.com/science/article/pii/S0304405X14001378)
+This replication will give you experience using the Markit data source for Credit Default Swaps. If you’re interested in CDS, this is the canonical paper you should know for constructing returns on these instruments.
 
-    - Replicate Table 1 and the first 6 FX columns in [He_Kelly_Manela_Factors_And_Test_Assets_monthly.csv](https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip)
-    - Data used: [Datastream](https://wrds-www.wharton.upenn.edu/pages/get-data/thomson-reuters/datastream/) or Bloomberg
-
-18. [Yang, Fan. "Investment shocks and the commodity basis spread." Journal of Financial Economics 110, no. 1 (2013): 164-184.](https://www.sciencedirect.com/science/article/pii/S0304405X13001360?via%3Dihub)
-
-    - Replicate Table 1. It may be difficult to replicate the commodities columns in [He_Kelly_Manela_Factors_And_Test_Assets_monthly.csv](https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip), but you may try.
-    - Data used: Futures Contract data from [Datastream](https://wrds-www.wharton.upenn.edu/pages/get-data/thomson-reuters/datastream/futures-data/)
+ - Task: Replicate the Credit Default Swap columns from He_Kelly_Manela_Factors_And_Test_Assets_monthly.csv (https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip )
+ - These columns are described in He, Kelly, and Manela. (2017), but the definition of returns on CDS contracts comes from Palhares (2013).
+ - Data used: Markit
+ - Citation: Palhares, Diogo. Cash-flow maturity and risk premia in CDS markets. The  University of Chicago, 2013.
 
 
-## Other
 
-19. [Monash Time Series Forecasting Archive](https://openreview.net/pdf?id=wEc1mgAjU-)
+### 9. Commodity Futures Returns
 
-    - Replicate Table 1 and Table 2
-    - Code and data are already available online. (See [here](https://forecastingdata.org/) and [here](https://github.com/rakshitha123/TSForecasting).) This project is to refactor the code of the archive so that it all runs via PyDoit (i.e., the data is automatically downloaded and the tables are all automatically generated).
-    - Some prior familiarity with the R programming language would be helpful for this project.
+This replication will give you experience in working with commodity futures and constructing return series from them. 
 
-20. **Do short sellers respond to ESG ratings?** (extra credit available)
+ - Task: Replicate Table 1. It may be difficult to replicate the commodities columns in He_Kelly_Manela_Factors_And_Test_Assets_monthly.csv (https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip ), but you may try.
+ - Data used: Futures Contract data from Datastream
+ - Citation: Yang, Fan. “Investment shocks and the commodity basis spread.” Journal of Financial Economics 110, no. 1 (2013): 164-184.
 
-    - Work with sponsoring adviser to explore the following question: "There has been a recent focus on ESG (Environmental, Social, and Governance) risks in finance, and several papers have studied the relationship between a firm’s ESG rating and its subsequent stock returns. This project aims to study whether short sellers appear to incorporate information in ESG ratings in their investment decisions, which has not been studied. The project will involve merging and analyzing data from 2 main sources: S&P Global / Markit Securities Lending data and RepRisk ESG data."
-    - Merge Markit securities lending data with RepRisk Data Feed (Risk Incidents)
-    - For each ESG incident/severity/novelty/news’ reach, produce summary statistics of the following variables: short interest ratio (short interest shares / shares outstanding), loan supply ratio (shares available to be lent / shares outstanding), loan utilization, and loan fee.
-    - Data used: [Markit securities lending](https://wrds-www.wharton.upenn.edu/pages/get-data/markit/) and [RepRisk](https://wrds-www.wharton.upenn.edu/pages/get-data/reprisk/)
 
-21. [Replicate several portfolios in in Ken French's Data Library](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html)
+## Replicate Arbitrage Spreads from “Segmented Arbitrage”
 
-    - Reconstruct the "bivariate sorts on size, e/p, cf/p, and d/p". these are the portfolios formed on size and earnings/price, size and cashflow/price, and size and dividend yield. Use the unaggregated CRSP and Compustat data and reconstruct the portfolios that match. 
-    - Reconstruct the "bivariate sorts on Operating Profitability and Investment". This consists of three files, each with 25 portfolios in it. Reconstruct these from unaggregated CRSP and Compustat data.
-    - Reconstruct each of the "5 industry portfolios" and "49 industry portfolios" from "scratch." That is, use the unaggregated CRSP data and reconstruct the portfolios that match.
-    
+The projects in this section will have students replicate various arbitrage spreads studied in the paper “Segmented Arbitrage” https://www.hbs.edu/ris/Publication%20Files/24-030_1506d32b-3190-4144-8c75-a2326b87f81e.pdf by Emil Siriwardane, Adi Sunderam, and Jonathan Wallen.
+
+This paper examines various so-called arbitrage trades and makes the observation that the price dynamics of these trades challenges various asset pricing models that have been used in the past to explain deviations from no-arbitrage.
+The internet appendix gives more detail as to how each trade works: https://www.emilsiriwardane.com/s/Appendix.pdf 
+
+One of the authors, Emil Siriwardane https://www.emilsiriwardane.com/, makes code and data available for these trades online: https://github.com/esiriwardane/arbitrage-spreads-public However, much of the code is in Stata. Your goal will be to rewrite these in Python and automate the pulls of the data (to the extent possible).
+
+**Tasks**
+ 
+ - For each of the following, you should replicate the associated panel in Figure A1 in the Appendix (See https://www.emilsiriwardane.com/s/Appendix.pdf)
+ - Replicate the series shown in the paper, but also compute the series up to the present (so that the reporting of the size of the arbitrage spread can be automated)
+ - In each case that Bloomberg is used, please try to use Datastream as an alternative if possible
+
+### 10. FX Covered Interest Parity Spread
+
+This trade is based off of the covered interest parity (CIP). A CIP deviation is a spread between a cash riskless rate and a synthetic riskless rate. The synthetic rate is local currency borrowing swapped into a foreign denominated rate using cross-currency derivatives.
+
+ - Data used: Bloomberg, maybe Datastream
+
+
+### 11. Equity Spot Futures
+“We construct arbitrage implied forward rates using the nearby and first deferred futures contracts for the S&P 500, Dow Jones, and Nasdaq 100 indices.”
+
+ - Data used: Bloomberg
+
+### 12. Treasury Spot-Futures
+Replicate the data pull and the construction of the Treasury-Spot Futures spread. The Treasury spot-futures arbitrage trade involves exploiting the price discrepancy between Treasury futures contracts and the underlying Treasury securities in the cash (spot) market. By simultaneously buying (or selling) the mispriced asset and selling (or buying) its equivalent in the other market, arbitrageurs aim to lock in a risk-free profit, accounting for carry costs, accrued interest, and delivery options.
+
+ - Data used: Bloomberg
+
+### 13. Treasury Swap
+
+In an interest rate swap, one counterparty agrees to pay a series of predetermined payments based on the so-called fixed rate (or swap rate) prevailing at the swap’s inception. In return, the counterparty receives a series of stochastic floating payments that is determined based on the future realization of a short-term reference rate.
+
+ - Data used: Bloomberg
+
+### 14. TIPS Treasury
+
+“In the market for US sovereign debt, there is a no-arbitrage condition between inflation-swapped Treasury Inflation-Protected Securities (TIPS) and Treasuries (Fleckenstein et al., 2014). TIPS are US Treasury obligations for which the principal amount (and coupons) are adjusted for the Consumer Price Index (CPI). These inflation adjustments may be undone using an inflation swap, yielding fixed cash flows. The arbitrage spread is the difference in yield between this synthetic nominal Treasury constructed from TIPS and inflation swaps and a nominal Treasury”
+
+ - Data sources: Bloomberg, and the Federal Reserve’s Yield Curve data (for zero coupon bond yields: https://www.federalreserve.gov/data/yield-curve-tables/feds200628_1.html )
+
+### 15. Corporate CDS-Bond Spread
+
+Replicate the data pull and construction of the series using the Markit Credit Default Swap data in conjunction with the Corporate Bond data on wrds.
+
+ - Replicate the final CDS-Bond basis spread given in final_cds_bases.xlsx here: https://github.com/esiriwardane/arbitrage-spreads-public/tree/main/raw Your numbers should match theirs nearly precisely.
+ - Extra credit available if this is chosen. 
+ - Data used: Markit CDS, Corporate TRACE
+
+
+

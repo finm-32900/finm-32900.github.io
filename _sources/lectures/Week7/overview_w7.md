@@ -1,14 +1,22 @@
-# Week 7: Reviewing Sphinx and Unit Tests 
+# Week 7: Bloomberg 
 
 ## Learning Outcomes
 
-- Use Sphinx for Code Documentation and For Scientific Publication
-- How to use GitHub to manage open source contributions (e.g., pull requests)
+- Bloomberg
+
+
+
 
 ## Agenda
  
-- Review unit tests from previous discussion
-- Review Sphinx
-- Discuss how we will complete the next HW in class
-- Go over an example of how to find data sources in WRDS Python Extension (web query form vs SAS data files)
-    - Include example of merging files from two different sources
+- Review HW 3
+    - What were the economics behind the HW?
+    - Purpose: Exact replication? 
+- Interesting News:
+    - [Financial Times: "The Norwegian sovereign wealth fund’s $92mn Excel error"](https://www.ft.com/content/db864323-5b68-402b-8aa5-5c53a309acf1)
+    - [Washington Post: "Excel spreadsheet error leads Austrian party to announce wrong leader"](https://www.washingtonpost.com/world/2023/06/06/austria-excel-error-election/)
+- Schedule a time to meet with Tobias (only those that will be using the Terminal for Final Project)
+- Tutorial of the Bloomberg Terminal
+- Tutorial of GitHub Pull Requests
+- Discuss next HWs
+- Review unit tests if there is time

@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>List of Potential Final Projects &#8212; Full Stack Quantitative Finance</title>
   
@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Appendix" href="appendix.html" />
-    <link rel="prev" title="Final Project" href="final_project.html" />
+    <link rel="prev" title="Final Project Instructions and Rubric" href="final_project_rubric.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -226,19 +226,23 @@
 <li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week6/overview_w6.html">Week 6: Bloomberg and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Week6/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Week6/GitHub_pull_requests.html">GitHub Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week6/overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../Week7/overview_w7.html">Week 7: Reviewing Sphinx and Unit Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week7/overview_w7.html">Week 7: Bloomberg</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Week8/overview_w8.html">Week 8: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../Week8/HW4.html">Homework 4</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="final_project.html">Final Project</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="final_project_rubric.html">Final Project Instructions and Rubric</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">List of Potential Final Projects</a></li>
 </ul>
 </details></li>
@@ -438,9 +442,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#papers">Papers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-series-from-evidence-from-many-asset-classes">Data Series from “Evidence from Many Asset Classes”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#white-papers">White Papers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lewellen-2015-critical-finance-review-the-cross-section-of-expected-stock-returns">1. Lewellen (2015), Critical Finance Review. “The Cross-section of Expected Stock Returns”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monetary-tightening-and-us-bank-fragility-in-2023">2.	Monetary Tightening and US Bank Fragility in 2023</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermediary-asset-pricing-new-evidence-from-many-asset-classes">3. Intermediary Asset Pricing: New Evidence from Many Asset Classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dividend-growth-expectations-from-changes-in-dividend-strips-from-coronavirus-impact-on-stock-prices-and-growth-expectations">4.	Dividend growth expectations from changes in dividend strips, from “Coronavirus: Impact on Stock Prices and Growth Expectations”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forward-return-expectations">5.	Forward Return Expectations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-expectations-in-the-cross-section-of-present-values">6.	Market Expectations in the Cross-Section of Present Values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#replications-of-data-series-from-evidence-from-many-asset-classes">Replications of data series from “Evidence from Many Asset Classes”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corporate-bond-portfolio-returns">7.	Corporate Bond Portfolio Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#credit-default-swap-returns">8. 	Credit Default Swap Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commodity-futures-returns">9. Commodity Futures Returns</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#replicate-arbitrage-spreads-from-segmented-arbitrage">Replicate Arbitrage Spreads from “Segmented Arbitrage”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fx-covered-interest-parity-spread">10. FX Covered Interest Parity Spread</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equity-spot-futures">11. Equity Spot Futures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasury-spot-futures">12. Treasury Spot-Futures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasury-swap">13. Treasury Swap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-treasury">14. TIPS Treasury</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corporate-cds-bond-spread">15. Corporate CDS-Bond Spread</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -454,160 +479,167 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="list-of-potential-final-projects">
 <h1>List of Potential Final Projects<a class="headerlink" href="#list-of-potential-final-projects" title="Link to this heading">#</a></h1>
-<p>The project that you are assigned will come from one of the following three categories: papers, data series from “Evidence from Many Asset Classes”, or “other”.</p>
-<section id="papers">
-<h2>Papers<a class="headerlink" href="#papers" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p><a class="reference external" href="https://faculty.tuck.dartmouth.edu/images/uploads/faculty/jonathan-lewellen/ExpectedStockReturns.pdf">Lewellen (2015), Critical Finance Review. “The Cross-section of Expected Stock Returns”</a></p>
+<p>The project that you are assigned will come from one of the following three categories: white papers, data series from “Evidence from Many Asset Classes”, or replications of arbitrage spreads from the paper “Segmented Arbitrage”.</p>
 <ul class="simple">
-<li><p>Replicate Table 1, Table 2, and Figure 1</p></li>
-<li><p>Data used: CRSP and Compustat</p></li>
+<li><p>If you can’t access the papers below, you can find a link to them here: <a class="reference external" href="https://drive.google.com/drive/folders/10OvVRXb-G31PHV95smF06HkahRpnCh_d?usp=sharing">https://drive.google.com/drive/folders/10OvVRXb-G31PHV95smF06HkahRpnCh_d?usp=sharing</a></p></li>
 </ul>
-</li>
-<li><p><a class="reference external" href="https://www.nber.org/papers/w31048">Jiang et al (2023). Monetary Tightening and US Bank Fragility in 2023: Mark-to-Market Losses and Uninsured Depositor Runs?. No. w31048. National Bureau of Economic Research, 2023.</a></p>
+<section id="white-papers">
+<h2>White Papers<a class="headerlink" href="#white-papers" title="Link to this heading">#</a></h2>
+<section id="lewellen-2015-critical-finance-review-the-cross-section-of-expected-stock-returns">
+<h3>1. <a class="reference external" href="https://faculty.tuck.dartmouth.edu/images/uploads/faculty/jonathan-lewellen/ExpectedStockReturns.pdf">Lewellen (2015), Critical Finance Review. “The Cross-section of Expected Stock Returns”</a><a class="headerlink" href="#lewellen-2015-critical-finance-review-the-cross-section-of-expected-stock-returns" title="Link to this heading">#</a></h3>
+<p>This paper will teach you how to combine many firm characteristics into real-time forecasts of a stock’s expected returns. See the abstract: “This paper studies the cross-sectional properties of return forecasts derived from Fama-MacBeth regressions. These forecasts mimic how an investor could, in real time, combine many firm characteristics to obtain a composite estimate of a stock’s expected return. Empirically, the forecasts vary substantially across stocks and have strong predictive power for actual returns. For example, using ten-year rolling estimates of Fama-MacBeth slopes and a cross-sectional model with 15 firm characteristics (all based on low-frequency data), the expected-return estimates have a cross-sectional standard deviation of 0.87% monthly and a predictive slope for future monthly returns of 0.74, with a standard error of 0.07.”</p>
 <ul class="simple">
-<li><p>Replicate Table 1</p></li>
-<li><p>Data used: Bank Call Reports. See <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/bank-regulatory/">https://wrds-www.wharton.upenn.edu/pages/get-data/bank-regulatory/</a></p></li>
+<li><p>Task: Replicate Table 1, Table 2, and Figure 1</p></li>
+<li><p>Data sources: CRSP and Compustat</p></li>
+<li><p>Citation: Lewellen, Jonathan W., The Cross Section of Expected Stock Returns (August 22, 2014). Forthcoming in Critical Finance Review, Tuck School of Business Working Paper No. 2511246, Available at SSRN: <a class="reference external" href="https://ssrn.com/abstract=2511246">https://ssrn.com/abstract=2511246</a> or <a class="reference external" href="http://dx.doi.org/10.2139/ssrn.2511246">http://dx.doi.org/10.2139/ssrn.2511246</a></p></li>
+<li><p>Notes: I will provide some starter code that partially constructs some of these tables. In this project, you’ll have to complete the code.</p></li>
 </ul>
-</li>
-<li><p><a class="reference external" href="https://www.nber.org/papers/w31048">Jiang et al (2023). Monetary Tightening and US Bank Fragility in 2023: Mark-to-Market Losses and Uninsured Depositor Runs?. No. w31048. National Bureau of Economic Research, 2023.</a></p>
+</section>
+<section id="monetary-tightening-and-us-bank-fragility-in-2023">
+<h3>2.	<a class="reference external" href="https://www.nber.org/papers/w31048">Monetary Tightening and US Bank Fragility in 2023</a><a class="headerlink" href="#monetary-tightening-and-us-bank-fragility-in-2023" title="Link to this heading">#</a></h3>
+<p>This paper will teach you how to use bank call reports to construct measures of the financial condition of banks. This is especially useful if you have interest in specializing, for example, in specializing in equities covering the financial sector.</p>
 <ul class="simple">
-<li><p>Replicate Table A1 and Figure A1</p></li>
-<li><p>Data used: Bank Call Reports. See <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/bank-regulatory/">https://wrds-www.wharton.upenn.edu/pages/get-data/bank-regulatory/</a></p></li>
+<li><p>Task: Replicate Table 1, Table A1 and Figure A1</p></li>
+<li><p>Citation: Jiang et al (2023). Monetary Tightening and US Bank Fragility in 2023: Mark-to-Market Losses and Uninsured Depositor Runs?. No. w31048. National Bureau of Economic Research, 2023. <a class="reference external" href="https://www.nber.org/papers/w31048">https://www.nber.org/papers/w31048</a></p></li>
+<li><p>Data sources: Bank Call Reports. See <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/bank-regulatory/">https://wrds-www.wharton.upenn.edu/pages/get-data/bank-regulatory/</a></p></li>
+<li><p>Notes: I will provide some starter code that will replicate most of Table 1.</p></li>
 </ul>
-</li>
-<li><p><a class="reference external" href="https://ssrn.com/abstract=2537559">Koijen and Yogo, A Demand System Approach to Asset Pricing (2019). Journal of Political Economy</a></p>
+</section>
+<section id="intermediary-asset-pricing-new-evidence-from-many-asset-classes">
+<h3>3. <a class="reference external" href="https://zhiguohe.net/wp-content/uploads/2023/12/jfepublishedversion.pdf">Intermediary Asset Pricing: New Evidence from Many Asset Classes</a><a class="headerlink" href="#intermediary-asset-pricing-new-evidence-from-many-asset-classes" title="Link to this heading">#</a></h3>
+<p>This project will give you experience in analyzing the balance sheet fundamentals of large broker-dealers, in this case the full set of primary dealers in the US, and how the financial condition of these primary dealers affect the US stock market as a whole.</p>
 <ul class="simple">
-<li><p>Replicate Table D1</p></li>
-<li><p>Data used: Securities and Exchange Commission Form 13F, via Thomson Reuters. See <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/thomson-reuters/">https://wrds-www.wharton.upenn.edu/pages/get-data/thomson-reuters/</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://chenwang.one/publication/dr/">Li Wang (2023), Valuation Duration of the Stock Market</a></p>
-<ul class="simple">
-<li><p>Replicate Table 1</p></li>
-<li><p>Data used: S&amp;P500 Futures (authors use Datastream, you may use the Bloomberg terminal), Fama-Bliss database, CRSP, and S&amp;P Global via Goyal and Welch (2007).</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://chenwang.one/files/fdfr.pdf">Peng Wang (2023), Factor Demand and Factor Returns</a></p>
-<ul class="simple">
-<li><p>Replicate Table 1 and Table 2</p></li>
-<li><p>Data used: CRSP, Securities and Exchange Commission Form 13F, via Thomson Reuters. See <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/thomson-reuters/">https://wrds-www.wharton.upenn.edu/pages/get-data/thomson-reuters/</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://chenwang.one/files/pr.pdf">Li Wang (2023), Rediscover Predictability: Information from the Relative Prices of Long-term and Short-term Dividends</a></p>
-<ul class="simple">
-<li><p>Replicate Table 1 and part of Table 2 (the betas and the R-squared, but not the standard errors)</p></li>
-<li><p>Data used: S&amp;P 500 futures (Source: Bloomberg) and Fama-Bliss database</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://bpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/f/575/files/2020/07/LiqSupply.pdf">Nagel, Stefan. “Evaporating liquidity.” The Review of Financial Studies 25, no. 7 (2012): 2005-2039</a></p>
-<ul class="simple">
-<li><p>Replicate Table 1 and Table 2</p></li>
-<li><p>Data used: CRSP</p></li>
-<li><p>Some helpful code may be found online: <a class="reference external" href="https://voices.uchicago.edu/stefannagel/code-and-data/">https://voices.uchicago.edu/stefannagel/code-and-data/</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.nber.org/papers/w30561">Siriwardane, Sunderam, Wallen (2022). Segmented Arbitrage</a></p>
-<ul class="simple">
-<li><p>Replicate Figure 1 and Table 1</p></li>
-<li><p>Data used: Bloomberg</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.mit.edu/~junpan/bond_liquidity.pdf">Bao, Pan, and Wang (2010). The Illiquidity of Corporate Bonds</a></p>
-<ul class="simple">
-<li><p>Replicate Table 1 and Table 2</p></li>
-<li><p>Data used: <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/otc-corporate-bond-and-agency-debt-bond-transaction-data/">FINRA TRACE</a></p></li>
-<li><p>Some code is available online. See <a class="reference external" href="https://github.com/Alexander-M-Dickerson/TRACE-corporate-bond-processing/blob/main/TRACE/MakeIlliquidity.py">here.</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4575879">Dickerson, Alexander and Robotti, Cesare and Rossetti, Giulio, Noisy Prices and Return-based Anomalies in Corporate Bonds (September 19, 2023)</a></p>
-<ul class="simple">
-<li><p>Replicate Table 1</p></li>
-<li><p>Data used: <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/otc-corporate-bond-and-agency-debt-bond-transaction-data/">FINRA TRACE</a></p></li>
-<li><p>Coda and data is available online: <a class="reference external" href="https://openbondassetpricing.com/code/">https://openbondassetpricing.com/code/</a></p></li>
-<li><p>Since code and data is available, part of this project is cleaning up the code and making it as presentable and well-documented as possible.</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://zhiguohe.net/wp-content/uploads/2023/12/jfepublishedversion.pdf">He, Zhiguo, Bryan Kelly, and Asaf Manela. “Intermediary asset pricing: New evidence from many asset classes.” Journal of Financial Economics 126, no. 1 (2017): 1-35.</a></p>
-<ul class="simple">
-<li><p>Replicate Table 1 (just typeset it in LaTeX), Table A1 (just typeset it in LaTeX), Table 2, and Table 3 (Panel A only, but Panel B for bonus)</p></li>
+<li><p>Task: Replicate Table 2, and Table 3 (Panel A only, but Panel B for bonus)</p></li>
 <li><p>Data used: CRSP, Compustat, Datastream</p></li>
 <li><p>Some code and data is available online <a class="reference external" href="https://zhiguohe.net/publications/research/">here</a> and <a class="reference external" href="https://zhiguohe.net/data-and-empirical-patterns/intermediary-capital-ratio-and-risk-factor/">here</a>.</p></li>
+<li><p>Citation: He, Zhiguo, Bryan Kelly, and Asaf Manela. “Intermediary asset pricing: New evidence from many asset classes.” Journal of Financial Economics 126, no. 1 (2017): 1-35.</p></li>
+<li><p>Note: I will provide some code that will help you get started.</p></li>
 </ul>
-</li>
-</ol>
 </section>
-<section id="data-series-from-evidence-from-many-asset-classes">
-<h2>Data Series from “Evidence from Many Asset Classes”<a class="headerlink" href="#data-series-from-evidence-from-many-asset-classes" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://zhiguohe.net/wp-content/uploads/2023/12/jfepublishedversion.pdf">He, Kelly, and Manela (2017)</a> above is a  well known paper that examines the effects that intermediaries’ balance sheets have on asset prices. This paper happens to test this theory on a variety of asset classes, going beyond just debt and equity. The projects in this section will be to replicate the test asset returns across this variety of asset classes. Each project below focuses on a different asset class.
-The returns of these tests assets are provided <a class="reference external" href="https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip">here</a>. The data provided in that file goes up until 2012. Your project will be to replicate that data up until 2012 and then provide updated returns going as close to the present as possible. The derivation of the returns is defined by a separate paper. These are listed below.</p>
-<ol class="arabic simple" start="13">
-<li><p><a class="reference external" href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/jofi.12524">Nozawa, Yoshio. “What Drives the Cross‐Section of Credit Spreads?: A Variance Decomposition Approach.” The Journal of Finance 72, no. 5 (2017): 2045-2072.</a></p>
+<section id="dividend-growth-expectations-from-changes-in-dividend-strips-from-coronavirus-impact-on-stock-prices-and-growth-expectations">
+<h3>4.	<a class="reference external" href="https://ssrn.com/abstract=3555917">Dividend growth expectations from changes in dividend strips, from “Coronavirus: Impact on Stock Prices and Growth Expectations”</a><a class="headerlink" href="#dividend-growth-expectations-from-changes-in-dividend-strips-from-coronavirus-impact-on-stock-prices-and-growth-expectations" title="Link to this heading">#</a></h3>
+<p>This paper will teach you how to construct forecasts of the cash flows of stocks. That is, you will separate out the effects of changes in discount rates from changes in dividend growth. From the abstract, “Dividend futures, which are claims to dividends on the aggregate stock market in a particular year, can be used to directly compute a lower bound on growth expectations across maturities or to estimate expected growth using a forecasting model. We show how the actual forecast and the bound evolve over time.”</p>
 <ul class="simple">
-<li><p>Replicate the corporate bond columns from <a class="reference external" href="https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip">He_Kelly_Manela_Factors_And_Test_Assets_monthly.csv</a></p></li>
-<li><p>Data used: <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/wrds-bond-returns/">Bond Returns by WRDS</a>, but maybe also <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/otc-corporate-bond-and-agency-debt-bond-transaction-data/">FINRA TRACE</a>, Mergent FISD/NAIC, TRACE, Lehman Brothers Fixed Income Database.</p></li>
-<li><p>You may use data from <a class="reference external" href="https://openbondassetpricing.com/">openbondassetpricing.com/</a> and <a class="reference external" href="https://github.com/Alexander-M-Dickerson/TRACE-corporate-bond-processing/blob/main/WRDS/MakeCreditSpreads.py">here</a> if it’s helpful.</p></li>
+<li><p>Task: Replicate Figure 1, Figure 5, and Table 1</p></li>
+<li><p>Citation: Gormsen, Niels Joachim and Koijen, Ralph S. J., Coronavirus: Impact on Stock Prices and Growth Expectations (August 3, 2020). University of Chicago, Becker Friedman Institute for Economics Working Paper No. 2020-22, Available at SSRN: <a class="reference external" href="https://ssrn.com/abstract=3555917">https://ssrn.com/abstract=3555917</a> or <a class="reference external" href="http://dx.doi.org/10.2139/ssrn.3555917">http://dx.doi.org/10.2139/ssrn.3555917</a></p></li>
+<li><p>Data source: Bloomberg</p></li>
 </ul>
-</li>
-<li><p><a class="reference external" href="https://academic.oup.com/raps/article/3/2/229/1508435">Constantinides, George M., Jens Carsten Jackwerth, and Alexi Savov. “The puzzle of index option returns.” Review of Asset Pricing Studies 3, no. 2 (2013): 229-257.</a></p>
-<ul class="simple">
-<li><p>Replicate Table 2 and Table B1. Table 3 or 4 may be difficult, but may be attempted as a stretch goal.</p></li>
-<li><p>Data used: <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/optionmetrics/">OptionMetrics</a>. <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/cboe-indexes/">CBOE Options data</a> or <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/option-suite-wrds/">Option Suite by WRDS</a> may be helpful.</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.proquest.com/docview/1426387803?pq-origsite=gscholar&amp;amp;fromopenview=true&amp;amp;sourcetype=Dissertations%20&amp;amp;%20Theses">Palhares, Diogo. Cash-flow maturity and risk premia in CDS markets. The University of Chicago, 2013.</a></p>
-<ul class="simple">
-<li><p>Replicate the Credit Default Swap columns from <a class="reference external" href="https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip">He_Kelly_Manela_Factors_And_Test_Assets_monthly.csv</a></p></li>
-<li><p>These columns are described in <a class="reference external" href="https://zhiguohe.net/wp-content/uploads/2023/12/jfepublishedversion.pdf">He, Kelly, and Manela. (2017)</a>, but the definition of returns on CDS contracts comes from Palhares (2013).</p></li>
-<li><p>Data used: <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/markit/">Markit</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1343746">Borri and Verdelhan (2011), “Sovereign Risk Premia”</a></p>
-<ul class="simple">
-<li><p>Replicate Table 1 and the Sovereign Bond Columns from <a class="reference external" href="https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip">He_Kelly_Manela_Factors_And_Test_Assets_monthly.csv</a></p></li>
-<li><p>Data used: <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/thomson-reuters/datastream/">Datastream</a> or Bloomberg</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0304405X14001378">Lettau, Martin, Matteo Maggiori, and Michael Weber. “Conditional risk premia in currency markets and other asset classes.” Journal of Financial Economics 114, no. 2 (2014): 197-225.</a></p>
-<ul class="simple">
-<li><p>Replicate Table 1 and the first 6 FX columns in <a class="reference external" href="https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip">He_Kelly_Manela_Factors_And_Test_Assets_monthly.csv</a></p></li>
-<li><p>Data used: <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/thomson-reuters/datastream/">Datastream</a> or Bloomberg</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0304405X13001360?via%3Dihub">Yang, Fan. “Investment shocks and the commodity basis spread.” Journal of Financial Economics 110, no. 1 (2013): 164-184.</a></p>
-<ul class="simple">
-<li><p>Replicate Table 1. It may be difficult to replicate the commodities columns in <a class="reference external" href="https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip">He_Kelly_Manela_Factors_And_Test_Assets_monthly.csv</a>, but you may try.</p></li>
-<li><p>Data used: Futures Contract data from <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/thomson-reuters/datastream/futures-data/">Datastream</a></p></li>
-</ul>
-</li>
-</ol>
 </section>
-<section id="other">
-<h2>Other<a class="headerlink" href="#other" title="Link to this heading">#</a></h2>
-<ol class="arabic simple" start="19">
-<li><p><a class="reference external" href="https://openreview.net/pdf?id=wEc1mgAjU-">Monash Time Series Forecasting Archive</a></p>
+<section id="forward-return-expectations">
+<h3>5.	<a class="reference external" href="https://ssrn.com/abstract=4565351">Forward Return Expectations</a><a class="headerlink" href="#forward-return-expectations" title="Link to this heading">#</a></h3>
+<p>This paper deals with extracting return expectations from option prices. More than simply measuring return expectations as a whole, this paper constructs expectations as different horizons. See the abstract: “We measure investors’ short- and long-term stock-return expectations using both options and survey data. These expectations at different horizons reveal what investors think their own short-term expectations will be in the future, or forward return expectations. While contemporaneous short-term expectations are not countercyclical across all data sources, we find that forward expectations are consistently countercyclical, and excessively so: in bad times, forward expectations are higher than justified by investors’ own subsequent short-term return expectations. This excess volatility in forward expectations helps account for excess volatility in prices, inelastic demand for equities, and stylized facts about the equity term structure.”</p>
 <ul class="simple">
-<li><p>Replicate Table 1 and Table 2</p></li>
-<li><p>Code and data are already available online. (See <a class="reference external" href="https://forecastingdata.org/">here</a> and <a class="reference external" href="https://github.com/rakshitha123/TSForecasting">here</a>.) This project is to refactor the code of the archive so that it all runs via PyDoit (i.e., the data is automatically downloaded and the tables are all automatically generated).</p></li>
-<li><p>Some prior familiarity with the R programming language would be helpful for this project.</p></li>
+<li><p>Task: Replicate Table 1 and Figure 1</p></li>
+<li><p>Data: OptionMetrics</p></li>
+<li><p>Citation: Gandhi, Mihir and Gormsen, Niels Joachim and Lazarus, Eben, Forward Return Expectations (September 7, 2023). Available at SSRN: <a class="reference external" href="https://ssrn.com/abstract=4565351">https://ssrn.com/abstract=4565351</a> or <a class="reference external" href="http://dx.doi.org/10.2139/ssrn.4565351">http://dx.doi.org/10.2139/ssrn.4565351</a></p></li>
 </ul>
-</li>
-<li><p><strong>Do short sellers respond to ESG ratings?</strong> (extra credit available)</p>
+</section>
+<section id="market-expectations-in-the-cross-section-of-present-values">
+<h3>6.	<a class="reference external" href="https://doi.org/10.1111/jofi.12060">Market Expectations in the Cross-Section of Present Values</a><a class="headerlink" href="#market-expectations-in-the-cross-section-of-present-values" title="Link to this heading">#</a></h3>
+<p>This paper demonstrates that returns and cash flows for the aggregate US stock market are highly predictable. It demonstrates this by constructing a univariate predictor from the cross section of stocks. See the abstract:</p>
+<blockquote>
+<div><p>Returns and cash flow growth for the aggregate U.S. stock market are highly and robustly predictable. Using a single factor extracted from the cross-section of book-to market ratios, we find an out-of-sample return forecasting R2 of 13% at the annual frequency (0.9% monthly). We document similar out-of-sample predictability for returns on value, size, momentum, and industry portfolios. We present a model linking aggregate market expectations to disaggregated valuation ratios in a latent factor system. Spreads in value portfolios’ exposures to economic shocks are key to identifying predictability and are consistent with duration-based theories of the value premium.</p>
+</div></blockquote>
+<p>Also, from their paper,</p>
+<blockquote>
+<div><p>“Our approach attacks a challenging problem in empirical asset pricing: how does one exploit a wealth of predictors in relatively short time series? If the predictors number near or more than the number of observations, the standard ordinary least squares (OLS) forecaster will be poorly behaved or nonexistent (see Huber (1973)). Our solution is to use partial least squares (PLS; Wold (1975)), which is a simple regression-based procedure designed to parsimoniously forecast a single time series using a large panel of predictors. We use it to construct a univariate forecaster for market returns (or dividend growth) that is a linear combination of assets’ valuation ratios.”</p>
+</div></blockquote>
 <ul class="simple">
-<li><p>Work with sponsoring adviser to explore the following question: “There has been a recent focus on ESG (Environmental, Social, and Governance) risks in finance, and several papers have studied the relationship between a firm’s ESG rating and its subsequent stock returns. This project aims to study whether short sellers appear to incorporate information in ESG ratings in their investment decisions, which has not been studied. The project will involve merging and analyzing data from 2 main sources: S&amp;P Global / Markit Securities Lending data and RepRisk ESG data.”</p></li>
-<li><p>Merge Markit securities lending data with RepRisk Data Feed (Risk Incidents)</p></li>
-<li><p>For each ESG incident/severity/novelty/news’ reach, produce summary statistics of the following variables: short interest ratio (short interest shares / shares outstanding), loan supply ratio (shares available to be lent / shares outstanding), loan utilization, and loan fee.</p></li>
-<li><p>Data used: <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/markit/">Markit securities lending</a> and <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/reprisk/">RepRisk</a></p></li>
+<li><p>Task: Replicate Table 1</p></li>
+<li><p>Data sources: CRSP and Compustat</p></li>
+<li><p>Citation: KELLY, B. and PRUITT, S. (2013), Market Expectations in the Cross-Section of Present Values. THE JOURNAL OF FINANCE, 68: 1721-1756. <a class="reference external" href="https://doi.org/10.1111/jofi.12060">https://doi.org/10.1111/jofi.12060</a></p></li>
 </ul>
-</li>
-<li><p><a class="reference external" href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">Replicate several portfolios in in Ken French’s Data Library</a></p>
+</section>
+</section>
+<section id="replications-of-data-series-from-evidence-from-many-asset-classes">
+<h2>Replications of data series from “Evidence from Many Asset Classes”<a class="headerlink" href="#replications-of-data-series-from-evidence-from-many-asset-classes" title="Link to this heading">#</a></h2>
+<p>He, Kelly, and Manela (2017) is a well known paper that examines the effects that intermediaries’ balance sheets have on asset prices. This paper happens to test this theory on a variety of asset classes, going beyond just debt and equity. The projects in this section will be to replicate the test asset returns across this variety of asset classes. Each project below focuses on a different asset class. The returns of these tests assets are provided here. The data provided in that file goes up until 2012. Your project will be to replicate that data up until 2012 and then provide updated returns going as close to the present as possible. The derivation of the returns is defined by a separate paper. These are listed below.</p>
+<section id="corporate-bond-portfolio-returns">
+<h3>7.	Corporate Bond Portfolio Returns<a class="headerlink" href="#corporate-bond-portfolio-returns" title="Link to this heading">#</a></h3>
+<p>This will give you experience in working with corporate bonds.</p>
 <ul class="simple">
-<li><p>Reconstruct the “bivariate sorts on size, e/p, cf/p, and d/p”. these are the portfolios formed on size and earnings/price, size and cashflow/price, and size and dividend yield. Use the unaggregated CRSP and Compustat data and reconstruct the portfolios that match.</p></li>
-<li><p>Reconstruct the “bivariate sorts on Operating Profitability and Investment”. This consists of three files, each with 25 portfolios in it. Reconstruct these from unaggregated CRSP and Compustat data.</p></li>
-<li><p>Reconstruct each of the “5 industry portfolios” and “49 industry portfolios” from “scratch.” That is, use the unaggregated CRSP data and reconstruct the portfolios that match.</p></li>
+<li><p>Task: Replicate the corporate bond columns from He_Kelly_Manela_Factors_And_Test_Assets_monthly.csv (<a class="reference external" href="https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip">https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip</a> )</p></li>
+<li><p>Data used: Bond Returns by WRDS (<a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/wrds-bond-returns/">https://wrds-www.wharton.upenn.edu/pages/get-data/wrds-bond-returns/</a>), but maybe also FINRA TRACE (<a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/otc-corporate-bond-and-agency-debt-bond-transaction-data/">https://wrds-www.wharton.upenn.edu/pages/get-data/otc-corporate-bond-and-agency-debt-bond-transaction-data/</a>) , Mergent FISD/NAIC, TRACE, and Lehman Brothers Fixed Income Database.</p></li>
+<li><p>Citation: Nozawa, Yoshio. “What Drives the Cross‐Section of Credit Spreads?: A Variance Decomposition Approach.” The Journal of Finance 72, no. 5 (2017): 2045-2072.</p></li>
+<li><p>Note: You may use data from <a class="reference external" href="http://openbondassetpricing.com/">openbondassetpricing.com/</a> and here (<a class="github reference external" href="https://github.com/Alexander-M-Dickerson/TRACE-corporate-bond-processing/blob/main/WRDS/MakeCreditSpreads.py">Alexander-M-Dickerson/TRACE-corporate-bond-processing</a>) if it’s helpful.</p></li>
 </ul>
-</li>
-</ol>
+</section>
+<section id="credit-default-swap-returns">
+<h3>8. 	Credit Default Swap Returns<a class="headerlink" href="#credit-default-swap-returns" title="Link to this heading">#</a></h3>
+<p>This replication will give you experience using the Markit data source for Credit Default Swaps. If you’re interested in CDS, this is the canonical paper you should know for constructing returns on these instruments.</p>
+<ul class="simple">
+<li><p>Task: Replicate the Credit Default Swap columns from He_Kelly_Manela_Factors_And_Test_Assets_monthly.csv (<a class="reference external" href="https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip">https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip</a> )</p></li>
+<li><p>These columns are described in He, Kelly, and Manela. (2017), but the definition of returns on CDS contracts comes from Palhares (2013).</p></li>
+<li><p>Data used: Markit</p></li>
+<li><p>Citation: Palhares, Diogo. Cash-flow maturity and risk premia in CDS markets. The  University of Chicago, 2013.</p></li>
+</ul>
+</section>
+<section id="commodity-futures-returns">
+<h3>9. Commodity Futures Returns<a class="headerlink" href="#commodity-futures-returns" title="Link to this heading">#</a></h3>
+<p>This replication will give you experience in working with commodity futures and constructing return series from them.</p>
+<ul class="simple">
+<li><p>Task: Replicate Table 1. It may be difficult to replicate the commodities columns in He_Kelly_Manela_Factors_And_Test_Assets_monthly.csv (<a class="reference external" href="https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip">https://asafmanela.github.io/papers/hkm/intermediarycapitalrisk/He_Kelly_Manela_Factors.zip</a> ), but you may try.</p></li>
+<li><p>Data used: Futures Contract data from Datastream</p></li>
+<li><p>Citation: Yang, Fan. “Investment shocks and the commodity basis spread.” Journal of Financial Economics 110, no. 1 (2013): 164-184.</p></li>
+</ul>
+</section>
+</section>
+<section id="replicate-arbitrage-spreads-from-segmented-arbitrage">
+<h2>Replicate Arbitrage Spreads from “Segmented Arbitrage”<a class="headerlink" href="#replicate-arbitrage-spreads-from-segmented-arbitrage" title="Link to this heading">#</a></h2>
+<p>The projects in this section will have students replicate various arbitrage spreads studied in the paper “Segmented Arbitrage” <a class="reference external" href="https://www.hbs.edu/ris/Publication%20Files/24-030_1506d32b-3190-4144-8c75-a2326b87f81e.pdf">https://www.hbs.edu/ris/Publication Files/24-030_1506d32b-3190-4144-8c75-a2326b87f81e.pdf</a> by Emil Siriwardane, Adi Sunderam, and Jonathan Wallen.</p>
+<p>This paper examines various so-called arbitrage trades and makes the observation that the price dynamics of these trades challenges various asset pricing models that have been used in the past to explain deviations from no-arbitrage.
+The internet appendix gives more detail as to how each trade works: <a class="reference external" href="https://www.emilsiriwardane.com/s/Appendix.pdf">https://www.emilsiriwardane.com/s/Appendix.pdf</a></p>
+<p>One of the authors, Emil Siriwardane <a class="reference external" href="https://www.emilsiriwardane.com/">https://www.emilsiriwardane.com/</a>, makes code and data available for these trades online: <a class="github reference external" href="https://github.com/esiriwardane/arbitrage-spreads-public">esiriwardane/arbitrage-spreads-public</a> However, much of the code is in Stata. Your goal will be to rewrite these in Python and automate the pulls of the data (to the extent possible).</p>
+<p><strong>Tasks</strong></p>
+<ul class="simple">
+<li><p>For each of the following, you should replicate the associated panel in Figure A1 in the Appendix (See <a class="reference external" href="https://www.emilsiriwardane.com/s/Appendix.pdf">https://www.emilsiriwardane.com/s/Appendix.pdf</a>)</p></li>
+<li><p>Replicate the series shown in the paper, but also compute the series up to the present (so that the reporting of the size of the arbitrage spread can be automated)</p></li>
+<li><p>In each case that Bloomberg is used, please try to use Datastream as an alternative if possible</p></li>
+</ul>
+<section id="fx-covered-interest-parity-spread">
+<h3>10. FX Covered Interest Parity Spread<a class="headerlink" href="#fx-covered-interest-parity-spread" title="Link to this heading">#</a></h3>
+<p>This trade is based off of the covered interest parity (CIP). A CIP deviation is a spread between a cash riskless rate and a synthetic riskless rate. The synthetic rate is local currency borrowing swapped into a foreign denominated rate using cross-currency derivatives.</p>
+<ul class="simple">
+<li><p>Data used: Bloomberg, maybe Datastream</p></li>
+</ul>
+</section>
+<section id="equity-spot-futures">
+<h3>11. Equity Spot Futures<a class="headerlink" href="#equity-spot-futures" title="Link to this heading">#</a></h3>
+<p>“We construct arbitrage implied forward rates using the nearby and first deferred futures contracts for the S&amp;P 500, Dow Jones, and Nasdaq 100 indices.”</p>
+<ul class="simple">
+<li><p>Data used: Bloomberg</p></li>
+</ul>
+</section>
+<section id="treasury-spot-futures">
+<h3>12. Treasury Spot-Futures<a class="headerlink" href="#treasury-spot-futures" title="Link to this heading">#</a></h3>
+<p>Replicate the data pull and the construction of the Treasury-Spot Futures spread. The Treasury spot-futures arbitrage trade involves exploiting the price discrepancy between Treasury futures contracts and the underlying Treasury securities in the cash (spot) market. By simultaneously buying (or selling) the mispriced asset and selling (or buying) its equivalent in the other market, arbitrageurs aim to lock in a risk-free profit, accounting for carry costs, accrued interest, and delivery options.</p>
+<ul class="simple">
+<li><p>Data used: Bloomberg</p></li>
+</ul>
+</section>
+<section id="treasury-swap">
+<h3>13. Treasury Swap<a class="headerlink" href="#treasury-swap" title="Link to this heading">#</a></h3>
+<p>In an interest rate swap, one counterparty agrees to pay a series of predetermined payments based on the so-called fixed rate (or swap rate) prevailing at the swap’s inception. In return, the counterparty receives a series of stochastic floating payments that is determined based on the future realization of a short-term reference rate.</p>
+<ul class="simple">
+<li><p>Data used: Bloomberg</p></li>
+</ul>
+</section>
+<section id="tips-treasury">
+<h3>14. TIPS Treasury<a class="headerlink" href="#tips-treasury" title="Link to this heading">#</a></h3>
+<p>“In the market for US sovereign debt, there is a no-arbitrage condition between inflation-swapped Treasury Inflation-Protected Securities (TIPS) and Treasuries (Fleckenstein et al., 2014). TIPS are US Treasury obligations for which the principal amount (and coupons) are adjusted for the Consumer Price Index (CPI). These inflation adjustments may be undone using an inflation swap, yielding fixed cash flows. The arbitrage spread is the difference in yield between this synthetic nominal Treasury constructed from TIPS and inflation swaps and a nominal Treasury”</p>
+<ul class="simple">
+<li><p>Data sources: Bloomberg, and the Federal Reserve’s Yield Curve data (for zero coupon bond yields: <a class="reference external" href="https://www.federalreserve.gov/data/yield-curve-tables/feds200628_1.html">https://www.federalreserve.gov/data/yield-curve-tables/feds200628_1.html</a> )</p></li>
+</ul>
+</section>
+<section id="corporate-cds-bond-spread">
+<h3>15. Corporate CDS-Bond Spread<a class="headerlink" href="#corporate-cds-bond-spread" title="Link to this heading">#</a></h3>
+<p>Replicate the data pull and construction of the series using the Markit Credit Default Swap data in conjunction with the Corporate Bond data on wrds.</p>
+<ul class="simple">
+<li><p>Replicate the final CDS-Bond basis spread given in final_cds_bases.xlsx here: <a class="github reference external" href="https://github.com/esiriwardane/arbitrage-spreads-public/tree/main/raw">esiriwardane/arbitrage-spreads-public</a> Your numbers should match theirs nearly precisely.</p></li>
+<li><p>Extra credit available if this is chosen.</p></li>
+<li><p>Data used: Markit CDS, Corporate TRACE</p></li>
+</ul>
+</section>
 </section>
 </section>
 
@@ -642,12 +674,12 @@ The returns of these tests assets are provided <a class="reference external" hre
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="final_project.html"
+       href="final_project_rubric.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Final Project</p>
+        <p class="prev-next-title">Final Project Instructions and Rubric</p>
       </div>
     </a>
     <a class="right-next"
@@ -675,9 +707,30 @@ The returns of these tests assets are provided <a class="reference external" hre
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#papers">Papers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-series-from-evidence-from-many-asset-classes">Data Series from “Evidence from Many Asset Classes”</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#white-papers">White Papers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lewellen-2015-critical-finance-review-the-cross-section-of-expected-stock-returns">1. Lewellen (2015), Critical Finance Review. “The Cross-section of Expected Stock Returns”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monetary-tightening-and-us-bank-fragility-in-2023">2.	Monetary Tightening and US Bank Fragility in 2023</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermediary-asset-pricing-new-evidence-from-many-asset-classes">3. Intermediary Asset Pricing: New Evidence from Many Asset Classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dividend-growth-expectations-from-changes-in-dividend-strips-from-coronavirus-impact-on-stock-prices-and-growth-expectations">4.	Dividend growth expectations from changes in dividend strips, from “Coronavirus: Impact on Stock Prices and Growth Expectations”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forward-return-expectations">5.	Forward Return Expectations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-expectations-in-the-cross-section-of-present-values">6.	Market Expectations in the Cross-Section of Present Values</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#replications-of-data-series-from-evidence-from-many-asset-classes">Replications of data series from “Evidence from Many Asset Classes”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corporate-bond-portfolio-returns">7.	Corporate Bond Portfolio Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#credit-default-swap-returns">8. 	Credit Default Swap Returns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commodity-futures-returns">9. Commodity Futures Returns</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#replicate-arbitrage-spreads-from-segmented-arbitrage">Replicate Arbitrage Spreads from “Segmented Arbitrage”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fx-covered-interest-parity-spread">10. FX Covered Interest Parity Spread</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equity-spot-futures">11. Equity Spot Futures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasury-spot-futures">12. Treasury Spot-Futures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#treasury-swap">13. Treasury Swap</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-treasury">14. TIPS Treasury</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corporate-cds-bond-spread">15. Corporate CDS-Bond Spread</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

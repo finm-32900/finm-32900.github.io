@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Final Project &#8212; Full Stack Quantitative Finance</title>
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Misc/final_project';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="List of Potential Final Projects" href="potential_final_projects.html" />
+    <link rel="next" title="Final Project Instructions and Rubric" href="final_project_rubric.html" />
     <link rel="prev" title="Homework 4" href="../Week8/HW4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -226,19 +226,23 @@
 <li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Week6/overview_w6.html">Week 6: Bloomberg and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Week6/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Week6/GitHub_pull_requests.html">GitHub Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week6/overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../Week7/overview_w7.html">Week 7: Reviewing Sphinx and Unit Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week7/overview_w7.html">Week 7: Bloomberg</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Week8/overview_w8.html">Week 8: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../Week8/HW4.html">Homework 4</a></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Final Project</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="final_project_rubric.html">Final Project Instructions and Rubric</a></li>
 <li class="toctree-l2"><a class="reference internal" href="potential_final_projects.html">List of Potential Final Projects</a></li>
 </ul>
 </details></li>
@@ -415,9 +419,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -433,15 +435,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#receiving-your-assigned-project">Receiving Your Assigned Project</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project-grading-rubric">Final Project Grading Rubric</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -453,45 +446,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="final-project">
 <h1>Final Project<a class="headerlink" href="#final-project" title="Link to this heading">#</a></h1>
-<p>In this project, you’ll replicate tables, figures, or data series from a well known finance paper using the principals of reproducible analytical pipelines (RAPs) learned in this class. Your replication must be automated from end-to-end, formatted using the <a class="reference external" href="https://github.com/jmbejara/blank_project">project template</a> I have provided, which is based upon the <a class="reference external" href="https://drivendata.github.io/cookiecutter-data-science/">Cookiecutter Data Science</a> template.</p>
-<section id="receiving-your-assigned-project">
-<h2>Receiving Your Assigned Project<a class="headerlink" href="#receiving-your-assigned-project" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>You will be assigned a project from the list found <a class="reference internal" href="potential_final_projects.html"><span class="std std-doc">here.</span></a></p></li>
-<li><p>Your preference will be taken into account when assigning the projects. You can rank your preferred projects by using the following Google Form: <a class="reference external" href="https://forms.gle/EKkPQSX6uWipZhdx5">https://forms.gle/EKkPQSX6uWipZhdx5</a> . Please, only submit one response per group. Your group must have 4 people in it. Some exceptions may be made for groups of 5.</p></li>
-<li><p>You will meet with me at the beginning of the project as well as at the end (a consultation). The first meeting is to establish the goals for the project. The final meeting is to present your results. When you submit the link, you will also have a chance to schedule your consultation and final presentation dates. The link the page to book these meetings is in the Canvas announcement.</p></li>
-<li><p>In this first consultation meeting, you should come prepared with a list of tasks that each team member will be primarily responsible for. Team members can and should share tasks (e.g., two people can be responsible for the LaTeX writeup whereas everyone should be involved in figuring out how to understand and clean the data). Write this list of tasks in the <a class="reference external" href="http://README.md">README.md</a> of the GitHub repo.</p></li>
+<li><p>Instructions and Grading Rubric: <a class="reference internal" href="final_project_rubric.html"><span class="std std-doc">Final Project Rubric</span></a></p></li>
+<li><p>Potential Projects: <a class="reference internal" href="potential_final_projects.html"><span class="std std-doc">Potential Final Projects</span></a></p></li>
 </ul>
-</section>
-<section id="final-project-grading-rubric">
-<h2>Final Project Grading Rubric<a class="headerlink" href="#final-project-grading-rubric" title="Link to this heading">#</a></h2>
-<p>The following questions or assertions will be made of your code when you present it at the end of the quarter. Each question will be subjectively prorated on the degree of completion. For example, if you replicate 50% of the numbers from a table, you’ll get 50% of the available points. Some adjustments may be made by discretion based on the difficulty of the task.
-For each assertion in the following, I enumerate the points each is worth in <strong>bold</strong> and there are a total of 182 points available in total.</p>
-<ul class="simple">
-<li><p><strong>4/4</strong> You must generate a single LaTeX document that briefly describes the nature of the replication project and contains all the tables and charts that your code produces. You should give a high level overview of how the replication project went. Where did you find success, where were the challenges? Also, explain the data sources that you used? The LaTeX document should not contain code snippets, but only give the tables and charts and a high level discussion of the project.</p></li>
-<li><p><strong>4/4</strong> Provide at least one jupyter notebook that gives an brief tour of the cleaned data and some of the analysis that is performed in the code. You can think of this as giving the reader a tour of the code that you have written. You can provide code snippets in this notebook. It should look somethin like one the HW guides that we used, e.g. <a class="reference internal" href="../../output/_01_wage_growth_during_the_recession.html"><span class="std std-doc">Wage Growth During the Recession</span></a></p></li>
-<li><p><strong>20/20</strong> Replicate the series, tables, and/or figures listed for your assigned project. Choose a reasonable tolerance and construct unit tests to ensure that your numbers match the paper’s within this tolerance.</p></li>
-<li><p><strong>20/20</strong> Now, reproduce the series, tables, and/or figures with updated numbers. That is, replicating the numbers from the paper require performing the calculations over the same time period as that of the paper. In this task, you’ll recalculate the series, tables, and/or figures using numbers up until the present (or at least the most recently available numbers).</p></li>
-<li><p><strong>20/20</strong> Outside of the tables, figures, or derived series that you are to replicate, have you also provided a table of your own summary statistics AND charts that gives you and the reader of sufficient understanding of the underlying data. These tables and/or figures must be typeset on LaTeX and you must provide captions on the Tables and Figure that properly describe them and motivate them. That is, you must tell me in the caption what I should learn or take away from each table and figure. You are to choose how many figures and or tables is sufficient for your case, but it will usually be one of each.</p></li>
-<li><p><strong>4/4</strong> Does the paper generate a tidy data set of the data being used before then using the data for analysis? Specifically, there must be a separate file or set of files whose only purpose is to clean the data and put it into a “tidy” format. The analysis of the data should be kept in separate files.</p></li>
-<li><p><strong>4/4</strong> Are the statistics in all tables in the LaTeX document automatically generated from the code?</p></li>
-<li><p><strong>4/4</strong> Is the project automated from end-to-end, using PyDoit?</p></li>
-<li><p><strong>4/4</strong> Does the repository use unit tests to ensure that code is working properly? Are these unit tests well motivated?</p></li>
-<li><p><strong>4/4</strong> Does the project use the template from <a class="github reference external" href="https://github.com/jmbejara/blank_project">jmbejara/blank_project</a> ?</p></li>
-<li><p><strong>4/4</strong> Does each unit test have a purpose? Are there unnecessary or repetitive unit tests?</p></li>
-<li><p><strong>4/4</strong> Is the GitHub repository and the Git history free of any copyrighted material (e.g., the raw data should not be in the repo).</p></li>
-<li><p><strong>4/4</strong> Is the GitHub repository and the Git history free of any secrets, such as API keys?</p></li>
-<li><p><strong>4/4</strong> Does the project use a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file as well as reasonable defaults in the <code class="docutils literal notranslate"><span class="pre">config.py</span></code> file to manage the configuration of the project (e.g., the data directory, the API keys, but also the <code class="docutils literal notranslate"><span class="pre">START_DATE</span></code> and <code class="docutils literal notranslate"><span class="pre">END_DATE</span></code> of the time period of analysis of the project.) Is the format of the required <code class="docutils literal notranslate"><span class="pre">.env</span></code> file described in an example <code class="docutils literal notranslate"><span class="pre">env.example</span></code> file?</p></li>
-<li><p><strong>4/4</strong> The project must not contain a trace of <code class="docutils literal notranslate"><span class="pre">.env</span></code> (it should not be in the Git commit history).</p></li>
-<li><p><strong>4/4</strong> Does the project contain a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file that described the required packages to run the project’s code?</p></li>
-<li><p><strong>4/4</strong> Is the GitHub repository and the Git history free of any secrets, such as API keys?</p></li>
-<li><p><strong>4/4</strong> Has each group member made commits to the Git repo?</p></li>
-<li><p><strong>4/4</strong> Has each member of your group made and merged a GitHub pull request?</p></li>
-<li><p><strong>4/4</strong> Does each Python file have a “docstring” at the top that describes what the file does?</p></li>
-<li><p><strong>4/4</strong> Does each Python function have a reasonably descriptive name and, when appropriate, a function docstring? (No need to overboard, but the code should be reasonably clean.)</p></li>
-<li><p><strong>50/50</strong> Did I individually accomplish the tasks that were assigned to me by the group and did I contribute a substantial part of the code to the project as evidenced by the commit history?</p></li>
-</ul>
-</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -536,11 +494,11 @@ For each assertion in the following, I enumerate the points each is worth in <st
       </div>
     </a>
     <a class="right-next"
-       href="potential_final_projects.html"
+       href="final_project_rubric.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">List of Potential Final Projects</p>
+        <p class="prev-next-title">Final Project Instructions and Rubric</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -550,22 +508,6 @@ For each assertion in the following, I enumerate the points each is worth in <st
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#receiving-your-assigned-project">Receiving Your Assigned Project</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project-grading-rubric">Final Project Grading Rubric</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

@@ -6,9 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Week 6: Bloomberg and Social Coding with GitHub &#8212; Full Stack Quantitative Finance</title>
+    <title>Week 6: Python Package Development and Social Coding with GitHub &#8212; Full Stack Quantitative Finance</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Week6/overview_w6';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="The Bloomberg Terminal" href="bloomberg_terminal.html" />
-    <link rel="prev" title="–Schedule subject to change after HERE–" href="../subject_to_change_after_this_week.html" />
+    <link rel="next" title="GitHub Issues and Pull Requests: Enhancing Collaborative Development" href="GitHub_pull_requests.html" />
+    <link rel="prev" title="Unit Tests" href="../Week5/unit_tests.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -226,19 +226,23 @@
 <li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 6: Bloomberg and Social Coding with GitHub</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="bloomberg_terminal.html">The Bloomberg Terminal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GitHub_pull_requests.html">GitHub Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 6: Python Package Development and Social Coding with GitHub</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../Week7/overview_w7.html">Week 7: Reviewing Sphinx and Unit Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week7/overview_w7.html">Week 7: Bloomberg</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Week8/overview_w8.html">Week 8: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../Week8/HW4.html">Homework 4</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Misc/final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Misc/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Misc/potential_final_projects.html">List of Potential Final Projects</a></li>
 </ul>
 </details></li>
@@ -428,7 +432,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 6: Bloomberg and Social Coding with GitHub</h1>
+    <h1>Week 6: Python Package Development and Social Coding with GitHub</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -451,35 +455,42 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-6-bloomberg-and-social-coding-with-github">
-<h1>Week 6: Bloomberg and Social Coding with GitHub<a class="headerlink" href="#week-6-bloomberg-and-social-coding-with-github" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="week-6-python-package-development-and-social-coding-with-github">
+<h1>Week 6: Python Package Development and Social Coding with GitHub<a class="headerlink" href="#week-6-python-package-development-and-social-coding-with-github" title="Link to this heading">#</a></h1>
 <section id="learning-outcomes">
 <h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Use the Bloomberg Terminal to Pull Data (in Excel and via the <code class="docutils literal notranslate"><span class="pre">xbbg</span></code> Python module)</p></li>
 <li><p>How to use GitHub to manage open source contributions (e.g., pull requests)</p></li>
+<li><p>Develop your own Python package, using Hatch and Hatchling</p></li>
 </ul>
 </section>
 <section id="agenda">
 <h2>Agenda<a class="headerlink" href="#agenda" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Review HW 3</p>
+<li><p>Review HW 3: Any questions about the overall purpose?</p></li>
+<li><p>Final Project Selection:</p>
 <ul>
-<li><p>What were the economics behind the HW?</p></li>
-<li><p>Purpose: Exact replication?</p></li>
+<li><p>Discuss list of <a class="reference internal" href="../Misc/potential_final_projects.html"><span class="std std-doc">potential projects</span></a></p></li>
+<li><p>Fill out Survey (this will be part of the soon-to-be-released HW)</p></li>
 </ul>
 </li>
-<li><p>Interesting News:</p>
+<li><p>Tutorial of Issue Tracker in conjunction with GitHub Pull Requests</p>
 <ul>
-<li><p><a class="reference external" href="https://www.ft.com/content/db864323-5b68-402b-8aa5-5c53a309acf1">Financial Times: “The Norwegian sovereign wealth fund’s $92mn Excel error”</a></p></li>
-<li><p><a class="reference external" href="https://www.washingtonpost.com/world/2023/06/06/austria-excel-error-election/">Washington Post: “Excel spreadsheet error leads Austrian party to announce wrong leader”</a></p></li>
+<li><p><a class="reference internal" href="GitHub_pull_requests.html"><span class="std std-doc">GitHub Issues and Pull Requests</span></a></p></li>
+<li><p>Example using <a class="reference external" href="https://github.com/finm-32900/stockbeta"><code class="docutils literal notranslate"><span class="pre">stockbeta</span></code></a> example package. Submit a PR to the repo!</p></li>
 </ul>
 </li>
-<li><p>Schedule a time to meet with Tobias (only those that will be using the Terminal for Final Project)</p></li>
-<li><p>Tutorial of the Bloomberg Terminal</p></li>
-<li><p>Tutorial of GitHub Pull Requests</p></li>
-<li><p>Discuss next HWs</p></li>
-<li><p>Review unit tests if there is time</p></li>
+<li><p>Introduction to Hatch and Hatchling</p>
+<ul>
+<li><p><a class="reference internal" href="python_packaging_with_hatch.html"><span class="std std-doc">Python Packaging with Hatch</span></a></p></li>
+</ul>
+</li>
+<li><p>If time permits, we will also discuss the following:</p>
+<ul>
+<li><p>Automatically updating a GitHub pages site with GitHub Actions. See <a class="github reference external" href="https://github.com/jmbejara/example-updating-dashboard">jmbejara/example-updating-dashboard</a></p></li>
+<li><p>Simplifying presentation with ChartBook: <a class="github reference external" href="https://github.com/jmbejara/chartbook">jmbejara/chartbook</a></p></li>
+</ul>
+</li>
 </ul>
 </section>
 <div class="toctree-wrapper compound">
@@ -517,20 +528,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../subject_to_change_after_this_week.html"
+       href="../Week5/unit_tests.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">–Schedule subject to change after HERE–</p>
+        <p class="prev-next-title">Unit Tests</p>
       </div>
     </a>
     <a class="right-next"
-       href="bloomberg_terminal.html"
+       href="GitHub_pull_requests.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">The Bloomberg Terminal</p>
+        <p class="prev-next-title">GitHub Issues and Pull Requests: Enhancing Collaborative Development</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

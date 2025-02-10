@@ -1,6 +1,6 @@
 # Homework 4
 
-## Learning Outcomes
+<!-- ## Learning Outcomes
 
 - Learn to deploy a web page using [GitHub pages](https://pages.github.com/).
 - Learn to publish live, automatically updating dashboards using Jupyter, Sphinx, [GitHub Actions](https://github.com/features/actions).
@@ -32,4 +32,4 @@ You only need to make **minor** modifications to the site just to demonstrate th
  - Change the logo. This is the current logo: https://jeremybejarano.com/example-updating-dashboard/_static/logo.png
  - Change one of the plots on this page to anything else: https://jeremybejarano.com/example-updating-dashboard/_notebook_build/_03_pca_index_dashboard.html
 
-That's it! It's fine to make minimal changes. Hopefully this is enough just to demonstrate that you can do these core tasks.
+That's it! It's fine to make minimal changes. Hopefully this is enough just to demonstrate that you can do these core tasks. -->
