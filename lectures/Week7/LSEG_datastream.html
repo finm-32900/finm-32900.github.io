@@ -451,11 +451,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-futures-data-via-wrds-web-query">1. Access Futures Data via WRDS Web Query</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mnemonic-structure-for-treasury-futures">2. Mnemonic Structure for Treasury Futures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-treasury-futures-symbols">3. Key Treasury Futures Symbols</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-and-browse-tips">4. Search and Browse Tips</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-retrieval-example">5. Data Retrieval Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-documentation">Getting Started with Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-variables-in-datastream-and-in-wrds-generally">Finding Variables (in Datastream and in WRDS generally)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-wrds-variable-search">Using the WRDS Variable Search</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-tips">Search Tips</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#treasury-futures-example-1">Treasury Futures Example 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#treasury-futures-example-2">Treasury Futures Example 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-futures-data-via-wrds-web-query">1. Access Futures Data via WRDS Web Query</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mnemonic-structure-for-treasury-futures">2. Mnemonic Structure for Treasury Futures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-treasury-futures-symbols">3. Key Treasury Futures Symbols</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-and-browse-tips">4. Search and Browse Tips</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-retrieval-example">5. Data Retrieval Example</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-limitations">Key Limitations</a></li>
 </ul>
             </nav>
@@ -475,12 +485,71 @@ data, including futures data. Datastream is available via WRDS. WRDS does not
 provide real-time data access to Datastream, but it is still a valuable source
 of data for research. The Datastream data in WRDS is updated monthly. The data
 is the same as the data in LSEG Workspace (e.g., via Eikon).</p>
+<section id="getting-started-with-documentation">
+<h2>Getting Started with Documentation<a class="headerlink" href="#getting-started-with-documentation" title="Link to this heading">#</a></h2>
+<p>Before searching for specific data, it’s recommended to familiarize yourself with
+Datastream’s documentation:</p>
+<ol class="arabic simple">
+<li><p>Visit the <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/support/manuals-and-overviews/thomson-reuters/datastream/">WRDS Datastream Documentation Page</a></p></li>
+<li><p>Log in with your WRDS credentials</p></li>
+<li><p>Review the available manuals and overviews to understand:</p>
+<ul class="simple">
+<li><p>Data coverage and limitations</p></li>
+<li><p>Search functionality</p></li>
+<li><p>Available data types and formats</p></li>
+<li><p>Mnemonic conventions</p></li>
+</ul>
+</li>
+</ol>
+<p>This documentation will help you navigate the platform more effectively and
+understand the data structure before proceeding with specific queries.</p>
+</section>
+<section id="finding-variables-in-datastream-and-in-wrds-generally">
+<h2>Finding Variables (in Datastream and in WRDS generally)<a class="headerlink" href="#finding-variables-in-datastream-and-in-wrds-generally" title="Link to this heading">#</a></h2>
+<p>WRDS provides a powerful variable search tool that allows you to search across all WRDS datasets, including Datastream. This can be particularly helpful when:</p>
+<ul class="simple">
+<li><p>You’re unsure which dataset contains your variable of interest</p></li>
+<li><p>You want to compare similar variables across different datasets</p></li>
+<li><p>You need to find specific mnemonics or variable names</p></li>
+</ul>
+<section id="using-the-wrds-variable-search">
+<h3>Using the WRDS Variable Search<a class="headerlink" href="#using-the-wrds-variable-search" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to the <a class="reference external" href="https://wrds-www.wharton.upenn.edu/search/?queryTerms=&amp;amp;activeTab=navVariablesSearchTab">WRDS Variable Search Page</a></p></li>
+<li><p>Log in with your WRDS credentials</p></li>
+<li><p>Use the search functionality in several ways:</p>
+<ul class="simple">
+<li><p>Search by keyword (e.g., “treasury futures”)</p></li>
+<li><p>Filter by database (e.g., “Datastream”)</p></li>
+<li><p>Browse by category</p></li>
+<li><p>Use advanced search options for more specific queries</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="search-tips">
+<h3>Search Tips<a class="headerlink" href="#search-tips" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Use quotation marks for exact phrase matches</p></li>
+<li><p>Try different variations of terms (e.g., “Treasury”, “T-Note”, “Government Bond”)</p></li>
+<li><p>Check variable definitions carefully as similar variables may exist across different datasets</p></li>
+<li><p>Note the update frequency and coverage period for each variable</p></li>
+</ul>
+<p>The variable search tool is particularly valuable when working with Datastream, as it can help you identify the correct mnemonics and understand what data is available before constructing your queries.</p>
+</section>
+</section>
+<section id="treasury-futures-example-1">
+<h2>Treasury Futures Example 1<a class="headerlink" href="#treasury-futures-example-1" title="Link to this heading">#</a></h2>
+<p>Search <a class="reference external" href="https://wrds-www.wharton.upenn.edu/dynamic-query-form/tr_ds_fut/wrds_cseries_info/">https://wrds-www.wharton.upenn.edu/dynamic-query-form/tr_ds_fut/wrds_cseries_info/</a></p>
+</section>
+<section id="treasury-futures-example-2">
+<h2>Treasury Futures Example 2<a class="headerlink" href="#treasury-futures-example-2" title="Link to this heading">#</a></h2>
 <p>Let’s consider first an example of how to search for Treasury Futures data in
 Datastream via WRDS.</p>
 <p>To effectively search for Treasury Futures data in Datastream via WRDS, follow
 these steps based on the available tools and mnemonic conventions:</p>
 <section id="access-futures-data-via-wrds-web-query">
-<h2>1. Access Futures Data via WRDS Web Query<a class="headerlink" href="#access-futures-data-via-wrds-web-query" title="Link to this heading">#</a></h2>
+<h3>1. Access Futures Data via WRDS Web Query<a class="headerlink" href="#access-futures-data-via-wrds-web-query" title="Link to this heading">#</a></h3>
 <p>WRDS provides a structured interface for retrieving futures data:</p>
 <ul class="simple">
 <li><p>Navigate to the <strong>Thomson/Refinitiv</strong> section in WRDS and select
@@ -491,7 +560,7 @@ relevant contracts.</p></li>
 </ul>
 </section>
 <section id="mnemonic-structure-for-treasury-futures">
-<h2>2. Mnemonic Structure for Treasury Futures<a class="headerlink" href="#mnemonic-structure-for-treasury-futures" title="Link to this heading">#</a></h2>
+<h3>2. Mnemonic Structure for Treasury Futures<a class="headerlink" href="#mnemonic-structure-for-treasury-futures" title="Link to this heading">#</a></h3>
 <p>Datastream uses standardized codes for futures contracts:</p>
 <ul class="simple">
 <li><p><strong>Continuous series (front contract):</strong><br />
@@ -516,7 +585,7 @@ Example: <code class="docutils literal notranslate"><span class="pre">LFUTTYL</s
 </ul>
 </section>
 <section id="key-treasury-futures-symbols">
-<h2>3. Key Treasury Futures Symbols<a class="headerlink" href="#key-treasury-futures-symbols" title="Link to this heading">#</a></h2>
+<h3>3. Key Treasury Futures Symbols<a class="headerlink" href="#key-treasury-futures-symbols" title="Link to this heading">#</a></h3>
 <p>Common mnemonics for U.S. Treasury futures include:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -552,7 +621,7 @@ Example: <code class="docutils literal notranslate"><span class="pre">LFUTTYL</s
 </div>
 </section>
 <section id="search-and-browse-tips">
-<h2>4. Search and Browse Tips<a class="headerlink" href="#search-and-browse-tips" title="Link to this heading">#</a></h2>
+<h3>4. Search and Browse Tips<a class="headerlink" href="#search-and-browse-tips" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Use WRDS Economic Indicators Filter:</strong> Narrow results by selecting “Futures”
 under asset classes and filtering by keywords like “Treasury” or
@@ -565,7 +634,7 @@ CRSP’s Treasury data.</p></li>
 </ul>
 </section>
 <section id="data-retrieval-example">
-<h2>5. Data Retrieval Example<a class="headerlink" href="#data-retrieval-example" title="Link to this heading">#</a></h2>
+<h3>5. Data Retrieval Example<a class="headerlink" href="#data-retrieval-example" title="Link to this heading">#</a></h3>
 <p>To download 10-Year Treasury Note futures:</p>
 <ol class="arabic simple">
 <li><p><strong>Continuous series:</strong> Use <code class="docutils literal notranslate"><span class="pre">TYCS00</span></code> for auto-rolling front-month data.</p></li>
@@ -574,6 +643,7 @@ CRSP’s Treasury data.</p></li>
 <li><p><strong>Export Options:</strong> Output data in <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code>, or SAS formats via WRDS
 web queries.</p></li>
 </ol>
+</section>
 </section>
 <section id="key-limitations">
 <h2>Key Limitations<a class="headerlink" href="#key-limitations" title="Link to this heading">#</a></h2>
@@ -652,11 +722,21 @@ Treasury Futures data in Datastream via WRDS.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-futures-data-via-wrds-web-query">1. Access Futures Data via WRDS Web Query</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mnemonic-structure-for-treasury-futures">2. Mnemonic Structure for Treasury Futures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-treasury-futures-symbols">3. Key Treasury Futures Symbols</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-and-browse-tips">4. Search and Browse Tips</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-retrieval-example">5. Data Retrieval Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-documentation">Getting Started with Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-variables-in-datastream-and-in-wrds-generally">Finding Variables (in Datastream and in WRDS generally)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-wrds-variable-search">Using the WRDS Variable Search</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-tips">Search Tips</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#treasury-futures-example-1">Treasury Futures Example 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#treasury-futures-example-2">Treasury Futures Example 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-futures-data-via-wrds-web-query">1. Access Futures Data via WRDS Web Query</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mnemonic-structure-for-treasury-futures">2. Mnemonic Structure for Treasury Futures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-treasury-futures-symbols">3. Key Treasury Futures Symbols</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-and-browse-tips">4. Search and Browse Tips</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-retrieval-example">5. Data Retrieval Example</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-limitations">Key Limitations</a></li>
 </ul>
   </nav></div>
