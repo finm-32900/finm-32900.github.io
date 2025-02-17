@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>HW Guide Part B: Reconstructing the S&amp;P 500 Index &#8212; Full Stack Quantitative Finance</title>
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -233,16 +233,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week7/overview_w7.html">Week 7: Bloomberg</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/Week6/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week6/HW4.html">Homework 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="_01_CRSP_treasury_overview.html">CRSP Treasury Data Oveview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_02_replicate_GSW2005.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week7/overview_w7.html">Week 7: Bloomberg and LSEG Datastream</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week7/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/Week7/LSEG_datastream.html">LSEG Datastream</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../lectures/subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Week8/overview_w8.html">Week 8: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
+
+
+
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../lectures/Week8/HW4.html">Homework 4</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../lectures/Misc/final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Misc/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/Misc/potential_final_projects.html">List of Potential Final Projects</a></li>
@@ -1528,7 +1537,7 @@ memory usage: 190.4 KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;date&#39;, ylabel=&#39;sp500_market_cap&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/36959a965ec79bdc5488da5fdac6e77ca46d418d5f526105f28182ee4ef544d5.png" src="../_images/36959a965ec79bdc5488da5fdac6e77ca46d418d5f526105f28182ee4ef544d5.png" />
+<img alt="../_images/85c8547e2c0b1bc59da1056c19f487e737b087fa7753a4984e5a4be4f01c2c52.png" src="../_images/85c8547e2c0b1bc59da1056c19f487e737b087fa7753a4984e5a4be4f01c2c52.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1590,7 +1599,7 @@ memory usage: 49.1 KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/869b35de0369798d98ba27b49ba0e85931bd2d4674b566543ca19be1541f8e78.png" src="../_images/869b35de0369798d98ba27b49ba0e85931bd2d4674b566543ca19be1541f8e78.png" />
+<img alt="../_images/88153729cd0c74788ed424dbe674aa5ddfea92f2d0f8ba00f17097ac1a8b5be7.png" src="../_images/88153729cd0c74788ed424dbe674aa5ddfea92f2d0f8ba00f17097ac1a8b5be7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1757,7 +1766,7 @@ just shows the consequences of compounding small differences over a long period 
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../_images/a494010c00ece80d76673b75b6aafad250c71a27ae35e3bd8ea423729a6c1177.png" src="../_images/a494010c00ece80d76673b75b6aafad250c71a27ae35e3bd8ea423729a6c1177.png" />
+</div></div><img alt="../_images/2a2550ea4e3cc8aef3170c8f782e7c51bff95375a8b1068061929e1c9b024b24.png" src="../_images/2a2550ea4e3cc8aef3170c8f782e7c51bff95375a8b1068061929e1c9b024b24.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1804,7 +1813,7 @@ just shows the consequences of compounding small differences over a long period 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4115b0e3fb944e78afbd0a297a1f264b102298d3374f2a20fd98a086d4a380e4.png" src="../_images/4115b0e3fb944e78afbd0a297a1f264b102298d3374f2a20fd98a086d4a380e4.png" />
+<img alt="../_images/4bd78ec54ed2c2e64f8be9f563a5ccb992a48cf81675e26a2811f07313f19216.png" src="../_images/4bd78ec54ed2c2e64f8be9f563a5ccb992a48cf81675e26a2811f07313f19216.png" />
 </div>
 </div>
 <p>Above we can now see that the cumulative returns are very similar. The correlation between the returns is even higher (over 0.998).</p>

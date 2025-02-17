@@ -6,9 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Week 7: Bloomberg &#8212; Full Stack Quantitative Finance</title>
+    <title>Week 7: Bloomberg and LSEG Datastream &#8212; Full Stack Quantitative Finance</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/Week7/overview_w7';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="The Bloomberg Terminal" href="../Week6/bloomberg_terminal.html" />
-    <link rel="prev" title="–Schedule subject to change after HERE–" href="../subject_to_change_after_this_week.html" />
+    <link rel="next" title="The Bloomberg Terminal" href="bloomberg_terminal.html" />
+    <link rel="prev" title="Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve" href="../../output/_02_replicate_GSW2005.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -231,16 +231,25 @@
 <li class="toctree-l2"><a class="reference internal" href="../Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 7: Bloomberg</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Week6/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week6/HW4.html">Homework 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../output/_01_CRSP_treasury_overview.html">CRSP Treasury Data Oveview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/_02_replicate_GSW2005.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 7: Bloomberg and LSEG Datastream</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LSEG_datastream.html">LSEG Datastream</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Week8/overview_w8.html">Week 8: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
+
+
+
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../Week8/HW4.html">Homework 4</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Misc/final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Misc/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Misc/potential_final_projects.html">List of Potential Final Projects</a></li>
@@ -432,7 +441,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 7: Bloomberg</h1>
+    <h1>Week 7: Bloomberg and LSEG Datastream</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -443,7 +452,6 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">Agenda</a></li>
 </ul>
             </nav>
         </div>
@@ -455,34 +463,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-7-bloomberg">
-<h1>Week 7: Bloomberg<a class="headerlink" href="#week-7-bloomberg" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="week-7-bloomberg-and-lseg-datastream">
+<h1>Week 7: Bloomberg and LSEG Datastream<a class="headerlink" href="#week-7-bloomberg-and-lseg-datastream" title="Link to this heading">#</a></h1>
 <section id="learning-outcomes">
 <h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h2>
 <ul class="simple">
+<li><p>Discuss Final Project Assignments</p></li>
 <li><p>Bloomberg</p></li>
-</ul>
-</section>
-<section id="agenda">
-<h2>Agenda<a class="headerlink" href="#agenda" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Review HW 3</p>
-<ul>
-<li><p>What were the economics behind the HW?</p></li>
-<li><p>Purpose: Exact replication?</p></li>
-</ul>
-</li>
-<li><p>Interesting News:</p>
-<ul>
-<li><p><a class="reference external" href="https://www.ft.com/content/db864323-5b68-402b-8aa5-5c53a309acf1">Financial Times: “The Norwegian sovereign wealth fund’s $92mn Excel error”</a></p></li>
-<li><p><a class="reference external" href="https://www.washingtonpost.com/world/2023/06/06/austria-excel-error-election/">Washington Post: “Excel spreadsheet error leads Austrian party to announce wrong leader”</a></p></li>
-</ul>
-</li>
-<li><p>Schedule a time to meet with Tobias (only those that will be using the Terminal for Final Project)</p></li>
-<li><p>Tutorial of the Bloomberg Terminal</p></li>
-<li><p>Tutorial of GitHub Pull Requests</p></li>
-<li><p>Discuss next HWs</p></li>
-<li><p>Review unit tests if there is time</p></li>
+<li><p>LSEG Datastream via WRDS</p></li>
+<li><p>Discuss HW 4. Start with case study and theory.</p></li>
 </ul>
 </section>
 <div class="toctree-wrapper compound">
@@ -520,16 +509,16 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../subject_to_change_after_this_week.html"
+       href="../../output/_02_replicate_GSW2005.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">–Schedule subject to change after HERE–</p>
+        <p class="prev-next-title">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</p>
       </div>
     </a>
     <a class="right-next"
-       href="../Week6/bloomberg_terminal.html"
+       href="bloomberg_terminal.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -554,7 +543,6 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">Agenda</a></li>
 </ul>
   </nav></div>
 
