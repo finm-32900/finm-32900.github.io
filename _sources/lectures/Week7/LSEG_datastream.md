@@ -64,9 +64,6 @@ these steps based on the available tools and mnemonic conventions:
 WRDS provides a structured interface for retrieving futures data:
 - Navigate to the **Thomson/Refinitiv** section in WRDS and select
   **Datastream**.
-- Use the **Excel Plugin** (if available) to search for futures series. Check
-  the box for *"TS for each item in list"* to retrieve time series for all
-  relevant contracts.
 
 
 ### 2. Mnemonic Structure for Treasury Futures
