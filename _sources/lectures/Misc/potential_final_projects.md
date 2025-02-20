@@ -107,6 +107,8 @@ The internet appendix gives more detail as to how each trade works: https://www.
 
 One of the authors, Emil Siriwardane https://www.emilsiriwardane.com/, makes code and data available for these trades online: https://github.com/esiriwardane/arbitrage-spreads-public However, much of the code is in Stata. Your goal will be to rewrite these in Python and automate the pulls of the data (to the extent possible).
 
+You can also find some of my own code that attempts to replicate some of the figures in the paper here: https://github.com/jmbejara/arb_spreads . This replication merely uses the data from the Author's original code above, so it may or may not be helpful. You can find some notebooks that demo the code here: https://jeremybejarano.com/arb_spreads/
+
 **Tasks**
  
  - For each of the following, you should replicate the associated panel in Figure A1 in the Appendix (See https://www.emilsiriwardane.com/s/Appendix.pdf)
