@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Week 8: GitHub Actions and Publishing a Live Dashboard &#8212; Full Stack Quantitative Finance</title>
+    <title>Week 8: Web Authentication and Authorization &#8212; Full Stack Quantitative Finance</title>
   
   
   
@@ -52,8 +52,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Creating a Live Dashboard Example with GitHub Actions" href="Week8/github_actions_interactive_dashboard.html" />
-    <link rel="prev" title="–Schedule subject to change after HERE–" href="subject_to_change_after_this_week.html" /> 
+    <link rel="next" title="Case Study: Hedging Oil Price Exposure As An E&amp;P" href="notebooks/_corporate_hedging.html" />
+    <link rel="prev" title="LSEG Datastream" href="Week7/LSEG_datastream.html" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>   
   </head>
@@ -218,15 +218,19 @@
 <li class="toctree-l2"><a class="reference internal" href="Week7/LSEG_datastream.html">LSEG Datastream</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 8: Web Authentication and Authorization</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_corporate_hedging.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_spx_hedging.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week8/web_authentication.html">Web Authentication and Authorization</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 8: GitHub Actions and Publishing a Live Dashboard</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w9.html">Week 9: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="notebooks/_corporate_hedging.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/_spx_hedging.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
 </ul>
 </details></li>
 </ul>
@@ -442,7 +446,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 8: GitHub Actions and Publishing a Live Dashboard</h1>
+    <h1>Week 8: Web Authentication and Authorization</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -463,17 +467,13 @@ document.write(`
                 
 <div id="searchbox"></div>
                 <article class="bd-article">
-                   <section class="tex2jax_ignore mathjax_ignore" id="week-8-github-actions-and-publishing-a-live-dashboard">
-<h1>Week 8: GitHub Actions and Publishing a Live Dashboard<a class="headerlink" href="#week-8-github-actions-and-publishing-a-live-dashboard" title="Link to this heading">#</a></h1>
+                   <section class="tex2jax_ignore mathjax_ignore" id="week-8-web-authentication-and-authorization">
+<h1>Week 8: Web Authentication and Authorization<a class="headerlink" href="#week-8-web-authentication-and-authorization" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/_01_repo_spikes.html#understanding-this-plot">Understanding this plot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/_01_repo_spikes.html#how-should-we-define-a-repo-spike">How should we define a repo spike?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/_01_repo_spikes.html#summary-stats-about-various-repo-rates">Summary Stats about Various Repo Rates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/_corporate_hedging.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/_spx_hedging.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week8/web_authentication.html">Web Authentication and Authorization</a></li>
 </ul>
 </div>
 <!-- Week8/github_actions.md -->
@@ -504,20 +504,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="subject_to_change_after_this_week.html"
+       href="Week7/LSEG_datastream.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">–Schedule subject to change after HERE–</p>
+        <p class="prev-next-title">LSEG Datastream</p>
       </div>
     </a>
     <a class="right-next"
-       href="Week8/github_actions_interactive_dashboard.html"
+       href="notebooks/_corporate_hedging.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Creating a Live Dashboard Example with GitHub Actions</p>
+        <p class="prev-next-title">Case Study: Hedging Oil Price Exposure As An E&amp;P</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

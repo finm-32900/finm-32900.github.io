@@ -1,11 +1,10 @@
-# Week 8: GitHub Actions and Publishing a Live Dashboard
+# Week 8: Web Authentication and Authorization
 
 ```{toctree}
 :maxdepth: 1
-Week8/github_actions_interactive_dashboard.md
-notebooks/_01_repo_spikes.ipynb
 notebooks/_corporate_hedging.ipynb
 notebooks/_spx_hedging.ipynb
+Week8/web_authentication.md
 ```
 <!-- Week8/github_actions.md -->
 <!-- Week8/publishing_a_live_dashboard.md -->
