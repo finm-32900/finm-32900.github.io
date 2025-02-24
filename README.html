@@ -30,10 +30,8 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -41,29 +39,21 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/documentation_options.js?v=7a7908ec"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Homework 0: Setting up your computing environment" href="lectures/Week1/HW0.html" />
-    <link rel="prev" title="Full Stack Quantitative Finance" href="intro.html" />
+    <link rel="next" title="Acknowledgments" href="acknowledgments.html" />
+    <link rel="prev" title="Full Stack Quantitative Finance" href="index.html" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="en"/>   
   </head>
   
   
@@ -142,7 +132,7 @@
     
   
 
-<a class="navbar-brand logo" href="intro.html">
+<a class="navbar-brand logo" href="index.html">
   
   
   
@@ -174,88 +164,97 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
+                <a class="reference internal" href="index.html">
                     Full Stack Quantitative Finance
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Course Syllabus: FINM 32900, Winter 2025</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/Week1/HW0.html">Homework 0: Setting up your computing environment</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lectures/Week1/overview_w1.html">Week 1: GitHub, GitHub Classroom, and Virtual Environments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week1/what_is_this_course_about.html">What is Full Stack Quantitative Finance? Why This Course?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week1/virtual_environments.html">Virtual Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures 📖</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w1.html">Week 1: GitHub, GitHub Classroom, and Virtual Environments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week1/what_is_this_course_about.html">What is Full Stack Quantitative Finance? Why This Course?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week1/virtual_environments.html">Virtual Environments</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lectures/Week1/HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week1/case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="output/_01_wage_growth_during_the_recession.html">HW Guide: Wage Growth During the Recession</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lectures/Week2/overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="output/_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week3/project_structure.html">Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_05_basics_of_SQL.html">Basics of SQL</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lectures/Week2/HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="output/_02_CRSP_market_index.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="output/_03_SP500_constituents_and_index.html">HW Guide Part B: Reconstructing the S&amp;P 500 Index</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lectures/Week3/overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week2/project_structure.html">Project Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="output/_05_basics_of_SQL.html">Basics of SQL</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week5/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week5/unit_tests.html">Unit Tests</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lectures/Week3/HW3.html">Homework 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="output/_04_Fama_French_1993.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lectures/Week4/overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week4/latex_essentials.html">LaTeX Essentials</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w7.html">Week 7: Bloomberg and LSEG Datastream</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week7/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week7/LSEG_datastream.html">LSEG Datastream</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lectures/Week5/overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week5/sphinx.html">Sphinx</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week5/unit_tests.html">Unit Tests</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lectures/Week6/overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lectures/Week6/HW4.html">Homework 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="output/_01_CRSP_treasury_overview.html">CRSP Treasury Data Oveview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="output/_02_replicate_GSW2005.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lectures/Week7/overview_w7.html">Week 7: Bloomberg and LSEG Datastream</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week7/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week7/LSEG_datastream.html">LSEG Datastream</a></li>
-</ul>
-</details></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lectures/Week8/overview_w8.html">Week 8: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="output/_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w8.html">Week 8: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_corporate_hedging.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_spx_hedging.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="lectures/Misc/final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Misc/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/Misc/potential_final_projects.html">List of Potential Final Projects</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework 📝</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="HW0.html">Homework 0</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="HW1/case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_01_wage_growth_during_the_recession.html">HW Guide: Wage Growth During the Recession</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/Misc/appendix.html">Appendix</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_02_CRSP_market_index.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_03_SP500_constituents_and_index.html">HW Guide Part B: Reconstructing the S&amp;P 500 Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="HW3.html">Homework 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_04_Fama_French_1993.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="HW4.html">Homework 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_01_CRSP_treasury_overview.html">CRSP Treasury Data Oveview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_02_replicate_GSW2005.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="FinalProject/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FinalProject/potential_final_projects.html">List of Potential Final Projects</a></li>
+</ul>
+</details></li>
 </ul>
 
     </div>
@@ -310,7 +309,7 @@
       
       
       
-      <li><a href="https://github.com/finm-32900/finm-32900-data-science" target="_blank"
+      <li><a href="https://github.com/jmbejara/blank_project" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -327,7 +326,7 @@
       
       
       
-      <li><a href="https://github.com/finm-32900/finm-32900-data-science/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/jmbejara/blank_project/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -474,8 +473,7 @@ document.write(`
                 
 <div id="searchbox"></div>
                 <article class="bd-article">
-                  
-  <section class="tex2jax_ignore mathjax_ignore" id="course-syllabus-finm-32900-winter-2025">
+                   <section class="tex2jax_ignore mathjax_ignore" id="course-syllabus-finm-32900-winter-2025">
 <h1>Course Syllabus: FINM 32900, Winter 2025<a class="headerlink" href="#course-syllabus-finm-32900-winter-2025" title="Link to this heading">#</a></h1>
 <p><strong>FINM 32900, Full Stack Quantitative Finance</strong></p>
 <section id="summary">
@@ -576,11 +574,11 @@ agenda is listed in the first sub-section of the chapter.</p>
 <section id="hw-due-dates">
 <h3>HW Due Dates<a class="headerlink" href="#hw-due-dates" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><a class="reference internal" href="lectures/Week1/HW0.html"><span class="std std-doc">HW 0: Ungraded. Due ASAP</span></a></p></li>
-<li><p><a class="reference internal" href="lectures/Week1/HW1.html"><span class="std std-doc">HW 1: Due Friday, Jan  at 6 pm</span></a></p></li>
-<li><p><a class="reference internal" href="lectures/Week2/HW2.html"><span class="std std-doc">HW 2: Due Friday, Jan  at 31 pm</span></a></p></li>
-<li><p>HW 3: TBD</p></li>
-<li><p>HW 4: TBD</p></li>
+<li><p><a class="reference internal" href="HW0.html"><span class="std std-doc">HW 0: Ungraded. Due ASAP</span></a></p></li>
+<li><p><a class="reference internal" href="HW1.html"><span class="std std-doc">HW 1: Due Friday, Jan  at 6 pm</span></a></p></li>
+<li><p><a class="reference internal" href="HW2.html"><span class="std std-doc">HW 2: Due Friday, Jan  at 31 pm</span></a></p></li>
+<li><p><a class="reference internal" href="HW3.html"><span class="std std-doc">HW 3: Due Tuesday, Feb 11, at 11:59 pm</span></a></p></li>
+<li><p><a class="reference internal" href="HW4.html"><span class="std std-doc">HW 4: Due Tuesday, Feb 25, at 11:59 pm</span></a></p></li>
 <li><p>HW 5: TBD</p></li>
 <li><p>HW 6: TBD</p></li>
 </ul>
@@ -667,25 +665,9 @@ conda environment using the following command:</p>
 </section>
 </section>
 
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            name: "python3",
-            path: "./."
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
+<div class="section ablog__blog_comments">
+   
+</div>
 
                 </article>
               
@@ -698,7 +680,7 @@ conda environment using the following command:</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -707,11 +689,11 @@ conda environment using the following command:</p>
       </div>
     </a>
     <a class="right-next"
-       href="lectures/Week1/HW0.html"
+       href="acknowledgments.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Homework 0: Setting up your computing environment</p>
+        <p class="prev-next-title">Acknowledgments</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -758,7 +740,7 @@ conda environment using the following command:</p>
   <div class="footer-item">
     
 <p class="component-author">
-By Jeremy Bejarano
+By Jeremiah Bejarano
 </p>
 
   </div>
@@ -768,7 +750,7 @@ By Jeremy Bejarano
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2025, Jeremiah Bejarano.
       <br/>
     
   </p>

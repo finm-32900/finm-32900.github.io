@@ -1,0 +1,1171 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CRSP Treasury Data Oveview &#8212; Full Stack Quantitative Finance</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=7a7908ec"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/_01_CRSP_treasury_overview';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve" href="_02_replicate_GSW2005.html" />
+    <link rel="prev" title="Homework 4" href="../HW4.html" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>   
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Full Stack Quantitative Finance - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Full Stack Quantitative Finance - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Full Stack Quantitative Finance
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Winter 2025</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Appendix</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures 📖</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w1.html">Week 1: GitHub, GitHub Classroom, and Virtual Environments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/what_is_this_course_about.html">What is Full Stack Quantitative Finance? Why This Course?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/virtual_environments.html">Virtual Environments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/project_structure.html">Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_05_basics_of_SQL.html">Basics of SQL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w7.html">Week 7: Bloomberg and LSEG Datastream</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/LSEG_datastream.html">LSEG Datastream</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w8.html">Week 8: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="_corporate_hedging.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_spx_hedging.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework 📝</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../HW0.html">Homework 0</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../HW1/case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_01_wage_growth_during_the_recession.html">HW Guide: Wage Growth During the Recession</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="_02_CRSP_market_index.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_03_SP500_constituents_and_index.html">HW Guide Part B: Reconstructing the S&amp;P 500 Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW3.html">Homework 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="_04_Fama_French_1993.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../HW4.html">Homework 4</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">CRSP Treasury Data Oveview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_02_replicate_GSW2005.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/potential_final_projects.html">List of Potential Final Projects</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project/issues/new?title=Issue%20on%20page%20%2Fnotebooks/_01_CRSP_treasury_overview.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/_01_CRSP_treasury_overview.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>CRSP Treasury Data Oveview</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#database-description">Database Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#database-structure">Database Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-and-filtering">Data Quality and Filtering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-ahead">Looking Ahead</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                   <section class="tex2jax_ignore mathjax_ignore" id="crsp-treasury-data-oveview">
+<h1>CRSP Treasury Data Oveview<a class="headerlink" href="#crsp-treasury-data-oveview" title="Link to this heading">#</a></h1>
+<p>The CRSP US Treasury Database is a comprehensive source of historical Treasury security data maintained by the Center for Research in Security Prices at the University of Chicago’s Booth School of Business. This section provides an essential overview of this critical dataset, which will serve as the foundation for our subsequent lecture on replicating the Gürkaynak, Sack, and Wright (2006) yield curve estimation methodology.</p>
+<section id="database-description">
+<h2>Database Description<a class="headerlink" href="#database-description" title="Link to this heading">#</a></h2>
+<p>The CRSP US Treasury Database provides complete historical descriptive information and market data for US Treasury securities, including:</p>
+<ul class="simple">
+<li><p>Prices</p></li>
+<li><p>Returns</p></li>
+<li><p>Accrued interest</p></li>
+<li><p>Yields</p></li>
+<li><p>Durations</p></li>
+</ul>
+<p>The database begins in 1961 and is updated monthly. The data is available in ASCII, Excel, and SAS formats.</p>
+<p>Let’s examine a sample of the data using Python. First, we’ll import the necessary modules:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pull_CRSP_treasury</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">settings</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
+<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">config</span><span class="p">(</span><span class="s2">&quot;DATA_DIR&quot;</span><span class="p">)</span>
+
+<span class="c1"># Load the consolidated CRSP Treasury data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pull_CRSP_treasury</span><span class="o">.</span><span class="n">load_CRSP_treasury_consolidated</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">DATA_DIR</span><span class="p">)</span>
+
+<span class="c1"># Display the first few rows and data info</span>
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;caldt&#39;</span><span class="p">,</span> <span class="s1">&#39;tcusip&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;tcouprt&#39;</span><span class="p">,</span> <span class="s1">&#39;tdyld&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>caldt</th>
+      <th>tcusip</th>
+      <th>price</th>
+      <th>tcouprt</th>
+      <th>tdyld</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1970-01-02</td>
+      <td>912810AE</td>
+      <td>101.052989</td>
+      <td>4.0</td>
+      <td>0.000212</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1970-01-05</td>
+      <td>912810AE</td>
+      <td>101.148098</td>
+      <td>4.0</td>
+      <td>0.000205</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1970-01-06</td>
+      <td>912810AE</td>
+      <td>101.190217</td>
+      <td>4.0</td>
+      <td>0.000199</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1970-01-07</td>
+      <td>912810AE</td>
+      <td>101.201087</td>
+      <td>4.0</td>
+      <td>0.000202</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1970-01-08</td>
+      <td>912810AE</td>
+      <td>101.211957</td>
+      <td>4.0</td>
+      <td>0.000204</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data structure information:</span>
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 2444137 entries, 0 to 2444136
+Data columns (total 21 columns):
+ #   Column             Dtype         
+---  ------             -----         
+ 0   kytreasno          float64       
+ 1   kycrspid           object        
+ 2   tcusip             object        
+ 3   caldt              datetime64[ns]
+ 4   tdatdt             datetime64[ns]
+ 5   tmatdt             datetime64[ns]
+ 6   tfcaldt            int64         
+ 7   tdbid              float64       
+ 8   tdask              float64       
+ 9   tdaccint           float64       
+ 10  tdyld              float64       
+ 11  price              float64       
+ 12  tcouprt            float64       
+ 13  itype              float64       
+ 14  original_maturity  float64       
+ 15  years_to_maturity  float64       
+ 16  tdduratn           float64       
+ 17  tdretnua           float64       
+ 18  days_to_maturity   int64         
+ 19  callable           bool          
+ 20  run                int64         
+dtypes: bool(1), datetime64[ns](3), float64(12), int64(3), object(2)
+memory usage: 375.3+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the consolidated dataframe that I have constructed from the data
+in <code class="docutils literal notranslate"><span class="pre">pull_CRSP_treasury.py</span></code>, the following variables are present:</p>
+<p>Identification:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">kytreasno</span></code>: Treasury record identifier (unique numeric ID)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kycrspid</span></code>: CRSP-assigned unique identifier</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcusip</span></code>: Treasury CUSIP number (unique security identifier)</p></li>
+</ul>
+<p>Dates:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">caldt</span></code>: Quote date (date of price observation)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tdatdt</span></code>: Date dated (original issue date when interest starts accruing)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tmatdt</span></code>: Maturity date (when principal is repaid)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tfcaldt</span></code>: First call date (0 if not callable)</p></li>
+</ul>
+<p>Prices and Yields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tdbid</span></code>: Daily bid price (clean price)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tdask</span></code>: Daily ask price (clean price)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tdaccint</span></code>: Daily accrued interest since last coupon</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tdyld</span></code>: Daily yield (bond equivalent yield)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code>: Dirty price (clean price + accrued interest)</p></li>
+</ul>
+<p>Issue Characteristics:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tcouprt</span></code>: Coupon rate (annual)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">itype</span></code>: Type of issue (1: bonds, 2: notes)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">callable</span></code>: Boolean flag indicating if security is callable</p></li>
+</ul>
+<p>Maturity Measures:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">original_maturity</span></code>: Years to maturity at issuance</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">years_to_maturity</span></code>: Remaining years to maturity</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">days_to_maturity</span></code>: Remaining days to maturity</p></li>
+</ul>
+<p>Trading Information:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tdduratn</span></code>: Duration (price sensitivity to yield changes)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tdretnua</span></code>: Unadjusted return (price change + accrued interest)</p></li>
+</ul>
+<p>Market Structure:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">run</span></code>: Security’s “runness” (0: off-the-run, 1: first off-the-run, 2: on-the-run)</p></li>
+</ul>
+</section>
+<section id="data-sources">
+<h2>Data Sources<a class="headerlink" href="#data-sources" title="Link to this heading">#</a></h2>
+<p>The price data in CRSP comes from several sources over time:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Historical Data Sources:</p>
+<ul class="simple">
+<li><p>1961-1989: Manual input with double-entry verification</p></li>
+<li><p>1990-1996 (Sept): Department of Commerce electronic bulletin board</p></li>
+<li><p>1996 (Oct)-2009 (Jan): GovPX, Inc.</p></li>
+<li><p>2009 (Feb)-Present: ICAP</p></li>
+</ul>
+</div>
+<p>Supplementary data comes from various official sources:</p>
+<ul class="simple">
+<li><p>Amount outstanding: Monthly Statement of the Public Debt (Treasury Department)</p></li>
+<li><p>Publicly held debt: US Treasury Bulletin (quarterly)</p></li>
+<li><p>Money rates: Federal Reserve</p></li>
+<li><p>Issue characteristics (dates, coupon payments, eligibility, tax status): US Treasury Department</p></li>
+</ul>
+</section>
+<section id="database-structure">
+<h2>Database Structure<a class="headerlink" href="#database-structure" title="Link to this heading">#</a></h2>
+<p>The database consists of three primary files:</p>
+<ol class="arabic simple">
+<li><p>Calendar File</p>
+<ul class="simple">
+<li><p>Contains daily quote dates and delivery dates</p></li>
+<li><p>Includes derived date information</p></li>
+</ul>
+</li>
+<li><p>Master File</p>
+<ul class="simple">
+<li><p>Contains security identification and characteristics</p></li>
+<li><p>Includes header information for each security</p></li>
+</ul>
+</li>
+<li><p>Cross-Sectional Files</p>
+<ul class="simple">
+<li><p>Contains time series of prices, yields, and returns</p></li>
+<li><p>Organized by date</p></li>
+</ul>
+</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Reference</span><span class="p">:</span>
+    <span class="n">CRSP</span> <span class="n">US</span> <span class="n">TREASURY</span> <span class="n">DATABASE</span> <span class="n">GUIDE</span>
+    <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">crsp</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wp</span><span class="o">-</span><span class="n">content</span><span class="o">/</span><span class="n">uploads</span><span class="o">/</span><span class="n">guides</span><span class="o">/</span><span class="n">CRSP_US_Treasury_Database_Guide_for_SAS_ASCII_EXCEL_R</span><span class="o">.</span><span class="n">pdf</span>
+
+<span class="n">Data</span> <span class="n">Description</span><span class="p">:</span>
+    <span class="n">TFZ_DLY</span> <span class="p">(</span> <span class="n">DAILY</span> <span class="n">TIME</span> <span class="n">SERIES</span> <span class="n">ITEMS</span><span class="p">)</span>
+        <span class="n">kytreasno</span><span class="p">:</span> <span class="n">TREASURY</span> <span class="n">RECORD</span> <span class="n">IDENTIFIER</span>
+        <span class="n">kycrspid</span><span class="p">:</span> <span class="n">CRSP</span><span class="o">-</span><span class="n">ASSIGNED</span> <span class="n">UNIQUE</span> <span class="n">ID</span>
+        <span class="n">caldt</span><span class="p">:</span> <span class="n">QUOTATION</span> <span class="n">DATE</span>
+        <span class="n">tdbid</span><span class="p">:</span> <span class="n">DAILY</span> <span class="n">BID</span>
+        <span class="n">tdask</span><span class="p">:</span> <span class="n">DAILY</span> <span class="n">ASK</span>
+        <span class="n">tdaccint</span><span class="p">:</span> <span class="n">DAILY</span> <span class="n">SERIES</span> <span class="n">OF</span> <span class="n">TOTAL</span> <span class="n">ACCRUED</span> <span class="n">INTEREST</span>
+        <span class="n">tdyld</span><span class="p">:</span> <span class="n">DAILY</span> <span class="n">SERIES</span> <span class="n">OF</span> <span class="n">PROMISED</span> <span class="n">DAILY</span> <span class="n">YIELD</span>
+
+    <span class="n">TFZ_ISS</span> <span class="p">(</span><span class="n">ISSUE</span> <span class="n">DESCRIPTIONS</span><span class="p">)</span>
+        <span class="n">tcusip</span><span class="p">:</span> <span class="n">TREASURY</span> <span class="n">CUSIP</span>
+        <span class="n">tdatdt</span><span class="p">:</span> <span class="n">DATE</span> <span class="n">DATED</span> <span class="n">BY</span> <span class="n">TREASURY</span>
+        <span class="n">tmatdt</span><span class="p">:</span> <span class="n">MATURITY</span> <span class="n">DATE</span> <span class="n">AT</span> <span class="n">TIME</span> <span class="n">OF</span> <span class="n">ISSUE</span>
+        <span class="n">tcouprt</span><span class="p">:</span> <span class="n">COUPON</span> <span class="n">RATE</span>
+        <span class="n">itype</span><span class="p">:</span> <span class="n">TYPE</span> <span class="n">OF</span> <span class="n">ISSUE</span> <span class="p">(</span><span class="mi">1</span><span class="p">:</span> <span class="n">NONCALLABLE</span> <span class="n">BONDS</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="n">NONCALLABLE</span> <span class="n">NOTES</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>See for example, this function in <code class="docutils literal notranslate"><span class="pre">pull_CRSP_treasury.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pull_CRSP_treasury_consolidated</span><span class="p">(</span>
+    <span class="n">start_date</span><span class="o">=</span><span class="s2">&quot;1970-01-01&quot;</span><span class="p">,</span>
+    <span class="n">end_date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span>
+    <span class="n">wrds_username</span><span class="o">=</span><span class="n">WRDS_USERNAME</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Pull consolidated CRSP Treasury data with all relevant fields.</span>
+
+<span class="sd">    Includes fields from these tables:</span>
+<span class="sd">    - tfz_dly (daily quotes): bid/ask prices, accrued interest, yields</span>
+<span class="sd">    - tfz_iss (issue info): CUSIP, dates, coupon rates, issue types</span>
+
+<span class="sd">    Price Terminology:</span>
+<span class="sd">    - Clean Price = (bid + ask)/2 = quoted price without accrued interest</span>
+<span class="sd">    - Dirty Price = Clean Price + Accrued Interest = actual transaction price</span>
+
+<span class="sd">    Date Fields:</span>
+<span class="sd">    - Quote Date (caldt): Date of the price observation</span>
+<span class="sd">    - Date Dated (tdatdt): Original issue date when interest starts accruing</span>
+<span class="sd">    - Maturity Date (tmatdt): Date when the security matures</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - Unadjusted Return (tdretnua): Simple price change plus accrued interest,</span>
+<span class="sd">      not accounting for tax effects or reinvestment</span>
+
+<span class="sd">    Fields are based on CRSP Daily US Treasury Database Guide specifications.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    SELECT </span>
+<span class="s2">        -- Identification</span>
+<span class="s2">        tfz.kytreasno, tfz.kycrspid, iss.tcusip,</span>
+<span class="s2">        </span>
+<span class="s2">        -- Dates</span>
+<span class="s2">        tfz.caldt,                  -- Quote date: Date of price observation</span>
+<span class="s2">        iss.tdatdt,                 -- Date dated: Original issue date when interest starts accruing</span>
+<span class="s2">        iss.tmatdt,                 -- Maturity date: When principal is repaid</span>
+<span class="s2">        iss.tfcaldt,                -- First call date (0 if not callable)</span>
+<span class="s2">        </span>
+<span class="s2">        -- Prices and Yields</span>
+<span class="s2">        tfz.tdbid,                  -- Bid price (clean)</span>
+<span class="s2">        tfz.tdask,                  -- Ask price (clean)</span>
+<span class="s2">        tfz.tdaccint,               -- Accrued interest since last coupon</span>
+<span class="s2">        tfz.tdyld,                  -- Bond equivalent yield</span>
+<span class="s2">        ((tfz.tdbid + tfz.tdask) / 2.0 + tfz.tdaccint) AS price,  </span>
+<span class="s2">                                    -- Dirty price (clean price + accrued interest)</span>
+<span class="s2">        </span>
+<span class="s2">        -- Issue Characteristics</span>
+<span class="s2">        iss.tcouprt,                -- Coupon rate (annual)</span>
+<span class="s2">        iss.itype,                  -- Type of issue (1: bonds, 2: notes)</span>
+<span class="s2">        ROUND((iss.tmatdt - iss.tdatdt) / 365.0) AS original_maturity,  </span>
+<span class="s2">                                    -- Original maturity at issuance</span>
+<span class="s2">        </span>
+<span class="s2">        -- Additional Derived Fields</span>
+<span class="s2">        ROUND((iss.tmatdt - tfz.caldt) / 365.0) AS years_to_maturity,  </span>
+<span class="s2">                                    -- Remaining time to maturity</span>
+<span class="s2">        </span>
+<span class="s2">        -- Trading info (if available)</span>
+<span class="s2">        tfz.tdduratn,               -- Duration: Price sensitivity to yield changes</span>
+<span class="s2">        tfz.tdretnua                -- Return (unadjusted): Simple price change + accrued interest</span>
+<span class="s2">        </span>
+<span class="s2">    FROM </span>
+<span class="s2">        crspm.tfz_dly AS tfz</span>
+<span class="s2">    LEFT JOIN </span>
+<span class="s2">        crspm.tfz_iss AS iss </span>
+<span class="s2">    ON </span>
+<span class="s2">        tfz.kytreasno = iss.kytreasno AND </span>
+<span class="s2">        tfz.kycrspid = iss.kycrspid</span>
+<span class="s2">    WHERE </span>
+<span class="s2">        tfz.caldt BETWEEN &#39;</span><span class="si">{</span><span class="n">start_date</span><span class="si">}</span><span class="s2">&#39; AND &#39;</span><span class="si">{</span><span class="n">end_date</span><span class="si">}</span><span class="s2">&#39; AND </span>
+<span class="s2">        iss.itype IN (1, 2)  -- Only include Treasury bonds (1) and notes (2)</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="n">db</span> <span class="o">=</span> <span class="n">wrds</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span><span class="n">wrds_username</span><span class="o">=</span><span class="n">wrds_username</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">raw_sql</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">date_cols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;caldt&quot;</span><span class="p">,</span> <span class="s2">&quot;tdatdt&quot;</span><span class="p">,</span> <span class="s2">&quot;tmatdt&quot;</span><span class="p">,</span> <span class="s2">&quot;tfcaldt&quot;</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;days_to_maturity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;tmatdt&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;caldt&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;tfcaldt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;tfcaldt&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;callable&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;tfcaldt&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span>  <span class="c1"># Add boolean callable flag</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</section>
+<section id="data-quality-and-filtering">
+<h2>Data Quality and Filtering<a class="headerlink" href="#data-quality-and-filtering" title="Link to this heading">#</a></h2>
+<p>CRSP implements several quality control measures:</p>
+<ol class="arabic simple">
+<li><p>Price verification:</p>
+<ul class="simple">
+<li><p>Historical manual prices were double-entered and compared</p></li>
+<li><p>Multiple iteration verification process</p></li>
+<li><p>Logical filters for data cleaning</p></li>
+</ul>
+</li>
+<li><p>Spread calculation:</p>
+<ul class="simple">
+<li><p>Pre-2009: Imputed from representative quotes</p></li>
+<li><p>Post-2009: Actual bid-ask spreads from ICAP</p></li>
+</ul>
+</li>
+<li><p>Secondary verification:</p>
+<ul class="simple">
+<li><p>Cross-checking against sources like Wall Street Journal</p></li>
+<li><p>Internal consistency checks with each release</p></li>
+</ul>
+</li>
+</ol>
+<p>Let’s examine the bid-ask spreads in our data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;spread&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tdask&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tdbid&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Bid-Ask Spread Statistics:&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;caldt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">)[</span><span class="s1">&#39;spread&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bid-Ask Spread Statistics:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>caldt</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020</th>
+      <td>78765.0</td>
+      <td>0.048491</td>
+      <td>0.017829</td>
+      <td>0.007812</td>
+      <td>0.039062</td>
+      <td>0.046875</td>
+      <td>0.062500</td>
+      <td>2.070312</td>
+    </tr>
+    <tr>
+      <th>2021</th>
+      <td>80632.0</td>
+      <td>0.047548</td>
+      <td>0.013401</td>
+      <td>0.007812</td>
+      <td>0.039062</td>
+      <td>0.046875</td>
+      <td>0.062500</td>
+      <td>0.218750</td>
+    </tr>
+    <tr>
+      <th>2022</th>
+      <td>81005.0</td>
+      <td>0.041079</td>
+      <td>0.016491</td>
+      <td>0.007812</td>
+      <td>0.031250</td>
+      <td>0.039062</td>
+      <td>0.046875</td>
+      <td>0.328125</td>
+    </tr>
+    <tr>
+      <th>2023</th>
+      <td>83652.0</td>
+      <td>0.039486</td>
+      <td>0.017600</td>
+      <td>0.007812</td>
+      <td>0.031250</td>
+      <td>0.031250</td>
+      <td>0.046875</td>
+      <td>0.546875</td>
+    </tr>
+    <tr>
+      <th>2024</th>
+      <td>85415.0</td>
+      <td>0.039168</td>
+      <td>0.019176</td>
+      <td>0.000028</td>
+      <td>0.031250</td>
+      <td>0.031250</td>
+      <td>0.046875</td>
+      <td>0.500000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;caldt&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">)[</span><span class="s1">&#39;spread&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>caldt</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1970</th>
+      <td>9461.0</td>
+      <td>0.293911</td>
+      <td>0.234581</td>
+      <td>0.03125</td>
+      <td>0.125</td>
+      <td>0.25</td>
+      <td>0.25</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1971</th>
+      <td>9924.0</td>
+      <td>0.321119</td>
+      <td>0.279893</td>
+      <td>0.03125</td>
+      <td>0.125</td>
+      <td>0.25</td>
+      <td>0.25</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1972</th>
+      <td>10442.0</td>
+      <td>0.322744</td>
+      <td>0.244351</td>
+      <td>0.03125</td>
+      <td>0.250</td>
+      <td>0.25</td>
+      <td>0.25</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1973</th>
+      <td>10733.0</td>
+      <td>0.327052</td>
+      <td>0.261802</td>
+      <td>0.03125</td>
+      <td>0.250</td>
+      <td>0.25</td>
+      <td>0.25</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1974</th>
+      <td>11051.0</td>
+      <td>0.387957</td>
+      <td>0.328981</td>
+      <td>0.06250</td>
+      <td>0.250</td>
+      <td>0.25</td>
+      <td>0.25</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="looking-ahead">
+<h2>Looking Ahead<a class="headerlink" href="#looking-ahead" title="Link to this heading">#</a></h2>
+<p>This overview provides the foundation for our next lecture, where we will examine how Gürkaynak, Sack, and Wright (2006) used CRSP Treasury data to construct their influential yield curve estimates. We will implement their methodology using Python, focusing on their specific data filtering approach and estimation techniques.</p>
+<p>Note:
+The CRSP Treasury Database serves as the primary source for many influential academic studies in fixed income research. Understanding its structure and evolution is crucial for empirical work in this area.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<p>Center for Research in Security Prices. (2010). Daily US Treasury Database Guide.
+See <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/support/manuals-and-overviews/crsp/treasuries/">https://wrds-www.wharton.upenn.edu/pages/support/manuals-and-overviews/crsp/treasuries/</a></p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+   
+</div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../HW4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Homework 4</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="_02_replicate_GSW2005.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#database-description">Database Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources">Data Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#database-structure">Database Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality-and-filtering">Data Quality and Filtering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-ahead">Looking Ahead</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeremiah Bejarano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Jeremiah Bejarano.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

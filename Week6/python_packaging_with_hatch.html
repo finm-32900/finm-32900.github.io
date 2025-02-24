@@ -1,0 +1,1566 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Writing and Publishing Your Own Python Packages &#8212; Full Stack Quantitative Finance</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=7a7908ec"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Week6/python_packaging_with_hatch';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Week 7: Bloomberg and LSEG Datastream" href="../overview_w7.html" />
+    <link rel="prev" title="GitHub Issues and Pull Requests: Enhancing Collaborative Development" href="GitHub_pull_requests.html" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>   
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Full Stack Quantitative Finance - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Full Stack Quantitative Finance - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Full Stack Quantitative Finance
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Winter 2025</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Appendix</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures 📖</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w1.html">Week 1: GitHub, GitHub Classroom, and Virtual Environments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/what_is_this_course_about.html">What is Full Stack Quantitative Finance? Why This Course?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/virtual_environments.html">Virtual Environments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/project_structure.html">Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_05_basics_of_SQL.html">Basics of SQL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Writing and Publishing Your Own Python Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w7.html">Week 7: Bloomberg and LSEG Datastream</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/LSEG_datastream.html">LSEG Datastream</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w8.html">Week 8: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_corporate_hedging.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_spx_hedging.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework 📝</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../HW0.html">Homework 0</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../HW1/case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_wage_growth_during_the_recession.html">HW Guide: Wage Growth During the Recession</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_CRSP_market_index.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_03_SP500_constituents_and_index.html">HW Guide Part B: Reconstructing the S&amp;P 500 Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW3.html">Homework 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_04_Fama_French_1993.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW4.html">Homework 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_CRSP_treasury_overview.html">CRSP Treasury Data Oveview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_replicate_GSW2005.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/potential_final_projects.html">List of Potential Final Projects</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project/issues/new?title=Issue%20on%20page%20%2FWeek6/python_packaging_with_hatch.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Week6/python_packaging_with_hatch.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Writing and Publishing Your Own Python Packages</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-why-write-python-packages">Motivation: Why Write Python Packages?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evolution-of-python-packaging">Evolution of Python Packaging</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-context">Historical Context</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rise-of-binary-distribution-and-scientific-computing">The Rise of Binary Distribution and Scientific Computing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-packaging-tools">Modern Packaging Tools</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-platform-package-management">Cross-platform Package Management</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-patterns-in-modern-package-management">New Patterns in Modern Package Management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-based-package-management-vs-environment-based-package-management">Project-Based Package Management vs Environment-Based Package Management</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-and-cons">Pros and Cons</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-shift-towards-project-based-management">The Shift Towards Project-Based Management</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-metadata-and-version-management">Package Metadata and Version Management</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-dependencies">Development Dependencies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-a-packaging-tool">Choosing a Packaging Tool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-package-stockbeta">Example Package: <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-using-stockbeta">Getting Started: Using <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-factor-data">Loading Factor Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-stock-returns">Analyzing Stock Returns</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-of-the-development-workflow-with-hatch">Preview of the Development Workflow with Hatch</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-a-python-package-with-hatch">Developing a Python Package with Hatch</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-overview">Workflow Overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-a-python-package-from-scratch">Developing a Python Package from Scratch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cli-development-click-vs-argparse">CLI Development: Click vs. argparse</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-click-over-argparse">Why Click Over argparse?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-argparse-is-still-relevant">Why argparse is Still Relevant</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-cli-development">Modern CLI Development</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#editable-installs">Editable Installs</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#publishing-packages-to-pypi">Publishing Packages to PyPI</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-pypi-and-testpypi">Understanding PyPI and TestPyPI</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-releases-with-github-actions">Automated Releases with GitHub Actions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#version-management-and-common-issues">Version Management and Common Issues</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#security-considerations">Security Considerations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-for-package-publishing">Best Practices for Package Publishing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-importance-of-matrix-testing">The Importance of Matrix Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-example-the-distutils-deprecation">Real-World Example: The Distutils Deprecation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-matrix-testing-helped">How Matrix Testing Helped</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lessons-learned">Lessons Learned</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                   <section class="tex2jax_ignore mathjax_ignore" id="writing-and-publishing-your-own-python-packages">
+<h1>Writing and Publishing Your Own Python Packages<a class="headerlink" href="#writing-and-publishing-your-own-python-packages" title="Link to this heading">#</a></h1>
+<p><strong>Objectives of This Chapter</strong></p>
+<p>This chapter introduces the process of writing Python packages using a tool called <a class="reference external" href="https://hatch.pypa.io/"><strong>Hatch</strong></a>, an official, standards-based Python packaging tool maintained by the Python Packaging Authority (<a class="reference external" href="https://www.pypa.io/">PyPA</a>). We will:</p>
+<ol class="arabic simple">
+<li><p>Discuss the fundamental components of a Python package.</p></li>
+<li><p>Demonstrate how to use Hatch for package development and management.</p></li>
+<li><p>Together we will walk through the development of an example package, <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code>, designed for quantitative finance applications. We will develop this package together from scratch and learn how to publish it to PyPI.</p></li>
+<li><p>Explore how this knowledge can be applied to real-world scenarios in the financial industry.</p></li>
+</ol>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<section id="motivation-why-write-python-packages">
+<h3>Motivation: Why Write Python Packages?<a class="headerlink" href="#motivation-why-write-python-packages" title="Link to this heading">#</a></h3>
+<p>Financial institutions and companies rely heavily on custom libraries to handle complex calculations, manipulate large datasets, and implement models that are central to their decision-making processes. Python has emerged as a dominant language in the finance industry, and understanding how to package and distribute Python libraries is a critical skill.</p>
+<p>Knowing how to write Python packages provides several key benefits:</p>
+<ul class="simple">
+<li><p><strong>Reusability and Collaboration</strong>: Packaging code allows you to create tools that can be easily reused across projects and shared with colleagues or clients.</p></li>
+<li><p><strong>Version Control and Maintenance</strong>: A properly structured package supports versioning, making it easier to track changes and maintain functionality over time.</p></li>
+<li><p><strong>Career Readiness</strong>: Many roles in quantitative finance, data science, and software engineering value candidates who can create and maintain robust software libraries.</p></li>
+<li><p><strong>Open Source Contributions</strong>: Python packages are the building blocks of the open-source ecosystem. Understanding the packaging process allows you to contribute to or build on existing tools.</p></li>
+<li><p><strong>Scalability</strong>: Developing modular code within a package structure helps scale analytics workflows and integrates with corporate software pipelines.</p></li>
+</ul>
+<p>Let’s explore several concrete scenarios where understanding Python packaging is valuable:</p>
+<ol class="arabic simple">
+<li><p><strong>Publishing Open-Source Packages</strong></p>
+<ul class="simple">
+<li><p>As a student or developer, you can share your tools with the global Python community through PyPI</p></li>
+<li><p>Example: You build a machine learning utility that simplifies data preprocessing, then publish it so others can benefit</p></li>
+<li><p>In your particular case as a student, developing open source packages to contribute, e.g., via PyPI has several benefits:</p>
+<ul>
+<li><p>Demonstrates practical Python skills to potential employers</p></li>
+<li><p>Shows ability to write maintainable, documented code</p></li>
+<li><p>Builds your professional portfolio</p></li>
+<li><p>Provides experience with modern development workflows (CI/CD, documentation, testing)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Corporate Private Package Repositories</strong></p>
+<ul class="simple">
+<li><p>Many companies maintain internal package repositories for proprietary code</p></li>
+<li><p>Business cases:</p>
+<ul>
+<li><p>Protect intellectual property (e.g., proprietary trading algorithms)</p></li>
+<li><p>Share internal tools across teams without exposing them publicly</p></li>
+<li><p>Ensure code consistency across different projects (e.g., when multiple teams need to access the same database, having a shared package with standardized connection methods ensures everyone follows security protocols and best practices, rather than each team implementing their own potentially inconsistent solutions)</p></li>
+<li><p>Using a share package repository makes it easier to manage dependencies and ensure that all teams are using the same version of a package. For example, it can otherwise be hard to make sure that everyone is using the same version of an internal package, e.g., <code class="docutils literal notranslate"><span class="pre">yourcompanycustompythonpackage</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Example: A financial firm maintains a private package with</p>
+<ul>
+<li><p>Custom risk calculation models</p></li>
+<li><p>Company-specific data processing pipelines</p></li>
+<li><p>Standardized reporting templates</p></li>
+<li><p>Internal API clients</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Academic and Research Distribution</strong></p>
+<ul class="simple">
+<li><p>Universities and research labs package their algorithms and models</p></li>
+<li><p>Benefits:</p>
+<ul>
+<li><p>Makes research reproducible</p></li>
+<li><p>Allows other researchers to build on your work</p></li>
+<li><p>Simplifies collaboration between institutions</p></li>
+</ul>
+</li>
+<li><p>Example: A research group packages their novel optimization algorithm, allowing others to:</p>
+<ul>
+<li><p>Verify their results</p></li>
+<li><p>Apply the algorithm to new problems</p></li>
+<li><p>Cite the work in academic papers</p></li>
+<li><p>See <a class="reference external" href="https://www.openassetpricing.com/">Open Source Asset Pricing</a> and an associated Python package: <a class="github reference external" href="https://github.com/mk0417/open-asset-pricing-download">mk0417/open-asset-pricing-download</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="evolution-of-python-packaging">
+<h3>Evolution of Python Packaging<a class="headerlink" href="#evolution-of-python-packaging" title="Link to this heading">#</a></h3>
+<p>The Python packaging ecosystem has evolved significantly over the years. The landscape has evolved significantly:</p>
+<ol class="arabic simple">
+<li><p><strong>Early Days (pre-2012)</strong>:</p>
+<ul class="simple">
+<li><p>Pip didn’t support binary distributions</p></li>
+<li><p>Scientific packages were difficult to install</p></li>
+<li><p>No standardized solution for non-Python dependencies</p></li>
+</ul>
+</li>
+<li><p><strong>Conda Era (2012-present)</strong>:</p>
+<ul class="simple">
+<li><p>Conda solved the binary distribution problem</p></li>
+<li><p>Provided consistent environments across platforms</p></li>
+<li><p>Became standard in scientific computing</p></li>
+</ul>
+</li>
+<li><p><strong>Modern Convergence</strong>:</p>
+<ul class="simple">
+<li><p>Pip’s wheel format (introduced 2012) solved many binary distribution issues</p></li>
+<li><p>Build tools like <code class="docutils literal notranslate"><span class="pre">cibuildwheel</span></code> made it easier to distribute compiled packages</p></li>
+<li><p>Conda remains valuable for:</p>
+<ul>
+<li><p>Cross-language dependencies</p></li>
+<li><p>System-level packages</p></li>
+<li><p>Consistent scientific computing environments</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>Today, the choice between pip and conda often depends on:</p>
+<ul class="simple">
+<li><p>Whether you need non-Python dependencies</p></li>
+<li><p>The specific packages you’re using</p></li>
+<li><p>Your platform requirements</p></li>
+<li><p>Performance considerations</p></li>
+</ul>
+<section id="historical-context">
+<h4>Historical Context<a class="headerlink" href="#historical-context" title="Link to this heading">#</a></h4>
+<ul>
+<li><p><strong><a class="reference external" href="https://docs.python.org/3/library/distutils.html">Distutils</a> (2000-2020)</strong>: Python’s original built-in packaging tool, included in the standard library. It provided basic functionality for:</p>
+<ul class="simple">
+<li><p>Building source distributions</p></li>
+<li><p>Installing Python modules</p></li>
+<li><p>Basic compilation of extension modules</p></li>
+</ul>
+<p>However, it lacked crucial features like dependency management, binary distributions, and version handling. Its minimal feature set and inability to adapt to modern Python packaging needs led to its deprecation in Python 3.10 and removal in Python 3.12.</p>
+</li>
+<li><p><strong><a class="reference external" href="https://setuptools.pypa.io/">Setuptools</a> (2004-present)</strong>: Originally created as an enhancement to Distutils, it became the de facto standard for Python packaging. It introduced:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> configuration file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">easy_install</span></code> package installer</p></li>
+<li><p>Dependency management</p></li>
+<li><p>Entry points and console scripts</p></li>
+<li><p>Automatic package discovery</p></li>
+</ul>
+<p>While still widely used, Setuptools has fallen out of favor due to:</p>
+<ul class="simple">
+<li><p>Security concerns with executing arbitrary Python code in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code></p></li>
+<li><p>Complex and sometimes unpredictable configuration (e.g., <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> might behave differently based on installed packages or environment variables, making builds inconsistent across systems)</p></li>
+<li><p>Lack of standardization in build processes (e.g., different packages might use different build backends, custom build steps, or non-standard commands in their <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>, making it harder to understand and maintain build processes across projects)</p></li>
+<li><p>Difficulty in maintaining reproducible builds (e.g., two developers running the same <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> might produce different packages due to differences in their local Python environments or setuptools versions)</p></li>
+</ul>
+</li>
+<li><p><strong><a class="reference external" href="https://pip.pypa.io/">pip</a> (2008-present)</strong>: Replaced <code class="docutils literal notranslate"><span class="pre">easy_install</span></code> as the primary package installer, still dominant today. Introduced:</p>
+<ul class="simple">
+<li><p>Requirements files for dependency specification (e.g., <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>)</p></li>
+<li><p>Better dependency resolution</p></li>
+<li><p>More reliable installation process</p></li>
+<li><p>Support for various package formats and sources (e.g., source distributions, binary distributions, and editable installs)</p></li>
+</ul>
+</li>
+<li><p><strong><a class="reference external" href="https://wheel.readthedocs.io/">wheel</a> format (2012-present)</strong>: Introduced a faster, more reliable binary package format that:</p>
+<ul class="simple">
+<li><p>Eliminates the need to run <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> during installation</p></li>
+<li><p>Provides consistent installations across platforms</p></li>
+<li><p>Reduces installation time</p></li>
+<li><p>Supports reproducible builds</p></li>
+</ul>
+</li>
+<li><p><strong>Python Packaging Authority (2011-present)</strong>: Founded as the working group that maintains and evolves the core projects of Python packaging. It:</p>
+<ul class="simple">
+<li><p>Maintains key tools like pip, wheel, and virtualenv</p></li>
+<li><p>Develops packaging standards through PEPs (Python Enhancement Proposals)</p></li>
+<li><p>Provides official documentation at <a class="reference external" href="http://packaging.python.org">packaging.python.org</a></p></li>
+<li><p>Coordinates between different packaging tools and projects</p></li>
+<li><p>Ensures security and reliability of Python’s package ecosystem</p></li>
+<li><p>Manages <a class="reference external" href="https://pypi.org/">PyPI</a> (Python Package Index), the official package repository</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="the-rise-of-binary-distribution-and-scientific-computing">
+<h4>The Rise of Binary Distribution and Scientific Computing<a class="headerlink" href="#the-rise-of-binary-distribution-and-scientific-computing" title="Link to this heading">#</a></h4>
+<p>The landscape evolved significantly to address challenges in distributing scientific Python packages:</p>
+<ol class="arabic simple">
+<li><p><strong>Early Challenges (pre-2012)</strong>:</p>
+<ul class="simple">
+<li><p>Pip struggled with binary distributions (e.g., installing NumPy or SciPy often failed because pip couldn’t handle the pre-compiled C extensions, requiring users to have the correct compiler and development headers installed). Thus, scientific packages were difficult to install due to compilation requirements</p></li>
+<li><p>No standardized solution for non-Python dependencies. For example, C libraries like OpenBLAS (used for fast linear algebra), Fortran compilers for scientific packages, or system dependencies like CUDA for GPU computing had to be manually installed by users, making it difficult to ensure consistent installations across different machines.</p></li>
+<li><p>Complex build dependencies and platform-specific configurations</p></li>
+</ul>
+</li>
+<li><p><strong>Solutions and Progress (2012-present)</strong>:</p>
+<ul class="simple">
+<li><p>Introduction of the wheel format solved many binary distribution issues</p></li>
+<li><p>Build tools like <code class="docutils literal notranslate"><span class="pre">cibuildwheel</span></code> simplified compiled package distribution</p></li>
+<li><p>Conda emerged as a comprehensive solution for scientific computing. Conda was created by Continuum Analytics (now Anaconda Inc.) in 2012 to solve the “dependency hell” of scientific Python packages by providing language-agnostic package management, handling both Python and non-Python dependencies like compilers and system libraries in one tool. Most students in the data science field are familiar with Conda, as it is packaged with the Anaconda distribution and it is the standard for scientific computing in Python.</p></li>
+<li><p>Modern build systems improved cross-platform compatibility.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="modern-packaging-tools">
+<h4>Modern Packaging Tools<a class="headerlink" href="#modern-packaging-tools" title="Link to this heading">#</a></h4>
+<p>Several tools now compete in the Python packaging space:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://hatch.pypa.io/">Hatch</a></strong>: An official PyPA tool that provides a modern, comprehensive approach to package management. Benefits include:</p>
+<ul>
+<li><p>Single <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> configuration. Note that <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> is the new standard for Python projects, replacing <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> and <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code>. However, <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> is still widely used and supported.</p></li>
+<li><p>Built-in environment management (e.g., <code class="docutils literal notranslate"><span class="pre">hatch</span> <span class="pre">env</span> <span class="pre">create</span></code>). Recall that environment management means that Hatch will create a virtual environment with the dependencies installed.</p></li>
+<li><p>Standardized build system (e.g., <code class="docutils literal notranslate"><span class="pre">hatch</span> <span class="pre">build</span></code>).</p></li>
+<li><p>Simplified publishing workflow (e.g., <code class="docutils literal notranslate"><span class="pre">hatch</span> <span class="pre">publish</span></code> will build the package and upload it to PyPI).</p></li>
+<li><p>Active maintenance by PyPA</p></li>
+</ul>
+</li>
+<li><p><strong><a class="reference external" href="https://python-poetry.org/">Poetry</a></strong>: Popular alternative that offers:</p>
+<ul>
+<li><p>Dependency resolution</p></li>
+<li><p>Virtual environment management</p></li>
+<li><p>Similar <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> configuration</p></li>
+<li><p>Strong community support</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some criticisms of Poetry include:</p>
+<ul class="simple">
+<li><p>“Poetry does several things by default that are bad for libraries - see <a class="reference external" href="https://iscinumpy.dev/post/poetry-versions/">https://iscinumpy.dev/post/poetry-versions/</a> for some details.” (from <a class="reference external" href="https://news.ycombinator.com/item?id=31192499">here</a>)</p></li>
+<li><p>Tensorflow and PyTorch have some issues on Poetry.</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://pdm.fming.dev/">PDM</a></strong>: Newer tool focusing on:</p>
+<ul>
+<li><p>PEP 582 compliance</p></li>
+<li><p>Fast dependency resolution</p></li>
+<li><p>Modern package management</p></li>
+</ul>
+</li>
+<li><p><strong><a class="reference external" href="https://flit.pypa.io/">Flit</a></strong>: Lightweight tool ideal for:</p>
+<ul>
+<li><p>Simple Python packages</p></li>
+<li><p>Quick publishing to PyPI</p></li>
+<li><p>Minimal configuration</p></li>
+</ul>
+</li>
+<li><p><strong><a class="reference external" href="https://github.com/astral-sh/uv">uv</a></strong>: New tool that is gaining popularity. It is a drop-in replacement for <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> and <code class="docutils literal notranslate"><span class="pre">wheel</span></code>. Benefits include:</p>
+<ul>
+<li><p>Extremely fast package installation (10-100x faster than pip)</p></li>
+<li><p>Written in Rust for performance and safety</p></li>
+<li><p>Compatible with existing Python tooling (requirements.txt, pyproject.toml)</p></li>
+<li><p>Smart caching of wheel builds</p></li>
+<li><p>Built-in virtual environment management</p></li>
+<li><p>Deterministic builds with precise dependency resolution</p></li>
+<li><p>Memory efficient, using ~10MB RAM vs pip’s ~100MB</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Many people see <code class="docutils literal notranslate"><span class="pre">uv</span></code> as the future of Python packaging. However, it is still in its early stages, though it is gaining traction and developing fast.</p>
+</div>
+</section>
+<section id="cross-platform-package-management">
+<h4>Cross-platform Package Management<a class="headerlink" href="#cross-platform-package-management" title="Link to this heading">#</a></h4>
+<p>The need for cross-platform package managers arose primarily from challenges in distributing scientific Python packages. In the early days of pip, packages with compiled extensions (like NumPy, SciPy) were difficult to install because they required:</p>
+<ul class="simple">
+<li><p>Specific C/Fortran compilers</p></li>
+<li><p>Complex build dependencies</p></li>
+<li><p>Platform-specific configurations</p></li>
+</ul>
+<p>This led to the development of more comprehensive solutions:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://docs.conda.io/">Conda</a></strong>: Industry standard for cross-platform package management, particularly in data science. Created by Continuum Analytics (now Anaconda Inc.) in 2012 to solve the “dependency hell” of scientific Python packages. Benefits include:</p>
+<ul>
+<li><p>Language-agnostic package management (handles Python, R, C++, etc.)</p></li>
+<li><p>Built-in environment management</p></li>
+<li><p>Binary package distribution</p></li>
+<li><p>Platform-specific dependency resolution</p></li>
+<li><p>Large ecosystem of pre-built scientific packages</p></li>
+<li><p>Strong integration with commercial tools (Anaconda)</p></li>
+<li><p>Ability to install non-Python dependencies (e.g., CUDA, MKL, compilers)</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some criticisms of Conda include:</p>
+<ul class="simple">
+<li><p>Slower than pip for Python-only installations</p></li>
+<li><p>Can be complex to debug when environment conflicts occur</p></li>
+<li><p>Large installation size for the base system</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://mamba.readthedocs.io/">Mamba</a></strong>: A faster reimplementation of Conda, written in C++. Features include:</p>
+<ul>
+<li><p>Parallel downloads and faster dependency solving</p></li>
+<li><p>Drop-in replacement for conda commands</p></li>
+<li><p>Compatible with existing conda packages</p></li>
+<li><p>Much better performance for large environments</p></li>
+<li><p>More reliable solver that can better explain conflicts</p></li>
+</ul>
+</li>
+<li><p><strong><a class="reference external" href="https://pixi.sh/dev/">Pixi</a></strong>: Modern alternative to Conda, built by Prefix.dev. (Also, see <a class="reference external" href="https://prefix.dev/docs/pixi/overview">here.</a>) Features include:</p>
+<ul>
+<li><p>Rust-based implementation for better performance</p></li>
+<li><p>Compatible with existing Conda packages</p></li>
+<li><p>Simpler configuration via <code class="docutils literal notranslate"><span class="pre">pixi.toml</span></code></p></li>
+<li><p>Faster environment solving</p></li>
+<li><p>Built-in task running capabilities</p></li>
+<li><p>Lock file for reproducible environments</p></li>
+<li><p>Project-based environment management</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While Pixi is promising, it’s still relatively new (launched 2023) and the ecosystem is evolving. Some users report that certain edge cases aren’t yet handled as well as in Conda. Note, however, that the exciting Mojo project’s package manager is <a class="reference external" href="https://docs.modular.com/magic/">built on top of Pixi.</a></p>
+</div>
+</section>
+</section>
+</section>
+<section id="new-patterns-in-modern-package-management">
+<h2>New Patterns in Modern Package Management<a class="headerlink" href="#new-patterns-in-modern-package-management" title="Link to this heading">#</a></h2>
+<section id="project-based-package-management-vs-environment-based-package-management">
+<h3>Project-Based Package Management vs Environment-Based Package Management<a class="headerlink" href="#project-based-package-management-vs-environment-based-package-management" title="Link to this heading">#</a></h3>
+<ul>
+<li><p><strong>Project-Based Package Management</strong>: This is the approach used by Hatch, Poetry, and PDM. It involves:</p>
+<ul class="simple">
+<li><p>A single configuration file (<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>) that defines both project metadata and dependencies</p></li>
+<li><p>Dependencies are specified at the project level</p></li>
+<li><p>Virtual environments are created automatically based on project needs</p></li>
+<li><p>Build and development dependencies are clearly separated</p></li>
+<li><p>Lock files ensure reproducible builds across different machines</p></li>
+<li><p>Tools typically manage the entire project lifecycle (building, testing, publishing)</p></li>
+</ul>
+<p>This approach has gained favor in modern Python development because:</p>
+<ul class="simple">
+<li><p>It follows the “configuration as code” principle</p></li>
+<li><p>Makes projects more portable and reproducible</p></li>
+<li><p>Reduces the gap between development and deployment</p></li>
+<li><p>Better integrates with modern CI/CD practices</p></li>
+<li><p>Follows similar patterns to other language ecosystems (npm for Node.js, Cargo for Rust)</p></li>
+</ul>
+</li>
+<li><p><strong>Environment-Based Package Management</strong>: This is the approach used by Conda, Mamba, and Pixi. It involves:</p>
+<ul class="simple">
+<li><p>Creating isolated environments that can be activated/deactivated</p></li>
+<li><p>Dependencies are managed at the environment level</p></li>
+<li><p>One environment can be used for multiple projects</p></li>
+<li><p>Environments can include non-Python packages</p></li>
+<li><p>Manual environment activation is typically required</p></li>
+<li><p>Configuration often spans multiple files (environment.yml, requirements.txt)</p></li>
+</ul>
+<p>This approach has historically been popular because:</p>
+<ul class="simple">
+<li><p>It’s more flexible for scientific computing needs</p></li>
+<li><p>Better handles system-level dependencies</p></li>
+<li><p>Works well for exploratory data science</p></li>
+<li><p>Supports multiple programming languages in one environment</p></li>
+</ul>
+</li>
+</ul>
+<section id="pros-and-cons">
+<h4>Pros and Cons<a class="headerlink" href="#pros-and-cons" title="Link to this heading">#</a></h4>
+<p><strong>Project-Based Approach</strong></p>
+<p>Pros:</p>
+<ul class="simple">
+<li><p>Clearer dependency specification</p></li>
+<li><p>Better reproducibility</p></li>
+<li><p>Integrated tooling (build, test, publish)</p></li>
+<li><p>More aligned with modern DevOps practices</p></li>
+<li><p>Smaller, more focused environments</p></li>
+</ul>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>Limited to Python packages</p></li>
+<li><p>Can be more complex for beginners</p></li>
+<li><p>May require additional setup for system dependencies</p></li>
+<li><p>Multiple projects = multiple environments</p></li>
+</ul>
+<p><strong>Environment-Based Approach</strong></p>
+<p>Pros:</p>
+<ul class="simple">
+<li><p>Handles non-Python dependencies well</p></li>
+<li><p>More flexible for scientific computing</p></li>
+<li><p>Can share environments across projects</p></li>
+<li><p>Better for exploratory work</p></li>
+<li><p>Easier for beginners</p></li>
+</ul>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>Less reproducible across systems</p></li>
+<li><p>Configuration can be scattered</p></li>
+<li><p>Heavier weight solutions</p></li>
+<li><p>Manual environment management</p></li>
+</ul>
+</section>
+<section id="the-shift-towards-project-based-management">
+<h4>The Shift Towards Project-Based Management<a class="headerlink" href="#the-shift-towards-project-based-management" title="Link to this heading">#</a></h4>
+<p>The Python ecosystem has been gradually shifting towards project-based management because:</p>
+<ol class="arabic simple">
+<li><p><strong>Modern Development Practices</strong>:</p>
+<ul class="simple">
+<li><p>Microservices architecture demands more isolated, reproducible projects</p></li>
+<li><p>CI/CD pipelines benefit from deterministic builds</p></li>
+<li><p>Container-based deployment favors project-specific dependencies</p></li>
+</ul>
+</li>
+<li><p><strong>Lessons from Other Ecosystems</strong>:</p>
+<ul class="simple">
+<li><p>Success of npm (Node.js) and Cargo (Rust) showed benefits of project-centric approach</p></li>
+<li><p>Growing emphasis on reproducible builds</p></li>
+<li><p>Need for better dependency resolution</p></li>
+</ul>
+</li>
+<li><p><strong>Python Packaging Standards</strong>:</p>
+<ul class="simple">
+<li><p>PEP 517/518 standardized build system specification</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> provides a single source of truth</p></li>
+<li><p>Better separation of development and runtime dependencies</p></li>
+</ul>
+</li>
+</ol>
+<p>However, both approaches remain valid, and the choice often depends on specific needs:</p>
+<ul class="simple">
+<li><p>Scientific computing often favors environment-based tools</p></li>
+<li><p>Web development typically uses project-based tools</p></li>
+<li><p>Data science might use a mix of both approaches</p></li>
+</ul>
+</section>
+</section>
+<section id="package-metadata-and-version-management">
+<h3>Package Metadata and Version Management<a class="headerlink" href="#package-metadata-and-version-management" title="Link to this heading">#</a></h3>
+<p>Modern Python packaging tools handle metadata and versioning differently:</p>
+<ul>
+<li><p><strong>Traditional Approach (<a class="reference external" href="http://setup.py">setup.py</a>)</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;mypackage&quot;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
+    <span class="n">author</span><span class="o">=</span><span class="s2">&quot;Your Name&quot;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Package description&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Modern Approach (pyproject.toml)</strong>:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;mypackage&quot;</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
+<span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;Your Name&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;your.email@example.com&quot;</span><span class="p">}]</span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Package description&quot;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Key advantages of the modern approach:</p>
+<ul class="simple">
+<li><p>Declarative configuration (no executable code)</p></li>
+<li><p>Standardized format across tools</p></li>
+<li><p>Better security (no arbitrary code execution during build)</p></li>
+<li><p>Easier to parse and validate</p></li>
+<li><p>Single source of truth for package metadata</p></li>
+</ul>
+</section>
+<section id="development-dependencies">
+<h3>Development Dependencies<a class="headerlink" href="#development-dependencies" title="Link to this heading">#</a></h3>
+<p>Modern packaging tools provide better separation of development and runtime dependencies:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;requests&gt;=2.28.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;pandas&gt;=1.5.0&quot;</span>
+<span class="p">]</span>
+
+<span class="k">[project.optional-dependencies]</span>
+<span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;pytest&gt;=7.0.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;pytest-cov&gt;=4.0.0&quot;</span>
+<span class="p">]</span>
+<span class="n">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;black&gt;=23.0.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;mypy&gt;=1.0.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;ruff&gt;=0.1.0&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>This separation:</p>
+<ul class="simple">
+<li><p>Keeps production installations lean</p></li>
+<li><p>Makes development setup reproducible</p></li>
+<li><p>Clearly documents tool requirements</p></li>
+<li><p>Allows selective installation of extras</p></li>
+</ul>
+</section>
+</section>
+<section id="choosing-a-packaging-tool">
+<h2>Choosing a Packaging Tool<a class="headerlink" href="#choosing-a-packaging-tool" title="Link to this heading">#</a></h2>
+<p>While this chapter focuses on Hatch, consider these factors when choosing a tool:</p>
+<ul class="simple">
+<li><p><strong>Project Size</strong>: Smaller projects might benefit from Flit’s simplicity.</p></li>
+<li><p><strong>Team Experience</strong>: Some teams may be more familiar with Poetry or Setuptools.</p></li>
+<li><p><strong>Corporate Requirements</strong>: Enterprise environments might have specific tooling needs.</p></li>
+<li><p><strong>Feature Requirements</strong>: Different tools excel at different aspects of package management.</p></li>
+</ul>
+</section>
+<section id="example-package-stockbeta">
+<h2>Example Package: <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code><a class="headerlink" href="#example-package-stockbeta" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code> package (see <a class="reference external" href="https://test.pypi.org/project/stockbeta/#description">PyPI</a> and <a class="reference external" href="https://github.com/finm-32900/stockbeta-example">GitHub</a>) is a practical demonstration of how to write a Python library for quantitative finance. This package performs factor-based analysis of stock returns, leveraging the Fama-French Three-Factor Model. It provides tools for:</p>
+<ol class="arabic simple">
+<li><p>Loading and manipulating factor data (e.g., market returns, size, and value factors).</p></li>
+<li><p>Analyzing the factor exposures of individual stocks using their historical return data.</p></li>
+<li><p>Generating concise reports summarizing the findings.</p></li>
+</ol>
+<p>I chose this example because I wanted to demonstrate how to do the following things when creating a Python package:</p>
+<ul class="simple">
+<li><p>Add a command-line interface (CLI) to the package.</p></li>
+<li><p>Add the ability to use the functions in the package as a library or from the command line.</p></li>
+<li><p>Ship datasets with the package.</p></li>
+</ul>
+<section id="getting-started-using-stockbeta">
+<h3>Getting Started: Using <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code><a class="headerlink" href="#getting-started-using-stockbeta" title="Link to this heading">#</a></h3>
+<p>To get started, first take a look at the project page on <a class="reference external" href="https://test.pypi.org/project/stockbeta/">Testing.PyPI</a> and then follow the instructions below.</p>
+<p>Install the package from Testing.PyPI:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install -i https://test.pypi.org/simple/ stockbeta</span>
+</pre></div>
+</div>
+<section id="loading-factor-data">
+<h4>Loading Factor Data<a class="headerlink" href="#loading-factor-data" title="Link to this heading">#</a></h4>
+<p>Demonstrate how to load factor data using the library:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">stockbeta</span>
+
+<span class="c1"># Load all available daily factor data</span>
+<span class="n">factors</span> <span class="o">=</span> <span class="n">stockbeta</span><span class="o">.</span><span class="n">load_factors</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="analyzing-stock-returns">
+<h4>Analyzing Stock Returns<a class="headerlink" href="#analyzing-stock-returns" title="Link to this heading">#</a></h4>
+<p>Show how to analyze stock returns using both the CLI and the Python library interface:</p>
+<p><strong>CLI Example</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python -m stockbeta.cli --ticker AAPL --start 2020-01-01 --end 2023-12-31</span>
+</pre></div>
+</div>
+<p><strong>Library Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">stockbeta</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
+
+<span class="c1"># Get stock data</span>
+<span class="n">stock_data</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;AAPL&quot;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2023-12-31&quot;</span><span class="p">)</span>
+<span class="n">stock_returns</span> <span class="o">=</span> <span class="n">stock_data</span><span class="p">[</span><span class="s2">&quot;Adj Close&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1"># Load factors and calculate exposures</span>
+<span class="n">factors</span> <span class="o">=</span> <span class="n">stockbeta</span><span class="o">.</span><span class="n">load_factors</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2023-12-31&quot;</span><span class="p">)</span>
+<span class="n">exposures</span> <span class="o">=</span> <span class="n">stockbeta</span><span class="o">.</span><span class="n">calculate_factor_exposures</span><span class="p">(</span><span class="n">stock_returns</span><span class="p">,</span> <span class="n">factors</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">exposures</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="preview-of-the-development-workflow-with-hatch">
+<h3>Preview of the Development Workflow with Hatch<a class="headerlink" href="#preview-of-the-development-workflow-with-hatch" title="Link to this heading">#</a></h3>
+<p>Now, before we start developing a package from scratch, let’s take a look at how to modify the <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code> package. To do this, we’ll review the development workflow with Hatch.</p>
+<ol class="arabic simple">
+<li><p>Cloning the repository:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/finm-32900/stockbeta-example.git</span>
+<span class="go">cd stockbeta-example</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Activating the Hatch shell environment:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hatch shell</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Running tests and making edits:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hatch test           # Run all tests</span>
+<span class="go">hatch test -v       # Run tests with verbose output</span>
+<span class="go">hatch test --cover  # Run tests with coverage</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Formatting and linting code:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hatch fmt           # Format code</span>
+<span class="go">hatch fmt --check   # Check formatting</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Deploying updates to PyPI:</p></li>
+</ol>
+<p>This following command won’t work for you because you haven’t set up your PyPI credentials and because you’re not on the <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code> team. In any case, I use GitHub Actions to publish the package to TestPyPI.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">hatch publish </span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Eample
+As an example, let’s now make our own quick modification to the <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code> package and verify that it works for us.</p>
+</div>
+</section>
+</section>
+<section id="developing-a-python-package-with-hatch">
+<h2>Developing a Python Package with Hatch<a class="headerlink" href="#developing-a-python-package-with-hatch" title="Link to this heading">#</a></h2>
+<p>Now that we’ve seen a short preview of the development workflow with Hatch, let’s take a look at the overview of the hatch development workflow.</p>
+<section id="workflow-overview">
+<h3>Workflow Overview<a class="headerlink" href="#workflow-overview" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Overview of Hatch</p></li>
+</ol>
+<p>Hatch is a modern Python packaging tool that simplifies the development, testing, and deployment of Python packages. Its features include:</p>
+<ul class="simple">
+<li><p><strong>Environment Management</strong>: Automatically creates isolated development environments with dependencies installed.</p></li>
+<li><p><strong>Simplified Configuration</strong>: Uses a single <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file for project metadata.</p></li>
+<li><p><strong>Command Line Tools</strong>: Provides commands for common tasks such as running tests, checking types, and formatting code.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Setting Up the Package</p></li>
+</ol>
+<ul class="simple">
+<li><p>Directory structure and organization.</p></li>
+<li><p>Creating a <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file.</p></li>
+<li><p>Initializing a development environment with Hatch.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Adding Functionality</p></li>
+</ol>
+<ul class="simple">
+<li><p>Writing core modules: example implementation of factor data loading and factor analysis.</p></li>
+<li><p>Packaging datasets: including sample data with the package.</p></li>
+<li><p>Creating a command-line interface (CLI) for ease of use.</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>Testing and Quality Assurance</p></li>
+</ol>
+<ul class="simple">
+<li><p>Writing unit tests with <code class="docutils literal notranslate"><span class="pre">pytest</span></code>.</p></li>
+<li><p>Running tests with Hatch.</p></li>
+<li><p>Configuring type checking and linting.</p></li>
+</ul>
+<ol class="arabic simple" start="5">
+<li><p>Documenting the Package</p></li>
+</ol>
+<ul class="simple">
+<li><p>Writing a README file to introduce the package and explain its usage.</p></li>
+<li><p>Generating API documentation.</p></li>
+</ul>
+<ol class="arabic simple" start="6">
+<li><p>Publishing to PyPI</p></li>
+</ol>
+<ul class="simple">
+<li><p>Steps to register the package on PyPI.</p></li>
+<li><p>Uploading the package using Hatch.</p></li>
+</ul>
+</section>
+<section id="developing-a-python-package-from-scratch">
+<h3>Developing a Python Package from Scratch<a class="headerlink" href="#developing-a-python-package-from-scratch" title="Link to this heading">#</a></h3>
+<p>TODO</p>
+</section>
+<section id="cli-development-click-vs-argparse">
+<h3>CLI Development: Click vs. argparse<a class="headerlink" href="#cli-development-click-vs-argparse" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code> package also demonstrates how to create a command-line interface (CLI) using <a class="reference external" href="https://click.palletsprojects.com/">Click</a>, a modern Python package for creating beautiful command line interfaces. While Python’s standard library includes <a class="reference external" href="https://docs.python.org/3/library/argparse.html">argparse</a> for CLI development, we chose Click for several reasons:</p>
+<section id="why-click-over-argparse">
+<h4>Why Click Over argparse?<a class="headerlink" href="#why-click-over-argparse" title="Link to this heading">#</a></h4>
+<ul>
+<li><p><strong>Decorator-Based Interface</strong>: Click uses decorators to define commands and options, resulting in more readable and maintainable code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Click example</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s1">&#39;--ticker&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Stock ticker symbol&#39;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">analyze</span><span class="p">(</span><span class="n">ticker</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Analyze a stock&#39;s factor exposures.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="c1"># Equivalent argparse example</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--ticker&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Stock ticker symbol&#39;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Automatic Help Generation</strong>: Click automatically generates well-formatted help messages and documentation.</p></li>
+<li><p><strong>Nested Command Support</strong>: Easily create complex CLI applications with subcommands (similar to <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>).</p></li>
+<li><p><strong>Type Conversion</strong>: Automatic type conversion and validation of input parameters.</p></li>
+<li><p><strong>Better Error Messages</strong>: More user-friendly error messages out of the box.</p></li>
+</ul>
+</section>
+<section id="why-argparse-is-still-relevant">
+<h4>Why argparse is Still Relevant<a class="headerlink" href="#why-argparse-is-still-relevant" title="Link to this heading">#</a></h4>
+<p>While we chose Click for <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code>, argparse remains important to understand:</p>
+<ul class="simple">
+<li><p>It’s part of Python’s standard library (no additional dependencies)</p></li>
+<li><p>Many existing projects use it</p></li>
+<li><p>It’s more than adequate for simple CLI needs</p></li>
+<li><p>It has been the standard since Python 2.7</p></li>
+</ul>
+</section>
+<section id="modern-cli-development">
+<h4>Modern CLI Development<a class="headerlink" href="#modern-cli-development" title="Link to this heading">#</a></h4>
+<p>The trend in Python CLI development has moved towards more sophisticated tools like Click because:</p>
+<ul class="simple">
+<li><p>They reduce boilerplate code</p></li>
+<li><p>They encourage better CLI design practices</p></li>
+<li><p>They provide better developer experience</p></li>
+<li><p>They often result in better user experience</p></li>
+</ul>
+<p>For <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code>, Click allows us to create an intuitive interface that makes it easy for users to:</p>
+<ul class="simple">
+<li><p>Specify date ranges for analysis</p></li>
+<li><p>Select specific stocks or factors</p></li>
+<li><p>Control output formats</p></li>
+<li><p>Access help and documentation</p></li>
+</ul>
+</section>
+<section id="editable-installs">
+<h4>Editable Installs<a class="headerlink" href="#editable-installs" title="Link to this heading">#</a></h4>
+<p>During development, you often want changes to your source code to be immediately reflected without reinstalling the package. Modern tools support this through editable installs:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Traditional<span class="w"> </span>pip<span class="w"> </span>approach
+<span class="go">pip install -e .</span>
+
+<span class="gp"># </span>Hatch<span class="w"> </span>approach<span class="w"> </span><span class="o">(</span>automatic<span class="w"> </span><span class="k">in</span><span class="w"> </span>development<span class="w"> </span>shell<span class="o">)</span>
+<span class="go">hatch shell</span>
+</pre></div>
+</div>
+<p>Benefits of editable installs:</p>
+<ul class="simple">
+<li><p>Immediate reflection of code changes</p></li>
+<li><p>No need to reinstall after each modification</p></li>
+<li><p>Maintains proper package imports</p></li>
+<li><p>Preserves development tool configurations</p></li>
+</ul>
+</section>
+</section>
+<section id="publishing-packages-to-pypi">
+<h3>Publishing Packages to PyPI<a class="headerlink" href="#publishing-packages-to-pypi" title="Link to this heading">#</a></h3>
+<p>Package distribution is a crucial part of the Python ecosystem. While private package repositories exist for organizations that want to keep their code proprietary, the Python Package Index (PyPI) serves as the primary public repository for Python packages. When you run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">some-package</span></code>, pip typically fetches that package from PyPI.</p>
+<section id="understanding-pypi-and-testpypi">
+<h4>Understanding PyPI and TestPyPI<a class="headerlink" href="#understanding-pypi-and-testpypi" title="Link to this heading">#</a></h4>
+<p>PyPI (Python Package Index) is often called the “Cheese Shop” - a reference to a Monty Python sketch. It serves as the official repository for Python packages, hosting over 400,000 projects. However, publishing directly to PyPI without testing can be risky. This is where TestPyPI comes in.</p>
+<p>TestPyPI is a separate instance of the Python Package Index that allows developers to practice package distribution without affecting the main PyPI repository. It’s particularly valuable for:</p>
+<ol class="arabic simple">
+<li><p><strong>Educational Purposes</strong>: Learning the publishing workflow without risk</p></li>
+<li><p><strong>Testing</strong>: Verifying package metadata, README rendering, and installation</p></li>
+<li><p><strong>CI/CD Development</strong>: Setting up and testing automated release workflows</p></li>
+</ol>
+<p>For example, to install a package from TestPyPI:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install --index-url https://test.pypi.org/simple/ your-package-name</span>
+</pre></div>
+</div>
+</section>
+<section id="automated-releases-with-github-actions">
+<h4>Automated Releases with GitHub Actions<a class="headerlink" href="#automated-releases-with-github-actions" title="Link to this heading">#</a></h4>
+<p>Modern Python package development often leverages CI/CD pipelines for automated releases. In the <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code> package, we use GitHub Actions to automate the release process to TestPyPI. The workflow is triggered by git tags:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">strategy</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">matrix</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;3.8&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.10&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.11&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.12&quot;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>This configuration means:</p>
+<ol class="arabic simple">
+<li><p>The workflow triggers when we push a tag starting with ‘v’ (e.g., v0.1.0)</p></li>
+<li><p>It uses Trusted Publishing with PyPI (via the <code class="docutils literal notranslate"><span class="pre">id-token:</span> <span class="pre">write</span></code> permission)</p></li>
+<li><p>It builds and publishes the package automatically</p></li>
+</ol>
+</section>
+<section id="version-management-and-common-issues">
+<h4>Version Management and Common Issues<a class="headerlink" href="#version-management-and-common-issues" title="Link to this heading">#</a></h4>
+<p>Package versioning is critical in Python distribution. PyPI enforces strict version uniqueness - once a version is published, it can never be reused, even if deleted. This policy prevents supply chain attacks but can cause issues during development.</p>
+<p>Common versioning patterns include:</p>
+<ul class="simple">
+<li><p>Release versions: <code class="docutils literal notranslate"><span class="pre">0.1.0</span></code>, <code class="docutils literal notranslate"><span class="pre">1.0.0</span></code></p></li>
+<li><p>Development versions: <code class="docutils literal notranslate"><span class="pre">0.1.0.dev1</span></code>, <code class="docutils literal notranslate"><span class="pre">0.1.0.dev20231225</span></code></p></li>
+<li><p>Post-releases: <code class="docutils literal notranslate"><span class="pre">0.1.0.post1</span></code></p></li>
+<li><p>Release candidates: <code class="docutils literal notranslate"><span class="pre">0.1.0rc1</span></code></p></li>
+</ul>
+<p>A real-world example we encountered with <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initial release</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;0.0.1&quot;</span>
+
+<span class="c1"># Development builds (automated via GitHub Actions)</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;0.0.2.dev42&quot;</span>  <span class="c1"># where 42 is the build number</span>
+
+<span class="c1"># Cannot reuse &quot;0.0.2&quot; if it was ever published, even if deleted</span>
+<span class="c1"># Must use either:</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;0.0.3&quot;</span>  <span class="c1"># increment version</span>
+<span class="c1"># or</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;0.0.2.post1&quot;</span>  <span class="c1"># post-release</span>
+</pre></div>
+</div>
+</section>
+<section id="security-considerations">
+<h4>Security Considerations<a class="headerlink" href="#security-considerations" title="Link to this heading">#</a></h4>
+<p>Publishing packages requires careful attention to security:</p>
+<ol class="arabic simple">
+<li><p><strong>Trusted Publishing</strong>: Modern PyPI supports keyless authentication using OpenID Connect, eliminating the need for API tokens.</p></li>
+<li><p><strong>Package Signing</strong>: Tools like <code class="docutils literal notranslate"><span class="pre">sigstore</span></code> (used by PyPI) help verify package authenticity.</p></li>
+<li><p><strong>Version Immutability</strong>: Once published, package versions cannot be modified or reused, preventing supply chain attacks.</p></li>
+<li><p><strong>Access Control</strong>: Use organization accounts and role-based access for team projects.</p></li>
+</ol>
+</section>
+<section id="best-practices-for-package-publishing">
+<h4>Best Practices for Package Publishing<a class="headerlink" href="#best-practices-for-package-publishing" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p><strong>Always Test on TestPyPI First</strong></p>
+<ul class="simple">
+<li><p>Verify package metadata</p></li>
+<li><p>Check README rendering</p></li>
+<li><p>Test installation process</p></li>
+</ul>
+</li>
+<li><p><strong>Use Semantic Versioning</strong></p>
+<ul class="simple">
+<li><p>Major.Minor.Patch (e.g., 1.2.3)</p></li>
+<li><p>Increment appropriately based on changes</p></li>
+</ul>
+</li>
+<li><p><strong>Automate Releases</strong></p>
+<ul class="simple">
+<li><p>Use CI/CD pipelines (like GitHub Actions)</p></li>
+<li><p>Automate version bumping</p></li>
+<li><p>Include automated tests before publishing</p></li>
+</ul>
+</li>
+<li><p><strong>Documentation</strong></p>
+<ul class="simple">
+<li><p>Maintain clear installation instructions</p></li>
+<li><p>Document version compatibility</p></li>
+<li><p>Keep a detailed changelog</p></li>
+</ul>
+</li>
+<li><p><strong>Distribution Format</strong></p>
+<ul class="simple">
+<li><p>Build both source distributions (.tar.gz) and wheels (.whl)</p></li>
+<li><p>Use tools like <code class="docutils literal notranslate"><span class="pre">hatch</span></code> or <code class="docutils literal notranslate"><span class="pre">build</span></code> for consistent builds</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="the-importance-of-matrix-testing">
+<h3>The Importance of Matrix Testing<a class="headerlink" href="#the-importance-of-matrix-testing" title="Link to this heading">#</a></h3>
+<p>When developing Python packages, ensuring compatibility across different Python versions and operating systems is crucial. This is where matrix testing comes in - it allows us to test our code against multiple configurations simultaneously.</p>
+<section id="real-world-example-the-distutils-deprecation">
+<h4>Real-World Example: The Distutils Deprecation<a class="headerlink" href="#real-world-example-the-distutils-deprecation" title="Link to this heading">#</a></h4>
+<p>During the development of the <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code> package, we encountered an interesting issue that perfectly illustrates why matrix testing is essential. Here’s the error we received when testing against Python 3.12:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s1">&#39;distutils&#39;</span>
+</pre></div>
+</div>
+<p>This error occurred because one of our dependencies, <code class="docutils literal notranslate"><span class="pre">pandas_datareader</span></code>, was indirectly using <code class="docutils literal notranslate"><span class="pre">distutils</span></code> through its dependency chain:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>stockbeta → pandas_datareader → pandas_datareader.compat → distutils
+</pre></div>
+</div>
+<p>The issue wasn’t apparent in Python 3.11 and earlier versions because <code class="docutils literal notranslate"><span class="pre">distutils</span></code> was part of the standard library. However, it was removed in Python 3.12 as part of <a class="reference external" href="https://peps.python.org/pep-0632/">PEP 632</a>. Without matrix testing, we might have shipped a package that worked fine for most users but would break for anyone using Python 3.12.</p>
+</section>
+<section id="how-matrix-testing-helped">
+<h4>How Matrix Testing Helped<a class="headerlink" href="#how-matrix-testing-helped" title="Link to this heading">#</a></h4>
+<p>Our GitHub Actions workflow was configured to test against multiple Python versions:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">strategy</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">matrix</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;3.8&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.10&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.11&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;3.12&quot;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>This configuration caught the compatibility issue before release. We fixed it by:</p>
+<ol class="arabic simple">
+<li><p>Adding <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> as a dependency (which provides <code class="docutils literal notranslate"><span class="pre">distutils</span></code>)</p></li>
+<li><p>Later updating to newer versions of dependencies that had removed the <code class="docutils literal notranslate"><span class="pre">distutils</span></code> dependency</p></li>
+</ol>
+</section>
+<section id="lessons-learned">
+<h4>Lessons Learned<a class="headerlink" href="#lessons-learned" title="Link to this heading">#</a></h4>
+<p>This experience highlights several key points about modern Python package development:</p>
+<ol class="arabic simple">
+<li><p><strong>Dependency Management</strong>: Your package might break due to changes in indirect dependencies. Matrix testing helps catch these issues early.</p></li>
+<li><p><strong>Python Evolution</strong>: The Python language and standard library evolve over time. What works in one version might not work in another.</p></li>
+<li><p><strong>Forward Compatibility</strong>: Testing against pre-release Python versions (like 3.12 before it was released) helps ensure your package stays compatible with future Python releases.</p></li>
+<li><p><strong>Automated Testing</strong>: Automated CI/CD pipelines with matrix testing can catch issues that might be missed in local development, where developers typically use only one Python version.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>By the end of this chapter, you will understand the process of creating Python packages using Hatch and see how the <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code> example applies these concepts. Writing Python libraries is a valuable skill that bridges the gap between technical programming and applied finance, enabling you to create tools that are both robust and impactful.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+   
+</div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="GitHub_pull_requests.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">GitHub Issues and Pull Requests: Enhancing Collaborative Development</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../overview_w7.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 7: Bloomberg and LSEG Datastream</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-why-write-python-packages">Motivation: Why Write Python Packages?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evolution-of-python-packaging">Evolution of Python Packaging</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-context">Historical Context</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rise-of-binary-distribution-and-scientific-computing">The Rise of Binary Distribution and Scientific Computing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-packaging-tools">Modern Packaging Tools</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-platform-package-management">Cross-platform Package Management</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-patterns-in-modern-package-management">New Patterns in Modern Package Management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-based-package-management-vs-environment-based-package-management">Project-Based Package Management vs Environment-Based Package Management</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-and-cons">Pros and Cons</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-shift-towards-project-based-management">The Shift Towards Project-Based Management</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#package-metadata-and-version-management">Package Metadata and Version Management</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-dependencies">Development Dependencies</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-a-packaging-tool">Choosing a Packaging Tool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-package-stockbeta">Example Package: <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-using-stockbeta">Getting Started: Using <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-factor-data">Loading Factor Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-stock-returns">Analyzing Stock Returns</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-of-the-development-workflow-with-hatch">Preview of the Development Workflow with Hatch</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-a-python-package-with-hatch">Developing a Python Package with Hatch</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-overview">Workflow Overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-a-python-package-from-scratch">Developing a Python Package from Scratch</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cli-development-click-vs-argparse">CLI Development: Click vs. argparse</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-click-over-argparse">Why Click Over argparse?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-argparse-is-still-relevant">Why argparse is Still Relevant</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-cli-development">Modern CLI Development</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#editable-installs">Editable Installs</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#publishing-packages-to-pypi">Publishing Packages to PyPI</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-pypi-and-testpypi">Understanding PyPI and TestPyPI</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-releases-with-github-actions">Automated Releases with GitHub Actions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#version-management-and-common-issues">Version Management and Common Issues</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#security-considerations">Security Considerations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-for-package-publishing">Best Practices for Package Publishing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-importance-of-matrix-testing">The Importance of Matrix Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-example-the-distutils-deprecation">Real-World Example: The Distutils Deprecation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-matrix-testing-helped">How Matrix Testing Helped</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lessons-learned">Lessons Learned</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeremiah Bejarano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Jeremiah Bejarano.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,948 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>What is a build system or task runner? &#8212; Full Stack Quantitative Finance</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=7a7908ec"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Week3/what_is_a_task_runner';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Project Structure" href="project_structure.html" />
+    <link rel="prev" title="Week 3: Task Runners, Automating Queries, and the Basics of SQL" href="../overview_w3.html" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>   
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Full Stack Quantitative Finance - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Full Stack Quantitative Finance - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Full Stack Quantitative Finance
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Winter 2025</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Appendix</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures 📖</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w1.html">Week 1: GitHub, GitHub Classroom, and Virtual Environments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/what_is_this_course_about.html">What is Full Stack Quantitative Finance? Why This Course?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/virtual_environments.html">Virtual Environments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_structure.html">Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_05_basics_of_SQL.html">Basics of SQL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w7.html">Week 7: Bloomberg and LSEG Datastream</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/LSEG_datastream.html">LSEG Datastream</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–Schedule subject to change after HERE–</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w8.html">Week 8: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_repo_spikes.html">Rate Spikes in the Market for Repurchase Agreements</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_corporate_hedging.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_spx_hedging.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework 📝</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../HW0.html">Homework 0</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../HW1/case_study_atlanta_fed_wage_growth_tracker.html">Case Study: Atlanta Fed Wage Growth Tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_wage_growth_during_the_recession.html">HW Guide: Wage Growth During the Recession</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_CRSP_market_index.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_03_SP500_constituents_and_index.html">HW Guide Part B: Reconstructing the S&amp;P 500 Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW3.html">Homework 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_04_Fama_French_1993.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW4.html">Homework 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_CRSP_treasury_overview.html">CRSP Treasury Data Oveview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_replicate_GSW2005.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/potential_final_projects.html">List of Potential Final Projects</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project/issues/new?title=Issue%20on%20page%20%2FWeek3/what_is_a_task_runner.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Week3/what_is_a_task_runner.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>What is a build system or task runner?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-build-systems-and-task-runners">Introduction to Build Systems and Task Runners</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-a-task-runner-build-system-managing-a-project">Example of a Task Runner/Build System Managing a Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-solved-by-a-build-system">Problem Solved by a Build System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-most-commonly-used-build-system-in-the-world">Make: The most commonly used build system in the world</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#makefile-the-blueprint">Makefile: The Blueprint</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-pydoit-an-python-based-alternative">Python PyDoit: An Python-based Alternative</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-other-build-systems-or-task-runners">Examples of other Build Systems or Task Runners</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pydoits-configuration-file-dodo-py">PyDoit’s Configuration File: <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                   <section class="tex2jax_ignore mathjax_ignore" id="what-is-a-build-system-or-task-runner">
+<h1>What is a build system or task runner?<a class="headerlink" href="#what-is-a-build-system-or-task-runner" title="Link to this heading">#</a></h1>
+<section id="introduction-to-build-systems-and-task-runners">
+<h2>Introduction to Build Systems and Task Runners<a class="headerlink" href="#introduction-to-build-systems-and-task-runners" title="Link to this heading">#</a></h2>
+<p>A build system is a collection of tools and scripts that automate the process of compiling source code into executable programs or libraries. It can handle tasks like tracking dependencies between files, compiling source code in the necessary sequence, and executing unit tests. Build systems are crucial in software development, especially in large projects with numerous source files and complex dependency chains. Make and Makefiles are a common example of a build system.</p>
+<p>A task runner is similar. It is a software utility designed to automate the execution of repetitive tasks in the software development process. These tasks can include but are not limited to, scripting routine operations such as minifying code, running tests, compiling source files, and deploying to production servers. Task runners streamline the workflow by reducing the need for manual intervention, enhancing consistency, and saving valuable time. They are particularly beneficial in complex projects where the frequency and complexity of these tasks can be substantial. By defining a series of tasks and their respective commands in a configuration file, task runners enable developers to execute complex sequences with simple commands, thus improving efficiency and productivity in the development lifecycle.</p>
+<p><em>Note that here I will sometimes use these phrases interchangeably, though they are somewhat different. Some build systems can be used as task runners, and some task runners can be used as build systems.</em></p>
+<p>A task runner in this context addresses multiple challenges:</p>
+<ul class="simple">
+<li><p><strong>Workflow Management</strong>: Manages the execution order of various scripts and notebooks based on dependencies.</p></li>
+<li><p><strong>Data Integrity</strong>: Ensures that any changes in data or scripts trigger the re-run of dependent tasks, maintaining data integrity.</p></li>
+<li><p><strong>Reproducibility</strong>: Facilitates reproducibility of results, crucial in research settings, by automating the workflow.</p></li>
+<li><p><strong>Resource Efficiency</strong>: Saves computational resources by only re-running tasks whose dependencies have changed.</p></li>
+<li><p><strong>Collaboration</strong>: Aids in team collaboration by providing a standardized way to run and reproduce the entire workflow.</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Discussion</p>
+<p>When working on a large coding project, have you ever stepped away for a few weeks and then tried to return to the project only to find difficulty remembering the steps you used to get the results you had before?</p>
+<p>Or, even if you took the time to document the steps you used to get the results you had before, have you ever found that the steps you used to get the results you had before are no longer valid? (task runners are self-documenting)</p>
+</div>
+<p>Suppose you are trying to manage a complex data science workflow
+in a research setting. In a finance research setting,
+a data science project often involves several interdependent stages: data collection, preprocessing, analysis, model training, validation, and reporting. Each stage may depend on the output of the previous stages, and the project might include a mix of Python scripts, Jupyter notebooks, and data files in various formats.</p>
+<p><strong>Simple Workflow</strong>
+The following flow chart represents a simple data science workflow. Each step depends on the previous step. It starts with data collection, then preprocessing, then analysis, then model training, then validation, and finally reporting. If one of the early steps in changed, all steps after it will need to be re-run.
+<img alt="A data science project with several interdependent stages: data collection, preprocessing, analysis, model training, validation, and reporting." src="../_images/example_workflow.png" /></p>
+<!-- 
+"""
+This script creates a visualization of stages in a data science workflow using matplotlib.
+It displays the stages as text boxes with arrows indicating the flow between stages.
+The stages are defined in the 'stages' list, and the arrows are generated based on the number of stages.
+The visualization is created using a matplotlib figure and axis, and the stages and arrows are drawn on the axis.
+The resulting plot is then displayed.
+"""
+from matplotlib import pyplot as plt
+import matplotlib.patches as mpatches
+from matplotlib.offsetbox import AnnotationBbox, OffsetImage
+
+# Define text and arrows
+stages = ["Data Collection", "Preprocessing", "Analysis", "Model Training", "Validation", "Reporting"]
+arrows = [r"$\rightarrow$"] * (len(stages) - 1)
+
+# Create figure and axis
+fig, ax = plt.subplots(figsize=(10, 2))
+ax.axis('off')
+
+# Initial coordinates
+x, y = 0, 0
+
+# Draw stages and arrows
+for i, stage in enumerate(stages):
+    ax.text(x, y, stage, ha='center', va='center', bbox=dict(boxstyle='round,pad=0.5', edgecolor='black', facecolor='white'))
+    x += 1
+    if i < len(arrows):
+        ax.text(x, y, arrows[i], ha='center', va='center', fontsize=15)
+        x += 1
+
+plt.xlim(-0.5, len(stages) * 1.5 - 0.5)
+plt.ylim(-1, 1)
+plt.show()
+-->
+<p><strong>Complex Workflow, represented as a directed acyclic graph (DAG)</strong>
+The following is a hypothetical workflow that is more complex than the simple workflow above.
+Such workflows can, without loss of generality, be represented as a directed acyclic graph (DAG).
+<img alt="A complex workflow, represented as a directed acyclic graph (DAG)" src="../_images/example_workflow_dag.jpg" /></p>
+<p><strong>Mapping Tasks into DAGs is a Key Insight into Parallelizing Workflows</strong>
+The following figure demonstrates how PySpark represents a workflow as a DAG,
+which in combination with a job scheduler, allows for parallelizing the workflow.
+Representing your workflow as a DAG can help you to identify opportunities to parallelize your workflow.
+<img alt="PySpark DAG" src="../_images/pyspark_dag.jpg" /></p>
+</section>
+<section id="example-of-a-task-runner-build-system-managing-a-project">
+<h2>Example of a Task Runner/Build System Managing a Project<a class="headerlink" href="#example-of-a-task-runner-build-system-managing-a-project" title="Link to this heading">#</a></h2>
+<p>Consider as an example, the simple data science workflow we discussed above.
+Suppose that we have a hypothetical project that completes runs a set of abstract tasks:
+data collection, preprocessing, analysis, model training, validation, and reporting.
+Each of these tasks depend on the previous task.
+As an example, a build system might have a file that manages a project that looks like this.
+This script is a file called <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> that uses the <code class="docutils literal notranslate"><span class="pre">PyDoit</span></code> Python-based build system.
+The task runner script documents the scripts associated with each step as follows:</p>
+<ol class="arabic simple">
+<li><p><strong>Data Collection</strong>: A script (<code class="docutils literal notranslate"><span class="pre">data_collection.py</span></code>) gathers financial data from various sources.</p>
+<ul class="simple">
+<li><p>Dependencies: None</p></li>
+<li><p>Output: <code class="docutils literal notranslate"><span class="pre">data/raw_data.csv</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Preprocessing</strong>: Another script (<code class="docutils literal notranslate"><span class="pre">preprocess.py</span></code>) cleans and preprocesses the data.</p>
+<ul class="simple">
+<li><p>Dependencies: <code class="docutils literal notranslate"><span class="pre">data/raw_data.csv</span></code></p></li>
+<li><p>Output: <code class="docutils literal notranslate"><span class="pre">data/processed_data.csv</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Analysis</strong>: A Jupyter notebook (<code class="docutils literal notranslate"><span class="pre">analysis.ipynb</span></code>) performs data analysis.</p>
+<ul class="simple">
+<li><p>Dependencies: <code class="docutils literal notranslate"><span class="pre">data/processed_data.csv</span></code></p></li>
+<li><p>Output: <code class="docutils literal notranslate"><span class="pre">reports/analysis_output.html</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Model Training</strong>: A script (<code class="docutils literal notranslate"><span class="pre">train_model.py</span></code>) trains the model.</p>
+<ul class="simple">
+<li><p>Dependencies: <code class="docutils literal notranslate"><span class="pre">data/processed_data.csv</span></code></p></li>
+<li><p>Output: <code class="docutils literal notranslate"><span class="pre">models/trained_model.pkl</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Validation</strong>: A script (<code class="docutils literal notranslate"><span class="pre">validate_model.py</span></code>) validates the trained model.</p>
+<ul class="simple">
+<li><p>Dependencies: <code class="docutils literal notranslate"><span class="pre">models/trained_model.pkl</span></code></p></li>
+<li><p>Output: <code class="docutils literal notranslate"><span class="pre">reports/validation_report.txt</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Reporting</strong>: A script (<code class="docutils literal notranslate"><span class="pre">generate_report.py</span></code>) compiles the results into a report.</p>
+<ul class="simple">
+<li><p>Dependencies: <code class="docutils literal notranslate"><span class="pre">reports/analysis_output.html</span></code>, <code class="docutils literal notranslate"><span class="pre">reports/validation_report.txt</span></code></p></li>
+<li><p>Output: <code class="docutils literal notranslate"><span class="pre">reports/final_report.pdf</span></code></p></li>
+</ul>
+</li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> script then looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dodo.py for managing a data scinece research project workflow</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">task_data_collection</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;file_dep&#39;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s1">&#39;actions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;python scripts/data_collection.py&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;data/raw_data.csv&#39;</span><span class="p">],</span>
+    <span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">task_preprocessing</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;file_dep&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;data/raw_data.csv&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;actions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;python scripts/preprocess.py&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;data/processed_data.csv&#39;</span><span class="p">],</span>
+    <span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">task_analysis</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;file_dep&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;data/processed_data.csv&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;actions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;jupyter nbconvert --execute notebooks/analysis.ipynb&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;reports/analysis_output.html&#39;</span><span class="p">],</span>
+    <span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">task_model_training</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;file_dep&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;data/processed_data.csv&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;actions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;python scripts/train_model.py&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;models/trained_model.pkl&#39;</span><span class="p">],</span>
+    <span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">task_validation</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;file_dep&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;models/trained_model.pkl&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;actions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;python scripts/validate_model.py&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;reports/validation_report.txt&#39;</span><span class="p">],</span>
+    <span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">task_reporting</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;file_dep&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;reports/analysis_output.html&#39;</span><span class="p">,</span> <span class="s1">&#39;reports/validation_report.txt&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;actions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;python scripts/generate_report.py&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;reports/final_report.pdf&#39;</span><span class="p">],</span>
+    <span class="p">}</span>
+
+</pre></div>
+</div>
+<p>In this <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code>:</p>
+<ul class="simple">
+<li><p>Each <code class="docutils literal notranslate"><span class="pre">task_</span></code> function defines a stage in the workflow. Each function must start with <code class="docutils literal notranslate"><span class="pre">task_</span></code> if it is to be recognized as a task by the task runner. Each function returns a dictionary with the keys <code class="docutils literal notranslate"><span class="pre">'actions'</span></code>, <code class="docutils literal notranslate"><span class="pre">'file_dep'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'targets'</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">'actions'</span></code> key specifies the command to run for each task.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">'file_dep'</span></code> (file dependencies) key lists the files that the task depends on.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">'targets'</span></code> key lists the files that the task produces.</p></li>
+</ul>
+<p>With this setup, the entire workflow can be automated and executed in the correct order with a single command (<code class="docutils literal notranslate"><span class="pre">doit</span></code>), significantly streamlining the research process and ensuring consistency and reproducibility in the results.</p>
+<p>This setup ensures that each stage of the workflow is executed in the correct order and only when its dependencies have changed, thereby enhancing efficiency and reproducibility.</p>
+</section>
+<section id="problem-solved-by-a-build-system">
+<h2>Problem Solved by a Build System<a class="headerlink" href="#problem-solved-by-a-build-system" title="Link to this heading">#</a></h2>
+<p>When the project becomes large enough and complex enough, the following problems may arise.</p>
+<ul class="simple">
+<li><ol class="arabic simple">
+<li><p><strong>Difficulty in Reproducing Results</strong> Without a clear record of the ordering of how the scripts were run, reproducing results becomes challenging. A build system automates the full project
+from end-to-end and the script managing this workflow itself becomes the documentation of the ordering of the scripts.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="2">
+<li><p><strong>Complex Dependency Management</strong> In data science, workflows often involve complex dependencies between data, scripts, and models. That is, not only do we have to worry about the order in which to run the scripts, we want to keep track of which script produces or alters each object of interest (intermediate data sets, model files, etc.). A build system manages and resolves dependencies, and itself documents how each object is modified by each script.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="3">
+<li><p><strong>Time-Consuming Reruns of Unchanged Steps</strong> Rerunning entire workflows after minor changes is time-consuming and inefficient. A build system efficiently identifies and executes only those tasks that are affected by recent changes.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="4">
+<li><p><strong>Error Propagation</strong> Errors in early stages can propagate unnoticed, affecting subsequent stages. A build system provides a systematic approach to detect errors early by validating outputs at each stage before moving to the next.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="6">
+<li><p><strong>Lack of Standardization in Workflow Execution</strong> Variability in how different team members execute the workflow can lead to inconsistencies. A build system enforces a standardized process for executing workflows, reducing variability and enhancing collaboration.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="7">
+<li><p><strong>Scalability Issues</strong> Managing larger datasets or more complex models can become challenging as the project scales.
+A build system facilitates scaling by automating and optimizing the workflow, making it easier to manage larger or more complex projects. A build system can even help to automatically parallelize the execution of a workflow, since it knows the dependencies and the necessary order needed to execute all the tasks. Python’s <code class="docutils literal notranslate"><span class="pre">PyDoit</span></code> system provides such features to make this happen automatically, for example.</p></li>
+</ol>
+</li>
+<li><ol class="arabic simple" start="8">
+<li><p><strong>Documentation and Knowledge Transfer</strong> Inadequate documentation can hinder knowledge transfer, especially in large teams or long-term projects. A build system encourages the documentation of workflows, making it easier for new team members to understand and contribute to the project. This is not only beneficial for other team members. Your FUTURE you will thank you. I often forget details of my own workflow, sometimes after only walking away for a week or two. A build system will help you enormously even if you work alone most of the time.</p></li>
+</ol>
+</li>
+</ul>
+<p>Thus, a build system, by automating and standardizing various aspects of the data science workflow, can significantly mitigate these common pitfalls, leading to more efficient, reproducible, and collaborative research in data science settings.</p>
+</section>
+<section id="make-the-most-commonly-used-build-system-in-the-world">
+<h2>Make: The most commonly used build system in the world<a class="headerlink" href="#make-the-most-commonly-used-build-system-in-the-world" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Make_(software)">Make</a>, e.g. <a class="reference external" href="https://www.gnu.org/software/make/">GNU Make</a>, is a widely-used build system that, while particularly prominent in C/C++ projects, offers a versatile toolset extendable to many different programming languages and environments. It functions by automating complex workflows, primarily the compilation process, through the interpretation of a <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>. This file, central to its operation, details a set of rules and dependencies that guide the build process.</p>
+<p>Contrary to a common misconception, Make’s utility is not confined to C/C++ environments. Its capabilities are effectively applicable to a broad spectrum of programming tasks. For instance, it can be used to manage workflows involving scripting languages like Python or R, automate the generation of reports or data files, and even orchestrate complex data analysis pipelines. Its language-agnostic nature allows it to execute arbitrary shell commands, making it a powerful tool for a variety of automation tasks beyond just compilation.</p>
+<p>Given its widespread adoption and flexibility, Make is a tool that all data scientists should be at least aware of. Understanding its basic functions can significantly enhance the efficiency of managing various aspects of data science projects. The ability to automate repetitive tasks, ensure consistency in data processing, and manage complex dependencies makes Make an invaluable asset in the toolbox of modern data scientists, regardless of their primary programming language.</p>
+<section id="makefile-the-blueprint">
+<h3>Makefile: The Blueprint<a class="headerlink" href="#makefile-the-blueprint" title="Link to this heading">#</a></h3>
+<p>A Makefile is a script utilized by Make, consisting of:</p>
+<ul class="simple">
+<li><p><strong>Targets</strong>: These are usually file names, representing the output of a build process.</p></li>
+<li><p><strong>Dependencies</strong>: Files that need to be updated before the target can be processed.</p></li>
+<li><p><strong>Rules</strong>: Commands that describe how to update or create a target.</p></li>
+</ul>
+<div class="highlight-makefile notranslate"><div class="highlight"><pre><span></span><span class="c"># Sample Makefile</span>
+<span class="nf">target</span><span class="o">:</span><span class="w"> </span><span class="n">dependencies</span>
+<span class="w">    </span><span class="nb">command</span><span class="w"> </span>to<span class="w"> </span>build
+</pre></div>
+</div>
+<p>Now, consider the <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> example file above. When written as a <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> to be used with Make, it would look like this:</p>
+<div class="highlight-makefile notranslate"><div class="highlight"><pre><span></span><span class="c"># Makefile for managing a data science research project workflow</span>
+
+<span class="c"># Phony target to handle all tasks</span>
+<span class="nf">.PHONY</span><span class="o">:</span><span class="w"> </span><span class="n">all</span> <span class="n">clean</span>
+
+<span class="c"># Default target</span>
+<span class="nf">all</span><span class="o">:</span><span class="w"> </span><span class="n">reports</span>/<span class="n">final_report</span>.<span class="n">pdf</span>
+
+<span class="c"># Data Collection</span>
+<span class="nf">data/raw_data.csv</span><span class="o">:</span>
+<span class="w">	</span>python<span class="w"> </span>scripts/data_collection.py
+
+<span class="c"># Preprocessing</span>
+<span class="nf">data/processed_data.csv</span><span class="o">:</span><span class="w"> </span><span class="n">data</span>/<span class="n">raw_data</span>.<span class="n">csv</span>
+<span class="w">	</span>python<span class="w"> </span>scripts/preprocess.py
+
+<span class="c"># Analysis</span>
+<span class="nf">reports/analysis_output.html</span><span class="o">:</span><span class="w"> </span><span class="n">data</span>/<span class="n">processed_data</span>.<span class="n">csv</span>
+<span class="w">	</span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--execute<span class="w"> </span>notebooks/analysis.ipynb
+
+<span class="c"># Model Training</span>
+<span class="nf">models/trained_model.pkl</span><span class="o">:</span><span class="w"> </span><span class="n">data</span>/<span class="n">processed_data</span>.<span class="n">csv</span>
+<span class="w">	</span>python<span class="w"> </span>scripts/train_model.py
+
+<span class="c"># Validation</span>
+<span class="nf">reports/validation_report.txt</span><span class="o">:</span><span class="w"> </span><span class="n">models</span>/<span class="n">trained_model</span>.<span class="n">pkl</span>
+<span class="w">	</span>python<span class="w"> </span>scripts/validate_model.py
+
+<span class="c"># Reporting</span>
+<span class="nf">reports/final_report.pdf</span><span class="o">:</span><span class="w"> </span><span class="n">reports</span>/<span class="n">analysis_output</span>.<span class="n">html</span> <span class="n">reports</span>/<span class="n">validation_report</span>.<span class="n">txt</span>
+<span class="w">	</span>python<span class="w"> </span>scripts/generate_report.py
+
+<span class="c"># Clean task to remove generated files</span>
+<span class="nf">clean</span><span class="o">:</span>
+<span class="w">	</span>rm<span class="w"> </span>-f<span class="w"> </span>data/raw_data.csv<span class="w"> </span>data/processed_data.csv<span class="w"> </span>models/trained_model.pkl
+<span class="w">	</span>rm<span class="w"> </span>-f<span class="w"> </span>reports/analysis_output.html<span class="w"> </span>reports/validation_report.txt<span class="w"> </span>reports/final_report.pdf
+</pre></div>
+</div>
+<p>In this <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>:</p>
+<ul class="simple">
+<li><p>Each target (like <code class="docutils literal notranslate"><span class="pre">data/raw_data.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">data/processed_data.csv</span></code>, etc.) represents an output of a task.</p></li>
+<li><p>The dependencies for each task (specified after the <code class="docutils literal notranslate"><span class="pre">:</span></code>) determine when the task needs to be re-run.</p></li>
+<li><p>The commands under each target (like <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">scripts/data_collection.py</span></code>) are the actions to be performed.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">.PHONY</span></code> rule is used to define targets that are not associated with files.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">all</span></code> target is the default and will execute the entire workflow, building the final report.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">clean</span></code> target provides a way to remove all generated files, similar to the ‘clean’ function in PyDoit.</p></li>
+</ul>
+<p>This Makefile can be run using the <code class="docutils literal notranslate"><span class="pre">make</span></code> command to execute the entire workflow or specific tasks, and <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> to clean up the outputs.</p>
+</section>
+</section>
+<section id="python-pydoit-an-python-based-alternative">
+<h2>Python PyDoit: An Python-based Alternative<a class="headerlink" href="#python-pydoit-an-python-based-alternative" title="Link to this heading">#</a></h2>
+<p>Python PyDoit is a task management and automation tool that offers several advantages, especially for Python-centric workflows, compared to Make:</p>
+<ol class="arabic simple">
+<li><p><strong>Ease of Installation with pip or conda</strong>:</p>
+<ul class="simple">
+<li><p>PyDoit can be conveniently installed using pip, which is a standard tool in Python development.</p></li>
+<li><p>This contrasts with Make, which, while ubiquitous in Linux environments, may not be readily available on Windows systems without additional installation steps.</p></li>
+<li><p>The ability to install PyDoit as part of the normal Python environment setup enhances its accessibility and ease of integration into existing Python projects.</p></li>
+</ul>
+</li>
+<li><p><strong>Simplified Workflow Description</strong>:</p>
+<ul class="simple">
+<li><p>PyDoit’s Python-based syntax and structure make it easier to describe and manage complex data science workflows.</p></li>
+<li><p>Its configuration aligns naturally with the way data scientists typically structure their Python projects, offering a more intuitive approach to task automation.</p></li>
+</ul>
+</li>
+<li><p><strong>Consistent Language Ecosystem</strong>:</p>
+<ul class="simple">
+<li><p>PyDoit is written in Python, which is advantageous for those who write all their code in Python.</p></li>
+<li><p>This consistency ensures that the entire codebase, including the automation scripts, is in a single, familiar language, reducing the learning curve and increasing the efficiency of managing workflows.</p></li>
+<li><p>Being in the same language ecosystem as the main project code, PyDoit allows for more seamless integration and utilization of existing Python skills and tools.</p></li>
+</ul>
+</li>
+<li><p><strong>Scales down as well as scales up</strong>:</p>
+<ul class="simple">
+<li><p>While some other task runners may be more feature-rich, this abundance of features can be a hindrance to simple projects.</p></li>
+<li><p>PyDoit is simple, and can be used for simple projects, or complex projects. For simple projects, PyDoit’s <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> file scales down to a few lines of code.</p></li>
+</ul>
+</li>
+</ol>
+<p>I personally find that these features make PyDoit a particularly attractive option for data scientists and developers who are already immersed in the Python ecosystem and are looking for an effective way to automate their workflows. That said, PyDoit is not ubiquitous. There are many other such systems or task runners, even many others that are written in Python.</p>
+<section id="examples-of-other-build-systems-or-task-runners">
+<h3>Examples of other Build Systems or Task Runners<a class="headerlink" href="#examples-of-other-build-systems-or-task-runners" title="Link to this heading">#</a></h3>
+<p>Here are some examples of other build systems and/or task runners along with the languages they are typically associated with or the languages they are written in:</p>
+<ul class="simple">
+<li><p><strong>Airflow</strong> (<a class="reference external" href="https://airflow.apache.org/">Apache Airflow</a>): A platform created by Airbnb to programmatically author, schedule, and monitor workflows. While primarily known as a workflow scheduler for data pipelines, it can be used as a sophisticated task runner. It represents workflows as Directed Acyclic Graphs (DAGs) and includes a rich web interface for monitoring and managing tasks.</p></li>
+<li><p><strong>Bazel</strong> (<a class="reference external" href="https://bazel.build/">Bazel Home Page</a>): Developed by Google, it supports multiple languages including Java, C++, and Python.</p></li>
+<li><p><strong>Celery</strong> (<a class="reference external" href="https://docs.celeryproject.org/en/stable/">Celery Home Page</a>): An asynchronous task queue/job queue based on distributed message passing, primarily used in Python applications.</p></li>
+<li><p><strong>clusterjob</strong> (<a class="reference external" href="https://clusterjob.readthedocs.io/">clusterjob docs</a>): A tool for managing computational pipelines in High Performance Computing (HPC) environments. It specializes in submitting and monitoring jobs to cluster job schedulers like SLURM and TORQUE/PBS, making it easier to integrate HPC workflows into computational pipelines. Note that this tool integrates with PyDoit task pipelines (see <a class="reference external" href="https://clusterjob.readthedocs.io/en/latest/pydoit_pipeline.html">https://clusterjob.readthedocs.io/en/latest/pydoit_pipeline.html</a>). The tool provides a unified interface for job submission, status monitoring, and resource management across different HPC backend systems.</p></li>
+<li><p><strong>CMake</strong> (<a class="reference external" href="https://cmake.org/">CMake Home Page</a>): Widely used for C and C++ projects, but also supports other languages.</p></li>
+<li><p><strong>Invoke</strong> (<a class="reference external" href="http://www.pyinvoke.org/">Invoke Home Page</a>): A task runner written in Python, offering a clean and high-level API for running shell commands and defining/organizing task functions.</p></li>
+<li><p><strong>joblib</strong> (<a class="reference external" href="https://joblib.readthedocs.io/">joblib docs</a>): A set of tools to provide lightweight pipelining in Python. Particularly useful for saving computation time and memory when dealing with large data processing tasks through transparent disk-caching and parallel computing.</p></li>
+<li><p><strong>Luigi</strong> (<a class="reference external" href="https://github.com/spotify/luigi">Luigi Home Page</a>): A Python package developed by Spotify that helps you build complex pipelines of batch jobs. It handles dependency resolution, workflow management, visualization, and more, making it particularly useful for data engineering and ETL workflows.</p></li>
+<li><p><strong>PyDoit</strong> (<a class="reference external" href="https://pydoit.org/">PyDoit docs</a>): As discussed above, PyDoit is a Python-based task management and automation tool that offers several advantages for Python-centric workflows. It provides a flexible way to define tasks and their dependencies using Python functions, making it particularly suitable for data science workflows.</p></li>
+<li><p><strong>pypyr</strong> (<a class="reference external" href="https://pypyr.io/">pypyr Home Page</a>): A task runner written in Python, designed to handle complex workflows by chaining together different tasks.</p></li>
+<li><p><strong>SCons</strong> (<a class="reference external" href="https://scons.org/">SCons Home Page</a>): Written in Python, and used primarily for C, C++, and Fortran projects.</p></li>
+<li><p><strong>Snakemake</strong> (<a class="reference external" href="https://snakemake.github.io/">Snakemake</a>): A workflow management system particularly popular in bioinformatics and data science. It’s Python-based and combines the benefits of Make with Python’s flexibility. Uses a Python-based DSL (Domain Specific Language) to define workflows and automatically handles dependency resolution and parallel execution.</p></li>
+</ul>
+</section>
+<section id="pydoits-configuration-file-dodo-py">
+<h3>PyDoit’s Configuration File: <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code><a class="headerlink" href="#pydoits-configuration-file-dodo-py" title="Link to this heading">#</a></h3>
+<p>A <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> file in PyDoit is analogous to a Makefile in Make. It defines tasks, which are Python functions or dictionaries, and their dependencies.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample dodo.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">task_hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;actions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;echo Hello World&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;file_dep&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;input.txt&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;output.txt&#39;</span><span class="p">],</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<p>For a more complex workflow with PyDoit, see the example at the beginning of this page. To see a working example, examine now the <code class="docutils literal notranslate"><span class="pre">blank_project</span></code> repository I’ve made available here: <a class="github reference external" href="https://github.com/jmbejara/blank_project">jmbejara/blank_project</a>. My template here borrows from the template created by <a class="reference external" href="https://drivendata.github.io/cookiecutter-data-science/">Cookie Cutter Data Science</a>. We’ll now walk through this project, after concluding.</p>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>Both Make and Python PyDoit offer powerful solutions for automating build processes and task execution. The choice between them often depends on the specific requirements of a project, such as the programming language used, the complexity of the task, and the user’s familiarity with Python. While Make is more traditional and widely used in compiling, PyDoit provides a more flexible and Python-centric approach to task automation.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+   
+</div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../overview_w3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 3: Task Runners, Automating Queries, and the Basics of SQL</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="project_structure.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Project Structure</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-build-systems-and-task-runners">Introduction to Build Systems and Task Runners</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-a-task-runner-build-system-managing-a-project">Example of a Task Runner/Build System Managing a Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-solved-by-a-build-system">Problem Solved by a Build System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-the-most-commonly-used-build-system-in-the-world">Make: The most commonly used build system in the world</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#makefile-the-blueprint">Makefile: The Blueprint</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-pydoit-an-python-based-alternative">Python PyDoit: An Python-based Alternative</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-other-build-systems-or-task-runners">Examples of other Build Systems or Task Runners</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pydoits-configuration-file-dodo-py">PyDoit’s Configuration File: <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeremiah Bejarano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Jeremiah Bejarano.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
