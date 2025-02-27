@@ -2,8 +2,8 @@
 
 ```{toctree}
 :maxdepth: 1
-notebooks/_corporate_hedging.ipynb
-notebooks/_spx_hedging.ipynb
+notebooks/_01_corporate_hedging.ipynb
+notebooks/_02_spx_hedging.ipynb
 Week8/web_authentication.md
 ```
 <!-- Week8/github_actions.md -->
