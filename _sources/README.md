@@ -104,7 +104,7 @@ agenda is listed in the first sub-section of the chapter.
 - [HW 2: Due Friday, Jan  at 31 pm](HW2.md)
 - [HW 3: Due Tuesday, Feb 11, at 11:59 pm](HW3.md)
 - [HW 4: Due Tuesday, Feb 25, at 11:59 pm](HW4.md)
-- HW 5: TBD
+- [HW 5: Due Friday, Mar 7, at 11:59 pm](HW5.md)
 - HW 6: TBD
 
 ## References
