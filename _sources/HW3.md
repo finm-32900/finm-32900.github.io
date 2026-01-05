@@ -39,7 +39,7 @@ You can find guides here:
 
 The data will be downloaded using the WRDS Python package. The code for this is included in the HW. This data download step will be fully automated. 
 
-The link to accept the HW is here: https://classroom.github.com/a/TF5xbCE8
+The link to accept the HW is here: TBD
 
 
 ## Part 3 (graded)

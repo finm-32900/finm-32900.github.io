@@ -1,11 +1,5 @@
 # Homework 2
 
-```{toctree}
-:maxdepth: 1
-notebooks/_02_CRSP_market_index.ipynb
-notebooks/_03_SP500_constituents_and_index.ipynb
-```
-
 
 ## Part 0 (not graded)
 
@@ -28,17 +22,3 @@ Also, if you're looking for more instruction about how to use Git, here are two 
 
 - [What is Version Control? (Learn Git Video Course)](https://www.youtube.com/watch?v=M-O8ZNW9icQ)
 - [Using Git with Visual Studio Code (Official Beginner Tutorial)](https://www.youtube.com/watch?v=i_23KUAEtUM)
-
-## Part 2 (graded)
-
-This will include a task of replicating the CRSP market index example from the lecture as well as a task of replicating the S&P 500 index from its constituent companies. The link to accept the assignment is here: https://classroom.github.com/a/KMvpqo_F
-
-To complete this assignment, please read the two HW guides here:
-
-- [HW Guide Part A: CRSP Market Returns Indices](notebooks/_02_CRSP_market_index.ipynb)
-- [HW Guide Part B: Reconstructing the S&P 500 Index](notebooks/_03_SP500_constituents_and_index.ipynb)
-
-Recall that the way to go about this assignment is to run `pytest` and then determine how to write the code to pass the tests. As a tip, make sure to run the `doit` command before running `pytest`. This will ensure that all the data is pulled before running the tests.
-
-Note, in order to complete this assignment, you will need to have the `wrds` package installed and you will need to have created a `.pgpass` file so that you can automatically authenticate to WRDS to pull the required data. Please refer to the textbook page [Example: Connecting to the WRDS Platform With Python](notebooks/_01_wrds_python_package.ipynb) for more information, specifically the section "Creating a .pgpass file".
-

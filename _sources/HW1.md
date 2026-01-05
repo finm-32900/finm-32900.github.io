@@ -2,9 +2,12 @@
 
 ```{toctree}
 :maxdepth: 1
-HW1/case_study_atlanta_fed_wage_growth_tracker.md
-notebooks/_01_wage_growth_during_the_recession.ipynb
+notebooks/_02_CRSP_market_index.ipynb
+notebooks/_03_SP500_constituents_and_index.ipynb
 ```
+
+**Due Date:** Friday, Jan 16 at 11:59 pm.
+**Link to Assignment:** https://classroom.github.com/a/NTIt0NQ1
 
 ## Learning Outcomes
 
@@ -13,17 +16,22 @@ notebooks/_01_wage_growth_during_the_recession.ipynb
     - Make sure students know how to clone HW repository
     - Learn basic usage of PyTest to test HW solutions
     - Learn how to submit HW via GitHub Education
-- **Do on own:** Explore the IPUMS CPS data.
+- **Do on own:** Explore the WRDS CRSP data
 
 ## Assignment
 
-### Part 0 (ungraded)
+### Part 0 (not graded)
 
-- Make sure to "watch" the [course repository](https://github.com/finm-32900/finm-32900-data-science) so that you will be notified of new posts on the course discussion board. Click the "watch" button on the top right of the page.
-- Consider, if you'd like, posting an introduction here on the course discussion board: https://github.com/orgs/finm-32900/discussions/2
+Please watch the following videos to better familiarize yourself with CRSP and Compustat in WRDS.
+
+ - Watch the following videos about WRDS and CRSP
+   - [WRDS Web Queries](https://player.vimeo.com/video/1019787855?h=83ee06d532) While we will be automating the query process using the WRDS Python package [`wrds`](https://pypi.org/project/wrds/), using the web query system is a good way for initial exploration of the data.
+   - [CRSP Coverage](https://vimeo.com/417302309)
+   - [CRSP - Useful Variale](https://wrds-www.wharton.upenn.edu/pages/grid-items/crsp-useful-variables/). This video goes over some points we made in class as well and is helpful for cleaning the CRSP data (e.g., negative prices).
+   - [CRSP Stock Database Coverage](https://wrds-www.wharton.upenn.edu/pages/grid-items/crsp-stock-database-structure/) Useful for merging stock files and event files in CRSP via SQL. This is useful, for example, to incorporate delisting returns.
 
 
-### Part 1 (ungraded, but required)
+### Part 1 
 
 In order to start mastering the many features of Github, please complete the following tutorials from the [GitHub Skills](https://skills.github.com/) page. Please make sure to use **public repositories** for this in your own GitHub user account. You will provide a link later to demonstrate that it was completed.
 
@@ -37,33 +45,21 @@ These tutorials are not graded, but please make sure to complete them before the
 
 ### Part 2 (graded)
 
-Next, a coding assignment is located at the following GitHub Education link: https://classroom.github.com/a/uDoKANYN
-Click on the link and accept the assignment.
+This will include a task of replicating the CRSP market index example from the lecture as well as a task of replicating the S&P 500 index from its constituent companies. 
 
-In this second part, you'll complete an exercise related to the Atlanta Fed Wage Growth Tracker case study. We'll download Census data from the Current Population Survey (CPS) via IPUMS and generate a time series similar to the one publish on the [Atlanta Fed's website.](https://www.atlantafed.org/chcs/wage-growth-tracker)
+To complete this assignment, please read the two HW guides here:
 
-The following is a guide that will help you complete the homework: [HW Guide: Wage Growth During the Recession](./notebooks/_01_wage_growth_during_the_recession.ipynb)
+- [HW Guide Part A: CRSP Market Returns Indices](notebooks/_02_CRSP_market_index.ipynb)
+- [HW Guide Part B: Reconstructing the S&P 500 Index](notebooks/_03_SP500_constituents_and_index.ipynb)
+
+Recall that the way to go about this assignment is to run `pytest` and then determine how to write the code to pass the tests. As a tip, make sure to run the `doit` command before running `pytest`. This will ensure that all the data is pulled before running the tests.
+
+Note, in order to complete this assignment, you will need to have the `wrds` package installed and you will need to have created a `.pgpass` file so that you can automatically authenticate to WRDS to pull the required data. Please refer to the textbook page [Example: Connecting to the WRDS Platform With Python](notebooks/_01_wrds_python_package.ipynb) for more information, specifically the section "Creating a .pgpass file".
 
 
 
 ## Additional Notes about the HW
 
-Hi all. I wanted to add some further clarifications in case there is some confusion. 
-
-### Which files should I edit?
-
-In order to complete the homework, you need to adjust the source files so that the unit test files pass. The unit tests are implemented in the files that start with `test_FILENAME.py`. The files indicated by the red bracket below are the test files. 
-
-**NOTE:** You should not make any edits to these files. If an edit is made, you will be required to edit the history of your commits to remove any trace of the edits to these files:
-
-![image](./assets/hw2_test_files.png)
-
-So, to complete the assignment, you should edit the source files that are being tested. That is, you should make edits to the files highlighted in yellow below:
-
-![image](./assets/HW2_files_to_edit.png)
-
-
-Finally, there is a notebook available in the file `src\01_wage_growth_during_the_recession.ipynb`. You do not need to do anything with this file. It exists only to provide guidance on how to complete the various steps needed to produce a new, demographically adjusted wage series as we discussed in class. 
 
 ### Why are we doing it this way? 
 

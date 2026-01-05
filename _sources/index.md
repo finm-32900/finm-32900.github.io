@@ -8,7 +8,7 @@ Last updated: {sub-ref}`today`
 This set of notes is designed to accompany _FINM 32900: Full Stack Quantitative Finance_. 
 
 **Course Description**
-"Full Stack Quantitative Finance" is a hands-on course centered on key data science tools in quantitative finance. Acknowledging the field's wide scope, the course focuses on a common skill set across various data science subfields. That is, this course examines elements of the analytical pipeline, from data extraction and cleaning to exploratory analysis, visualization, and modeling, and finally, publication and deployment. It does so with the aim of teaching the tools and principles behind creating reproducible and scalable workflows, including build automation, dependency management, unit testing, the command-line environment, shell scripting, Git for version control, and GitHub for team collaboration. These skills are taught through case studies, each of which will additionally give students practical experience with key financial data sets and sources such as CRSP and Compustat for pricing and financials, macroeconomic data from FRED and the BEA, bond transactions from FINRA TRACE, Treasury auction data from TreasuryDirect, textual data from EDGAR, and high-frequency trade and quote data from NYSE. Prior experience at an intermediate level with Python and the PyData stack is assumed.
+"Full Stack Quantitative Finance" is a hands-on course centered on key data science tools in quantitative finance. Acknowledging the field's wide scope, the course focuses on a common skill set across various data science subfields. That is, this course examines elements of the analytical pipeline, from data extraction and cleaning to exploratory analysis, visualization, and modeling, and finally, publication and deployment. It does so with the aim of teaching the tools and principles behind creating reproducible and scalable workflows, including build automation, dependency management, unit testing, the command-line environment, shell scripting, Git for version control, and GitHub for team collaboration. These skills are taught through case studies, each of which will additionally give students practical experience with key financial data sets and sources such as CRSP and Compustat for pricing and financials, bond transactions from FINRA TRACE, options data from OptionMetrics, Treasury auction data from TreasuryDirect, textual data from EDGAR, and high-frequency trade and quote data from NYSE. Prior experience at an intermediate level with Python and the PyData stack is assumed.
 
 
 ## Table of Contents
@@ -24,6 +24,7 @@ appendix.md
 :maxdepth: 1
 :caption: Lectures 📖
 overview_w1.md
+subject_to_change_after_this_week.md
 overview_w2.md
 overview_w3.md
 overview_w4.md
@@ -39,10 +40,6 @@ overview_w9.md
 :caption: Homework 📝
 HW0.md
 HW1.md
-HW2.md
-HW3.md
-HW4.md
-HW5.md
 final_project.md
 ```
 

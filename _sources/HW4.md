@@ -14,7 +14,7 @@ notebooks/_02_replicate_GSW2005.ipynb
 
 ## Assignment
 
-The assignment is located at the following GitHub Education link: https://classroom.github.com/a/I1GiUDUK
+The assignment is located at the following GitHub Classroom link: TBD
 
 ### Part 1
 

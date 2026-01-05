@@ -53,6 +53,10 @@ However, there is an active, ongoing debate about other challenges to replicatio
 - [AQR: Is There a Replication Crisis in Finance?](https://www.aqr.com/Insights/Research/Working-Paper/Is-There-a-Replication-Crisis-in-Finance)
 - [Most claimed statistical findings in cross-sectional return predictability are likely true](https://arxiv.org/ftp/arxiv/papers/2206/2206.15365.pdf), [by Andrew Y. Chen](https://sites.google.com/site/chenandrewy/)
 - [Does peer-reviewed theory help predict the cross-section of stock returns?](https://arxiv.org/pdf/2212.10317.pdf) by Andrew Y. Chen, Alejandro Lopez-Lira, and Tom Zimmermann
+- [Pockets of Predictability](https://onlinelibrary.wiley.com/doi/abs/10.1111/jofi.13229) vs [Pockets of Predictability: Replication](https://onlinelibrary.wiley.com/doi/10.1111/jofi.13484)
+- [ChatGPT in Finance Papers at Booth](https://faculty.chicagobooth.edu/valeri-nikolaev/ongoing-research-projects): 
+  - "My co-author identified various inconsistencies while attempting to replicate past analyses from our working paper, Financial Statement Analysis with Large Language Models. Since then, I have independently confirmed these inconsistencies in the underlying data and analyses. Accordingly, we have temporarily withdrawn the working paper from circulation while we review the research findings. We have also decided to review certain other LLM-based working papers for similar issues."
+  - "Update: In my co-author’s attempts to replicate key results from the working paper “Bloated Disclosures: Can ChatGPT Help Investors Process Information?” using the approach described in the paper, his analyses did not yield results supporting the reported findings. I have reviewed and confirmed these inconsistencies, and we have withdrawn the working paper from circulation."
 
 ## How can we help?
 

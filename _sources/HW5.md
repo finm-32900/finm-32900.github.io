@@ -8,7 +8,7 @@
 
 ## Assignment
 
-The assignment is located at the following GitHub Education link: https://classroom.github.com/a/UiVW8xxG
+The assignment is located at the following GitHub Classroom link: TBD
 
 This homework focuses on understanding and implementing SPX hedging with options.
 For this homework, you simply need to do the following:

@@ -1,4 +1,4 @@
-Course Syllabus: FINM 32900, Winter 2025
+Course Syllabus: FINM 32900, Winter 2026
 ========================================
 
 **FINM 32900, Full Stack Quantitative Finance**
@@ -17,38 +17,42 @@ management, unit testing, the command-line environment, shell scripting, Git for
 version control, and GitHub for team collaboration. These skills are taught
 through case studies, each of which will additionally give students practical
 experience with key financial data sets and sources such as CRSP and Compustat
-for pricing and financials, macroeconomic data from FRED and the BEA, bond
-transactions from FINRA TRACE, Treasury auction data from TreasuryDirect,
+for pricing and financials, bond transactions from FINRA TRACE, options data
+from OptionMetrics, Treasury auction data from TreasuryDirect,
 textual data from EDGAR, and high-frequency trade and quote data from NYSE.
 Prior experience at an intermediate level with Python and the PyData stack is
 assumed.
 
-- **Class:** Mondays, 6 - 9 PM, in-person at the Stevanovich Center building,
+- **Class:** Mondays, 1:30 - 4:30 PM, in-person at the Stevanovich Center building,
   Room #112. (5727 S. University Ave.)
 - **Lecturer:** Jeremy Bejarano, jbejarano@uchicago.edu
-- **Instructor Office Hours:** Monday, 5 - 6 pm, in the FinMath library (first floor of the Stevanovich Center, 5727 S. University Ave.)
+- **Instructor Office Hours:** Monday, 4:30 - 5:30 pm, in the FinMath library (first floor of the Stevanovich Center, 5727 S. University Ave.)
 - **Teaching Assistants:**
   - Viren Desai, vdd@uchicago.edu
-  - Nick Lewis, nicklewis16@uchicago.edu
+  - Jared Szajkowski, jszajkowski@uchicago.edu
   - Note: Please include both TAs on all emails. However, students are strongly
     encouraged to post questions on the discussion page of the class GitHub
     repository here.
 
-- **TA Session/TA Office Hours:** Fridays from 12-1 pm CT on Zoom. See the Zoom link on the Canvas calendar.
+- **TA Office Hours:**  
+  - In-Person: Mondays, from 12:30 - 1:30 pm in the FinMath library (first floor of the Stevanovich Center, 5727 S. University Ave.)
+  - Virtual (Zoom): TBD on Zoom. Zoom link will be posted on the Canvas calendar.
 
-- **Website:** Canvas will be used for grades and for publishing Zoom links
-  only. Homework and notes will be posted on the course GitHub repo:
-  https://github.com/finm-32900/finm-32900-data-science. Questions and other
-  class-related discussions should be posted here as well.
 - **Textbook:** The text for the course will be published incrementally here:
   https://finm-32900.github.io/
-
-**NOTE:** Due to the holiday on January 20, a makeup class will be scheduled. This makeup class will be held on Friday, January 24 during the TA office hours. I will use the same Zoom link as the TA office hours, which you can find on the Canvas calendar.
-
+- **Website:** Canvas will be used for grades and for publishing Zoom links
+  only. Homework and notes will be posted on the course textbook above. All
+  code related to the course, including the code that generates the textbook and the code
+  for the homework assignments will be posted in GitHub repos within the finm-32900 
+  organization here: https://github.com/finm-32900.
+  Questions and other discussion should be posted on the GitHub discussion
+page here: https://github.com/orgs/finm-32900/discussions
+  Class-related discussions should be posted here as well.
 
 ### Assignments
 
-- Assignments must be submitted via GitHub before 6 pm on Fridays. Each
+- Assignments will typically be due on Fridays at 11:59 pm. Check GitHub Classroom 
+  for the due date for each assignment. Each
   assignment will be distributed on a Monday, and will be due the on the Friday
   of the following week (11 days later).
 - Assignments are automatically graded via the autograder on GitHub Classroom
@@ -59,7 +63,8 @@ assumed.
   allowed to copy each other's code. Each student must write their own solutions
   individually.
 - After assignments are graded, solutions will be posted in separate GitHub
-  repos, found here: https://github.com/finm-32900
+  repos, found under the `finm-32900` GitHub organization page here: 
+  https://github.com/finm-32900
 
 ### Final Project
 
@@ -70,7 +75,7 @@ scheduled individually.
 
 ## Assessment
 
-Grades will be based on coding assignments (70%), a final group project (25%),
+Grades will be based on coding assignments (60%), a final group project (35%),
 and participation (5%). 
 
 - Assignments will be submitted individually and will be graded using GitHub’s
@@ -99,12 +104,12 @@ agenda is listed in the first sub-section of the chapter.
 
 ### HW Due Dates
 
-- [HW 0: Ungraded. Due ASAP](HW0.md)
-- [HW 1: Due Friday, Jan  at 6 pm](HW1.md)
-- [HW 2: Due Friday, Jan  at 31 pm](HW2.md)
-- [HW 3: Due Tuesday, Feb 11, at 11:59 pm](HW3.md)
-- [HW 4: Due Tuesday, Feb 25, at 11:59 pm](HW4.md)
-- [HW 5: Due Friday, Mar 7, at 11:59 pm](HW5.md)
+- [HW 0: Flexible. Please complete ASAP](HW0.md)
+- [HW 1: Due Friday, Jan 16 at 11:59 pm](HW1.md)
+- [HW 2: TBD](HW2.md)
+- [HW 3: TBD](HW3.md)
+- [HW 4: TBD](HW4.md)
+- [HW 5: TBD](HW5.md)
 
 ## References
 
@@ -136,8 +141,7 @@ have a WiFi-enabled laptop to bring to class.
 Before the first class, please make sure to install the required software and
 sign up for the required services. Students will need to install the following
 software on their laptop. Each of these pieces of software are free:
- - [Anaconda distribution of Python (Individual
-   Edition)](https://www.anaconda.com/download)
+ - [Anaconda distribution of Python](https://www.anaconda.com/download)
  - [Visual Studio Code](https://code.visualstudio.com/) (NOT Visual Studio.
    Visual Studio Code is different from Visual Studio)
  - [Git](https://git-scm.com/)
@@ -152,7 +156,6 @@ software on their laptop. Each of these pieces of software are free:
 Students should also sign up for an account with the following websites. We will
 use free versions of each of these services:
  - [GitHub](https://github.com/)
- - [IPUMS CPS](https://cps.ipums.org/cps/)
  - [Wharton Research Data Services (WRDS)](https://wrds-www.wharton.upenn.edu/)
    Apply for access through the University of Chicago, using the registration
    form [here.](https://wrds-www.wharton.upenn.edu/register/) For any issues

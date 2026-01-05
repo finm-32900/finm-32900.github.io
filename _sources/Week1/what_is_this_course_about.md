@@ -80,8 +80,8 @@ version control, and GitHub for team collaboration. Furthermore, given that this
 course is aimed towards students studying quantitative finance, these tools are
 taught through a series of case studies that are designed to give students
 practical experience with key financial data sets and sources, such as CRSP and
-Compustat for pricing and financials, macroeconomic data from FRED and the BEA,
-bond transactions from FINRA TRACE, Treasury auction data from TreasuryDirect,
+Compustat for pricing and financials, bond transactions from FINRA TRACE, options data
+from OptionMetrics, Treasury auction data from TreasuryDirect,
 textual data from EDGAR, and high-frequency trade and quote data from NYSE. 
 
 How does this relate to data science? A common characterization of data science describes it as a combination of coding/computer skills, mathematics and statistics, and domain specific knowledge (see the following figure). 

@@ -9,9 +9,9 @@ Week1/virtual_environments.md
 ```
 
 
-## To do before class: Homework 0 
+## To start in class: Homework 0 
 
-- Complete the steps to set up your computing environment. These are described in the ungraded homework, ["Homework 0"](./HW0.md). While this is ungraded and there is no due date, you should do this as soon as possible. These steps will guide you through the set up needed to complete the homework in this course. 
+- Complete the steps to set up your computing environment. These are described in the ungraded homework, ["Homework 0"](./HW0.md). While the due date is flexible, you should do this as soon as possible. These steps will guide you through the set up needed to complete the homework in this course. 
 
 ## Objectives
 
@@ -34,11 +34,13 @@ how to access the [course textbook](https://finm-32900.github.io/), and how to d
     - Show students how to sign up for GitHub Classroom (use assignment link)
     - Complete Example HWs together and submit them on GitHub Classroom
 - Discuss [Virtual Environments](./Week1/virtual_environments.md)
-- Discuss Case Study: Atlanta Fed Wage Growth Tracker
-- Discuss and start [Homework 1](./HW1.md)
+- Discuss and start [Homework 0](./HW0.md)
 
-## Homework 1
+## Homework 0
 
-Learning objects for [HW1](./HW1.md): 
-Introduction to GitHub, using unit tests and GitHub actions for autograding, 
-and downloading data from FRED to study repo spikes
+Learning objects for [HW0](./HW0.md): 
+Introduction to GitHub, using unit tests and GitHub actions for autograding.
+
+## Extra Time:
+
+If we have extra time, we will begin discussing how to pull data from WRDS and how this will factor into HW 1. 

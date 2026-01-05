@@ -1,3 +1,10 @@
-.wy-nav-content {
-    max-width: none;
- }
+/* Wider content layout */
+@media (min-width: 960px) {
+    .bd-page-width {
+        max-width: 120rem !important;  /* ~1920px, up from 88rem */
+    }
+
+    .bd-main .bd-content .bd-article-container {
+        max-width: 90em !important;  /* ~1440px, up from 60em */
+    }
+}
