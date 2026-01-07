@@ -1,15 +1,6 @@
 # Homework 2
 
 
-## Part 0 (not graded)
-
-Please watch the following videos to better familiarize yourself with CRSP and Compustat in WRDS.
-
- - Watch the following videos about WRDS and CRSP
-   - [WRDS Web Queries](https://player.vimeo.com/video/1019787855?h=83ee06d532) While we will be automating the query process using the WRDS Python package [`wrds`](https://pypi.org/project/wrds/), using the web query system is a good way for initial exploration of the data.
-   - [CRSP Coverage](https://vimeo.com/417302309)
-   - [CRSP - Useful Variale](https://wrds-www.wharton.upenn.edu/pages/grid-items/crsp-useful-variables/). This video goes over some points we made in class as well and is helpful for cleaning the CRSP data (e.g., negative prices).
-   - [CRSP Stock Database Coverage](https://wrds-www.wharton.upenn.edu/pages/grid-items/crsp-stock-database-structure/) Useful for merging stock files and event files in CRSP via SQL. This is useful, for example, to incorporate delisting returns.
 
 ## Part 1 (graded)
 
