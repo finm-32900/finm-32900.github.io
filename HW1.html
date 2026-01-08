@@ -437,17 +437,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment">Assignment</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-not-graded">Part 0 (not graded)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1">Part 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded">Part 2 (graded)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes-about-the-hw">Additional Notes about the HW</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-doing-it-this-way">Why are we doing it this way?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-i-check-if-my-tests-are-passing">How can I check if my tests are passing?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-information-about-git-and-github">More information about Git and GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2">Part 2</a></li>
 </ul>
 </li>
 </ul>
@@ -468,22 +461,10 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="notebooks/_03_SP500_constituents_and_index.html">HW Guide Part B: Reconstructing the S&amp;P 500 Index</a></li>
 </ul>
 </div>
-<p><strong>Due Date:</strong> Friday, Jan 16 at 11:59 pm.
-<strong>Link to Assignment:</strong> <a class="reference external" href="https://classroom.github.com/a/NTIt0NQ1">https://classroom.github.com/a/NTIt0NQ1</a></p>
-<section id="learning-outcomes">
-<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><strong>Do in class:</strong> Introduction to GitHub and GitHub Education</p>
-<ul>
-<li><p>Make sure students get added to GitHub Education. Start with Example HW</p></li>
-<li><p>Make sure students know how to clone HW repository</p></li>
-<li><p>Learn basic usage of PyTest to test HW solutions</p></li>
-<li><p>Learn how to submit HW via GitHub Education</p></li>
+<li><p><strong>Due Date:</strong> Friday, Jan 16 at 11:59 pm.</p></li>
+<li><p><strong>Link to Assignment:</strong> <a class="reference external" href="https://classroom.github.com/a/NTIt0NQ1">https://classroom.github.com/a/NTIt0NQ1</a></p></li>
 </ul>
-</li>
-<li><p><strong>Do on own:</strong> Explore the WRDS CRSP data</p></li>
-</ul>
-</section>
 <section id="assignment">
 <h2>Assignment<a class="headerlink" href="#assignment" title="Link to this heading">#</a></h2>
 <section id="part-0-not-graded">
@@ -502,24 +483,14 @@ document.write(`
 </section>
 <section id="part-1">
 <h3>Part 1<a class="headerlink" href="#part-1" title="Link to this heading">#</a></h3>
-<p>In order to start mastering the many features of Github, please complete the following tutorials from the <a class="reference external" href="https://skills.github.com/">GitHub Skills</a> page. Please make sure to use <strong>public repositories</strong> for this in your own GitHub user account. You will provide a link later to demonstrate that it was completed.</p>
+<p>Please continue to master the many features of Github by completing the following tutorials from the <a class="reference external" href="https://skills.github.com/">GitHub Skills</a> page. Please make sure to use <strong>public repositories</strong> for this in your own GitHub user account. You will provide a link in your homework submission.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/skills/introduction-to-github">Introduction to GitHub</a></p></li>
-<li><p><a class="reference external" href="https://github.com/skills/communicate-using-markdown">Communicate using Markdown</a></p>
-<ul>
-<li><p>This will give you some ideas on how to more effectively communicate on the course <a class="reference external" href="https://github.com/orgs/finm-32900/discussions">discussion board</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/skills/review-pull-requests">Review pull requests</a></p></li>
+<li><p><a class="reference external" href="https://github.com/skills/resolve-merge-conflicts">Resolve merge conflicts</a></p></li>
 </ul>
-</li>
-<li><p><a class="reference external" href="https://github.com/skills/github-pages">GitHub Pages</a></p>
-<ul>
-<li><p>Later in this course, we will use GitHub Pages to host a website. The textbook for this course is hosted on GitHub Pages.</p></li>
-</ul>
-</li>
-</ul>
-<p>These tutorials are not graded, but please make sure to complete them before the next class.</p>
 </section>
-<section id="part-2-graded">
-<h3>Part 2 (graded)<a class="headerlink" href="#part-2-graded" title="Link to this heading">#</a></h3>
+<section id="part-2">
+<h3>Part 2<a class="headerlink" href="#part-2" title="Link to this heading">#</a></h3>
 <p>This will include a task of replicating the CRSP market index example from the lecture as well as a task of replicating the S&amp;P 500 index from its constituent companies.</p>
 <p>To complete this assignment, please read the two HW guides here:</p>
 <ul class="simple">
@@ -528,31 +499,6 @@ document.write(`
 </ul>
 <p>Recall that the way to go about this assignment is to run <code class="docutils literal notranslate"><span class="pre">pytest</span></code> and then determine how to write the code to pass the tests. As a tip, make sure to run the <code class="docutils literal notranslate"><span class="pre">doit</span></code> command before running <code class="docutils literal notranslate"><span class="pre">pytest</span></code>. This will ensure that all the data is pulled before running the tests.</p>
 <p>Note, in order to complete this assignment, you will need to have the <code class="docutils literal notranslate"><span class="pre">wrds</span></code> package installed and you will need to have created a <code class="docutils literal notranslate"><span class="pre">.pgpass</span></code> file so that you can automatically authenticate to WRDS to pull the required data. Please refer to the textbook page <a class="reference internal" href="notebooks/_01_wrds_python_package.html"><span class="std std-doc">Example: Connecting to the WRDS Platform With Python</span></a> for more information, specifically the section “Creating a .pgpass file”.</p>
-</section>
-</section>
-<section id="additional-notes-about-the-hw">
-<h2>Additional Notes about the HW<a class="headerlink" href="#additional-notes-about-the-hw" title="Link to this heading">#</a></h2>
-<section id="why-are-we-doing-it-this-way">
-<h3>Why are we doing it this way?<a class="headerlink" href="#why-are-we-doing-it-this-way" title="Link to this heading">#</a></h3>
-<p>The point of structuring the assignment this way is to give you experience with unit testing, CI/CD, and the concept of test-driven development. These are concepts that you should learn to level-up your software development skills. These are real-world development concepts and getting experience with them should move you beyond the over-simplified approach that you might find in a typical university problem set.</p>
-<p>We discussed unit tests and test-driven development in class a little. If you’d like more in-depth information, please watch these YouTube videos:</p>
-<p><a class="reference external" href="https://www.youtube.com/watch?v=u6QfIXgjwGQ">“Software Testing Explained in 100 Seconds”</a> (This short video is written from the perspective of a web developer, but the same concepts apply to us.)</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/u6QfIXgjwGQ?si=-UGtBRl9aVCxV_N8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<p><a class="reference external" href="https://www.youtube.com/watch?v=B1j6k2j2eJg">“Test-Driven Development In Python // The Power of Red-Green-Refactor”</a> (This video discussing unit testing with Python and PyTest.)</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/B1j6k2j2eJg?si=ScZi46xUE4TN58N4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</section>
-<section id="how-can-i-check-if-my-tests-are-passing">
-<h3>How can I check if my tests are passing?<a class="headerlink" href="#how-can-i-check-if-my-tests-are-passing" title="Link to this heading">#</a></h3>
-<p>From the command-line, in the base directory of the project, run <code class="docutils literal notranslate"><span class="pre">pytest</span></code></p>
-<p>In <code class="docutils literal notranslate"><span class="pre">test_dodo.py</span></code> file, you’ll also notice that one of the tests asks you to edit <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> file so that the command <code class="docutils literal notranslate"><span class="pre">doit</span></code> will run all of the code of the project. To execute the <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> file, make sure <code class="docutils literal notranslate"><span class="pre">PyDoit</span></code> is installed and then simply run <code class="docutils literal notranslate"><span class="pre">doit</span></code> from the command line in the base directory of the project.</p>
-</section>
-<section id="more-information-about-git-and-github">
-<h3>More information about Git and GitHub<a class="headerlink" href="#more-information-about-git-and-github" title="Link to this heading">#</a></h3>
-<p>Also, if you’re looking for more instruction about how to use Git, here are two videos that I might recommend:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=M-O8ZNW9icQ">What is Version Control? (Learn Git Video Course)</a></p></li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=i_23KUAEtUM">Using Git with Visual Studio Code (Official Beginner Tutorial)</a></p></li>
-</ul>
 </section>
 </section>
 </section>
@@ -605,17 +551,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment">Assignment</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-not-graded">Part 0 (not graded)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1">Part 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded">Part 2 (graded)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-notes-about-the-hw">Additional Notes about the HW</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-we-doing-it-this-way">Why are we doing it this way?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-can-i-check-if-my-tests-are-passing">How can I check if my tests are passing?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-information-about-git-and-github">More information about Git and GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2">Part 2</a></li>
 </ul>
 </li>
 </ul>
