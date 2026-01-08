@@ -37,11 +37,11 @@ In order to complete the homework, you need to adjust the source files so that t
 
 **NOTE:** You should not make any edits to the test files. If an edit is made, you will be required to edit the history of your commits to remove any trace of the edits to these files:
 
-![image](./assets/HW0_test_files.png)
+<img src="./assets/HW0_test_files.png" width="50%">
 
 So, to complete the assignment, you should edit the source files that are being tested. That is, you should make edits to the files highlighted in yellow below:
 
-![image](./assets/HW0_files_to_edit.png)
+<img src="./assets/HW0_files_to_edit.png" width="50%">
 
 
 
