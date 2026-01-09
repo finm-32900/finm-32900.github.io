@@ -28,7 +28,7 @@ assumed.
 - **Lecturer:** Jeremy Bejarano, jbejarano@uchicago.edu
 - **Instructor Office Hours:** Monday, 4:30 - 5:30 pm, in the FinMath library (first floor of the Stevanovich Center, 5727 S. University Ave.)
 - **Teaching Assistants:**
-  - Viren Desai, vdd@uchicago.edu
+  - Viren Desai, viren.desai@aprio.com
   - Jared Szajkowski, jszajkowski@uchicago.edu
   - Note: Please include both TAs on all emails. However, students are strongly
     encouraged to post questions on the discussion page of the class GitHub
