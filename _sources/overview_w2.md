@@ -11,7 +11,7 @@ Week2/github_pages_preview.md
 
 ## Announcements
 
-- **No class on Monday, Jan 20** (holiday). A makeup class will be held **Tuesday, Jan 21, 6-9 PM CT on Zoom**. See the Canvas calendar for the Zoom link. The class will be recorded.
+- **No class on Monday, Jan 19** (holiday). A makeup class will be held **Tuesday, Jan 20, 6-9 PM CT on Zoom**. See the Canvas calendar for the Zoom link. The class will be recorded.
 - **Final Project Partners**: Start thinking about who you'd like to partner with for the final project. I will post the project options later this week. Projects will be completed in pairs.
 
 
