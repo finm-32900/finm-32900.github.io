@@ -64,58 +64,24 @@ Recapping **Best Practices**
 - **Documentation**: Provide documentation or an example `.env` file to guide setting up the necessary environment variables.
 - **Validation and Defaults**: Implement validation for environment variables in your application and set sensible defaults where appropriate.
 
-## Example: Examine the Env file in the Blank Project Repo
+## Examples and Demos
 
-Use the [`blank_project`](https://github.com/jmbejara/blank_project) template and the `demo_environment_variables.py` file there.
+For practical examples and demonstrations of using environment variables in Python, please refer to the in-class examples repository:
 
-Test out for yourself the functionality described in the module's docstring:
+**[Environment Variables Examples](https://github.com/finm-32900/inclass_examples/tree/main/env_vars)**
 
-This module demonstrate the use of environment variables to specify
-project configurations
+This repository contains complete working examples that demonstrate:
 
-The precedence of environment variables is the following:
-  1. Use locally defined variables
-  2. Use globally defined variables
-  3. Use variables defined in .env
-  4. Use default values defined in config.py
+- Setting up and using `.env` files
+- The precedence of environment variables (local, global, `.env`, and default values)
+- Using Python's `decouple` and `dotenv` packages
+- Cross-platform configuration management (Windows, Linux, MacOS)
 
-In Windows,
-```
-:: Default variables, or those in .env take precedence:
-python demo_environment_variables.py
-
-:: Now, set environment variables globally. These will take
-:: precedence over those in .env
-set DATA_DIR=../somedir/
-set OUTPUT_DIR=../otherdir/
-python ./src/demo_environment_variables.py
-
-:: Unset variables if so desired. 
-set DATA_DIR=
-set OUTPUT_DIR=
-```
-
-In Unix-like machines, this can easily be done on a single line so
-that the environment variables don't persist (are not set globally),
-```
-DATA_DIR=../somedir/ OUTPUT_DIR=../otherdir/ python ./src/demo_environment_variables.py
-```
+The examples in the repository serve as the source of truth for how to properly implement environment variables in your projects.
 
 ## Python's `decouple` and `dotenv` packages:
 
-Review the docs of `decouple` and review its usage in `config.py` in the `blank_project` repo
+For additional reference, review the official documentation:
 
  - https://pypi.org/project/python-decouple/
  - https://pypi.org/project/python-dotenv/
-
-The typical usage pattern for `dotenv` would look like this:
-```
-from dotenv import load_dotenv
-
-load_dotenv()  # take environment variables from .env.
-
-# Code of your application, which uses environment variables (e.g. from `os.environ` or
-# `os.getenv`) as if they came from the actual environment.
-
-DATA_DIR = os.getenv['DATA_DIR']
-```

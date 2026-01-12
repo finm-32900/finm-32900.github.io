@@ -444,7 +444,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-twelve-factor-app-methodology">The Twelve-Factor App methodology</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storing-config-in-environment-variables">Storing Config in Environment Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dot-env-env-file">What is a Dot Env (<code class="docutils literal notranslate"><span class="pre">.env</span></code>) File?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-examine-the-env-file-in-the-blank-project-repo">Example: Examine the Env file in the Blank Project Repo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-and-demos">Examples and Demos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pythons-decouple-and-dotenv-packages">Python’s <code class="docutils literal notranslate"><span class="pre">decouple</span></code> and <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> packages:</a></li>
 </ul>
             </nav>
@@ -524,58 +524,26 @@ document.write(`
 <li><p><strong>Validation and Defaults</strong>: Implement validation for environment variables in your application and set sensible defaults where appropriate.</p></li>
 </ul>
 </section>
-<section id="example-examine-the-env-file-in-the-blank-project-repo">
-<h2>Example: Examine the Env file in the Blank Project Repo<a class="headerlink" href="#example-examine-the-env-file-in-the-blank-project-repo" title="Link to this heading">#</a></h2>
-<p>Use the <a class="reference external" href="https://github.com/jmbejara/blank_project"><code class="docutils literal notranslate"><span class="pre">blank_project</span></code></a> template and the <code class="docutils literal notranslate"><span class="pre">demo_environment_variables.py</span></code> file there.</p>
-<p>Test out for yourself the functionality described in the module’s docstring:</p>
-<p>This module demonstrate the use of environment variables to specify
-project configurations</p>
-<p>The precedence of environment variables is the following:</p>
-<ol class="arabic simple">
-<li><p>Use locally defined variables</p></li>
-<li><p>Use globally defined variables</p></li>
-<li><p>Use variables defined in .env</p></li>
-<li><p>Use default values defined in <a class="reference external" href="http://config.py">config.py</a></p></li>
-</ol>
-<p>In Windows,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">::</span> <span class="n">Default</span> <span class="n">variables</span><span class="p">,</span> <span class="ow">or</span> <span class="n">those</span> <span class="ow">in</span> <span class="o">.</span><span class="n">env</span> <span class="n">take</span> <span class="n">precedence</span><span class="p">:</span>
-<span class="n">python</span> <span class="n">demo_environment_variables</span><span class="o">.</span><span class="n">py</span>
-
-<span class="p">::</span> <span class="n">Now</span><span class="p">,</span> <span class="nb">set</span> <span class="n">environment</span> <span class="n">variables</span> <span class="n">globally</span><span class="o">.</span> <span class="n">These</span> <span class="n">will</span> <span class="n">take</span>
-<span class="p">::</span> <span class="n">precedence</span> <span class="n">over</span> <span class="n">those</span> <span class="ow">in</span> <span class="o">.</span><span class="n">env</span>
-<span class="nb">set</span> <span class="n">DATA_DIR</span><span class="o">=../</span><span class="n">somedir</span><span class="o">/</span>
-<span class="nb">set</span> <span class="n">OUTPUT_DIR</span><span class="o">=../</span><span class="n">otherdir</span><span class="o">/</span>
-<span class="n">python</span> <span class="o">./</span><span class="n">src</span><span class="o">/</span><span class="n">demo_environment_variables</span><span class="o">.</span><span class="n">py</span>
-
-<span class="p">::</span> <span class="n">Unset</span> <span class="n">variables</span> <span class="k">if</span> <span class="n">so</span> <span class="n">desired</span><span class="o">.</span> 
-<span class="nb">set</span> <span class="n">DATA_DIR</span><span class="o">=</span>
-<span class="nb">set</span> <span class="n">OUTPUT_DIR</span><span class="o">=</span>
-</pre></div>
-</div>
-<p>In Unix-like machines, this can easily be done on a single line so
-that the environment variables don’t persist (are not set globally),</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DATA_DIR</span><span class="o">=../</span><span class="n">somedir</span><span class="o">/</span> <span class="n">OUTPUT_DIR</span><span class="o">=../</span><span class="n">otherdir</span><span class="o">/</span> <span class="n">python</span> <span class="o">./</span><span class="n">src</span><span class="o">/</span><span class="n">demo_environment_variables</span><span class="o">.</span><span class="n">py</span>
-</pre></div>
-</div>
+<section id="examples-and-demos">
+<h2>Examples and Demos<a class="headerlink" href="#examples-and-demos" title="Link to this heading">#</a></h2>
+<p>For practical examples and demonstrations of using environment variables in Python, please refer to the in-class examples repository:</p>
+<p><strong><a class="reference external" href="https://github.com/finm-32900/inclass_examples/tree/main/env_vars">Environment Variables Examples</a></strong></p>
+<p>This repository contains complete working examples that demonstrate:</p>
+<ul class="simple">
+<li><p>Setting up and using <code class="docutils literal notranslate"><span class="pre">.env</span></code> files</p></li>
+<li><p>The precedence of environment variables (local, global, <code class="docutils literal notranslate"><span class="pre">.env</span></code>, and default values)</p></li>
+<li><p>Using Python’s <code class="docutils literal notranslate"><span class="pre">decouple</span></code> and <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> packages</p></li>
+<li><p>Cross-platform configuration management (Windows, Linux, MacOS)</p></li>
+</ul>
+<p>The examples in the repository serve as the source of truth for how to properly implement environment variables in your projects.</p>
 </section>
 <section id="pythons-decouple-and-dotenv-packages">
 <h2>Python’s <code class="docutils literal notranslate"><span class="pre">decouple</span></code> and <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> packages:<a class="headerlink" href="#pythons-decouple-and-dotenv-packages" title="Link to this heading">#</a></h2>
-<p>Review the docs of <code class="docutils literal notranslate"><span class="pre">decouple</span></code> and review its usage in <code class="docutils literal notranslate"><span class="pre">config.py</span></code> in the <code class="docutils literal notranslate"><span class="pre">blank_project</span></code> repo</p>
+<p>For additional reference, review the official documentation:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pypi.org/project/python-decouple/">https://pypi.org/project/python-decouple/</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/python-dotenv/">https://pypi.org/project/python-dotenv/</a></p></li>
 </ul>
-<p>The typical usage pattern for <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> would look like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
-
-<span class="n">load_dotenv</span><span class="p">()</span>  <span class="c1"># take environment variables from .env.</span>
-
-<span class="c1"># Code of your application, which uses environment variables (e.g. from `os.environ` or</span>
-<span class="c1"># `os.getenv`) as if they came from the actual environment.</span>
-
-<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">[</span><span class="s1">&#39;DATA_DIR&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
 </section>
 </section>
 
@@ -630,7 +598,7 @@ that the environment variables don’t persist (are not set globally),</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-twelve-factor-app-methodology">The Twelve-Factor App methodology</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#storing-config-in-environment-variables">Storing Config in Environment Variables</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-dot-env-env-file">What is a Dot Env (<code class="docutils literal notranslate"><span class="pre">.env</span></code>) File?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-examine-the-env-file-in-the-blank-project-repo">Example: Examine the Env file in the Blank Project Repo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-and-demos">Examples and Demos</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pythons-decouple-and-dotenv-packages">Python’s <code class="docutils literal notranslate"><span class="pre">decouple</span></code> and <code class="docutils literal notranslate"><span class="pre">dotenv</span></code> packages:</a></li>
 </ul>
   </nav></div>
