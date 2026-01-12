@@ -25,6 +25,7 @@ assumed.
 
 - **Class:** Mondays, 1:30 - 4:30 PM, in-person at the Stevanovich Center building,
   Room #112. (5727 S. University Ave.)
+- **Note:** Due to the Jan 20 holiday, a makeup class will be held Tuesday, Jan 21, 6-9 PM CT on Zoom (link on Canvas). The class will be recorded.
 - **Lecturer:** Jeremy Bejarano, jbejarano@uchicago.edu
 - **Instructor Office Hours:** Monday, 4:30 - 5:30 pm, in the FinMath library (first floor of the Stevanovich Center, 5727 S. University Ave.)
 - **Teaching Assistants:**
@@ -34,9 +35,9 @@ assumed.
     encouraged to post questions on the discussion page of the class GitHub
     repository here.
 
-- **TA Office Hours:**  
-  - In-Person: Mondays, from 12:30 - 1:30 pm in the FinMath library (first floor of the Stevanovich Center, 5727 S. University Ave.)
-  - Virtual (Zoom): TBD on Zoom. Zoom link will be posted on the Canvas calendar.
+- **TA Office Hours:**
+  - In-Person: Mondays, 12:30 - 1:30 pm in the FinMath library (first floor of the Stevanovich Center, 5727 S. University Ave.)
+  - Virtual (Zoom): Fridays, 12 - 1 PM CT. See the Canvas calendar for the Zoom link.
 
 - **Textbook:** The text for the course will be published incrementally here:
   https://finm-32900.github.io/

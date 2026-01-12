@@ -50,7 +50,9 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'HW2';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="HW Guide Part A: Replicate Fama-French 1993" href="notebooks/_04_Fama_French_1993_ipynb.html" />
+    <link rel="prev" title="HW Guide Part B: Reconstructing the S&amp;P 500 Index" href="notebooks/_03_SP500_constituents_and_index.html" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>   
   </head>
@@ -112,8 +114,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -184,15 +184,17 @@
 <li class="toctree-l2"><a class="reference internal" href="Week1/virtual_environments.html">Virtual Environments</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">–WARNING! Textbook under revision. Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week2/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">–WARNING! Textbook under revision. Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week3/doit_examples.html">PyDoit Examples Walkthrough</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week3/project_structure.html">Project Structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_05_basics_of_SQL.html">Basics of SQL</a></li>
 </ul>
@@ -232,11 +234,15 @@
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework 📝</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="HW0.html">Homework 0</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_02_CRSP_market_index.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_03_SP500_constituents_and_index.html">HW Guide Part B: Reconstructing the S&amp;P 500 Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Homework 2</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_04_Fama_French_1993_ipynb.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="final_project.html">Final Project</a></li>
@@ -435,7 +441,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-not-graded">Part 0 (not graded)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded">Part 1 (graded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded">Part 2 (graded)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autograder-requirement">Autograder Requirement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder">Reminder</a></li>
 </ul>
             </nav>
         </div>
@@ -448,18 +461,83 @@ document.write(`
                 <article class="bd-article">
                    <section class="tex2jax_ignore mathjax_ignore" id="homework-2">
 <h1>Homework 2<a class="headerlink" href="#homework-2" title="Link to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/_04_Fama_French_1993_ipynb.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><strong>Due Date:</strong> Friday, Jan 23 at 11:59 pm.</p></li>
+<li><p><strong>Link to Assignment:</strong> <a class="reference external" href="https://classroom.github.com/a/wkZyHjl9">https://classroom.github.com/a/wkZyHjl9</a></p></li>
+</ul>
+<section id="part-0-not-graded">
+<h2>Part 0 (not graded)<a class="headerlink" href="#part-0-not-graded" title="Link to this heading">#</a></h2>
+<p>Please watch the following videos to better familiarize yourself with CRSP and Compustat in WRDS.</p>
+<ul class="simple">
+<li><p>Watch the following videos about Compustat. The slides to accompany the videos are available <a class="reference external" href="https://wrds-www.wharton.upenn.edu/documents/1374/intro_comp_access_link.pptx">here</a>.</p>
+<ul>
+<li><p><a class="reference external" href="https://vimeo.com/417303405">Introduction to Compustat | Part 1</a></p></li>
+<li><p><a class="reference external" href="https://vimeo.com/417302901">Introduction to Compustat | Part 2</a></p></li>
+<li><p><a class="reference external" href="https://vimeo.com/447503392">Merging CRSP and Compustat Data</a></p></li>
+</ul>
+</li>
+<li><p>You may also find the following videos helpful:</p>
+<ul>
+<li><p><a class="reference external" href="https://vimeo.com/447603278">Fama-French SMB and HML | SAS Replication</a></p></li>
+<li><p><a class="reference external" href="https://vimeo.com/447631819">Fama-French SMB and HML | 1. Book-Equity</a></p></li>
+<li><p><a class="reference external" href="https://vimeo.com/447635241">Fama-French SMB and HML | 2. CRSP Stock Data</a></p></li>
+<li><p><a class="reference external" href="https://vimeo.com/447867614">Fama-French SMB and HML | 3. CRSP</a></p></li>
+<li><p><a class="reference external" href="https://vimeo.com/447871296">Fama-French SMB and HML | 4. Merge CRSP and Compustat. B/M Ratio</a></p></li>
+<li><p><a class="reference external" href="https://vimeo.com/447876324">Fama-French SMB and HML | 5. Calculating Fama-French Factors</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
 <section id="part-1-graded">
 <h2>Part 1 (graded)<a class="headerlink" href="#part-1-graded" title="Link to this heading">#</a></h2>
-<p>In order to continue on our journey mastering the many features of Github, please complete next 2 tutorials from the <a class="reference external" href="https://skills.github.com/">GitHub Skills</a> page. Please make sure to use <strong>public repositories</strong> for this in your own GitHub user account. You will provide a link later to demonstrate that it was completed.</p>
+<p>In Part 1, you will replicate portfolio analysis from the seminal paper <a class="reference external" href="https://www.jufinance.com/mag/fin534_16/Common_risk_factors_Fama_French_JFE1993.pdf">Fama and French (1993)</a>. A guide to this replication is available here:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/skills/review-pull-requests">Review pull requests</a> You may want to seek out the help of a friend or teammate with this one.</p></li>
-<li><p><a class="reference external" href="https://github.com/skills/resolve-merge-conflicts">Resolve merge conflicts</a></p></li>
+<li><p><a class="reference internal" href="notebooks/_04_Fama_French_1993_ipynb.html"><span class="std std-doc">HW Guide: Replicate Fama-French 1993</span></a></p></li>
 </ul>
-<p>Also, if you’re looking for more instruction about how to use Git, here are two videos that I might recommend:</p>
+<p>The data will be downloaded using the WRDS Python package. The code for this is included in the HW, and the data download step is fully automated. Your job is to fill in the missing code to complete the replication.</p>
+<p>The actual Fama-French factors and sorted portfolios are downloaded from the <a class="reference external" href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">Kenneth French data library</a>. The HW code is already configured to automatically download these reference data (the precomputed factors and sorted portfolios from the Ken French data library). However, you will also download the raw underlying data from CRSP and Compustat via WRDS and construct the Fama-French factors and sorted portfolios from the raw data yourself. The unit tests will check that your code produces time series for the factors and portfolio returns that statistically match the reference data from the Kenneth French data library.</p>
+</section>
+<section id="part-2-graded">
+<h2>Part 2 (graded)<a class="headerlink" href="#part-2-graded" title="Link to this heading">#</a></h2>
+<p>In Part 1, you constructed the Fama-French size and book-to-market sorted portfolios. These 6 portfolios (Small/Low, Small/Medium, Small/High, Big/Low, Big/Medium, Big/High) represent different investment styles based on firm size and value characteristics.</p>
+<p>For Part 2, you will:</p>
+<ol class="arabic simple">
+<li><p>Pick a trading strategy to analyze (we recommend one of the 6 size/BM portfolios from Part 1)</p></li>
+<li><p>Use the <a class="reference external" href="https://github.com/Lumiwealth/quantstats_lumi"><code class="docutils literal notranslate"><span class="pre">quantstats_lumi</span></code></a> package to generate a tearsheet</p></li>
+<li><p>Publish the tearsheet to the internet using GitHub Pages</p></li>
+</ol>
+<p><strong>Note:</strong> The Fama-French factors (SMB, HML, Mkt-RF) are long-short constructs used for analysis, not directly tradeable as-is. The 6 size/BM portfolios, however, represent long-only portfolios of actual stocks.</p>
+<p>For detailed instructions on what tearsheets are and how to publish to GitHub Pages, see: <a class="reference internal" href="Week2/github_pages_preview.html"><span class="std std-doc">GitHub Pages and Tearsheets</span></a></p>
+<section id="autograder-requirement">
+<h3>Autograder Requirement<a class="headerlink" href="#autograder-requirement" title="Link to this heading">#</a></h3>
+<p>To receive credit for this part, you must update <code class="docutils literal notranslate"><span class="pre">src/github_pages_tearsheet.py</span></code> in your HW repository:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set this to True once you&#39;ve published your tearsheet</span>
+<span class="n">I_HAVE_CREATED_A_TEAR_SHEET_ON_GITHUB_PAGES</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Provide the URL to your published tearsheet</span>
+<span class="n">URL_TO_MY_TEAR_SHEET</span> <span class="o">=</span> <span class="s2">&quot;https://finm-32900.github.io/&lt;your-repo-name&gt;/&quot;</span>
+</pre></div>
+</div>
+<p>The unit test <code class="docutils literal notranslate"><span class="pre">test_github_pages_tearsheet.py</span></code> will verify that both values are set correctly.</p>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>See a completed example here: <a class="reference external" href="https://finm-32900.github.io/hw2--solutions/">https://finm-32900.github.io/hw2–solutions/</a></p>
+<p><strong>Citations:</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=M-O8ZNW9icQ">What is Version Control? (Learn Git Video Course)</a></p></li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=i_23KUAEtUM">Using Git with Visual Studio Code (Official Beginner Tutorial)</a></p></li>
+<li><p>Eugene, Fama, and Kenneth French. “The cross-section of expected stock returns.” Journal of Finance 47, no. 2 (1992): 427-465.</p></li>
+<li><p>Fama, Eugene F., and Kenneth R. French. “Common risk factors in the returns on stocks and bonds.” Journal of financial economics 33, no. 1 (1993): 3-56.</p></li>
 </ul>
+</section>
+</section>
+<section id="reminder">
+<h2>Reminder<a class="headerlink" href="#reminder" title="Link to this heading">#</a></h2>
+<p>Do not make any changes to the unit test files. If an edit is made, you will be required to edit the history of your commits to remove any trace of the edits to these files.</p>
 </section>
 </section>
 
@@ -477,6 +555,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="notebooks/_03_SP500_constituents_and_index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">HW Guide Part B: Reconstructing the S&amp;P 500 Index</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="notebooks/_04_Fama_French_1993_ipynb.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">HW Guide Part A: Replicate Fama-French 1993</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -493,7 +589,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-not-graded">Part 0 (not graded)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded">Part 1 (graded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded">Part 2 (graded)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autograder-requirement">Autograder Requirement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder">Reminder</a></li>
 </ul>
   </nav></div>
 

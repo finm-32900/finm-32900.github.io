@@ -3,6 +3,7 @@
 ```{toctree}
 :maxdepth: 1
 Week3/what_is_a_task_runner.md
+Week3/doit_examples.md
 Week3/project_structure.md
 notebooks/_05_basics_of_SQL.ipynb
 ```

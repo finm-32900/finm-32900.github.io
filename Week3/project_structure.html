@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Basics of SQL" href="../notebooks/_05_basics_of_SQL.html" />
-    <link rel="prev" title="What is a build system or task runner?" href="what_is_a_task_runner.html" /> 
+    <link rel="prev" title="PyDoit Examples Walkthrough" href="doit_examples.html" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>   
   </head>
@@ -184,15 +184,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../Week1/virtual_environments.html">Virtual Environments</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–WARNING! Textbook under revision. Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–WARNING! Textbook under revision. Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="what_is_a_task_runner.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doit_examples.html">PyDoit Examples Walkthrough</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Project Structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/_05_basics_of_SQL.html">Basics of SQL</a></li>
 </ul>
@@ -237,6 +239,10 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_CRSP_market_index.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/_03_SP500_constituents_and_index.html">HW Guide Part B: Reconstructing the S&amp;P 500 Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_04_Fama_French_1993_ipynb.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../final_project.html">Final Project</a></li>
@@ -412,7 +418,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -428,6 +436,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-cookiecutter">What is Cookiecutter?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-cruft">What is Cruft?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-template">Course Template</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-reference">Historical Reference</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -438,8 +457,7 @@ document.write(`
                 <article class="bd-article">
                    <section class="tex2jax_ignore mathjax_ignore" id="project-structure">
 <h1>Project Structure<a class="headerlink" href="#project-structure" title="Link to this heading">#</a></h1>
-<p>I would like to defer this discussion to the discussion presented by <a class="reference external" href="https://drivendata.github.io/cookiecutter-data-science/">Cookie Cutter Data Science</a>.
-The template that I use for my <a class="reference external" href="https://github.com/jmbejara/blank_project"><code class="docutils literal notranslate"><span class="pre">blank_project</span></code> repository</a> borrows from their template.</p>
+<p>I would like to defer much of this discussion to the discussion presented by <a class="reference external" href="https://drivendata.github.io/cookiecutter-data-science/">Cookie Cutter Data Science</a>.</p>
 <p>The key take-aways from the Cookie Cutter Data Science project structure discussion are these:</p>
 <ul class="simple">
 <li><p>Other people will thank you</p></li>
@@ -449,6 +467,41 @@ The template that I use for my <a class="reference external" href="https://githu
 <li><p>“Build from the environment up” (Use a virtual environment and start sparse)</p></li>
 <li><p>Keep secrets out of version control. Use <code class="docutils literal notranslate"><span class="pre">.env</span></code> files.</p></li>
 </ul>
+<section id="what-is-cookiecutter">
+<h2>What is Cookiecutter?<a class="headerlink" href="#what-is-cookiecutter" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://cookiecutter.readthedocs.io/">Cookiecutter</a> is a command-line tool that creates projects from project templates. Instead of manually creating folder structures, configuration files, and boilerplate code each time you start a new project, Cookiecutter automates this process. You point it at a template repository, answer a few prompts about your project (name, author, etc.), and it generates a fully scaffolded project ready to use.</p>
+<p>The limitation of Cookiecutter is that it’s a one-time operation: once you’ve created your project, there’s no built-in way to incorporate updates if the template improves over time.</p>
+</section>
+<section id="what-is-cruft">
+<h2>What is Cruft?<a class="headerlink" href="#what-is-cruft" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://cruft.github.io/cruft/">Cruft</a> extends Cookiecutter by adding ongoing template synchronization. It is fully compatible with existing Cookiecutter templates but adds the ability to:</p>
+<ul class="simple">
+<li><p><strong>Check</strong> if your project is up-to-date with the template (<code class="docutils literal notranslate"><span class="pre">cruft</span> <span class="pre">check</span></code>)</p></li>
+<li><p><strong>Update</strong> your project when the template changes (<code class="docutils literal notranslate"><span class="pre">cruft</span> <span class="pre">update</span></code>)</p></li>
+<li><p><strong>View differences</strong> between your project and the template (<code class="docutils literal notranslate"><span class="pre">cruft</span> <span class="pre">diff</span></code>)</p></li>
+</ul>
+<p>This means when the course template is updated with improvements or bug fixes, you can pull those changes into your existing project rather than starting over or manually copying changes.</p>
+</section>
+<section id="course-template">
+<h2>Course Template<a class="headerlink" href="#course-template" title="Link to this heading">#</a></h2>
+<p>For this course, use the following Cookiecutter template with Cruft:</p>
+<p><strong>Template:</strong> <a class="github reference external" href="https://github.com/backofficedev/cookiecutter_chartbook">backofficedev/cookiecutter_chartbook</a></p>
+<p>To create a new project:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>cruft
+cruft<span class="w"> </span>create<span class="w"> </span>https://github.com/backofficedev/cookiecutter_chartbook
+</pre></div>
+</div>
+<p>See the template’s README for detailed usage instructions and the structure it provides.</p>
+</section>
+<section id="historical-reference">
+<h2>Historical Reference<a class="headerlink" href="#historical-reference" title="Link to this heading">#</a></h2>
+<p>For historical reference, older versions of project templates I’ve used are available here:</p>
+<ul class="simple">
+<li><p><a class="github reference external" href="https://github.com/jmbejara/blank_project/">jmbejara/blank_project</a></p></li>
+<li><p><a class="github reference external" href="https://github.com/jmbejara/blank_project_simple/">jmbejara/blank_project_simple</a></p></li>
+</ul>
+<p>These are now deprecated in favor of the Cookiecutter template above, which provides better maintainability through Cruft’s template synchronization features.</p>
+</section>
 </section>
 
 <div class="section ablog__blog_comments">
@@ -466,12 +519,12 @@ The template that I use for my <a class="reference external" href="https://githu
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="what_is_a_task_runner.html"
+       href="doit_examples.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">What is a build system or task runner?</p>
+        <p class="prev-next-title">PyDoit Examples Walkthrough</p>
       </div>
     </a>
     <a class="right-next"
@@ -489,6 +542,24 @@ The template that I use for my <a class="reference external" href="https://githu
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-cookiecutter">What is Cookiecutter?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-cruft">What is Cruft?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-template">Course Template</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-reference">Historical Reference</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
