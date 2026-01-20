@@ -29,7 +29,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="What is a build system or task runner?" href="Week3/what_is_a_task_runner.html" />
-    <link rel="prev" title="–WARNING! Textbook under revision. Schedule subject to change after HERE–" href="subject_to_change_after_this_week.html" /> 
+    <link rel="prev" title="GitHub Pages and Tearsheets" href="Week2/github_pages_preview.html" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>   
   </head>
@@ -187,22 +187,24 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_05_basics_of_SQL.html">Basics of SQL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week2/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">–WARNING! Textbook under revision. Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week3/doit_examples.html">PyDoit Examples Walkthrough</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week3/project_structure.html">Project Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/_05_basics_of_SQL.html">Basics of SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week3/project_structure.html">Project Structure: “Chartbook” Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">–WARNING! Textbook under revision. Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week4/latex_essentials.html">LaTeX Essentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_05_basics_of_SQL.html">Basics of SQL</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -245,6 +247,7 @@
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_04_Fama_French_1993_ipynb.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="HW3.html">Homework 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="final_project.html">Final Project</a></li>
 </ul>
 
@@ -459,30 +462,32 @@ document.write(`
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week3/doit_examples.html">PyDoit Examples Walkthrough</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week3/project_structure.html">Project Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/_05_basics_of_SQL.html">Basics of SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week3/project_structure.html">Project Structure: “Chartbook” Template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
 </ul>
 </div>
 <section id="learning-outcomes">
 <h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><strong>Experience using CRSP data</strong> Let’s replicate the CRSP value weighted market index and the S&amp;P 500 index.</p></li>
 <li><p><strong>Task Runners</strong> Now, discuss incorporating automated data downloads into our workflow. Discuss <a class="reference internal" href="Week3/what_is_a_task_runner.html"><span class="std std-doc">Build Systems and Task Runners</span></a></p></li>
 <li><p><strong>Query Automation</strong> We’ll then put these two concepts together to demonstrate how to automate a data query from a database.</p></li>
-<li><p><strong>Basic of SQL</strong> In our query automation discussion, we’ll discuss some of the very basics of SQL—enough to allow us to make simple joins in our queries.</p></li>
+<li><p><strong>Project Structure</strong> We’ll discuss the structure of the “chartbook project” template and how to use it to create a new project. Mention my older template that is now deprecated.</p></li>
+<li><p><strong>Overview of my “Financial Times Series Forecasting Repository”</strong> I will discuss the structure of my repository and how to use it to obtain a variety of useful financial time series data.</p></li>
 </ul>
 </section>
 <section id="agenda">
 <h2>Agenda<a class="headerlink" href="#agenda" title="Link to this heading">#</a></h2>
 <ul class="simple">
+<li><p>Review <a class="reference internal" href="HW2.html"><span class="std std-doc">HW 2</span></a> and answer questions</p></li>
+<li><p>Note: <a class="reference internal" href="notebooks/_05_basics_of_SQL.html"><span class="std std-doc">Basics of SQL</span></a> has been moved to Week 2</p></li>
+<li><p><a class="reference internal" href="Week3/what_is_a_task_runner.html"><span class="std std-doc">Task Runners</span></a></p></li>
+<li><p><a class="reference internal" href="Week3/project_structure.html"><span class="std std-doc">Introduction to “Chartbook Project” Template</span></a></p></li>
+<li><p>Discuss <a class="reference internal" href="FinalProject/potential_final_projects.html"><span class="std std-doc">Potential Final Projects</span></a>. I will send an email out with a survey to select the projects. Please find your project partner. Each group must have exactly 2 people. Only have one person per group submit responses to the survey. I will try to make sure that each group is assigned a project that is of interest to them.</p></li>
 <li><p>Discuss <a class="reference internal" href="HW3.html"><span class="std std-doc">HW 3</span></a></p>
 <ul>
 <li><p>Start HW 3 together.</p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="notebooks/_05_basics_of_SQL.html"><span class="std std-doc">Basics of SQL</span></a></p></li>
-<li><p><a class="reference internal" href="Week3/what_is_a_task_runner.html"><span class="std std-doc">Task Runners</span></a></p></li>
-<li><p><a class="reference internal" href="Week3/project_structure.html"><span class="std std-doc">Introduction to “Blank Project” Template</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -502,12 +507,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="subject_to_change_after_this_week.html"
+       href="Week2/github_pages_preview.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">–WARNING! Textbook under revision. Schedule subject to change after HERE–</p>
+        <p class="prev-next-title">GitHub Pages and Tearsheets</p>
       </div>
     </a>
     <a class="right-next"

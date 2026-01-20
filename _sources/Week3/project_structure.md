@@ -1,4 +1,4 @@
-# Project Structure
+# Project Structure: "Chartbook" Template
 
 I would like to defer much of this discussion to the discussion presented by [Cookie Cutter Data Science](https://drivendata.github.io/cookiecutter-data-science/).
 

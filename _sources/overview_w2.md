@@ -4,6 +4,7 @@
 :maxdepth: 1
 Week2/WRDS_intro_and_web_queries.md
 notebooks/_01_wrds_python_package.ipynb
+notebooks/_05_basics_of_SQL.ipynb
 Week2/env_files.md
 Week2/github_pages_preview.md
 ```
@@ -28,6 +29,7 @@ Week2/github_pages_preview.md
 - Given the motivation for automating data downloads and the inspiration to create various financial reports, let's discuss the main platform for data that we'll use in this course: WRDS. We started this last week.
   - [Introduction to WRDS and WRDS Web Queries](./Week2/WRDS_intro_and_web_queries.md)
   - [Demo of the WRDS Python package](./notebooks/_01_wrds_python_package.ipynb)
+- **Basic of SQL** In our query automation discussion, we'll discuss some of the very basics of SQL---enough to allow us to make simple joins in our queries.
 - Discuss `.env` files and secrets, and how to use them in our workflow. See [Env Files](./Week2/env_files.md)
 - Introduce [GitHub Pages and Tearsheets](./Week2/github_pages_preview.md) - publishing analysis results to the web
 - Discuss [HW 2](./HW2.md):

@@ -29,7 +29,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -187,22 +187,24 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_05_basics_of_SQL.html">Basics of SQL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week2/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–WARNING! Textbook under revision. Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week3/doit_examples.html">PyDoit Examples Walkthrough</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Week3/project_structure.html">Project Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/_05_basics_of_SQL.html">Basics of SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/project_structure.html">Project Structure: “Chartbook” Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–WARNING! Textbook under revision. Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_05_basics_of_SQL.html">Basics of SQL</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -245,6 +247,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/_04_Fama_French_1993_ipynb.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../HW3.html">Homework 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../final_project.html">Final Project</a></li>
 </ul>
 
@@ -418,7 +421,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -434,6 +439,33 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#financial-forecasting">Financial Forecasting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-expectations-in-the-cross-section-of-present-values">1.	Market Expectations in the Cross-Section of Present Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#man-vs-machine-learning-the-term-structure-of-earnings-expectations-and-conditional-biases">2. Man vs. Machine Learning: The Term Structure of Earnings Expectations and Conditional Biases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lewellen-2015-critical-finance-review-the-cross-section-of-expected-stock-returns">3. Lewellen (2015), Critical Finance Review. “The Cross-section of Expected Stock Returns”</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-and-quantitative-finance">AI and Quantitative Finance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-chatgpt-forecast-stock-price-movements-return-predictability-and-large-language-models">4. Can ChatGPT Forecast Stock Price Movements? Return Predictability and Large Language Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#institutional-monitoring">Institutional Monitoring</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermediary-asset-pricing-new-evidence-from-many-asset-classes">5. Intermediary Asset Pricing: New Evidence from Many Asset Classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monetary-tightening-and-us-bank-fragility-in-2023">6. Monetary Tightening and US Bank Fragility in 2023</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-demand-system-approach-to-asset-pricing-working-paper">7. <strong>A Demand System Approach to Asset Pricing (Working Paper)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arbitrage-spreads">Arbitrage Spreads</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segmented-arbitrage-treasury-spot-futures">8. Segmented Arbitrage: Treasury Spot-Futures</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -444,13 +476,133 @@ document.write(`
                 <article class="bd-article">
                    <section class="tex2jax_ignore mathjax_ignore" id="list-of-potential-final-projects">
 <h1>List of Potential Final Projects<a class="headerlink" href="#list-of-potential-final-projects" title="Link to this heading">#</a></h1>
-<p>The project that you are assigned will come from one of the following three categories:</p>
+<p>The project that you are assigned will come from one of several categories below. Each of these projects involve replicated a well known finance paper.
+If you can’t access the papers below, you can find a link to them here: <a class="reference external" href="https://drive.google.com/drive/folders/1uaFsV1nn9MeO_XIRcolBnKcbkHKCEHu8?usp=drive_link">https://drive.google.com/drive/folders/1uaFsV1nn9MeO_XIRcolBnKcbkHKCEHu8?usp=drive_link</a></p>
+<section id="financial-forecasting">
+<h2>Financial Forecasting<a class="headerlink" href="#financial-forecasting" title="Link to this heading">#</a></h2>
+<section id="market-expectations-in-the-cross-section-of-present-values">
+<h3>1.	<a class="reference external" href="https://doi.org/10.1111/jofi.12060">Market Expectations in the Cross-Section of Present Values</a><a class="headerlink" href="#market-expectations-in-the-cross-section-of-present-values" title="Link to this heading">#</a></h3>
+<p>This paper demonstrates that returns and cash flows for the aggregate US stock market are highly predictable. It demonstrates this by constructing a univariate predictor from the cross section of stocks. See the abstract:</p>
+<blockquote>
+<div><p>Returns and cash flow growth for the aggregate U.S. stock market are highly and robustly predictable. Using a single factor extracted from the cross-section of book-to market ratios, we find an out-of-sample return forecasting R2 of 13% at the annual frequency (0.9% monthly). We document similar out-of-sample predictability for returns on value, size, momentum, and industry portfolios. We present a model linking aggregate market expectations to disaggregated valuation ratios in a latent factor system. Spreads in value portfolios’ exposures to economic shocks are key to identifying predictability and are consistent with duration-based theories of the value premium.</p>
+</div></blockquote>
+<p>Also, from their paper,</p>
+<blockquote>
+<div><p>“Our approach attacks a challenging problem in empirical asset pricing: how does one exploit a wealth of predictors in relatively short time series? If the predictors number near or more than the number of observations, the standard ordinary least squares (OLS) forecaster will be poorly behaved or nonexistent (see Huber (1973)). Our solution is to use partial least squares (PLS; Wold (1975)), which is a simple regression-based procedure designed to parsimoniously forecast a single time series using a large panel of predictors. We use it to construct a univariate forecaster for market returns (or dividend growth) that is a linear combination of assets’ valuation ratios.”</p>
+</div></blockquote>
 <ul class="simple">
-<li><p>white papers</p></li>
-<li><p>data series from “Evidence from Many Asset Classes”</p></li>
-<li><p>replications of arbitrage spreads from the paper “Segmented Arbitrage”.</p></li>
+<li><p>Task: Replicate Table 1</p></li>
+<li><p>Data sources: CRSP and Compustat</p></li>
+<li><p>Citation: KELLY, B. and PRUITT, S. (2013), Market Expectations in the Cross-Section of Present Values. THE JOURNAL OF FINANCE, 68: 1721-1756. <a class="reference external" href="https://doi.org/10.1111/jofi.12060">https://doi.org/10.1111/jofi.12060</a></p></li>
 </ul>
-<p>If you can’t access the papers below, you can find a link to them here: <a class="reference external" href="https://drive.google.com/drive/folders/10OvVRXb-G31PHV95smF06HkahRpnCh_d?usp=sharing">https://drive.google.com/drive/folders/10OvVRXb-G31PHV95smF06HkahRpnCh_d?usp=sharing</a></p>
+</section>
+<section id="man-vs-machine-learning-the-term-structure-of-earnings-expectations-and-conditional-biases">
+<h3>2. <a class="reference external" href="https://ssrn.com/abstract=3625279">Man vs. Machine Learning: The Term Structure of Earnings Expectations and Conditional Biases</a><a class="headerlink" href="#man-vs-machine-learning-the-term-structure-of-earnings-expectations-and-conditional-biases" title="Link to this heading">#</a></h3>
+<p>This paper studies analysts’ earnings forecasts and shows that they are <em>conditionally biased</em> relative to a statistically optimal machine-learning benchmark. The authors use random forests to construct real-time forecasts of firm earnings using public information (firm fundamentals, macro data, and analyst forecasts), and define <strong>earnings forecast bias</strong> as the difference between analysts’ forecasts and the ML benchmark. Stocks with overly optimistic earnings expectations earn significantly lower future returns, and firms with higher optimism issue more equity.</p>
+<p>From the abstract:</p>
+<blockquote>
+<div><p>“We introduce a real-time measure of conditional biases to firms’ earnings forecasts. The measure is defined as the difference between analysts’ expectations and a statistically optimal unbiased machine-learning benchmark. Analysts’ conditional expectations are, on average, biased upwards, a bias that increases in the forecast horizon. These biases are associated with negative cross-sectional return predictability, and the short legs of many anomalies contain firms with excessively optimistic earnings forecasts.”</p>
+</div></blockquote>
+<p>This project gives students hands-on experience with machine learning for cash-flow forecasting, interpretability tools (partial dependence plots), and cross-sectional asset pricing tests. You might only consider this project if you have some experience with machine learning.</p>
+<ul class="simple">
+<li><p>Task: Replicate Table 2 (forecast accuracy and bias summary) and Figure 1 or Figure 3 (partial dependence plots showing nonlinearities) (Hyperparameters can be fixed; full cross-validation is not required.)</p></li>
+<li><p>Data sources: I/B/E/S (analyst earnings forecasts and actual EPS), CRSP (prices, returns, split adjustments), WRDS Financial Ratios Suite (firm fundamentals), FRED macro data (can substitute for real-time vintages)</p></li>
+<li><p>Citation: van Binsbergen, Jules H., Xiao Han, and Alejandro Lopez-Lira. <em>Man vs. Machine Learning: The Term Structure of Earnings Expectations and Conditional Biases</em>. Review of Financial Studies (forthcoming). Available at SSRN: <a class="reference external" href="https://ssrn.com/abstract=3625279">https://ssrn.com/abstract=3625279</a></p></li>
+</ul>
+</section>
+<section id="lewellen-2015-critical-finance-review-the-cross-section-of-expected-stock-returns">
+<h3>3. <a class="reference external" href="https://faculty.tuck.dartmouth.edu/images/uploads/faculty/jonathan-lewellen/ExpectedStockReturns.pdf">Lewellen (2015), Critical Finance Review. “The Cross-section of Expected Stock Returns”</a><a class="headerlink" href="#lewellen-2015-critical-finance-review-the-cross-section-of-expected-stock-returns" title="Link to this heading">#</a></h3>
+<p>This paper will teach you how to combine many firm characteristics into real-time forecasts of a stock’s expected returns. See the abstract: “This paper studies the cross-sectional properties of return forecasts derived from Fama-MacBeth regressions. These forecasts mimic how an investor could, in real time, combine many firm characteristics to obtain a composite estimate of a stock’s expected return. Empirically, the forecasts vary substantially across stocks and have strong predictive power for actual returns. For example, using ten-year rolling estimates of Fama-MacBeth slopes and a cross-sectional model with 15 firm characteristics (all based on low-frequency data), the expected-return estimates have a cross-sectional standard deviation of 0.87% monthly and a predictive slope for future monthly returns of 0.74, with a standard error of 0.07.”</p>
+<ul class="simple">
+<li><p>Task: Replicate Table 1, Table 2, and Figure 1</p></li>
+<li><p>Data sources: CRSP and Compustat</p></li>
+<li><p>Citation: Lewellen, Jonathan W., The Cross Section of Expected Stock Returns (August 22, 2014). Forthcoming in Critical Finance Review, Tuck School of Business Working Paper No. 2511246, Available at SSRN: <a class="reference external" href="https://ssrn.com/abstract=2511246">https://ssrn.com/abstract=2511246</a> or <a class="reference external" href="http://dx.doi.org/10.2139/ssrn.2511246">http://dx.doi.org/10.2139/ssrn.2511246</a></p></li>
+<li><p>Notes: I will provide some starter code that partially constructs some of these tables. In this project, you’ll have to complete the code.</p></li>
+</ul>
+</section>
+</section>
+<section id="ai-and-quantitative-finance">
+<h2>AI and Quantitative Finance<a class="headerlink" href="#ai-and-quantitative-finance" title="Link to this heading">#</a></h2>
+<section id="can-chatgpt-forecast-stock-price-movements-return-predictability-and-large-language-models">
+<h3>4. <a class="reference external" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4412788">Can ChatGPT Forecast Stock Price Movements? Return Predictability and Large Language Models</a><a class="headerlink" href="#can-chatgpt-forecast-stock-price-movements-return-predictability-and-large-language-models" title="Link to this heading">#</a></h3>
+<p>This paper demonstrates the capability of large language models (LLMs) like ChatGPT to predict stock market reactions from news headlines. See the abstract:</p>
+<blockquote>
+<div><p>We document the capability of large language models (LLMs) like ChatGPT to predict stock market reactions from news headlines without direct financial training. Using postknowledge-cutoff headlines, GPT-4 captures initial market responses, achieving approximately 90% portfolio-day hit rates for the non-tradable initial reaction. GPT-4 scores also significantly predict the subsequent drift, especially for small stocks and negative news. Forecasting ability generally increases with model size, suggesting that financial reasoning is an emerging capacity of complex LLMs. Strategy returns decline as LLM adoption rises, consistent with improved price efficiency. To rationalize these findings, we develop a theoretical model that incorporates LLM technology, information-processing capacity constraints, underreaction, and limits to arbitrage.</p>
+</div></blockquote>
+<p>Also, from their paper,</p>
+<blockquote>
+<div><p>“Our key finding is that GPT-4 demonstrates a strong ability to predict the immediate market reaction to news headlines, achieving daily portfolio hit rates of approximately 90% for correctly identifying the direction of the initial price response. This result is notable for two reasons. First, it is not obvious that a general-purpose language model trained without explicit financial supervision should excel at this task. The fact that it does suggests that sophisticated financial reasoning—understanding not just whether news is positive or negative, but also how markets will interpret it—emerges naturally from the model’s general language training.”</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Task: Replicate Table 1 (Hit Rates) and Table 5 (Long-Short Strategy Returns)</p></li>
+<li><p>Data sources: CRSP, RavenPack (or similar news data), and ChatGPT API</p></li>
+<li><p>Citation: Lopez-Lira, Alejandro and Tang, Yuehua, Can ChatGPT Forecast Stock Price Movements? Return Predictability and Large Language Models (2023). Available at SSRN: <a class="reference external" href="https://ssrn.com/abstract=4412788">https://ssrn.com/abstract=4412788</a></p></li>
+</ul>
+</section>
+</section>
+<section id="institutional-monitoring">
+<h2>Institutional Monitoring<a class="headerlink" href="#institutional-monitoring" title="Link to this heading">#</a></h2>
+<section id="intermediary-asset-pricing-new-evidence-from-many-asset-classes">
+<h3>5. <a class="reference external" href="https://zhiguohe.net/wp-content/uploads/2023/12/jfepublishedversion.pdf">Intermediary Asset Pricing: New Evidence from Many Asset Classes</a><a class="headerlink" href="#intermediary-asset-pricing-new-evidence-from-many-asset-classes" title="Link to this heading">#</a></h3>
+<p>This project will give you experience in analyzing the balance sheet fundamentals of large broker-dealers, in this case the full set of primary dealers in the US, and how the financial condition of these primary dealers affect the US stock market as a whole.</p>
+<ul class="simple">
+<li><p>Task: Replicate Table 2, and Table 3 (Panel A and Panel B)</p></li>
+<li><p>Data used: CRSP, Compustat, Datastream</p></li>
+<li><p>Some code and data is available online <a class="reference external" href="https://zhiguohe.net/publications/research/">here</a> and <a class="reference external" href="https://zhiguohe.net/data-and-empirical-patterns/intermediary-capital-ratio-and-risk-factor/">here</a>.</p></li>
+<li><p>Citation: He, Zhiguo, Bryan Kelly, and Asaf Manela. “Intermediary asset pricing: New evidence from many asset classes.” Journal of Financial Economics 126, no. 1 (2017): 1-35.</p></li>
+<li><p>Note: I will provide some code that will help you get started.</p></li>
+</ul>
+</section>
+<section id="monetary-tightening-and-us-bank-fragility-in-2023">
+<h3>6. <a class="reference external" href="https://www.nber.org/papers/w31048">Monetary Tightening and US Bank Fragility in 2023</a><a class="headerlink" href="#monetary-tightening-and-us-bank-fragility-in-2023" title="Link to this heading">#</a></h3>
+<p>This paper will teach you how to use bank call reports to construct measures of the financial condition of banks. This is especially useful if you have interest in specializing, for example, in specializing in equities covering the financial sector.</p>
+<ul class="simple">
+<li><p>Task: Replicate Table 1, Table A1 and Figure A1 and update the numbers through 2025. To do this, you will have to scrape data from FFIEC’s website.</p></li>
+<li><p>Citation: Jiang et al (2023). Monetary Tightening and US Bank Fragility in 2023: Mark-to-Market Losses and Uninsured Depositor Runs?. No. w31048. National Bureau of Economic Research, 2023. <a class="reference external" href="https://www.nber.org/papers/w31048">https://www.nber.org/papers/w31048</a></p></li>
+<li><p>Data sources: Bank Call Reports. See <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/get-data/bank-regulatory/">https://wrds-www.wharton.upenn.edu/pages/get-data/bank-regulatory/</a></p></li>
+<li><p>Notes: I will actually provide you with code to replicate the tables and figures from the paper, using data from WRDS. The problem is that the data from WRDS is only updated with a lag of nearly a year and a half. So, in order to get more “real-time” data, you will have to scrape data from FFIEC’s website. Therefore, this exercise will give you experience with web scraping and data cleaning in order to produce more of a real-time monitor.</p></li>
+</ul>
+</section>
+<section id="a-demand-system-approach-to-asset-pricing-working-paper">
+<h3>7. <strong><a class="reference external" href="https://ssrn.com/abstract=2537559">A Demand System Approach to Asset Pricing (Working Paper)</a></strong><a class="headerlink" href="#a-demand-system-approach-to-asset-pricing-working-paper" title="Link to this heading">#</a></h3>
+<p>This project studies how institutional investors’ <em>portfolio demand</em> shapes asset prices. Rather than inferring demand indirectly from returns, the paper estimates a characteristics-based demand system using institutional holdings data (SEC Form 13F), explicitly imposing market clearing between institutions and households. A key idea is that investment mandates create persistent investment universes, which can be used as instruments to identify demand elasticities.</p>
+<p>This project is focused on the descriptive and institutional foundations of the demand-system approach, not on estimating the full nonlinear GMM model.</p>
+<p>Students will replicate:</p>
+<ul class="simple">
+<li><p><strong>Table 1</strong>: Persistence of institutional investment universes (how stable holdings are over the past 11 quarters)</p></li>
+<li><p><strong>Table 2</strong>: Summary statistics of 13F institutions (AUM, number of holdings, market share)</p></li>
+<li><p><strong>Table D1 (Appendix)</strong>: Breakdown of institutional characteristics by institution type</p></li>
+</ul>
+<p>These tables rely primarily on clean construction and aggregation of 13F holdings, and provide a concrete entry point into the broader research agenda on institutional demand, price pressure, and asset-pricing equilibrium.</p>
+<p>Additional context and motivation for this research agenda can be found in Ralph Koijen’s lecture here: <a class="reference external" href="https://www.youtube.com/watch?v=x2qxThATszM">https://www.youtube.com/watch?v=x2qxThATszM</a></p>
+<ul class="simple">
+<li><p>Task: Replicate Table 1 (investment-universe persistence), Table 2 (institution-level summary statistics), and Appendix Table D1 (institution characteristics by type)</p></li>
+<li><p>Data sources: Thomson Reuters / Refinitiv 13F Institutional Holdings (WRDS), CRSP (prices, shares outstanding), Compustat (book equity and firm fundamentals, as needed for merges)</p></li>
+<li><p>Code and data: Author-provided replication code and documentation: <a class="reference external" href="https://koijen.net/code-and-data.html">https://koijen.net/code-and-data.html</a> I will also provide starter code that handles most of the WRDS data extraction and merging.</p></li>
+<li><p>Citation: Koijen, Ralph S. J., and Motohiro Yogo. <em>A Demand System Approach to Asset Pricing</em>. Working paper, SSRN: <a class="reference external" href="https://ssrn.com/abstract=2537559">https://ssrn.com/abstract=2537559</a></p></li>
+</ul>
+</section>
+</section>
+<section id="arbitrage-spreads">
+<h2>Arbitrage Spreads<a class="headerlink" href="#arbitrage-spreads" title="Link to this heading">#</a></h2>
+<section id="segmented-arbitrage-treasury-spot-futures">
+<h3>8. <a class="reference external" href="https://www.hbs.edu/ris/Publication%20Files/24-030_1506d32b-3190-4144-8c75-a2326b87f81e.pdf">Segmented Arbitrage: Treasury Spot-Futures</a><a class="headerlink" href="#segmented-arbitrage-treasury-spot-futures" title="Link to this heading">#</a></h3>
+<p>This project replicates the Treasury spot-futures spread from the paper “Segmented Arbitrage” by Emil Siriwardane, Adi Sunderam, and Jonathan Wallen. The paper examines various arbitrage trades and observes that the price dynamics of these trades challenge asset pricing models that have been used in the past to explain deviations from no-arbitrage.</p>
+<p>The Treasury spot-futures arbitrage trade involves exploiting the price discrepancy between Treasury futures contracts and the underlying Treasury securities in the cash (spot) market. By simultaneously buying (or selling) the mispriced asset and selling (or buying) its equivalent in the other market, arbitrageurs aim to lock in a risk-free profit, accounting for carry costs, accrued interest, and delivery options.</p>
+<p>From the <a class="reference external" href="https://www.emilsiriwardane.com/s/Appendix.pdf">internet appendix</a>:</p>
+<blockquote>
+<div><p>“The Treasury spot-futures basis is measured as the difference between the market price of a Treasury futures contract and its theoretical price implied by the cost of carry. The theoretical price reflects the cost of financing a position in the underlying Treasury security until the futures delivery date, including accrued interest and any coupon payments received.”</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Task: Replicate the Treasury spot-futures spread construction and reproduce the relevant figures from the paper. I will actually provide you with code to replicate the tables and figures from the paper. The figures are created by pulling the “implied repo rate” from Bloomberg. I will provide you with code that pulls this. However, there is a bug in the way that Bloomberg calculates the implied repo rate. Therefore, your task will be to fix the bug and replicate the figures up to the present with the corrected implied repo rate.</p></li>
+<li><p>As a note, the bug in the Bloomberg terminal doesn’t really affect the figures in the paper, since the paper only shows the series up to 2020. The bug only affects the time period after 2020. The bug is that the Bloomberg terminal assumes that deliver of the Treasury into the futures contract is always done at the beginning of the delivery period. However, because of major changes to interest rates after 2020, this assumption was no longer a good approximation.</p></li>
+<li><p>Data sources: Bloomberg (for Treasury futures and cash bond prices)</p></li>
+<li><p>Code and data: One of the authors, <a class="reference external" href="https://www.emilsiriwardane.com/">Emil Siriwardane</a>, makes code and data available online: <a class="github reference external" href="https://github.com/esiriwardane/arbitrage-spreads-public">esiriwardane/arbitrage-spreads-public</a></p></li>
+<li><p>Additional resources: <a class="github reference external" href="https://github.com/jmbejara/arb_spreads">jmbejara/arb_spreads</a> and <a class="reference external" href="https://jeremybejarano.com/arb_spreads/">https://jeremybejarano.com/arb_spreads/</a></p></li>
+<li><p>Citation: Siriwardane, Emil N., Adi Sunderam, and Jonathan L. Wallen. “Segmented Arbitrage.” Harvard Business School Working Paper, No. 24-030, November 2023.</p></li>
+</ul>
+</section>
+</section>
 </section>
 
 <div class="section ablog__blog_comments">
@@ -473,6 +625,40 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#financial-forecasting">Financial Forecasting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#market-expectations-in-the-cross-section-of-present-values">1.	Market Expectations in the Cross-Section of Present Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#man-vs-machine-learning-the-term-structure-of-earnings-expectations-and-conditional-biases">2. Man vs. Machine Learning: The Term Structure of Earnings Expectations and Conditional Biases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lewellen-2015-critical-finance-review-the-cross-section-of-expected-stock-returns">3. Lewellen (2015), Critical Finance Review. “The Cross-section of Expected Stock Returns”</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-and-quantitative-finance">AI and Quantitative Finance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-chatgpt-forecast-stock-price-movements-return-predictability-and-large-language-models">4. Can ChatGPT Forecast Stock Price Movements? Return Predictability and Large Language Models</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#institutional-monitoring">Institutional Monitoring</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermediary-asset-pricing-new-evidence-from-many-asset-classes">5. Intermediary Asset Pricing: New Evidence from Many Asset Classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monetary-tightening-and-us-bank-fragility-in-2023">6. Monetary Tightening and US Bank Fragility in 2023</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-demand-system-approach-to-asset-pricing-working-paper">7. <strong>A Demand System Approach to Asset Pricing (Working Paper)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arbitrage-spreads">Arbitrage Spreads</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segmented-arbitrage-treasury-spot-futures">8. Segmented Arbitrage: Treasury Spot-Futures</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
