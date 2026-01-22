@@ -73,7 +73,7 @@ Also, from their paper,
 - Since the ChatGPT API is not free, I will provide you with API credits to use for this project so that you don't have to pay for it yourself.
 - Citation: Lopez-Lira, Alejandro and Tang, Yuehua, Can ChatGPT Forecast Stock Price Movements? Return Predictability and Large Language Models (2023). Available at SSRN: https://ssrn.com/abstract=4412788
 
-### 6. The Structure of Economic News
+### 6. [The Structure of Economic News: Business News and Business Cycles](https://onlinelibrary.wiley.com/doi/full/10.1111/jofi.13377)
 
 This project studies how textual analysis of business news can be used to measure the state of the economy. The paper constructs topic-level time series from Wall Street Journal articles and shows that attention to specific news topics closely tracks and predicts standard macroeconomic indicators.
 
@@ -84,7 +84,7 @@ Students will download pre-constructed topic attention time series directly from
   - **Replicate Figure 3 (topic attention over time)**: plot monthly attention shares for key topics (e.g., “Recession,” “Federal Reserve,” “Earnings”) and compare them to related macroeconomic time series
 
 - **Primary paper**:
-  - Bybee, Leland, Bryan Kelly, Asaf Manela, and Dacheng Xiu. "Business news and business cycles." The Journal of Finance 79, no. 5 (2024): 3105-3147. (use this, the published version for the replication exercise above)
+  - Bybee, Leland, Bryan Kelly, Asaf Manela, and Dacheng Xiu. "Business news and business cycles." The Journal of Finance 79, no. 5 (2024): 3105-3147. https://onlinelibrary.wiley.com/doi/full/10.1111/jofi.13377 (use this, the published version for the replication exercise above)
 
 - **Data sources**:
   - News topic attention time series from https://structureofnews.com/
@@ -186,7 +186,7 @@ From the [internet appendix](https://www.emilsiriwardane.com/s/Appendix.pdf):
  - Citation: Siriwardane, Emil N., Adi Sunderam, and Jonathan L. Wallen. "Segmented Arbitrage." Harvard Business School Working Paper, No. 24-030, November 2023.
  - Note: Extra credit available if this project is chosen.
 
-### 13. The CDS-Bond Basis via Bai and Collin-Dufresne (2019)
+### 13. [The CDS-Bond Basis via Bai and Collin-Dufresne (2019)](https://onlinelibrary.wiley.com/doi/10.1111/fima.12252)
 
 This project studies deviations from the arbitrage relation between corporate bond spreads and credit default swap (CDS) spreads. The CDS–bond basis—the difference between CDS spreads and bond-implied credit spreads—became large and negative during the Global Financial Crisis and remains persistently nonzero afterward. The paper argues that these deviations reflect limits to arbitrage rather than mispricing.
 
@@ -214,7 +214,7 @@ Students will use WRDS data to construct CDS–bond bases at daily frequency and
 
 ## Fixed Income
 
-### 14. The U.S. Treasury Yield Curve: Construction and Model Comparison
+### 14. [The U.S. Treasury Yield Curve: Construction and Model Comparison](https://www.ecb.europa.eu/pub/pdf/scpsps/ecb.sps27.en.pdf)
 
 This project studies how the U.S. Treasury yield curve is constructed and how different modeling choices affect its shape and interpretation. Students will be given working code that reproduces the Gurkaynak–Sack–Wright (GSW) zero-coupon Treasury yield curve, which is widely used in academic and policy work. The GSW curve is based on the Nelson–Siegel–Svensson parametric framework.
 
@@ -233,7 +233,7 @@ The main task is to extend the provided code by estimating and comparing alterna
   - Nymand-Andersen, Per. *Yield Curve Modelling and a Conceptual Framework for Estimating Yield Curves: Evidence from the European Central Bank’s Yield Curves*. ECB Statistics Paper No. 27, 2018.
 
 
-### 15. The On-the-Run Liquidity Premium in U.S. Treasuries
+### 15. [The On-the-Run Liquidity Premium in U.S. Treasuries](https://www.sciencedirect.com/science/article/abs/pii/S0304405X08002080?via%3Dihub)
 
 This project studies pricing and liquidity differences between on-the-run and off-the-run U.S. Treasury securities. On-the-run Treasuries—those most recently issued—trade at higher prices and lower bid–ask spreads than otherwise similar off-the-run securities. Using end-of-day Treasury quotes, this project measures the on-the-run premium and examines how it varies over the auction cycle and around major announcements.
 
