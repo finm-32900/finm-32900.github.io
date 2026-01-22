@@ -34,19 +34,31 @@ This project gives students hands-on experience with machine learning for cash-f
 - Citation: van Binsbergen, Jules H., Xiao Han, and Alejandro Lopez-Lira. *Man vs. Machine Learning: The Term Structure of Earnings Expectations and Conditional Biases*. Review of Financial Studies (forthcoming). Available at SSRN: [https://ssrn.com/abstract=3625279](https://ssrn.com/abstract=3625279)
 
 
-### 3. [Lewellen (2015), Critical Finance Review. “The Cross-section of Expected Stock Returns”](https://faculty.tuck.dartmouth.edu/images/uploads/faculty/jonathan-lewellen/ExpectedStockReturns.pdf)
+### 3. [Predictive Regressions: A Present‐Value Approach](https://doi.org/10.1111/j.1540-6261.2010.01575.x)
 
-This paper will teach you how to combine many firm characteristics into real-time forecasts of a stock’s expected returns. See the abstract: "This paper studies the cross-sectional properties of return forecasts derived from Fama-MacBeth regressions. These forecasts mimic how an investor could, in real time, combine many firm characteristics to obtain a composite estimate of a stock’s expected return. Empirically, the forecasts vary substantially across stocks and have strong predictive power for actual returns. For example, using ten-year rolling estimates of Fama-MacBeth slopes and a cross-sectional model with 15 firm characteristics (all based on low-frequency data), the expected-return estimates have a cross-sectional standard deviation of 0.87% monthly and a predictive slope for future monthly returns of 0.74, with a standard error of 0.07."
+This paper reframes classic return- and dividend-growth predictability through a present-value model. Instead of running reduced-form predictive regressions, the authors treat expected returns and expected dividend growth as latent AR(1) state variables, tie them to the price–dividend ratio using the Campbell–Shiller log-linear identity, and estimate the state-space system by maximum likelihood / Kalman filtering.
 
-  - Task: Replicate Table 1, Table 2, and Figure 1
-  - Data sources: CRSP and Compustat
-  - Citation: Lewellen, Jonathan W., The Cross Section of Expected Stock Returns (August 22, 2014). Forthcoming in Critical Finance Review, Tuck School of Business Working Paper No. 2511246, Available at SSRN: https://ssrn.com/abstract=2511246 or http://dx.doi.org/10.2139/ssrn.2511246
-  - Notes: I will provide some starter code that partially constructs some of these tables. In this project, you'll have to complete the code.
+A key practical point is that the measured predictability of dividend growth depends on the dividend reinvestment convention (reinvesting dividends in T-bills vs. in the market). Market-reinvested dividend growth is mechanically much more volatile, which shows up clearly in the summary stats and the time-series plot.
 
+- Task: Replicate Table 1 (dividend-growth summary stats), Table 3 (OLS predictive regressions using the price–dividend ratio), Table 4 (reduced-form specs for market-reinvested dividend growth), and Figure 1 (dividend-growth series under the two reinvestment strategies).
+- Update: Extend the sample from the paper’s end date (2007) through the most recent available year and re-run the same four outputs.
+- Data sources: CRSP (value-weighted market returns with/without dividends; 30-day T-bills) and (optionally) S&P 500 index levels/returns; construct annual dividends/prices and both reinvestment-based dividend series as in the paper’s data section.
+- Citation: Van Binsbergen, Jules H., and Ralph S. J. Koijen. “Predictive Regressions: A Present‐Value Approach.” *The Journal of Finance* 65(4), 2010, 1439–1471.
+
+### 4. **[Holding Period Effects in Dividend Strip Returns](https://academic.oup.com/rfs/article/37/10/3188/7588885)**
+
+Dividend strips isolate claims on future dividends, cleanly separating cash-flow expectations from discount-rate risk. For practitioners, they are useful for hedging or trading long-run cash-flow risk and for forming direct market-based forecasts of dividend growth at different horizons. Academically, dividend strips provide a rare observable object tied closely to present-value relations, making them central to work that decomposes return predictability into cash-flow news versus discount-rate news.
+
+This paper measures dividend strip prices from SPX options via put–call parity using option-implied interest rates.
+
+- Task: Replicate Table 1 (monthly return summary stats) and Figures 1, 2, and 3 (Sharpe ratio vs holding period, market vs strips, etc.)
+- Update: Extend the sample from the paper’s end date through the most recent available month and re-run the same table + figure
+- Data sources: SPX index options (OptionMetrics IvyDB or CBOE), SPX index levels/returns (CRSP or CBOE), risk-free rate (1M T-bill from FRED/WRDS), Treasury returns (CRSP, if needed for excess-return definitions)
+- Citation: Golez, Benjamin, and Jens Jackwerth. "Holding period effects in dividend strip returns." The Review of Financial Studies 37, no. 10 (2024): 3188-3215.
 
 ## AI and Quantitative Finance
 
-### 4. [Can ChatGPT Forecast Stock Price Movements? Return Predictability and Large Language Models](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4412788)
+### 5. [Can ChatGPT Forecast Stock Price Movements? Return Predictability and Large Language Models](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4412788)
 
 This paper demonstrates the capability of large language models (LLMs) like ChatGPT to predict stock market reactions from news headlines. See the abstract:
 
@@ -61,7 +73,7 @@ Also, from their paper,
 - Since the ChatGPT API is not free, I will provide you with API credits to use for this project so that you don't have to pay for it yourself.
 - Citation: Lopez-Lira, Alejandro and Tang, Yuehua, Can ChatGPT Forecast Stock Price Movements? Return Predictability and Large Language Models (2023). Available at SSRN: https://ssrn.com/abstract=4412788
 
-### 5. The Structure of Economic News
+### 6. The Structure of Economic News
 
 This project studies how textual analysis of business news can be used to measure the state of the economy. The paper constructs topic-level time series from Wall Street Journal articles and shows that attention to specific news topics closely tracks and predicts standard macroeconomic indicators.
 
@@ -70,23 +82,22 @@ Students will download pre-constructed topic attention time series directly from
 - **Tasks**:
   - **Replicate Table 1 (macroeconomic reconstruction)**: regress industrial production growth and employment growth on selected news topic attention series using lasso or a fixed-topic specification
   - **Replicate Figure 3 (topic attention over time)**: plot monthly attention shares for key topics (e.g., “Recession,” “Federal Reserve,” “Earnings”) and compare them to related macroeconomic time series
-  - **Update** both the table and the figure by extending the sample using newly available macroeconomic data from FRED or WRDS
 
 - **Primary paper**:
-  - Bybee, Leland, Bryan T. Kelly, Asaf Manela, and Dacheng Xiu. The structure of economic news. No. w26648. National Bureau of Economic Research, 2020.
+  - Bybee, Leland, Bryan Kelly, Asaf Manela, and Dacheng Xiu. "Business news and business cycles." The Journal of Finance 79, no. 5 (2024): 3105-3147. (use this, the published version for the replication exercise above)
 
 - **Data sources**:
   - News topic attention time series from https://structureofnews.com/
   - Macroeconomic data from FRED (industrial production, employment) or WRDS
 
 - **Notes**:
-  - Students do **not** need to re-estimate the topic model.
+  - Students do **not** need to re-estimate the topic model. Just use the data from https://structureofnews.com/.
   - The focus is on interpreting news-based state variables and their relationship to standard macroeconomic indicators.
 
 
 ## Institutional Monitoring
 
-### 6. [Intermediary Asset Pricing: New Evidence from Many Asset Classes](https://zhiguohe.net/wp-content/uploads/2023/12/jfepublishedversion.pdf)
+### 7. [Intermediary Asset Pricing: New Evidence from Many Asset Classes](https://zhiguohe.net/wp-content/uploads/2023/12/jfepublishedversion.pdf)
 
 This project will give you experience in analyzing the balance sheet fundamentals of large broker-dealers, in this case the full set of primary dealers in the US, and how the financial condition of these primary dealers affect the US stock market as a whole.
 
@@ -97,41 +108,32 @@ This project will give you experience in analyzing the balance sheet fundamental
  - Note: I will provide some code that will help you get started.
 
 
-### 7. [Monetary Tightening and US Bank Fragility in 2023](https://www.nber.org/papers/w31048)
+### 8. [Monetary Tightening and US Bank Fragility in 2023](https://www.nber.org/papers/w31048)
 
 This paper will teach you how to use bank call reports to construct measures of the financial condition of banks. This is especially useful if you have interest in specializing, for example, in specializing in equities covering the financial sector.
 
  - Task: Replicate Table 1, Table A1 and Figure A1 and update the numbers through 2025. To do this, you will have to scrape data from FFIEC's website.
- - Citation: Jiang et al (2023). Monetary Tightening and US Bank Fragility in 2023: Mark-to-Market Losses and Uninsured Depositor Runs?. No. w31048. National Bureau of Economic Research, 2023. https://www.nber.org/papers/w31048
  - Data sources: Bank Call Reports. See https://wrds-www.wharton.upenn.edu/pages/get-data/bank-regulatory/
  - Notes: I will actually provide you with code to replicate the tables and figures from the paper, using data from WRDS. The problem is that the data from WRDS is only updated with a lag of nearly a year and a half. So, in order to get more "real-time" data, you will have to scrape data from FFIEC's website. Therefore, this exercise will give you experience with web scraping and data cleaning in order to produce more of a real-time monitor.
 
+Paper:
+  - Jiang, Erica Xuewei, Gregor Matvos, Tomasz Piskorski, and Amit Seru. "Monetary tightening and US bank fragility in 2023: Mark-to-market losses and uninsured depositor runs?." Journal of Financial Economics 159 (2024): 103899. https://doi.org/10.1016/j.jfineco.2024.103899 
+  - Jiang, Erica Xuewei, Gregor Matvos, Tomasz Piskorski, and Amit Seru. "Monetary Tightening and US Bank Fragility in 2023: Mark-to-Market Losses and Uninsured Depositor Runs?." NBER Working Paper w31048 (2023). **Use this, the working paper version for the replication exercise above**
 
-### 8. **[A Demand System Approach to Asset Pricing (Working Paper)](https://ssrn.com/abstract=2537559)**
 
-This project studies how institutional investors’ *portfolio demand* shapes asset prices. Rather than inferring demand indirectly from returns, the paper estimates a characteristics-based demand system using institutional holdings data (SEC Form 13F), explicitly imposing market clearing between institutions and households. A key idea is that investment mandates create persistent investment universes, which can be used as instruments to identify demand elasticities.
+### 9. [Exchange Rates and Asset Prices in a Global Demand System](https://www.nber.org/papers/w27342)
 
-This project is focused on the descriptive and institutional foundations of the demand-system approach, not on estimating the full nonlinear GMM model.
+Understanding how global capital flows affect exchange rates, interest rates, and equity valuations is one of the most important questions in international finance. This paper develops an asset demand system that connects international portfolio holdings across 37 countries and three asset classes (short-term debt, long-term debt, and equity) to equilibrium prices. The authors estimate demand elasticities that quantify how sensitive investors are to price changes, decompose exchange rate and asset price movements into portfolio flows versus shifts in investor demand, and estimate the "convenience yield" that US assets enjoy due to the dollar's reserve currency status.
 
-Students will replicate:
+This project gives students hands-on experience working with international portfolio holdings data from the IMF Coordinated Portfolio Investment Survey, constructing cross-country asset market data, and understanding the mechanics of demand-based asset pricing. The replication involves merging multiple public datasets (IMF, OECD, BIS, World Bank) and implementing the authors' methodology for restating holdings from residency to nationality accounting. Students will gain practical skills in international finance data construction that are directly applicable to roles in global macro investing, central bank research, and international policy analysis.
 
-* **Table 1**: Persistence of institutional investment universes (how stable holdings are over the past 11 quarters)
-* **Table 2**: Summary statistics of 13F institutions (AUM, number of holdings, market share)
-* **Table D1 (Appendix)**: Breakdown of institutional characteristics by institution type
-
-These tables rely primarily on clean construction and aggregation of 13F holdings, and provide a concrete entry point into the broader research agenda on institutional demand, price pressure, and asset-pricing equilibrium.
-
-Additional context and motivation for this research agenda can be found in Ralph Koijen’s lecture here: [https://www.youtube.com/watch?v=x2qxThATszM](https://www.youtube.com/watch?v=x2qxThATszM)
-
-- Task: Replicate Table 1 (investment-universe persistence), Table 2 (institution-level summary statistics), and Appendix Table D1 (institution characteristics by type)
-- Data sources: Thomson Reuters / Refinitiv 13F Institutional Holdings (WRDS), CRSP (prices, shares outstanding), Compustat (book equity and firm fundamentals, as needed for merges)
-- Code and data: Author-provided replication code and documentation: [https://koijen.net/code-and-data.html](https://koijen.net/code-and-data.html) I will also provide starter code that handles most of the WRDS data extraction and merging.
-- Citation: Koijen, Ralph S. J., and Motohiro Yogo. *A Demand System Approach to Asset Pricing*. Working paper, SSRN: [https://ssrn.com/abstract=2537559](https://ssrn.com/abstract=2537559)
-
+- **Task**: Replicate Tables 1 and 2 and Figures 1 and 2
+- **Data sources**: IMF Coordinated Portfolio Investment Survey, OECD Financial Accounts, BIS Debt Securities Statistics, World Bank, Datastream, MSCI Country Indexes (Bloomberg), Global Capital Allocation Project
+- **Citation**: Koijen, Ralph S.J. and Motohiro Yogo. "Exchange Rates and Asset Prices in a Global Demand System." NBER Working Paper No. 27342.
 
 ## Arbitrage Spreads
 
-### 9. [Segmented Arbitrage: Treasury Spot-Futures](https://www.hbs.edu/ris/Publication%20Files/24-030_1506d32b-3190-4144-8c75-a2326b87f81e.pdf)
+### 10. [Segmented Arbitrage: Treasury Spot-Futures](https://www.hbs.edu/ris/Publication%20Files/24-030_1506d32b-3190-4144-8c75-a2326b87f81e.pdf)
 
 This project replicates the Treasury spot-futures spread from the paper "Segmented Arbitrage" by Emil Siriwardane, Adi Sunderam, and Jonathan Wallen. The paper examines various arbitrage trades and observes that the price dynamics of these trades challenge asset pricing models that have been used in the past to explain deviations from no-arbitrage.
 
@@ -167,7 +169,7 @@ The focus is on computing the **implied repo rate**, comparing it to observed fi
   * **Data sources**: CME Treasury futures info from Bloomberg, Treasury cash prices and characteristics (CRSP or TreasuryDirect), Repo proxy (SOFR from FRED)
 
 
-### 11. [Segmented Arbitrage: Corporate CDS-Bond Basis](https://www.hbs.edu/ris/Publication%20Files/24-030_1506d32b-3190-4144-8c75-a2326b87f81e.pdf)
+### 12. [Segmented Arbitrage: Corporate CDS-Bond Basis](https://www.hbs.edu/ris/Publication%20Files/24-030_1506d32b-3190-4144-8c75-a2326b87f81e.pdf)
 
 This project replicates the corporate CDS-bond basis from the paper "Segmented Arbitrage" by Emil Siriwardane, Adi Sunderam, and Jonathan Wallen. The paper examines various arbitrage trades and observes that the price dynamics of these trades challenge asset pricing models that have been used in the past to explain deviations from no-arbitrage.
 
@@ -184,7 +186,7 @@ From the [internet appendix](https://www.emilsiriwardane.com/s/Appendix.pdf):
  - Citation: Siriwardane, Emil N., Adi Sunderam, and Jonathan L. Wallen. "Segmented Arbitrage." Harvard Business School Working Paper, No. 24-030, November 2023.
  - Note: Extra credit available if this project is chosen.
 
-### 12. The CDS-Bond Basis via Bai and Collin-Dufresne (2019)
+### 13. The CDS-Bond Basis via Bai and Collin-Dufresne (2019)
 
 This project studies deviations from the arbitrage relation between corporate bond spreads and credit default swap (CDS) spreads. The CDS–bond basis—the difference between CDS spreads and bond-implied credit spreads—became large and negative during the Global Financial Crisis and remains persistently nonzero afterward. The paper argues that these deviations reflect limits to arbitrage rather than mispricing.
 
@@ -212,7 +214,7 @@ Students will use WRDS data to construct CDS–bond bases at daily frequency and
 
 ## Fixed Income
 
-### 13. The U.S. Treasury Yield Curve: Construction and Model Comparison
+### 14. The U.S. Treasury Yield Curve: Construction and Model Comparison
 
 This project studies how the U.S. Treasury yield curve is constructed and how different modeling choices affect its shape and interpretation. Students will be given working code that reproduces the Gurkaynak–Sack–Wright (GSW) zero-coupon Treasury yield curve, which is widely used in academic and policy work. The GSW curve is based on the Nelson–Siegel–Svensson parametric framework.
 
@@ -231,7 +233,7 @@ The main task is to extend the provided code by estimating and comparing alterna
   - Nymand-Andersen, Per. *Yield Curve Modelling and a Conceptual Framework for Estimating Yield Curves: Evidence from the European Central Bank’s Yield Curves*. ECB Statistics Paper No. 27, 2018.
 
 
-### 14. The On-the-Run Liquidity Premium in U.S. Treasuries
+### 15. The On-the-Run Liquidity Premium in U.S. Treasuries
 
 This project studies pricing and liquidity differences between on-the-run and off-the-run U.S. Treasury securities. On-the-run Treasuries—those most recently issued—trade at higher prices and lower bid–ask spreads than otherwise similar off-the-run securities. Using end-of-day Treasury quotes, this project measures the on-the-run premium and examines how it varies over the auction cycle and around major announcements.
 
@@ -249,3 +251,15 @@ Students will be given starter code that identifies on-the-run and just off-the-
 - **Notes**:
   - All liquidity measures are based on **end-of-day** CRSP bid and ask quotes rather than intraday data.
   - The focus is on **pricing premia and their dynamics**, not structural microstructure estimation.
+
+
+## Other
+
+
+### 16. [An Anatomy of Commodity Futures Risk Premia](https://doi.org/10.1111/jofi.12096)
+
+This paper decomposes commodity futures returns into spot premia (related to underlying commodity risk) and term premia (related to changes in the basis). Using 21 commodity futures markets, the authors show that sorting on variables like the futures basis, momentum, volatility, and inflation beta produces spot premia of 5–14% per annum and term premia of 1–3% per annum. A key finding is that a single high-minus-low basis factor explains the cross-section of spot premia, while two additional basis factors are needed for term premia. This is a great project for students interested in commodity trading and learning how the commodity futures market works.
+
+- Task: Replicate Table 1 (summary statistics for sector indices showing Short Roll and Excess Holding returns across maturities) and Table 2 (mean returns when futures are sorted on the basis, including high-minus-low spreads)
+- Data sources: Commodity Research Bureau (CRB) futures data, CFTC Commitment of Traders reports, FRED
+- Citation: Szymanowska, Marta, Frans De Roon, Theo Nijman, and Rob Van Den Goorbergh. "An anatomy of commodity futures risk premia." The Journal of Finance 69, no. 1 (2014): 453-482.

@@ -5,7 +5,6 @@
 Week4/reports_with_jupyter_notebooks.md
 Week4/intro_to_LaTeX.md
 Week4/latex_essentials.md
-notebooks/_05_basics_of_SQL.ipynb
 ```
 
 ## Learning Outcomes
