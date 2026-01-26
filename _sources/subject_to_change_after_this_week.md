@@ -1,3 +1,1 @@
-# --WARNING! Textbook under revision. Schedule subject to change after HERE--
-
-This textbook is under active development. The schedule is subject to change. 
+# WARNING: Notes subject to change after this week

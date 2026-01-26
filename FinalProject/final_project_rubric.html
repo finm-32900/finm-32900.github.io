@@ -186,8 +186,6 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/_05_basics_of_SQL.html">Basics of SQL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week2/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 </ul>
@@ -199,13 +197,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">–WARNING! Textbook under revision. Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week5/sphinx.html">Sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
@@ -237,9 +235,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework 📝</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../HW0.html">Homework 0</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_CRSP_market_index.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/_03_SP500_constituents_and_index.html">HW Guide Part B: Reconstructing the S&amp;P 500 Index</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -457,7 +453,7 @@ document.write(`
                 <article class="bd-article">
                    <section class="tex2jax_ignore mathjax_ignore" id="final-project-instructions-and-rubric">
 <h1>Final Project Instructions and Rubric<a class="headerlink" href="#final-project-instructions-and-rubric" title="Link to this heading">#</a></h1>
-<p>In this project, you’ll replicate tables, figures, or data series from a well known finance paper using the principals of reproducible analytical pipelines (RAPs) learned in this class. Your replication must be automated from end-to-end, formatted using the <a class="reference external" href="https://github.com/jmbejara/blank_project">project template</a> I have provided, which is based upon the <a class="reference external" href="https://drivendata.github.io/cookiecutter-data-science/">Cookiecutter Data Science</a> template.</p>
+<p>In this project, you’ll replicate tables, figures, or data series from a well known finance paper using the principals of reproducible analytical pipelines (RAPs) learned in this class. Your replication must be automated from end-to-end, formatted using the <a class="reference external" href="https://github.com/backofficedev/cookiecutter_chartbook">cookiecutter chartbook template</a>. To create a new project, use <a class="reference external" href="https://cruft.github.io/cruft/">cruft</a>: <code class="docutils literal notranslate"><span class="pre">cruft</span> <span class="pre">create</span> <span class="pre">https://github.com/backofficedev/cookiecutter_chartbook</span></code>. See <a class="reference internal" href="../Week3/project_structure.html"><span class="std std-doc">Project Structure: “Chartbook” Template</span></a> for more details.</p>
 <section id="receiving-your-assigned-project">
 <h2>Receiving Your Assigned Project<a class="headerlink" href="#receiving-your-assigned-project" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -473,7 +469,7 @@ document.write(`
 For each assertion in the following, I enumerate the points each is worth in <strong>bold</strong> and there are a total of 182 points available in total.</p>
 <ul class="simple">
 <li><p><strong>4/4</strong> You must generate a single LaTeX document that briefly describes the nature of the replication project and contains all the tables and charts that your code produces. You should give a high level overview of how the replication project went. Where did you find success, where were the challenges? Also, explain the data sources that you used? The LaTeX document should not contain code snippets, but only give the tables and charts and a high level discussion of the project.</p></li>
-<li><p><strong>4/4</strong> Provide at least one jupyter notebook that gives an brief tour of the cleaned data and some of the analysis that is performed in the code. You can think of this as giving the reader a tour of the code that you have written. You can provide code snippets in this notebook. It should look somethin like one the HW guides that we used, e.g. <a class="reference internal" href="../notebooks/_01_wage_growth_during_the_recession.html"><span class="std std-doc">Wage Growth During the Recession</span></a></p></li>
+<li><p><strong>4/4</strong> Provide at least one jupyter notebook that gives an brief tour of the cleaned data and some of the analysis that is performed in the code. You can think of this as giving the reader a tour of the code that you have written. You can provide code snippets in this notebook. It should look somethin like one the HW guides that we used, e.g. <a class="reference internal" href="../notebooks/_04_Fama_French_1993_ipynb.html"><span class="std std-doc">HW Guide: Replicate Fama-French 1993</span></a></p></li>
 <li><p><strong>20/20</strong> Replicate the series, tables, and/or figures listed for your assigned project. Choose a reasonable tolerance and construct unit tests to ensure that your numbers match the paper’s within this tolerance.</p></li>
 <li><p><strong>20/20</strong> Now, reproduce the series, tables, and/or figures with updated numbers. That is, replicating the numbers from the paper require performing the calculations over the same time period as that of the paper. In this task, you’ll recalculate the series, tables, and/or figures using numbers up until the present (or at least the most recently available numbers).</p></li>
 <li><p><strong>20/20</strong> Outside of the tables, figures, or derived series that you are to replicate, have you also provided a table of your own summary statistics AND charts that gives you and the reader of sufficient understanding of the underlying data. These tables and/or figures must be typeset on LaTeX and you must provide captions on the Tables and Figure that properly describe them and motivate them. That is, you must tell me in the caption what I should learn or take away from each table and figure. You are to choose how many figures and or tables is sufficient for your case, but it will usually be one of each.</p></li>
@@ -481,7 +477,7 @@ For each assertion in the following, I enumerate the points each is worth in <st
 <li><p><strong>4/4</strong> Are the statistics in all tables in the LaTeX document automatically generated from the code?</p></li>
 <li><p><strong>4/4</strong> Is the project automated from end-to-end, using PyDoit?</p></li>
 <li><p><strong>4/4</strong> Does the repository use unit tests to ensure that code is working properly? Are these unit tests well motivated?</p></li>
-<li><p><strong>4/4</strong> Does the project use the template from <a class="github reference external" href="https://github.com/jmbejara/blank_project">jmbejara/blank_project</a> ?</p></li>
+<li><p><strong>4/4</strong> Does the project use the <a class="reference external" href="https://github.com/backofficedev/cookiecutter_chartbook">cookiecutter chartbook template</a>? Was the project scaffolded using <code class="docutils literal notranslate"><span class="pre">cruft</span> <span class="pre">create</span> <span class="pre">https://github.com/backofficedev/cookiecutter_chartbook</span></code>?</p></li>
 <li><p><strong>4/4</strong> Does each unit test have a purpose? Are there unnecessary or repetitive unit tests?</p></li>
 <li><p><strong>4/4</strong> Is the GitHub repository and the Git history free of any copyrighted material (e.g., the raw data should not be in the repo).</p></li>
 <li><p><strong>4/4</strong> Is the GitHub repository and the Git history free of any secrets, such as API keys?</p></li>

@@ -186,8 +186,6 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/_01_wrds_python_package.html">Example: Connecting to the WRDS Platform With Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/_05_basics_of_SQL.html">Basics of SQL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week2/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 </ul>
@@ -199,13 +197,13 @@
 <li class="toctree-l2"><a class="reference internal" href="Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">–WARNING! Textbook under revision. Schedule subject to change after HERE–</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w5.html">Week 5: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week5/sphinx.html">Sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week5/unit_tests.html">Unit Tests</a></li>
@@ -237,9 +235,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework 📝</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="HW0.html">Homework 0</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/_02_CRSP_market_index.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/_03_SP500_constituents_and_index.html">HW Guide Part B: Reconstructing the S&amp;P 500 Index</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -420,7 +416,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -436,6 +434,27 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-not-graded-review-resources">Part 0 (not graded): Review Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded-set-up-your-final-project-repository">Part 1 (graded): Set Up Your Final Project Repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-create-the-repository">Step 1: Create the Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-scaffold-with-the-cookiecutter-chartbook-template">Step 2: Scaffold with the Cookiecutter Chartbook Template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-set-up-data-pull-scripts">Step 3: Set Up Data Pull Scripts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-create-exploratory-charts">Step 4: Create Exploratory Charts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-register-dataframes-and-charts-in-chartbook-toml">Step 5: Register Dataframes and Charts in <code class="docutils literal notranslate"><span class="pre">chartbook.toml</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-build-and-publish-the-chartbook-site">Step 6: Build and Publish the Chartbook Site</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded-schedule-a-consultation">Part 2 (graded): Schedule a Consultation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-graded-set-flags-in-the-hw3-github-classroom-repo">Part 3 (graded): Set Flags in the HW3 GitHub Classroom Repo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder">Reminder</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -446,7 +465,158 @@ document.write(`
                 <article class="bd-article">
                    <section class="tex2jax_ignore mathjax_ignore" id="homework-3">
 <h1>Homework 3<a class="headerlink" href="#homework-3" title="Link to this heading">#</a></h1>
-<p>TBD</p>
+<ul class="simple">
+<li><p><strong>Due Date:</strong> Tuesday, Feb 10 at 11:59 pm.</p></li>
+<li><p><strong>Link to Assignment:</strong> <a class="reference external" href="https://classroom.github.com/a/FQKccYH-">https://classroom.github.com/a/FQKccYH-</a></p></li>
+</ul>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Keep it simple — this is just a first step!
+The goal of this homework is <strong>not</strong> to finish your final project. It is simply to help you <strong>get oriented</strong> with your datasets and project infrastructure. You only need to demonstrate that you can pull <em>something</em> from each required data source and produce <em>any</em> simple exploratory plot for each. The charts do not need to be polished or directly related to the paper’s analysis — any plot that shows the data was successfully retrieved is sufficient. There will be plenty of time to refine your work later.</p>
+</div>
+<p>Project assignments will be emailed on Wednesday, January 28. You and your partner will be assigned one project from the <a class="reference internal" href="FinalProject/potential_final_projects.html"><span class="std std-doc">list of potential final projects</span></a>. In this homework, you will set up the repository for your final project using the cookiecutter chartbook template, pull data from each of your data sources, create a simple exploratory chart for each to verify you can access and work with the data, and publish your chartbook site via GitHub Pages.</p>
+<p>See the <a class="reference internal" href="FinalProject/final_project_rubric.html"><span class="std std-doc">Final Project Instructions and Rubric</span></a> for full details on how the final project will be graded. This homework gets you started on the infrastructure.</p>
+</section>
+<section id="part-0-not-graded-review-resources">
+<h2>Part 0 (not graded): Review Resources<a class="headerlink" href="#part-0-not-graded-review-resources" title="Link to this heading">#</a></h2>
+<p>Before starting, please review the following:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="Week3/project_structure.html"><span class="std std-doc">Project Structure: “Chartbook” Template</span></a> — Explains the cookiecutter chartbook template and how to use cruft.</p></li>
+<li><p><a class="reference internal" href="FinalProject/final_project_rubric.html"><span class="std std-doc">Final Project Instructions and Rubric</span></a> — Grading criteria for the final project.</p></li>
+<li><p><a class="reference internal" href="FinalProject/potential_final_projects.html"><span class="std std-doc">Potential Final Projects</span></a> — The list of assigned projects and their data sources.</p></li>
+</ul>
+</section>
+<section id="part-1-graded-set-up-your-final-project-repository">
+<h2>Part 1 (graded): Set Up Your Final Project Repository<a class="headerlink" href="#part-1-graded-set-up-your-final-project-repository" title="Link to this heading">#</a></h2>
+<section id="step-1-create-the-repository">
+<h3>Step 1: Create the Repository<a class="headerlink" href="#step-1-create-the-repository" title="Link to this heading">#</a></h3>
+<p>One team member should create a <strong>public</strong> GitHub repository under their own GitHub user account. The repository must be named using the following convention:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pXX_lastnames_year</span>
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">XX</span></code> is the zero-padded project number from the <a class="reference internal" href="FinalProject/potential_final_projects.html"><span class="std std-doc">potential final projects list</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lastnames</span></code> is the authors’ last names from the paper (lowercase, separated by underscores, hyphens preserved within hyphenated names)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code> is the publication year of the paper</p></li>
+</ul>
+<p><strong>Examples:</strong></p>
+<ul class="simple">
+<li><p>Project 1 (Kelly and Pruitt, 2013): <code class="docutils literal notranslate"><span class="pre">p01_kelly_pruitt_2013</span></code></p></li>
+<li><p>Project 5 (Lopez-Lira and Tang, 2023): <code class="docutils literal notranslate"><span class="pre">p05_lopez-lira_tang_2023</span></code></p></li>
+<li><p>Project 8 (Jiang, Matvos, Piskorski, and Seru, 2024): <code class="docutils literal notranslate"><span class="pre">p08_jiang_et_al_2024</span></code></p></li>
+</ul>
+<p>If the paper has more than three authors, you may use <code class="docutils literal notranslate"><span class="pre">et_al</span></code> in place of the remaining author names.</p>
+<p>After creating the repository, add your partner as a <strong>collaborator</strong> (Settings &gt; Collaborators &gt; Add people). Both team members should contribute commits to the repository. The other student can optionally fork the repo so that it shows up on both students’ GitHub profiles.</p>
+</section>
+<section id="step-2-scaffold-with-the-cookiecutter-chartbook-template">
+<h3>Step 2: Scaffold with the Cookiecutter Chartbook Template<a class="headerlink" href="#step-2-scaffold-with-the-cookiecutter-chartbook-template" title="Link to this heading">#</a></h3>
+<p>Use <a class="reference external" href="https://cruft.github.io/cruft/">cruft</a> to scaffold your project from the <a class="reference external" href="https://github.com/backofficedev/cookiecutter_chartbook">cookiecutter chartbook template</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>cruft
+cruft<span class="w"> </span>create<span class="w"> </span>https://github.com/backofficedev/cookiecutter_chartbook
+</pre></div>
+</div>
+<p>Answer the prompts with your project’s details. Copy the generated files into your repository (or run the command directly inside your cloned repo directory). Commit and push.</p>
+<p>For more details on the template and cruft, see <a class="reference internal" href="Week3/project_structure.html"><span class="std std-doc">Project Structure: “Chartbook” Template</span></a>.</p>
+</section>
+<section id="step-3-set-up-data-pull-scripts">
+<h3>Step 3: Set Up Data Pull Scripts<a class="headerlink" href="#step-3-set-up-data-pull-scripts" title="Link to this heading">#</a></h3>
+<p>For <strong>each distinct data source</strong> your assigned project requires (e.g., CRSP, Compustat, FRED, Bloomberg, OptionMetrics, etc.), create a <code class="docutils literal notranslate"><span class="pre">src/pull_*.py</span></code> script that programmatically downloads the data. Refer to the “Data sources” listed for your assigned project in the <a class="reference internal" href="FinalProject/potential_final_projects.html"><span class="std std-doc">potential final projects list</span></a>.</p>
+<p>Requirements:</p>
+<ul class="simple">
+<li><p>Follow the naming convention: <code class="docutils literal notranslate"><span class="pre">pull_CRSP_stock.py</span></code>, <code class="docutils literal notranslate"><span class="pre">pull_compustat.py</span></code>, <code class="docutils literal notranslate"><span class="pre">pull_fred.py</span></code>, etc.</p></li>
+<li><p>Each pull script should save its output to the <code class="docutils literal notranslate"><span class="pre">_data/</span></code> directory as a <code class="docutils literal notranslate"><span class="pre">.parquet</span></code> file.</p></li>
+<li><p>If a data source requires credentials (e.g., WRDS), use a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file and document the required environment variables in <code class="docutils literal notranslate"><span class="pre">.env.example</span></code>.</p></li>
+<li><p>Add each pull script as a task in your <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> file.</p></li>
+</ul>
+</section>
+<section id="step-4-create-exploratory-charts">
+<h3>Step 4: Create Exploratory Charts<a class="headerlink" href="#step-4-create-exploratory-charts" title="Link to this heading">#</a></h3>
+<p>The purpose of this step is simply to demonstrate that you were able to successfully pull and work with each dataset. For <strong>each distinct data source</strong>, create at least one simple exploratory chart that:</p>
+<ul class="simple">
+<li><p>Loads the pulled data from <code class="docutils literal notranslate"><span class="pre">_data/</span></code></p></li>
+<li><p>Creates any simple visualization — a time series plot, a histogram, a scatter plot, or anything else that shows the data was retrieved successfully</p></li>
+<li><p>Saves the chart as an interactive HTML file in <code class="docutils literal notranslate"><span class="pre">_output/</span></code> (using <a class="reference external" href="https://plotly.com/python/">Plotly</a> or a similar library)</p></li>
+</ul>
+<p>Don’t overthink this — any plot that helps you get oriented with the data is fine. You will have time to create more polished charts later.</p>
+<p>You may create charts in a <code class="docutils literal notranslate"><span class="pre">src/generate_chart.py</span></code> file or in separate scripts. Add chart generation as a task in <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code>.</p>
+</section>
+<section id="step-5-register-dataframes-and-charts-in-chartbook-toml">
+<h3>Step 5: Register Dataframes and Charts in <code class="docutils literal notranslate"><span class="pre">chartbook.toml</span></code><a class="headerlink" href="#step-5-register-dataframes-and-charts-in-chartbook-toml" title="Link to this heading">#</a></h3>
+<p>For <strong>each distinct data source</strong>, add entries in your <code class="docutils literal notranslate"><span class="pre">chartbook.toml</span></code>:</p>
+<ol class="arabic simple">
+<li><p>One <code class="docutils literal notranslate"><span class="pre">[dataframes.&lt;name&gt;]</span></code> entry describing the dataset — include metadata such as <code class="docutils literal notranslate"><span class="pre">data_sources</span></code>, <code class="docutils literal notranslate"><span class="pre">data_providers</span></code>, <code class="docutils literal notranslate"><span class="pre">how_is_pulled</span></code>, and <code class="docutils literal notranslate"><span class="pre">path_to_parquet_data</span></code>.</p></li>
+<li><p>One <code class="docutils literal notranslate"><span class="pre">[charts.&lt;name&gt;]</span></code> entry describing the exploratory chart — include <code class="docutils literal notranslate"><span class="pre">chart_name</span></code>, <code class="docutils literal notranslate"><span class="pre">short_description_chart</span></code>, <code class="docutils literal notranslate"><span class="pre">dataframe_id</span></code>, and <code class="docutils literal notranslate"><span class="pre">path_to_html_chart</span></code>.</p></li>
+</ol>
+<p>Refer to the <code class="docutils literal notranslate"><span class="pre">chartbook.toml</span></code> in the template or the course examples for the required fields and format.</p>
+</section>
+<section id="step-6-build-and-publish-the-chartbook-site">
+<h3>Step 6: Build and Publish the Chartbook Site<a class="headerlink" href="#step-6-build-and-publish-the-chartbook-site" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Run the full pipeline:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>doit
+</pre></div>
+</div>
+</li>
+<li><p>Build the chartbook site:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chartbook<span class="w"> </span>build<span class="w"> </span>-f
+</pre></div>
+</div>
+<p>This generates the <code class="docutils literal notranslate"><span class="pre">docs/</span></code> folder containing a static website.</p>
+</li>
+<li><p>Commit and push the <code class="docutils literal notranslate"><span class="pre">docs/</span></code> folder to your <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</p></li>
+<li><p>Enable GitHub Pages on your repository:</p>
+<ul class="simple">
+<li><p>Go to your repo’s <strong>Settings &gt; Pages</strong></p></li>
+<li><p>Under “Source”, select <strong>Deploy from a branch</strong></p></li>
+<li><p>Select the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch and the <code class="docutils literal notranslate"><span class="pre">/docs</span></code> folder</p></li>
+<li><p>Click <strong>Save</strong></p></li>
+</ul>
+</li>
+<li><p>Verify your site is live at:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">username</span><span class="o">&gt;.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">pXX_lastnames_year</span><span class="o">/</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="part-2-graded-schedule-a-consultation">
+<h2>Part 2 (graded): Schedule a Consultation<a class="headerlink" href="#part-2-graded-schedule-a-consultation" title="Link to this heading">#</a></h2>
+<p>Schedule a consultation meeting with the instructor using the following link:</p>
+<ul class="simple">
+<li><p><strong>Booking link:</strong> <a class="reference external" href="https://finm-32900.youcanbook.me/">https://finm-32900.youcanbook.me/</a></p></li>
+</ul>
+<p>You must <strong>schedule</strong> the meeting before the homework deadline. You do not need to have attended the meeting before the deadline — only the booking needs to be completed.</p>
+<p><strong>Purpose of the consultation:</strong> You and your partner should come to the meeting prepared with:</p>
+<ul class="simple">
+<li><p>A plan for how you will complete the final project</p></li>
+<li><p>A division of responsibilities between team members (who is primarily responsible for which tasks)</p></li>
+<li><p>Any questions or concerns about feasibility (e.g., data access issues, unclear requirements)</p></li>
+</ul>
+<p>I will use this meeting to verify that the work is being divided appropriately, provide guidance on the project, and help modify requirements if something turns out not to be feasible (e.g., you do not have access to the necessary data).</p>
+<p>Ideally, you should have your exploratory plots (from Part 1) completed before the meeting so we can discuss your initial findings. However, if you need extra help getting situated with the data, that is fine — we can work through it together in the consultation.</p>
+</section>
+<section id="part-3-graded-set-flags-in-the-hw3-github-classroom-repo">
+<h2>Part 3 (graded): Set Flags in the HW3 GitHub Classroom Repo<a class="headerlink" href="#part-3-graded-set-flags-in-the-hw3-github-classroom-repo" title="Link to this heading">#</a></h2>
+<p>Accept the GitHub Classroom assignment using the link at the top of this page. In the HW3 repo, edit <code class="docutils literal notranslate"><span class="pre">src/final_project_flags.py</span></code> to set all of the following:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">I_HAVE_CREATED_MY_FINAL_PROJECT_REPO</span> <span class="pre">=</span> <span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">URL_TO_MY_FINAL_PROJECT_REPO</span> <span class="pre">=</span> <span class="pre">&quot;https://github.com/&lt;username&gt;/pXX_lastnames_year&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">I_HAVE_CREATED_A_CHARTBOOK_SITE_ON_GITHUB_PAGES</span> <span class="pre">=</span> <span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">URL_TO_MY_CHARTBOOK_SITE</span> <span class="pre">=</span> <span class="pre">&quot;https://&lt;username&gt;.github.io/pXX_lastnames_year/&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">I_HAVE_REGISTERED_DATAFRAMES_IN_CHARTBOOK_TOML</span> <span class="pre">=</span> <span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">I_HAVE_REGISTERED_CHARTS_IN_CHARTBOOK_TOML</span> <span class="pre">=</span> <span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">I_HAVE_SCHEDULED_A_CONSULTATION</span> <span class="pre">=</span> <span class="pre">True</span></code></p></li>
+</ol>
+<p>The autograder will run <code class="docutils literal notranslate"><span class="pre">pytest</span></code> against <code class="docutils literal notranslate"><span class="pre">src/test_final_project_flags.py</span></code> to verify that all flags are set and all URLs are non-empty.</p>
+</section>
+<section id="reminder">
+<h2>Reminder<a class="headerlink" href="#reminder" title="Link to this heading">#</a></h2>
+<p>Do not make any changes to the unit test files. If an edit is made, you will be required to edit the history of your commits to remove any trace of the edits to these files.</p>
+</section>
 </section>
 
 <div class="section ablog__blog_comments">
@@ -487,6 +657,34 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-not-graded-review-resources">Part 0 (not graded): Review Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded-set-up-your-final-project-repository">Part 1 (graded): Set Up Your Final Project Repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-create-the-repository">Step 1: Create the Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-scaffold-with-the-cookiecutter-chartbook-template">Step 2: Scaffold with the Cookiecutter Chartbook Template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-set-up-data-pull-scripts">Step 3: Set Up Data Pull Scripts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-create-exploratory-charts">Step 4: Create Exploratory Charts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-register-dataframes-and-charts-in-chartbook-toml">Step 5: Register Dataframes and Charts in <code class="docutils literal notranslate"><span class="pre">chartbook.toml</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-build-and-publish-the-chartbook-site">Step 6: Build and Publish the Chartbook Site</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded-schedule-a-consultation">Part 2 (graded): Schedule a Consultation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-graded-set-flags-in-the-hw3-github-classroom-repo">Part 3 (graded): Set Flags in the HW3 GitHub Classroom Repo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder">Reminder</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

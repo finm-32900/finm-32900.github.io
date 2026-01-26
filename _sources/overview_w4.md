@@ -19,14 +19,16 @@ Week4/latex_essentials.md
 
 ## Agenda
 
-- [Blank Project Simple Template](https://github.com/jmbejara/blank_project_simple)
-  - Generate tear sheet. Use Pandas Datareader to get data from Ken French's website.
-  - Publish report to GitHub Pages.
-- Automatic generation of HTML notebook reports. Why are notebooks difficult with Git?
-  - Generating reports with LaTeX in dodo.py
-- Introduction Compustat and CRSP/Compustat Merged Data
-  - CRSP industry merge example
-  - Review CRSP and Compustat cleaning procedure.
+Discuss Final Project:
+
+- Final Project grading rubric is not yet available, but the old version is available [here](./FinalProject/final_project_rubric.md).
+
+Finish up items from Week 3:
+
+- [Introduction to "Chartbook Project" Template](./Week3/project_structure.md)
+- Discuss structure of [Financial Time Series Forecasting Repository](./Week3/ftsfr.md)
+- Discuss simplified structure of the FTSFR project: https://github.com/ftsfr
+  - Discuss how Chartbook pipelines and catalogs help organize this. Demo the catalog and the data load. 
 
 ## TA Session on Friday
   - [Introduction to LaTeX](./Week4/intro_to_LaTeX.md)

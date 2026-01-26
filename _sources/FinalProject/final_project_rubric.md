@@ -1,7 +1,7 @@
 # Final Project Instructions and Rubric
 
 
-In this project, you'll replicate tables, figures, or data series from a well known finance paper using the principals of reproducible analytical pipelines (RAPs) learned in this class. Your replication must be automated from end-to-end, formatted using the [project template](https://github.com/jmbejara/blank_project) I have provided, which is based upon the [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/) template.
+In this project, you'll replicate tables, figures, or data series from a well known finance paper using the principals of reproducible analytical pipelines (RAPs) learned in this class. Your replication must be automated from end-to-end, formatted using the [cookiecutter chartbook template](https://github.com/backofficedev/cookiecutter_chartbook). To create a new project, use [cruft](https://cruft.github.io/cruft/): `cruft create https://github.com/backofficedev/cookiecutter_chartbook`. See [Project Structure: "Chartbook" Template](../Week3/project_structure.md) for more details.
 
 ## Receiving Your Assigned Project
 
@@ -17,7 +17,7 @@ For each assertion in the following, I enumerate the points each is worth in **b
 
 
 - **4/4** You must generate a single LaTeX document that briefly describes the nature of the replication project and contains all the tables and charts that your code produces. You should give a high level overview of how the replication project went. Where did you find success, where were the challenges? Also, explain the data sources that you used? The LaTeX document should not contain code snippets, but only give the tables and charts and a high level discussion of the project.
-- **4/4** Provide at least one jupyter notebook that gives an brief tour of the cleaned data and some of the analysis that is performed in the code. You can think of this as giving the reader a tour of the code that you have written. You can provide code snippets in this notebook. It should look somethin like one the HW guides that we used, e.g. [Wage Growth During the Recession](../notebooks/_01_wage_growth_during_the_recession.ipynb)
+- **4/4** Provide at least one jupyter notebook that gives an brief tour of the cleaned data and some of the analysis that is performed in the code. You can think of this as giving the reader a tour of the code that you have written. You can provide code snippets in this notebook. It should look somethin like one the HW guides that we used, e.g. [HW Guide: Replicate Fama-French 1993](../notebooks/_04_Fama_French_1993_ipynb.ipynb)
 - **20/20** Replicate the series, tables, and/or figures listed for your assigned project. Choose a reasonable tolerance and construct unit tests to ensure that your numbers match the paper's within this tolerance.
 - **20/20** Now, reproduce the series, tables, and/or figures with updated numbers. That is, replicating the numbers from the paper require performing the calculations over the same time period as that of the paper. In this task, you'll recalculate the series, tables, and/or figures using numbers up until the present (or at least the most recently available numbers).
 - **20/20** Outside of the tables, figures, or derived series that you are to replicate, have you also provided a table of your own summary statistics AND charts that gives you and the reader of sufficient understanding of the underlying data. These tables and/or figures must be typeset on LaTeX and you must provide captions on the Tables and Figure that properly describe them and motivate them. That is, you must tell me in the caption what I should learn or take away from each table and figure. You are to choose how many figures and or tables is sufficient for your case, but it will usually be one of each.
@@ -25,7 +25,7 @@ For each assertion in the following, I enumerate the points each is worth in **b
 - **4/4** Are the statistics in all tables in the LaTeX document automatically generated from the code?
 - **4/4** Is the project automated from end-to-end, using PyDoit?
 - **4/4** Does the repository use unit tests to ensure that code is working properly? Are these unit tests well motivated?
-- **4/4** Does the project use the template from https://github.com/jmbejara/blank_project ?
+- **4/4** Does the project use the [cookiecutter chartbook template](https://github.com/backofficedev/cookiecutter_chartbook)? Was the project scaffolded using `cruft create https://github.com/backofficedev/cookiecutter_chartbook`?
 - **4/4** Does each unit test have a purpose? Are there unnecessary or repetitive unit tests?
 - **4/4** Is the GitHub repository and the Git history free of any copyrighted material (e.g., the raw data should not be in the repo).
 - **4/4** Is the GitHub repository and the Git history free of any secrets, such as API keys?
