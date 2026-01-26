@@ -37,10 +37,10 @@ This will include a task of replicating the CRSP market index example from the l
 
 To complete this assignment, please read the two HW guides here:
 
-- [HW Guide Part A: CRSP Market Returns Indices](notebooks/_02_CRSP_market_index.ipynb)
-- [HW Guide Part B: Reconstructing the S&P 500 Index](notebooks/_03_SP500_constituents_and_index.ipynb)
+- [HW Guide Part A: CRSP Market Returns Indices](notebooks/_02_CRSP_market_index_ipynb.ipynb)
+- [HW Guide Part B: Reconstructing the S&P 500 Index](notebooks/_03_SP500_constituents_and_index_ipynb.ipynb)
 
 Recall that the way to go about this assignment is to run `pytest` and then determine how to write the code to pass the tests. As a tip, make sure to run the `doit` command before running `pytest`. This will ensure that all the data is pulled before running the tests.
 
-Note, in order to complete this assignment, you will need to have the `wrds` package installed and you will need to have created a `.pgpass` file so that you can automatically authenticate to WRDS to pull the required data. Please refer to the textbook page [Example: Connecting to the WRDS Platform With Python](notebooks/_01_wrds_python_package.ipynb) for more information, specifically the section "Creating a .pgpass file".
+Note, in order to complete this assignment, you will need to have the `wrds` package installed and you will need to have created a `.pgpass` file so that you can automatically authenticate to WRDS to pull the required data. Please refer to the textbook page [Example: Connecting to the WRDS Platform With Python](notebooks/_01_wrds_python_package_ipynb.ipynb) for more information, specifically the section "Creating a .pgpass file".
 
