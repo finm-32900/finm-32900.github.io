@@ -2,8 +2,8 @@
 
 ```{toctree}
 :maxdepth: 1
-notebooks/_02_CRSP_market_index.ipynb
-notebooks/_03_SP500_constituents_and_index.ipynb
+notebooks/_02_CRSP_market_index_ipynb.ipynb
+notebooks/_03_SP500_constituents_and_index_ipynb.ipynb
 ```
 
 - **Due Date:** Friday, Jan 16 at 11:59 pm.

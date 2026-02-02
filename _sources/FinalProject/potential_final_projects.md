@@ -263,3 +263,27 @@ This paper decomposes commodity futures returns into spot premia (related to und
 - Task: Replicate Table 1 (summary statistics for sector indices showing Short Roll and Excess Holding returns across maturities) and Table 2 (mean returns when futures are sorted on the basis, including high-minus-low spreads)
 - Data sources: Commodity Research Bureau (CRB) futures data, CFTC Commitment of Traders reports, FRED
 - Citation: Szymanowska, Marta, Frans De Roon, Theo Nijman, and Rob Van Den Goorbergh. "An anatomy of commodity futures risk premia." The Journal of Finance 69, no. 1 (2014): 453-482.
+
+
+### 17. [Expected Returns and Large Language Models](https://ssrn.com/abstract=4416687)
+
+(_This project was added after assignments. I've added it here so as not to throw off the numbering of the other projects_)
+
+This paper investigates the predictive power of Large Language Models (LLMs) on stock returns. Unlike traditional "bag-of-words" approaches that ignore word order, LLMs capture context and nuance (such as negation) to extract richer information from news text. The authors find that embeddings from models like BERT and ChatGPT significantly improve return prediction accuracy compared to simpler NLP methods.
+
+See the abstract:
+
+> "We leverage state-of-the-art large language models (LLMs) such as ChatGPT and LLaMA to extract contextualized representations of news text for predicting stock returns. Our results show that prices respond slowly to news reports indicative of market inefficiencies and limits-to-arbitrage. Predictions from LLM embeddings significantly improve over leading technical signals (such as past returns) or simpler NLP methods by understanding news text in light of the broader article context."
+
+Also, from the paper:
+
+> "The main benefit of an LLM... is that it provides more sophisticated and well-trained text representations than used in the literature referenced above. This benefit comes from the expressivity of massive nonlinear model parameterizations and from training on extensive language examples across many domains and from throughout human history."
+
+* **Tasks**: For this paper, you will not have access to the same dataset that the authors have. So, instead, we will use something somewhat similar: RavenPack via WRDS. RavenPack is a dataset of news headlines, along with a lot of other metadata associated with the articles (such as linking the articles to stock tickers). So, simply replicate their methods but using the RavenPack News Headlines. Replicate Tables 1, 2, 3, and 5 but with headlines from RavenPack. Since the authors use many models, it will help to simplify. Just use BERT and "text-embedding-3-large" from OpenAI (ChatGPT).
+* **Data sources**:
+    * **RavenPack** (via WRDS): Use RavenPack data for news headlines. While the paper uses full article text from Thomson Reuters, you will use only the headlines provided by RavenPack. RavenPack also includes Entity Mapping (tickers) which you should use to link news to stock returns.
+    * **CRSP**: For stock returns.
+* **Notes**:
+    * Since the ChatGPT API is not free, I will provide you with API credits to use for this project so that you don't have to pay for it yourself.
+    * Focus on the "Headline" analysis since RavenPack data is primarily headline-based.
+* **Citation**: Chen, Yifei, Bryan T. Kelly, and Dacheng Xiu. "Expected Returns and Large Language Models." (November 22, 2022). Available at SSRN: [https://ssrn.com/abstract=4416687](https://ssrn.com/abstract=4416687)
