@@ -28,9 +28,9 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f23691d7" />
@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="GitHub Issues and Pull Requests: Enhancing Collaborative Development" href="Week6/GitHub_pull_requests.html" />
-    <link rel="prev" title="WARNING: Notes subject to change after this week" href="subject_to_change_after_this_week.html" /> 
+    <link rel="prev" title="Databento" href="Week7/databento.html" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>   
   </head>
@@ -205,17 +205,18 @@
 <li class="toctree-l2"><a class="reference internal" href="Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w5.html">Week 5: Bloomberg and LSEG Datastream</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w5.html">Week 5: Bloomberg, LSEG Datastream, and Databento</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week7/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week7/LSEG_datastream.html">LSEG Datastream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week7/databento.html">Databento</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 6: Python Package Development and Social Coding with GitHub</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w7.html">Week 7: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week5/sphinx.html">Sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week5/unit_tests.html">Unit Tests</a></li>
@@ -248,8 +249,8 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="HW3.html">Homework 3</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="HW4.html">Homework 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/_01_CRSP_treasury_overview.html">CRSP Treasury Data Oveview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/_02_replicate_GSW2005.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_01_CRSP_treasury_overview_ipynb.html">CRSP Treasury Data Oveview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_02_replicate_GSW2005_ipynb.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -475,24 +476,28 @@ document.write(`
 <section id="learning-outcomes">
 <h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>How to use GitHub to manage open source contributions (e.g., pull requests)</p></li>
-<li><p>Develop your own Python package, using Hatch and Hatchling</p></li>
+<li><p>Python package development with Hatch and Hatchling</p></li>
+<li><p>GitHub-based open source contributions (pull requests) using the <a class="reference external" href="https://pypi.org/project/finm/"><code class="docutils literal notranslate"><span class="pre">finm</span></code></a> package</p></li>
+<li><p>LSEG Datastream via WRDS (brief overview)</p></li>
+<li><p>Databento: API-first market data for futures and exchange data</p></li>
+<li><p>Introduction to HW 4: yield curve estimation with Nelson-Siegel-Svensson</p></li>
 </ul>
 </section>
 <section id="agenda">
 <h2>Agenda<a class="headerlink" href="#agenda" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Review HW 3: Any questions about the overall purpose?</p></li>
-<li><p>Final Project Selection:</p>
+<li><p>Brief LSEG Datastream and Databento overview (carried over from Week 5)</p>
 <ul>
-<li><p>Discuss list of <a class="reference internal" href="FinalProject/potential_final_projects.html"><span class="std std-doc">potential projects</span></a></p></li>
-<li><p>Fill out Survey (this will be part of the soon-to-be-released HW)</p></li>
+<li><p><a class="reference internal" href="Week7/LSEG_datastream.html"><span class="std std-doc">LSEG Datastream</span></a></p></li>
+<li><p><a class="reference internal" href="Week7/databento.html"><span class="std std-doc">Databento</span></a></p></li>
 </ul>
 </li>
 <li><p>Tutorial of Issue Tracker in conjunction with GitHub Pull Requests</p>
 <ul>
 <li><p><a class="reference internal" href="Week6/GitHub_pull_requests.html"><span class="std std-doc">GitHub Issues and Pull Requests</span></a></p></li>
-<li><p>Example using <a class="reference external" href="https://github.com/finm-32900/stockbeta"><code class="docutils literal notranslate"><span class="pre">stockbeta</span></code></a> example package. Submit a PR to the repo!</p></li>
+<li><p>Introduce the <a class="reference external" href="https://pypi.org/project/finm/"><code class="docutils literal notranslate"><span class="pre">finm</span></code></a> package as the course’s collaborative open-source package; a low-stakes environment for students to practice submitting PRs.</p></li>
+<li><p>Note: Last year we used <a class="reference external" href="https://github.com/finm-32900/stockbeta"><code class="docutils literal notranslate"><span class="pre">stockbeta</span></code></a> as the example. <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code> is published on <a class="reference external" href="https://test.pypi.org/project/stockbeta/">TestPyPI</a> (but not on the real PyPI), which is useful for illustrating the TestPyPI workflow.</p></li>
+<li><p>A function from the <code class="docutils literal notranslate"><span class="pre">finm</span></code> package will be used in HW 4.</p></li>
 </ul>
 </li>
 <li><p>Introduction to Hatch and Hatchling</p>
@@ -500,10 +505,9 @@ document.write(`
 <li><p><a class="reference internal" href="Week6/python_packaging_with_hatch.html"><span class="std std-doc">Python Packaging with Hatch</span></a></p></li>
 </ul>
 </li>
-<li><p>If time permits, we will also discuss the following:</p>
+<li><p>HW 4 Discussion: Yield Curve Estimation</p>
 <ul>
-<li><p>Automatically updating a GitHub pages site with GitHub Actions. See <a class="github reference external" href="https://github.com/jmbejara/example-updating-dashboard">jmbejara/example-updating-dashboard</a></p></li>
-<li><p>Simplifying presentation with ChartBook: <a class="github reference external" href="https://github.com/jmbejara/chartbook">jmbejara/chartbook</a></p></li>
+<li><p>Overview of the Nelson-Siegel-Svensson model and CRSP Treasury data (deferred from Week 5)</p></li>
 </ul>
 </li>
 </ul>
@@ -525,12 +529,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="subject_to_change_after_this_week.html"
+       href="Week7/databento.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">WARNING: Notes subject to change after this week</p>
+        <p class="prev-next-title">Databento</p>
       </div>
     </a>
     <a class="right-next"

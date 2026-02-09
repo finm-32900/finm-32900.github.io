@@ -2,8 +2,8 @@
 
 ```{toctree}
 :maxdepth: 1
-notebooks/_01_CRSP_treasury_overview.ipynb
-notebooks/_02_replicate_GSW2005.ipynb
+notebooks/_01_CRSP_treasury_overview_ipynb.ipynb
+notebooks/_02_replicate_GSW2005_ipynb.ipynb
 ```
 
 

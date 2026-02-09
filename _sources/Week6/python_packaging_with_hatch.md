@@ -6,7 +6,7 @@ This chapter introduces the process of writing Python packages using a tool call
 
 1. Discuss the fundamental components of a Python package.
 2. Demonstrate how to use Hatch for package development and management.
-3. Together we will walk through the development of an example package, `stockbeta`, designed for quantitative finance applications. We will develop this package together from scratch and learn how to publish it to PyPI.
+3. Together we will walk through the development of an example package, [`finm`](https://pypi.org/project/finm/), a financial mathematics utilities package that includes data loading, factor analysis, and fixed income tools. We will develop this package together from scratch and learn how to publish it to PyPI.
 4. Explore how this knowledge can be applied to real-world scenarios in the financial industry.
 
 ## Introduction
@@ -404,29 +404,35 @@ While this chapter focuses on Hatch, consider these factors when choosing a tool
 - **Corporate Requirements**: Enterprise environments might have specific tooling needs.
 - **Feature Requirements**: Different tools excel at different aspects of package management.
 
-## Example Package: `stockbeta`
+## Example Package: `finm`
 
-The `stockbeta` package (see [PyPI](https://test.pypi.org/project/stockbeta/#description) and [GitHub](https://github.com/finm-32900/stockbeta-example)) is a practical demonstration of how to write a Python library for quantitative finance. This package performs factor-based analysis of stock returns, leveraging the Fama-French Three-Factor Model. It provides tools for:
+The `finm` package (see [PyPI](https://pypi.org/project/finm/) and [GitHub](https://github.com/jmbejara/finm)) is a practical demonstration of how to write a Python library for quantitative finance. This package provides financial mathematics utilities, including tools for:
 
-1. Loading and manipulating factor data (e.g., market returns, size, and value factors).
-2. Analyzing the factor exposures of individual stocks using their historical return data.
-3. Generating concise reports summarizing the findings.
+1. Loading and accessing financial datasets (e.g., Fama-French factors, Federal Reserve yield curves, and WRDS treasury data).
+2. Performing analytics and factor analysis (e.g., beta estimation, Sharpe ratios, and Fama-French regressions).
+3. Fixed income calculations (e.g., bond pricing, duration, convexity, and yield curve modeling).
 
 I chose this example because I wanted to demonstrate how to do the following things when creating a Python package:
 
-- Add a command-line interface (CLI) to the package.
+- Add a command-line interface (CLI) to the package using Typer.
 - Add the ability to use the functions in the package as a library or from the command line.
 - Ship datasets with the package.
 
 
-### Getting Started: Using `stockbeta`
+### Getting Started: Using `finm`
 
-To get started, first take a look at the project page on [Testing.PyPI](https://test.pypi.org/project/stockbeta/) and then follow the instructions below.
+To get started, first take a look at the project page on [PyPI](https://pypi.org/project/finm/) and then follow the instructions below.
 
-Install the package from Testing.PyPI:
+Install the package from PyPI:
 
 ```console
-pip install -i https://test.pypi.org/simple/ stockbeta
+pip install finm
+```
+
+To install with CLI support and data-fetching extras:
+
+```console
+pip install finm[cli,data]
 ```
 
 #### Loading Factor Data
@@ -434,10 +440,10 @@ pip install -i https://test.pypi.org/simple/ stockbeta
 Demonstrate how to load factor data using the library:
 
 ```python
-import stockbeta
+from finm.data.fama_french import load_fama_french_factors
 
-# Load all available daily factor data
-factors = stockbeta.load_factors()
+# Load Fama-French three-factor data
+factors = load_fama_french_factors(accept_license=True)
 ```
 
 #### Analyzing Stock Returns
@@ -446,33 +452,32 @@ Show how to analyze stock returns using both the CLI and the Python library inte
 
 **CLI Example**
 ```console
-python -m stockbeta.cli --ticker AAPL --start 2020-01-01 --end 2023-12-31
+finm list                                           # List available datasets
+finm info fama_french                               # Show dataset metadata
+finm pull fama_french --data-dir=./data --accept-license  # Download data
 ```
 
 **Library Example**
 ```python
-import stockbeta
-import yfinance as yf
+from finm.data.fama_french import load_fama_french_factors
+from finm.analytics.factor_analysis import run_fama_french_regression
 
-# Get stock data
-stock_data = yf.download("AAPL", start="2020-01-01", end="2023-12-31")
-stock_returns = stock_data["Adj Close"].pct_change().dropna()
+# Load Fama-French factors
+factors = load_fama_french_factors(accept_license=True)
 
-# Load factors and calculate exposures
-factors = stockbeta.load_factors(start="2020-01-01", end="2023-12-31")
-exposures = stockbeta.calculate_factor_exposures(stock_returns, factors)
-
-print(exposures)
+# Run a Fama-French regression on stock returns
+results = run_fama_french_regression(stock_returns, factors)
+print(results)
 ```
 
 ### Preview of the Development Workflow with Hatch
 
-Now, before we start developing a package from scratch, let's take a look at how to modify the `stockbeta` package. To do this, we'll review the development workflow with Hatch.
+Now, before we start developing a package from scratch, let's take a look at how to modify the `finm` package. To do this, we'll review the development workflow with Hatch.
 
 1. Cloning the repository:
 ```console
-git clone https://github.com/finm-32900/stockbeta-example.git
-cd stockbeta-example
+git clone https://github.com/jmbejara/finm.git
+cd finm
 ```
 
 2. Activating the Hatch shell environment:
@@ -495,14 +500,14 @@ hatch fmt --check   # Check formatting
 
 5. Deploying updates to PyPI:
 
-This following command won't work for you because you haven't set up your PyPI credentials and because you're not on the `stockbeta` team. In any case, I use GitHub Actions to publish the package to TestPyPI.
+This following command won't work for you because you haven't set up your PyPI credentials and because you're not on the `finm` team. In any case, I use GitHub Actions to publish the package to PyPI.
 
 ```console
 hatch publish 
 ```
 
-```{note} Eample
-As an example, let's now make our own quick modification to the `stockbeta` package and verify that it works for us.
+```{note} Example
+As an example, let's now make our own quick modification to the `finm` package and verify that it works for us.
 ```
 
 ## Developing a Python Package with Hatch
@@ -551,18 +556,21 @@ Hatch is a modern Python packaging tool that simplifies the development, testing
 
 TODO
 
-### CLI Development: Click vs. argparse
+### CLI Development: Typer, Click, and argparse
 
-The `stockbeta` package also demonstrates how to create a command-line interface (CLI) using [Click](https://click.palletsprojects.com/), a modern Python package for creating beautiful command line interfaces. While Python's standard library includes [argparse](https://docs.python.org/3/library/argparse.html) for CLI development, we chose Click for several reasons:
+The `finm` package also demonstrates how to create a command-line interface (CLI) using [Typer](https://typer.tiangolo.com/), a modern Python library for building CLI applications. Typer is built on top of [Click](https://click.palletsprojects.com/) and uses Python type hints to define commands, making it even more concise. Python's standard library also includes [argparse](https://docs.python.org/3/library/argparse.html) for CLI development.
 
-#### Why Click Over argparse?
+#### Why Typer?
 
-- **Decorator-Based Interface**: Click uses decorators to define commands and options, resulting in more readable and maintainable code:
+- **Type-Hint-Based Interface**: Typer uses standard Python type hints and decorators to define commands and options, resulting in very readable and maintainable code:
   ```python
-  # Click example
-  @click.command()
-  @click.option('--ticker', required=True, help='Stock ticker symbol')
-  def analyze(ticker):
+  import typer
+
+  app = typer.Typer()
+
+  # Typer example
+  @app.command()
+  def analyze(ticker: str = typer.Option(..., help="Stock ticker symbol")):
       """Analyze a stock's factor exposures."""
       pass
 
@@ -572,14 +580,15 @@ The `stockbeta` package also demonstrates how to create a command-line interface
   args = parser.parse_args()
   ```
 
-- **Automatic Help Generation**: Click automatically generates well-formatted help messages and documentation.
+- **Built on Click**: Typer is built on top of Click, so it inherits all of Click's strengths (automatic help generation, nested subcommands, type conversion, and better error messages) while adding a more Pythonic API based on type hints.
+- **Automatic Help Generation**: Like Click, Typer automatically generates well-formatted help messages and documentation.
 - **Nested Command Support**: Easily create complex CLI applications with subcommands (similar to `git commit`, `git push`).
-- **Type Conversion**: Automatic type conversion and validation of input parameters.
+- **Type Conversion**: Automatic type conversion and validation based on Python type annotations.
 - **Better Error Messages**: More user-friendly error messages out of the box.
 
 #### Why argparse is Still Relevant
 
-While we chose Click for `stockbeta`, argparse remains important to understand:
+While we chose Typer for `finm`, argparse remains important to understand:
 - It's part of Python's standard library (no additional dependencies)
 - Many existing projects use it
 - It's more than adequate for simple CLI needs
@@ -587,16 +596,16 @@ While we chose Click for `stockbeta`, argparse remains important to understand:
 
 #### Modern CLI Development
 
-The trend in Python CLI development has moved towards more sophisticated tools like Click because:
+The trend in Python CLI development has moved towards more sophisticated tools like Typer and Click because:
 - They reduce boilerplate code
 - They encourage better CLI design practices
 - They provide better developer experience
 - They often result in better user experience
 
-For `stockbeta`, Click allows us to create an intuitive interface that makes it easy for users to:
-- Specify date ranges for analysis
-- Select specific stocks or factors
-- Control output formats
+For `finm`, Typer allows us to create an intuitive interface that makes it easy for users to:
+- List and discover available datasets
+- Pull datasets to a local directory
+- View dataset metadata and licensing information
 - Access help and documentation
 
 #### Editable Installs
@@ -639,12 +648,12 @@ pip install --index-url https://test.pypi.org/simple/ your-package-name
 
 #### Automated Releases with GitHub Actions
 
-Modern Python package development often leverages CI/CD pipelines for automated releases. In the `stockbeta` package, we use GitHub Actions to automate the release process to TestPyPI. The workflow is triggered by git tags:
+Modern Python package development often leverages CI/CD pipelines for automated releases. In the `finm` package, we use GitHub Actions to automate the release process to PyPI. The workflow is triggered by git tags:
 
 ```yaml
 strategy:
   matrix:
-    python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+    python-version: ["3.9", "3.10", "3.11", "3.12"]
 ```
 
 This configuration means:
@@ -662,19 +671,19 @@ Common versioning patterns include:
 - Post-releases: `0.1.0.post1`
 - Release candidates: `0.1.0rc1`
 
-A real-world example we encountered with `stockbeta`:
+A real-world example we encountered with `finm`:
 ```python
 # Initial release
-version = "0.0.1"
+version = "0.1.0"
 
 # Development builds (automated via GitHub Actions)
-version = "0.0.2.dev42"  # where 42 is the build number
+version = "0.1.1.dev42"  # where 42 is the build number
 
-# Cannot reuse "0.0.2" if it was ever published, even if deleted
+# Cannot reuse "0.1.1" if it was ever published, even if deleted
 # Must use either:
-version = "0.0.3"  # increment version
+version = "0.1.2"  # increment version
 # or
-version = "0.0.2.post1"  # post-release
+version = "0.1.1.post1"  # post-release
 ```
 
 #### Security Considerations
@@ -721,7 +730,7 @@ When developing Python packages, ensuring compatibility across different Python 
 
 #### Real-World Example: The Distutils Deprecation
 
-During the development of the `stockbeta` package, we encountered an interesting issue that perfectly illustrates why matrix testing is essential. Here's the error we received when testing against Python 3.12:
+During the development of the `finm` package, we encountered an interesting issue that perfectly illustrates why matrix testing is essential. Here's the error we received when testing against Python 3.12:
 
 ```
 ModuleNotFoundError: No module named 'distutils'
@@ -730,7 +739,7 @@ ModuleNotFoundError: No module named 'distutils'
 This error occurred because one of our dependencies, `pandas_datareader`, was indirectly using `distutils` through its dependency chain:
 
 ```
-stockbeta → pandas_datareader → pandas_datareader.compat → distutils
+finm → pandas_datareader → pandas_datareader.compat → distutils
 ```
 
 The issue wasn't apparent in Python 3.11 and earlier versions because `distutils` was part of the standard library. However, it was removed in Python 3.12 as part of [PEP 632](https://peps.python.org/pep-0632/). Without matrix testing, we might have shipped a package that worked fine for most users but would break for anyone using Python 3.12.
@@ -763,4 +772,4 @@ This experience highlights several key points about modern Python package develo
 
 ## Conclusion
 
-By the end of this chapter, you will understand the process of creating Python packages using Hatch and see how the `stockbeta` example applies these concepts. Writing Python libraries is a valuable skill that bridges the gap between technical programming and applied finance, enabling you to create tools that are both robust and impactful.
+By the end of this chapter, you will understand the process of creating Python packages using Hatch and see how the `finm` example applies these concepts. Writing Python libraries is a valuable skill that bridges the gap between technical programming and applied finance, enabling you to create tools that are both robust and impactful.

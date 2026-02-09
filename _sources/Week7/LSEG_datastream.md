@@ -116,6 +116,172 @@ To download 10-Year Treasury Note futures:
    web queries.
 
 
+## Exploring the Futures Library via Python
+
+The WRDS web interface is useful for quick lookups, but programmatic access via
+Python is essential for reproducible research workflows. Connecting to WRDS from
+Python lets you run SQL queries against the Datastream library, iterate over
+products, and build datasets that feed directly into your analysis pipeline.
+
+**Example repository:**
+[`wrds_datastream/`](https://github.com/finm-32900/inclass_examples/tree/main/wrds_datastream)
+— a set of 7 progressive scripts that teach you how to browse, search, and
+retrieve futures data from the `tr_ds_fut` library.
+
+| Script | What You Learn |
+|--------|---------------|
+| `01_explore_library.py` | Survey tables, schemas, row counts, and sample rows |
+| `02_browse_products.py` | List all available futures products with contract counts and date ranges |
+| `03_search_products.py` | Search by keyword (commodities, treasuries, equity indices) |
+| `04_contract_metadata.py` | Inspect individual contracts: `contrcode` → `futcode` relationship |
+| `05_pull_prices.py` | Fetch settlement prices (complete retrieval workflow) |
+| `06_term_structure.py` | Compare term structures: commodity vs. Treasury futures |
+| `07_pull_commodities_and_treasuries.py` | Reference: pull 21 commodities + 4 Treasury futures |
+
+The Datastream mnemonics described above (e.g., `TYCS00` for the 10-Year
+Treasury continuous series) are useful for identifying products in the WRDS web
+interface, but when you query the underlying SQL tables you work with relational
+keys instead — primarily `contrcode` (product type) and `futcode` (individual
+contract).
+
+
+## Data Model: Library Structure and Key Relationships
+
+The `tr_ds_fut` library contains four key tables:
+
+| Table | Description | Scale |
+|-------|------------|-------|
+| `wrds_cseries_info` | Continuous series metadata (auto-rolling front contracts) | Small catalog (~hundreds of rows) |
+| `wrds_contract_info` | Individual contract metadata: `contrcode`, `futcode`, delivery dates | ~100k rows |
+| `wrds_fut_contract` | Daily prices by `futcode`: settlement, open, high, low, volume | ~30M+ rows |
+| `dsfutcalcserval` | Calculated series values (continuous contracts) | ~10M+ rows |
+
+The tables are linked through a hierarchical relationship:
+
+```
+contrcode (product type, e.g. Gold = 2020, 10Y Treasury = 458)
+    └── wrds_contract_info (one row per contract, has futcode + delivery date)
+            └── wrds_fut_contract (daily prices per futcode)
+```
+
+**Two-step retrieval pattern.** Because metadata and prices live in separate
+tables, retrieving prices is always a two-step process:
+
+1. **Find contracts:** Query `wrds_contract_info` to get the `futcode` values
+   for the product and date range you need.
+2. **Fetch prices:** Use those `futcode` values to pull daily data from
+   `wrds_fut_contract`.
+
+This separation keeps the price table lean (no repeated metadata) and lets you
+filter contracts by delivery date, last trade date, or other attributes before
+pulling potentially millions of price rows.
+
+
+## Highlights from the Example Scripts
+
+The sections below show key code patterns from the example repository. Each
+snippet is self-contained — you can adapt it directly for your own projects.
+
+### Searching for Products
+
+The `search_products()` function from `03_search_products.py` queries
+`wrds_contract_info` for products whose name matches a keyword:
+
+```python
+def search_products(db, keyword):
+    """Search for futures products by keyword (case-insensitive)."""
+    kw = keyword.lower().replace("'", "''")
+    query = f"""
+    SELECT contrcode, contrname,
+           COUNT(*) AS num_contracts,
+           MIN(startdate) AS earliest_start,
+           MAX(lasttrddate) AS latest_trade
+    FROM tr_ds_fut.wrds_contract_info
+    WHERE LOWER(contrname) LIKE '%%{kw}%%'
+    GROUP BY contrcode, contrname
+    ORDER BY num_contracts DESC
+    """
+    return db.raw_sql(query)
+```
+
+A search for `"treasury"` returns results like:
+
+```
+Product                                                   Code  Contracts  From          To
+10 YEAR US TREASURY NOTE(CBT)                              458       289  1982-03-31  2026-09-19
+US TREASURY BOND(CBT)                                      268       343  1977-06-24  2026-09-19
+5 YEAR US TREASURY NOTE(CBT)                               510       198  1988-01-04  2026-09-19
+2 YEAR US TREASURY NOTE(CBT)                               599       146  1990-07-02  2026-06-30
+...
+```
+
+The `contrcode` values in this output (458, 268, 510, 599) are the keys you use
+in all subsequent queries.
+
+
+### Two-Step Price Retrieval
+
+From `05_pull_prices.py` — the complete workflow for fetching settlement prices:
+
+```python
+# Step 1: Find recent contracts for 10Y Treasury (contrcode=458)
+query = f"""
+SELECT futcode, contrcode, contrname, contrdate, startdate, lasttrddate
+FROM tr_ds_fut.wrds_contract_info
+WHERE contrcode = 458
+  AND lasttrddate >= '2024-01-01'
+ORDER BY contrdate
+"""
+contracts = db.raw_sql(query)
+
+# Step 2: Pull daily prices for those contracts
+futcode_list = ",".join(str(int(f)) for f in contracts["futcode"].tolist())
+query = f"""
+SELECT futcode, date_, settlement, open_, high, low, volume
+FROM tr_ds_fut.wrds_fut_contract
+WHERE futcode IN ({futcode_list})
+  AND date_ >= '2024-01-01'
+ORDER BY futcode, date_
+"""
+prices = db.raw_sql(query)
+```
+
+Step 1 returns the contract-level metadata (which delivery months exist, when
+they last traded). Step 2 uses the resulting `futcode` values to pull the actual
+daily price series.
+
+
+### Term Structure Snapshot
+
+From `06_term_structure.py` — a single JOIN query that builds a cross-section of
+all active delivery months on a given date:
+
+```python
+query = f"""
+SELECT ci.futcode, ci.contrdate, ci.lasttrddate,
+       fc.settlement, fc.volume
+FROM tr_ds_fut.wrds_contract_info ci
+JOIN tr_ds_fut.wrds_fut_contract fc
+  ON ci.futcode = fc.futcode
+WHERE ci.contrcode = 458
+  AND fc.date_ = '2025-01-31'
+  AND fc.settlement IS NOT NULL
+ORDER BY ci.contrdate
+"""
+term = db.raw_sql(query)
+```
+
+This returns one row per delivery month — the building block for analyzing term
+structure shape (contango vs. backwardation for commodities, or carry dynamics
+for Treasuries).
+
+```{tip}
+Script `07_pull_commodities_and_treasuries.py` combines all of these patterns
+into a single reference script that pulls 21 commodities and 4 Treasury futures.
+Use it as a starting point for building your own research datasets.
+```
+
+
 ## Key Limitations
 - WRDS updates Datastream data **monthly**, while LSEG Workspace offers
   real-time updates.

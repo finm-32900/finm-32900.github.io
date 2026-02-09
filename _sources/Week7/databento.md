@@ -1,0 +1,267 @@
+# Databento
+
+## What Is Databento?
+
+Databento is an **API-first market data platform** that provides programmatic access
+to exchange-level tick data, order book snapshots, and OHLCV bars. Unlike Bloomberg
+(which centers on a desktop terminal) or LSEG Datastream (which is accessed via
+WRDS web queries), Databento is designed from the ground up for developers and
+quantitative researchers who want to pull data directly into code.
+
+Key differentiators:
+
+- **Programmatic access**: Python SDK, HTTP API, and raw TCP — no terminal or GUI required.
+- **Exchange-level granularity**: Tick-by-tick trades, L2/L3 order book, and
+  time-bar aggregations from 1-second to daily.
+- **Pay-as-you-go pricing**: Check the exact dollar cost of any query *before*
+  executing it, for free.
+- **Self-service**: No sales calls or license negotiations.
+
+UChicago has a Databento subscription for FINM students, providing access to
+**CME Globex (GLBX.MDP3)** — the electronic trading venue for E-mini S&P 500
+futures, Treasury futures, and other major derivatives.
+
+```{admonition} Discussion
+:class: tip
+How does the pricing model for Databento (pay-per-query) compare to Bloomberg
+(terminal subscription) and LSEG Datastream via WRDS (institutional license)?
+What are the implications for a research project that requires one-time bulk
+historical pulls versus ongoing daily updates?
+```
+
+## Key Concepts: Datasets, Schemas, and Symbology
+
+Before writing any code, it helps to understand three organizing concepts in the
+Databento data model.
+
+### Datasets
+
+A **dataset** identifies a trading venue. The primary dataset for this course is:
+
+| Dataset | Venue | Products |
+|---------|-------|----------|
+| `GLBX.MDP3` | CME Globex | E-mini S&P 500, Treasury futures, Eurodollars, and more |
+
+### Symbology
+
+Databento supports multiple ways to refer to the same instrument. This flexibility
+is essential when working with futures, which have expiring contracts:
+
+| Symbology Type | Example | Description |
+|----------------|---------|-------------|
+| `raw_symbol` | `ESU4` | One specific contract (ES = E-mini S&P, U = Sep, 4 = 2024) |
+| `parent` | `ES.FUT` | All active expirations of a product |
+| `continuous` | `ES.c.0` | Rolling front-month contract |
+| `instrument_id` | `3403` | Numeric exchange-assigned ID |
+
+For quick reference, here are the **futures month codes**:
+
+| Code | Month | Code | Month |
+|------|-------|------|-------|
+| F | January | N | July |
+| G | February | Q | August |
+| H | March | U | September |
+| J | April | V | October |
+| K | May | X | November |
+| M | June | Z | December |
+
+### Schemas
+
+A **schema** controls the level of detail (and volume) of the data returned.
+Schemas form a hierarchy from most to least granular:
+
+| Schema | Description |
+|--------|-------------|
+| `mbo` | Market-by-order (every order book event) |
+| `mbp-10` | Market-by-price, 10 levels |
+| `mbp-1` | Market-by-price, top of book |
+| `trades` | Every individual trade (tick-by-tick) |
+| `ohlcv-1s` | 1-second bars |
+| `ohlcv-1m` | 1-minute bars |
+| `ohlcv-1h` | 1-hour bars |
+| `ohlcv-1d` | Daily bars |
+
+More granular schemas produce more data (and cost more). For most research
+projects, `trades` or `ohlcv-1m` are good starting points.
+
+See the
+[`05_schemas_and_symbology`](https://github.com/finm-32900/inclass_examples/tree/main/databento/05_schemas_and_symbology)
+module in the examples repo for runnable comparisons.
+
+## Getting Started with the Python SDK
+
+### Installation
+
+```bash
+pip install databento python-dotenv
+```
+
+### API Key Setup
+
+Create a `.env` file in your project root with your Databento API key:
+
+```text
+DATABENTO_API_KEY=db-XXXXXXXXXXXXXXXXXXXX
+```
+
+```{warning}
+Never commit your `.env` file to version control. Make sure `.env` is in your
+`.gitignore`.
+```
+
+### Your First Query
+
+The pattern for every historical query is: **create client → check cost → fetch
+data → convert to DataFrame**.
+
+```python
+from dotenv import load_dotenv
+import databento as db
+
+load_dotenv()  # reads DATABENTO_API_KEY from .env
+
+client = db.Historical()
+
+# --- Query parameters ---
+query = dict(
+    dataset="GLBX.MDP3",
+    symbols=["ES.FUT"],
+    stype_in="parent",
+    schema="trades",
+    start="2024-08-01",
+    end="2024-08-02",
+    limit=10,
+)
+
+# Step 1: Check cost (free metadata call)
+cost = client.metadata.get_cost(**query)
+print(f"Estimated cost: ${cost:.4f}")
+
+# Step 2: Fetch data only if the cost is acceptable
+data = client.timeseries.get_range(**query)
+
+# Step 3: Convert to pandas DataFrame
+df = data.to_df()
+print(df)
+```
+
+```{warning}
+Always check `client.metadata.get_cost()` before calling `get_range()`.
+Queries against tick-level schemas over long time ranges or many symbols can
+become expensive. The cost check is free and returns the exact dollar amount.
+```
+
+## Historical vs. Live Data
+
+Databento provides two modes of access:
+
+- **Historical**: Pull archived data for backtesting and research via
+  `db.Historical()`. Billed per query based on data volume.
+- **Live**: Stream real-time data as it arrives from the exchange via
+  `db.Live()`. Billed per subscription.
+
+Here is a minimal live streaming example:
+
+```python
+import databento as db
+from dotenv import load_dotenv
+
+load_dotenv()
+
+client = db.Live()
+
+client.subscribe(
+    dataset="GLBX.MDP3",
+    schema="trades",
+    stype_in="parent",
+    symbols="ES.FUT",
+)
+
+for record in client:
+    print(record)  # each record is a TradeMsg with auto-scaled prices
+```
+
+```{note}
+Live streaming requires CME Globex to be open (Sunday 5 PM – Friday 4 PM CT).
+```
+
+For a deeper look at what the SDK does under the hood (raw HTTP requests, TCP
+connections, CRAM authentication), see modules
+[`02_historical_api`](https://github.com/finm-32900/inclass_examples/tree/main/databento/02_historical_api)
+and
+[`04_live_raw_tcp`](https://github.com/finm-32900/inclass_examples/tree/main/databento/04_live_raw_tcp)
+in the examples repo.
+
+## Case Study: Treasury Futures Market Brief
+
+The
+[`06_treasury_futures_brief`](https://github.com/finm-32900/inclass_examples/tree/main/databento/06_treasury_futures_brief)
+example in the class repo fetches daily OHLCV data and open interest for five
+Treasury futures products spanning the yield curve:
+
+| Symbol | Product | Underlying | Approx. Duration |
+|--------|---------|------------|-------------------|
+| `ZT` | 2-Year T-Note | UST 2Y | ~1.9 years |
+| `ZF` | 5-Year T-Note | UST 5Y | ~4.2 years |
+| `ZN` | 10-Year T-Note | UST 10Y | ~6.5 years |
+| `TN` | Ultra 10-Year T-Note | UST 10Y (ultra) | ~9.5 years |
+| `ZB` | 30-Year T-Bond | UST 30Y | ~17 years |
+
+### Indexed Price Series
+
+The chart below normalizes each product's closing price to 100 at the start of
+the sample and tracks relative performance. Products with longer duration
+(ZB, TN) show larger price swings — exactly what we expect given the inverse
+relationship between bond prices and yields.
+
+```{figure} assets/databento_chart_indexed_prices.png
+:alt: Treasury futures indexed prices
+:width: 100%
+
+Indexed closing prices (base = 100) for five Treasury futures products.
+```
+
+### Volume and Open Interest
+
+Volume and open interest reveal where liquidity concentrates. The 10-Year
+T-Note (ZN) typically dominates both metrics, making it the benchmark for
+Treasury futures trading.
+
+```{figure} assets/databento_chart_volume_oi.png
+:alt: Treasury futures volume and open interest
+:width: 100%
+
+Average daily volume and open interest across Treasury futures products.
+```
+
+```{tip}
+**Try it yourself.** Clone the
+[examples repo](https://github.com/finm-32900/inclass_examples/tree/main/databento)
+and run the `06_treasury_futures_brief` scripts to reproduce these charts, add
+new products, or extend the date range.
+```
+
+## Comparing Data Sources
+
+```{admonition} Discussion
+:class: tip
+
+| | Bloomberg | LSEG Datastream (WRDS) | Databento |
+|---|-----------|----------------------|-----------|
+| **Access** | Desktop terminal + Excel API | Web queries or Python via WRDS | Python SDK, HTTP API, TCP |
+| **Pricing** | Annual terminal license | Institutional license (via WRDS) | Pay-per-query |
+| **Strengths** | Breadth (equities, FI, macro, news) | Long historical coverage, cross-asset | Exchange-level tick data, order book |
+| **Best for** | Exploratory research, fixed income analytics | Panel data, academic research | Algorithmic trading, microstructure research |
+```
+
+## Resources
+
+- [Databento Documentation](https://databento.com/docs) — API reference, schema
+  definitions, dataset catalog
+- [Databento Python SDK (PyPI)](https://pypi.org/project/databento/) — SDK
+  installation and changelog
+- [FINM-32900 In-Class Examples: Databento](https://github.com/finm-32900/inclass_examples/tree/main/databento)
+  — 6 modules covering historical/live access, schemas, symbology, and the
+  Treasury futures case study
+- [Databento Portal](https://app.databento.com) — Web UI for browsing datasets,
+  checking costs, and managing API keys

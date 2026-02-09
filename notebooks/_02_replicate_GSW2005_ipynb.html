@@ -1,0 +1,2460 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve &#8212; Full Stack Quantitative Finance</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f23691d7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=8dbc1659"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/_02_replicate_GSW2005_ipynb';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Final Project" href="../final_project.html" />
+    <link rel="prev" title="CRSP Treasury Data Oveview" href="_01_CRSP_treasury_overview_ipynb.html" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>   
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Full Stack Quantitative Finance - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Full Stack Quantitative Finance - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Full Stack Quantitative Finance
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Winter 2026</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Appendix</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures 📖</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w1.html">Week 1: GitHub, GitHub Classroom, and Virtual Environments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/what_is_this_course_about.html">What is Full Stack Quantitative Finance? Why This Course?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/virtual_environments.html">Virtual Environments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_01_wrds_python_package_ipynb.html">Example: Connecting to the WRDS Platform With Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_05_basics_of_SQL_ipynb.html">Basics of SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/doit_examples.html">PyDoit Examples Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/project_structure.html">Project Structure: “Chartbook” Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w5.html">Week 5: Bloomberg, LSEG Datastream, and Databento</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/LSEG_datastream.html">LSEG Datastream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/databento.html">Databento</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w7.html">Week 7: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w8.html">Week 8: Web Authentication and Authorization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="_01_corporate_hedging_ipynb.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/web_authentication.html">Web Authentication and Authorization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w9.html">Week 9: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week9/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework 📝</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../HW0.html">Homework 0</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="_02_CRSP_market_index_ipynb.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_03_SP500_constituents_and_index_ipynb.html">HW Guide Part B: Reconstructing the S&amp;P 500 Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="_04_Fama_French_1993_ipynb.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../HW3.html">Homework 3</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../HW4.html">Homework 4</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="_01_CRSP_treasury_overview_ipynb.html">CRSP Treasury Data Oveview</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/potential_final_projects.html">List of Potential Final Projects</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project/issues/new?title=Issue%20on%20page%20%2Fnotebooks/_02_replicate_GSW2005_ipynb.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/_02_replicate_GSW2005_ipynb.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bond-pricing-from-first-principles">Bond Pricing from First Principles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposing-bonds-into-cashflows">Decomposing Bonds into Cashflows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-identification-problem-spot-rates-are-unobserved">The Identification Problem: Spot Rates are Unobserved</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-the-spot-curve-parametric-estimation">Fitting the Spot Curve: Parametric Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-weight-by-the-inverse-of-duration">Why weight by the inverse of duration?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-nelson-siegel-svensson-model">The Nelson-Siegel-Svensson Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theoretical-foundations">Theoretical Foundations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-curve-fitting-approach">1. Static Curve-Fitting Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absence-of-no-arbitrage-restrictions">2. Absence of No-Arbitrage Restrictions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#factor-dynamics-and-risk-premiums">3. Factor Dynamics and Risk Premiums</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast-with-arbitrage-free-extensions">4. Contrast with Arbitrage-Free Extensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-vs-theoretical-focus">5. Empirical vs. Theoretical Focus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-filtering">Data Filtering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-steps">Implementation Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">1. Data Preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cashflow-construction">2. Cashflow Construction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-fitting">3. Model Fitting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note">Note</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-and-validation">Testing and Validation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-identifying-rich-and-cheap-bonds">Application: Identifying Rich and Cheap Bonds</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-pricing-errors-arise">Why do pricing errors arise?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-results">Interpreting the Results</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                   <section class="tex2jax_ignore mathjax_ignore" id="replicating-the-gurkaynak-sack-and-wright-2006-treasury-yield-curve">
+<h1>Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve<a class="headerlink" href="#replicating-the-gurkaynak-sack-and-wright-2006-treasury-yield-curve" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this section, we’ll explore how to replicate the U.S. Treasury yield curve estimation methodology developed by Gürkaynak, Sack, and Wright (2006) (hereafter GSW). The GSW yield curve has become a standard benchmark in both academic research and industry practice. Their approach provides daily estimates of the U.S. Treasury yield curve from 1961 to the present, making it an invaluable resource for analyzing historical interest rate dynamics.</p>
+</section>
+<section id="bond-pricing-from-first-principles">
+<h2>Bond Pricing from First Principles<a class="headerlink" href="#bond-pricing-from-first-principles" title="Link to this heading">#</a></h2>
+<p>The price of a bond is the <strong>present value of its future cashflows</strong>.
+A Treasury note or bond makes two types of payments:</p>
+<ol class="arabic simple">
+<li><p><strong>Coupon payments</strong>: Paid semiannually (every 6 months), each equal to half
+the annual coupon rate times the face value ($100).</p></li>
+<li><p><strong>Principal repayment</strong>: The face value ($100) returned at maturity.</p></li>
+</ol>
+<p>For a bond with annual coupon rate <span class="math notranslate nohighlight">\(c\)</span> and semiannual payment dates
+<span class="math notranslate nohighlight">\(t_1, t_2, \ldots, t_N\)</span> (where <span class="math notranslate nohighlight">\(t_N\)</span> is the maturity date), the price is:</p>
+<div class="math notranslate nohighlight">
+\[
+P = \sum_{j=1}^{N-1} \frac{c}{2} \cdot d(t_j) \;+\; \left(\frac{c}{2} + 100\right) \cdot d(t_N)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(d(t)\)</span> is the <strong>discount factor</strong> — the present value today of $1
+received at time <span class="math notranslate nohighlight">\(t\)</span>. Using continuously compounded zero-coupon yields <span class="math notranslate nohighlight">\(y(t)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+d(t) = e^{-y(t) \cdot t}
+\]</div>
+<p>More compactly, if we let <span class="math notranslate nohighlight">\(CF_j\)</span> denote the cashflow at time <span class="math notranslate nohighlight">\(t_j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+P = \sum_{j=1}^{N} CF_j \cdot d(t_j)
+\]</div>
+<p>This is just a weighted sum: each cashflow multiplied by its discount factor.</p>
+</section>
+<section id="decomposing-bonds-into-cashflows">
+<h2>Decomposing Bonds into Cashflows<a class="headerlink" href="#decomposing-bonds-into-cashflows" title="Link to this heading">#</a></h2>
+<p>The key insight is that <strong>every coupon-bearing bond can be viewed as a
+portfolio of zero-coupon bonds</strong> — one for each cashflow date. A 5-year
+Treasury note with a 6% coupon is really a bundle of 10 zero-coupon
+cashflows (one every 6 months) plus the principal repayment at maturity.</p>
+<p>When we have many bonds outstanding on the same day, their cashflows land on
+overlapping dates. We can organize all of this into a <strong>cashflow matrix</strong> <span class="math notranslate nohighlight">\(C\)</span>,
+where:</p>
+<ul class="simple">
+<li><p>Each <strong>row</strong> is a bond</p></li>
+<li><p>Each <strong>column</strong> is a payment date</p></li>
+<li><p>Entry <span class="math notranslate nohighlight">\(C_{i,j}\)</span> is the cashflow that bond <span class="math notranslate nohighlight">\(i\)</span> pays on date <span class="math notranslate nohighlight">\(j\)</span></p></li>
+</ul>
+<p>The model-implied price vector is then a simple matrix multiplication:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{P}^{\text{model}} = C \cdot \mathbf{d}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{d}\)</span> is the vector of discount factors for each payment date.
+This is exactly what the code computes: <code class="docutils literal notranslate"><span class="pre">cashflows</span> <span class="pre">&#64;</span> <span class="pre">discount_factors</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Example: 3 bonds observed on Jan 31, 2000</span>
+<span class="n">bond_labels</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Bond A</span><span class="se">\n</span><span class="s2">6</span><span class="si">% c</span><span class="s2">pn, matures 5/00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Bond B</span><span class="se">\n</span><span class="s2">4</span><span class="si">% c</span><span class="s2">pn, matures 11/00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Bond C</span><span class="se">\n</span><span class="s2">5</span><span class="si">% c</span><span class="s2">pn, matures 5/01&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="c1"># Payment dates as fractional years from quote date</span>
+<span class="n">payment_dates</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.29</span><span class="p">,</span> <span class="mf">0.79</span><span class="p">,</span> <span class="mf">1.29</span><span class="p">]</span>
+<span class="n">date_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;May</span><span class="se">\n</span><span class="s2">2000&quot;</span><span class="p">,</span> <span class="s2">&quot;Nov</span><span class="se">\n</span><span class="s2">2000&quot;</span><span class="p">,</span> <span class="s2">&quot;May</span><span class="se">\n</span><span class="s2">2001&quot;</span><span class="p">]</span>
+
+<span class="c1"># Cashflow matrix (rows=bonds, cols=payment dates)</span>
+<span class="n">cashflows_example</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mf">103.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>  <span class="c1"># Bond A: final coupon + principal</span>
+        <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">102.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>  <span class="c1"># Bond B: coupon, then coupon + principal</span>
+        <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">102.5</span><span class="p">],</span>  <span class="c1"># Bond C: coupon, coupon, coupon + principal</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">y_positions</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">bond_y</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">y_positions</span><span class="p">,</span> <span class="n">bond_labels</span><span class="p">)):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">bond_y</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">date_x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">payment_dates</span><span class="p">):</span>
+        <span class="n">cf</span> <span class="o">=</span> <span class="n">cashflows_example</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">cf</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">size</span> <span class="o">=</span> <span class="mi">150</span> <span class="o">+</span> <span class="n">cf</span> <span class="o">*</span> <span class="mi">8</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;#2196F3&quot;</span> <span class="k">if</span> <span class="n">cf</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="k">else</span> <span class="s2">&quot;#FF9800&quot;</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+                <span class="n">date_x</span><span class="p">,</span> <span class="n">bond_y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.8</span>
+            <span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">date_x</span><span class="p">,</span> <span class="n">bond_y</span> <span class="o">-</span> <span class="mf">0.25</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">cf</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># Timeline</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+    <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">1.55</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">),</span>
+    <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.95</span><span class="p">,</span> <span class="s2">&quot;Time&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">date_x</span><span class="p">,</span> <span class="n">date_label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">payment_dates</span><span class="p">,</span> <span class="n">date_labels</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">date_x</span><span class="p">,</span> <span class="n">date_x</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.65</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">date_x</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">date_label</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+
+<span class="c1"># Quote date</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.65</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="s2">&quot;Jan 31</span><span class="se">\n</span><span class="s2">2000</span><span class="se">\n</span><span class="s2">(today)&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+<span class="c1"># Legend</span>
+<span class="n">coupon_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;#2196F3&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Coupon only&quot;</span><span class="p">)</span>
+<span class="n">principal_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;#FF9800&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Coupon + Principal&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">coupon_patch</span><span class="p">,</span> <span class="n">principal_patch</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">2.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Decomposing Bonds into Cashflows&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9101586f7097fdfdc5c7f785493a49198c014570d565e44a8c2c18ca2fecb4d6.png" src="../_images/9101586f7097fdfdc5c7f785493a49198c014570d565e44a8c2c18ca2fecb4d6.png" />
+</div>
+</div>
+</section>
+<section id="the-identification-problem-spot-rates-are-unobserved">
+<h2>The Identification Problem: Spot Rates are Unobserved<a class="headerlink" href="#the-identification-problem-spot-rates-are-unobserved" title="Link to this heading">#</a></h2>
+<p>Here is the central challenge. To price bonds, we need the discount factors
+<span class="math notranslate nohighlight">\(d(t)\)</span>, which depend on the zero-coupon yield curve <span class="math notranslate nohighlight">\(y(t)\)</span>. But <strong>zero-coupon
+yields are not directly observed</strong> in the market.</p>
+<p>What we <em>do</em> observe are the <strong>prices of coupon-bearing Treasury notes and
+bonds</strong>. Each observed price is a function of <em>many</em> spot rates simultaneously
+(one for each cashflow date). So the yield curve is embedded in bond prices,
+but we need to extract it.</p>
+<p>Mathematically, for <span class="math notranslate nohighlight">\(N\)</span> bonds we observe prices <span class="math notranslate nohighlight">\(P_1, P_2, \ldots, P_N\)</span>,
+and each satisfies:</p>
+<div class="math notranslate nohighlight">
+\[
+P_i = \sum_{j} C_{ij} \cdot d(t_j)
+\]</div>
+<p>The unknowns are the discount factors <span class="math notranslate nohighlight">\(d(t_j)\)</span> — or equivalently, the spot
+rates <span class="math notranslate nohighlight">\(y(t_j)\)</span> — at every payment date. There are typically far more payment
+dates than bonds, so this system is <strong>underdetermined</strong>. We cannot simply
+“solve” for the yield curve; we need to impose some structure.</p>
+</section>
+<section id="fitting-the-spot-curve-parametric-estimation">
+<h2>Fitting the Spot Curve: Parametric Estimation<a class="headerlink" href="#fitting-the-spot-curve-parametric-estimation" title="Link to this heading">#</a></h2>
+<p>The solution is to assume the spot curve <span class="math notranslate nohighlight">\(y(t)\)</span> is a smooth function described
+by a small number of parameters <span class="math notranslate nohighlight">\(\theta\)</span>. Instead of estimating a separate
+yield for every payment date, we search for the parameter vector <span class="math notranslate nohighlight">\(\theta\)</span> that
+best reproduces the observed bond prices.</p>
+<p>Specifically, GSW minimize a <strong>weighted sum of squared price errors</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\min_{\theta} \sum_{i=1}^{N} \frac{\left(P_i^{\text{obs}} - P_i^{\text{model}}(\theta)\right)^2}{D_i}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(D_i\)</span> is the <strong>duration</strong> of bond <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<section id="why-weight-by-the-inverse-of-duration">
+<h3>Why weight by the inverse of duration?<a class="headerlink" href="#why-weight-by-the-inverse-of-duration" title="Link to this heading">#</a></h3>
+<p>Duration measures how sensitive a bond’s price is to yield changes. A
+long-duration bond will have larger price swings for the same yield error.
+Without duration weighting, the optimizer would focus disproportionately on
+matching long-duration bonds (because their price errors are naturally larger),
+at the expense of short-maturity securities.</p>
+<p>Dividing by duration approximately converts price errors into yield errors:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta P \approx -D \cdot \Delta y \quad \Longrightarrow \quad \frac{(\Delta P)^2}{D} \approx D \cdot (\Delta y)^2
+\]</div>
+<p>So the weighted objective treats a 1 basis point yield miss roughly the same
+regardless of maturity. This gives us a yield curve that fits uniformly across
+the entire term structure.</p>
+<p>The remaining question is: <strong>what functional form should <span class="math notranslate nohighlight">\(y(t; \theta)\)</span> take?</strong>
+This is where the Nelson-Siegel-Svensson model comes in.</p>
+</section>
+</section>
+<section id="the-nelson-siegel-svensson-model">
+<h2>The Nelson-Siegel-Svensson Model<a class="headerlink" href="#the-nelson-siegel-svensson-model" title="Link to this heading">#</a></h2>
+<p>The GSW methodology employs the Nelson-Siegel-Svensson (NSS) model to fit the yield curve. The NSS model expresses instantaneous forward rates using a flexible functional form with six parameters:</p>
+<p>Example: NSS Forward Rate Function
+The instantaneous forward rate n years ahead is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+f(n) = \beta_1 + \beta_2 e^{-n/\tau_1} + \beta_3\left(\frac{n}{\tau_1}\right)e^{-n/\tau_1} + \beta_4\left(\frac{n}{\tau_2}\right)e^{-n/\tau_2}
+\]</div>
+<p>This specification allows for rich curve shapes while maintaining smoothness and asymptotic behavior. The parameters have intuitive interpretations:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\beta_1\)</span>: The asymptotic forward rate</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta_2\)</span>, <span class="math notranslate nohighlight">\(\beta_3\)</span>, <span class="math notranslate nohighlight">\(\beta_4\)</span>: Control the shape and humps of the curve</p></li>
+<li><p><span class="math notranslate nohighlight">\(\tau_1\)</span>, <span class="math notranslate nohighlight">\(\tau_2\)</span>: Determine the location of curve features</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+y(t) = \beta_1 + \beta_2\left(\frac{1-e^{-t/\tau_1}}{t/\tau_1}\right) + \beta_3\left(\frac{1-e^{-t/\tau_1}}{t/\tau_1} - e^{-t/\tau_1}\right) + \beta_4\left(\frac{1-e^{-t/\tau_2}}{t/\tau_2} - e^{-t/\tau_2}\right)
+\]</div>
+<p>This equation shows the zero-coupon yield <span class="math notranslate nohighlight">\(y(t)\)</span> for maturity <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">gsw2006_yield_curve</span>
+<span class="kn">import</span> <span class="nn">pull_CRSP_treasury</span>
+<span class="kn">import</span> <span class="nn">pull_yield_curve_data</span>
+<span class="kn">from</span> <span class="nn">settings</span> <span class="kn">import</span> <span class="n">config</span>
+
+<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">config</span><span class="p">(</span><span class="s2">&quot;DATA_DIR&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nelson-Siegel-Svensson parameters</span>
+<span class="c1"># &quot;tau1&quot;, &quot;tau2&quot;, &quot;beta1&quot;, &quot;beta2&quot;, &quot;beta3&quot;, &quot;beta4&quot;</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+
+<span class="n">gsw2006_yield_curve</span><span class="o">.</span><span class="n">plot_spot_curve</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0cc066cf347c5a9ad3b18205e7c85c3223547044b973711e7917ecce1b539fed.png" src="../_images/0cc066cf347c5a9ad3b18205e7c85c3223547044b973711e7917ecce1b539fed.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Spot Curve&#39;}, xlabel=&#39;Maturity&#39;, ylabel=&#39;Spot Rate&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nelson-Siegel-Svensson parameters</span>
+<span class="c1"># &quot;tau1&quot;, &quot;tau2&quot;, &quot;beta1&quot;, &quot;beta2&quot;, &quot;beta3&quot;, &quot;beta4&quot;</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">])</span>
+
+<span class="n">gsw2006_yield_curve</span><span class="o">.</span><span class="n">plot_spot_curve</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ad9e649cfa74906b7a3ef1647cccfc71cf604b9f6998675671672fea2e3a2c53.png" src="../_images/ad9e649cfa74906b7a3ef1647cccfc71cf604b9f6998675671672fea2e3a2c53.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Spot Curve&#39;}, xlabel=&#39;Maturity&#39;, ylabel=&#39;Spot Rate&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="theoretical-foundations">
+<h2>Theoretical Foundations<a class="headerlink" href="#theoretical-foundations" title="Link to this heading">#</a></h2>
+<p>The Nelson-Siegel-Svensson model is commonly used in practice to fit the yield curve. It has statistically appealing properties, but it is not arbitrage-free. Here’s a detailed breakdown of why:</p>
+<section id="static-curve-fitting-approach">
+<h3>1. Static Curve-Fitting Approach<a class="headerlink" href="#static-curve-fitting-approach" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The NSS model is primarily a <strong>parametric curve-fitting tool</strong> that focuses on matching observed yields at a single point in time.</p></li>
+<li><p>It does not model the <strong>dynamic evolution of interest rates</strong> or enforce consistency between short-term rate expectations and long-term yields over time, a key requirement for no-arbitrage models.</p></li>
+</ul>
+</section>
+<section id="absence-of-no-arbitrage-restrictions">
+<h3>2. Absence of No-Arbitrage Restrictions<a class="headerlink" href="#absence-of-no-arbitrage-restrictions" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>No-arbitrage models impose constraints to prevent risk-free profits. For example, affine term structure models derive bond prices from:</p>
+<div class="math notranslate nohighlight">
+\[
+     P(t,T) = \mathbb{E}^\mathbb{Q}\left[e^{-\int_t^T r_s ds}\right],
+     \]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbb{Q}\)</span> is the risk-neutral measure. The NSS model lacks such theoretical foundations.</p>
+</li>
+<li><p>The NSS parameters (e.g., level, slope, curvature) are <strong>statistically estimated</strong> rather than derived from economic principles or arbitrage-free dynamics.</p></li>
+</ul>
+</section>
+<section id="factor-dynamics-and-risk-premiums">
+<h3>3. Factor Dynamics and Risk Premiums<a class="headerlink" href="#factor-dynamics-and-risk-premiums" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>In arbitrage-free models, factor dynamics (e.g., mean reversion) and risk premiums are explicitly defined to ensure consistency across maturities. The NSS model treats factors as <strong>latent variables</strong> without specifying their stochastic behavior or market price of risk.</p></li>
+<li><p>This omission allows potential inconsistencies between short-rate expectations and long-term yields, creating theoretical arbitrage opportunities.</p></li>
+</ul>
+</section>
+<section id="contrast-with-arbitrage-free-extensions">
+<h3>4. Contrast with Arbitrage-Free Extensions<a class="headerlink" href="#contrast-with-arbitrage-free-extensions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The <strong>arbitrage-free Nelson-Siegel (AFNS)</strong> model, developed by Christensen et al. (2007), addresses these limitations by:</p>
+<ul>
+<li><p>Embedding Nelson-Siegel factors into a dynamic arbitrage-free framework.</p></li>
+<li><p>Explicitly defining factor dynamics under both physical (<span class="math notranslate nohighlight">\(\mathbb{P}\)</span>) and risk-neutral (<span class="math notranslate nohighlight">\(\mathbb{Q}\)</span>) measures.</p></li>
+<li><p>Ensuring internal consistency between yields of different maturities.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="empirical-vs-theoretical-focus">
+<h3>5. Empirical vs. Theoretical Focus<a class="headerlink" href="#empirical-vs-theoretical-focus" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The NSS model prioritizes <strong>empirical flexibility</strong> (e.g., fitting yield curve shapes like humps) over theoretical rigor. While it performs well in practice, this trade-off inherently sacrifices no-arbitrage guarantees.</p></li>
+</ul>
+<p>In summary, the NSS model’s lack of dynamic factor specifications, absence of explicit no-arbitrage constraints, and focus on cross-sectional fitting rather than intertemporal consistency render it theoretically incompatible with arbitrage-free principles. Its successors, such as the AFNS model, bridge this gap by integrating no-arbitrage restrictions while retaining empirical tractability.</p>
+</section>
+</section>
+<section id="data-filtering">
+<h2>Data Filtering<a class="headerlink" href="#data-filtering" title="Link to this heading">#</a></h2>
+<p>One important step of the GSW methodology is careful filtering of Treasury securities.</p>
+<p>The following filters are implemented:</p>
+<ol class="arabic simple">
+<li><p>Exclude securities with &lt; 3 months to maturity</p></li>
+<li><p>Exclude on-the-run and first off-the-run issues after 1980</p></li>
+<li><p>Exclude T-bills (only keep notes and bonds)</p></li>
+<li><p>Exclude 20-year bonds after 1996 with decay</p></li>
+<li><p>Exclude callable bonds</p></li>
+</ol>
+<p>The GSW paper also includes ad hoc exclusions for specific issues, which are not implemented here.</p>
+<p>Why are these filters important?</p>
+<p>For (2), this is what the paper says:</p>
+<blockquote>
+<div><p>We exclude the two most recently issued securities with maturities of two,
+three, four, five, seven, ten, twenty, and thirty years for securities
+issued in 1980 or later. These are the “on-the-run” and “first off-the-run”
+issues that often trade at a premium to other Treasury securities, owing to
+their greater liquidity and their frequent specialness in the repo market.8
+Earlier in the sample, the concept of an on-the-run issue was not well
+defined, since the Treasury did not conduct regular auctions and the repo
+market was not well developed (as discussed by Garbade (2004)). Our cut-off
+point for excluding onthe- run and first off-the-run issues is somewhat
+arbitrary but is a conservative choice (in the sense of potentially erring
+on the side of being too early).</p>
+</div></blockquote>
+<p>For (4), this is what the paper says:</p>
+<blockquote>
+<div><p>We begin to exclude twenty-year bonds in 1996, because those securities
+often appeared cheap relative to ten-year notes with comparable duration.
+This cheapness could reflect their lower liquidity or the fact that their
+high coupon rates made them unattractive to hold for tax-related reasons.</p>
+<p>To avoid an abrupt change to the sample, we allow their weights to linearly
+decay from 1 to 0 over the year ending on January 2, 1996.</p>
+</div></blockquote>
+<p>Let’s examine how we implement these filters using CRSP data. The following is
+from the <code class="docutils literal notranslate"><span class="pre">pull_CRSP_treasury.py</span></code> file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gurkaynak_sack_wright_filters</span><span class="p">(</span><span class="n">dff</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply Treasury security filters based on Gürkaynak, Sack, and Wright (2006).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">dff</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># Filter 1: Exclude &lt; 3 months to maturity</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;days_to_maturity&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">92</span><span class="p">]</span>
+
+    <span class="c1"># Filter 2: Exclude on-the-run and first off-the-run after 1980</span>
+    <span class="n">post_1980</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;caldt&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;1980-01-01&quot;</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">post_1980</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;run&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">))]</span>
+
+    <span class="c1"># Filter 3: Only include notes (2) and bonds (1)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;itype&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])]</span>
+
+    <span class="c1"># Filter 4: Exclude 20-year bonds after 1996 with decay</span>
+    <span class="n">cutoff_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;1996-01-02&quot;</span><span class="p">)</span>
+    <span class="n">decay_start</span> <span class="o">=</span> <span class="n">cutoff_date</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">years</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="c1"># Apply linear decay only during 1995-01-02 to 1996-01-02</span>
+    <span class="n">mask_decay</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;original_maturity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;caldt&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">decay_start</span><span class="p">)</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;caldt&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">cutoff_date</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="c1"># Calculate proper decay factor for the transition year</span>
+    <span class="n">decay_days</span> <span class="o">=</span> <span class="p">(</span><span class="n">cutoff_date</span> <span class="o">-</span> <span class="n">decay_start</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+    <span class="n">decay_factor</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;caldt&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">decay_start</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span> <span class="o">/</span> <span class="n">decay_days</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask_decay</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">]</span> <span class="o">*=</span> <span class="n">decay_factor</span>
+
+    <span class="c1"># Completely exclude 20-year bonds after cutoff date</span>
+    <span class="n">mask_exclude</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;original_maturity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">20</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;caldt&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">cutoff_date</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask_exclude</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Filter 5: Exclude callable bonds</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;callable&quot;</span><span class="p">]]</span>
+
+    <span class="c1"># Remove securities with zero/negative weights</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">df</span>
+
+</pre></div>
+</div>
+<p>Let’s examine how this affects the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Load Gurkaynak Sack Wright data from Federal Reserve&#39;s website</span>
+<span class="c1"># See here: https://www.federalreserve.gov/data/nominal-yield-curve.htm</span>
+<span class="c1"># and here: https://www.federalreserve.gov/data/yield-curve-tables/feds200628_1.html</span>
+<span class="n">actual_all</span> <span class="o">=</span> <span class="n">pull_yield_curve_data</span><span class="o">.</span><span class="n">load_fed_yield_curve_all</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">DATA_DIR</span><span class="p">)</span>
+<span class="c1"># Create copy of parameter DataFrame to avoid view vs copy issues</span>
+<span class="n">actual_params_all</span> <span class="o">=</span> <span class="n">actual_all</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="p">:,</span> <span class="p">[</span><span class="s2">&quot;TAU1&quot;</span><span class="p">,</span> <span class="s2">&quot;TAU2&quot;</span><span class="p">,</span> <span class="s2">&quot;BETA0&quot;</span><span class="p">,</span> <span class="s2">&quot;BETA1&quot;</span><span class="p">,</span> <span class="s2">&quot;BETA2&quot;</span><span class="p">,</span> <span class="s2">&quot;BETA3&quot;</span><span class="p">]</span>
+<span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># Convert percentage points to decimals for beta parameters</span>
+<span class="n">beta_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;BETA0&quot;</span><span class="p">,</span> <span class="s2">&quot;BETA1&quot;</span><span class="p">,</span> <span class="s2">&quot;BETA2&quot;</span><span class="p">,</span> <span class="s2">&quot;BETA3&quot;</span><span class="p">]</span>
+<span class="n">actual_params_all</span><span class="p">[</span><span class="n">beta_columns</span><span class="p">]</span> <span class="o">=</span> <span class="n">actual_params_all</span><span class="p">[</span><span class="n">beta_columns</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span>
+
+
+<span class="c1">## Load CRSP Treasury data from Wharton Research Data Services</span>
+<span class="c1"># We will fit a Nelson-Siegel-Svensson model to this data to see</span>
+<span class="c1"># if we can replicate the Gurkaynak Sack Wright results above.</span>
+<span class="n">df_all</span> <span class="o">=</span> <span class="n">pull_CRSP_treasury</span><span class="o">.</span><span class="n">load_CRSP_treasury_consolidated</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">DATA_DIR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kytreasno</th>
+      <th>kycrspid</th>
+      <th>tcusip</th>
+      <th>caldt</th>
+      <th>tdatdt</th>
+      <th>tmatdt</th>
+      <th>tfcaldt</th>
+      <th>tdbid</th>
+      <th>tdask</th>
+      <th>tdaccint</th>
+      <th>...</th>
+      <th>price</th>
+      <th>tcouprt</th>
+      <th>itype</th>
+      <th>original_maturity</th>
+      <th>years_to_maturity</th>
+      <th>tdduratn</th>
+      <th>tdretnua</th>
+      <th>days_to_maturity</th>
+      <th>callable</th>
+      <th>run</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2530587</th>
+      <td>200712.0</td>
+      <td>19710215.207750</td>
+      <td>912827BF</td>
+      <td>1971-02-03</td>
+      <td>1969-08-15</td>
+      <td>1971-02-15</td>
+      <td>0</td>
+      <td>100.06250</td>
+      <td>100.12500</td>
+      <td>3.622283</td>
+      <td>...</td>
+      <td>103.716033</td>
+      <td>7.75</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>12.0</td>
+      <td>0.000203</td>
+      <td>12</td>
+      <td>False</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2530588</th>
+      <td>200712.0</td>
+      <td>19710215.207750</td>
+      <td>912827BF</td>
+      <td>1971-02-04</td>
+      <td>1969-08-15</td>
+      <td>1971-02-15</td>
+      <td>0</td>
+      <td>100.03125</td>
+      <td>100.09375</td>
+      <td>3.643342</td>
+      <td>...</td>
+      <td>103.705842</td>
+      <td>7.75</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>11.0</td>
+      <td>-0.000098</td>
+      <td>11</td>
+      <td>False</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2530589</th>
+      <td>200712.0</td>
+      <td>19710215.207750</td>
+      <td>912827BF</td>
+      <td>1971-02-05</td>
+      <td>1969-08-15</td>
+      <td>1971-02-15</td>
+      <td>0</td>
+      <td>100.03125</td>
+      <td>100.09375</td>
+      <td>3.664402</td>
+      <td>...</td>
+      <td>103.726902</td>
+      <td>7.75</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>10.0</td>
+      <td>0.000203</td>
+      <td>10</td>
+      <td>False</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2530590</th>
+      <td>200712.0</td>
+      <td>19710215.207750</td>
+      <td>912827BF</td>
+      <td>1971-02-08</td>
+      <td>1969-08-15</td>
+      <td>1971-02-15</td>
+      <td>0</td>
+      <td>100.00000</td>
+      <td>100.06250</td>
+      <td>3.727582</td>
+      <td>...</td>
+      <td>103.758832</td>
+      <td>7.75</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>7.0</td>
+      <td>0.000308</td>
+      <td>7</td>
+      <td>False</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2530591</th>
+      <td>200712.0</td>
+      <td>19710215.207750</td>
+      <td>912827BF</td>
+      <td>1971-02-09</td>
+      <td>1969-08-15</td>
+      <td>1971-02-15</td>
+      <td>0</td>
+      <td>100.00000</td>
+      <td>100.06250</td>
+      <td>3.748641</td>
+      <td>...</td>
+      <td>103.779891</td>
+      <td>7.75</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>6.0</td>
+      <td>0.000203</td>
+      <td>6</td>
+      <td>False</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 21 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kytreasno</th>
+      <th>caldt</th>
+      <th>tdatdt</th>
+      <th>tmatdt</th>
+      <th>tfcaldt</th>
+      <th>tdbid</th>
+      <th>tdask</th>
+      <th>tdaccint</th>
+      <th>tdyld</th>
+      <th>price</th>
+      <th>tcouprt</th>
+      <th>itype</th>
+      <th>original_maturity</th>
+      <th>years_to_maturity</th>
+      <th>tdduratn</th>
+      <th>tdretnua</th>
+      <th>days_to_maturity</th>
+      <th>run</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2.530592e+06</td>
+      <td>2530592</td>
+      <td>2530592</td>
+      <td>2530592</td>
+      <td>2530592.0</td>
+      <td>2.530548e+06</td>
+      <td>2.530548e+06</td>
+      <td>2.530592e+06</td>
+      <td>2.530548e+06</td>
+      <td>2.530548e+06</td>
+      <td>2.530592e+06</td>
+      <td>2.530592e+06</td>
+      <td>2.530592e+06</td>
+      <td>2.530592e+06</td>
+      <td>2.530592e+06</td>
+      <td>2.528511e+06</td>
+      <td>2.530592e+06</td>
+      <td>2.530592e+06</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2.045816e+05</td>
+      <td>2005-02-07 09:43:03.745779584</td>
+      <td>2000-04-04 21:35:38.906943360</td>
+      <td>2011-04-28 17:47:43.654986240</td>
+      <td>0.0</td>
+      <td>1.043372e+02</td>
+      <td>1.044215e+02</td>
+      <td>1.336800e+00</td>
+      <td>1.204346e-04</td>
+      <td>1.057161e+02</td>
+      <td>5.372427e+00</td>
+      <td>1.747177e+00</td>
+      <td>1.105294e+01</td>
+      <td>6.223965e+00</td>
+      <td>1.658160e+03</td>
+      <td>2.006957e-04</td>
+      <td>2.271337e+03</td>
+      <td>1.919975e+01</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2.006360e+05</td>
+      <td>1970-01-02 00:00:00</td>
+      <td>1955-02-15 00:00:00</td>
+      <td>1970-02-15 00:00:00</td>
+      <td>0.0</td>
+      <td>4.350000e+01</td>
+      <td>4.354688e+01</td>
+      <td>0.000000e+00</td>
+      <td>-1.664162e-02</td>
+      <td>4.405673e+01</td>
+      <td>1.250000e-01</td>
+      <td>1.000000e+00</td>
+      <td>1.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>-1.000000e+00</td>
+      <td>-1.094112e-01</td>
+      <td>1.000000e+00</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.028520e+05</td>
+      <td>1992-09-15 00:00:00</td>
+      <td>1987-06-01 00:00:00</td>
+      <td>1997-04-30 00:00:00</td>
+      <td>0.0</td>
+      <td>9.897656e+01</td>
+      <td>9.904688e+01</td>
+      <td>3.502747e-01</td>
+      <td>4.873235e-05</td>
+      <td>9.979416e+01</td>
+      <td>2.375000e+00</td>
+      <td>1.000000e+00</td>
+      <td>5.000000e+00</td>
+      <td>1.000000e+00</td>
+      <td>5.116591e+02</td>
+      <td>-5.806907e-04</td>
+      <td>5.280000e+02</td>
+      <td>5.000000e+00</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2.040590e+05</td>
+      <td>2008-06-02 00:00:00</td>
+      <td>2000-05-15 00:00:00</td>
+      <td>2015-02-15 00:00:00</td>
+      <td>0.0</td>
+      <td>1.009219e+02</td>
+      <td>1.009805e+02</td>
+      <td>9.065934e-01</td>
+      <td>1.151030e-04</td>
+      <td>1.022880e+02</td>
+      <td>4.750000e+00</td>
+      <td>2.000000e+00</td>
+      <td>7.000000e+00</td>
+      <td>3.000000e+00</td>
+      <td>1.114021e+03</td>
+      <td>1.453760e-04</td>
+      <td>1.213000e+03</td>
+      <td>1.400000e+01</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2.066880e+05</td>
+      <td>2018-03-29 00:00:00</td>
+      <td>2013-12-15 00:00:00</td>
+      <td>2023-05-31 00:00:00</td>
+      <td>0.0</td>
+      <td>1.064297e+02</td>
+      <td>1.065000e+02</td>
+      <td>1.968750e+00</td>
+      <td>1.712478e-04</td>
+      <td>1.081889e+02</td>
+      <td>7.875000e+00</td>
+      <td>2.000000e+00</td>
+      <td>1.000000e+01</td>
+      <td>7.000000e+00</td>
+      <td>2.164954e+03</td>
+      <td>1.026885e-03</td>
+      <td>2.549000e+03</td>
+      <td>2.800000e+01</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2.085040e+05</td>
+      <td>2025-12-31 00:00:00</td>
+      <td>2025-12-31 00:00:00</td>
+      <td>2055-11-15 00:00:00</td>
+      <td>0.0</td>
+      <td>1.763281e+02</td>
+      <td>1.763906e+02</td>
+      <td>1.186908e+01</td>
+      <td>6.557793e-03</td>
+      <td>1.827193e+02</td>
+      <td>1.625000e+01</td>
+      <td>2.000000e+00</td>
+      <td>4.000000e+01</td>
+      <td>3.000000e+01</td>
+      <td>9.160067e+03</td>
+      <td>1.281108e-01</td>
+      <td>1.105300e+04</td>
+      <td>8.400000e+01</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.078746e+03</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>1.313334e+01</td>
+      <td>1.311464e+01</td>
+      <td>1.295634e+00</td>
+      <td>8.741551e-05</td>
+      <td>1.351318e+01</td>
+      <td>3.557650e+00</td>
+      <td>4.346307e-01</td>
+      <td>9.985025e+00</td>
+      <td>7.416524e+00</td>
+      <td>1.639392e+03</td>
+      <td>3.684731e-03</td>
+      <td>2.702749e+03</td>
+      <td>1.796927e+01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span> <span class="o">=</span> <span class="n">gsw2006_yield_curve</span><span class="o">.</span><span class="n">gurkaynak_sack_wright_filters</span><span class="p">(</span><span class="n">df_all</span><span class="p">)</span>
+<span class="n">df_all</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kytreasno</th>
+      <th>caldt</th>
+      <th>tdatdt</th>
+      <th>tmatdt</th>
+      <th>tfcaldt</th>
+      <th>tdbid</th>
+      <th>tdask</th>
+      <th>tdaccint</th>
+      <th>tdyld</th>
+      <th>price</th>
+      <th>tcouprt</th>
+      <th>itype</th>
+      <th>original_maturity</th>
+      <th>years_to_maturity</th>
+      <th>tdduratn</th>
+      <th>tdretnua</th>
+      <th>days_to_maturity</th>
+      <th>run</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2.120645e+06</td>
+      <td>2120645</td>
+      <td>2120645</td>
+      <td>2120645</td>
+      <td>2120645.0</td>
+      <td>2.120639e+06</td>
+      <td>2.120639e+06</td>
+      <td>2.120645e+06</td>
+      <td>2.120639e+06</td>
+      <td>2.120639e+06</td>
+      <td>2.120645e+06</td>
+      <td>2.120645e+06</td>
+      <td>2.120645e+06</td>
+      <td>2.120645e+06</td>
+      <td>2.120645e+06</td>
+      <td>2.120459e+06</td>
+      <td>2.120645e+06</td>
+      <td>2.120645e+06</td>
+      <td>2.120645e+06</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2.046289e+05</td>
+      <td>2005-08-11 10:39:19.710370688</td>
+      <td>2000-09-07 15:02:36.771359488</td>
+      <td>2011-09-24 20:42:30.503267584</td>
+      <td>0.0</td>
+      <td>1.047322e+02</td>
+      <td>1.048137e+02</td>
+      <td>1.297900e+00</td>
+      <td>1.170662e-04</td>
+      <td>1.060708e+02</td>
+      <td>5.240046e+00</td>
+      <td>1.759908e+00</td>
+      <td>1.103357e+01</td>
+      <td>6.125277e+00</td>
+      <td>1.651092e+03</td>
+      <td>1.966077e-04</td>
+      <td>2.235419e+03</td>
+      <td>2.106049e+01</td>
+      <td>9.992404e-01</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2.006560e+05</td>
+      <td>1970-01-02 00:00:00</td>
+      <td>1955-02-15 00:00:00</td>
+      <td>1970-05-15 00:00:00</td>
+      <td>0.0</td>
+      <td>4.350000e+01</td>
+      <td>4.354688e+01</td>
+      <td>0.000000e+00</td>
+      <td>-4.305986e-05</td>
+      <td>4.405673e+01</td>
+      <td>1.250000e-01</td>
+      <td>1.000000e+00</td>
+      <td>1.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>-1.000000e+00</td>
+      <td>-1.094112e-01</td>
+      <td>9.300000e+01</td>
+      <td>0.000000e+00</td>
+      <td>1.095890e-02</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.028940e+05</td>
+      <td>1993-03-29 00:00:00</td>
+      <td>1988-03-31 00:00:00</td>
+      <td>1997-10-15 00:00:00</td>
+      <td>0.0</td>
+      <td>9.889062e+01</td>
+      <td>9.896094e+01</td>
+      <td>3.480663e-01</td>
+      <td>4.603171e-05</td>
+      <td>9.976197e+01</td>
+      <td>2.250000e+00</td>
+      <td>2.000000e+00</td>
+      <td>5.000000e+00</td>
+      <td>1.000000e+00</td>
+      <td>5.223430e+02</td>
+      <td>-5.848975e-04</td>
+      <td>5.420000e+02</td>
+      <td>8.000000e+00</td>
+      <td>1.000000e+00</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2.040690e+05</td>
+      <td>2009-10-27 00:00:00</td>
+      <td>2002-11-15 00:00:00</td>
+      <td>2016-02-15 00:00:00</td>
+      <td>0.0</td>
+      <td>1.013125e+02</td>
+      <td>1.013750e+02</td>
+      <td>8.866120e-01</td>
+      <td>1.115071e-04</td>
+      <td>1.025367e+02</td>
+      <td>4.625000e+00</td>
+      <td>2.000000e+00</td>
+      <td>7.000000e+00</td>
+      <td>3.000000e+00</td>
+      <td>1.115093e+03</td>
+      <td>1.457503e-04</td>
+      <td>1.206000e+03</td>
+      <td>1.600000e+01</td>
+      <td>1.000000e+00</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2.067090e+05</td>
+      <td>2018-07-23 00:00:00</td>
+      <td>2014-02-15 00:00:00</td>
+      <td>2023-08-15 00:00:00</td>
+      <td>0.0</td>
+      <td>1.070312e+02</td>
+      <td>1.071016e+02</td>
+      <td>1.903846e+00</td>
+      <td>1.684534e-04</td>
+      <td>1.087744e+02</td>
+      <td>7.750000e+00</td>
+      <td>2.000000e+00</td>
+      <td>1.000000e+01</td>
+      <td>7.000000e+00</td>
+      <td>2.102661e+03</td>
+      <td>1.014521e-03</td>
+      <td>2.445000e+03</td>
+      <td>3.000000e+01</td>
+      <td>1.000000e+00</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2.084610e+05</td>
+      <td>2025-12-31 00:00:00</td>
+      <td>2025-09-30 00:00:00</td>
+      <td>2055-02-15 00:00:00</td>
+      <td>0.0</td>
+      <td>1.763281e+02</td>
+      <td>1.763906e+02</td>
+      <td>1.186908e+01</td>
+      <td>9.394247e-04</td>
+      <td>1.827193e+02</td>
+      <td>1.625000e+01</td>
+      <td>2.000000e+00</td>
+      <td>4.000000e+01</td>
+      <td>2.900000e+01</td>
+      <td>8.738464e+03</td>
+      <td>1.281108e-01</td>
+      <td>1.069200e+04</td>
+      <td>8.300000e+01</td>
+      <td>1.000000e+00</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.076319e+03</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>1.342540e+01</td>
+      <td>1.340850e+01</td>
+      <td>1.248620e+00</td>
+      <td>8.411370e-05</td>
+      <td>1.379746e+01</td>
+      <td>3.470534e+00</td>
+      <td>4.271390e-01</td>
+      <td>9.942195e+00</td>
+      <td>7.224184e+00</td>
+      <td>1.612092e+03</td>
+      <td>3.588208e-03</td>
+      <td>2.634068e+03</td>
+      <td>1.749405e+01</td>
+      <td>2.238399e-02</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="implementation-steps">
+<h2>Implementation Steps<a class="headerlink" href="#implementation-steps" title="Link to this heading">#</a></h2>
+<section id="data-preparation">
+<h3>1. Data Preparation<a class="headerlink" href="#data-preparation" title="Link to this heading">#</a></h3>
+<p>First, we load and clean the CRSP Treasury data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span> <span class="o">=</span> <span class="n">pull_CRSP_treasury</span><span class="o">.</span><span class="n">load_CRSP_treasury_consolidated</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">DATA_DIR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cashflow-construction">
+<h3>2. Cashflow Construction<a class="headerlink" href="#cashflow-construction" title="Link to this heading">#</a></h3>
+<p>For each Treasury security, we need to calculate its future cashflows. Consider the following simplified example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sample_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;tcusip&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;tmatdt&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span>
+            <span class="p">[</span><span class="s2">&quot;2000-05-15&quot;</span><span class="p">,</span> <span class="s2">&quot;2000-05-31&quot;</span><span class="p">,</span> <span class="s2">&quot;2000-06-30&quot;</span><span class="p">,</span> <span class="s2">&quot;2000-07-31&quot;</span><span class="p">,</span> <span class="s2">&quot;2000-08-15&quot;</span><span class="p">]</span>
+        <span class="p">),</span>
+        <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">101</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">103</span><span class="p">],</span>
+        <span class="s2">&quot;tcouprt&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+        <span class="s2">&quot;caldt&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;2000-01-31&quot;</span><span class="p">),</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">cashflow</span> <span class="o">=</span> <span class="n">gsw2006_yield_curve</span><span class="o">.</span><span class="n">calc_cashflows</span><span class="p">(</span><span class="n">sample_data</span><span class="p">)</span>
+
+<span class="c1"># Treasury securities have 2 coupon payments per year</span>
+<span class="c1"># and pay their final coupon and principal on the maturity date</span>
+<span class="n">expected_cashflow</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">103.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">103.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">102.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">103.0</span><span class="p">],</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cashflow</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>2000-02-15</th>
+      <th>2000-05-15</th>
+      <th>2000-05-31</th>
+      <th>2000-06-30</th>
+      <th>2000-07-31</th>
+      <th>2000-08-15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>103.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>103.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>100.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>102.5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>103.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="model-fitting">
+<h3>3. Model Fitting<a class="headerlink" href="#model-fitting" title="Link to this heading">#</a></h3>
+<p>The NSS model is fit by minimizing price errors weighted by duration:</p>
+<div class="math notranslate nohighlight">
+\[
+\min_{\beta,\tau} \sum_{i=1}^N \frac{(P_i^{obs} - P_i^{model})^2}{D_i}
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P_i^{obs}\)</span> = Observed clean price (including accrued interest)</p></li>
+<li><p><span class="math notranslate nohighlight">\(P_i^{model}\)</span> = Model-implied price</p></li>
+<li><p><span class="math notranslate nohighlight">\(D_i\)</span> = Duration of security i</p></li>
+</ul>
+<p>Now, why are the squared errors weighted by the duration?</p>
+<p>Recall that bond duration is a measurement of how much a bond’s price will change in response to interest rate changes.
+Thus, the price error objective is approximately equivalent to minimizing unweighted yield errors:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{(P_i^{obs} - P_i^{model})^2}{D_i} \approx D_i \cdot (y_i^{obs} - y_i^{model})^2
+\]</div>
+<p>This approximation comes from the duration relationship:</p>
+<div class="math notranslate nohighlight">
+\[
+P^{obs} - P^{model} \approx -D \cdot (y^{obs} - y^{model})
+\]</div>
+<p>Making the objective function:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum D_i \cdot (y_i^{obs} - y_i^{model})^2
+\]</div>
+<p>So, why Price Errors Instead of Yield Errors?</p>
+<ol class="arabic simple">
+<li><p><strong>Non-linear relationship</strong>: The price/yield relationship is convex
+(convexity adjustment matters more for long-duration bonds)</p></li>
+<li><p><strong>Coupon effects</strong>: Directly accounts for differential cash flow timing</p></li>
+<li><p><strong>Numerical stability</strong>: Prices have linear sensitivity to parameters via
+discount factors, while yields require non-linear root-finding</p></li>
+<li><p><strong>Economic meaning</strong>: Aligns with trader behavior that thinks in terms of
+price arbitrage</p></li>
+</ol>
+<p>Reference: Gurkaynak, Sack, and Wright (2006)</p>
+</section>
+<section id="note">
+<h3>Note<a class="headerlink" href="#note" title="Link to this heading">#</a></h3>
+<p>Note that the paper says the following:</p>
+<blockquote>
+<div><p>In estimating the yield curve, we choose the parameters to minimize the weighted
+sum of the squared deviations between the actual prices of Treasury securities and the
+predicted prices. The weights chosen are the inverse of the duration of each individual
+security. To a rough approximation, the deviation between the actual and predicted
+prices of an individual security will equal its duration multiplied by the deviation
+between the actual and predicted yields. Thus, this procedure is approximately equal to
+minimizing the (unweighted) sum of the squared deviations between the actual and
+predicted yields on all of the securities.</p>
+</div></blockquote>
+<p>However, I need to check this further since it initially seems to me that this procedure is minimizing the squared yield errors, weighted by the duration. However, the fit to actual prices seems better with the procedure above. I need to check this further.</p>
+</section>
+</section>
+<section id="testing-and-validation">
+<h2>Testing and Validation<a class="headerlink" href="#testing-and-validation" title="Link to this heading">#</a></h2>
+<p>To validate our implementation, we compare our fitted yields against the official GSW yields published by the Federal Reserve:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="c1">## Load Gurkaynak Sack Wright data from Federal Reserve&#39;s website</span>
+<span class="c1"># See here: https://www.federalreserve.gov/data/nominal-yield-curve.htm</span>
+<span class="c1"># and here: https://www.federalreserve.gov/data/yield-curve-tables/feds200628_1.html</span>
+<span class="n">actual_all</span> <span class="o">=</span> <span class="n">pull_yield_curve_data</span><span class="o">.</span><span class="n">load_fed_yield_curve_all</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">DATA_DIR</span><span class="p">)</span>
+<span class="c1"># Create copy of parameter DataFrame to avoid view vs copy issues</span>
+<span class="n">actual_params_all</span> <span class="o">=</span> <span class="n">actual_all</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="p">:,</span> <span class="p">[</span><span class="s2">&quot;TAU1&quot;</span><span class="p">,</span> <span class="s2">&quot;TAU2&quot;</span><span class="p">,</span> <span class="s2">&quot;BETA0&quot;</span><span class="p">,</span> <span class="s2">&quot;BETA1&quot;</span><span class="p">,</span> <span class="s2">&quot;BETA2&quot;</span><span class="p">,</span> <span class="s2">&quot;BETA3&quot;</span><span class="p">]</span>
+<span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># Convert percentage points to decimals for beta parameters</span>
+<span class="n">beta_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;BETA0&quot;</span><span class="p">,</span> <span class="s2">&quot;BETA1&quot;</span><span class="p">,</span> <span class="s2">&quot;BETA2&quot;</span><span class="p">,</span> <span class="s2">&quot;BETA3&quot;</span><span class="p">]</span>
+<span class="n">actual_params_all</span><span class="p">[</span><span class="n">beta_columns</span><span class="p">]</span> <span class="o">=</span> <span class="n">actual_params_all</span><span class="p">[</span><span class="n">beta_columns</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span>
+
+
+<span class="c1">## Load CRSP Treasury data from Wharton Research Data Services</span>
+<span class="c1"># We will fit a Nelson-Siegel-Svensson model to this data to see</span>
+<span class="c1"># if we can replicate the Gurkaynak Sack Wright results above.</span>
+<span class="n">df_all</span> <span class="o">=</span> <span class="n">pull_CRSP_treasury</span><span class="o">.</span><span class="n">load_CRSP_treasury_consolidated</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">DATA_DIR</span><span class="p">)</span>
+<span class="n">df_all</span> <span class="o">=</span> <span class="n">gsw2006_yield_curve</span><span class="o">.</span><span class="n">gurkaynak_sack_wright_filters</span><span class="p">(</span><span class="n">df_all</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">quote_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;2000-01-02&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-06-30&quot;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;BMS&quot;</span><span class="p">)</span>
+<span class="c1"># quote_date = quote_dates[-1]</span>
+
+<span class="c1">## Test Day 1</span>
+<span class="n">quote_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;2024-06-03&quot;</span><span class="p">)</span>
+<span class="c1"># Subset df_all to quote_date</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="p">[</span><span class="n">df_all</span><span class="p">[</span><span class="s2">&quot;caldt&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">quote_date</span><span class="p">]</span>
+<span class="n">actual_params</span> <span class="o">=</span> <span class="n">actual_params_all</span><span class="p">[</span><span class="n">actual_params_all</span><span class="o">.</span><span class="n">index</span> <span class="o">==</span> <span class="n">quote_date</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># &quot;tau1&quot;, &quot;tau2&quot;, &quot;beta1&quot;, &quot;beta2&quot;, &quot;beta3&quot;, &quot;beta4&quot;</span>
+<span class="c1"># params0 = np.array([1.0, 10.0, 3.0, 3.0, 3.0, 3.0])</span>
+<span class="n">params0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.989721</span><span class="p">,</span> <span class="mf">9.955324</span><span class="p">,</span> <span class="mf">3.685087</span><span class="p">,</span> <span class="mf">1.579927</span><span class="p">,</span> <span class="mf">3.637107</span><span class="p">,</span> <span class="mf">9.814584</span><span class="p">])</span>
+<span class="c1"># params0 = np.array([1.0, 1.0, 0.001, 0.001, 0.001, 0.001])</span>
+
+<span class="n">params_star</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">gsw2006_yield_curve</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">quote_date</span><span class="p">,</span> <span class="n">df_all</span><span class="p">,</span> <span class="n">params0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Visualize the fit</span>
+<span class="n">gsw2006_yield_curve</span><span class="o">.</span><span class="n">plot_spot_curve</span><span class="p">(</span><span class="n">params_star</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4e136dc5764eeaf4beda4eedb96304f779bf25357422e005042bdc72d43edd4c.png" src="../_images/4e136dc5764eeaf4beda4eedb96304f779bf25357422e005042bdc72d43edd4c.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Spot Curve&#39;}, xlabel=&#39;Maturity&#39;, ylabel=&#39;Spot Rate&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gsw2006_yield_curve</span><span class="o">.</span><span class="n">plot_spot_curve</span><span class="p">(</span><span class="n">actual_params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/00ab3f3dd50e4f66eac9f1f994c9362ebff214e13e4d08c7230a7a23d74aa09f.png" src="../_images/00ab3f3dd50e4f66eac9f1f994c9362ebff214e13e4d08c7230a7a23d74aa09f.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Spot Curve&#39;}, xlabel=&#39;Maturity&#39;, ylabel=&#39;Spot Rate&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">price_comparison</span> <span class="o">=</span> <span class="n">gsw2006_yield_curve</span><span class="o">.</span><span class="n">compare_fit</span><span class="p">(</span>
+    <span class="n">quote_date</span><span class="p">,</span> <span class="n">df_all</span><span class="p">,</span> <span class="n">params_star</span><span class="p">,</span> <span class="n">actual_params</span><span class="p">,</span> <span class="n">df</span>
+<span class="p">)</span>
+<span class="n">price_comparison</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Actual Price</th>
+      <th>GSW Predicted Price</th>
+      <th>Model Predicted Price</th>
+      <th>Predicted - Actual %</th>
+      <th>Predicted - GSW %</th>
+    </tr>
+    <tr>
+      <th>tcusip</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>912810ET</th>
+      <td>104.189560</td>
+      <td>103.877734</td>
+      <td>103.934113</td>
+      <td>-0.002452</td>
+      <td>0.000543</td>
+    </tr>
+    <tr>
+      <th>912810EV</th>
+      <td>104.504035</td>
+      <td>104.146501</td>
+      <td>104.169765</td>
+      <td>-0.003199</td>
+      <td>0.000223</td>
+    </tr>
+    <tr>
+      <th>912810EW</th>
+      <td>103.835766</td>
+      <td>103.539602</td>
+      <td>103.500241</td>
+      <td>-0.003231</td>
+      <td>-0.000380</td>
+    </tr>
+    <tr>
+      <th>912810EX</th>
+      <td>106.232229</td>
+      <td>106.071133</td>
+      <td>105.960542</td>
+      <td>-0.002557</td>
+      <td>-0.001043</td>
+    </tr>
+    <tr>
+      <th>912810EZ</th>
+      <td>107.171360</td>
+      <td>106.821899</td>
+      <td>106.641060</td>
+      <td>-0.004948</td>
+      <td>-0.001693</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>91282CKC</th>
+      <td>100.226053</td>
+      <td>100.302116</td>
+      <td>100.082087</td>
+      <td>-0.001436</td>
+      <td>-0.002194</td>
+    </tr>
+    <tr>
+      <th>91282CFF</th>
+      <td>88.831302</td>
+      <td>89.640845</td>
+      <td>89.560108</td>
+      <td>0.008204</td>
+      <td>-0.000901</td>
+    </tr>
+    <tr>
+      <th>91282CEU</th>
+      <td>99.042456</td>
+      <td>99.123222</td>
+      <td>99.159617</td>
+      <td>0.001183</td>
+      <td>0.000367</td>
+    </tr>
+    <tr>
+      <th>91282CFU</th>
+      <td>98.763927</td>
+      <td>98.965197</td>
+      <td>98.710806</td>
+      <td>-0.000538</td>
+      <td>-0.002571</td>
+    </tr>
+    <tr>
+      <th>91282CEW</th>
+      <td>97.399554</td>
+      <td>97.506279</td>
+      <td>97.286366</td>
+      <td>-0.001162</td>
+      <td>-0.002255</td>
+    </tr>
+  </tbody>
+</table>
+<p>292 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Assert that column is close to 0 for all CUSIPs</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">price_comparison</span><span class="p">[</span><span class="s2">&quot;Predicted - Actual %&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">price_comparison</span><span class="p">[</span><span class="s2">&quot;Predicted - GSW %&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.02</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="c1">## Test Day 2</span>
+<span class="n">quote_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;2000-06-05&quot;</span><span class="p">)</span>
+<span class="c1"># Subset df_all to quote_date</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="p">[</span><span class="n">df_all</span><span class="p">[</span><span class="s2">&quot;caldt&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">quote_date</span><span class="p">]</span>
+<span class="n">actual_params</span> <span class="o">=</span> <span class="n">actual_params_all</span><span class="p">[</span><span class="n">actual_params_all</span><span class="o">.</span><span class="n">index</span> <span class="o">==</span> <span class="n">quote_date</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># &quot;tau1&quot;, &quot;tau2&quot;, &quot;beta1&quot;, &quot;beta2&quot;, &quot;beta3&quot;, &quot;beta4&quot;</span>
+<span class="c1"># params0 = np.array([1.0, 10.0, 3.0, 3.0, 3.0, 3.0])</span>
+<span class="n">params0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.989721</span><span class="p">,</span> <span class="mf">9.955324</span><span class="p">,</span> <span class="mf">3.685087</span><span class="p">,</span> <span class="mf">1.579927</span><span class="p">,</span> <span class="mf">3.637107</span><span class="p">,</span> <span class="mf">9.814584</span><span class="p">])</span>
+<span class="c1"># params0 = np.array([1.0, 1.0, 0.001, 0.001, 0.001, 0.001])</span>
+
+<span class="n">params_star</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">gsw2006_yield_curve</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">quote_date</span><span class="p">,</span> <span class="n">df_all</span><span class="p">,</span> <span class="n">params0</span><span class="p">)</span>
+
+<span class="c1">## Visualize the fit</span>
+<span class="c1"># gsw2006_yield_curve.plot_spot_curve(params_star)</span>
+<span class="c1"># gsw2006_yield_curve.plot_spot_curve(actual_params)</span>
+
+<span class="n">price_comparison</span> <span class="o">=</span> <span class="n">gsw2006_yield_curve</span><span class="o">.</span><span class="n">compare_fit</span><span class="p">(</span>
+    <span class="n">quote_date</span><span class="p">,</span> <span class="n">df_all</span><span class="p">,</span> <span class="n">params_star</span><span class="p">,</span> <span class="n">actual_params</span><span class="p">,</span> <span class="n">df</span>
+<span class="p">)</span>
+
+<span class="c1">## Assert that column is close to 0 for all CUSIPs</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">price_comparison</span><span class="p">[</span><span class="s2">&quot;Predicted - Actual %&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">price_comparison</span><span class="p">[</span><span class="s2">&quot;Predicted - GSW %&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.02</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Test Day 3</span>
+<span class="n">quote_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;1990-06-05&quot;</span><span class="p">)</span>
+<span class="c1"># Subset df_all to quote_date</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="p">[</span><span class="n">df_all</span><span class="p">[</span><span class="s2">&quot;caldt&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">quote_date</span><span class="p">]</span>
+<span class="n">actual_params</span> <span class="o">=</span> <span class="n">actual_params_all</span><span class="p">[</span><span class="n">actual_params_all</span><span class="o">.</span><span class="n">index</span> <span class="o">==</span> <span class="n">quote_date</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># &quot;tau1&quot;, &quot;tau2&quot;, &quot;beta1&quot;, &quot;beta2&quot;, &quot;beta3&quot;, &quot;beta4&quot;</span>
+<span class="c1"># params0 = np.array([1.0, 10.0, 3.0, 3.0, 3.0, 3.0])</span>
+<span class="n">params0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.989721</span><span class="p">,</span> <span class="mf">9.955324</span><span class="p">,</span> <span class="mf">3.685087</span><span class="p">,</span> <span class="mf">1.579927</span><span class="p">,</span> <span class="mf">3.637107</span><span class="p">,</span> <span class="mf">9.814584</span><span class="p">])</span>
+<span class="c1"># params0 = np.array([1.0, 1.0, 0.001, 0.001, 0.001, 0.001])</span>
+
+<span class="n">params_star</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">gsw2006_yield_curve</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">quote_date</span><span class="p">,</span> <span class="n">df_all</span><span class="p">,</span> <span class="n">params0</span><span class="p">)</span>
+
+<span class="c1">## Visualize the fit</span>
+<span class="c1"># gsw2006_yield_curve.plot_spot_curve(params_star)</span>
+<span class="c1"># gsw2006_yield_curve.plot_spot_curve(actual_params)</span>
+
+<span class="n">price_comparison</span> <span class="o">=</span> <span class="n">gsw2006_yield_curve</span><span class="o">.</span><span class="n">compare_fit</span><span class="p">(</span>
+    <span class="n">quote_date</span><span class="p">,</span> <span class="n">df_all</span><span class="p">,</span> <span class="n">params_star</span><span class="p">,</span> <span class="n">actual_params</span><span class="p">,</span> <span class="n">df</span>
+<span class="p">)</span>
+
+<span class="c1">## Assert that column is close to 0 for all CUSIPs</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">price_comparison</span><span class="p">[</span><span class="s2">&quot;Predicted - Actual %&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">price_comparison</span><span class="p">[</span><span class="s2">&quot;Predicted - GSW %&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.02</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="application-identifying-rich-and-cheap-bonds">
+<h2>Application: Identifying Rich and Cheap Bonds<a class="headerlink" href="#application-identifying-rich-and-cheap-bonds" title="Link to this heading">#</a></h2>
+<p>Now that we have a fitted yield curve, we can use it for a practical
+application: <strong>identifying mispriced bonds</strong>.</p>
+<p>The idea is simple. The fitted NSS yield curve defines a smooth relationship
+between maturity and discount rates. Given this curve, we can compute a
+<strong>model-implied price</strong> for every bond. The difference between a bond’s
+actual market price and its model price is the <strong>pricing error</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Pricing Error}_i = P_i^{\text{actual}} - P_i^{\text{model}}
+\]</div>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(P_i^{\text{actual}} &gt; P_i^{\text{model}}\)</span>, the bond trades
+<strong>above</strong> the model price. Traders call this <strong>“rich”</strong> (overpriced).</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(P_i^{\text{actual}} &lt; P_i^{\text{model}}\)</span>, the bond trades
+<strong>below</strong> the model price. Traders call this <strong>“cheap”</strong> (underpriced).</p></li>
+</ul>
+<p>We can also express this as a percentage of the model price:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Pricing Error %}_i = \frac{P_i^{\text{actual}} - P_i^{\text{model}}}{P_i^{\text{model}}} \times 100
+\]</div>
+<section id="why-do-pricing-errors-arise">
+<h3>Why do pricing errors arise?<a class="headerlink" href="#why-do-pricing-errors-arise" title="Link to this heading">#</a></h3>
+<p>The fitted yield curve is a smooth parametric function with only 6
+parameters. It cannot perfectly match every bond’s price. The residual
+pricing errors can reflect:</p>
+<ol class="arabic simple">
+<li><p><strong>Liquidity differences</strong> — some bonds are more actively traded</p></li>
+<li><p><strong>Supply/demand imbalances</strong> — certain maturities may be in higher demand</p></li>
+<li><p><strong>Specialness in the repo market</strong> — bonds that are “special” trade at a premium</p></li>
+<li><p><strong>Tax effects</strong> — high-coupon bonds may be less desirable for tax reasons</p></li>
+<li><p><strong>Model limitations</strong> — the NSS form cannot capture every pricing nuance</p></li>
+</ol>
+<p>Identifying rich and cheap bonds is a starting point for <strong>relative value
+trading</strong> strategies in fixed income.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Find the most recent date available in both datasets</span>
+<span class="n">available_dates</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">df_all</span><span class="p">[</span><span class="s2">&quot;caldt&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">gsw_dates</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">actual_params_all</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">common_dates</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">available_dates</span> <span class="o">&amp;</span> <span class="n">gsw_dates</span><span class="p">)</span>
+<span class="n">quote_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">common_dates</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Analysis date: </span><span class="si">{</span><span class="n">quote_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1">## Subset data for this date</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="p">[</span><span class="n">df_all</span><span class="p">[</span><span class="s2">&quot;caldt&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">quote_date</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of bonds in sample: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1">## Use Fed&#39;s published GSW parameters as initial guess for fast convergence</span>
+<span class="n">actual_params</span> <span class="o">=</span> <span class="n">actual_params_all</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">quote_date</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">params_star</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">gsw2006_yield_curve</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">quote_date</span><span class="p">,</span> <span class="n">df_all</span><span class="p">,</span> <span class="n">params0</span><span class="o">=</span><span class="n">actual_params</span><span class="p">)</span>
+
+<span class="c1">## Compute model-predicted prices for all bonds on this date</span>
+<span class="n">predicted_prices</span> <span class="o">=</span> <span class="n">gsw2006_yield_curve</span><span class="o">.</span><span class="n">predict_prices</span><span class="p">(</span><span class="n">quote_date</span><span class="p">,</span> <span class="n">df_all</span><span class="p">,</span> <span class="n">params_star</span><span class="p">)</span>
+
+<span class="c1">## Build the analysis table</span>
+<span class="n">actual_prices</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;tcusip&quot;</span><span class="p">)[</span><span class="s2">&quot;price&quot;</span><span class="p">]</span>
+<span class="n">pricing_error</span> <span class="o">=</span> <span class="n">actual_prices</span> <span class="o">-</span> <span class="n">predicted_prices</span>
+<span class="n">pricing_error_pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">pricing_error</span> <span class="o">/</span> <span class="n">predicted_prices</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="n">bond_info</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;tcusip&quot;</span><span class="p">)[[</span><span class="s2">&quot;tcouprt&quot;</span><span class="p">,</span> <span class="s2">&quot;tmatdt&quot;</span><span class="p">,</span> <span class="s2">&quot;itype&quot;</span><span class="p">,</span> <span class="s2">&quot;days_to_maturity&quot;</span><span class="p">]]</span>
+<span class="n">rich_cheap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Actual Price&quot;</span><span class="p">:</span> <span class="n">actual_prices</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+    <span class="s2">&quot;Model Price&quot;</span><span class="p">:</span> <span class="n">predicted_prices</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+    <span class="s2">&quot;Error ($)&quot;</span><span class="p">:</span> <span class="n">pricing_error</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+    <span class="s2">&quot;Error (%)&quot;</span><span class="p">:</span> <span class="n">pricing_error_pct</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+    <span class="s2">&quot;Coupon (%)&quot;</span><span class="p">:</span> <span class="n">bond_info</span><span class="p">[</span><span class="s2">&quot;tcouprt&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Maturity&quot;</span><span class="p">:</span> <span class="n">bond_info</span><span class="p">[</span><span class="s2">&quot;tmatdt&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;Yrs to Mat&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">bond_info</span><span class="p">[</span><span class="s2">&quot;days_to_maturity&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">365.25</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+    <span class="s2">&quot;Type&quot;</span><span class="p">:</span> <span class="n">bond_info</span><span class="p">[</span><span class="s2">&quot;itype&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Bond&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Note&quot;</span><span class="p">}),</span>
+<span class="p">})</span>
+<span class="n">rich_cheap</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;CUSIP&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Analysis date: 2025-12-31
+Number of bonds in sample: 294
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Top 5 RICH (overpriced) bonds — trading above model-implied price</span>
+<span class="n">rich_cheap</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Error ($)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Actual Price</th>
+      <th>Model Price</th>
+      <th>Error ($)</th>
+      <th>Error (%)</th>
+      <th>Coupon (%)</th>
+      <th>Maturity</th>
+      <th>Yrs to Mat</th>
+      <th>Type</th>
+    </tr>
+    <tr>
+      <th>CUSIP</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>912810PW</th>
+      <td>102.5781</td>
+      <td>101.4973</td>
+      <td>1.0808</td>
+      <td>1.0648</td>
+      <td>4.375</td>
+      <td>2038-02-15</td>
+      <td>12.1</td>
+      <td>Bond</td>
+    </tr>
+    <tr>
+      <th>912810FT</th>
+      <td>104.9492</td>
+      <td>103.8898</td>
+      <td>1.0594</td>
+      <td>1.0197</td>
+      <td>4.500</td>
+      <td>2036-02-15</td>
+      <td>10.1</td>
+      <td>Bond</td>
+    </tr>
+    <tr>
+      <th>912810PU</th>
+      <td>107.7096</td>
+      <td>106.6694</td>
+      <td>1.0402</td>
+      <td>0.9751</td>
+      <td>5.000</td>
+      <td>2037-05-15</td>
+      <td>11.4</td>
+      <td>Bond</td>
+    </tr>
+    <tr>
+      <th>912810PX</th>
+      <td>102.5054</td>
+      <td>101.4778</td>
+      <td>1.0277</td>
+      <td>1.0127</td>
+      <td>4.500</td>
+      <td>2038-05-15</td>
+      <td>12.4</td>
+      <td>Bond</td>
+    </tr>
+    <tr>
+      <th>912810PT</th>
+      <td>106.5801</td>
+      <td>105.6450</td>
+      <td>0.9351</td>
+      <td>0.8851</td>
+      <td>4.750</td>
+      <td>2037-02-15</td>
+      <td>11.1</td>
+      <td>Bond</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Top 5 CHEAP (underpriced) bonds — trading below model-implied price</span>
+<span class="n">rich_cheap</span><span class="o">.</span><span class="n">nsmallest</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Error ($)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Actual Price</th>
+      <th>Model Price</th>
+      <th>Error ($)</th>
+      <th>Error (%)</th>
+      <th>Coupon (%)</th>
+      <th>Maturity</th>
+      <th>Yrs to Mat</th>
+      <th>Type</th>
+    </tr>
+    <tr>
+      <th>CUSIP</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>912810RE</th>
+      <td>87.2383</td>
+      <td>87.9609</td>
+      <td>-0.7226</td>
+      <td>-0.8215</td>
+      <td>3.625</td>
+      <td>2044-02-15</td>
+      <td>18.1</td>
+      <td>Bond</td>
+    </tr>
+    <tr>
+      <th>912810RC</th>
+      <td>87.7109</td>
+      <td>88.4228</td>
+      <td>-0.7118</td>
+      <td>-0.8050</td>
+      <td>3.625</td>
+      <td>2043-08-15</td>
+      <td>17.6</td>
+      <td>Bond</td>
+    </tr>
+    <tr>
+      <th>912810RD</th>
+      <td>88.1445</td>
+      <td>88.8442</td>
+      <td>-0.6997</td>
+      <td>-0.7876</td>
+      <td>3.750</td>
+      <td>2043-11-15</td>
+      <td>17.9</td>
+      <td>Bond</td>
+    </tr>
+    <tr>
+      <th>912810RG</th>
+      <td>82.9914</td>
+      <td>83.6820</td>
+      <td>-0.6907</td>
+      <td>-0.8253</td>
+      <td>3.375</td>
+      <td>2044-05-15</td>
+      <td>18.4</td>
+      <td>Bond</td>
+    </tr>
+    <tr>
+      <th>912810RH</th>
+      <td>80.3516</td>
+      <td>81.0231</td>
+      <td>-0.6716</td>
+      <td>-0.8288</td>
+      <td>3.125</td>
+      <td>2044-08-15</td>
+      <td>18.6</td>
+      <td>Bond</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="interpreting-the-results">
+<h3>Interpreting the Results<a class="headerlink" href="#interpreting-the-results" title="Link to this heading">#</a></h3>
+<p>A few things to keep in mind:</p>
+<ol class="arabic simple">
+<li><p><strong>Small errors are expected.</strong> The GSW model fits the cross-section of
+bond prices very well. Typical pricing errors are a few cents per $100
+of face value.</p></li>
+<li><p><strong>Rich <span class="math notranslate nohighlight">\(\neq\)</span> bad investment.</strong> A bond may trade rich because it has
+superior liquidity, is in high demand as collateral, or has favorable
+tax treatment. The “richness” may be justified by these factors.</p></li>
+<li><p><strong>Cheap <span class="math notranslate nohighlight">\(\neq\)</span> free lunch.</strong> A bond that appears cheap relative to the
+model may have lower liquidity or other undesirable characteristics.</p></li>
+<li><p><strong>The model is a simplification.</strong> The NSS yield curve uses only 6
+parameters to describe the entire term structure. Any individual bond’s
+pricing error reflects both genuine mispricing <em>and</em> model approximation
+error.</p></li>
+<li><p><strong>Relative value in practice.</strong> Traders use this type of analysis as a
+<em>starting point</em>. A bond flagged as cheap would then be examined more
+carefully — checking its repo rate, recent trading volume, and
+comparison to close substitutes — before any trade is executed.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+   
+</div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="_01_CRSP_treasury_overview_ipynb.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">CRSP Treasury Data Oveview</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../final_project.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Final Project</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bond-pricing-from-first-principles">Bond Pricing from First Principles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decomposing-bonds-into-cashflows">Decomposing Bonds into Cashflows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-identification-problem-spot-rates-are-unobserved">The Identification Problem: Spot Rates are Unobserved</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-the-spot-curve-parametric-estimation">Fitting the Spot Curve: Parametric Estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-weight-by-the-inverse-of-duration">Why weight by the inverse of duration?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-nelson-siegel-svensson-model">The Nelson-Siegel-Svensson Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theoretical-foundations">Theoretical Foundations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-curve-fitting-approach">1. Static Curve-Fitting Approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absence-of-no-arbitrage-restrictions">2. Absence of No-Arbitrage Restrictions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#factor-dynamics-and-risk-premiums">3. Factor Dynamics and Risk Premiums</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast-with-arbitrage-free-extensions">4. Contrast with Arbitrage-Free Extensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-vs-theoretical-focus">5. Empirical vs. Theoretical Focus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-filtering">Data Filtering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-steps">Implementation Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">1. Data Preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cashflow-construction">2. Cashflow Construction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-fitting">3. Model Fitting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note">Note</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-and-validation">Testing and Validation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-identifying-rich-and-cheap-bonds">Application: Identifying Rich and Cheap Bonds</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-pricing-errors-arise">Why do pricing errors arise?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-results">Interpreting the Results</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeremiah Bejarano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Jeremiah Bejarano.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

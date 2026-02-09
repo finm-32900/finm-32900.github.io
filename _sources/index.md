@@ -28,8 +28,8 @@ overview_w2.md
 overview_w3.md
 overview_w4.md
 overview_w5.md
-subject_to_change_after_this_week.md
 overview_w6.md
+subject_to_change_after_this_week.md
 overview_w7.md
 overview_w8.md
 overview_w9.md
@@ -137,8 +137,8 @@ chapters:
   - file: lectures/Week6/python_packaging_with_hatch.md
 - file: lectures/Week6/HW4.md
   sections:
-  - file: output/_01_CRSP_treasury_overview.ipynb
-  - file: output/_02_replicate_GSW2005.ipynb
+  - file: output/01_CRSP_treasury_overview_ipynb.ipynb
+  - file: output/02_replicate_GSW2005_ipynb.ipynb
 # ----------------------------
 # Week 7: Working with Remotes, HPC Scheduler, GNU Parallel
 # SSH, SCP, SFTP

@@ -1,0 +1,1013 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Databento &#8212; Full Stack Quantitative Finance</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f23691d7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=8dbc1659"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Week7/databento';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Week 6: Python Package Development and Social Coding with GitHub" href="../overview_w6.html" />
+    <link rel="prev" title="LSEG Datastream" href="LSEG_datastream.html" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>   
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Full Stack Quantitative Finance - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Full Stack Quantitative Finance - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Full Stack Quantitative Finance
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Winter 2026</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Appendix</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures 📖</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w1.html">Week 1: GitHub, GitHub Classroom, and Virtual Environments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/what_is_this_course_about.html">What is Full Stack Quantitative Finance? Why This Course?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/virtual_environments.html">Virtual Environments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_wrds_python_package_ipynb.html">Example: Connecting to the WRDS Platform With Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_05_basics_of_SQL_ipynb.html">Basics of SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/doit_examples.html">PyDoit Examples Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/project_structure.html">Project Structure: “Chartbook” Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../overview_w5.html">Week 5: Bloomberg, LSEG Datastream, and Databento</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LSEG_datastream.html">LSEG Datastream</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Databento</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w7.html">Week 7: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w8.html">Week 8: Web Authentication and Authorization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_corporate_hedging_ipynb.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/web_authentication.html">Web Authentication and Authorization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w9.html">Week 9: GitHub Actions and Publishing a Live Dashboard</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week9/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework 📝</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../HW0.html">Homework 0</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_CRSP_market_index_ipynb.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_03_SP500_constituents_and_index_ipynb.html">HW Guide Part B: Reconstructing the S&amp;P 500 Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_04_Fama_French_1993_ipynb.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../HW3.html">Homework 3</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW4.html">Homework 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_CRSP_treasury_overview_ipynb.html">CRSP Treasury Data Oveview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_replicate_GSW2005_ipynb.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/potential_final_projects.html">List of Potential Final Projects</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project/issues/new?title=Issue%20on%20page%20%2FWeek7/databento.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Week7/databento.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Databento</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-databento">What Is Databento?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-datasets-schemas-and-symbology">Key Concepts: Datasets, Schemas, and Symbology</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets">Datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbology">Symbology</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schemas">Schemas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-the-python-sdk">Getting Started with the Python SDK</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api-key-setup">API Key Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-first-query">Your First Query</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-vs-live-data">Historical vs. Live Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-treasury-futures-market-brief">Case Study: Treasury Futures Market Brief</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexed-price-series">Indexed Price Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volume-and-open-interest">Volume and Open Interest</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-data-sources">Comparing Data Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                   <section class="tex2jax_ignore mathjax_ignore" id="databento">
+<h1>Databento<a class="headerlink" href="#databento" title="Link to this heading">#</a></h1>
+<section id="what-is-databento">
+<h2>What Is Databento?<a class="headerlink" href="#what-is-databento" title="Link to this heading">#</a></h2>
+<p>Databento is an <strong>API-first market data platform</strong> that provides programmatic access
+to exchange-level tick data, order book snapshots, and OHLCV bars. Unlike Bloomberg
+(which centers on a desktop terminal) or LSEG Datastream (which is accessed via
+WRDS web queries), Databento is designed from the ground up for developers and
+quantitative researchers who want to pull data directly into code.</p>
+<p>Key differentiators:</p>
+<ul class="simple">
+<li><p><strong>Programmatic access</strong>: Python SDK, HTTP API, and raw TCP — no terminal or GUI required.</p></li>
+<li><p><strong>Exchange-level granularity</strong>: Tick-by-tick trades, L2/L3 order book, and
+time-bar aggregations from 1-second to daily.</p></li>
+<li><p><strong>Pay-as-you-go pricing</strong>: Check the exact dollar cost of any query <em>before</em>
+executing it, for free.</p></li>
+<li><p><strong>Self-service</strong>: No sales calls or license negotiations.</p></li>
+</ul>
+<p>UChicago has a Databento subscription for FINM students, providing access to
+<strong>CME Globex (GLBX.MDP3)</strong> — the electronic trading venue for E-mini S&amp;P 500
+futures, Treasury futures, and other major derivatives.</p>
+<div class="tip admonition">
+<p class="admonition-title">Discussion</p>
+<p>How does the pricing model for Databento (pay-per-query) compare to Bloomberg
+(terminal subscription) and LSEG Datastream via WRDS (institutional license)?
+What are the implications for a research project that requires one-time bulk
+historical pulls versus ongoing daily updates?</p>
+</div>
+</section>
+<section id="key-concepts-datasets-schemas-and-symbology">
+<h2>Key Concepts: Datasets, Schemas, and Symbology<a class="headerlink" href="#key-concepts-datasets-schemas-and-symbology" title="Link to this heading">#</a></h2>
+<p>Before writing any code, it helps to understand three organizing concepts in the
+Databento data model.</p>
+<section id="datasets">
+<h3>Datasets<a class="headerlink" href="#datasets" title="Link to this heading">#</a></h3>
+<p>A <strong>dataset</strong> identifies a trading venue. The primary dataset for this course is:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Dataset</p></th>
+<th class="head"><p>Venue</p></th>
+<th class="head"><p>Products</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GLBX.MDP3</span></code></p></td>
+<td><p>CME Globex</p></td>
+<td><p>E-mini S&amp;P 500, Treasury futures, Eurodollars, and more</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="symbology">
+<h3>Symbology<a class="headerlink" href="#symbology" title="Link to this heading">#</a></h3>
+<p>Databento supports multiple ways to refer to the same instrument. This flexibility
+is essential when working with futures, which have expiring contracts:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbology Type</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">raw_symbol</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ESU4</span></code></p></td>
+<td><p>One specific contract (ES = E-mini S&amp;P, U = Sep, 4 = 2024)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">parent</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ES.FUT</span></code></p></td>
+<td><p>All active expirations of a product</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">continuous</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ES.c.0</span></code></p></td>
+<td><p>Rolling front-month contract</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">instrument_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3403</span></code></p></td>
+<td><p>Numeric exchange-assigned ID</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For quick reference, here are the <strong>futures month codes</strong>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Month</p></th>
+<th class="head"><p>Code</p></th>
+<th class="head"><p>Month</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>F</p></td>
+<td><p>January</p></td>
+<td><p>N</p></td>
+<td><p>July</p></td>
+</tr>
+<tr class="row-odd"><td><p>G</p></td>
+<td><p>February</p></td>
+<td><p>Q</p></td>
+<td><p>August</p></td>
+</tr>
+<tr class="row-even"><td><p>H</p></td>
+<td><p>March</p></td>
+<td><p>U</p></td>
+<td><p>September</p></td>
+</tr>
+<tr class="row-odd"><td><p>J</p></td>
+<td><p>April</p></td>
+<td><p>V</p></td>
+<td><p>October</p></td>
+</tr>
+<tr class="row-even"><td><p>K</p></td>
+<td><p>May</p></td>
+<td><p>X</p></td>
+<td><p>November</p></td>
+</tr>
+<tr class="row-odd"><td><p>M</p></td>
+<td><p>June</p></td>
+<td><p>Z</p></td>
+<td><p>December</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="schemas">
+<h3>Schemas<a class="headerlink" href="#schemas" title="Link to this heading">#</a></h3>
+<p>A <strong>schema</strong> controls the level of detail (and volume) of the data returned.
+Schemas form a hierarchy from most to least granular:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Schema</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mbo</span></code></p></td>
+<td><p>Market-by-order (every order book event)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mbp-10</span></code></p></td>
+<td><p>Market-by-price, 10 levels</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mbp-1</span></code></p></td>
+<td><p>Market-by-price, top of book</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">trades</span></code></p></td>
+<td><p>Every individual trade (tick-by-tick)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ohlcv-1s</span></code></p></td>
+<td><p>1-second bars</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ohlcv-1m</span></code></p></td>
+<td><p>1-minute bars</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ohlcv-1h</span></code></p></td>
+<td><p>1-hour bars</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ohlcv-1d</span></code></p></td>
+<td><p>Daily bars</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>More granular schemas produce more data (and cost more). For most research
+projects, <code class="docutils literal notranslate"><span class="pre">trades</span></code> or <code class="docutils literal notranslate"><span class="pre">ohlcv-1m</span></code> are good starting points.</p>
+<p>See the
+<a class="reference external" href="https://github.com/finm-32900/inclass_examples/tree/main/databento/05_schemas_and_symbology"><code class="docutils literal notranslate"><span class="pre">05_schemas_and_symbology</span></code></a>
+module in the examples repo for runnable comparisons.</p>
+</section>
+</section>
+<section id="getting-started-with-the-python-sdk">
+<h2>Getting Started with the Python SDK<a class="headerlink" href="#getting-started-with-the-python-sdk" title="Link to this heading">#</a></h2>
+<section id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>databento<span class="w"> </span>python-dotenv
+</pre></div>
+</div>
+</section>
+<section id="api-key-setup">
+<h3>API Key Setup<a class="headerlink" href="#api-key-setup" title="Link to this heading">#</a></h3>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file in your project root with your Databento API key:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>DATABENTO_API_KEY=db-XXXXXXXXXXXXXXXXXXXX
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Never commit your <code class="docutils literal notranslate"><span class="pre">.env</span></code> file to version control. Make sure <code class="docutils literal notranslate"><span class="pre">.env</span></code> is in your
+<code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p>
+</div>
+</section>
+<section id="your-first-query">
+<h3>Your First Query<a class="headerlink" href="#your-first-query" title="Link to this heading">#</a></h3>
+<p>The pattern for every historical query is: <strong>create client → check cost → fetch
+data → convert to DataFrame</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">import</span> <span class="nn">databento</span> <span class="k">as</span> <span class="nn">db</span>
+
+<span class="n">load_dotenv</span><span class="p">()</span>  <span class="c1"># reads DATABENTO_API_KEY from .env</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Historical</span><span class="p">()</span>
+
+<span class="c1"># --- Query parameters ---</span>
+<span class="n">query</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;GLBX.MDP3&quot;</span><span class="p">,</span>
+    <span class="n">symbols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ES.FUT&quot;</span><span class="p">],</span>
+    <span class="n">stype_in</span><span class="o">=</span><span class="s2">&quot;parent&quot;</span><span class="p">,</span>
+    <span class="n">schema</span><span class="o">=</span><span class="s2">&quot;trades&quot;</span><span class="p">,</span>
+    <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2024-08-01&quot;</span><span class="p">,</span>
+    <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2024-08-02&quot;</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Step 1: Check cost (free metadata call)</span>
+<span class="n">cost</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">get_cost</span><span class="p">(</span><span class="o">**</span><span class="n">query</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Estimated cost: $</span><span class="si">{</span><span class="n">cost</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 2: Fetch data only if the cost is acceptable</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">timeseries</span><span class="o">.</span><span class="n">get_range</span><span class="p">(</span><span class="o">**</span><span class="n">query</span><span class="p">)</span>
+
+<span class="c1"># Step 3: Convert to pandas DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_df</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Always check <code class="docutils literal notranslate"><span class="pre">client.metadata.get_cost()</span></code> before calling <code class="docutils literal notranslate"><span class="pre">get_range()</span></code>.
+Queries against tick-level schemas over long time ranges or many symbols can
+become expensive. The cost check is free and returns the exact dollar amount.</p>
+</div>
+</section>
+</section>
+<section id="historical-vs-live-data">
+<h2>Historical vs. Live Data<a class="headerlink" href="#historical-vs-live-data" title="Link to this heading">#</a></h2>
+<p>Databento provides two modes of access:</p>
+<ul class="simple">
+<li><p><strong>Historical</strong>: Pull archived data for backtesting and research via
+<code class="docutils literal notranslate"><span class="pre">db.Historical()</span></code>. Billed per query based on data volume.</p></li>
+<li><p><strong>Live</strong>: Stream real-time data as it arrives from the exchange via
+<code class="docutils literal notranslate"><span class="pre">db.Live()</span></code>. Billed per subscription.</p></li>
+</ul>
+<p>Here is a minimal live streaming example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">databento</span> <span class="k">as</span> <span class="nn">db</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Live</span><span class="p">()</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;GLBX.MDP3&quot;</span><span class="p">,</span>
+    <span class="n">schema</span><span class="o">=</span><span class="s2">&quot;trades&quot;</span><span class="p">,</span>
+    <span class="n">stype_in</span><span class="o">=</span><span class="s2">&quot;parent&quot;</span><span class="p">,</span>
+    <span class="n">symbols</span><span class="o">=</span><span class="s2">&quot;ES.FUT&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">client</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>  <span class="c1"># each record is a TradeMsg with auto-scaled prices</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Live streaming requires CME Globex to be open (Sunday 5 PM – Friday 4 PM CT).</p>
+</div>
+<p>For a deeper look at what the SDK does under the hood (raw HTTP requests, TCP
+connections, CRAM authentication), see modules
+<a class="reference external" href="https://github.com/finm-32900/inclass_examples/tree/main/databento/02_historical_api"><code class="docutils literal notranslate"><span class="pre">02_historical_api</span></code></a>
+and
+<a class="reference external" href="https://github.com/finm-32900/inclass_examples/tree/main/databento/04_live_raw_tcp"><code class="docutils literal notranslate"><span class="pre">04_live_raw_tcp</span></code></a>
+in the examples repo.</p>
+</section>
+<section id="case-study-treasury-futures-market-brief">
+<h2>Case Study: Treasury Futures Market Brief<a class="headerlink" href="#case-study-treasury-futures-market-brief" title="Link to this heading">#</a></h2>
+<p>The
+<a class="reference external" href="https://github.com/finm-32900/inclass_examples/tree/main/databento/06_treasury_futures_brief"><code class="docutils literal notranslate"><span class="pre">06_treasury_futures_brief</span></code></a>
+example in the class repo fetches daily OHLCV data and open interest for five
+Treasury futures products spanning the yield curve:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Product</p></th>
+<th class="head"><p>Underlying</p></th>
+<th class="head"><p>Approx. Duration</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ZT</span></code></p></td>
+<td><p>2-Year T-Note</p></td>
+<td><p>UST 2Y</p></td>
+<td><p>~1.9 years</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ZF</span></code></p></td>
+<td><p>5-Year T-Note</p></td>
+<td><p>UST 5Y</p></td>
+<td><p>~4.2 years</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ZN</span></code></p></td>
+<td><p>10-Year T-Note</p></td>
+<td><p>UST 10Y</p></td>
+<td><p>~6.5 years</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TN</span></code></p></td>
+<td><p>Ultra 10-Year T-Note</p></td>
+<td><p>UST 10Y (ultra)</p></td>
+<td><p>~9.5 years</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ZB</span></code></p></td>
+<td><p>30-Year T-Bond</p></td>
+<td><p>UST 30Y</p></td>
+<td><p>~17 years</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="indexed-price-series">
+<h3>Indexed Price Series<a class="headerlink" href="#indexed-price-series" title="Link to this heading">#</a></h3>
+<p>The chart below normalizes each product’s closing price to 100 at the start of
+the sample and tracks relative performance. Products with longer duration
+(ZB, TN) show larger price swings — exactly what we expect given the inverse
+relationship between bond prices and yields.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/databento_chart_indexed_prices.png"><img alt="Treasury futures indexed prices" src="../_images/databento_chart_indexed_prices.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Indexed closing prices (base = 100) for five Treasury futures products.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="volume-and-open-interest">
+<h3>Volume and Open Interest<a class="headerlink" href="#volume-and-open-interest" title="Link to this heading">#</a></h3>
+<p>Volume and open interest reveal where liquidity concentrates. The 10-Year
+T-Note (ZN) typically dominates both metrics, making it the benchmark for
+Treasury futures trading.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/databento_chart_volume_oi.png"><img alt="Treasury futures volume and open interest" src="../_images/databento_chart_volume_oi.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Average daily volume and open interest across Treasury futures products.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Try it yourself.</strong> Clone the
+<a class="reference external" href="https://github.com/finm-32900/inclass_examples/tree/main/databento">examples repo</a>
+and run the <code class="docutils literal notranslate"><span class="pre">06_treasury_futures_brief</span></code> scripts to reproduce these charts, add
+new products, or extend the date range.</p>
+</div>
+</section>
+</section>
+<section id="comparing-data-sources">
+<h2>Comparing Data Sources<a class="headerlink" href="#comparing-data-sources" title="Link to this heading">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Discussion</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Bloomberg</p></th>
+<th class="head"><p>LSEG Datastream (WRDS)</p></th>
+<th class="head"><p>Databento</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Access</strong></p></td>
+<td><p>Desktop terminal + Excel API</p></td>
+<td><p>Web queries or Python via WRDS</p></td>
+<td><p>Python SDK, HTTP API, TCP</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Pricing</strong></p></td>
+<td><p>Annual terminal license</p></td>
+<td><p>Institutional license (via WRDS)</p></td>
+<td><p>Pay-per-query</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Strengths</strong></p></td>
+<td><p>Breadth (equities, FI, macro, news)</p></td>
+<td><p>Long historical coverage, cross-asset</p></td>
+<td><p>Exchange-level tick data, order book</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Best for</strong></p></td>
+<td><p>Exploratory research, fixed income analytics</p></td>
+<td><p>Panel data, academic research</p></td>
+<td><p>Algorithmic trading, microstructure research</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://databento.com/docs">Databento Documentation</a> — API reference, schema
+definitions, dataset catalog</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/databento/">Databento Python SDK (PyPI)</a> — SDK
+installation and changelog</p></li>
+<li><p><a class="reference external" href="https://github.com/finm-32900/inclass_examples/tree/main/databento">FINM-32900 In-Class Examples: Databento</a>
+— 6 modules covering historical/live access, schemas, symbology, and the
+Treasury futures case study</p></li>
+<li><p><a class="reference external" href="https://app.databento.com">Databento Portal</a> — Web UI for browsing datasets,
+checking costs, and managing API keys</p></li>
+</ul>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+   
+</div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="LSEG_datastream.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">LSEG Datastream</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../overview_w6.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 6: Python Package Development and Social Coding with GitHub</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-databento">What Is Databento?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-datasets-schemas-and-symbology">Key Concepts: Datasets, Schemas, and Symbology</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets">Datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symbology">Symbology</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schemas">Schemas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-the-python-sdk">Getting Started with the Python SDK</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#api-key-setup">API Key Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-first-query">Your First Query</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-vs-live-data">Historical vs. Live Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-treasury-futures-market-brief">Case Study: Treasury Futures Market Brief</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexed-price-series">Indexed Price Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volume-and-open-interest">Volume and Open Interest</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-data-sources">Comparing Data Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeremiah Bejarano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Jeremiah Bejarano.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
