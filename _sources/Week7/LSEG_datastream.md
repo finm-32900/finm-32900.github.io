@@ -39,6 +39,13 @@ WRDS provides a powerful variable search tool that allows you to search across a
    - Browse by category
    - Use advanced search options for more specific queries
 
+### Using the Datastream Code Lookup Tool
+
+![Datastream Code Lookup Tool](./../assets/datastream_code_lookup.png)
+1. Navigate to the [Datastream Future Contracts Query Form](https://wrds-www.wharton.upenn.edu/pages/get-data/lseg/datastream/futures-data/future-contracts/)
+2. Click on "Code Lookup: Datastream Futures"
+3. Use the search functionality to find the code for the variable you are interested in
+
 ### Search Tips
 - Use quotation marks for exact phrase matches
 - Try different variations of terms (e.g., "Treasury", "T-Note", "Government Bond")

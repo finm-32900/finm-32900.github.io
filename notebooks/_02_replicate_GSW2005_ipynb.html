@@ -483,6 +483,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-and-validation">Testing and Validation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-identifying-rich-and-cheap-bonds">Application: Identifying Rich and Cheap Bonds</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-pricing-errors-arise">Why do pricing errors arise?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#by-dollar-error">By Dollar Error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#by-percent-error">By Percent Error</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-results">Interpreting the Results</a></li>
 </ul>
 </li>
@@ -553,73 +555,9 @@ where:</p>
 This is exactly what the code computes: <code class="docutils literal notranslate"><span class="pre">cashflows</span> <span class="pre">&#64;</span> <span class="pre">discount_factors</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">plot_cashflow_diagram</span> <span class="kn">import</span> <span class="n">plot_cashflow_diagram</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-
-<span class="c1"># Example: 3 bonds observed on Jan 31, 2000</span>
-<span class="n">bond_labels</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s2">&quot;Bond A</span><span class="se">\n</span><span class="s2">6</span><span class="si">% c</span><span class="s2">pn, matures 5/00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Bond B</span><span class="se">\n</span><span class="s2">4</span><span class="si">% c</span><span class="s2">pn, matures 11/00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Bond C</span><span class="se">\n</span><span class="s2">5</span><span class="si">% c</span><span class="s2">pn, matures 5/01&quot;</span><span class="p">,</span>
-<span class="p">]</span>
-<span class="c1"># Payment dates as fractional years from quote date</span>
-<span class="n">payment_dates</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.29</span><span class="p">,</span> <span class="mf">0.79</span><span class="p">,</span> <span class="mf">1.29</span><span class="p">]</span>
-<span class="n">date_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;May</span><span class="se">\n</span><span class="s2">2000&quot;</span><span class="p">,</span> <span class="s2">&quot;Nov</span><span class="se">\n</span><span class="s2">2000&quot;</span><span class="p">,</span> <span class="s2">&quot;May</span><span class="se">\n</span><span class="s2">2001&quot;</span><span class="p">]</span>
-
-<span class="c1"># Cashflow matrix (rows=bonds, cols=payment dates)</span>
-<span class="n">cashflows_example</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-    <span class="p">[</span>
-        <span class="p">[</span><span class="mf">103.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>  <span class="c1"># Bond A: final coupon + principal</span>
-        <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">102.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>  <span class="c1"># Bond B: coupon, then coupon + principal</span>
-        <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">102.5</span><span class="p">],</span>  <span class="c1"># Bond C: coupon, coupon, coupon + principal</span>
-    <span class="p">]</span>
-<span class="p">)</span>
-
-<span class="n">y_positions</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">bond_y</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">y_positions</span><span class="p">,</span> <span class="n">bond_labels</span><span class="p">)):</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
-        <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">bond_y</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span>
-    <span class="p">)</span>
-    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">date_x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">payment_dates</span><span class="p">):</span>
-        <span class="n">cf</span> <span class="o">=</span> <span class="n">cashflows_example</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">cf</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">size</span> <span class="o">=</span> <span class="mi">150</span> <span class="o">+</span> <span class="n">cf</span> <span class="o">*</span> <span class="mi">8</span>
-            <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;#2196F3&quot;</span> <span class="k">if</span> <span class="n">cf</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="k">else</span> <span class="s2">&quot;#FF9800&quot;</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-                <span class="n">date_x</span><span class="p">,</span> <span class="n">bond_y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.8</span>
-            <span class="p">)</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">date_x</span><span class="p">,</span> <span class="n">bond_y</span> <span class="o">-</span> <span class="mf">0.25</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">cf</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-
-<span class="c1"># Timeline</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
-    <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">1.55</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">),</span>
-    <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">),</span>
-<span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.95</span><span class="p">,</span> <span class="s2">&quot;Time&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">date_x</span><span class="p">,</span> <span class="n">date_label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">payment_dates</span><span class="p">,</span> <span class="n">date_labels</span><span class="p">):</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">date_x</span><span class="p">,</span> <span class="n">date_x</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.65</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">date_x</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">date_label</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
-
-<span class="c1"># Quote date</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.65</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="s2">&quot;Jan 31</span><span class="se">\n</span><span class="s2">2000</span><span class="se">\n</span><span class="s2">(today)&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
-
-<span class="c1"># Legend</span>
-<span class="n">coupon_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;#2196F3&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Coupon only&quot;</span><span class="p">)</span>
-<span class="n">principal_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;#FF9800&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Coupon + Principal&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">coupon_patch</span><span class="p">,</span> <span class="n">principal_patch</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">2.8</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Decomposing Bonds into Cashflows&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plot_cashflow_diagram</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -908,7 +846,8 @@ from the <code class="docutils literal notranslate"><span class="pre">pull_CRSP_
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">describe_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="s2">&quot;tcouprt&quot;</span><span class="p">,</span> <span class="s2">&quot;years_to_maturity&quot;</span><span class="p">,</span> <span class="s2">&quot;tdduratn&quot;</span><span class="p">]</span>
+<span class="n">df_all</span><span class="p">[</span><span class="n">describe_cols</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -931,368 +870,68 @@ from the <code class="docutils literal notranslate"><span class="pre">pull_CRSP_
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>kytreasno</th>
-      <th>kycrspid</th>
-      <th>tcusip</th>
-      <th>caldt</th>
-      <th>tdatdt</th>
-      <th>tmatdt</th>
-      <th>tfcaldt</th>
-      <th>tdbid</th>
-      <th>tdask</th>
-      <th>tdaccint</th>
-      <th>...</th>
       <th>price</th>
       <th>tcouprt</th>
-      <th>itype</th>
-      <th>original_maturity</th>
       <th>years_to_maturity</th>
       <th>tdduratn</th>
-      <th>tdretnua</th>
-      <th>days_to_maturity</th>
-      <th>callable</th>
-      <th>run</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2530587</th>
-      <td>200712.0</td>
-      <td>19710215.207750</td>
-      <td>912827BF</td>
-      <td>1971-02-03</td>
-      <td>1969-08-15</td>
-      <td>1971-02-15</td>
-      <td>0</td>
-      <td>100.06250</td>
-      <td>100.12500</td>
-      <td>3.622283</td>
-      <td>...</td>
-      <td>103.716033</td>
-      <td>7.75</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-      <td>12.0</td>
-      <td>0.000203</td>
-      <td>12</td>
-      <td>False</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2530588</th>
-      <td>200712.0</td>
-      <td>19710215.207750</td>
-      <td>912827BF</td>
-      <td>1971-02-04</td>
-      <td>1969-08-15</td>
-      <td>1971-02-15</td>
-      <td>0</td>
-      <td>100.03125</td>
-      <td>100.09375</td>
-      <td>3.643342</td>
-      <td>...</td>
-      <td>103.705842</td>
-      <td>7.75</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-      <td>11.0</td>
-      <td>-0.000098</td>
-      <td>11</td>
-      <td>False</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2530589</th>
-      <td>200712.0</td>
-      <td>19710215.207750</td>
-      <td>912827BF</td>
-      <td>1971-02-05</td>
-      <td>1969-08-15</td>
-      <td>1971-02-15</td>
-      <td>0</td>
-      <td>100.03125</td>
-      <td>100.09375</td>
-      <td>3.664402</td>
-      <td>...</td>
-      <td>103.726902</td>
-      <td>7.75</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-      <td>10.0</td>
-      <td>0.000203</td>
-      <td>10</td>
-      <td>False</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2530590</th>
-      <td>200712.0</td>
-      <td>19710215.207750</td>
-      <td>912827BF</td>
-      <td>1971-02-08</td>
-      <td>1969-08-15</td>
-      <td>1971-02-15</td>
-      <td>0</td>
-      <td>100.00000</td>
-      <td>100.06250</td>
-      <td>3.727582</td>
-      <td>...</td>
-      <td>103.758832</td>
-      <td>7.75</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-      <td>7.0</td>
-      <td>0.000308</td>
-      <td>7</td>
-      <td>False</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2530591</th>
-      <td>200712.0</td>
-      <td>19710215.207750</td>
-      <td>912827BF</td>
-      <td>1971-02-09</td>
-      <td>1969-08-15</td>
-      <td>1971-02-15</td>
-      <td>0</td>
-      <td>100.00000</td>
-      <td>100.06250</td>
-      <td>3.748641</td>
-      <td>...</td>
-      <td>103.779891</td>
-      <td>7.75</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-      <td>6.0</td>
-      <td>0.000203</td>
-      <td>6</td>
-      <td>False</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 21 columns</p>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>kytreasno</th>
-      <th>caldt</th>
-      <th>tdatdt</th>
-      <th>tmatdt</th>
-      <th>tfcaldt</th>
-      <th>tdbid</th>
-      <th>tdask</th>
-      <th>tdaccint</th>
-      <th>tdyld</th>
-      <th>price</th>
-      <th>tcouprt</th>
-      <th>itype</th>
-      <th>original_maturity</th>
-      <th>years_to_maturity</th>
-      <th>tdduratn</th>
-      <th>tdretnua</th>
-      <th>days_to_maturity</th>
-      <th>run</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>count</th>
-      <td>2.530592e+06</td>
-      <td>2530592</td>
-      <td>2530592</td>
-      <td>2530592</td>
-      <td>2530592.0</td>
-      <td>2.530548e+06</td>
       <td>2.530548e+06</td>
       <td>2.530592e+06</td>
-      <td>2.530548e+06</td>
-      <td>2.530548e+06</td>
-      <td>2.530592e+06</td>
-      <td>2.530592e+06</td>
-      <td>2.530592e+06</td>
-      <td>2.530592e+06</td>
-      <td>2.530592e+06</td>
-      <td>2.528511e+06</td>
       <td>2.530592e+06</td>
       <td>2.530592e+06</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>2.045816e+05</td>
-      <td>2005-02-07 09:43:03.745779584</td>
-      <td>2000-04-04 21:35:38.906943360</td>
-      <td>2011-04-28 17:47:43.654986240</td>
-      <td>0.0</td>
-      <td>1.043372e+02</td>
-      <td>1.044215e+02</td>
-      <td>1.336800e+00</td>
-      <td>1.204346e-04</td>
       <td>1.057161e+02</td>
       <td>5.372427e+00</td>
-      <td>1.747177e+00</td>
-      <td>1.105294e+01</td>
       <td>6.223965e+00</td>
       <td>1.658160e+03</td>
-      <td>2.006957e-04</td>
-      <td>2.271337e+03</td>
-      <td>1.919975e+01</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>2.006360e+05</td>
-      <td>1970-01-02 00:00:00</td>
-      <td>1955-02-15 00:00:00</td>
-      <td>1970-02-15 00:00:00</td>
-      <td>0.0</td>
-      <td>4.350000e+01</td>
-      <td>4.354688e+01</td>
-      <td>0.000000e+00</td>
-      <td>-1.664162e-02</td>
-      <td>4.405673e+01</td>
-      <td>1.250000e-01</td>
-      <td>1.000000e+00</td>
-      <td>1.000000e+00</td>
-      <td>0.000000e+00</td>
-      <td>-1.000000e+00</td>
-      <td>-1.094112e-01</td>
-      <td>1.000000e+00</td>
-      <td>0.000000e+00</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>2.028520e+05</td>
-      <td>1992-09-15 00:00:00</td>
-      <td>1987-06-01 00:00:00</td>
-      <td>1997-04-30 00:00:00</td>
-      <td>0.0</td>
-      <td>9.897656e+01</td>
-      <td>9.904688e+01</td>
-      <td>3.502747e-01</td>
-      <td>4.873235e-05</td>
-      <td>9.979416e+01</td>
-      <td>2.375000e+00</td>
-      <td>1.000000e+00</td>
-      <td>5.000000e+00</td>
-      <td>1.000000e+00</td>
-      <td>5.116591e+02</td>
-      <td>-5.806907e-04</td>
-      <td>5.280000e+02</td>
-      <td>5.000000e+00</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>2.040590e+05</td>
-      <td>2008-06-02 00:00:00</td>
-      <td>2000-05-15 00:00:00</td>
-      <td>2015-02-15 00:00:00</td>
-      <td>0.0</td>
-      <td>1.009219e+02</td>
-      <td>1.009805e+02</td>
-      <td>9.065934e-01</td>
-      <td>1.151030e-04</td>
-      <td>1.022880e+02</td>
-      <td>4.750000e+00</td>
-      <td>2.000000e+00</td>
-      <td>7.000000e+00</td>
-      <td>3.000000e+00</td>
-      <td>1.114021e+03</td>
-      <td>1.453760e-04</td>
-      <td>1.213000e+03</td>
-      <td>1.400000e+01</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>2.066880e+05</td>
-      <td>2018-03-29 00:00:00</td>
-      <td>2013-12-15 00:00:00</td>
-      <td>2023-05-31 00:00:00</td>
-      <td>0.0</td>
-      <td>1.064297e+02</td>
-      <td>1.065000e+02</td>
-      <td>1.968750e+00</td>
-      <td>1.712478e-04</td>
-      <td>1.081889e+02</td>
-      <td>7.875000e+00</td>
-      <td>2.000000e+00</td>
-      <td>1.000000e+01</td>
-      <td>7.000000e+00</td>
-      <td>2.164954e+03</td>
-      <td>1.026885e-03</td>
-      <td>2.549000e+03</td>
-      <td>2.800000e+01</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>2.085040e+05</td>
-      <td>2025-12-31 00:00:00</td>
-      <td>2025-12-31 00:00:00</td>
-      <td>2055-11-15 00:00:00</td>
-      <td>0.0</td>
-      <td>1.763281e+02</td>
-      <td>1.763906e+02</td>
-      <td>1.186908e+01</td>
-      <td>6.557793e-03</td>
-      <td>1.827193e+02</td>
-      <td>1.625000e+01</td>
-      <td>2.000000e+00</td>
-      <td>4.000000e+01</td>
-      <td>3.000000e+01</td>
-      <td>9.160067e+03</td>
-      <td>1.281108e-01</td>
-      <td>1.105300e+04</td>
-      <td>8.400000e+01</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>2.078746e+03</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>1.313334e+01</td>
-      <td>1.311464e+01</td>
-      <td>1.295634e+00</td>
-      <td>8.741551e-05</td>
       <td>1.351318e+01</td>
       <td>3.557650e+00</td>
-      <td>4.346307e-01</td>
-      <td>9.985025e+00</td>
       <td>7.416524e+00</td>
       <td>1.639392e+03</td>
-      <td>3.684731e-03</td>
-      <td>2.702749e+03</td>
-      <td>1.796927e+01</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>4.405673e+01</td>
+      <td>1.250000e-01</td>
+      <td>0.000000e+00</td>
+      <td>-1.000000e+00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>9.979416e+01</td>
+      <td>2.375000e+00</td>
+      <td>1.000000e+00</td>
+      <td>5.116591e+02</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1.022880e+02</td>
+      <td>4.750000e+00</td>
+      <td>3.000000e+00</td>
+      <td>1.114021e+03</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1.081889e+02</td>
+      <td>7.875000e+00</td>
+      <td>7.000000e+00</td>
+      <td>2.164954e+03</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.827193e+02</td>
+      <td>1.625000e+01</td>
+      <td>3.000000e+01</td>
+      <td>9.160067e+03</td>
     </tr>
   </tbody>
 </table>
@@ -1301,7 +940,7 @@ from the <code class="docutils literal notranslate"><span class="pre">pull_CRSP_
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span> <span class="o">=</span> <span class="n">gsw2006_yield_curve</span><span class="o">.</span><span class="n">gurkaynak_sack_wright_filters</span><span class="p">(</span><span class="n">df_all</span><span class="p">)</span>
-<span class="n">df_all</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">df_all</span><span class="p">[</span><span class="n">describe_cols</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1324,203 +963,68 @@ from the <code class="docutils literal notranslate"><span class="pre">pull_CRSP_
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>kytreasno</th>
-      <th>caldt</th>
-      <th>tdatdt</th>
-      <th>tmatdt</th>
-      <th>tfcaldt</th>
-      <th>tdbid</th>
-      <th>tdask</th>
-      <th>tdaccint</th>
-      <th>tdyld</th>
       <th>price</th>
       <th>tcouprt</th>
-      <th>itype</th>
-      <th>original_maturity</th>
       <th>years_to_maturity</th>
       <th>tdduratn</th>
-      <th>tdretnua</th>
-      <th>days_to_maturity</th>
-      <th>run</th>
-      <th>weight</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>count</th>
-      <td>2.120645e+06</td>
-      <td>2120645</td>
-      <td>2120645</td>
-      <td>2120645</td>
-      <td>2120645.0</td>
       <td>2.120639e+06</td>
-      <td>2.120639e+06</td>
-      <td>2.120645e+06</td>
-      <td>2.120639e+06</td>
-      <td>2.120639e+06</td>
-      <td>2.120645e+06</td>
-      <td>2.120645e+06</td>
-      <td>2.120645e+06</td>
-      <td>2.120645e+06</td>
-      <td>2.120645e+06</td>
-      <td>2.120459e+06</td>
       <td>2.120645e+06</td>
       <td>2.120645e+06</td>
       <td>2.120645e+06</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>2.046289e+05</td>
-      <td>2005-08-11 10:39:19.710370688</td>
-      <td>2000-09-07 15:02:36.771359488</td>
-      <td>2011-09-24 20:42:30.503267584</td>
-      <td>0.0</td>
-      <td>1.047322e+02</td>
-      <td>1.048137e+02</td>
-      <td>1.297900e+00</td>
-      <td>1.170662e-04</td>
       <td>1.060708e+02</td>
       <td>5.240046e+00</td>
-      <td>1.759908e+00</td>
-      <td>1.103357e+01</td>
       <td>6.125277e+00</td>
       <td>1.651092e+03</td>
-      <td>1.966077e-04</td>
-      <td>2.235419e+03</td>
-      <td>2.106049e+01</td>
-      <td>9.992404e-01</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>2.006560e+05</td>
-      <td>1970-01-02 00:00:00</td>
-      <td>1955-02-15 00:00:00</td>
-      <td>1970-05-15 00:00:00</td>
-      <td>0.0</td>
-      <td>4.350000e+01</td>
-      <td>4.354688e+01</td>
-      <td>0.000000e+00</td>
-      <td>-4.305986e-05</td>
-      <td>4.405673e+01</td>
-      <td>1.250000e-01</td>
-      <td>1.000000e+00</td>
-      <td>1.000000e+00</td>
-      <td>0.000000e+00</td>
-      <td>-1.000000e+00</td>
-      <td>-1.094112e-01</td>
-      <td>9.300000e+01</td>
-      <td>0.000000e+00</td>
-      <td>1.095890e-02</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>2.028940e+05</td>
-      <td>1993-03-29 00:00:00</td>
-      <td>1988-03-31 00:00:00</td>
-      <td>1997-10-15 00:00:00</td>
-      <td>0.0</td>
-      <td>9.889062e+01</td>
-      <td>9.896094e+01</td>
-      <td>3.480663e-01</td>
-      <td>4.603171e-05</td>
-      <td>9.976197e+01</td>
-      <td>2.250000e+00</td>
-      <td>2.000000e+00</td>
-      <td>5.000000e+00</td>
-      <td>1.000000e+00</td>
-      <td>5.223430e+02</td>
-      <td>-5.848975e-04</td>
-      <td>5.420000e+02</td>
-      <td>8.000000e+00</td>
-      <td>1.000000e+00</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>2.040690e+05</td>
-      <td>2009-10-27 00:00:00</td>
-      <td>2002-11-15 00:00:00</td>
-      <td>2016-02-15 00:00:00</td>
-      <td>0.0</td>
-      <td>1.013125e+02</td>
-      <td>1.013750e+02</td>
-      <td>8.866120e-01</td>
-      <td>1.115071e-04</td>
-      <td>1.025367e+02</td>
-      <td>4.625000e+00</td>
-      <td>2.000000e+00</td>
-      <td>7.000000e+00</td>
-      <td>3.000000e+00</td>
-      <td>1.115093e+03</td>
-      <td>1.457503e-04</td>
-      <td>1.206000e+03</td>
-      <td>1.600000e+01</td>
-      <td>1.000000e+00</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>2.067090e+05</td>
-      <td>2018-07-23 00:00:00</td>
-      <td>2014-02-15 00:00:00</td>
-      <td>2023-08-15 00:00:00</td>
-      <td>0.0</td>
-      <td>1.070312e+02</td>
-      <td>1.071016e+02</td>
-      <td>1.903846e+00</td>
-      <td>1.684534e-04</td>
-      <td>1.087744e+02</td>
-      <td>7.750000e+00</td>
-      <td>2.000000e+00</td>
-      <td>1.000000e+01</td>
-      <td>7.000000e+00</td>
-      <td>2.102661e+03</td>
-      <td>1.014521e-03</td>
-      <td>2.445000e+03</td>
-      <td>3.000000e+01</td>
-      <td>1.000000e+00</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>2.084610e+05</td>
-      <td>2025-12-31 00:00:00</td>
-      <td>2025-09-30 00:00:00</td>
-      <td>2055-02-15 00:00:00</td>
-      <td>0.0</td>
-      <td>1.763281e+02</td>
-      <td>1.763906e+02</td>
-      <td>1.186908e+01</td>
-      <td>9.394247e-04</td>
-      <td>1.827193e+02</td>
-      <td>1.625000e+01</td>
-      <td>2.000000e+00</td>
-      <td>4.000000e+01</td>
-      <td>2.900000e+01</td>
-      <td>8.738464e+03</td>
-      <td>1.281108e-01</td>
-      <td>1.069200e+04</td>
-      <td>8.300000e+01</td>
-      <td>1.000000e+00</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>2.076319e+03</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.0</td>
-      <td>1.342540e+01</td>
-      <td>1.340850e+01</td>
-      <td>1.248620e+00</td>
-      <td>8.411370e-05</td>
       <td>1.379746e+01</td>
       <td>3.470534e+00</td>
-      <td>4.271390e-01</td>
-      <td>9.942195e+00</td>
       <td>7.224184e+00</td>
       <td>1.612092e+03</td>
-      <td>3.588208e-03</td>
-      <td>2.634068e+03</td>
-      <td>1.749405e+01</td>
-      <td>2.238399e-02</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>4.405673e+01</td>
+      <td>1.250000e-01</td>
+      <td>0.000000e+00</td>
+      <td>-1.000000e+00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>9.976197e+01</td>
+      <td>2.250000e+00</td>
+      <td>1.000000e+00</td>
+      <td>5.223430e+02</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1.025367e+02</td>
+      <td>4.625000e+00</td>
+      <td>3.000000e+00</td>
+      <td>1.115093e+03</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1.087744e+02</td>
+      <td>7.750000e+00</td>
+      <td>7.000000e+00</td>
+      <td>2.102661e+03</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.827193e+02</td>
+      <td>1.625000e+01</td>
+      <td>2.900000e+01</td>
+      <td>8.738464e+03</td>
     </tr>
   </tbody>
 </table>
@@ -2062,7 +1566,7 @@ trading</strong> strategies in fixed income.</p>
 <span class="n">pricing_error</span> <span class="o">=</span> <span class="n">actual_prices</span> <span class="o">-</span> <span class="n">predicted_prices</span>
 <span class="n">pricing_error_pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">pricing_error</span> <span class="o">/</span> <span class="n">predicted_prices</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
 
-<span class="n">bond_info</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;tcusip&quot;</span><span class="p">)[[</span><span class="s2">&quot;tcouprt&quot;</span><span class="p">,</span> <span class="s2">&quot;tmatdt&quot;</span><span class="p">,</span> <span class="s2">&quot;itype&quot;</span><span class="p">,</span> <span class="s2">&quot;days_to_maturity&quot;</span><span class="p">]]</span>
+<span class="n">bond_info</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;tcusip&quot;</span><span class="p">)[[</span><span class="s2">&quot;tcouprt&quot;</span><span class="p">,</span> <span class="s2">&quot;tmatdt&quot;</span><span class="p">,</span> <span class="s2">&quot;itype&quot;</span><span class="p">,</span> <span class="s2">&quot;days_to_maturity&quot;</span><span class="p">,</span> <span class="s2">&quot;original_maturity&quot;</span><span class="p">]]</span>
 <span class="n">rich_cheap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">&quot;Actual Price&quot;</span><span class="p">:</span> <span class="n">actual_prices</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
     <span class="s2">&quot;Model Price&quot;</span><span class="p">:</span> <span class="n">predicted_prices</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
@@ -2070,6 +1574,7 @@ trading</strong> strategies in fixed income.</p>
     <span class="s2">&quot;Error (%)&quot;</span><span class="p">:</span> <span class="n">pricing_error_pct</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
     <span class="s2">&quot;Coupon (%)&quot;</span><span class="p">:</span> <span class="n">bond_info</span><span class="p">[</span><span class="s2">&quot;tcouprt&quot;</span><span class="p">],</span>
     <span class="s2">&quot;Maturity&quot;</span><span class="p">:</span> <span class="n">bond_info</span><span class="p">[</span><span class="s2">&quot;tmatdt&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;Orig Mat (Yrs)&quot;</span><span class="p">:</span> <span class="n">bond_info</span><span class="p">[</span><span class="s2">&quot;original_maturity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
     <span class="s2">&quot;Yrs to Mat&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">bond_info</span><span class="p">[</span><span class="s2">&quot;days_to_maturity&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">365.25</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
     <span class="s2">&quot;Type&quot;</span><span class="p">:</span> <span class="n">bond_info</span><span class="p">[</span><span class="s2">&quot;itype&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Bond&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Note&quot;</span><span class="p">}),</span>
 <span class="p">})</span>
@@ -2084,9 +1589,12 @@ Number of bonds in sample: 294
 </div>
 </div>
 </div>
+</section>
+<section id="by-dollar-error">
+<h3>By Dollar Error<a class="headerlink" href="#by-dollar-error" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Top 5 RICH (overpriced) bonds — trading above model-implied price</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Top 5 RICH (overpriced) bonds by dollar error</span>
 <span class="n">rich_cheap</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Error ($)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2116,11 +1624,13 @@ Number of bonds in sample: 294
       <th>Error (%)</th>
       <th>Coupon (%)</th>
       <th>Maturity</th>
+      <th>Orig Mat (Yrs)</th>
       <th>Yrs to Mat</th>
       <th>Type</th>
     </tr>
     <tr>
       <th>CUSIP</th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -2140,6 +1650,7 @@ Number of bonds in sample: 294
       <td>1.0648</td>
       <td>4.375</td>
       <td>2038-02-15</td>
+      <td>30</td>
       <td>12.1</td>
       <td>Bond</td>
     </tr>
@@ -2151,6 +1662,7 @@ Number of bonds in sample: 294
       <td>1.0197</td>
       <td>4.500</td>
       <td>2036-02-15</td>
+      <td>30</td>
       <td>10.1</td>
       <td>Bond</td>
     </tr>
@@ -2162,6 +1674,7 @@ Number of bonds in sample: 294
       <td>0.9751</td>
       <td>5.000</td>
       <td>2037-05-15</td>
+      <td>30</td>
       <td>11.4</td>
       <td>Bond</td>
     </tr>
@@ -2173,6 +1686,7 @@ Number of bonds in sample: 294
       <td>1.0127</td>
       <td>4.500</td>
       <td>2038-05-15</td>
+      <td>30</td>
       <td>12.4</td>
       <td>Bond</td>
     </tr>
@@ -2184,6 +1698,7 @@ Number of bonds in sample: 294
       <td>0.8851</td>
       <td>4.750</td>
       <td>2037-02-15</td>
+      <td>30</td>
       <td>11.1</td>
       <td>Bond</td>
     </tr>
@@ -2193,7 +1708,7 @@ Number of bonds in sample: 294
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Top 5 CHEAP (underpriced) bonds — trading below model-implied price</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Top 5 CHEAP (underpriced) bonds by dollar error</span>
 <span class="n">rich_cheap</span><span class="o">.</span><span class="n">nsmallest</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Error ($)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2223,11 +1738,13 @@ Number of bonds in sample: 294
       <th>Error (%)</th>
       <th>Coupon (%)</th>
       <th>Maturity</th>
+      <th>Orig Mat (Yrs)</th>
       <th>Yrs to Mat</th>
       <th>Type</th>
     </tr>
     <tr>
       <th>CUSIP</th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -2247,6 +1764,7 @@ Number of bonds in sample: 294
       <td>-0.8215</td>
       <td>3.625</td>
       <td>2044-02-15</td>
+      <td>30</td>
       <td>18.1</td>
       <td>Bond</td>
     </tr>
@@ -2258,6 +1776,7 @@ Number of bonds in sample: 294
       <td>-0.8050</td>
       <td>3.625</td>
       <td>2043-08-15</td>
+      <td>30</td>
       <td>17.6</td>
       <td>Bond</td>
     </tr>
@@ -2269,6 +1788,7 @@ Number of bonds in sample: 294
       <td>-0.7876</td>
       <td>3.750</td>
       <td>2043-11-15</td>
+      <td>30</td>
       <td>17.9</td>
       <td>Bond</td>
     </tr>
@@ -2280,6 +1800,7 @@ Number of bonds in sample: 294
       <td>-0.8253</td>
       <td>3.375</td>
       <td>2044-05-15</td>
+      <td>30</td>
       <td>18.4</td>
       <td>Bond</td>
     </tr>
@@ -2291,7 +1812,239 @@ Number of bonds in sample: 294
       <td>-0.8288</td>
       <td>3.125</td>
       <td>2044-08-15</td>
+      <td>30</td>
       <td>18.6</td>
+      <td>Bond</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="by-percent-error">
+<h3>By Percent Error<a class="headerlink" href="#by-percent-error" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Top 5 RICH (overpriced) bonds by percent error</span>
+<span class="n">rich_cheap</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Error (%)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Actual Price</th>
+      <th>Model Price</th>
+      <th>Error ($)</th>
+      <th>Error (%)</th>
+      <th>Coupon (%)</th>
+      <th>Maturity</th>
+      <th>Orig Mat (Yrs)</th>
+      <th>Yrs to Mat</th>
+      <th>Type</th>
+    </tr>
+    <tr>
+      <th>CUSIP</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>912810PW</th>
+      <td>102.5781</td>
+      <td>101.4973</td>
+      <td>1.0808</td>
+      <td>1.0648</td>
+      <td>4.375</td>
+      <td>2038-02-15</td>
+      <td>30</td>
+      <td>12.1</td>
+      <td>Bond</td>
+    </tr>
+    <tr>
+      <th>912810SN</th>
+      <td>48.0612</td>
+      <td>47.5639</td>
+      <td>0.4972</td>
+      <td>1.0454</td>
+      <td>1.250</td>
+      <td>2050-05-15</td>
+      <td>30</td>
+      <td>24.4</td>
+      <td>Bond</td>
+    </tr>
+    <tr>
+      <th>912810FT</th>
+      <td>104.9492</td>
+      <td>103.8898</td>
+      <td>1.0594</td>
+      <td>1.0197</td>
+      <td>4.500</td>
+      <td>2036-02-15</td>
+      <td>30</td>
+      <td>10.1</td>
+      <td>Bond</td>
+    </tr>
+    <tr>
+      <th>912810PX</th>
+      <td>102.5054</td>
+      <td>101.4778</td>
+      <td>1.0277</td>
+      <td>1.0127</td>
+      <td>4.500</td>
+      <td>2038-05-15</td>
+      <td>30</td>
+      <td>12.4</td>
+      <td>Bond</td>
+    </tr>
+    <tr>
+      <th>912810PU</th>
+      <td>107.7096</td>
+      <td>106.6694</td>
+      <td>1.0402</td>
+      <td>0.9751</td>
+      <td>5.000</td>
+      <td>2037-05-15</td>
+      <td>30</td>
+      <td>11.4</td>
+      <td>Bond</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">## Top 5 CHEAP (underpriced) bonds by percent error</span>
+<span class="n">rich_cheap</span><span class="o">.</span><span class="n">nsmallest</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Error (%)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Actual Price</th>
+      <th>Model Price</th>
+      <th>Error ($)</th>
+      <th>Error (%)</th>
+      <th>Coupon (%)</th>
+      <th>Maturity</th>
+      <th>Orig Mat (Yrs)</th>
+      <th>Yrs to Mat</th>
+      <th>Type</th>
+    </tr>
+    <tr>
+      <th>CUSIP</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>912810RH</th>
+      <td>80.3516</td>
+      <td>81.0231</td>
+      <td>-0.6716</td>
+      <td>-0.8288</td>
+      <td>3.125</td>
+      <td>2044-08-15</td>
+      <td>30</td>
+      <td>18.6</td>
+      <td>Bond</td>
+    </tr>
+    <tr>
+      <th>912810RG</th>
+      <td>82.9914</td>
+      <td>83.6820</td>
+      <td>-0.6907</td>
+      <td>-0.8253</td>
+      <td>3.375</td>
+      <td>2044-05-15</td>
+      <td>30</td>
+      <td>18.4</td>
+      <td>Bond</td>
+    </tr>
+    <tr>
+      <th>912810RE</th>
+      <td>87.2383</td>
+      <td>87.9609</td>
+      <td>-0.7226</td>
+      <td>-0.8215</td>
+      <td>3.625</td>
+      <td>2044-02-15</td>
+      <td>30</td>
+      <td>18.1</td>
+      <td>Bond</td>
+    </tr>
+    <tr>
+      <th>912810RC</th>
+      <td>87.7109</td>
+      <td>88.4228</td>
+      <td>-0.7118</td>
+      <td>-0.8050</td>
+      <td>3.625</td>
+      <td>2043-08-15</td>
+      <td>30</td>
+      <td>17.6</td>
+      <td>Bond</td>
+    </tr>
+    <tr>
+      <th>912810RJ</th>
+      <td>77.7484</td>
+      <td>78.3699</td>
+      <td>-0.6215</td>
+      <td>-0.7930</td>
+      <td>3.000</td>
+      <td>2044-11-15</td>
+      <td>30</td>
+      <td>18.9</td>
       <td>Bond</td>
     </tr>
   </tbody>
@@ -2400,6 +2153,8 @@ comparison to close substitutes — before any trade is executed.</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-and-validation">Testing and Validation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-identifying-rich-and-cheap-bonds">Application: Identifying Rich and Cheap Bonds</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-pricing-errors-arise">Why do pricing errors arise?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#by-dollar-error">By Dollar Error</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#by-percent-error">By Percent Error</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-results">Interpreting the Results</a></li>
 </ul>
 </li>

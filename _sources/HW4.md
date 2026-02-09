@@ -47,6 +47,7 @@ in the `docs` folder and see the website.
 If you would like, you could try to publish the website to GitHub pages.
 
 
+[Example Market Brief](./assets/market_brief.pdf)
 
 
 
