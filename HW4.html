@@ -456,12 +456,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment">Assignment</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1">Part 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2">Part 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-ungraded">Part 3 (ungraded)</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment">Assignment</a></li>
 </ul>
             </nav>
         </div>
@@ -480,44 +475,32 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="notebooks/_02_replicate_GSW2005_ipynb.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
 </ul>
 </div>
+<ul class="simple">
+<li><p><strong>Due Date:</strong> Friday, Feb 27 at 5:00 pm CT.</p></li>
+<li><p><strong>Link to Assignment:</strong> <a class="reference external" href="https://classroom.github.com/a/a8Was0cz">https://classroom.github.com/a/a8Was0cz</a></p></li>
+</ul>
 <section id="learning-outcomes">
 <h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Learn to use GitHub to scan for secrets, to protect against accidental leaks</p></li>
-<li><p>Learn to revise your Git commit history, which is useful in case a secret was accidentally committed to your Git history</p></li>
+<li><p>Estimate the U.S. Treasury yield curve using the Nelson-Siegel-Svensson model following Gurkaynak, Sack and Wright (2006)</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">finm</span></code> package to implement yield curve functions (spot rates, discount factors, cashflow construction, and model fitting)</p></li>
+<li><p>Build and verify a data pipeline using <code class="docutils literal notranslate"><span class="pre">doit</span></code></p></li>
+<li><p>Learn to use GitHub to scan for secrets and revise Git commit history</p></li>
 </ul>
 </section>
 <section id="assignment">
 <h2>Assignment<a class="headerlink" href="#assignment" title="Link to this heading">#</a></h2>
-<p>The assignment is located at the following GitHub Classroom link: TBD</p>
-<section id="part-1">
-<h3>Part 1<a class="headerlink" href="#part-1" title="Link to this heading">#</a></h3>
-<p>In order to round out our skills with Github, please complete the following tutorials from the <a class="reference external" href="https://skills.github.com/">GitHub Skills</a> page. Please make sure to use <strong>public repositories</strong> for this in your own GitHub user account. You will provide a link later to demonstrate that it was completed.</p>
+<p>Please refer to the HW repo README for full details. The assignment consists of the following tasks:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/skills/change-commit-history">Remove commit history</a></p></li>
-<li><p><a class="reference external" href="https://github.com/skills/introduction-to-secret-scanning">Introduction to secret scanning</a></p></li>
+<li><p><strong>Task 1: GSW Yield Curve Module (2 pts)</strong> — Replace <code class="docutils literal notranslate"><span class="pre">TODO</span></code> placeholders in <code class="docutils literal notranslate"><span class="pre">src/gsw2006_yield_curve.py</span></code> with imports from the <a class="reference external" href="https://jeremybejarano.com/finm/"><code class="docutils literal notranslate"><span class="pre">finm</span></code></a> package.</p></li>
+<li><p><strong>Task 2: Data Pipeline (3 pts)</strong> — Ensure the full data pipeline runs successfully via <code class="docutils literal notranslate"><span class="pre">doit</span></code>.</p></li>
+<li><p><strong>Task 3: Federal Reserve Yield Curve Data (1 pt)</strong> — Implement <code class="docutils literal notranslate"><span class="pre">task_pull_fed_yield_curve_data</span></code> in <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code>.</p></li>
+<li><p><strong>Task 4: Notebooks (1 pt)</strong> — Ensure the Jupyter notebooks execute successfully.</p></li>
+<li><p><strong>Task 5: GitHub Skills (2 pts)</strong> — Complete the <a class="reference external" href="https://github.com/skills/change-commit-history">Change Commit History</a> and <a class="reference external" href="https://github.com/skills/introduction-to-secret-scanning">Introduction to Secret Scanning</a> tutorials.</p></li>
+<li><p><strong>Task 6: Market Brief Self-Attestation (2 pts)</strong> — Affirm that you have compiled your market brief and added custom metrics.</p></li>
 </ul>
-<p>You will receive points by add the URL to your completed skills repos from above in the HW repo linked above and by indicating that you have finished this task by marking the unit test as passing.</p>
-</section>
-<section id="part-2">
-<h3>Part 2<a class="headerlink" href="#part-2" title="Link to this heading">#</a></h3>
-<p>In the cloned repo, you will see several <code class="docutils literal notranslate"><span class="pre">test_***.py</span></code> files, as
-done in previous weeks. However, you will find that most
-of the code that implements the Nelson-Siegel-Svensson yield curve
-estimation is already provided for you. The main task of this HW,
-instead, is for you to pay attention to the format
-and construction of the <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> file. The file
-<code class="docutils literal notranslate"><span class="pre">test_dodo.py</span></code> is there to test whether or not your
-<code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> file is creating all of the proper files associated
-with the project.</p>
-</section>
-<section id="part-3-ungraded">
-<h3>Part 3 (ungraded)<a class="headerlink" href="#part-3-ungraded" title="Link to this heading">#</a></h3>
-<p>Please make sure that <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> produces an Sphinx website that showcases the Jupyter notebooks within the repository. If you have created the <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> properly, then you should be able to open the file called <code class="docutils literal notranslate"><span class="pre">index.html</span></code>
-in the <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder and see the website.</p>
-<p>If you would like, you could try to publish the website to GitHub pages.</p>
+<p><strong>Total: 11 points</strong></p>
 <p><a class="reference download internal" download="" href="_downloads/33ed340ad57f7a559b056575ebc64d57/market_brief.pdf"><span class="xref download myst">Example Market Brief</span></a></p>
-</section>
 </section>
 </section>
 
@@ -570,12 +553,7 @@ in the <code class="docutils literal notranslate"><span class="pre">docs</span><
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment">Assignment</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1">Part 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2">Part 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-ungraded">Part 3 (ungraded)</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment">Assignment</a></li>
 </ul>
   </nav></div>
 
