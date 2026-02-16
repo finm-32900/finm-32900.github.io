@@ -47,12 +47,14 @@
     <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'overview_w7';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Sphinx" href="Week5/sphinx.html" />
-    <link rel="prev" title="WARNING: Notes subject to change after this week" href="subject_to_change_after_this_week.html" /> 
+    <link rel="prev" title="Writing and Publishing Your Own Python Packages" href="Week6/python_packaging_with_hatch.html" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>   
   </head>
@@ -216,12 +218,14 @@
 <li class="toctree-l2"><a class="reference internal" href="Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 7: Unit Tests and Documentation with Sphinx</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week5/sphinx.html">Sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week5/unit_tests.html">Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_01_corporate_hedging_ipynb.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w8.html">Week 8: Web Authentication and Authorization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_01_corporate_hedging_ipynb.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
@@ -471,6 +475,8 @@ document.write(`
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Week5/sphinx.html">Sphinx</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week5/unit_tests.html">Unit Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/_01_corporate_hedging_ipynb.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
 </ul>
 </div>
 <section id="learning-outcomes">
@@ -484,25 +490,12 @@ document.write(`
 <section id="agenda">
 <h2>Agenda<a class="headerlink" href="#agenda" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Interesting News:</p>
-<ul>
-<li><p>Discuss news from year ago: <a class="reference external" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3152386">Pockets of Predictability</a> and <a class="reference external" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4710577">Pockets of Predictabliity: Replication</a></p>
-<ul>
-<li><p>Simple error: Open source can help avoid errors.</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.ft.com/content/db864323-5b68-402b-8aa5-5c53a309acf1">Financial Times: “The Norwegian sovereign wealth fund’s $92mn Excel error”</a></p></li>
-<li><p><a class="reference external" href="https://www.washingtonpost.com/world/2023/06/06/austria-excel-error-election/">Washington Post: “Excel spreadsheet error leads Austrian party to announce wrong leader”</a></p></li>
-</ul>
-</li>
-<li><p>Review questions from HW 3 and purpose of HW 3</p></li>
 <li><p>Forking a GitHub project. Creating documentation for you own Python package. Featuring <a class="github reference external" href="https://github.com/jmbejara/quantstats_lumi">jmbejara/quantstats_lumi</a></p></li>
 <li><p>How do I generate documentation? What role do <a class="reference external" href="https://www.geeksforgeeks.org/python-docstrings/">docstrings</a> play?</p></li>
-<li><p>Announcement: Final Project List and Rubric Available Tomorrow</p>
+<li><p>Start reviewing Options Case Study:</p>
 <ul>
-<li><p>Projects will start being assigned on Wednesday.</p></li>
-<li><p>Preferences will be weighted using a normalization scheme.</p></li>
-<li><p>If you have prior experience working with one of these asset classes, please email me.</p></li>
+<li><p><a class="reference internal" href="notebooks/_01_corporate_hedging_ipynb.html"><span class="std std-doc">Corporate Hedging</span></a></p></li>
+<li><p><a class="reference internal" href="notebooks/_02_spx_hedging_ipynb.html"><span class="std std-doc">SPX Hedging</span></a></p></li>
 </ul>
 </li>
 </ul>
@@ -524,12 +517,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="subject_to_change_after_this_week.html"
+       href="Week6/python_packaging_with_hatch.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">WARNING: Notes subject to change after this week</p>
+        <p class="prev-next-title">Writing and Publishing Your Own Python Packages</p>
       </div>
     </a>
     <a class="right-next"

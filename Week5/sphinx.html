@@ -216,12 +216,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../overview_w7.html">Week 7: Unit Tests and Documentation with Sphinx</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unit_tests.html">Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_corporate_hedging_ipynb.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w8.html">Week 8: Web Authentication and Authorization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_corporate_hedging_ipynb.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
@@ -453,20 +455,41 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx-for-python-documentation">Sphinx for Python Documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features-of-sphinx">Key Features of Sphinx</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-sphinx">Getting Started with Sphinx</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-sphinx">Why Sphinx?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-sphinx-quickstart">Getting Started: <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-sphinx-quickstart">Running <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#files-created">Files Created</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-documentation">Building the Documentation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book-an-opinionated-distribution-of-sphinx">Jupyter Book: An “Opinionated Distribution” of Sphinx</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-jupyter-book-differ-from-sphinx">How does Jupyter Book differ from Sphinx?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-jupyter-book">Getting Started with Jupyter Book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-conf-py-configuration-file">The <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> Configuration File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-in-markdown-with-myst">Writing in Markdown with MyST</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enabling-myst">Enabling MyST</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-comparison">Syntax Comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-rest-vs-myst">When to Use reST vs. MyST</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-jupyter-book-with-myst-nb">Comparing Jupyter Book with myst_nb</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-api-documentation-with-autodoc2">Automatic API Documentation with <code class="docutils literal notranslate"><span class="pre">autodoc2</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-autodoc2">Why <code class="docutils literal notranslate"><span class="pre">autodoc2</span></code>?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-good-docstrings">Writing Good Docstrings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-docstring-parsing">Custom Docstring Parsing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building">Building</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-a-theme-sphinx-book-theme">Choosing a Theme: <code class="docutils literal notranslate"><span class="pre">sphinx-book-theme</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-default-alabaster">The Default: Alabaster</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sphinx-book-theme">The <code class="docutils literal notranslate"><span class="pre">sphinx-book-theme</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-popular-themes">Other Popular Themes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrating-jupyter-notebooks-with-myst-nb">Integrating Jupyter Notebooks with <code class="docutils literal notranslate"><span class="pre">myst-nb</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting It All Together</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-jupyter-book">Appendix: Jupyter Book</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-course-uses-base-sphinx-instead">Why This Course Uses Base Sphinx Instead</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-reference">Quick Reference</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Further Reading</a></li>
 </ul>
 </li>
@@ -482,129 +505,332 @@ document.write(`
                 <article class="bd-article">
                    <section class="tex2jax_ignore mathjax_ignore" id="sphinx">
 <h1>Sphinx<a class="headerlink" href="#sphinx" title="Link to this heading">#</a></h1>
-<section id="sphinx-for-python-documentation">
-<h2>Sphinx for Python Documentation<a class="headerlink" href="#sphinx-for-python-documentation" title="Link to this heading">#</a></h2>
-<p>Sphinx is a powerful documentation generator widely used in the Python community. It transforms reStructuredText (reST) documents into various output formats, such as HTML, LaTeX (for printable PDF versions), ePub, Texinfo, manual pages, and plain text. Sphinx was originally created for the Python documentation and has since become the de facto standard for documenting Python projects.</p>
-<section id="key-features-of-sphinx">
-<h3>Key Features of Sphinx<a class="headerlink" href="#key-features-of-sphinx" title="Link to this heading">#</a></h3>
+<p>Sphinx is the standard documentation generator for the Python ecosystem. It transforms plain-text source files into polished HTML websites, PDF documents, and other formats. This course uses base Sphinx with a small set of extensions—MyST Parser for Markdown support, autodoc2 for automatic API documentation, and the sphinx-book-theme for a clean, modern look. Using base Sphinx (rather than a higher-level wrapper like Jupyter Book) gives you full control over your documentation setup and a deeper understanding of how the pieces fit together.</p>
+<div class="tip admonition">
+<p class="admonition-title">In-Class Examples</p>
+<p>The examples discussed on this page are available in the <code class="docutils literal notranslate"><span class="pre">inclass_examples</span></code> repository: <a class="github reference external" href="https://github.com/finm-32900/inclass_examples/tree/main/sphinx">finm-32900/inclass_examples</a></p>
+<p>Clone the repository and navigate to the <code class="docutils literal notranslate"><span class="pre">sphinx/</span></code> directory to follow along.</p>
+</div>
+<section id="why-sphinx">
+<h2>Why Sphinx?<a class="headerlink" href="#why-sphinx" title="Link to this heading">#</a></h2>
+<p>Sphinx was originally created to generate the official Python language documentation and has since become the de facto standard across the Python ecosystem. Projects like NumPy, pandas, scikit-learn, and statsmodels all use Sphinx for their documentation.</p>
 <ul class="simple">
-<li><p><strong>Extensible</strong>: Sphinx can be extended with plugins to support new output formats or add functionality.</p></li>
-<li><p><strong>Internationalization</strong>: Supports built-in message catalogs for easy translation of documentation.</p></li>
-<li><p><strong>Indexing and Search</strong>: Generates indexes and supports search functionality in the documentation website.</p></li>
-<li><p><strong>Cross-referencing</strong>: Allows linking to other documents or sections within the documentation for easy navigation.</p></li>
+<li><p><strong>Extensible</strong>: A rich plugin ecosystem lets you add Markdown support, automatic API docs, notebook rendering, and more.</p></li>
+<li><p><strong>Multi-format output</strong>: Generate HTML, PDF (via LaTeX), ePub, and man pages from a single source.</p></li>
+<li><p><strong>Cross-referencing</strong>: Link between documents, sections, functions, and classes with automatic resolution.</p></li>
+<li><p><strong>Indexing and search</strong>: Built-in full-text search for your documentation website.</p></li>
 </ul>
 </section>
-<section id="getting-started-with-sphinx">
-<h3>Getting Started with Sphinx<a class="headerlink" href="#getting-started-with-sphinx" title="Link to this heading">#</a></h3>
-<ol class="arabic">
-<li><p><strong>Installation</strong>: Sphinx can be installed via pip:</p>
+<section id="getting-started-sphinx-quickstart">
+<h2>Getting Started: <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code><a class="headerlink" href="#getting-started-sphinx-quickstart" title="Link to this heading">#</a></h2>
+<p><strong>See Example <a class="reference external" href="https://github.com/finm-32900/inclass_examples/tree/main/sphinx/01_quickstart"><code class="docutils literal notranslate"><span class="pre">01_quickstart/</span></code></a></strong></p>
+<section id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx
 </pre></div>
 </div>
-</li>
-<li><p><strong>Setup</strong>: To set up a documentation project, run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-quickstart
+</section>
+<section id="running-sphinx-quickstart">
+<h3>Running <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code><a class="headerlink" href="#running-sphinx-quickstart" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> is an interactive wizard that creates the scaffolding for a new Sphinx project:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>my_sphinx_project
+<span class="nb">cd</span><span class="w"> </span>my_sphinx_project
+sphinx-quickstart
 </pre></div>
 </div>
-<p>This command prompts you to answer some basic questions about your project and creates a documentation directory structure.</p>
-</li>
-<li><p><strong>Writing Documentation</strong>: Write your documentation using reStructuredText in the source directory. Use the <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file extension.</p></li>
-<li><p><strong>Building Documentation</strong>: To build the documentation, use:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>sourcedir<span class="w"> </span>builddir
+<p>When prompted, you can use these responses:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Prompt</p></th>
+<th class="head"><p>Suggested Response</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Separate source and build directories</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">n</span></code> (keep it simple)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Project name</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">My</span> <span class="pre">First</span> <span class="pre">Docs</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Author name(s)</p></td>
+<td><p>Your name</p></td>
+</tr>
+<tr class="row-odd"><td><p>Project release</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0.1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Project language</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">en</span></code> (press Enter for default)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="files-created">
+<h3>Files Created<a class="headerlink" href="#files-created" title="Link to this heading">#</a></h3>
+<p>The wizard generates the following structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>my_sphinx_project/
+├── _build/          # Generated HTML output (after building)
+├── _static/         # Custom CSS, images, etc.
+├── _templates/      # Custom Jinja2 templates
+├── conf.py          # Sphinx configuration
+├── index.rst        # Root document with toctree
+├── Makefile         # Build shortcut (Unix)
+└── make.bat         # Build shortcut (Windows)
 </pre></div>
 </div>
-<p>This command converts your reST files into HTML in the <code class="docutils literal notranslate"><span class="pre">builddir</span></code> directory.</p>
-</li>
-</ol>
+</section>
+<section id="building-the-documentation">
+<h3>Building the Documentation<a class="headerlink" href="#building-the-documentation" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>html
+</pre></div>
+</div>
+<p>Or equivalently:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>.<span class="w"> </span>_build/html
+</pre></div>
+</div>
+<p>Then open the result in your browser:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>open<span class="w"> </span>_build/html/index.html
+</pre></div>
+</div>
+<p>The generated site uses the <strong>alabaster</strong> theme, which is Sphinx’s default.</p>
+</section>
+</section>
+<section id="the-conf-py-configuration-file">
+<h2>The <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> Configuration File<a class="headerlink" href="#the-conf-py-configuration-file" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">conf.py</span></code> is the central configuration file for every Sphinx project. Almost all customization happens here. The key settings include:</p>
+<ul class="simple">
+<li><p><strong>Project metadata</strong>: <code class="docutils literal notranslate"><span class="pre">project</span></code>, <code class="docutils literal notranslate"><span class="pre">author</span></code>, <code class="docutils literal notranslate"><span class="pre">release</span></code></p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">extensions</span></code></strong>: A list of Sphinx plugins to load. This is how you add Markdown support, automatic API docs, and other features.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">html_theme</span></code></strong>: Controls the visual appearance of the generated site.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">templates_path</span></code></strong> and <strong><code class="docutils literal notranslate"><span class="pre">exclude_patterns</span></code></strong>: Control which directories hold custom templates and which files to skip during the build.</p></li>
+</ul>
+<p>A minimal <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> from <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;My First Docs&quot;</span>
+<span class="n">copyright</span> <span class="o">=</span> <span class="s2">&quot;2025, Student Name&quot;</span>
+<span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;Student Name&quot;</span>
+<span class="n">release</span> <span class="o">=</span> <span class="s2">&quot;0.1&quot;</span>
+
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;alabaster&quot;</span>
+</pre></div>
+</div>
+<p>The sections below show how to extend this configuration with additional extensions and a different theme.</p>
+</section>
+<section id="writing-in-markdown-with-myst">
+<h2>Writing in Markdown with MyST<a class="headerlink" href="#writing-in-markdown-with-myst" title="Link to this heading">#</a></h2>
+<p><strong>See Example <a class="reference external" href="https://github.com/finm-32900/inclass_examples/tree/main/sphinx/02_autodoc2_myst"><code class="docutils literal notranslate"><span class="pre">02_autodoc2_myst/</span></code></a></strong></p>
+<p>By default, Sphinx uses reStructuredText (reST) as its markup language. reST is powerful, but its syntax is unfamiliar to most people who already know Markdown. <a class="reference external" href="https://myst-parser.readthedocs.io/">MyST (Markedly Structured Text)</a> solves this by letting you write Sphinx documentation in Markdown while retaining access to all of Sphinx’s directives and cross-referencing features.</p>
+<section id="enabling-myst">
+<h3>Enabling MyST<a class="headerlink" href="#enabling-myst" title="Link to this heading">#</a></h3>
+<p>Add <code class="docutils literal notranslate"><span class="pre">myst_parser</span></code> to the <code class="docutils literal notranslate"><span class="pre">extensions</span></code> list in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;myst_parser&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Install it with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>myst-parser
+</pre></div>
+</div>
+</section>
+<section id="syntax-comparison">
+<h3>Syntax Comparison<a class="headerlink" href="#syntax-comparison" title="Link to this heading">#</a></h3>
+<p>Sphinx directives look different in reST and MyST. Here is a table-of-contents directive in both formats:</p>
+<p><strong>reStructuredText</strong> (<code class="docutils literal notranslate"><span class="pre">index.rst</span></code>):</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+   <span class="nc">:maxdepth:</span> 2
+
+   api
+</pre></div>
+</div>
+<p><strong>MyST Markdown</strong> (<code class="docutils literal notranslate"><span class="pre">index.md</span></code>):</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>```{toctree}
+:maxdepth: 2
+
+api
+```
+</pre></div>
+</div>
+<p>MyST uses a fenced-code block with curly braces around the directive name. The key idea: any Sphinx directive you find in reST documentation can be written in MyST using this syntax.</p>
+</section>
+<section id="when-to-use-rest-vs-myst">
+<h3>When to Use reST vs. MyST<a class="headerlink" href="#when-to-use-rest-vs-myst" title="Link to this heading">#</a></h3>
+<p>Both formats are fully supported by Sphinx—you can even mix <code class="docutils literal notranslate"><span class="pre">.rst</span></code> and <code class="docutils literal notranslate"><span class="pre">.md</span></code> files in the same project. MyST is recommended for new projects and for teams that are already comfortable with Markdown. That said, many existing Sphinx projects use reST, so being able to read both is valuable.</p>
+</section>
+</section>
+<section id="automatic-api-documentation-with-autodoc2">
+<h2>Automatic API Documentation with <code class="docutils literal notranslate"><span class="pre">autodoc2</span></code><a class="headerlink" href="#automatic-api-documentation-with-autodoc2" title="Link to this heading">#</a></h2>
+<p><strong>See Example <a class="reference external" href="https://github.com/finm-32900/inclass_examples/tree/main/sphinx/02_autodoc2_myst"><code class="docutils literal notranslate"><span class="pre">02_autodoc2_myst/</span></code></a></strong></p>
+<p>One of Sphinx’s most powerful features is the ability to automatically generate API reference pages from your Python source code’s docstrings. The <a class="reference external" href="https://sphinx-autodoc2.readthedocs.io/">autodoc2</a> extension handles this.</p>
+<section id="why-autodoc2">
+<h3>Why <code class="docutils literal notranslate"><span class="pre">autodoc2</span></code>?<a class="headerlink" href="#why-autodoc2" title="Link to this heading">#</a></h3>
+<p>The older <code class="docutils literal notranslate"><span class="pre">sphinx.ext.autodoc</span></code> extension requires importing your Python code at build time, which can cause problems if your code has dependencies that are not installed in the documentation build environment. <code class="docutils literal notranslate"><span class="pre">autodoc2</span></code> avoids this by statically analyzing your source files without importing them.</p>
+</section>
+<section id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h3>
+<p>Add <code class="docutils literal notranslate"><span class="pre">autodoc2</span></code> to your <code class="docutils literal notranslate"><span class="pre">extensions</span></code> and tell it where to find your Python code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;myst_parser&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;autodoc2&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">autodoc2_packages</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;../sample_module.py&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">autodoc2_render_plugin</span> <span class="o">=</span> <span class="s2">&quot;myst&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="writing-good-docstrings">
+<h3>Writing Good Docstrings<a class="headerlink" href="#writing-good-docstrings" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">autodoc2</span></code> works with any docstring format, but NumPy-style docstrings are recommended for readability. Here is an example from the in-class <code class="docutils literal notranslate"><span class="pre">sample_module.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">present_value</span><span class="p">(</span><span class="n">cash_flow</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">periods</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the present value of a future cash flow.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cash_flow : float</span>
+<span class="sd">        The future cash flow amount.</span>
+<span class="sd">    rate : float</span>
+<span class="sd">        The discount rate per period (e.g., 0.05 for 5%).</span>
+<span class="sd">    periods : int</span>
+<span class="sd">        The number of periods until the cash flow is received.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        The present value of the cash flow.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; present_value(100, 0.05, 2)</span>
+<span class="sd">    90.70294784580498</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">cash_flow</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rate</span><span class="p">)</span> <span class="o">**</span> <span class="n">periods</span>
+</pre></div>
+</div>
+</section>
+<section id="custom-docstring-parsing">
+<h3>Custom Docstring Parsing<a class="headerlink" href="#custom-docstring-parsing" title="Link to this heading">#</a></h3>
+<p>Example <code class="docutils literal notranslate"><span class="pre">02_autodoc2_myst/</span></code> includes a custom <code class="docutils literal notranslate"><span class="pre">numpy_myst_parser.py</span></code> that converts NumPy-style docstrings into structured MyST Markdown for better rendering. This is configured in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">autodoc2_docstring_parser_regexes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s2">&quot;.*&quot;</span><span class="p">,</span> <span class="s2">&quot;numpy_myst_parser&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>This is an advanced detail, but it demonstrates Sphinx’s extensibility—you can customize nearly every aspect of the build process.</p>
+</section>
+<section id="building">
+<h3>Building<a class="headerlink" href="#building" title="Link to this heading">#</a></h3>
+<p>After adding <code class="docutils literal notranslate"><span class="pre">autodoc2</span></code>, the build command generates API pages automatically:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>docs<span class="w"> </span>docs/_build/html
+</pre></div>
+</div>
+<p>Navigate to the API Reference page to see the auto-generated documentation.</p>
+</section>
+</section>
+<section id="choosing-a-theme-sphinx-book-theme">
+<h2>Choosing a Theme: <code class="docutils literal notranslate"><span class="pre">sphinx-book-theme</span></code><a class="headerlink" href="#choosing-a-theme-sphinx-book-theme" title="Link to this heading">#</a></h2>
+<section id="the-default-alabaster">
+<h3>The Default: Alabaster<a class="headerlink" href="#the-default-alabaster" title="Link to this heading">#</a></h3>
+<p>Sphinx ships with the <code class="docutils literal notranslate"><span class="pre">alabaster</span></code> theme. It is functional but minimal—fine for getting started, but most projects switch to a more polished theme.</p>
+</section>
+<section id="the-sphinx-book-theme">
+<h3>The <code class="docutils literal notranslate"><span class="pre">sphinx-book-theme</span></code><a class="headerlink" href="#the-sphinx-book-theme" title="Link to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://sphinx-book-theme.readthedocs.io/">sphinx-book-theme</a> provides a clean, modern, book-like layout with a sidebar, navigation, and responsive design. It is the theme used in the course projects and in this textbook.</p>
+<p>Install it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sphinx-book-theme
+</pre></div>
+</div>
+<p>Then set it in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;sphinx_book_theme&quot;</span>
+</pre></div>
+</div>
+<p>Build both Example <code class="docutils literal notranslate"><span class="pre">01_quickstart/</span></code> (alabaster) and Example <code class="docutils literal notranslate"><span class="pre">02_autodoc2_myst/</span></code> (sphinx-book-theme) to compare the visual difference side by side.</p>
+</section>
+<section id="other-popular-themes">
+<h3>Other Popular Themes<a class="headerlink" href="#other-popular-themes" title="Link to this heading">#</a></h3>
+<p>Several other themes are worth knowing about:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">furo</span></code></strong> — A clean, modern theme with excellent search and dark mode support.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">sphinx_rtd_theme</span></code></strong> — The Read the Docs theme, very common in open-source projects.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">pydata_sphinx_theme</span></code></strong> — Used by NumPy, pandas, and the PyData ecosystem.</p></li>
+</ul>
+</section>
+</section>
+<section id="integrating-jupyter-notebooks-with-myst-nb">
+<h2>Integrating Jupyter Notebooks with <code class="docutils literal notranslate"><span class="pre">myst-nb</span></code><a class="headerlink" href="#integrating-jupyter-notebooks-with-myst-nb" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://myst-nb.readthedocs.io/"><code class="docutils literal notranslate"><span class="pre">myst-nb</span></code></a> is a Sphinx extension that can parse and execute Jupyter Notebooks, rendering them as pages within your documentation. It builds on <code class="docutils literal notranslate"><span class="pre">myst_parser</span></code>, so if you are already using MyST for Markdown support, adding notebook rendering is a natural extension. This is useful when you want to include executed notebook output—plots, tables, computation results—directly in your documentation site.</p>
+</section>
+<section id="putting-it-all-together">
+<h2>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Link to this heading">#</a></h2>
+<p>The recommended documentation stack for this course combines a small set of Sphinx extensions:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Role</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Sphinx</strong></p></td>
+<td><p>Documentation engine</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MyST Parser</strong></p></td>
+<td><p>Write in Markdown instead of reST</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>autodoc2</strong></p></td>
+<td><p>Auto-generate API docs from docstrings</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>sphinx-book-theme</strong></p></td>
+<td><p>Clean, book-like visual theme</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>myst-nb</strong> (optional)</p></td>
+<td><p>Render Jupyter Notebooks as doc pages</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> from Example <code class="docutils literal notranslate"><span class="pre">02_autodoc2_myst/</span></code> captures these dependencies:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">&gt;=</span><span class="mf">7.3.7</span>
+<span class="n">sphinx</span><span class="o">-</span><span class="n">autodoc2</span>
+<span class="n">myst</span><span class="o">-</span><span class="n">parser</span><span class="o">&gt;=</span><span class="mf">2.0.0</span>
+<span class="n">sphinx</span><span class="o">-</span><span class="n">book</span><span class="o">-</span><span class="n">theme</span><span class="o">&gt;=</span><span class="mf">1.1.3</span>
+</pre></div>
+</div>
+<p>This stack gives you the flexibility and power of base Sphinx while achieving a polished, book-like result with full control over every extension and configuration option.</p>
 </section>
 <section id="further-reading">
-<h3>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h3>
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Sphinx Documentation: <a class="reference external" href="https://www.sphinx-doc.org/en/master/">https://www.sphinx-doc.org/en/master/</a></p></li>
+<li><p>MyST Parser Documentation: <a class="reference external" href="https://myst-parser.readthedocs.io/">https://myst-parser.readthedocs.io/</a></p></li>
+<li><p>autodoc2 Documentation: <a class="reference external" href="https://sphinx-autodoc2.readthedocs.io/">https://sphinx-autodoc2.readthedocs.io/</a></p></li>
+<li><p>sphinx-book-theme Documentation: <a class="reference external" href="https://sphinx-book-theme.readthedocs.io/">https://sphinx-book-theme.readthedocs.io/</a></p></li>
+<li><p>MyST-NB Documentation: <a class="reference external" href="https://myst-nb.readthedocs.io/">https://myst-nb.readthedocs.io/</a></p></li>
+<li><p>In-Class Sphinx Examples: <a class="github reference external" href="https://github.com/finm-32900/inclass_examples/tree/main/sphinx">finm-32900/inclass_examples</a></p></li>
 </ul>
 </section>
+<section id="appendix-jupyter-book">
+<h2>Appendix: Jupyter Book<a class="headerlink" href="#appendix-jupyter-book" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://jupyterbook.org/">Jupyter Book</a> is an open-source tool that can be described as an “opinionated distribution” of Sphinx. It bundles Sphinx with a curated set of extensions—including MyST Parser, <code class="docutils literal notranslate"><span class="pre">myst-nb</span></code>, and the sphinx-book-theme—and provides a simplified command-line interface for creating and building book-like documentation from Jupyter Notebooks and Markdown files.</p>
+<section id="why-this-course-uses-base-sphinx-instead">
+<h3>Why This Course Uses Base Sphinx Instead<a class="headerlink" href="#why-this-course-uses-base-sphinx-instead" title="Link to this heading">#</a></h3>
+<p>Jupyter Book is convenient for getting started quickly, but it makes many configuration decisions for you. This course teaches base Sphinx so that you understand the underlying tool, can select exactly the extensions you need, and are not locked into decisions made by a wrapper. As you have seen in the sections above, the course achieves the same result—Markdown, auto-API docs, book theme—by choosing individual extensions.</p>
 </section>
-<hr class="docutils" />
-<section id="jupyter-book-an-opinionated-distribution-of-sphinx">
-<h2>Jupyter Book: An “Opinionated Distribution” of Sphinx<a class="headerlink" href="#jupyter-book-an-opinionated-distribution-of-sphinx" title="Link to this heading">#</a></h2>
-<p>Jupyter Book is an open-source tool for building publication-quality books and documents from computational material. Jupyter Book extends Sphinx, enabling it to handle Jupyter Notebooks and other interactive content, making it highly suitable for academic and scientific documentation that includes code, outputs, and narrative text.</p>
-<section id="features">
-<h3>Features<a class="headerlink" href="#features" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Support for Interactive Content</strong>: Embed code cells, outputs, interactive visualizations, and more.</p></li>
-<li><p><strong>Integration with Computational Environments</strong>: Directly integrate with Binder, allowing readers to interact with the book’s content live.</p></li>
-<li><p><strong>Markdown Support</strong>: In addition to reStructuredText, Jupyter Book supports Markdown, making it easier to write documentation.</p></li>
-</ul>
-</section>
-<section id="how-does-jupyter-book-differ-from-sphinx">
-<h3>How does Jupyter Book differ from Sphinx?<a class="headerlink" href="#how-does-jupyter-book-differ-from-sphinx" title="Link to this heading">#</a></h3>
-<p>Jupyter Book and Sphinx serve the broader goal of documentation and content publication but cater to slightly different use cases and user preferences through their distinct features, goals, and syntaxes. Here, we’ll explore how Jupyter Book differs from Sphinx, focusing on their respective goals and the syntaxes they use, namely MyST (Markedly Structured Text) for Jupyter Book and reStructuredText (reST) for Sphinx.</p>
-<p><strong>Goals of Sphinx:</strong></p>
-<ul class="simple">
-<li><p>Sphinx is primarily designed for generating comprehensive documentation for software projects, particularly in Python.</p></li>
-<li><p>It aims to produce high-quality, easily navigable, and cross-referenced documentation that can be outputted in various formats like HTML, PDF, and ePub.</p></li>
-<li><p>Sphinx supports documentation written in reStructuredText, a markup language that offers rich formatting options and directives specifically tailored for technical documentation.</p></li>
-</ul>
-<p><strong>Goals of Jupyter Book:</strong></p>
-<ul class="simple">
-<li><p>Jupyter Book extends Sphinx to cater specifically to academic, scientific, and technical documentation that benefits from interactive computing and narrative content.</p></li>
-<li><p>It aims to make it easier to publish computational narratives and documentation that includes live code, equations, visualizations, and narrative text.</p></li>
-<li><p>Jupyter Book emphasizes the integration of Jupyter Notebooks and other interactive content directly into the documentation, making it ideal for data science, academic research, and educational materials.</p></li>
-</ul>
-<p><strong>Syntax Differences</strong></p>
-<p>Sphinx by default uses reStructuredText:</p>
-<ul class="simple">
-<li><p>reStructuredText (reST) is the default markup language used by Sphinx. It is designed for readability and simplicity, making it suitable for detailed technical documentation.</p></li>
-<li><p>reST syntax includes special blocks for code, notes, warnings, and more, enabling detailed and structured documentation.</p></li>
-<li><p>While powerful, reST’s syntax can be more complex and less intuitive for those accustomed to Markdown, especially for users outside the software documentation sphere.</p></li>
-</ul>
-<p>Jupyter Book by default uses MyST:</p>
-<ul class="simple">
-<li><p>MyST (Markedly Structured Text) is a flavor of Markdown designed to support all the syntax features of Sphinx documentation in a Markdown format. MyST was created to bridge the gap between the simplicity of Markdown and the power of reStructuredText.</p></li>
-<li><p>It allows for the inclusion of executable code blocks, cross-references, citations, and other complex formatting directly within Markdown files, offering a more approachable syntax for those familiar with Markdown.</p></li>
-<li><p>MyST enables Jupyter Book to support both Markdown and reStructuredText, providing flexibility and ease of use for a broader audience.</p></li>
-</ul>
-<p>This comparison highlights the distinct goals and syntax preferences that Jupyter Book and Sphinx cater to, offering users a choice based on their specific documentation needs and preferences.</p>
-</section>
-<section id="getting-started-with-jupyter-book">
-<h3>Getting Started with Jupyter Book<a class="headerlink" href="#getting-started-with-jupyter-book" title="Link to this heading">#</a></h3>
-<ol class="arabic">
-<li><p><strong>Installation</strong>:</p>
+<section id="quick-reference">
+<h3>Quick Reference<a class="headerlink" href="#quick-reference" title="Link to this heading">#</a></h3>
+<p>If you encounter Jupyter Book in other projects, here are the basic commands:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>jupyter-book
+jupyter-book<span class="w"> </span>create<span class="w"> </span>mybookname
+jupyter-book<span class="w"> </span>build<span class="w"> </span>mybookname/
 </pre></div>
 </div>
-</li>
-<li><p><strong>Creating a New Book</strong>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter-book<span class="w"> </span>create<span class="w"> </span>mybookname
-</pre></div>
-</div>
-</li>
-<li><p><strong>Building Your Book</strong>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter-book<span class="w"> </span>build<span class="w"> </span>mybookname/
-</pre></div>
-</div>
-</li>
-</ol>
 </section>
-</section>
-<section id="comparing-jupyter-book-with-myst-nb">
-<h2>Comparing Jupyter Book with myst_nb<a class="headerlink" href="#comparing-jupyter-book-with-myst-nb" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">myst_nb</span></code> is a Sphinx extension that parses Jupyter Notebooks using the Markedly Structured Text (MyST) Markdown syntax. While Jupyter Book and <code class="docutils literal notranslate"><span class="pre">myst_nb</span></code> are closely related, with Jupyter Book depending on <code class="docutils literal notranslate"><span class="pre">myst_nb</span></code> for notebook parsing, there are some distinctions:</p>
-<ul class="simple">
-<li><p><strong>Scope</strong>: Jupyter Book is a higher-level project that provides an easy-to-use interface and additional features for creating interactive documents and books. <code class="docutils literal notranslate"><span class="pre">myst_nb</span></code>, on the other hand, focuses specifically on integrating Jupyter Notebooks with Sphinx.</p></li>
-<li><p><strong>Flexibility vs. Convenience</strong>: <code class="docutils literal notranslate"><span class="pre">myst_nb</span></code> offers more flexibility for Sphinx users who want to integrate Jupyter Notebooks into their existing Sphinx projects. Jupyter Book offers a more opinionated and convenient approach, ideal for users who prefer a ready-to-go solution for creating interactive books and documents.</p></li>
-</ul>
-</section>
-<section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
-<p>Sphinx, Jupyter Book, and <code class="docutils literal notranslate"><span class="pre">myst_nb</span></code> offer powerful options for creating documentation in Python. Sphinx lays the foundation with robust documentation capabilities, Jupyter Book extends these capabilities for interactive and computational content, and <code class="docutils literal notranslate"><span class="pre">myst_nb</span></code> bridges Jupyter Notebooks with Sphinx for those needing fine-grained integration. Depending on the project’s needs, developers and writers can choose the tool that best fits their documentation strategy.</p>
 <section id="id1">
 <h3>Further Reading<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Sphinx Documentation: <a class="reference external" href="https://www.sphinx-doc.org/en/master/">https://www.sphinx-doc.org/en/master/</a></p></li>
 <li><p>Jupyter Book Documentation: <a class="reference external" href="https://jupyterbook.org/">https://jupyterbook.org/</a></p></li>
-<li><p>MyST Documentation: <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/">https://myst-parser.readthedocs.io/en/latest/</a></p></li>
-<li><p>MyST-NB Documentation: <a class="reference external" href="https://myst-nb.readthedocs.io/">https://myst-nb.readthedocs.io/</a></p></li>
 </ul>
 </section>
 </section>
@@ -658,20 +884,41 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sphinx-for-python-documentation">Sphinx for Python Documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features-of-sphinx">Key Features of Sphinx</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-sphinx">Getting Started with Sphinx</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-sphinx">Why Sphinx?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-sphinx-quickstart">Getting Started: <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-sphinx-quickstart">Running <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#files-created">Files Created</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-documentation">Building the Documentation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book-an-opinionated-distribution-of-sphinx">Jupyter Book: An “Opinionated Distribution” of Sphinx</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-jupyter-book-differ-from-sphinx">How does Jupyter Book differ from Sphinx?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-jupyter-book">Getting Started with Jupyter Book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-conf-py-configuration-file">The <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> Configuration File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-in-markdown-with-myst">Writing in Markdown with MyST</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enabling-myst">Enabling MyST</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-comparison">Syntax Comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-rest-vs-myst">When to Use reST vs. MyST</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-jupyter-book-with-myst-nb">Comparing Jupyter Book with myst_nb</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-api-documentation-with-autodoc2">Automatic API Documentation with <code class="docutils literal notranslate"><span class="pre">autodoc2</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-autodoc2">Why <code class="docutils literal notranslate"><span class="pre">autodoc2</span></code>?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-good-docstrings">Writing Good Docstrings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-docstring-parsing">Custom Docstring Parsing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building">Building</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-a-theme-sphinx-book-theme">Choosing a Theme: <code class="docutils literal notranslate"><span class="pre">sphinx-book-theme</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-default-alabaster">The Default: Alabaster</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sphinx-book-theme">The <code class="docutils literal notranslate"><span class="pre">sphinx-book-theme</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-popular-themes">Other Popular Themes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrating-jupyter-notebooks-with-myst-nb">Integrating Jupyter Notebooks with <code class="docutils literal notranslate"><span class="pre">myst-nb</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting It All Together</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-jupyter-book">Appendix: Jupyter Book</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-course-uses-base-sphinx-instead">Why This Course Uses Base Sphinx Instead</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-reference">Quick Reference</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Further Reading</a></li>
 </ul>
 </li>

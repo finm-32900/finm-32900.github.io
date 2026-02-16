@@ -3,6 +3,8 @@
 
 Unit testing is an essential part of developing reliable, maintainable software. By following these steps and best practices, you can create effective unit tests for your Python functions, ensuring they behave as intended under various conditions.
 
+For additional worked examples, see the [in-class examples for unit tests](https://github.com/finm-32900/inclass_examples/tree/main/unit_tests).
+
 ## Standard: Unit Tests in a Test File
 
 Creating unit tests in separate test files is a fundamental practice in software development, ensuring your code works as expected through automated tests. This brief tutorial will explain how to write unit tests for a Python function called `weighted_average` using a test function named `test_weighted_average` located in a file called `test_misc_tools.py`.
