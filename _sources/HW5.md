@@ -11,9 +11,9 @@
 
 ## Assignment
 
-The assignment is located at the following GitHub Classroom link: TBD
+The assignment is located at the following GitHub Classroom link: https://classroom.github.com/a/xczDCvT_
 
-**Due Date:** TBD
+**Due Date:** Mar 8, 2026 at 6 pm CT
 
 This is a lightweight assignment designed to give you hands-on experience with
 the RCC Midway3 cluster. You will set up your environment, run the Clean TRACE
@@ -309,7 +309,7 @@ module load scode python/anaconda-2024.10
 ### Step 2: Launch the VS Code server
 
 ```bash
-scode serve-web -- --account finm32900 --time 01:00:00 --mem 16G
+scode serve-web -- --account finm32900 --time 05:00:00 --mem 16G
 ```
 
 This submits a SLURM job that starts a VS Code web server on a compute node.
