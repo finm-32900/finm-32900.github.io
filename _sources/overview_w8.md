@@ -1,17 +1,30 @@
-# Week 8: Web Authentication and Authorization
+# Week 8: Medium-Sized Data and Remote Machines
 
 ```{toctree}
 :maxdepth: 1
-notebooks/_01_corporate_hedging_ipynb.ipynb
-notebooks/_02_spx_hedging_ipynb.ipynb
-Week8/web_authentication.md
+
+Week8/medium_sized_data_strategies.md
+Week8/polars_exercises.md
+Week8/remote_machines_and_hpc.md
+Week8/exercise_jupyter_on_midway.md
+notebooks/_01_data_sources_overview_ipynb.ipynb
+notebooks/_02_trace_cleaning_walkthrough_ipynb.ipynb
 ```
-<!-- Week8/github_actions.md -->
-<!-- Week8/publishing_a_live_dashboard.md -->
+
+## Agenda
+
+- Medium-sized data strategies and Polars
+- Remote machines and HPC
+- Go over Homework 5: running the Clean TRACE pipeline on RCC
 
 ## Learning Outcomes
 
-- Overview of GitHub Actions
-- Overview of GitHub Pages
-- Static HTML widgets with plotly
-- Review of PCA-based Index
+- Understand strategies for working with medium-sized datasets (1GB-100GB)
+- Compare Pandas and Polars for data processing at scale
+- Understand lazy evaluation, predicate pushdown, streaming, and Hive partitioning
+- Introduction to TRACE corporate bond data
+- Connect to remote machines via SSH and transfer files with rsync
+- Understand HPC cluster architecture (login nodes, compute nodes, storage)
+- Submit and manage jobs with SLURM (sinteractive, sbatch)
+- Understand why data pipelines must decouple internet-dependent pulls from processing
+- Set up SSH port forwarding to access Jupyter notebooks on remote compute nodes

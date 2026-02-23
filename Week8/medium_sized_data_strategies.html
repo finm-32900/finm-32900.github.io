@@ -1,0 +1,1205 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Strategies for Medium-Sized Data &#8212; Full Stack Quantitative Finance</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f23691d7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=8dbc1659"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Week8/medium_sized_data_strategies';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Polars Exercises: Code Snippets" href="polars_exercises.html" />
+    <link rel="prev" title="Week 8: Medium-Sized Data and Remote Machines" href="../overview_w8.html" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>   
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Full Stack Quantitative Finance - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Full Stack Quantitative Finance - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Full Stack Quantitative Finance
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Winter 2026</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Appendix</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures 📖</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w1.html">Week 1: GitHub, GitHub Classroom, and Virtual Environments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/what_is_this_course_about.html">What is Full Stack Quantitative Finance? Why This Course?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/virtual_environments.html">Virtual Environments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_wrds_python_package_ipynb.html">Example: Connecting to the WRDS Platform With Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_05_basics_of_SQL_ipynb.html">Basics of SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/doit_examples.html">PyDoit Examples Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/project_structure.html">Project Structure: “Chartbook” Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w5.html">Week 5: Bloomberg, LSEG Datastream, and Databento</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/LSEG_datastream.html">LSEG Datastream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/databento.html">Databento</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w7.html">Week 7: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_corporate_hedging_ipynb.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../overview_w8.html">Week 8: Medium-Sized Data and Remote Machines</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Strategies for Medium-Sized Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polars_exercises.html">Polars Exercises: Code Snippets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_machines_and_hpc.html">Remote Machines and High-Performance Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercise_jupyter_on_midway.html">Exercise: Jupyter Notebook on Midway via SSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_data_sources_overview_ipynb.html">Data Sources Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_trace_cleaning_walkthrough_ipynb.html">Cleaning TRACE Corporate Bond Data: A Walkthrough</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w9.html">Week 9: Web Authentication, GitHub Actions, and Publishing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="web_authentication.html">Web Authentication and Authorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week9/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework 📝</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../HW0.html">Homework 0</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_CRSP_market_index_ipynb.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_03_SP500_constituents_and_index_ipynb.html">HW Guide Part B: Reconstructing the S&amp;P 500 Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_04_Fama_French_1993_ipynb.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../HW3.html">Homework 3</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW4.html">Homework 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_CRSP_treasury_overview_ipynb.html">CRSP Treasury Data Oveview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_replicate_GSW2005_ipynb.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../HW5.html">Homework 5</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/potential_final_projects.html">List of Potential Final Projects</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project/issues/new?title=Issue%20on%20page%20%2FWeek8/medium_sized_data_strategies.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Week8/medium_sized_data_strategies.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Strategies for Medium-Sized Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-medium-sized-data">What is “Medium-Sized” Data?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-vs-polars">Pandas vs. Polars</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-the-incumbent">Pandas: The Incumbent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polars-the-challenger">Polars: The Challenger</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-comparison">Benchmark Comparison</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lazy-evaluation">Lazy Evaluation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eager-vs-lazy-execution">Eager vs. Lazy Execution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-the-query-plan">Inspecting the Query Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-lazy-evaluation-matters">Why Lazy Evaluation Matters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predicate-pushdown">Predicate Pushdown</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-predicate">What is a Predicate?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-predicate-pushdown">What is Predicate Pushdown?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works-with-parquet-files">How It Works with Parquet Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works-with-hive-partitioned-data">How It Works with Hive-Partitioned Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-apache-spark">Connection to Apache Spark</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-apache-spark">What is Apache Spark?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-concepts-polars-vs-spark">Shared Concepts: Polars vs. Spark</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-spark-vs-polars">When to Use Spark vs. Polars</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming">Streaming</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-data-larger-than-memory">The Problem: Data Larger Than Memory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-old-way-manual-chunking-in-pandas">The Old Way: Manual Chunking in Pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-polars-way-automatic-streaming">The Polars Way: Automatic Streaming</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hive-partitioned-parquet-files">Hive-Partitioned Parquet Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-hive-partitioning">What is Hive Partitioning?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-hive-partitioning">Why Hive Partitioning?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-hive-partitioned-data-with-polars">Reading Hive-Partitioned Data with Polars</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#segue-the-trace-case-study">Segue: The TRACE Case Study</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">The Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-case-study-uses-these-concepts">How the Case Study Uses These Concepts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s Next</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                   <section class="tex2jax_ignore mathjax_ignore" id="strategies-for-medium-sized-data">
+<h1>Strategies for Medium-Sized Data<a class="headerlink" href="#strategies-for-medium-sized-data" title="Link to this heading">#</a></h1>
+<section id="what-is-medium-sized-data">
+<h2>What is “Medium-Sized” Data?<a class="headerlink" href="#what-is-medium-sized-data" title="Link to this heading">#</a></h2>
+<p>In quantitative finance, we frequently encounter datasets that are too large
+for naive in-memory processing with Pandas but small enough to fit on a single
+machine. We call this <strong>medium-sized data</strong>—roughly 1 GB to 100 GB.</p>
+<p>Examples include:</p>
+<ul class="simple">
+<li><p><strong>FINRA TRACE</strong>: 423M+ corporate bond transactions since 2002</p></li>
+<li><p><strong>CRSP daily stock data</strong>: decades of daily returns across thousands of securities</p></li>
+<li><p><strong>Options data</strong>: millions of contracts with intraday quotes</p></li>
+</ul>
+<p>These datasets are too large to casually <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> into memory, but they
+don’t require the distributed computing infrastructure of a Hadoop or Spark
+cluster. The strategies on this page address this “medium-sized” regime.</p>
+<div class="note admonition">
+<p class="admonition-title">The Data Size Spectrum</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Size</p></th>
+<th class="head"><p>Tools</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Small (&lt; 1 GB)</p></td>
+<td><p>Pandas, Excel</p></td>
+<td><p>Fama-French factors</p></td>
+</tr>
+<tr class="row-odd"><td><p>Medium (1–100 GB)</p></td>
+<td><p><strong>Polars</strong>, DuckDB, Pandas (with care)</p></td>
+<td><p>TRACE, CRSP</p></td>
+</tr>
+<tr class="row-even"><td><p>Big (100 GB+)</p></td>
+<td><p>Spark, Dask, distributed systems</p></td>
+<td><p>NYSE TAQ (intraday)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This page focuses on the <strong>medium</strong> tier.</p>
+</div>
+</section>
+<section id="pandas-vs-polars">
+<h2>Pandas vs. Polars<a class="headerlink" href="#pandas-vs-polars" title="Link to this heading">#</a></h2>
+<section id="pandas-the-incumbent">
+<h3>Pandas: The Incumbent<a class="headerlink" href="#pandas-the-incumbent" title="Link to this heading">#</a></h3>
+<p><img alt="Pandas logo" src="../_images/pandas_logo.svg" /></p>
+<p><a class="reference external" href="https://pandas.pydata.org/">Pandas</a> has been the dominant DataFrame library in
+Python since its release in 2008. It has an enormous ecosystem, deep integration
+with scikit-learn, matplotlib, and virtually every data science library, and is
+familiar to nearly every Python data practitioner.</p>
+<p>However, Pandas has fundamental limitations when working with medium-sized data:</p>
+<ul class="simple">
+<li><p><strong>Single-threaded</strong>: Pandas operations use only one CPU core.</p></li>
+<li><p><strong>Eager evaluation</strong>: Every operation executes immediately, preventing cross-operation optimization.</p></li>
+<li><p><strong>High memory usage</strong>: Pandas often requires 2–5x the size of the data in RAM.</p></li>
+<li><p><strong>Copy-heavy internals</strong>: Many operations create full copies of the data.</p></li>
+</ul>
+</section>
+<section id="polars-the-challenger">
+<h3>Polars: The Challenger<a class="headerlink" href="#polars-the-challenger" title="Link to this heading">#</a></h3>
+<p><img alt="Polars logo" src="../_images/polars_logo_dark.svg" /></p>
+<p><a class="reference external" href="https://pola.rs/">Polars</a> is a modern DataFrame library written in Rust and
+built on <a class="reference external" href="https://arrow.apache.org/">Apache Arrow</a>. First released in 2021, it
+has rapidly gained adoption in the data engineering and quantitative finance
+communities. It offers several key advantages:</p>
+<ul class="simple">
+<li><p><strong>Speed</strong>: Polars is typically 3–10x faster than Pandas on medium-to-large datasets, thanks to its Rust backend and cache-efficient columnar processing.</p></li>
+<li><p><strong>Memory efficiency</strong>: Polars uses roughly 87% less memory than Pandas for the same data. Loading a 1 GB CSV might use ~1.4 GB in Pandas vs. ~180 MB in Polars.</p></li>
+<li><p><strong>Multi-core parallelism</strong>: Polars automatically uses all available CPU cores. No configuration needed.</p></li>
+<li><p><strong>Lazy evaluation</strong>: Polars can build a query plan and optimize it before execution (more on this below).</p></li>
+<li><p><strong>Streaming</strong>: Polars can process datasets larger than RAM by streaming data in batches.</p></li>
+<li><p><strong>Consistent API</strong>: Designed from scratch, Polars avoids many of Pandas’ historical API inconsistencies.</p></li>
+</ul>
+</section>
+<section id="benchmark-comparison">
+<h3>Benchmark Comparison<a class="headerlink" href="#benchmark-comparison" title="Link to this heading">#</a></h3>
+<p>The following table gives approximate speedups for common operations (exact
+numbers vary by hardware, data shape, and operation):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
+<th class="head"><p>Approximate Speedup (Polars vs. Pandas)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CSV read (1 GB file)</p></td>
+<td><p>~5–10x faster</p></td>
+</tr>
+<tr class="row-odd"><td><p>Filter + aggregate</p></td>
+<td><p>~5–8x faster</p></td>
+</tr>
+<tr class="row-even"><td><p>Join (two large tables)</p></td>
+<td><p>~4–14x faster</p></td>
+</tr>
+<tr class="row-odd"><td><p>GroupBy aggregate</p></td>
+<td><p>~3–7x faster</p></td>
+</tr>
+<tr class="row-even"><td><p>Peak memory usage</p></td>
+<td><p>~80–90% less</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img alt="Pandas vs. Polars benchmark" src="../_images/pdsh-sf10-0.7t-fUPiG_1zuB9P.svg" />
+<img alt="Pandas vs. Polars benchmark" src="../_images/pdsh-sf10-1.HbQqtlG6_2fHteL.svg" /></p>
+<p>See the full benchmark <a class="reference external" href="https://pola.rs/posts/benchmarks/">here</a>.</p>
+<div class="tip admonition">
+<p class="admonition-title">When is Pandas still the right choice?</p>
+<ul class="simple">
+<li><p><strong>Small datasets</strong> (under ~500 MB) where the speed difference is negligible.</p></li>
+<li><p><strong>ML workflows</strong> tightly coupled to scikit-learn, PyTorch, or TensorFlow (which expect Pandas DataFrames or NumPy arrays).</p></li>
+<li><p><strong>Quick exploratory analysis</strong> where familiarity and ecosystem breadth matter more than speed.</p></li>
+<li><p><strong>Legacy codebases</strong> with heavy Pandas dependencies.</p></li>
+</ul>
+<p>That said, converting between Pandas and Polars is straightforward: <code class="docutils literal notranslate"><span class="pre">pl.from_pandas(df)</span></code> and <code class="docutils literal notranslate"><span class="pre">df.to_pandas()</span></code>.</p>
+</div>
+</section>
+</section>
+<section id="lazy-evaluation">
+<h2>Lazy Evaluation<a class="headerlink" href="#lazy-evaluation" title="Link to this heading">#</a></h2>
+<p>One of Polars’ most powerful features is <strong>lazy evaluation</strong>. This is the same
+concept used by SQL query engines and Apache Spark, and it is the key to
+unlocking many of the performance benefits described above.</p>
+<section id="eager-vs-lazy-execution">
+<h3>Eager vs. Lazy Execution<a class="headerlink" href="#eager-vs-lazy-execution" title="Link to this heading">#</a></h3>
+<p>In <strong>eager</strong> mode (the default in Pandas, and available in Polars via <code class="docutils literal notranslate"><span class="pre">pl.read_*</span></code>),
+each operation executes immediately when called:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+
+<span class="c1"># --- Eager execution ---</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;trades.csv&quot;</span><span class="p">)</span>                   <span class="c1"># Reads entire file now</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;volume&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">)</span>           <span class="c1"># Filters now</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="s2">&quot;volume&quot;</span><span class="p">)</span>          <span class="c1"># Selects columns now</span>
+</pre></div>
+</div>
+<p>In <strong>lazy</strong> mode (Polars’ <code class="docutils literal notranslate"><span class="pre">pl.scan_*</span></code> functions), operations are recorded into a
+<strong>query plan</strong> but not executed. Execution only happens when you call <code class="docutils literal notranslate"><span class="pre">.collect()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Lazy execution ---</span>
+<span class="n">q</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">scan_csv</span><span class="p">(</span><span class="s2">&quot;trades.csv&quot;</span><span class="p">)</span>                     <span class="c1"># Nothing happens yet</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;volume&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">)</span>              <span class="c1"># Recorded in query plan</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="s2">&quot;volume&quot;</span><span class="p">)</span>            <span class="c1"># Recorded in query plan</span>
+<span class="p">)</span>
+<span class="c1"># The query optimizer rewrites the plan, then executes it all at once</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The lazy version allows Polars’ <strong>query optimizer</strong> to analyze the entire chain
+of operations and rewrite it for efficiency before any data is touched.</p>
+</section>
+<section id="inspecting-the-query-plan">
+<h3>Inspecting the Query Plan<a class="headerlink" href="#inspecting-the-query-plan" title="Link to this heading">#</a></h3>
+<p>You can inspect what Polars will actually do before executing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">scan_csv</span><span class="p">(</span><span class="s2">&quot;trades.csv&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;volume&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="s2">&quot;volume&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Print the optimized query plan</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">explain</span><span class="p">())</span>
+
+<span class="c1"># Visualize the plan as a graph (requires graphviz)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">show_graph</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The output shows the execution order, with optimizations applied. For example,
+you’ll see that the filter has been “pushed down” to the scan step, meaning
+Polars will filter rows <strong>while reading</strong> the file, rather than reading everything
+and then filtering.</p>
+</section>
+<section id="why-lazy-evaluation-matters">
+<h3>Why Lazy Evaluation Matters<a class="headerlink" href="#why-lazy-evaluation-matters" title="Link to this heading">#</a></h3>
+<p>The query optimizer applies several transformations automatically:</p>
+<ul class="simple">
+<li><p><strong>Predicate pushdown</strong>: Filters are moved as close to the data source as possible.</p></li>
+<li><p><strong>Projection pushdown</strong>: Only the columns you actually need are read from disk.</p></li>
+<li><p><strong>Common subexpression elimination</strong>: Duplicate computations are identified and removed.</p></li>
+<li><p><strong>Operation fusion</strong>: Multiple operations are combined into a single pass over the data.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Think <strong>declaratively</strong>: tell Polars <em>what</em> you want, not <em>how</em> to compute it. The optimizer will figure out the most efficient execution strategy.</p>
+</div>
+</section>
+</section>
+<section id="predicate-pushdown">
+<h2>Predicate Pushdown<a class="headerlink" href="#predicate-pushdown" title="Link to this heading">#</a></h2>
+<p>Predicate pushdown is one of the most impactful optimizations, so it deserves
+a closer look.</p>
+<section id="what-is-a-predicate">
+<h3>What is a Predicate?<a class="headerlink" href="#what-is-a-predicate" title="Link to this heading">#</a></h3>
+<p>A <strong>predicate</strong> is simply a filter condition—the equivalent of a SQL <code class="docutils literal notranslate"><span class="pre">WHERE</span></code>
+clause. For example: <code class="docutils literal notranslate"><span class="pre">pl.col(&quot;year&quot;)</span> <span class="pre">==</span> <span class="pre">2023</span></code> or <code class="docutils literal notranslate"><span class="pre">pl.col(&quot;volume&quot;)</span> <span class="pre">&gt;</span> <span class="pre">1000</span></code>.</p>
+</section>
+<section id="what-is-predicate-pushdown">
+<h3>What is Predicate Pushdown?<a class="headerlink" href="#what-is-predicate-pushdown" title="Link to this heading">#</a></h3>
+<p>Predicate pushdown means <strong>moving filter operations as close to the data source
+as possible</strong>, so data is filtered <em>during</em> reading rather than <em>after</em> loading
+everything into memory. This:</p>
+<ul class="simple">
+<li><p>Eliminates computation on rows that will be discarded</p></li>
+<li><p>Reduces the amount of data read from disk</p></li>
+<li><p>Lowers peak memory consumption</p></li>
+</ul>
+</section>
+<section id="how-it-works-with-parquet-files">
+<h3>How It Works with Parquet Files<a class="headerlink" href="#how-it-works-with-parquet-files" title="Link to this heading">#</a></h3>
+<p>Parquet files store <strong>metadata</strong> including min/max statistics for each row group
+(a chunk of rows). With predicate pushdown:</p>
+<ol class="arabic simple">
+<li><p>Polars reads the Parquet metadata first.</p></li>
+<li><p>It evaluates the filter predicate against the min/max of each row group.</p></li>
+<li><p>Row groups where the predicate <strong>cannot</strong> be satisfied are <strong>skipped entirely</strong>.</p></li>
+<li><p>Only row groups that might contain matching data are read.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Polars pushes the filter into the Parquet reader.</span>
+<span class="c1"># Row groups where &quot;year&quot; cannot be 2023 are skipped entirely.</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span><span class="s2">&quot;data/trades.parquet&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2023</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;volume&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="how-it-works-with-hive-partitioned-data">
+<h3>How It Works with Hive-Partitioned Data<a class="headerlink" href="#how-it-works-with-hive-partitioned-data" title="Link to this heading">#</a></h3>
+<p>With Hive-partitioned data (directory structure like <code class="docutils literal notranslate"><span class="pre">year=2023/month=06/data.parquet</span></code>),
+predicate pushdown is even more powerful: Polars can <strong>skip entire directories</strong>
+before reading any files. We discuss Hive partitioning in detail below.</p>
+<div class="note admonition">
+<p class="admonition-title">Discussion</p>
+<p>How does predicate pushdown relate to indexing in a relational database? What are the similarities and differences?</p>
+</div>
+</section>
+</section>
+<section id="connection-to-apache-spark">
+<h2>Connection to Apache Spark<a class="headerlink" href="#connection-to-apache-spark" title="Link to this heading">#</a></h2>
+<p>The concepts we’ve discussed—lazy evaluation, query plans, and predicate
+pushdown—are not unique to Polars. They are foundational ideas in data
+processing that originated in database systems and are central to
+<strong>Apache Spark</strong>, the dominant framework for distributed big data processing.</p>
+<section id="what-is-apache-spark">
+<h3>What is Apache Spark?<a class="headerlink" href="#what-is-apache-spark" title="Link to this heading">#</a></h3>
+<figure class="align-default" id="spark-logo">
+<a class="reference internal image-reference" href="../_images/spark_logo.png"><img alt="../_images/spark_logo.png" src="../_images/spark_logo.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Apache Spark logo</span><a class="headerlink" href="#spark-logo" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference external" href="https://spark.apache.org/">Apache Spark</a> is an open-source distributed
+computing engine for large-scale data processing. Its architecture consists of:</p>
+<ul class="simple">
+<li><p><strong>Driver program</strong>: The main process that defines transformations and coordinates execution.</p></li>
+<li><p><strong>Cluster manager</strong>: Allocates resources across worker machines (YARN, Kubernetes, etc.).</p></li>
+<li><p><strong>Executors</strong>: Worker processes on cluster nodes that run tasks in parallel.</p></li>
+</ul>
+<p>Spark uses the same lazy evaluation model as Polars:</p>
+<ul class="simple">
+<li><p><strong>Transformations</strong> (lazy): <code class="docutils literal notranslate"><span class="pre">filter</span></code>, <code class="docutils literal notranslate"><span class="pre">select</span></code>, <code class="docutils literal notranslate"><span class="pre">groupBy</span></code>, <code class="docutils literal notranslate"><span class="pre">join</span></code> — these build up a Directed Acyclic Graph (DAG) of operations but do NOT execute.</p></li>
+<li><p><strong>Actions</strong> (eager): <code class="docutils literal notranslate"><span class="pre">collect</span></code>, <code class="docutils literal notranslate"><span class="pre">count</span></code>, <code class="docutils literal notranslate"><span class="pre">show</span></code> — these trigger actual computation.</p></li>
+</ul>
+<p>When an action is invoked, Spark’s <strong>Catalyst optimizer</strong> analyzes the DAG and
+applies optimizations—including predicate pushdown, projection pushdown, and
+join reordering—before executing the physical plan across the cluster.</p>
+</section>
+<section id="shared-concepts-polars-vs-spark">
+<h3>Shared Concepts: Polars vs. Spark<a class="headerlink" href="#shared-concepts-polars-vs-spark" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concept</p></th>
+<th class="head"><p>Polars</p></th>
+<th class="head"><p>Apache Spark</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Execution model</p></td>
+<td><p>Lazy (with eager option)</p></td>
+<td><p>Lazy (transformations vs. actions)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Execution plan</p></td>
+<td><p>Optimized DAG</p></td>
+<td><p>Optimized DAG via Catalyst</p></td>
+</tr>
+<tr class="row-even"><td><p>Predicate pushdown</p></td>
+<td><p>Yes (Parquet, Hive)</p></td>
+<td><p>Yes (Parquet, ORC, JDBC)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parallelism</p></td>
+<td><p>Multi-core (single machine)</p></td>
+<td><p>Distributed (cluster of machines)</p></td>
+</tr>
+<tr class="row-even"><td><p>Streaming</p></td>
+<td><p>Built-in streaming engine</p></td>
+<td><p>Spark Structured Streaming</p></td>
+</tr>
+<tr class="row-odd"><td><p>Language</p></td>
+<td><p>Rust (Python API)</p></td>
+<td><p>Scala/Java (Python API via PySpark)</p></td>
+</tr>
+<tr class="row-even"><td><p>Best for</p></td>
+<td><p>1 GB – 100 GB on one machine</p></td>
+<td><p>100 GB+ across a cluster</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="when-to-use-spark-vs-polars">
+<h3>When to Use Spark vs. Polars<a class="headerlink" href="#when-to-use-spark-vs-polars" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Polars</strong>: Your data fits on a single machine (even if it doesn’t fit in RAM—Polars can stream). This is the right tool for most quantitative finance workflows.</p></li>
+<li><p><strong>Spark</strong>: Your data is truly massive (terabytes+) and must be distributed across a cluster. Common in tech companies, large-scale web analytics, and production ML pipelines.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We don’t teach Spark in this course, but understanding that Polars uses the <strong>same foundational concepts</strong> (lazy evaluation, DAGs, predicate pushdown) means that if you ever need to scale up to Spark, the mental model transfers directly.</p>
+</div>
+</section>
+</section>
+<section id="streaming">
+<h2>Streaming<a class="headerlink" href="#streaming" title="Link to this heading">#</a></h2>
+<section id="the-problem-data-larger-than-memory">
+<h3>The Problem: Data Larger Than Memory<a class="headerlink" href="#the-problem-data-larger-than-memory" title="Link to this heading">#</a></h3>
+<p>What happens when your dataset is larger than available RAM? Even on a machine
+with 64 GB of memory, a 100 GB dataset won’t fit. You have two options:
+process the data in chunks, or use a tool that handles this for you.</p>
+</section>
+<section id="the-old-way-manual-chunking-in-pandas">
+<h3>The Old Way: Manual Chunking in Pandas<a class="headerlink" href="#the-old-way-manual-chunking-in-pandas" title="Link to this heading">#</a></h3>
+<p>Pandas offers a <code class="docutils literal notranslate"><span class="pre">chunksize</span></code> parameter for reading files in pieces:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Manual chunking: you manage iteration, aggregation, and edge cases</span>
+<span class="n">chunks</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;large_file.csv&quot;</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">100_000</span><span class="p">):</span>
+    <span class="n">filtered</span> <span class="o">=</span> <span class="n">chunk</span><span class="p">[</span><span class="n">chunk</span><span class="p">[</span><span class="s2">&quot;volume&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">]</span>
+    <span class="n">chunks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">chunks</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This approach has several problems:</p>
+<ul class="simple">
+<li><p><strong>Manual</strong>: You must choose the chunk size, manage iteration, and handle aggregation across chunks.</p></li>
+<li><p><strong>Error-prone</strong>: Aggregations that span chunk boundaries (e.g., group-by operations) require careful logic to combine partial results correctly.</p></li>
+<li><p><strong>No optimization</strong>: Each chunk is processed independently with no cross-chunk query optimization.</p></li>
+<li><p><strong>Verbose</strong>: Simple queries become multi-line loops.</p></li>
+</ul>
+</section>
+<section id="the-polars-way-automatic-streaming">
+<h3>The Polars Way: Automatic Streaming<a class="headerlink" href="#the-polars-way-automatic-streaming" title="Link to this heading">#</a></h3>
+<p>Polars’ streaming engine handles all of this automatically:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">scan_csv</span><span class="p">(</span><span class="s2">&quot;large_file.csv&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;volume&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;ticker&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;volume&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="p">)</span>
+
+<span class="c1"># Option 1: Collect in streaming mode (result fits in memory)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">collect</span><span class="p">(</span><span class="n">engine</span><span class="o">=</span><span class="s2">&quot;streaming&quot;</span><span class="p">)</span>
+
+<span class="c1"># Option 2: Sink directly to Parquet (result doesn&#39;t need to fit in memory)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">sink_parquet</span><span class="p">(</span><span class="s2">&quot;filtered_output.parquet&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The streaming engine:</p>
+<ul class="simple">
+<li><p><strong>Automatically</strong> determines optimal batch sizes based on available memory and number of columns.</p></li>
+<li><p><strong>Optimizes</strong> the full query plan before streaming begins (predicate pushdown still applies).</p></li>
+<li><p><strong>Correctly handles</strong> aggregations across batch boundaries.</p></li>
+<li><p><strong>Falls back</strong> to in-memory execution if an operation cannot be streamed.</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Manual chunking vs. streaming in practice</p>
+<p>In the TRACE case study, we use a month-by-month partition iterator pattern.
+This is a form of manual chunking, but it works well because the data is
+<strong>naturally partitioned by month</strong> and each partition can be processed
+independently. Polars streaming is more appropriate when you need to aggregate
+across the entire dataset.</p>
+</div>
+</section>
+</section>
+<section id="hive-partitioned-parquet-files">
+<h2>Hive-Partitioned Parquet Files<a class="headerlink" href="#hive-partitioned-parquet-files" title="Link to this heading">#</a></h2>
+<section id="what-is-hive-partitioning">
+<h3>What is Hive Partitioning?<a class="headerlink" href="#what-is-hive-partitioning" title="Link to this heading">#</a></h3>
+<p>Hive partitioning is a directory-based scheme for organizing tabular data.
+Partition column values are encoded directly in folder names:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data/
+└── trades/
+    ├── year=2022/
+    │   ├── month=01/
+    │   │   └── data.parquet
+    │   ├── month=02/
+    │   │   └── data.parquet
+    │   └── ...
+    └── year=2023/
+        ├── month=01/
+        │   └── data.parquet
+        └── ...
+</pre></div>
+</div>
+<p>The name comes from <a class="reference external" href="https://hive.apache.org/">Apache Hive</a>, the original
+SQL-on-Hadoop query engine that popularized this convention. Today, it is
+supported by virtually every data processing framework, including Polars,
+Spark, DuckDB, and PyArrow.</p>
+</section>
+<section id="why-hive-partitioning">
+<h3>Why Hive Partitioning?<a class="headerlink" href="#why-hive-partitioning" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Predicate pushdown at the file level</strong>: When you filter on a partition column (e.g., <code class="docutils literal notranslate"><span class="pre">year</span> <span class="pre">==</span> <span class="pre">2023</span></code>), Polars can skip entire directories without reading any files.</p></li>
+<li><p><strong>Incremental processing</strong>: You can add new partitions (e.g., a new month) without rewriting existing data.</p></li>
+<li><p><strong>Parallelism</strong>: Each partition can be processed independently.</p></li>
+<li><p><strong>Human-readable</strong>: The directory structure makes it easy to navigate data on disk.</p></li>
+</ol>
+</section>
+<section id="reading-hive-partitioned-data-with-polars">
+<h3>Reading Hive-Partitioned Data with Polars<a class="headerlink" href="#reading-hive-partitioned-data-with-polars" title="Link to this heading">#</a></h3>
+<p>Polars supports scanning Hive-partitioned Parquet datasets out of the box.
+When <code class="docutils literal notranslate"><span class="pre">scan_parquet</span></code> receives a directory path, Hive partition parsing is
+<strong>enabled by default</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+
+<span class="c1"># Polars automatically detects the hive partition structure</span>
+<span class="c1"># and adds &quot;year&quot; and &quot;month&quot; as columns in the LazyFrame</span>
+<span class="n">lf</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span><span class="s2">&quot;data/trades/&quot;</span><span class="p">)</span>
+
+<span class="c1"># This filter skips the year=2022 directories entirely</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">lf</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2023</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">is_in</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+    <span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>When passing a glob pattern or explicit file paths, you must explicitly enable
+Hive partitioning:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># With a glob pattern</span>
+<span class="n">lf</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span>
+    <span class="s2">&quot;data/trades/**/*.parquet&quot;</span><span class="p">,</span>
+    <span class="n">hive_partitioning</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># With explicit file paths</span>
+<span class="n">lf</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;data/trades/year=2023/month=01/data.parquet&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;data/trades/year=2023/month=02/data.parquet&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">hive_partitioning</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>For more details, see the
+<a class="reference external" href="https://docs.pola.rs/user-guide/io/hive/">Polars Hive partitioning documentation</a>.</p>
+</section>
+</section>
+<section id="segue-the-trace-case-study">
+<h2>Segue: The TRACE Case Study<a class="headerlink" href="#segue-the-trace-case-study" title="Link to this heading">#</a></h2>
+<p>All of the concepts on this page come together in our TRACE corporate bond data
+case study.</p>
+<section id="the-data">
+<h3>The Data<a class="headerlink" href="#the-data" title="Link to this heading">#</a></h3>
+<p>FINRA’s Trade Reporting and Compliance Engine (TRACE) records every
+over-the-counter corporate bond transaction in the United States. The dataset
+contains <strong>423 million+ trades</strong> spanning from July 2002 to the present. The raw
+data, combined with bond characteristics from FISD, credit ratings, and yield
+curve data, can exceed 100 GB.</p>
+<p>This is a textbook example of “medium-sized data”: too large for naive Pandas,
+but manageable on a single machine with the right tools.</p>
+</section>
+<section id="how-the-case-study-uses-these-concepts">
+<h3>How the Case Study Uses These Concepts<a class="headerlink" href="#how-the-case-study-uses-these-concepts" title="Link to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://github.com/finm-32900/case_study_clean_trace">case study repository</a>
+applies every strategy discussed on this page:</p>
+<p><strong>Hive partitioning</strong>: All data is organized as
+<code class="docutils literal notranslate"><span class="pre">_data/{dataset}/year=YYYY/month=MM/data.parquet</span></code>. Utility functions manage
+partition paths, scan for existing partitions, and write new ones:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># From the case study: partition path utility</span>
+<span class="k">def</span> <span class="nf">partition_path</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">base_dir</span> <span class="o">/</span> <span class="n">dataset</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;year=</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;month=</span><span class="si">{</span><span class="n">month</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="s2">&quot;data.parquet&quot;</span>
+</pre></div>
+</div>
+<p><strong>Lazy scanning</strong>: The notebooks use <code class="docutils literal notranslate"><span class="pre">scan_parquet</span></code> with Hive partitioning to
+explore the data without loading it all into memory:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trace_enh</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span>
+    <span class="s2">&quot;_data/trace_enhanced/**/*.parquet&quot;</span><span class="p">,</span>
+    <span class="n">hive_partitioning</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">allow_missing_columns</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Count rows without loading data</span>
+<span class="n">n_rows</span> <span class="o">=</span> <span class="n">trace_enh</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">())</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>  <span class="c1"># 423M+</span>
+</pre></div>
+</div>
+<p><strong>Month-by-month processing</strong>: The cleaning pipeline iterates through partitions
+one month at a time, keeping peak memory bounded:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">_iter_partitions</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">apply_all_filters</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>  <span class="c1"># Dick-Nielsen cleaning filters</span>
+    <span class="n">write_partition</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Schema enforcement</strong>: Since data from WRDS can arrive with inconsistent types,
+the pipeline normalizes column types before writing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">enforce_schema</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;trd_exctn_dt&quot;</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">Date</span><span class="p">,</span>
+    <span class="s2">&quot;rptd_pr&quot;</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">Float64</span><span class="p">,</span>
+    <span class="s2">&quot;entrd_vol_qt&quot;</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">Float64</span><span class="p">,</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="whats-next">
+<h3>What’s Next<a class="headerlink" href="#whats-next" title="Link to this heading">#</a></h3>
+<p>In the following notebooks, we walk through the TRACE data sources and the
+cleaning pipeline in detail.</p>
+</section>
+</section>
+<section id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.pola.rs/user-guide/">Polars User Guide</a></p></li>
+<li><p><a class="reference external" href="https://docs.pola.rs/user-guide/concepts/lazy-api/">Polars Lazy API</a></p></li>
+<li><p><a class="reference external" href="https://docs.pola.rs/user-guide/concepts/streaming/">Polars Streaming</a></p></li>
+<li><p><a class="reference external" href="https://docs.pola.rs/user-guide/io/hive/">Polars Hive Partitioning</a></p></li>
+<li><p><a class="reference external" href="https://arrow.apache.org/">Apache Arrow</a></p></li>
+<li><p><a class="reference external" href="https://spark.apache.org/docs/latest/">Apache Spark Overview</a></p></li>
+<li><p><a class="reference internal" href="polars_exercises.html"><span class="doc">Polars Exercises: Code Snippets</span></a> — Code snippets from in-class Polars exercises</p></li>
+</ul>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+   
+</div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../overview_w8.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 8: Medium-Sized Data and Remote Machines</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="polars_exercises.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Polars Exercises: Code Snippets</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-medium-sized-data">What is “Medium-Sized” Data?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-vs-polars">Pandas vs. Polars</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-the-incumbent">Pandas: The Incumbent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polars-the-challenger">Polars: The Challenger</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-comparison">Benchmark Comparison</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lazy-evaluation">Lazy Evaluation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eager-vs-lazy-execution">Eager vs. Lazy Execution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-the-query-plan">Inspecting the Query Plan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-lazy-evaluation-matters">Why Lazy Evaluation Matters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predicate-pushdown">Predicate Pushdown</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-predicate">What is a Predicate?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-predicate-pushdown">What is Predicate Pushdown?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works-with-parquet-files">How It Works with Parquet Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-it-works-with-hive-partitioned-data">How It Works with Hive-Partitioned Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-apache-spark">Connection to Apache Spark</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-apache-spark">What is Apache Spark?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-concepts-polars-vs-spark">Shared Concepts: Polars vs. Spark</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-spark-vs-polars">When to Use Spark vs. Polars</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming">Streaming</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-data-larger-than-memory">The Problem: Data Larger Than Memory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-old-way-manual-chunking-in-pandas">The Old Way: Manual Chunking in Pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-polars-way-automatic-streaming">The Polars Way: Automatic Streaming</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hive-partitioned-parquet-files">Hive-Partitioned Parquet Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-hive-partitioning">What is Hive Partitioning?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-hive-partitioning">Why Hive Partitioning?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-hive-partitioned-data-with-polars">Reading Hive-Partitioned Data with Polars</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#segue-the-trace-case-study">Segue: The TRACE Case Study</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">The Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-case-study-uses-these-concepts">How the Case Study Uses These Concepts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-next">What’s Next</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeremiah Bejarano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Jeremiah Bejarano.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,889 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exercise: Jupyter Notebook on Midway via SSH &#8212; Full Stack Quantitative Finance</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f23691d7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=8dbc1659"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Week8/exercise_jupyter_on_midway';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Sources Overview" href="../notebooks/_01_data_sources_overview_ipynb.html" />
+    <link rel="prev" title="Remote Machines and High-Performance Computing" href="remote_machines_and_hpc.html" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>   
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Full Stack Quantitative Finance - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Full Stack Quantitative Finance - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Full Stack Quantitative Finance
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Winter 2026</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Appendix</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures 📖</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w1.html">Week 1: GitHub, GitHub Classroom, and Virtual Environments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/what_is_this_course_about.html">What is Full Stack Quantitative Finance? Why This Course?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/virtual_environments.html">Virtual Environments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_wrds_python_package_ipynb.html">Example: Connecting to the WRDS Platform With Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_05_basics_of_SQL_ipynb.html">Basics of SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/doit_examples.html">PyDoit Examples Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/project_structure.html">Project Structure: “Chartbook” Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w5.html">Week 5: Bloomberg, LSEG Datastream, and Databento</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/LSEG_datastream.html">LSEG Datastream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/databento.html">Databento</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w7.html">Week 7: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_corporate_hedging_ipynb.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../overview_w8.html">Week 8: Medium-Sized Data and Remote Machines</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="medium_sized_data_strategies.html">Strategies for Medium-Sized Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="polars_exercises.html">Polars Exercises: Code Snippets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_machines_and_hpc.html">Remote Machines and High-Performance Computing</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Exercise: Jupyter Notebook on Midway via SSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_data_sources_overview_ipynb.html">Data Sources Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_trace_cleaning_walkthrough_ipynb.html">Cleaning TRACE Corporate Bond Data: A Walkthrough</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w9.html">Week 9: Web Authentication, GitHub Actions, and Publishing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="web_authentication.html">Web Authentication and Authorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week9/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework 📝</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../HW0.html">Homework 0</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_CRSP_market_index_ipynb.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_03_SP500_constituents_and_index_ipynb.html">HW Guide Part B: Reconstructing the S&amp;P 500 Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_04_Fama_French_1993_ipynb.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../HW3.html">Homework 3</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW4.html">Homework 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_CRSP_treasury_overview_ipynb.html">CRSP Treasury Data Oveview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_replicate_GSW2005_ipynb.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../HW5.html">Homework 5</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/potential_final_projects.html">List of Potential Final Projects</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project/issues/new?title=Issue%20on%20page%20%2FWeek8/exercise_jupyter_on_midway.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Week8/exercise_jupyter_on_midway.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Exercise: Jupyter Notebook on Midway via SSH</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-ssh-into-midway3">Step 1: SSH into Midway3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-request-an-interactive-compute-node">Step 2: Request an Interactive Compute Node</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-set-up-the-python-environment">Step 3: Set Up the Python Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-get-the-host-ip-and-start-jupyter">Step 4: Get the Host IP and Start Jupyter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-set-up-ssh-port-forwarding">Step 5: Set Up SSH Port Forwarding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-open-jupyter-in-your-browser">Step 6: Open Jupyter in Your Browser</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-test-it">Step 7: Test It</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-clean-up">Step 8: Clean Up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#port-already-in-use">“Port already in use”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh-tunnel-fails-or-times-out">SSH tunnel fails or times out</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-refused-in-browser">“Connection refused” in browser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-exits-immediately">Jupyter exits immediately</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#queue-wait-is-too-long">Queue wait is too long</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                   <section class="tex2jax_ignore mathjax_ignore" id="exercise-jupyter-notebook-on-midway-via-ssh">
+<h1>Exercise: Jupyter Notebook on Midway via SSH<a class="headerlink" href="#exercise-jupyter-notebook-on-midway-via-ssh" title="Link to this heading">#</a></h1>
+<p>In this exercise, you will:</p>
+<ol class="arabic simple">
+<li><p>Connect to Midway3 via SSH</p></li>
+<li><p>Request an interactive compute node with SLURM</p></li>
+<li><p>Launch a Jupyter notebook server on the compute node</p></li>
+<li><p>Set up SSH port forwarding so you can access the notebook from your laptop’s browser</p></li>
+</ol>
+<p>By the end, you’ll have a Jupyter notebook running on a powerful remote machine,
+accessible from your laptop as if it were running locally.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A UChicago CNetID with RCC access</p></li>
+<li><p>A terminal application (Terminal on macOS, Windows Terminal or Git Bash on Windows)</p></li>
+<li><p>Duo Mobile configured for multi-factor authentication</p></li>
+</ul>
+</section>
+<section id="step-1-ssh-into-midway3">
+<h2>Step 1: SSH into Midway3<a class="headerlink" href="#step-1-ssh-into-midway3" title="Link to this heading">#</a></h2>
+<p>Open a terminal on your laptop and connect:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>&lt;your-cnetid&gt;@midway3.rcc.uchicago.edu
+</pre></div>
+</div>
+<p>Enter your password when prompted, then complete Duo MFA. You should see a
+welcome message and a prompt like:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&lt;cnetid&gt;@midway3-login1 ~]$
+</pre></div>
+</div>
+<p>You are now on a <strong>login node</strong>.</p>
+<div class="warning admonition">
+<p class="admonition-title">Reminder</p>
+<p>Do not run computations on the login node. It is shared by all users and
+intended only for lightweight tasks like file editing, job submission, and
+data transfer.</p>
+</div>
+</section>
+<section id="step-2-request-an-interactive-compute-node">
+<h2>Step 2: Request an Interactive Compute Node<a class="headerlink" href="#step-2-request-an-interactive-compute-node" title="Link to this heading">#</a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">sinteractive</span></code> to request a dedicated compute node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sinteractive<span class="w"> </span>--account<span class="o">=</span>finm32900<span class="w"> </span>--partition<span class="o">=</span>caslake<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--time<span class="o">=</span><span class="m">02</span>:00:00<span class="w"> </span>--cpus-per-task<span class="o">=</span><span class="m">4</span><span class="w"> </span>--mem<span class="o">=</span>16G
+</pre></div>
+</div>
+<p>This requests:</p>
+<ul class="simple">
+<li><p><strong>Account</strong>: <code class="docutils literal notranslate"><span class="pre">finm32900</span></code> (our course allocation)</p></li>
+<li><p><strong>Partition</strong>: <code class="docutils literal notranslate"><span class="pre">caslake</span></code> (the default Midway3 partition)</p></li>
+<li><p><strong>Time</strong>: 2 hours</p></li>
+<li><p><strong>CPUs</strong>: 4 cores</p></li>
+<li><p><strong>Memory</strong>: 16 GB</p></li>
+</ul>
+<p>You may wait briefly in the queue. Once a node is allocated, your prompt
+changes to show the compute node name:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&lt;cnetid&gt;@midway3-0042 ~]$
+</pre></div>
+</div>
+<p>You are now on a <strong>compute node</strong> with dedicated resources.</p>
+</section>
+<section id="step-3-set-up-the-python-environment">
+<h2>Step 3: Set Up the Python Environment<a class="headerlink" href="#step-3-set-up-the-python-environment" title="Link to this heading">#</a></h2>
+<p>Load the Python module and activate the course virtual environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>python/3.11.9
+<span class="nb">source</span><span class="w"> </span>/project/finm32900/tdp-venv-p3119/bin/activate
+</pre></div>
+</div>
+<p>Verify that Jupyter is available:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>which<span class="w"> </span>jupyter-notebook
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you want to use your own virtual environment instead, create one in
+<code class="docutils literal notranslate"><span class="pre">/project/finm32900/&lt;cnetid&gt;/</span></code> or <code class="docutils literal notranslate"><span class="pre">/scratch/midway3/&lt;cnetid&gt;/</span></code> (not in
+<code class="docutils literal notranslate"><span class="pre">/home/</span></code>, which has a small quota).</p>
+</div>
+</section>
+<section id="step-4-get-the-host-ip-and-start-jupyter">
+<h2>Step 4: Get the Host IP and Start Jupyter<a class="headerlink" href="#step-4-get-the-host-ip-and-start-jupyter" title="Link to this heading">#</a></h2>
+<p>The compute node has an internal IP address that we’ll need for port forwarding.
+Get it and start Jupyter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the compute node&#39;s IP address</span>
+<span class="nv">HOST_IP</span><span class="o">=</span><span class="k">$(</span>/sbin/ip<span class="w"> </span>route<span class="w"> </span>get<span class="w"> </span><span class="m">8</span>.8.8.8<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $7;exit}&#39;</span><span class="k">)</span>
+
+<span class="c1"># Pick a random port (to avoid collisions with other users)</span>
+<span class="nv">PORT_NUM</span><span class="o">=</span><span class="k">$(</span>shuf<span class="w"> </span>-i15001-30000<span class="w"> </span>-n1<span class="k">)</span>
+
+<span class="c1"># Print the connection info (you&#39;ll need this in Step 5)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==========================================&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;  Host IP:  </span><span class="nv">$HOST_IP</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;  Port:     </span><span class="nv">$PORT_NUM</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==========================================&quot;</span>
+
+<span class="c1"># Start Jupyter</span>
+jupyter-notebook<span class="w"> </span>--no-browser<span class="w"> </span>--ip<span class="o">=</span><span class="nv">$HOST_IP</span><span class="w"> </span>--port<span class="o">=</span><span class="nv">$PORT_NUM</span>
+</pre></div>
+</div>
+<p>Jupyter will print output like:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[I 14:23:07.891 NotebookApp] Serving notebooks from local directory: /home/&lt;cnetid&gt;
+[I 14:23:07.891 NotebookApp] Jupyter Notebook is running at:
+[I 14:23:07.891 NotebookApp]   http://10.50.221.42:18273/?token=abc123def456...
+</pre></div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Important: Note the connection details</p>
+<p>Write down or copy:</p>
+<ul class="simple">
+<li><p>The <strong>Host IP</strong> (e.g., <code class="docutils literal notranslate"><span class="pre">10.50.221.42</span></code>)</p></li>
+<li><p>The <strong>Port</strong> (e.g., <code class="docutils literal notranslate"><span class="pre">18273</span></code>)</p></li>
+<li><p>The <strong>token</strong> from the URL</p></li>
+</ul>
+<p>You will need all three in the next step. <strong>Leave this terminal open</strong>—Jupyter
+is running in the foreground.</p>
+</div>
+</section>
+<section id="step-5-set-up-ssh-port-forwarding">
+<h2>Step 5: Set Up SSH Port Forwarding<a class="headerlink" href="#step-5-set-up-ssh-port-forwarding" title="Link to this heading">#</a></h2>
+<p>Open a <strong>new terminal window</strong> on your laptop (do not close the Jupyter terminal).
+Run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>-N<span class="w"> </span>-f<span class="w"> </span>-L<span class="w"> </span>&lt;PORT_NUM&gt;:&lt;HOST_IP&gt;:&lt;PORT_NUM&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>&lt;your-cnetid&gt;@midway3.rcc.uchicago.edu
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;PORT_NUM&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;HOST_IP&gt;</span></code> with the values from Step 4. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>-N<span class="w"> </span>-f<span class="w"> </span>-L<span class="w"> </span><span class="m">18273</span>:10.50.221.42:18273<span class="w"> </span>jdoe@midway3.rcc.uchicago.edu
+</pre></div>
+</div>
+<p>Complete Duo MFA when prompted. The command runs in the background (no visible
+output means success).</p>
+<p><strong>What this does:</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Your laptop (localhost:18273)
+     │
+     │  SSH tunnel (encrypted)
+     ▼
+Midway3 login node
+     │
+     │  Internal network
+     ▼
+Compute node (10.50.221.42:18273)  ← Jupyter is running here
+</pre></div>
+</div>
+<p>Traffic to <code class="docutils literal notranslate"><span class="pre">localhost:18273</span></code> on your laptop is forwarded through the SSH tunnel
+to the Jupyter server on the compute node.</p>
+</section>
+<section id="step-6-open-jupyter-in-your-browser">
+<h2>Step 6: Open Jupyter in Your Browser<a class="headerlink" href="#step-6-open-jupyter-in-your-browser" title="Link to this heading">#</a></h2>
+<p>On your laptop, open a web browser and go to:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>http://127.0.0.1:&lt;PORT_NUM&gt;/?token=&lt;your-token&gt;
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>http://127.0.0.1:18273/?token=abc123def456...
+</pre></div>
+</div>
+<p>You should see the Jupyter notebook interface. You are now running code on a
+Midway3 compute node with 4 CPU cores and 16 GB of RAM, but interacting with
+it through your laptop’s browser.</p>
+</section>
+<section id="step-7-test-it">
+<h2>Step 7: Test It<a class="headerlink" href="#step-7-test-it" title="Link to this heading">#</a></h2>
+<p>Create a new Python 3 notebook and run:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">platform</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hostname: </span><span class="si">{</span><span class="n">platform</span><span class="o">.</span><span class="n">node</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CPUs available: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;USER&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;unknown&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You should see the compute node’s hostname (e.g., <code class="docutils literal notranslate"><span class="pre">midway3-0042</span></code>), confirming
+that your code is running on the cluster, not your laptop.</p>
+<p>Try something more substantial:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Generate a large random matrix (uses cluster RAM, not your laptop&#39;s)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10_000</span><span class="p">,</span> <span class="mi">10_000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matrix shape: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Memory used: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">nbytes</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1e9</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> GB&quot;</span><span class="p">)</span>
+
+<span class="c1"># Matrix multiplication (uses cluster CPUs)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Computation complete. Result shape: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="step-8-clean-up">
+<h2>Step 8: Clean Up<a class="headerlink" href="#step-8-clean-up" title="Link to this heading">#</a></h2>
+<p>When you’re done:</p>
+<ol class="arabic">
+<li><p><strong>Save your notebooks</strong> (File → Save).</p></li>
+<li><p><strong>Stop Jupyter</strong>: Go to the terminal where Jupyter is running and press
+<code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code>, then confirm with <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p></li>
+<li><p><strong>Exit the compute node</strong>: Type <code class="docutils literal notranslate"><span class="pre">exit</span></code> to release the node back to the
+cluster.</p></li>
+<li><p><strong>Kill the SSH tunnel</strong> (optional): Find and kill the background SSH process
+on your laptop:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the tunnel process</span>
+ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;ssh -N -f -L&quot;</span>
+
+<span class="c1"># Kill it by PID</span>
+<span class="nb">kill</span><span class="w"> </span>&lt;pid&gt;
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="warning admonition">
+<p class="admonition-title">Always clean up</p>
+<p>When you’re done working, release the compute node by exiting the
+<code class="docutils literal notranslate"><span class="pre">sinteractive</span></code> session. Idle nodes still consume your account’s allocation
+(SUs). Don’t leave sessions running overnight.</p>
+</div>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
+<section id="port-already-in-use">
+<h3>“Port already in use”<a class="headerlink" href="#port-already-in-use" title="Link to this heading">#</a></h3>
+<p>If Jupyter says the port is already in use, pick a different random port:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">PORT_NUM</span><span class="o">=</span><span class="k">$(</span>shuf<span class="w"> </span>-i15001-30000<span class="w"> </span>-n1<span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;New port: </span><span class="nv">$PORT_NUM</span><span class="s2">&quot;</span>
+jupyter-notebook<span class="w"> </span>--no-browser<span class="w"> </span>--ip<span class="o">=</span><span class="nv">$HOST_IP</span><span class="w"> </span>--port<span class="o">=</span><span class="nv">$PORT_NUM</span>
+</pre></div>
+</div>
+</section>
+<section id="ssh-tunnel-fails-or-times-out">
+<h3>SSH tunnel fails or times out<a class="headerlink" href="#ssh-tunnel-fails-or-times-out" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Make sure you completed Duo MFA for the tunnel connection.</p></li>
+<li><p>Check that the <code class="docutils literal notranslate"><span class="pre">HOST_IP</span></code> and <code class="docutils literal notranslate"><span class="pre">PORT_NUM</span></code> match exactly between Jupyter and
+the tunnel command.</p></li>
+<li><p>Try killing any existing tunnel processes and creating a new one.</p></li>
+</ul>
+</section>
+<section id="connection-refused-in-browser">
+<h3>“Connection refused” in browser<a class="headerlink" href="#connection-refused-in-browser" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Verify Jupyter is still running in the first terminal.</p></li>
+<li><p>Verify the SSH tunnel is active: <code class="docutils literal notranslate"><span class="pre">ps</span> <span class="pre">aux</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">&quot;ssh</span> <span class="pre">-N</span> <span class="pre">-f</span> <span class="pre">-L&quot;</span></code>.</p></li>
+<li><p>Make sure the port numbers match in all three places: Jupyter startup, SSH
+tunnel command, and browser URL.</p></li>
+</ul>
+</section>
+<section id="jupyter-exits-immediately">
+<h3>Jupyter exits immediately<a class="headerlink" href="#jupyter-exits-immediately" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Check that you loaded the Python module (<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">python/3.11.9</span></code>) and
+activated the virtual environment before starting Jupyter.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">jupyter-notebook</span></code> to confirm it’s available.</p></li>
+</ul>
+</section>
+<section id="queue-wait-is-too-long">
+<h3>Queue wait is too long<a class="headerlink" href="#queue-wait-is-too-long" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Try the <code class="docutils literal notranslate"><span class="pre">debug</span></code> QoS for a quick 15-minute session:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sinteractive<span class="w"> </span>--account<span class="o">=</span>finm32900<span class="w"> </span>--qos<span class="o">=</span>debug<span class="w"> </span>--time<span class="o">=</span><span class="m">00</span>:15:00
+</pre></div>
+</div>
+</li>
+<li><p>Check the queue: <code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">--partition=caslake</span></code> to see how busy the partition is.</p></li>
+</ul>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>You’ve now completed the full workflow for running Jupyter on an HPC cluster:</p>
+<ol class="arabic simple">
+<li><p><strong>SSH</strong> into the cluster login node</p></li>
+<li><p><strong>SLURM</strong> (<code class="docutils literal notranslate"><span class="pre">sinteractive</span></code>) to get a compute node</p></li>
+<li><p><strong>Jupyter</strong> started on the compute node</p></li>
+<li><p><strong>SSH port forwarding</strong> to tunnel the connection to your laptop</p></li>
+<li><p><strong>Browser</strong> to interact with the notebook</p></li>
+</ol>
+<p>This same pattern works for any web-based tool running on a remote machine, not
+just Jupyter. Any time you need to access a service running on a port of a
+remote machine, SSH port forwarding is the solution.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+   
+</div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="remote_machines_and_hpc.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Remote Machines and High-Performance Computing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../notebooks/_01_data_sources_overview_ipynb.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Sources Overview</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-ssh-into-midway3">Step 1: SSH into Midway3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-request-an-interactive-compute-node">Step 2: Request an Interactive Compute Node</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-set-up-the-python-environment">Step 3: Set Up the Python Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-get-the-host-ip-and-start-jupyter">Step 4: Get the Host IP and Start Jupyter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-set-up-ssh-port-forwarding">Step 5: Set Up SSH Port Forwarding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-open-jupyter-in-your-browser">Step 6: Open Jupyter in Your Browser</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-test-it">Step 7: Test It</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-clean-up">Step 8: Clean Up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#port-already-in-use">“Port already in use”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh-tunnel-fails-or-times-out">SSH tunnel fails or times out</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-refused-in-browser">“Connection refused” in browser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-exits-immediately">Jupyter exits immediately</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#queue-wait-is-too-long">Queue wait is too long</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeremiah Bejarano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Jeremiah Bejarano.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

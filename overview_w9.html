@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Week 9: GitHub Actions and Publishing a Live Dashboard &#8212; Full Stack Quantitative Finance</title>
+    <title>Week 9: Web Authentication, GitHub Actions, and Publishing &#8212; Full Stack Quantitative Finance</title>
   
   
   
@@ -53,8 +53,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Creating a Live Dashboard Example with GitHub Actions" href="Week9/github_actions_interactive_dashboard.html" />
-    <link rel="prev" title="Web Authentication and Authorization" href="Week8/web_authentication.html" /> 
+    <link rel="next" title="Web Authentication and Authorization" href="Week8/web_authentication.html" />
+    <link rel="prev" title="WARNING: Notes subject to change after this week" href="subject_to_change_after_this_week.html" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>   
   </head>
@@ -225,14 +225,18 @@
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w8.html">Week 8: Web Authentication and Authorization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/_01_corporate_hedging_ipynb.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
-<li class="toctree-l2"><a class="reference internal" href="notebooks/_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week8/web_authentication.html">Web Authentication and Authorization</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w8.html">Week 8: Medium-Sized Data and Remote Machines</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week8/medium_sized_data_strategies.html">Strategies for Medium-Sized Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week8/polars_exercises.html">Polars Exercises: Code Snippets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week8/remote_machines_and_hpc.html">Remote Machines and High-Performance Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week8/exercise_jupyter_on_midway.html">Exercise: Jupyter Notebook on Midway via SSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_01_data_sources_overview_ipynb.html">Data Sources Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_02_trace_cleaning_walkthrough_ipynb.html">Cleaning TRACE Corporate Bond Data: A Walkthrough</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 9: GitHub Actions and Publishing a Live Dashboard</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 9: Web Authentication, GitHub Actions, and Publishing</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week8/web_authentication.html">Web Authentication and Authorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week9/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week4/latex_essentials.html">LaTeX Essentials</a></li>
@@ -257,6 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_02_replicate_GSW2005_ipynb.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="HW5.html">Homework 5</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="FinalProject/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FinalProject/potential_final_projects.html">List of Potential Final Projects</a></li>
@@ -447,7 +452,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 9: GitHub Actions and Publishing a Live Dashboard</h1>
+    <h1>Week 9: Web Authentication, GitHub Actions, and Publishing</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -468,24 +473,23 @@ document.write(`
                 
 <div id="searchbox"></div>
                 <article class="bd-article">
-                   <section class="tex2jax_ignore mathjax_ignore" id="week-9-github-actions-and-publishing-a-live-dashboard">
-<h1>Week 9: GitHub Actions and Publishing a Live Dashboard<a class="headerlink" href="#week-9-github-actions-and-publishing-a-live-dashboard" title="Link to this heading">#</a></h1>
+                   <section class="tex2jax_ignore mathjax_ignore" id="week-9-web-authentication-github-actions-and-publishing">
+<h1>Week 9: Web Authentication, GitHub Actions, and Publishing<a class="headerlink" href="#week-9-web-authentication-github-actions-and-publishing" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="Week8/web_authentication.html">Web Authentication and Authorization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week9/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
 </div>
-<!-- Week8/github_actions.md -->
-<!-- Week8/publishing_a_live_dashboard.md -->
 <section id="learning-outcomes">
 <h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Demonstrate ChartBook: <a class="github reference external" href="https://github.com/jmbejara/chartbook">jmbejara/chartbook</a></p></li>
 <li><p>Overview of GitHub Actions</p></li>
+<li><p>Overview of GitHub Pages</p></li>
 <li><p>Static HTML widgets with plotly</p></li>
-<li><p>Review of PCA-based Index</p></li>
+<li><p>Demonstrate ChartBook: <a class="github reference external" href="https://github.com/jmbejara/chartbook">jmbejara/chartbook</a></p></li>
 <li><p>Review LaTeX, and how it should be used in the final project</p></li>
 </ul>
 </section>
@@ -506,20 +510,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Week8/web_authentication.html"
+       href="subject_to_change_after_this_week.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Web Authentication and Authorization</p>
+        <p class="prev-next-title">WARNING: Notes subject to change after this week</p>
       </div>
     </a>
     <a class="right-next"
-       href="Week9/github_actions_interactive_dashboard.html"
+       href="Week8/web_authentication.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Creating a Live Dashboard Example with GitHub Actions</p>
+        <p class="prev-next-title">Web Authentication and Authorization</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

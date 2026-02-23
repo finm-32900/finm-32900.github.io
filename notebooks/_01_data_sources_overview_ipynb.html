@@ -1,0 +1,2134 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data Sources Overview &#8212; Full Stack Quantitative Finance</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f23691d7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=8dbc1659"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/_01_data_sources_overview_ipynb';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Cleaning TRACE Corporate Bond Data: A Walkthrough" href="_02_trace_cleaning_walkthrough_ipynb.html" />
+    <link rel="prev" title="Exercise: Jupyter Notebook on Midway via SSH" href="../Week8/exercise_jupyter_on_midway.html" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>   
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Full Stack Quantitative Finance - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Full Stack Quantitative Finance - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Full Stack Quantitative Finance
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Winter 2026</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix.html">Appendix</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures 📖</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w1.html">Week 1: GitHub, GitHub Classroom, and Virtual Environments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/what_is_this_course_about.html">What is Full Stack Quantitative Finance? Why This Course?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/virtual_environments.html">Virtual Environments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_01_wrds_python_package_ipynb.html">Example: Connecting to the WRDS Platform With Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_05_basics_of_SQL_ipynb.html">Basics of SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/doit_examples.html">PyDoit Examples Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/project_structure.html">Project Structure: “Chartbook” Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w5.html">Week 5: Bloomberg, LSEG Datastream, and Databento</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/LSEG_datastream.html">LSEG Datastream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/databento.html">Databento</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w7.html">Week 7: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_01_corporate_hedging_ipynb.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../overview_w8.html">Week 8: Medium-Sized Data and Remote Machines</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Week8/medium_sized_data_strategies.html">Strategies for Medium-Sized Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/polars_exercises.html">Polars Exercises: Code Snippets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/remote_machines_and_hpc.html">Remote Machines and High-Performance Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/exercise_jupyter_on_midway.html">Exercise: Jupyter Notebook on Midway via SSH</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Data Sources Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_02_trace_cleaning_walkthrough_ipynb.html">Cleaning TRACE Corporate Bond Data: A Walkthrough</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w9.html">Week 9: Web Authentication, GitHub Actions, and Publishing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/web_authentication.html">Web Authentication and Authorization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week9/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework 📝</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../HW0.html">Homework 0</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="_02_CRSP_market_index_ipynb.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_03_SP500_constituents_and_index_ipynb.html">HW Guide Part B: Reconstructing the S&amp;P 500 Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="_04_Fama_French_1993_ipynb.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../HW3.html">Homework 3</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW4.html">Homework 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="_01_CRSP_treasury_overview_ipynb.html">CRSP Treasury Data Oveview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_02_replicate_GSW2005_ipynb.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../HW5.html">Homework 5</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/potential_final_projects.html">List of Potential Final Projects</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project/issues/new?title=Issue%20on%20page%20%2Fnotebooks/_01_data_sources_overview_ipynb.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/_01_data_sources_overview_ipynb.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Sources Overview</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fama-french-sic-codes-pulled-ff17-sic-ranges-parquet-pulled-ff30-sic-ranges-parquet">1. Fama-French SIC Codes — <code class="docutils literal notranslate"><span class="pre">pulled/ff17_sic_ranges.parquet</span></code> + <code class="docutils literal notranslate"><span class="pre">pulled/ff30_sic_ranges.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-rows-ff17">Example rows — FF17</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-rows-ff30">Example rows — FF30</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fisd-amount-outstanding-history-pulled-fisd-amt-out-hist-parquet">2. FISD Amount Outstanding History — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_amt_out_hist.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-rows">Example rows</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fisd-issue-data-pulled-fisd-issue-parquet">3. FISD Issue Data — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_issue.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date-range">Date range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#top-15-bond-types">Top 15 bond types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bond-types-bar-chart">Bond types — bar chart</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fisd-issuer-data-pulled-fisd-issuer-parquet">4. FISD Issuer Data — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_issuer.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#top-10-countries-of-domicile">Top 10 countries of domicile</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fisd-ratings-moodys-pulled-fisd-ratings-moodys-parquet">5. FISD Ratings (Moody’s) — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_ratings_moodys.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Date range</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fisd-ratings-s-p-pulled-fisd-ratings-sp-parquet">6. FISD Ratings (S&amp;P) — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_ratings_sp.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Date range</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fisd-redemption-pulled-fisd-redemption-parquet">7. FISD Redemption — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_redemption.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Example rows</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liu-wu-treasury-yields-pulled-liu-wu-yields-parquet">8. Liu-Wu Treasury Yields — <code class="docutils literal notranslate"><span class="pre">pulled/liu_wu_yields.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Date range</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#osbap-corporate-bond-returns-pulled-corporate-bond-returns-parquet">9. OSBAP Corporate Bond Returns — <code class="docutils literal notranslate"><span class="pre">pulled/corporate_bond_returns.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Date range</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#osbap-linker-fang-2025-pulled-osbap-linker-parquet">10. OSBAP Linker (Fang, 2025) — <code class="docutils literal notranslate"><span class="pre">pulled/osbap_linker.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Example rows</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#osbap-treasury-bond-returns-pulled-treasury-bond-returns-parquet">11. OSBAP Treasury Bond Returns — <code class="docutils literal notranslate"><span class="pre">pulled/treasury_bond_returns.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Date range</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trace-144a-pulled-trace-144a">12. TRACE 144A — <code class="docutils literal notranslate"><span class="pre">pulled/trace_144a/</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Date range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trades-per-month-trace-144a">Trades per month — TRACE 144A</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trace-enhanced-pulled-trace-enhanced">13. TRACE Enhanced — <code class="docutils literal notranslate"><span class="pre">pulled/trace_enhanced/</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-rows-first-partition">Example rows (first partition)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Date range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics-price-volume">Summary statistics — price &amp; volume</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trades-per-month">Trades per month</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trace-standard-pulled-trace-standard">14. TRACE Standard — <code class="docutils literal notranslate"><span class="pre">pulled/trace_standard/</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Date range</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                   <section class="tex2jax_ignore mathjax_ignore" id="data-sources-overview">
+<h1>Data Sources Overview<a class="headerlink" href="#data-sources-overview" title="Link to this heading">#</a></h1>
+<p>Quick look at each raw dataset pulled by the pipeline.
+Fourteen datasets are currently collected:</p>
+<ol class="arabic simple">
+<li><p><strong>Fama-French SIC Codes</strong> — industry classification ranges (Dartmouth/Kenneth French)</p></li>
+<li><p><strong>FISD Amount Outstanding History</strong> — historical par amount changes (WRDS)</p></li>
+<li><p><strong>FISD Issue</strong> — bond-level reference data (WRDS)</p></li>
+<li><p><strong>FISD Issuer</strong> — issuer-level reference data (WRDS)</p></li>
+<li><p><strong>FISD Ratings (Moody’s)</strong> — Moody’s bond ratings history (WRDS)</p></li>
+<li><p><strong>FISD Ratings (S&amp;P)</strong> — S&amp;P bond ratings history (WRDS)</p></li>
+<li><p><strong>FISD Redemption</strong> — callable/redemption flags (WRDS)</p></li>
+<li><p><strong>Liu-Wu Treasury Yields</strong> — zero-coupon yield curve (Google Sheets)</p></li>
+<li><p><strong>OSBAP Corporate Bond Returns</strong> — monthly bond returns; used for Stage 1 validation only (<a class="reference external" href="http://OpenBondAssetPricing.com">OpenBondAssetPricing.com</a>)</p></li>
+<li><p><strong>OSBAP Linker (Fang, 2025)</strong> — bond-firm link mapping CUSIPs to PERMNO/PERMCO/GVKEY; core Stage 1 input (<a class="reference external" href="http://OpenBondAssetPricing.com">OpenBondAssetPricing.com</a>)</p></li>
+<li><p><strong>OSBAP Treasury Bond Returns</strong> — treasury returns; currently documentation only (<a class="reference external" href="http://OpenBondAssetPricing.com">OpenBondAssetPricing.com</a>)</p></li>
+<li><p><strong>TRACE 144A</strong> — Rule 144A private placement trades (WRDS)</p></li>
+<li><p><strong>TRACE Enhanced</strong> — trade-level transaction data (WRDS)</p></li>
+<li><p><strong>TRACE Standard</strong> — trade-level transaction data (WRDS)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+
+<span class="kn">from</span> <span class="nn">settings</span> <span class="kn">import</span> <span class="n">config</span>
+
+<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;DATA_DIR&quot;</span><span class="p">))</span>
+<span class="n">PULL_DIR</span> <span class="o">=</span> <span class="n">DATA_DIR</span> <span class="o">/</span> <span class="s2">&quot;pulled&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="fama-french-sic-codes-pulled-ff17-sic-ranges-parquet-pulled-ff30-sic-ranges-parquet">
+<h2>1. Fama-French SIC Codes — <code class="docutils literal notranslate"><span class="pre">pulled/ff17_sic_ranges.parquet</span></code> + <code class="docutils literal notranslate"><span class="pre">pulled/ff30_sic_ranges.parquet</span></code><a class="headerlink" href="#fama-french-sic-codes-pulled-ff17-sic-ranges-parquet-pulled-ff30-sic-ranges-parquet" title="Link to this heading">#</a></h2>
+<p>Source script: <code class="docutils literal notranslate"><span class="pre">pull_fama_french_sic.py</span></code> | Source: Kenneth French Data Library (Dartmouth)</p>
+<p>Industry-to-SIC-code range mappings from the Fama-French 17- and 30-industry
+classification systems. Each row maps an industry number and name to a
+contiguous SIC code range. Used by Stage 1 for industry classification.</p>
+<p><strong>Key columns:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ind_num</span></code></p></td>
+<td><p>Industry number in the FF classification</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ind_name</span></code></p></td>
+<td><p>Short industry name</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sic_start</span></code></p></td>
+<td><p>Start of SIC code range</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sic_end</span></code></p></td>
+<td><p>End of SIC code range</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ff17</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span><span class="n">PULL_DIR</span> <span class="o">/</span> <span class="s2">&quot;ff17_sic_ranges.parquet&quot;</span><span class="p">)</span>
+<span class="n">n_rows_ff17</span> <span class="o">=</span> <span class="n">ff17</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">())</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">cols_ff17</span> <span class="o">=</span> <span class="n">ff17</span><span class="o">.</span><span class="n">collect_schema</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;FF17 — Rows: </span><span class="si">{</span><span class="n">n_rows_ff17</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  |  Columns: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cols_ff17</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column names: </span><span class="si">{</span><span class="n">cols_ff17</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FF17 — Rows: 567  |  Columns: 4
+Column names: [&#39;ind_num&#39;, &#39;ind_name&#39;, &#39;sic_start&#39;, &#39;sic_end&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-rows-ff17">
+<h3>Example rows — FF17<a class="headerlink" href="#example-rows-ff17" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ff17</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 4)</small><table border="1" class="dataframe"><thead><tr><th>ind_num</th><th>ind_name</th><th>sic_start</th><th>sic_end</th></tr><tr><td>i64</td><td>str</td><td>i64</td><td>i64</td></tr></thead><tbody><tr><td>1</td><td>&quot;Food&quot;</td><td>100</td><td>199</td></tr><tr><td>1</td><td>&quot;Food&quot;</td><td>200</td><td>299</td></tr><tr><td>1</td><td>&quot;Food&quot;</td><td>700</td><td>799</td></tr><tr><td>1</td><td>&quot;Food&quot;</td><td>900</td><td>999</td></tr><tr><td>1</td><td>&quot;Food&quot;</td><td>2000</td><td>2009</td></tr></tbody></table></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ff30</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span><span class="n">PULL_DIR</span> <span class="o">/</span> <span class="s2">&quot;ff30_sic_ranges.parquet&quot;</span><span class="p">)</span>
+<span class="n">n_rows_ff30</span> <span class="o">=</span> <span class="n">ff30</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">())</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">cols_ff30</span> <span class="o">=</span> <span class="n">ff30</span><span class="o">.</span><span class="n">collect_schema</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;FF30 — Rows: </span><span class="si">{</span><span class="n">n_rows_ff30</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  |  Columns: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cols_ff30</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column names: </span><span class="si">{</span><span class="n">cols_ff30</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FF30 — Rows: 587  |  Columns: 4
+Column names: [&#39;ind_num&#39;, &#39;ind_name&#39;, &#39;sic_start&#39;, &#39;sic_end&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-rows-ff30">
+<h3>Example rows — FF30<a class="headerlink" href="#example-rows-ff30" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ff30</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 4)</small><table border="1" class="dataframe"><thead><tr><th>ind_num</th><th>ind_name</th><th>sic_start</th><th>sic_end</th></tr><tr><td>i64</td><td>str</td><td>i64</td><td>i64</td></tr></thead><tbody><tr><td>1</td><td>&quot;Food&quot;</td><td>100</td><td>199</td></tr><tr><td>1</td><td>&quot;Food&quot;</td><td>200</td><td>299</td></tr><tr><td>1</td><td>&quot;Food&quot;</td><td>700</td><td>799</td></tr><tr><td>1</td><td>&quot;Food&quot;</td><td>910</td><td>919</td></tr><tr><td>1</td><td>&quot;Food&quot;</td><td>2000</td><td>2009</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fisd-amount-outstanding-history-pulled-fisd-amt-out-hist-parquet">
+<h2>2. FISD Amount Outstanding History — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_amt_out_hist.parquet</span></code><a class="headerlink" href="#fisd-amount-outstanding-history-pulled-fisd-amt-out-hist-parquet" title="Link to this heading">#</a></h2>
+<p>Source script: <code class="docutils literal notranslate"><span class="pre">pull_fisd.py</span></code> | WRDS table: <code class="docutils literal notranslate"><span class="pre">fisd.fisd_amt_out_hist</span></code></p>
+<p>Historical changes in par amount outstanding for each bond issue.
+Records actions such as increases, decreases, and maturities that
+change the total amount of a bond outstanding over time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">amt_out</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span><span class="n">PULL_DIR</span> <span class="o">/</span> <span class="s2">&quot;fisd_amt_out_hist.parquet&quot;</span><span class="p">)</span>
+<span class="n">n_rows_amt</span> <span class="o">=</span> <span class="n">amt_out</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">())</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">cols_amt</span> <span class="o">=</span> <span class="n">amt_out</span><span class="o">.</span><span class="n">collect_schema</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rows: </span><span class="si">{</span><span class="n">n_rows_amt</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  |  Columns: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cols_amt</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column names: </span><span class="si">{</span><span class="n">cols_amt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rows: 862,582  |  Columns: 7
+Column names: [&#39;transaction_id&#39;, &#39;issue_id&#39;, &#39;action_type&#39;, &#39;effective_date&#39;, &#39;action_price&#39;, &#39;action_amount&#39;, &#39;amount_outstanding&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-rows">
+<h3>Example rows<a class="headerlink" href="#example-rows" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">amt_out</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 7)</small><table border="1" class="dataframe"><thead><tr><th>transaction_id</th><th>issue_id</th><th>action_type</th><th>effective_date</th><th>action_price</th><th>action_amount</th><th>amount_outstanding</th></tr><tr><td>f64</td><td>f64</td><td>str</td><td>str</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>1.0</td><td>1.0</td><td>&quot;IL&quot;</td><td>&quot;1994-05-31&quot;</td><td>null</td><td>null</td><td>65000.0</td></tr><tr><td>58254.0</td><td>1.0</td><td>&quot;REV&quot;</td><td>&quot;1995-05-31&quot;</td><td>null</td><td>null</td><td>65000.0</td></tr><tr><td>83800.0</td><td>1.0</td><td>&quot;REV&quot;</td><td>&quot;1996-05-31&quot;</td><td>null</td><td>null</td><td>65000.0</td></tr><tr><td>129007.0</td><td>1.0</td><td>&quot;REV&quot;</td><td>&quot;1997-05-31&quot;</td><td>null</td><td>null</td><td>65000.0</td></tr><tr><td>168464.0</td><td>1.0</td><td>&quot;REV&quot;</td><td>&quot;1998-05-31&quot;</td><td>null</td><td>null</td><td>65000.0</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fisd-issue-data-pulled-fisd-issue-parquet">
+<h2>3. FISD Issue Data — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_issue.parquet</span></code><a class="headerlink" href="#fisd-issue-data-pulled-fisd-issue-parquet" title="Link to this heading">#</a></h2>
+<p>Source script: <code class="docutils literal notranslate"><span class="pre">pull_fisd.py</span></code> | WRDS table: <code class="docutils literal notranslate"><span class="pre">fisd.fisd_mergedissue</span></code></p>
+<p>One row per fixed-income security (bond issue) in the Mergent FISD database.
+Contains bond characteristics such as coupon, maturity, and offering details.</p>
+<p><strong>Key columns:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">complete_cusip</span></code></p></td>
+<td><p>9-character CUSIP identifier</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">issue_name</span></code></p></td>
+<td><p>Descriptive name of the bond issue</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">issuer_id</span></code></p></td>
+<td><p>Foreign key to the issuer table</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">coupon</span></code></p></td>
+<td><p>Annual coupon rate (%)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">coupon_type</span></code></p></td>
+<td><p>Coupon type (F=fixed, V=variable, etc.)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">maturity</span></code></p></td>
+<td><p>Maturity date</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">offering_date</span></code></p></td>
+<td><p>Original offering date</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bond_type</span></code></p></td>
+<td><p>Bond type code (CDEB, CMTN, etc.)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">offering_amt</span></code></p></td>
+<td><p>Offering amount ($ millions)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">principal_amt</span></code></p></td>
+<td><p>Par value per bond (typically 1000)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fisd_issue</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span><span class="n">PULL_DIR</span> <span class="o">/</span> <span class="s2">&quot;fisd_issue.parquet&quot;</span><span class="p">)</span>
+<span class="n">n_rows</span> <span class="o">=</span> <span class="n">fisd_issue</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">())</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="n">fisd_issue</span><span class="o">.</span><span class="n">collect_schema</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rows: </span><span class="si">{</span><span class="n">n_rows</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  |  Columns: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column names: </span><span class="si">{</span><span class="n">cols</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rows: 710,098  |  Columns: 19
+Column names: [&#39;complete_cusip&#39;, &#39;issue_id&#39;, &#39;issue_name&#39;, &#39;issuer_id&#39;, &#39;foreign_currency&#39;, &#39;coupon_type&#39;, &#39;coupon&#39;, &#39;convertible&#39;, &#39;asset_backed&#39;, &#39;rule_144a&#39;, &#39;bond_type&#39;, &#39;private_placement&#39;, &#39;interest_frequency&#39;, &#39;dated_date&#39;, &#39;day_count_basis&#39;, &#39;offering_date&#39;, &#39;maturity&#39;, &#39;principal_amt&#39;, &#39;offering_amt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h3>Example rows<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fisd_issue</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 19)</small><table border="1" class="dataframe"><thead><tr><th>complete_cusip</th><th>issue_id</th><th>issue_name</th><th>issuer_id</th><th>foreign_currency</th><th>coupon_type</th><th>coupon</th><th>convertible</th><th>asset_backed</th><th>rule_144a</th><th>bond_type</th><th>private_placement</th><th>interest_frequency</th><th>dated_date</th><th>day_count_basis</th><th>offering_date</th><th>maturity</th><th>principal_amt</th><th>offering_amt</th></tr><tr><td>str</td><td>f64</td><td>str</td><td>f64</td><td>str</td><td>str</td><td>f64</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>&quot;000361AA3&quot;</td><td>1.0</td><td>&quot;NT&quot;</td><td>3.0</td><td>&quot;N&quot;</td><td>&quot;F&quot;</td><td>9.5</td><td>&quot;N&quot;</td><td>&quot;N&quot;</td><td>&quot;N&quot;</td><td>&quot;CDEB&quot;</td><td>&quot;N&quot;</td><td>&quot;2&quot;</td><td>&quot;1989-11-01&quot;</td><td>&quot;30/360&quot;</td><td>&quot;1989-10-24&quot;</td><td>&quot;2001-11-01&quot;</td><td>1000.0</td><td>65000.0</td></tr><tr><td>&quot;000361AB1&quot;</td><td>2.0</td><td>&quot;NT&quot;</td><td>3.0</td><td>&quot;N&quot;</td><td>&quot;F&quot;</td><td>7.25</td><td>&quot;N&quot;</td><td>&quot;N&quot;</td><td>&quot;N&quot;</td><td>&quot;CDEB&quot;</td><td>&quot;N&quot;</td><td>&quot;2&quot;</td><td>&quot;1993-10-15&quot;</td><td>&quot;30/360&quot;</td><td>&quot;1993-10-12&quot;</td><td>&quot;2003-10-15&quot;</td><td>1000.0</td><td>50000.0</td></tr><tr><td>&quot;00077DAB5&quot;</td><td>3.0</td><td>&quot;MTN&quot;</td><td>40263.0</td><td>&quot;N&quot;</td><td>&quot;F&quot;</td><td>4.15</td><td>&quot;N&quot;</td><td>&quot;N&quot;</td><td>&quot;N&quot;</td><td>&quot;CMTN&quot;</td><td>&quot;N&quot;</td><td>&quot;2&quot;</td><td>&quot;1994-01-14&quot;</td><td>&quot;30/360&quot;</td><td>&quot;1994-01-07&quot;</td><td>&quot;1996-01-12&quot;</td><td>1000.0</td><td>100000.0</td></tr><tr><td>&quot;00077DAF6&quot;</td><td>4.0</td><td>&quot;SUB DEP NT SER B&quot;</td><td>40263.0</td><td>&quot;N&quot;</td><td>&quot;F&quot;</td><td>8.25</td><td>&quot;N&quot;</td><td>&quot;N&quot;</td><td>&quot;N&quot;</td><td>&quot;USBN&quot;</td><td>&quot;N&quot;</td><td>&quot;2&quot;</td><td>&quot;1994-08-02&quot;</td><td>&quot;30/360&quot;</td><td>&quot;1994-07-27&quot;</td><td>&quot;2009-08-01&quot;</td><td>1000.0</td><td>200000.0</td></tr><tr><td>&quot;00077TAA2&quot;</td><td>5.0</td><td>&quot;SUB DEP NT SER B&quot;</td><td>40263.0</td><td>&quot;N&quot;</td><td>&quot;F&quot;</td><td>7.75</td><td>&quot;N&quot;</td><td>&quot;N&quot;</td><td>&quot;N&quot;</td><td>&quot;CDEB&quot;</td><td>&quot;N&quot;</td><td>&quot;2&quot;</td><td>&quot;1993-05-15&quot;</td><td>&quot;30/360&quot;</td><td>&quot;1993-05-20&quot;</td><td>&quot;2023-05-15&quot;</td><td>1000.0</td><td>250000.0</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="date-range">
+<h3>Date range<a class="headerlink" href="#date-range" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fisd_issue</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;offering_date&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;earliest_offering&quot;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;offering_date&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;latest_offering&quot;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;maturity&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;earliest_maturity&quot;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;maturity&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;latest_maturity&quot;</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (1, 4)</small><table border="1" class="dataframe"><thead><tr><th>earliest_offering</th><th>latest_offering</th><th>earliest_maturity</th><th>latest_maturity</th></tr><tr><td>str</td><td>str</td><td>str</td><td>str</td></tr></thead><tbody><tr><td>&quot;1894-10-02&quot;</td><td>&quot;2030-06-29&quot;</td><td>&quot;1990-01-01&quot;</td><td>&quot;2122-04-15&quot;</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="top-15-bond-types">
+<h3>Top 15 bond types<a class="headerlink" href="#top-15-bond-types" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="n">fisd_issue</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;bond_type&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (15, 2)</small><table border="1" class="dataframe"><thead><tr><th>bond_type</th><th>n</th></tr><tr><td>str</td><td>u32</td></tr></thead><tbody><tr><td>&quot;CMTN&quot;</td><td>214264</td></tr><tr><td>&quot;ADEB&quot;</td><td>163272</td></tr><tr><td>&quot;CMTZ&quot;</td><td>135731</td></tr><tr><td>&quot;CDEB&quot;</td><td>64624</td></tr><tr><td>&quot;AMTN&quot;</td><td>41488</td></tr><tr><td>&hellip;</td><td>&hellip;</td></tr><tr><td>&quot;ARNT&quot;</td><td>5865</td></tr><tr><td>&quot;ASPZ&quot;</td><td>3935</td></tr><tr><td>&quot;CCUR&quot;</td><td>2891</td></tr><tr><td>&quot;EMTN&quot;</td><td>2450</td></tr><tr><td>&quot;USBL&quot;</td><td>2071</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="bond-types-bar-chart">
+<h3>Bond types — bar chart<a class="headerlink" href="#bond-types-bar-chart" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">bt</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">fisd_issue</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;bond_type&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">bt</span><span class="p">[</span><span class="s2">&quot;bond_type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span> <span class="n">bt</span><span class="p">[</span><span class="s2">&quot;n&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;steelblue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;FISD — top 15 bond types&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ea39d54570bb1dcc0bc942e8ebeb323524c0eb0b4f2414db2be45603f71ff557.png" src="../_images/ea39d54570bb1dcc0bc942e8ebeb323524c0eb0b4f2414db2be45603f71ff557.png" />
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fisd-issuer-data-pulled-fisd-issuer-parquet">
+<h2>4. FISD Issuer Data — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_issuer.parquet</span></code><a class="headerlink" href="#fisd-issuer-data-pulled-fisd-issuer-parquet" title="Link to this heading">#</a></h2>
+<p>Source script: <code class="docutils literal notranslate"><span class="pre">pull_fisd.py</span></code> | WRDS table: <code class="docutils literal notranslate"><span class="pre">fisd.fisd_mergedissuer</span></code></p>
+<p>One row per bond issuer. Provides the country of domicile and SIC
+industry classification for each issuer. Linked to the issue table
+via <code class="docutils literal notranslate"><span class="pre">issuer_id</span></code>.</p>
+<p><strong>Key columns:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">issuer_id</span></code></p></td>
+<td><p>Unique issuer identifier (joins to issue table)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">country_domicile</span></code></p></td>
+<td><p>Country of domicile (ISO code)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sic_code</span></code></p></td>
+<td><p>Standard Industrial Classification code</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fisd_issuer</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span><span class="n">PULL_DIR</span> <span class="o">/</span> <span class="s2">&quot;fisd_issuer.parquet&quot;</span><span class="p">)</span>
+<span class="n">n_rows_issuer</span> <span class="o">=</span> <span class="n">fisd_issuer</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">())</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">cols_issuer</span> <span class="o">=</span> <span class="n">fisd_issuer</span><span class="o">.</span><span class="n">collect_schema</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rows: </span><span class="si">{</span><span class="n">n_rows_issuer</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  |  Columns: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cols_issuer</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column names: </span><span class="si">{</span><span class="n">cols_issuer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rows: 17,200  |  Columns: 3
+Column names: [&#39;issuer_id&#39;, &#39;country_domicile&#39;, &#39;sic_code&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id2">
+<h3>Example rows<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fisd_issuer</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 3)</small><table border="1" class="dataframe"><thead><tr><th>issuer_id</th><th>country_domicile</th><th>sic_code</th></tr><tr><td>f64</td><td>str</td><td>str</td></tr></thead><tbody><tr><td>3.0</td><td>&quot;USA&quot;</td><td>&quot;3720&quot;</td></tr><tr><td>4.0</td><td>&quot;NLD&quot;</td><td>&quot;6029&quot;</td></tr><tr><td>6.0</td><td>&quot;USA&quot;</td><td>null</td></tr><tr><td>7.0</td><td>&quot;USA&quot;</td><td>&quot;7382&quot;</td></tr><tr><td>8.0</td><td>&quot;USA&quot;</td><td>null</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="top-10-countries-of-domicile">
+<h3>Top 10 countries of domicile<a class="headerlink" href="#top-10-countries-of-domicile" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="n">fisd_issuer</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;country_domicile&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (10, 2)</small><table border="1" class="dataframe"><thead><tr><th>country_domicile</th><th>n</th></tr><tr><td>str</td><td>u32</td></tr></thead><tbody><tr><td>&quot;USA&quot;</td><td>11895</td></tr><tr><td>&quot;CAN&quot;</td><td>724</td></tr><tr><td>null</td><td>594</td></tr><tr><td>&quot;GBR&quot;</td><td>456</td></tr><tr><td>&quot;NLD&quot;</td><td>284</td></tr><tr><td>&quot;CYM&quot;</td><td>230</td></tr><tr><td>&quot;BRA&quot;</td><td>185</td></tr><tr><td>&quot;FRA&quot;</td><td>163</td></tr><tr><td>&quot;DEU&quot;</td><td>154</td></tr><tr><td>&quot;AUS&quot;</td><td>145</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fisd-ratings-moodys-pulled-fisd-ratings-moodys-parquet">
+<h2>5. FISD Ratings (Moody’s) — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_ratings_moodys.parquet</span></code><a class="headerlink" href="#fisd-ratings-moodys-pulled-fisd-ratings-moodys-parquet" title="Link to this heading">#</a></h2>
+<p>Source script: <code class="docutils literal notranslate"><span class="pre">pull_fisd.py</span></code> | WRDS table: <code class="docutils literal notranslate"><span class="pre">fisd.fisd_ratings</span></code> (filtered to <code class="docutils literal notranslate"><span class="pre">rating_type</span> <span class="pre">=</span> <span class="pre">'MR'</span></code>)</p>
+<p>Historical Moody’s credit ratings for each bond issue. One row per
+rating event (initial assignment, upgrade, downgrade).</p>
+<p><strong>Key columns:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">issue_id</span></code></p></td>
+<td><p>FISD issue identifier</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rating_date</span></code></p></td>
+<td><p>Date of the rating action</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rating</span></code></p></td>
+<td><p>Moody’s rating string (e.g. Aaa, Baa1)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ratings_mdy</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span><span class="n">PULL_DIR</span> <span class="o">/</span> <span class="s2">&quot;fisd_ratings_moodys.parquet&quot;</span><span class="p">)</span>
+<span class="n">n_rows_mdy</span> <span class="o">=</span> <span class="n">ratings_mdy</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">())</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">cols_mdy</span> <span class="o">=</span> <span class="n">ratings_mdy</span><span class="o">.</span><span class="n">collect_schema</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rows: </span><span class="si">{</span><span class="n">n_rows_mdy</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  |  Columns: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cols_mdy</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column names: </span><span class="si">{</span><span class="n">cols_mdy</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rows: 1,482,164  |  Columns: 3
+Column names: [&#39;issue_id&#39;, &#39;rating_date&#39;, &#39;rating&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id3">
+<h3>Example rows<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ratings_mdy</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 3)</small><table border="1" class="dataframe"><thead><tr><th>issue_id</th><th>rating_date</th><th>rating</th></tr><tr><td>f64</td><td>str</td><td>str</td></tr></thead><tbody><tr><td>1.0</td><td>&quot;1993-05-26&quot;</td><td>&quot;Baa3&quot;</td></tr><tr><td>1.0</td><td>&quot;1997-01-23&quot;</td><td>&quot;Baa2&quot;</td></tr><tr><td>1.0</td><td>&quot;1999-12-29&quot;</td><td>&quot;Baa2&quot;</td></tr><tr><td>1.0</td><td>&quot;2000-12-15&quot;</td><td>&quot;Baa2&quot;</td></tr><tr><td>1.0</td><td>&quot;2001-04-06&quot;</td><td>&quot;Baa3&quot;</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="id4">
+<h3>Date range<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ratings_mdy</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;rating_date&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;earliest&quot;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;rating_date&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;latest&quot;</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (1, 2)</small><table border="1" class="dataframe"><thead><tr><th>earliest</th><th>latest</th></tr><tr><td>str</td><td>str</td></tr></thead><tbody><tr><td>&quot;1895-10-01&quot;</td><td>&quot;2090-10-04&quot;</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fisd-ratings-s-p-pulled-fisd-ratings-sp-parquet">
+<h2>6. FISD Ratings (S&amp;P) — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_ratings_sp.parquet</span></code><a class="headerlink" href="#fisd-ratings-s-p-pulled-fisd-ratings-sp-parquet" title="Link to this heading">#</a></h2>
+<p>Source script: <code class="docutils literal notranslate"><span class="pre">pull_fisd.py</span></code> | WRDS table: <code class="docutils literal notranslate"><span class="pre">fisd.fisd_ratings</span></code> (filtered to <code class="docutils literal notranslate"><span class="pre">rating_type</span> <span class="pre">=</span> <span class="pre">'SPR'</span></code>)</p>
+<p>Historical S&amp;P credit ratings for each bond issue. One row per
+rating event (initial assignment, upgrade, downgrade).</p>
+<p><strong>Key columns:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">issue_id</span></code></p></td>
+<td><p>FISD issue identifier</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rating_date</span></code></p></td>
+<td><p>Date of the rating action</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rating</span></code></p></td>
+<td><p>S&amp;P rating string (e.g. AAA, BBB+)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ratings_sp</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span><span class="n">PULL_DIR</span> <span class="o">/</span> <span class="s2">&quot;fisd_ratings_sp.parquet&quot;</span><span class="p">)</span>
+<span class="n">n_rows_sp</span> <span class="o">=</span> <span class="n">ratings_sp</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">())</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">cols_sp</span> <span class="o">=</span> <span class="n">ratings_sp</span><span class="o">.</span><span class="n">collect_schema</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rows: </span><span class="si">{</span><span class="n">n_rows_sp</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  |  Columns: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cols_sp</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column names: </span><span class="si">{</span><span class="n">cols_sp</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rows: 1,185,202  |  Columns: 3
+Column names: [&#39;issue_id&#39;, &#39;rating_date&#39;, &#39;rating&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id5">
+<h3>Example rows<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ratings_sp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 3)</small><table border="1" class="dataframe"><thead><tr><th>issue_id</th><th>rating_date</th><th>rating</th></tr><tr><td>f64</td><td>str</td><td>str</td></tr></thead><tbody><tr><td>1.0</td><td>&quot;1995-02-22&quot;</td><td>&quot;BBB-&quot;</td></tr><tr><td>1.0</td><td>&quot;1997-02-07&quot;</td><td>&quot;BBB-&quot;</td></tr><tr><td>1.0</td><td>&quot;1997-07-03&quot;</td><td>&quot;BBB&quot;</td></tr><tr><td>1.0</td><td>&quot;2001-09-21&quot;</td><td>&quot;BBB&quot;</td></tr><tr><td>2.0</td><td>&quot;1995-02-22&quot;</td><td>&quot;BBB-&quot;</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="id6">
+<h3>Date range<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ratings_sp</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;rating_date&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;earliest&quot;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;rating_date&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;latest&quot;</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (1, 2)</small><table border="1" class="dataframe"><thead><tr><th>earliest</th><th>latest</th></tr><tr><td>str</td><td>str</td></tr></thead><tbody><tr><td>&quot;1895-10-01&quot;</td><td>&quot;2091-06-14&quot;</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fisd-redemption-pulled-fisd-redemption-parquet">
+<h2>7. FISD Redemption — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_redemption.parquet</span></code><a class="headerlink" href="#fisd-redemption-pulled-fisd-redemption-parquet" title="Link to this heading">#</a></h2>
+<p>Source script: <code class="docutils literal notranslate"><span class="pre">pull_fisd.py</span></code> | WRDS table: <code class="docutils literal notranslate"><span class="pre">fisd.fisd_mergedredemption</span></code></p>
+<p>Callable/redeemable flags from the FISD redemption table. Indicates
+whether a bond issue is callable.</p>
+<p><strong>Key columns:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">issue_id</span></code></p></td>
+<td><p>FISD issue identifier</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">callable</span></code></p></td>
+<td><p>Flag indicating whether the bond is callable</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">redemp</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span><span class="n">PULL_DIR</span> <span class="o">/</span> <span class="s2">&quot;fisd_redemption.parquet&quot;</span><span class="p">)</span>
+<span class="n">n_rows_redemp</span> <span class="o">=</span> <span class="n">redemp</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">())</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">cols_redemp</span> <span class="o">=</span> <span class="n">redemp</span><span class="o">.</span><span class="n">collect_schema</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rows: </span><span class="si">{</span><span class="n">n_rows_redemp</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  |  Columns: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cols_redemp</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column names: </span><span class="si">{</span><span class="n">cols_redemp</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rows: 431,041  |  Columns: 2
+Column names: [&#39;issue_id&#39;, &#39;callable&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id7">
+<h3>Example rows<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">redemp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 2)</small><table border="1" class="dataframe"><thead><tr><th>issue_id</th><th>callable</th></tr><tr><td>f64</td><td>str</td></tr></thead><tbody><tr><td>4.0</td><td>&quot;Y&quot;</td></tr><tr><td>5.0</td><td>&quot;N&quot;</td></tr><tr><td>6.0</td><td>&quot;N&quot;</td></tr><tr><td>8.0</td><td>&quot;N&quot;</td></tr><tr><td>9.0</td><td>&quot;N&quot;</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="liu-wu-treasury-yields-pulled-liu-wu-yields-parquet">
+<h2>8. Liu-Wu Treasury Yields — <code class="docutils literal notranslate"><span class="pre">pulled/liu_wu_yields.parquet</span></code><a class="headerlink" href="#liu-wu-treasury-yields-pulled-liu-wu-yields-parquet" title="Link to this heading">#</a></h2>
+<p>Source script: <code class="docutils literal notranslate"><span class="pre">pull_liu_wu_yields.py</span></code> | Source: Liu-Wu (Google Sheets)</p>
+<p>Zero-coupon Treasury yield curve at selected maturities, daily-resampled
+with forward fill. Yields are expressed as decimals (e.g. 0.035 = 3.5%).
+Used by Stage 1 to compute credit spreads.</p>
+<p><strong>Key columns:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trd_exctn_dt</span></code></p></td>
+<td><p>Date</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">oneyr</span></code></p></td>
+<td><p>1-year zero-coupon yield</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">twoyr</span></code></p></td>
+<td><p>2-year zero-coupon yield</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fiveyr</span></code></p></td>
+<td><p>5-year zero-coupon yield</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sevyr</span></code></p></td>
+<td><p>7-year zero-coupon yield</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tenyr</span></code></p></td>
+<td><p>10-year zero-coupon yield</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">twentyr</span></code></p></td>
+<td><p>20-year zero-coupon yield</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">thirtyr</span></code></p></td>
+<td><p>30-year zero-coupon yield</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">liu_wu</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span><span class="n">PULL_DIR</span> <span class="o">/</span> <span class="s2">&quot;liu_wu_yields.parquet&quot;</span><span class="p">)</span>
+<span class="n">n_rows_lw</span> <span class="o">=</span> <span class="n">liu_wu</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">())</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">cols_lw</span> <span class="o">=</span> <span class="n">liu_wu</span><span class="o">.</span><span class="n">collect_schema</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rows: </span><span class="si">{</span><span class="n">n_rows_lw</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  |  Columns: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cols_lw</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column names: </span><span class="si">{</span><span class="n">cols_lw</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rows: 9,102  |  Columns: 8
+Column names: [&#39;trd_exctn_dt&#39;, &#39;oneyr&#39;, &#39;twoyr&#39;, &#39;fiveyr&#39;, &#39;sevyr&#39;, &#39;tenyr&#39;, &#39;twentyr&#39;, &#39;thirtyr&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id8">
+<h3>Example rows<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">liu_wu</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 8)</small><table border="1" class="dataframe"><thead><tr><th>trd_exctn_dt</th><th>oneyr</th><th>twoyr</th><th>fiveyr</th><th>sevyr</th><th>tenyr</th><th>twentyr</th><th>thirtyr</th></tr><tr><td>datetime[ns]</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>2000-01-31 00:00:00</td><td>0.062327</td><td>0.065336</td><td>0.066721</td><td>0.066368</td><td>0.066083</td><td>0.065692</td><td>0.062096</td></tr><tr><td>2000-02-01 00:00:00</td><td>0.062436</td><td>0.065138</td><td>0.066701</td><td>0.065991</td><td>0.06565</td><td>0.064933</td><td>0.061348</td></tr><tr><td>2000-02-02 00:00:00</td><td>0.062205</td><td>0.065213</td><td>0.066471</td><td>0.065698</td><td>0.065173</td><td>0.064004</td><td>0.059505</td></tr><tr><td>2000-02-03 00:00:00</td><td>0.061771</td><td>0.064641</td><td>0.065422</td><td>0.064795</td><td>0.064132</td><td>0.063126</td><td>0.057421</td></tr><tr><td>2000-02-04 00:00:00</td><td>0.062466</td><td>0.065632</td><td>0.066751</td><td>0.065878</td><td>0.065124</td><td>0.064041</td><td>0.058841</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="id9">
+<h3>Date range<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">liu_wu</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;trd_exctn_dt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;earliest&quot;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;trd_exctn_dt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;latest&quot;</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (1, 2)</small><table border="1" class="dataframe"><thead><tr><th>earliest</th><th>latest</th></tr><tr><td>datetime[ns]</td><td>datetime[ns]</td></tr></thead><tbody><tr><td>2000-01-31 00:00:00</td><td>2024-12-31 00:00:00</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="osbap-corporate-bond-returns-pulled-corporate-bond-returns-parquet">
+<h2>9. OSBAP Corporate Bond Returns — <code class="docutils literal notranslate"><span class="pre">pulled/corporate_bond_returns.parquet</span></code><a class="headerlink" href="#osbap-corporate-bond-returns-pulled-corporate-bond-returns-parquet" title="Link to this heading">#</a></h2>
+<p>Source script: <code class="docutils literal notranslate"><span class="pre">pull_open_source_bond.py</span></code></p>
+<p>Monthly bond-level returns from the Open Source Bond Asset Pricing
+(OSBAP) project at <a class="reference external" href="https://openbondassetpricing.com">openbondassetpricing.com</a>.
+<strong>Used only for validation</strong>: compared against Stage 1 output in
+<code class="docutils literal notranslate"><span class="pre">test_stage1_vs_open_source.py</span></code> to benchmark duration, convexity,
+credit spreads, and other metrics. Not consumed by any processing stage.</p>
+<p><strong>Key columns</strong> (partial — see OSBAP documentation for full schema):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cusip</span></code></p></td>
+<td><p>9-character CUSIP</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">date</span></code></p></td>
+<td><p>Month-end date</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bond_ret</span></code></p></td>
+<td><p>Total bond return</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bond_prc</span></code></p></td>
+<td><p>Bond price</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mod_dur</span></code></p></td>
+<td><p>Modified duration</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">convexity</span></code></p></td>
+<td><p>Convexity</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">credit_spread</span></code></p></td>
+<td><p>Credit spread (OAS)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">corp</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span><span class="n">PULL_DIR</span> <span class="o">/</span> <span class="s2">&quot;corporate_bond_returns.parquet&quot;</span><span class="p">)</span>
+<span class="n">n_rows_corp</span> <span class="o">=</span> <span class="n">corp</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">())</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">cols_corp</span> <span class="o">=</span> <span class="n">corp</span><span class="o">.</span><span class="n">collect_schema</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rows: </span><span class="si">{</span><span class="n">n_rows_corp</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  |  Columns: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cols_corp</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column names: </span><span class="si">{</span><span class="n">cols_corp</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rows: 1,859,546  |  Columns: 140
+Column names: [&#39;cusip&#39;, &#39;date&#39;, &#39;issuer_cusip&#39;, &#39;permno&#39;, &#39;permco&#39;, &#39;gvkey&#39;, &#39;144a&#39;, &#39;country&#39;, &#39;call&#39;, &#39;ret_vw&#39;, &#39;ret_vw_bgn&#39;, &#39;hprd&#39;, &#39;lib&#39;, &#39;libd&#39;, &#39;ret_type&#39;, &#39;spc_rat&#39;, &#39;mdc_rat&#39;, &#39;ff17num&#39;, &#39;ff30num&#39;, &#39;fce_val&#39;, &#39;mcap_s&#39;, &#39;mcap_e&#39;, &#39;tret&#39;, &#39;rfret&#39;, &#39;dt_s&#39;, &#39;dt_e&#39;, &#39;dt_s_bgn&#39;, &#39;dt_e_bgn&#39;, &#39;hprd_bgn&#39;, &#39;igap_bgn&#39;, &#39;sig_dt&#39;, &#39;sig_gap&#39;, &#39;tmat&#39;, &#39;age&#39;, &#39;ytm&#39;, &#39;cs&#39;, &#39;md_dur&#39;, &#39;convx&#39;, &#39;bbtm&#39;, &#39;sze&#39;, &#39;val_hz&#39;, &#39;val_hz_dts&#39;, &#39;val_ipr&#39;, &#39;val_ipr_dts&#39;, &#39;dcs6&#39;, &#39;cs_mu12_1&#39;, &#39;pi&#39;, &#39;ami&#39;, &#39;ami_v&#39;, &#39;lix&#39;, &#39;ilq&#39;, &#39;roll&#39;, &#39;spd_abs&#39;, &#39;spd_rel&#39;, &#39;cs_sprd&#39;, &#39;ar_sprd&#39;, &#39;p_zro&#39;, &#39;p_fht&#39;, &#39;vov&#39;, &#39;dvol&#39;, &#39;dskew&#39;, &#39;dkurt&#39;, &#39;db_mkt&#39;, &#39;dvol_sys&#39;, &#39;dvol_idio&#39;, &#39;rvol&#39;, &#39;rsj&#39;, &#39;rsk&#39;, &#39;rkt&#39;, &#39;b_vix&#39;, &#39;b_dvixd&#39;, &#39;b_mktrf_mkt&#39;, &#39;b_mktb_mkt&#39;, &#39;ivol_mkt&#39;, &#39;ivol_bbw&#39;, &#39;b_mktbx_dcapm&#39;, &#39;b_term_dcapm&#39;, &#39;b_dvix_va&#39;, &#39;b_dvix_vp&#39;, &#39;ivol_vp&#39;, &#39;b_psb_m&#39;, &#39;b_amd_m&#39;, &#39;b_dvix&#39;, &#39;b_cpi_vol6&#39;, &#39;b_dunc&#39;, &#39;b_unc&#39;, &#39;b_dunc3&#39;, &#39;b_dunc6&#39;, &#39;b_duncr&#39;, &#39;b_duncf&#39;, &#39;b_dcredit&#39;, &#39;b_credit&#39;, &#39;b_dcpi&#39;, &#39;b_cptlt&#39;, &#39;b_rvol&#39;, &#39;b_rsj&#39;, &#39;b_psb&#39;, &#39;b_amd&#39;, &#39;b_illiq&#39;, &#39;b_dvix_dn&#39;, &#39;b_dvix_up&#39;, &#39;b_coskew&#39;, &#39;iskew&#39;, &#39;b_defb&#39;, &#39;b_termb&#39;, &#39;b_drf&#39;, &#39;b_crf&#39;, &#39;b_lrf&#39;, &#39;b_mktb&#39;, &#39;b_lvl&#39;, &#39;b_ysp&#39;, &#39;b_mktb_dn&#39;, &#39;b_mktb_up&#39;, &#39;b_epu&#39;, &#39;b_epum&#39;, &#39;b_eput&#39;, &#39;sysmom3_1&#39;, &#39;sysmom6_1&#39;, &#39;sysmom12_1&#39;, &#39;idimom3_1&#39;, &#39;idimom6_1&#39;, &#39;idimom12_1&#39;, &#39;mom3_1&#39;, &#39;mom6_1&#39;, &#39;mom9_1&#39;, &#39;mom12_1&#39;, &#39;mom12_7&#39;, &#39;ltr48_12&#39;, &#39;ltr30_6&#39;, &#39;ltr24_3&#39;, &#39;imom1&#39;, &#39;imom3_1&#39;, &#39;imom12_1&#39;, &#39;iltr48_12&#39;, &#39;iltr30_6&#39;, &#39;iltr24_3&#39;, &#39;var_90&#39;, &#39;es_90&#39;, &#39;var_95&#39;, &#39;str&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id10">
+<h3>Example rows<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">corp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 140)</small><table border="1" class="dataframe"><thead><tr><th>cusip</th><th>date</th><th>issuer_cusip</th><th>permno</th><th>permco</th><th>gvkey</th><th>144a</th><th>country</th><th>call</th><th>ret_vw</th><th>ret_vw_bgn</th><th>hprd</th><th>lib</th><th>libd</th><th>ret_type</th><th>spc_rat</th><th>mdc_rat</th><th>ff17num</th><th>ff30num</th><th>fce_val</th><th>mcap_s</th><th>mcap_e</th><th>tret</th><th>rfret</th><th>dt_s</th><th>dt_e</th><th>dt_s_bgn</th><th>dt_e_bgn</th><th>hprd_bgn</th><th>igap_bgn</th><th>sig_dt</th><th>sig_gap</th><th>tmat</th><th>age</th><th>ytm</th><th>cs</th><th>md_dur</th><th>&hellip;</th><th>b_defb</th><th>b_termb</th><th>b_drf</th><th>b_crf</th><th>b_lrf</th><th>b_mktb</th><th>b_lvl</th><th>b_ysp</th><th>b_mktb_dn</th><th>b_mktb_up</th><th>b_epu</th><th>b_epum</th><th>b_eput</th><th>sysmom3_1</th><th>sysmom6_1</th><th>sysmom12_1</th><th>idimom3_1</th><th>idimom6_1</th><th>idimom12_1</th><th>mom3_1</th><th>mom6_1</th><th>mom9_1</th><th>mom12_1</th><th>mom12_7</th><th>ltr48_12</th><th>ltr30_6</th><th>ltr24_3</th><th>imom1</th><th>imom3_1</th><th>imom12_1</th><th>iltr48_12</th><th>iltr30_6</th><th>iltr24_3</th><th>var_90</th><th>es_90</th><th>var_95</th><th>str</th></tr><tr><td>cat</td><td>datetime[ns]</td><td>cat</td><td>f64</td><td>f64</td><td>f64</td><td>i8</td><td>cat</td><td>i8</td><td>f32</td><td>f32</td><td>i16</td><td>f32</td><td>f32</td><td>cat</td><td>i32</td><td>i32</td><td>i8</td><td>i8</td><td>i64</td><td>f32</td><td>f32</td><td>f32</td><td>f64</td><td>datetime[ns]</td><td>datetime[ns]</td><td>datetime[ns]</td><td>datetime[ns]</td><td>i16</td><td>i8</td><td>datetime[ns]</td><td>f64</td><td>f32</td><td>f32</td><td>f32</td><td>f32</td><td>f32</td><td>&hellip;</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f32</td></tr></thead><tbody><tr><td>&quot;000336AE7&quot;</td><td>2002-08-31 00:00:00</td><td>&quot;000336&quot;</td><td>75188.0</td><td>null</td><td>null</td><td>0</td><td>&quot;USA&quot;</td><td>1</td><td>0.007252</td><td>null</td><td>26</td><td>0.006879</td><td>0.006951</td><td>&quot;standard&quot;</td><td>1</td><td>1</td><td>16</td><td>29</td><td>100000</td><td>98.714943</td><td>99.430847</td><td>0.015109</td><td>0.0014</td><td>2002-07-26 00:00:00</td><td>2002-08-30 00:00:00</td><td>null</td><td>null</td><td>null</td><td>null</td><td>2002-08-28 00:00:00</td><td>2.0</td><td>5.755</td><td>4.260096</td><td>0.064316</td><td>0.028395</td><td>4.636</td><td>&hellip;</td><td>0.225794</td><td>0.51265</td><td>0.188553</td><td>-0.285256</td><td>null</td><td>0.725394</td><td>-1.180318</td><td>0.223442</td><td>0.739371</td><td>0.714315</td><td>0.141684</td><td>0.062932</td><td>0.275439</td><td>-0.011314</td><td>-0.027213</td><td>-0.032832</td><td>0.027159</td><td>0.002156</td><td>0.012363</td><td>0.015825</td><td>-0.025425</td><td>-0.016064</td><td>-0.021164</td><td>-0.005107</td><td>-0.025394</td><td>-0.025394</td><td>-0.025394</td><td>0.009089</td><td>0.016714</td><td>0.070078</td><td>0.259947</td><td>0.25091</td><td>0.202824</td><td>0.032174</td><td>0.035203</td><td>0.038233</td><td>0.051041</td></tr><tr><td>&quot;000336AE7&quot;</td><td>2002-09-30 00:00:00</td><td>&quot;000336&quot;</td><td>75188.0</td><td>null</td><td>null</td><td>0</td><td>&quot;USA&quot;</td><td>1</td><td>-0.05466</td><td>-0.061185</td><td>20</td><td>null</td><td>null</td><td>&quot;standard&quot;</td><td>1</td><td>1</td><td>16</td><td>29</td><td>100000</td><td>99.430847</td><td>93.995956</td><td>0.026486</td><td>0.0014</td><td>2002-08-30 00:00:00</td><td>2002-09-30 00:00:00</td><td>2002-09-03 00:00:00</td><td>2002-09-30 00:00:00</td><td>19</td><td>1</td><td>2002-09-23 00:00:00</td><td>5.0</td><td>5.67</td><td>4.344969</td><td>0.075301</td><td>0.045019</td><td>4.515</td><td>&hellip;</td><td>0.469064</td><td>0.152257</td><td>0.216405</td><td>0.198128</td><td>null</td><td>0.60476</td><td>0.16412</td><td>-0.535116</td><td>0.259219</td><td>0.886356</td><td>-0.069745</td><td>-0.038121</td><td>0.147658</td><td>0.006335</td><td>-0.02346</td><td>-0.039896</td><td>0.017942</td><td>0.007689</td><td>0.036977</td><td>0.0244</td><td>-0.016358</td><td>-0.013613</td><td>-0.003806</td><td>0.014823</td><td>-0.025394</td><td>-0.026544</td><td>-0.026544</td><td>0.015736</td><td>0.024968</td><td>0.075254</td><td>0.263304</td><td>0.213676</td><td>0.196803</td><td>0.038233</td><td>0.046446</td><td>0.05466</td><td>-0.002936</td></tr><tr><td>&quot;000336AE7&quot;</td><td>2002-10-31 00:00:00</td><td>&quot;000336&quot;</td><td>75188.0</td><td>null</td><td>null</td><td>0</td><td>&quot;USA&quot;</td><td>1</td><td>0.051999</td><td>null</td><td>23</td><td>0.015625</td><td>0.015362</td><td>&quot;standard&quot;</td><td>1</td><td>1</td><td>16</td><td>29</td><td>100000</td><td>93.995956</td><td>98.883682</td><td>-0.002311</td><td>0.0014</td><td>2002-09-30 00:00:00</td><td>2002-10-31 00:00:00</td><td>null</td><td>null</td><td>null</td><td>null</td><td>2002-10-25 00:00:00</td><td>4.0</td><td>5.585</td><td>4.429842</td><td>0.074274</td><td>0.040876</td><td>4.429</td><td>&hellip;</td><td>0.527977</td><td>-0.007771</td><td>0.341365</td><td>0.338517</td><td>null</td><td>0.509735</td><td>-0.534577</td><td>0.386113</td><td>0.4056</td><td>0.59334</td><td>0.040134</td><td>0.002559</td><td>0.267605</td><td>0.018975</td><td>0.006474</td><td>-0.006987</td><td>-0.066383</td><td>-0.044732</td><td>-0.043342</td><td>-0.047804</td><td>-0.039212</td><td>-0.063172</td><td>-0.051381</td><td>0.020156</td><td>-0.026544</td><td>-0.009971</td><td>-0.009971</td><td>0.014274</td><td>0.030234</td><td>0.067641</td><td>0.295979</td><td>0.237394</td><td>0.20679</td><td>0.038233</td><td>0.046446</td><td>0.05466</td><td>0.066941</td></tr><tr><td>&quot;000336AE7&quot;</td><td>2002-11-30 00:00:00</td><td>&quot;000336&quot;</td><td>75188.0</td><td>null</td><td>null</td><td>0</td><td>&quot;USA&quot;</td><td>1</td><td>0.080557</td><td>0.064208</td><td>21</td><td>null</td><td>null</td><td>&quot;standard&quot;</td><td>1</td><td>1</td><td>16</td><td>29</td><td>100000</td><td>98.883682</td><td>103.431</td><td>-0.015273</td><td>0.0012</td><td>2002-10-31 00:00:00</td><td>2002-11-27 00:00:00</td><td>2002-11-01 00:00:00</td><td>2002-11-27 00:00:00</td><td>18</td><td>1</td><td>2002-11-26 00:00:00</td><td>1.0</td><td>5.511</td><td>4.503765</td><td>0.068748</td><td>0.035259</td><td>4.375</td><td>&hellip;</td><td>0.990068</td><td>-0.355257</td><td>0.585584</td><td>0.646973</td><td>null</td><td>0.926985</td><td>-1.150049</td><td>1.656477</td><td>0.261913</td><td>1.387602</td><td>0.121245</td><td>0.061712</td><td>0.409904</td><td>0.007409</td><td>0.030024</td><td>0.015147</td><td>-0.01007</td><td>-0.009588</td><td>-0.025985</td><td>-0.005503</td><td>0.017561</td><td>-0.023759</td><td>-0.014382</td><td>-0.024863</td><td>-0.009971</td><td>-0.009971</td><td>-0.002791</td><td>0.001263</td><td>0.015555</td><td>0.075689</td><td>0.260612</td><td>0.262213</td><td>0.207362</td><td>0.038233</td><td>0.046446</td><td>0.05466</td><td>0.04528</td></tr><tr><td>&quot;000336AE7&quot;</td><td>2003-04-30 00:00:00</td><td>&quot;000336&quot;</td><td>75188.0</td><td>null</td><td>null</td><td>0</td><td>&quot;USA&quot;</td><td>1</td><td>0.067899</td><td>0.026802</td><td>21</td><td>null</td><td>null</td><td>&quot;standard&quot;</td><td>1</td><td>1</td><td>16</td><td>29</td><td>100000</td><td>88.450653</td><td>94.45639</td><td>0.001701</td><td>0.001</td><td>2003-03-31 00:00:00</td><td>2003-04-29 00:00:00</td><td>2003-04-01 00:00:00</td><td>2003-04-29 00:00:00</td><td>19</td><td>1</td><td>2003-04-28 00:00:00</td><td>1.0</td><td>5.092</td><td>4.922656</td><td>0.09288</td><td>0.063154</td><td>4.019</td><td>&hellip;</td><td>1.545703</td><td>-0.747995</td><td>0.857728</td><td>1.005559</td><td>null</td><td>1.419267</td><td>-2.739921</td><td>4.100357</td><td>1.217454</td><td>1.546506</td><td>0.733772</td><td>0.203213</td><td>0.764671</td><td>0.07863</td><td>0.161576</td><td>0.188828</td><td>0.196734</td><td>0.11838</td><td>0.075599</td><td>0.291057</td><td>0.293264</td><td>0.304934</td><td>0.272392</td><td>-0.032609</td><td>-0.002791</td><td>-0.057299</td><td>-0.008279</td><td>0.005471</td><td>0.018439</td><td>0.120662</td><td>0.257004</td><td>0.244847</td><td>0.196972</td><td>0.038233</td><td>0.046446</td><td>0.05466</td><td>0.05373</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="id11">
+<h3>Date range<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">date_cols_corp</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols_corp</span> <span class="k">if</span> <span class="s2">&quot;date&quot;</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s2">&quot;dt&quot;</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+<span class="k">if</span> <span class="n">date_cols_corp</span><span class="p">:</span>
+    <span class="n">corp</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">date_cols_corp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;earliest&quot;</span><span class="p">),</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">date_cols_corp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;latest&quot;</span><span class="p">),</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="osbap-linker-fang-2025-pulled-osbap-linker-parquet">
+<h2>10. OSBAP Linker (Fang, 2025) — <code class="docutils literal notranslate"><span class="pre">pulled/osbap_linker.parquet</span></code><a class="headerlink" href="#osbap-linker-fang-2025-pulled-osbap-linker-parquet" title="Link to this heading">#</a></h2>
+<p>Source script: <code class="docutils literal notranslate"><span class="pre">pull_open_source_bond.py</span></code> | Source: <a class="reference external" href="http://openbondassetpricing.com">openbondassetpricing.com</a></p>
+<p><strong>Core Stage 1 input.</strong> Bond-firm link file constructed by Chuck Fang
+(cite: Fang, 2025, “Monetary Policy Amplification through Bond Fund
+Flows”, working paper). Maps issuer CUSIPs to equity identifiers
+(PERMNO, PERMCO, GVKEY) in real time.</p>
+<p>Many bonds are issued through subsidiaries that do not share the
+parent’s identifiers (e.g. Shell plc vs Shell International Finance BV),
+and 19% of CUSIP6s change ultimate parents over time. Fang constructs
+the link using the CUSIP-ticker mapping from ICE and TRACE, the
+ticker-GVKEY mapping from Compustat Snapshot, and the CRSP-Compustat
+Link from CRSP, with extensive hand corrections.</p>
+<p>Coverage: 93% (99%) of USD corporate debentures by amount outstanding
+(trading volume), including 29,253 foreign/private issuers and 8,862
+144A bonds not covered by the WRDS Bond-CRSP Link.</p>
+<p>Used in Step 7 of <code class="docutils literal notranslate"><span class="pre">stage1_pipeline.py</span></code>: forward-filled and left-joined
+on issuer CUSIP + year-month to attach equity IDs to every bond record.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">linker</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span><span class="n">PULL_DIR</span> <span class="o">/</span> <span class="s2">&quot;osbap_linker.parquet&quot;</span><span class="p">)</span>
+<span class="n">n_rows_linker</span> <span class="o">=</span> <span class="n">linker</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">())</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">cols_linker</span> <span class="o">=</span> <span class="n">linker</span><span class="o">.</span><span class="n">collect_schema</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rows: </span><span class="si">{</span><span class="n">n_rows_linker</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  |  Columns: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cols_linker</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column names: </span><span class="si">{</span><span class="n">cols_linker</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rows: 21,845,380  |  Columns: 5
+Column names: [&#39;ISSUER_CUSIP&#39;, &#39;GVKEY&#39;, &#39;PERMNO&#39;, &#39;PERMCO&#39;, &#39;YYYYMM&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id12">
+<h3>Example rows<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">linker</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 5)</small><table border="1" class="dataframe"><thead><tr><th>ISSUER_CUSIP</th><th>GVKEY</th><th>PERMNO</th><th>PERMCO</th><th>YYYYMM</th></tr><tr><td>str</td><td>f64</td><td>f64</td><td>f64</td><td>i64</td></tr></thead><tbody><tr><td>&quot;000021&quot;</td><td>23052.0</td><td>78736.0</td><td>29189.0</td><td>199701</td></tr><tr><td>&quot;000021&quot;</td><td>23052.0</td><td>78736.0</td><td>29189.0</td><td>199702</td></tr><tr><td>&quot;000021&quot;</td><td>23052.0</td><td>78736.0</td><td>29189.0</td><td>199703</td></tr><tr><td>&quot;000021&quot;</td><td>23052.0</td><td>78736.0</td><td>29189.0</td><td>199704</td></tr><tr><td>&quot;000021&quot;</td><td>23052.0</td><td>78736.0</td><td>29189.0</td><td>199705</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="osbap-treasury-bond-returns-pulled-treasury-bond-returns-parquet">
+<h2>11. OSBAP Treasury Bond Returns — <code class="docutils literal notranslate"><span class="pre">pulled/treasury_bond_returns.parquet</span></code><a class="headerlink" href="#osbap-treasury-bond-returns-pulled-treasury-bond-returns-parquet" title="Link to this heading">#</a></h2>
+<p>Source script: <code class="docutils literal notranslate"><span class="pre">pull_open_source_bond.py</span></code></p>
+<p>Treasury bond returns from the OSBAP project. <strong>Currently documentation
+only</strong> — not consumed by any processing or validation stage in the
+pipeline.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">treas</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span><span class="n">PULL_DIR</span> <span class="o">/</span> <span class="s2">&quot;treasury_bond_returns.parquet&quot;</span><span class="p">)</span>
+<span class="n">n_rows_treas</span> <span class="o">=</span> <span class="n">treas</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">())</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">cols_treas</span> <span class="o">=</span> <span class="n">treas</span><span class="o">.</span><span class="n">collect_schema</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rows: </span><span class="si">{</span><span class="n">n_rows_treas</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  |  Columns: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cols_treas</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column names: </span><span class="si">{</span><span class="n">cols_treas</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rows: 2,381,340  |  Columns: 5
+Column names: [&#39;DATE&#39;, &#39;CUSIP&#39;, &#39;tr_return&#39;, &#39;tr_ytm_match&#39;, &#39;tau&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id13">
+<h3>Example rows<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">treas</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 5)</small><table border="1" class="dataframe"><thead><tr><th>DATE</th><th>CUSIP</th><th>tr_return</th><th>tr_ytm_match</th><th>tau</th></tr><tr><td>i64</td><td>str</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>20020731</td><td>&quot;000325AA8&quot;</td><td>null</td><td>null</td><td>0.545205</td></tr><tr><td>20020831</td><td>&quot;000325AA8&quot;</td><td>0.09257</td><td>null</td><td>0.460274</td></tr><tr><td>20021031</td><td>&quot;000325AA8&quot;</td><td>null</td><td>null</td><td>0.293151</td></tr><tr><td>20021130</td><td>&quot;000325AA8&quot;</td><td>0.215493</td><td>null</td><td>0.210959</td></tr><tr><td>20021231</td><td>&quot;000325AA8&quot;</td><td>0.109617</td><td>null</td><td>0.126027</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="id14">
+<h3>Date range<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">date_cols_treas</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols_treas</span> <span class="k">if</span> <span class="s2">&quot;date&quot;</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s2">&quot;dt&quot;</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+<span class="k">if</span> <span class="n">date_cols_treas</span><span class="p">:</span>
+    <span class="n">treas</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">date_cols_treas</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;earliest&quot;</span><span class="p">),</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">date_cols_treas</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;latest&quot;</span><span class="p">),</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="trace-144a-pulled-trace-144a">
+<h2>12. TRACE 144A — <code class="docutils literal notranslate"><span class="pre">pulled/trace_144a/</span></code><a class="headerlink" href="#trace-144a-pulled-trace-144a" title="Link to this heading">#</a></h2>
+<p>Source script: <code class="docutils literal notranslate"><span class="pre">pull_trace_144a.py</span></code> | WRDS table: <code class="docutils literal notranslate"><span class="pre">trace.trace_btds144a</span></code></p>
+<p>Trade-level data for Rule 144A private placement bonds. These are
+bonds sold to qualified institutional buyers under SEC Rule 144A.
+Data starts July 2002. Same column schema as TRACE Standard.</p>
+<p><strong>Key columns:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cusip_id</span></code></p></td>
+<td><p>9-character CUSIP bond identifier</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">trd_exctn_dt</span></code></p></td>
+<td><p>Trade execution date</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trd_exctn_tm</span></code></p></td>
+<td><p>Trade execution time</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rptd_pr</span></code></p></td>
+<td><p>Reported price (per $100 par)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ascii_rptd_vol_tx</span></code></p></td>
+<td><p>Reported volume (text field)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">yld_pt</span></code></p></td>
+<td><p>Yield at time of trade</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trc_st</span></code></p></td>
+<td><p>TRACE status</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">side</span></code></p></td>
+<td><p>Trade side</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">msg_seq_nb</span></code></p></td>
+<td><p>Message sequence number</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trace_144a_dir</span> <span class="o">=</span> <span class="n">PULL_DIR</span> <span class="o">/</span> <span class="s2">&quot;trace_144a&quot;</span>
+<span class="n">trace_144a</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span>
+    <span class="n">trace_144a_dir</span> <span class="o">/</span> <span class="s2">&quot;**/*.parquet&quot;</span><span class="p">,</span>
+    <span class="n">hive_partitioning</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">allow_missing_columns</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">n_rows_144a</span> <span class="o">=</span> <span class="n">trace_144a</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">())</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">cols_144a</span> <span class="o">=</span> <span class="n">trace_144a</span><span class="o">.</span><span class="n">collect_schema</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rows: </span><span class="si">{</span><span class="n">n_rows_144a</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  |  Columns: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cols_144a</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column names: </span><span class="si">{</span><span class="n">cols_144a</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rows: 20,357,504  |  Columns: 21
+Column names: [&#39;cusip_id&#39;, &#39;bond_sym_id&#39;, &#39;bsym&#39;, &#39;trd_exctn_dt&#39;, &#39;trd_exctn_tm&#39;, &#39;msg_seq_nb&#39;, &#39;trc_st&#39;, &#39;wis_fl&#39;, &#39;cmsn_trd&#39;, &#39;ascii_rptd_vol_tx&#39;, &#39;rptd_pr&#39;, &#39;yld_pt&#39;, &#39;asof_cd&#39;, &#39;side&#39;, &#39;diss_rptg_side_cd&#39;, &#39;orig_msg_seq_nb&#39;, &#39;orig_dis_dt&#39;, &#39;rptg_party_type&#39;, &#39;contra_party_type&#39;, &#39;year&#39;, &#39;month&#39;]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/l3/tj6vb0ld2ys1h939jz0qrfrh0000gn/T/ipykernel_72101/1672643635.py:2: DeprecationWarning: the parameter `allow_missing_columns` for `scan_parquet` is deprecated. Use the parameter `missing_columns` instead and pass one of `(&#39;insert&#39;, &#39;raise&#39;)`.
+(Deprecated in version 1.30.0)
+  trace_144a = pl.scan_parquet(
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id15">
+<h3>Example rows<a class="headerlink" href="#id15" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trace_144a</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 21)</small><table border="1" class="dataframe"><thead><tr><th>cusip_id</th><th>bond_sym_id</th><th>bsym</th><th>trd_exctn_dt</th><th>trd_exctn_tm</th><th>msg_seq_nb</th><th>trc_st</th><th>wis_fl</th><th>cmsn_trd</th><th>ascii_rptd_vol_tx</th><th>rptd_pr</th><th>yld_pt</th><th>asof_cd</th><th>side</th><th>diss_rptg_side_cd</th><th>orig_msg_seq_nb</th><th>orig_dis_dt</th><th>rptg_party_type</th><th>contra_party_type</th><th>year</th><th>month</th></tr><tr><td>str</td><td>str</td><td>str</td><td>date</td><td>time</td><td>f64</td><td>str</td><td>str</td><td>str</td><td>str</td><td>f64</td><td>f64</td><td>str</td><td>str</td><td>str</td><td>f64</td><td>date</td><td>str</td><td>str</td><td>i64</td><td>i64</td></tr></thead><tbody><tr><td>&quot;053773BE6&quot;</td><td>&quot;CAR5025361&quot;</td><td>&quot;BBG00WGJGS47&quot;</td><td>2003-08-03</td><td>18:13:03</td><td>3463.0</td><td>&quot;N&quot;</td><td>null</td><td>null</td><td>&quot;1MM+&quot;</td><td>93.0</td><td>7.041207</td><td>&quot;A&quot;</td><td>&quot;B&quot;</td><td>null</td><td>6785.0</td><td>2020-08-06</td><td>&quot;D&quot;</td><td>&quot;C&quot;</td><td>2003</td><td>8</td></tr><tr><td>&quot;053773BE6&quot;</td><td>&quot;CAR5025361&quot;</td><td>&quot;BBG00WGJGS47&quot;</td><td>2003-08-03</td><td>18:13:03</td><td>6785.0</td><td>&quot;M&quot;</td><td>null</td><td>null</td><td>&quot;1MM+&quot;</td><td>93.0</td><td>7.041207</td><td>&quot;A&quot;</td><td>&quot;B&quot;</td><td>null</td><td>null</td><td>null</td><td>&quot;D&quot;</td><td>&quot;C&quot;</td><td>2003</td><td>8</td></tr><tr><td>&quot;045086AK1&quot;</td><td>&quot;ASWD4936471&quot;</td><td>&quot;BBG00RCZ3WB3&quot;</td><td>2003-10-17</td><td>11:58:44</td><td>3303.0</td><td>&quot;M&quot;</td><td>null</td><td>null</td><td>&quot;1MM+&quot;</td><td>92.75</td><td>8.701616</td><td>&quot;A&quot;</td><td>&quot;S&quot;</td><td>null</td><td>null</td><td>null</td><td>&quot;D&quot;</td><td>&quot;C&quot;</td><td>2003</td><td>10</td></tr><tr><td>&quot;423074AS2&quot;</td><td>&quot;BRK4206318&quot;</td><td>&quot;BBG0080F6Q77&quot;</td><td>2004-01-28</td><td>09:04:15</td><td>185.0</td><td>&quot;G&quot;</td><td>null</td><td>&quot;N&quot;</td><td>&quot;1000000&quot;</td><td>100.228125</td><td>4.839958</td><td>&quot;A&quot;</td><td>null</td><td>&quot;B&quot;</td><td>null</td><td>null</td><td>null</td><td>null</td><td>2004</td><td>1</td></tr><tr><td>&quot;225433AQ4&quot;</td><td>&quot;CS4353757&quot;</td><td>&quot;BBG00CNXL6V4&quot;</td><td>2004-10-01</td><td>09:37:29</td><td>462.0</td><td>&quot;M&quot;</td><td>null</td><td>&quot;N&quot;</td><td>&quot;5000000&quot;</td><td>100.415</td><td>null</td><td>&quot;A&quot;</td><td>&quot;B&quot;</td><td>null</td><td>null</td><td>null</td><td>&quot;D&quot;</td><td>&quot;C&quot;</td><td>2004</td><td>10</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="id16">
+<h3>Date range<a class="headerlink" href="#id16" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trace_144a</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;trd_exctn_dt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;earliest&quot;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;trd_exctn_dt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;latest&quot;</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (1, 2)</small><table border="1" class="dataframe"><thead><tr><th>earliest</th><th>latest</th></tr><tr><td>date</td><td>date</td></tr></thead><tbody><tr><td>2003-08-03</td><td>2026-02-13</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="trades-per-month-trace-144a">
+<h3>Trades per month — TRACE 144A<a class="headerlink" href="#trades-per-month-trace-144a" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
+
+<span class="n">t144a_monthly</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">trace_144a</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;trd_exctn_dt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="s2">&quot;1mo&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;n_trades&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">t144a_monthly</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span>
+    <span class="n">t144a_monthly</span><span class="p">[</span><span class="s2">&quot;n_trades&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkorange&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">YearLocator</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s2">&quot;%Y&quot;</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Trades&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;TRACE 144A — trades per month&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/84ec422b883c1ef3ffcffbe54ad631a3448efaa4dd3a4f37629b2709145d2d87.png" src="../_images/84ec422b883c1ef3ffcffbe54ad631a3448efaa4dd3a4f37629b2709145d2d87.png" />
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="trace-enhanced-pulled-trace-enhanced">
+<h2>13. TRACE Enhanced — <code class="docutils literal notranslate"><span class="pre">pulled/trace_enhanced/</span></code><a class="headerlink" href="#trace-enhanced-pulled-trace-enhanced" title="Link to this heading">#</a></h2>
+<p>Source script: <code class="docutils literal notranslate"><span class="pre">pull_trace_enhanced.py</span></code> | WRDS table: <code class="docutils literal notranslate"><span class="pre">trace.trace_enhanced</span></code></p>
+<p>Trade-level corporate bond transaction data from FINRA’s TRACE system
+(Enhanced version). Data starts July 2002 and is stored as a
+hive-partitioned data lake (<code class="docutils literal notranslate"><span class="pre">trace_enhanced/year=YYYY/month=MM/data.parquet</span></code>).
+Each row is one reported trade with price, volume, and counterparty details.</p>
+<p><strong>Key columns:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cusip_id</span></code></p></td>
+<td><p>9-character CUSIP bond identifier</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">trd_exctn_dt</span></code></p></td>
+<td><p>Trade execution date</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trd_exctn_tm</span></code></p></td>
+<td><p>Trade execution time</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rptd_pr</span></code></p></td>
+<td><p>Reported price (per $100 par)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">entrd_vol_qt</span></code></p></td>
+<td><p>Entered volume (par value)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">yld_pt</span></code></p></td>
+<td><p>Yield at time of trade</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trc_st</span></code></p></td>
+<td><p>TRACE status (T, X, C, W, Y)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">msg_seq_nb</span></code></p></td>
+<td><p>Message sequence number</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rpt_side_cd</span></code></p></td>
+<td><p>Reporting side (B=buy, S=sell)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cntra_mp_id</span></code></p></td>
+<td><p>Counterparty market participant ID</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trace_enh_dir</span> <span class="o">=</span> <span class="n">PULL_DIR</span> <span class="o">/</span> <span class="s2">&quot;trace_enhanced&quot;</span>
+<span class="n">trace_enh</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span>
+    <span class="n">trace_enh_dir</span> <span class="o">/</span> <span class="s2">&quot;**/*.parquet&quot;</span><span class="p">,</span>
+    <span class="n">hive_partitioning</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">allow_missing_columns</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">n_rows_enh</span> <span class="o">=</span> <span class="n">trace_enh</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">())</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">cols_enh</span> <span class="o">=</span> <span class="n">trace_enh</span><span class="o">.</span><span class="n">collect_schema</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rows: </span><span class="si">{</span><span class="n">n_rows_enh</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  |  Columns: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cols_enh</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column names: </span><span class="si">{</span><span class="n">cols_enh</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rows: 423,792,457  |  Columns: 21
+Column names: [&#39;cusip_id&#39;, &#39;bond_sym_id&#39;, &#39;trd_exctn_dt&#39;, &#39;trd_exctn_tm&#39;, &#39;days_to_sttl_ct&#39;, &#39;lckd_in_ind&#39;, &#39;wis_fl&#39;, &#39;sale_cndtn_cd&#39;, &#39;msg_seq_nb&#39;, &#39;trc_st&#39;, &#39;trd_rpt_dt&#39;, &#39;trd_rpt_tm&#39;, &#39;entrd_vol_qt&#39;, &#39;rptd_pr&#39;, &#39;yld_pt&#39;, &#39;asof_cd&#39;, &#39;orig_msg_seq_nb&#39;, &#39;rpt_side_cd&#39;, &#39;cntra_mp_id&#39;, &#39;year&#39;, &#39;month&#39;]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/l3/tj6vb0ld2ys1h939jz0qrfrh0000gn/T/ipykernel_72101/3951940352.py:2: DeprecationWarning: the parameter `allow_missing_columns` for `scan_parquet` is deprecated. Use the parameter `missing_columns` instead and pass one of `(&#39;insert&#39;, &#39;raise&#39;)`.
+(Deprecated in version 1.30.0)
+  trace_enh = pl.scan_parquet(
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-rows-first-partition">
+<h3>Example rows (first partition)<a class="headerlink" href="#example-rows-first-partition" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trace_enh</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 21)</small><table border="1" class="dataframe"><thead><tr><th>cusip_id</th><th>bond_sym_id</th><th>trd_exctn_dt</th><th>trd_exctn_tm</th><th>days_to_sttl_ct</th><th>lckd_in_ind</th><th>wis_fl</th><th>sale_cndtn_cd</th><th>msg_seq_nb</th><th>trc_st</th><th>trd_rpt_dt</th><th>trd_rpt_tm</th><th>entrd_vol_qt</th><th>rptd_pr</th><th>yld_pt</th><th>asof_cd</th><th>orig_msg_seq_nb</th><th>rpt_side_cd</th><th>cntra_mp_id</th><th>year</th><th>month</th></tr><tr><td>str</td><td>str</td><td>date</td><td>i64</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>str</td><td>date</td><td>i64</td><td>f64</td><td>f64</td><td>f64</td><td>str</td><td>str</td><td>str</td><td>str</td><td>i64</td><td>i64</td></tr></thead><tbody><tr><td>&quot;000325AA8&quot;</td><td>&quot;AAFM.GA&quot;</td><td>2002-07-01</td><td>49893000000000</td><td>&quot;000&quot;</td><td>null</td><td>&quot;N&quot;</td><td>&quot;@&quot;</td><td>&quot;0009218&quot;</td><td>&quot;T&quot;</td><td>2002-07-01</td><td>49895000000000</td><td>1e6</td><td>118.25</td><td>17.965641</td><td>null</td><td>null</td><td>&quot;B&quot;</td><td>&quot;D&quot;</td><td>2002</td><td>7</td></tr><tr><td>&quot;000325AA8&quot;</td><td>&quot;AAFM.GA&quot;</td><td>2002-07-01</td><td>49916000000000</td><td>&quot;000&quot;</td><td>null</td><td>&quot;N&quot;</td><td>&quot;@&quot;</td><td>&quot;0009239&quot;</td><td>&quot;T&quot;</td><td>2002-07-01</td><td>49917000000000</td><td>1e6</td><td>118.25</td><td>17.965641</td><td>null</td><td>null</td><td>&quot;S&quot;</td><td>&quot;D&quot;</td><td>2002</td><td>7</td></tr><tr><td>&quot;000325AA8&quot;</td><td>&quot;AAFM.GA&quot;</td><td>2002-07-01</td><td>49916000000000</td><td>null</td><td>null</td><td>&quot;N&quot;</td><td>&quot;@&quot;</td><td>&quot;0009267&quot;</td><td>&quot;C&quot;</td><td>2002-07-01</td><td>49917000000000</td><td>1e6</td><td>118.25</td><td>17.965641</td><td>null</td><td>&quot;0009239&quot;</td><td>&quot;S&quot;</td><td>&quot;D&quot;</td><td>2002</td><td>7</td></tr><tr><td>&quot;000325AA8&quot;</td><td>&quot;AAFM.GA&quot;</td><td>2002-07-01</td><td>64233000000000</td><td>&quot;000&quot;</td><td>null</td><td>&quot;N&quot;</td><td>&quot;A&quot;</td><td>&quot;0020341&quot;</td><td>&quot;T&quot;</td><td>2002-07-01</td><td>64237000000000</td><td>1e6</td><td>118.25</td><td>17.965641</td><td>null</td><td>null</td><td>&quot;B&quot;</td><td>&quot;D&quot;</td><td>2002</td><td>7</td></tr><tr><td>&quot;000325AA8&quot;</td><td>&quot;AAFM.GA&quot;</td><td>2002-07-01</td><td>64277000000000</td><td>null</td><td>null</td><td>&quot;N&quot;</td><td>&quot;A&quot;</td><td>&quot;0020358&quot;</td><td>&quot;C&quot;</td><td>2002-07-01</td><td>64279000000000</td><td>2e6</td><td>118.25</td><td>17.965641</td><td>null</td><td>&quot;0020359&quot;</td><td>&quot;S&quot;</td><td>&quot;D&quot;</td><td>2002</td><td>7</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="id17">
+<h3>Date range<a class="headerlink" href="#id17" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trace_enh</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;trd_exctn_dt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;earliest&quot;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;trd_exctn_dt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;latest&quot;</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (1, 2)</small><table border="1" class="dataframe"><thead><tr><th>earliest</th><th>latest</th></tr><tr><td>date</td><td>date</td></tr></thead><tbody><tr><td>2002-07-01</td><td>2025-03-31</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="summary-statistics-price-volume">
+<h3>Summary statistics — price &amp; volume<a class="headerlink" href="#summary-statistics-price-volume" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trace_enh</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;rptd_pr&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;mean_price&quot;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;rptd_pr&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;std_price&quot;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;rptd_pr&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;median_price&quot;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;entrd_vol_qt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;mean_volume&quot;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;entrd_vol_qt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;median_volume&quot;</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (1, 5)</small><table border="1" class="dataframe"><thead><tr><th>mean_price</th><th>std_price</th><th>median_price</th><th>mean_volume</th><th>median_volume</th></tr><tr><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>97.824551</td><td>36.784462</td><td>100.0</td><td>654531.85698</td><td>25000.0</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="trades-per-month">
+<h3>Trades per month<a class="headerlink" href="#trades-per-month" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">enh_monthly</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">trace_enh</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;trd_exctn_dt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="s2">&quot;1mo&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;n_trades&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">enh_monthly</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span>
+    <span class="n">enh_monthly</span><span class="p">[</span><span class="s2">&quot;n_trades&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;steelblue&quot;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">YearLocator</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s2">&quot;%Y&quot;</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Trades&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;TRACE Enhanced — trades per month&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f4f5942191356dc894091f2f5da5154c739e8f027560b2b3f7b94b958912645a.png" src="../_images/f4f5942191356dc894091f2f5da5154c739e8f027560b2b3f7b94b958912645a.png" />
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="trace-standard-pulled-trace-standard">
+<h2>14. TRACE Standard — <code class="docutils literal notranslate"><span class="pre">pulled/trace_standard/</span></code><a class="headerlink" href="#trace-standard-pulled-trace-standard" title="Link to this heading">#</a></h2>
+<p>Source script: <code class="docutils literal notranslate"><span class="pre">pull_trace_standard.py</span></code> | WRDS table: <code class="docutils literal notranslate"><span class="pre">trace.trace</span></code></p>
+<p>Trade-level corporate bond transaction data from the Standard TRACE feed.
+Available from October 2024 onward. Same hive-partitioned storage as
+Enhanced. Uses a slightly different column set (e.g. <code class="docutils literal notranslate"><span class="pre">ascii_rptd_vol_tx</span></code>
+instead of <code class="docutils literal notranslate"><span class="pre">entrd_vol_qt</span></code>, <code class="docutils literal notranslate"><span class="pre">side</span></code> instead of <code class="docutils literal notranslate"><span class="pre">rpt_side_cd</span></code>).</p>
+<p><strong>Key columns:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cusip_id</span></code></p></td>
+<td><p>9-character CUSIP bond identifier</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">trd_exctn_dt</span></code></p></td>
+<td><p>Trade execution date</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trd_exctn_tm</span></code></p></td>
+<td><p>Trade execution time</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rptd_pr</span></code></p></td>
+<td><p>Reported price (per $100 par)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ascii_rptd_vol_tx</span></code></p></td>
+<td><p>Reported volume (text field)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">yld_pt</span></code></p></td>
+<td><p>Yield at time of trade</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trc_st</span></code></p></td>
+<td><p>TRACE status</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">side</span></code></p></td>
+<td><p>Trade side</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">msg_seq_nb</span></code></p></td>
+<td><p>Message sequence number</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trace_std_dir</span> <span class="o">=</span> <span class="n">PULL_DIR</span> <span class="o">/</span> <span class="s2">&quot;trace_standard&quot;</span>
+<span class="n">trace_std</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_parquet</span><span class="p">(</span>
+    <span class="n">trace_std_dir</span> <span class="o">/</span> <span class="s2">&quot;**/*.parquet&quot;</span><span class="p">,</span>
+    <span class="n">hive_partitioning</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">allow_missing_columns</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">n_rows_std</span> <span class="o">=</span> <span class="n">trace_std</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">len</span><span class="p">())</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">cols_std</span> <span class="o">=</span> <span class="n">trace_std</span><span class="o">.</span><span class="n">collect_schema</span><span class="p">()</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rows: </span><span class="si">{</span><span class="n">n_rows_std</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  |  Columns: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">cols_std</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column names: </span><span class="si">{</span><span class="n">cols_std</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rows: 47,256,465  |  Columns: 21
+Column names: [&#39;cusip_id&#39;, &#39;bond_sym_id&#39;, &#39;bsym&#39;, &#39;trd_exctn_dt&#39;, &#39;trd_exctn_tm&#39;, &#39;msg_seq_nb&#39;, &#39;trc_st&#39;, &#39;wis_fl&#39;, &#39;cmsn_trd&#39;, &#39;ascii_rptd_vol_tx&#39;, &#39;rptd_pr&#39;, &#39;yld_pt&#39;, &#39;asof_cd&#39;, &#39;side&#39;, &#39;diss_rptg_side_cd&#39;, &#39;orig_msg_seq_nb&#39;, &#39;orig_dis_dt&#39;, &#39;rptg_party_type&#39;, &#39;contra_party_type&#39;, &#39;year&#39;, &#39;month&#39;]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/l3/tj6vb0ld2ys1h939jz0qrfrh0000gn/T/ipykernel_72101/3284768942.py:2: DeprecationWarning: the parameter `allow_missing_columns` for `scan_parquet` is deprecated. Use the parameter `missing_columns` instead and pass one of `(&#39;insert&#39;, &#39;raise&#39;)`.
+(Deprecated in version 1.30.0)
+  trace_std = pl.scan_parquet(
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id18">
+<h3>Example rows<a class="headerlink" href="#id18" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trace_std</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 21)</small><table border="1" class="dataframe"><thead><tr><th>cusip_id</th><th>bond_sym_id</th><th>bsym</th><th>trd_exctn_dt</th><th>trd_exctn_tm</th><th>msg_seq_nb</th><th>trc_st</th><th>wis_fl</th><th>cmsn_trd</th><th>ascii_rptd_vol_tx</th><th>rptd_pr</th><th>yld_pt</th><th>asof_cd</th><th>side</th><th>diss_rptg_side_cd</th><th>orig_msg_seq_nb</th><th>orig_dis_dt</th><th>rptg_party_type</th><th>contra_party_type</th><th>year</th><th>month</th></tr><tr><td>str</td><td>str</td><td>str</td><td>date</td><td>i64</td><td>f64</td><td>str</td><td>str</td><td>str</td><td>str</td><td>f64</td><td>f64</td><td>str</td><td>str</td><td>str</td><td>f64</td><td>date</td><td>str</td><td>str</td><td>i64</td><td>i64</td></tr></thead><tbody><tr><td>&quot;02209SBD4&quot;</td><td>&quot;MO4797929&quot;</td><td>&quot;BBG00NB2Z4S5&quot;</td><td>2024-01-01</td><td>78261000000000</td><td>327.0</td><td>&quot;M&quot;</td><td>null</td><td>null</td><td>&quot;3000&quot;</td><td>100.049</td><td>4.787982</td><td>&quot;A&quot;</td><td>&quot;S&quot;</td><td>null</td><td>null</td><td>null</td><td>&quot;D&quot;</td><td>&quot;D&quot;</td><td>2024</td><td>1</td></tr><tr><td>&quot;254687FS0&quot;</td><td>&quot;DIS4969022&quot;</td><td>&quot;BBG00SMMG454&quot;</td><td>2024-01-01</td><td>81521000000000</td><td>322.0</td><td>&quot;M&quot;</td><td>null</td><td>null</td><td>&quot;5000&quot;</td><td>97.448</td><td>4.872966</td><td>&quot;A&quot;</td><td>&quot;S&quot;</td><td>null</td><td>null</td><td>null</td><td>&quot;D&quot;</td><td>&quot;D&quot;</td><td>2024</td><td>1</td></tr><tr><td>&quot;30303M8J4&quot;</td><td>&quot;FB5522214&quot;</td><td>&quot;BBG01BV23038&quot;</td><td>2024-01-01</td><td>81331000000000</td><td>330.0</td><td>&quot;M&quot;</td><td>null</td><td>null</td><td>&quot;10000&quot;</td><td>92.531</td><td>4.940009</td><td>&quot;A&quot;</td><td>&quot;S&quot;</td><td>null</td><td>null</td><td>null</td><td>&quot;D&quot;</td><td>&quot;D&quot;</td><td>2024</td><td>1</td></tr><tr><td>&quot;404280DH9&quot;</td><td>&quot;HBC5458071&quot;</td><td>&quot;BBG0192W27G1&quot;</td><td>2024-01-01</td><td>81225000000000</td><td>26.0</td><td>&quot;M&quot;</td><td>null</td><td>null</td><td>&quot;2000000&quot;</td><td>101.0</td><td>null</td><td>&quot;A&quot;</td><td>&quot;S&quot;</td><td>null</td><td>null</td><td>null</td><td>&quot;D&quot;</td><td>&quot;A&quot;</td><td>2024</td><td>1</td></tr><tr><td>&quot;458140BX7&quot;</td><td>&quot;INTC5238071&quot;</td><td>&quot;BBG01236J676&quot;</td><td>2024-01-01</td><td>81367000000000</td><td>337.0</td><td>&quot;M&quot;</td><td>null</td><td>null</td><td>&quot;10000&quot;</td><td>69.707</td><td>4.993</td><td>&quot;A&quot;</td><td>&quot;S&quot;</td><td>null</td><td>null</td><td>null</td><td>&quot;D&quot;</td><td>&quot;D&quot;</td><td>2024</td><td>1</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+<section id="id19">
+<h3>Date range<a class="headerlink" href="#id19" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trace_std</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;trd_exctn_dt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;earliest&quot;</span><span class="p">),</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;trd_exctn_dt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;latest&quot;</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (1, 2)</small><table border="1" class="dataframe"><thead><tr><th>earliest</th><th>latest</th></tr><tr><td>date</td><td>date</td></tr></thead><tbody><tr><td>2024-01-01</td><td>2026-02-13</td></tr></tbody></table></div></div></div>
+</div>
+</section>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+   
+</div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Week8/exercise_jupyter_on_midway.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Exercise: Jupyter Notebook on Midway via SSH</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="_02_trace_cleaning_walkthrough_ipynb.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Cleaning TRACE Corporate Bond Data: A Walkthrough</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fama-french-sic-codes-pulled-ff17-sic-ranges-parquet-pulled-ff30-sic-ranges-parquet">1. Fama-French SIC Codes — <code class="docutils literal notranslate"><span class="pre">pulled/ff17_sic_ranges.parquet</span></code> + <code class="docutils literal notranslate"><span class="pre">pulled/ff30_sic_ranges.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-rows-ff17">Example rows — FF17</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-rows-ff30">Example rows — FF30</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fisd-amount-outstanding-history-pulled-fisd-amt-out-hist-parquet">2. FISD Amount Outstanding History — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_amt_out_hist.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-rows">Example rows</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fisd-issue-data-pulled-fisd-issue-parquet">3. FISD Issue Data — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_issue.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#date-range">Date range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#top-15-bond-types">Top 15 bond types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bond-types-bar-chart">Bond types — bar chart</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fisd-issuer-data-pulled-fisd-issuer-parquet">4. FISD Issuer Data — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_issuer.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#top-10-countries-of-domicile">Top 10 countries of domicile</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fisd-ratings-moodys-pulled-fisd-ratings-moodys-parquet">5. FISD Ratings (Moody’s) — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_ratings_moodys.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Date range</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fisd-ratings-s-p-pulled-fisd-ratings-sp-parquet">6. FISD Ratings (S&amp;P) — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_ratings_sp.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Date range</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fisd-redemption-pulled-fisd-redemption-parquet">7. FISD Redemption — <code class="docutils literal notranslate"><span class="pre">pulled/fisd_redemption.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Example rows</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liu-wu-treasury-yields-pulled-liu-wu-yields-parquet">8. Liu-Wu Treasury Yields — <code class="docutils literal notranslate"><span class="pre">pulled/liu_wu_yields.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Date range</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#osbap-corporate-bond-returns-pulled-corporate-bond-returns-parquet">9. OSBAP Corporate Bond Returns — <code class="docutils literal notranslate"><span class="pre">pulled/corporate_bond_returns.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Date range</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#osbap-linker-fang-2025-pulled-osbap-linker-parquet">10. OSBAP Linker (Fang, 2025) — <code class="docutils literal notranslate"><span class="pre">pulled/osbap_linker.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Example rows</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#osbap-treasury-bond-returns-pulled-treasury-bond-returns-parquet">11. OSBAP Treasury Bond Returns — <code class="docutils literal notranslate"><span class="pre">pulled/treasury_bond_returns.parquet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Date range</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trace-144a-pulled-trace-144a">12. TRACE 144A — <code class="docutils literal notranslate"><span class="pre">pulled/trace_144a/</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Date range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trades-per-month-trace-144a">Trades per month — TRACE 144A</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trace-enhanced-pulled-trace-enhanced">13. TRACE Enhanced — <code class="docutils literal notranslate"><span class="pre">pulled/trace_enhanced/</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-rows-first-partition">Example rows (first partition)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Date range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics-price-volume">Summary statistics — price &amp; volume</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trades-per-month">Trades per month</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trace-standard-pulled-trace-standard">14. TRACE Standard — <code class="docutils literal notranslate"><span class="pre">pulled/trace_standard/</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Example rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Date range</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeremiah Bejarano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Jeremiah Bejarano.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
