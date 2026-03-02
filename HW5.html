@@ -232,12 +232,10 @@
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_02_trace_cleaning_walkthrough_ipynb.html">Cleaning TRACE Corporate Bond Data: A Walkthrough</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w9.html">Week 9: Web Authentication, GitHub Actions, and Publishing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="Week8/web_authentication.html">Web Authentication and Authorization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week9/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week4/latex_essentials.html">LaTeX Essentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week9/cron_jobs.html">Scheduling Recurring Tasks with Cron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week8/web_authentication.html">Web Authentication and Authorization</a></li>
 </ul>
 </details></li>
 </ul>
@@ -470,9 +468,10 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-set-up-the-conda-environment">Part 2: Set Up the Conda Environment</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-load-the-anaconda-module">Step 1: Load the Anaconda module</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-a-conda-environment-in-project-space">Step 2: Create a conda environment in project space</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-configure-the-environment-file">Step 3: Configure the environment file</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-configure-wrds-pgpass">Step 4: Configure WRDS <code class="docutils literal notranslate"><span class="pre">.pgpass</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-switch-conda-to-the-classic-solver">Step 2: Switch conda to the classic solver</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-conda-environment-in-project-space">Step 3: Create a conda environment in project space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-configure-the-environment-file">Step 4: Configure the environment file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-configure-wrds-pgpass">Step 5: Configure WRDS <code class="docutils literal notranslate"><span class="pre">.pgpass</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-run-the-clean-trace-pipeline">Part 3: Run the Clean TRACE Pipeline</a><ul class="nav section-nav flex-column">
@@ -587,7 +586,7 @@ project directory for this course:</p>
 <h3>Step 3: Clone the Clean TRACE repository<a class="headerlink" href="#step-3-clone-the-clean-trace-repository" title="Link to this heading">#</a></h3>
 <p>Clone the case study repository into your project directory:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/project/finm32900/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>
-git<span class="w"> </span>clone<span class="w"> </span>&lt;repo-url&gt;<span class="w"> </span>case_study_clean_trace
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/finm-32900/case_study_clean_trace<span class="w"> </span>case_study_clean_trace
 <span class="nb">cd</span><span class="w"> </span>case_study_clean_trace
 </pre></div>
 </div>
@@ -618,8 +617,23 @@ that conflict with the module system. Always use <code class="docutils literal n
 of <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code>.</p>
 </div>
 </section>
-<section id="step-2-create-a-conda-environment-in-project-space">
-<h3>Step 2: Create a conda environment in project space<a class="headerlink" href="#step-2-create-a-conda-environment-in-project-space" title="Link to this heading">#</a></h3>
+<section id="step-2-switch-conda-to-the-classic-solver">
+<h3>Step 2: Switch conda to the classic solver<a class="headerlink" href="#step-2-switch-conda-to-the-classic-solver" title="Link to this heading">#</a></h3>
+<p>The default <code class="docutils literal notranslate"><span class="pre">libmamba</span></code> solver is incompatible with Midway3’s system libraries.
+Switch to the classic solver (you only need to do this once):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>solver<span class="w"> </span>classic
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will see an error message like <code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">while</span> <span class="pre">loading</span> <span class="pre">conda</span> <span class="pre">entry</span> <span class="pre">point:</span> <span class="pre">conda-libmamba-solver</span> <span class="pre">...</span></code> every time you run a conda command. <strong>This is
+harmless.</strong> Conda still tries to load the libmamba plugin at startup, but
+since the solver is set to <code class="docutils literal notranslate"><span class="pre">classic</span></code>, it doesn’t need it. The commands will
+complete successfully despite the error message.</p>
+</div>
+</section>
+<section id="step-3-create-a-conda-environment-in-project-space">
+<h3>Step 3: Create a conda environment in project space<a class="headerlink" href="#step-3-create-a-conda-environment-in-project-space" title="Link to this heading">#</a></h3>
 <p>Create an isolated conda environment in your project directory (not in
 <code class="docutils literal notranslate"><span class="pre">/home/</span></code>, to avoid quota issues):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--prefix<span class="o">=</span>/project/finm32900/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/envs/clean_trace<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>-y
@@ -636,8 +650,8 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 </pre></div>
 </div>
 </section>
-<section id="step-3-configure-the-environment-file">
-<h3>Step 3: Configure the environment file<a class="headerlink" href="#step-3-configure-the-environment-file" title="Link to this heading">#</a></h3>
+<section id="step-4-configure-the-environment-file">
+<h3>Step 4: Configure the environment file<a class="headerlink" href="#step-4-configure-the-environment-file" title="Link to this heading">#</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
 </pre></div>
 </div>
@@ -654,8 +668,8 @@ processing 20+ years of data. Do <strong>not</strong> uncomment <code class="doc
 unless you want a much longer run.</p>
 </div>
 </section>
-<section id="step-4-configure-wrds-pgpass">
-<h3>Step 4: Configure WRDS <code class="docutils literal notranslate"><span class="pre">.pgpass</span></code><a class="headerlink" href="#step-4-configure-wrds-pgpass" title="Link to this heading">#</a></h3>
+<section id="step-5-configure-wrds-pgpass">
+<h3>Step 5: Configure WRDS <code class="docutils literal notranslate"><span class="pre">.pgpass</span></code><a class="headerlink" href="#step-5-configure-wrds-pgpass" title="Link to this heading">#</a></h3>
 <p>If you haven’t already set up passwordless WRDS authentication, run the
 following on the <strong>login node</strong> (which has internet access):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import wrds; db = wrds.Connection(); db.close()&quot;</span>
@@ -1009,9 +1023,10 @@ via <code class="docutils literal notranslate"><span class="pre">scode</span></c
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-set-up-the-conda-environment">Part 2: Set Up the Conda Environment</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-load-the-anaconda-module">Step 1: Load the Anaconda module</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-a-conda-environment-in-project-space">Step 2: Create a conda environment in project space</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-configure-the-environment-file">Step 3: Configure the environment file</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-configure-wrds-pgpass">Step 4: Configure WRDS <code class="docutils literal notranslate"><span class="pre">.pgpass</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-switch-conda-to-the-classic-solver">Step 2: Switch conda to the classic solver</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-conda-environment-in-project-space">Step 3: Create a conda environment in project space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-configure-the-environment-file">Step 4: Configure the environment file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-configure-wrds-pgpass">Step 5: Configure WRDS <code class="docutils literal notranslate"><span class="pre">.pgpass</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-run-the-clean-trace-pipeline">Part 3: Run the Clean TRACE Pipeline</a><ul class="nav section-nav flex-column">

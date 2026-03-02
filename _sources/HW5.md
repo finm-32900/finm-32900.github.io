@@ -68,7 +68,7 @@ Clone the case study repository into your project directory:
 
 ```bash
 cd /project/finm32900/${USER}
-git clone <repo-url> case_study_clean_trace
+git clone https://github.com/finm-32900/case_study_clean_trace case_study_clean_trace
 cd case_study_clean_trace
 ```
 
@@ -103,7 +103,24 @@ that conflict with the module system. Always use `source activate` instead
 of `conda activate`.
 ```
 
-### Step 2: Create a conda environment in project space
+### Step 2: Switch conda to the classic solver
+
+The default `libmamba` solver is incompatible with Midway3's system libraries.
+Switch to the classic solver (you only need to do this once):
+
+```bash
+conda config --set solver classic
+```
+
+```{note}
+You will see an error message like `Error while loading conda entry point:
+conda-libmamba-solver ...` every time you run a conda command. **This is
+harmless.** Conda still tries to load the libmamba plugin at startup, but
+since the solver is set to `classic`, it doesn't need it. The commands will
+complete successfully despite the error message.
+```
+
+### Step 3: Create a conda environment in project space
 
 Create an isolated conda environment in your project directory (not in
 `/home/`, to avoid quota issues):
@@ -126,7 +143,7 @@ module load python/anaconda-2024.10
 source activate /project/finm32900/${USER}/envs/clean_trace
 ```
 
-### Step 3: Configure the environment file
+### Step 4: Configure the environment file
 
 ```bash
 cp .env.example .env
@@ -146,7 +163,7 @@ processing 20+ years of data. Do **not** uncomment `START_DATE` or `END_DATE`
 unless you want a much longer run.
 ```
 
-### Step 4: Configure WRDS `.pgpass`
+### Step 5: Configure WRDS `.pgpass`
 
 If you haven't already set up passwordless WRDS authentication, run the
 following on the **login node** (which has internet access):

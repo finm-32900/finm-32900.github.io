@@ -3,15 +3,15 @@
 ```{toctree}
 :maxdepth: 1
 
-Week8/web_authentication.md
 Week9/github_actions_interactive_dashboard.md
-Week4/intro_to_LaTeX.md
-Week4/latex_essentials.md
+Week9/cron_jobs.md
+Week8/web_authentication.md
 ```
 
 ## Learning Outcomes
 
 - Overview of GitHub Actions
+- Understand cron for scheduling recurring tasks
 - Overview of GitHub Pages
 - Static HTML widgets with plotly
 - Demonstrate ChartBook: https://github.com/jmbejara/chartbook
