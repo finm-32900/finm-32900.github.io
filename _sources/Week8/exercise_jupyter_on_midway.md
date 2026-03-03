@@ -86,9 +86,9 @@ which jupyter-notebook
 ```
 
 ```{tip}
-If you want to use your own virtual environment instead, create one in
-`/project/finm32900/<cnetid>/` or `/scratch/midway3/<cnetid>/` (not in
-`/home/`, which has a small quota).
+If you want to use your own conda environment instead, create one in
+your home directory (e.g., `$HOME/envs/`) to avoid hitting the file count
+limit on the shared project directory.
 ```
 
 

@@ -46,14 +46,14 @@ dedicated compute resources instead.
 
 ### Step 2: Create your personal directory in project space
 
-Your home directory (`/home/$USER`) has a small quota (~30 GB) and is not
-suitable for large datasets or conda environments. Instead, use the shared
-project directory for this course:
+Your home directory (`/home/$USER`) has a small storage quota (~30 GB) but a
+generous file count limit (300,000 files). The shared project directory has
+more storage but a limited file count quota. Use each for what it's best at:
 
 | Location | Path | Quota | Backed Up | Purpose |
 |----------|------|-------|-----------|---------|
-| Home | `/home/<cnetid>` | 30 GB | Yes | Config files, small scripts |
-| Project | `/project/finm32900` | Large (shared) | Yes | Shared course data, virtual environments |
+| Home | `/home/<cnetid>` | 30 GB | Yes | Config files, small scripts, conda environments |
+| Project | `/project/finm32900` | Large (shared) | Yes | Shared course data and code |
 | Scratch | `/scratch/midway3/<cnetid>` | Large | **No** | Temporary large files, intermediate results |
 
 Create a personal directory in the project space:
@@ -73,8 +73,9 @@ cd case_study_clean_trace
 ```
 
 ```{tip}
-Always work in `/project/finm32900/${USER}/` for this course, not in `/home/`.
-The home directory quota fills up quickly with Python environments and data files.
+Store your code and data in `/project/finm32900/${USER}/` for this course.
+Store conda environments in your home directory (`$HOME/envs/`) to avoid
+hitting the file count limit on the shared project directory.
 ```
 
 ---
@@ -120,19 +121,19 @@ since the solver is set to `classic`, it doesn't need it. The commands will
 complete successfully despite the error message.
 ```
 
-### Step 3: Create a conda environment in project space
+### Step 3: Create a conda environment in your home directory
 
-Create an isolated conda environment in your project directory (not in
-`/home/`, to avoid quota issues):
+Create an isolated conda environment in your home directory (not in
+`/project/`, to avoid hitting the shared file count limit):
 
 ```bash
-conda create --prefix=/project/finm32900/${USER}/envs/clean_trace python=3.11 -y
+conda create --prefix=$HOME/envs/clean_trace python=3.11 -y
 ```
 
 Activate the environment and install dependencies:
 
 ```bash
-source activate /project/finm32900/${USER}/envs/clean_trace
+source activate $HOME/envs/clean_trace
 pip install -r requirements.txt
 ```
 
@@ -140,7 +141,7 @@ To reactivate this environment in future sessions:
 
 ```bash
 module load python/anaconda-2024.10
-source activate /project/finm32900/${USER}/envs/clean_trace
+source activate $HOME/envs/clean_trace
 ```
 
 ### Step 4: Configure the environment file
@@ -224,7 +225,7 @@ echo "[$(date)] Working directory: ${WORK_DIR}"
 
 # --- Activate conda environment ---
 module load python/anaconda-2024.10
-source activate "${PROJECT_BASE}/${USER}/envs/clean_trace"
+source activate "$HOME/envs/clean_trace"
 echo "[$(date)] Activated conda environment"
 
 # --- Install/update dependencies ---

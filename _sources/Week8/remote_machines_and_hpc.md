@@ -107,13 +107,14 @@ The cluster consists of:
 | Location | Path | Quota | Backed Up | Purpose |
 |----------|------|-------|-----------|---------|
 | Home | `/home/<cnetid>` | 30 GB | Yes | Config files, small scripts |
-| Project | `/project/finm32900` | Large (shared) | Yes | Shared course data, virtual environments |
+| Project | `/project/finm32900` | Large (shared) | Yes | Shared course data and code |
 | Scratch | `/scratch/midway3/<cnetid>` | Large | **No** | Temporary large files, intermediate results |
 
 ```{tip}
-Store your code and virtual environments in `/project/` or `/scratch/`, not
-`/home/`. The home directory quota fills up quickly, especially with Python
-virtual environments and data files.
+Store your code and data in `/project/` or `/scratch/`, not `/home/`.
+Store conda/virtual environments in your home directory (`$HOME/envs/`)---they
+create many small files that can exhaust the shared project directory's file
+count limit.
 ```
 
 ### Module System

@@ -469,7 +469,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-set-up-the-conda-environment">Part 2: Set Up the Conda Environment</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-load-the-anaconda-module">Step 1: Load the Anaconda module</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-switch-conda-to-the-classic-solver">Step 2: Switch conda to the classic solver</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-conda-environment-in-project-space">Step 3: Create a conda environment in project space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-conda-environment-in-your-home-directory">Step 3: Create a conda environment in your home directory</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-configure-the-environment-file">Step 4: Configure the environment file</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-configure-wrds-pgpass">Step 5: Configure WRDS <code class="docutils literal notranslate"><span class="pre">.pgpass</span></code></a></li>
 </ul>
@@ -543,9 +543,9 @@ dedicated compute resources instead.</p>
 </section>
 <section id="step-2-create-your-personal-directory-in-project-space">
 <h3>Step 2: Create your personal directory in project space<a class="headerlink" href="#step-2-create-your-personal-directory-in-project-space" title="Link to this heading">#</a></h3>
-<p>Your home directory (<code class="docutils literal notranslate"><span class="pre">/home/$USER</span></code>) has a small quota (~30 GB) and is not
-suitable for large datasets or conda environments. Instead, use the shared
-project directory for this course:</p>
+<p>Your home directory (<code class="docutils literal notranslate"><span class="pre">/home/$USER</span></code>) has a small storage quota (~30 GB) but a
+generous file count limit (300,000 files). The shared project directory has
+more storage but a limited file count quota. Use each for what it’s best at:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Location</p></th>
@@ -560,13 +560,13 @@ project directory for this course:</p>
 <td><p><code class="docutils literal notranslate"><span class="pre">/home/&lt;cnetid&gt;</span></code></p></td>
 <td><p>30 GB</p></td>
 <td><p>Yes</p></td>
-<td><p>Config files, small scripts</p></td>
+<td><p>Config files, small scripts, conda environments</p></td>
 </tr>
 <tr class="row-odd"><td><p>Project</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">/project/finm32900</span></code></p></td>
 <td><p>Large (shared)</p></td>
 <td><p>Yes</p></td>
-<td><p>Shared course data, virtual environments</p></td>
+<td><p>Shared course data and code</p></td>
 </tr>
 <tr class="row-even"><td><p>Scratch</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">/scratch/midway3/&lt;cnetid&gt;</span></code></p></td>
@@ -592,8 +592,9 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/finm-
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Always work in <code class="docutils literal notranslate"><span class="pre">/project/finm32900/${USER}/</span></code> for this course, not in <code class="docutils literal notranslate"><span class="pre">/home/</span></code>.
-The home directory quota fills up quickly with Python environments and data files.</p>
+<p>Store your code and data in <code class="docutils literal notranslate"><span class="pre">/project/finm32900/${USER}/</span></code> for this course.
+Store conda environments in your home directory (<code class="docutils literal notranslate"><span class="pre">$HOME/envs/</span></code>) to avoid
+hitting the file count limit on the shared project directory.</p>
 </div>
 </section>
 </section>
@@ -632,21 +633,21 @@ since the solver is set to <code class="docutils literal notranslate"><span clas
 complete successfully despite the error message.</p>
 </div>
 </section>
-<section id="step-3-create-a-conda-environment-in-project-space">
-<h3>Step 3: Create a conda environment in project space<a class="headerlink" href="#step-3-create-a-conda-environment-in-project-space" title="Link to this heading">#</a></h3>
-<p>Create an isolated conda environment in your project directory (not in
-<code class="docutils literal notranslate"><span class="pre">/home/</span></code>, to avoid quota issues):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--prefix<span class="o">=</span>/project/finm32900/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/envs/clean_trace<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>-y
+<section id="step-3-create-a-conda-environment-in-your-home-directory">
+<h3>Step 3: Create a conda environment in your home directory<a class="headerlink" href="#step-3-create-a-conda-environment-in-your-home-directory" title="Link to this heading">#</a></h3>
+<p>Create an isolated conda environment in your home directory (not in
+<code class="docutils literal notranslate"><span class="pre">/project/</span></code>, to avoid hitting the shared file count limit):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$HOME</span>/envs/clean_trace<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>-y
 </pre></div>
 </div>
 <p>Activate the environment and install dependencies:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>/project/finm32900/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/envs/clean_trace
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span><span class="nv">$HOME</span>/envs/clean_trace
 pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </pre></div>
 </div>
 <p>To reactivate this environment in future sessions:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>python/anaconda-2024.10
-<span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>/project/finm32900/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/envs/clean_trace
+<span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span><span class="nv">$HOME</span>/envs/clean_trace
 </pre></div>
 </div>
 </section>
@@ -723,7 +724,7 @@ everything. Here is the script with annotations:</p>
 
 <span class="c1"># --- Activate conda environment ---</span>
 module<span class="w"> </span>load<span class="w"> </span>python/anaconda-2024.10
-<span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PROJECT_BASE</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span><span class="s2">/envs/clean_trace&quot;</span>
+<span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/envs/clean_trace&quot;</span>
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[</span><span class="k">$(</span>date<span class="k">)</span><span class="s2">] Activated conda environment&quot;</span>
 
 <span class="c1"># --- Install/update dependencies ---</span>
@@ -1024,7 +1025,7 @@ via <code class="docutils literal notranslate"><span class="pre">scode</span></c
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-set-up-the-conda-environment">Part 2: Set Up the Conda Environment</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-load-the-anaconda-module">Step 1: Load the Anaconda module</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-switch-conda-to-the-classic-solver">Step 2: Switch conda to the classic solver</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-conda-environment-in-project-space">Step 3: Create a conda environment in project space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-conda-environment-in-your-home-directory">Step 3: Create a conda environment in your home directory</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-configure-the-environment-file">Step 4: Configure the environment file</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-configure-wrds-pgpass">Step 5: Configure WRDS <code class="docutils literal notranslate"><span class="pre">.pgpass</span></code></a></li>
 </ul>

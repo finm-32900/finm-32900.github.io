@@ -623,7 +623,7 @@ SLURM job scheduler. Most compute partitions have <strong>no internet access</st
 <td><p><code class="docutils literal notranslate"><span class="pre">/project/finm32900</span></code></p></td>
 <td><p>Large (shared)</p></td>
 <td><p>Yes</p></td>
-<td><p>Shared course data, virtual environments</p></td>
+<td><p>Shared course data and code</p></td>
 </tr>
 <tr class="row-even"><td><p>Scratch</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">/scratch/midway3/&lt;cnetid&gt;</span></code></p></td>
@@ -636,9 +636,10 @@ SLURM job scheduler. Most compute partitions have <strong>no internet access</st
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Store your code and virtual environments in <code class="docutils literal notranslate"><span class="pre">/project/</span></code> or <code class="docutils literal notranslate"><span class="pre">/scratch/</span></code>, not
-<code class="docutils literal notranslate"><span class="pre">/home/</span></code>. The home directory quota fills up quickly, especially with Python
-virtual environments and data files.</p>
+<p>Store your code and data in <code class="docutils literal notranslate"><span class="pre">/project/</span></code> or <code class="docutils literal notranslate"><span class="pre">/scratch/</span></code>, not <code class="docutils literal notranslate"><span class="pre">/home/</span></code>.
+Store conda/virtual environments in your home directory (<code class="docutils literal notranslate"><span class="pre">$HOME/envs/</span></code>)—they
+create many small files that can exhaust the shared project directory’s file
+count limit.</p>
 </div>
 </section>
 <section id="module-system">
