@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Course Syllabus: FINM 32900, Winter 2026 &#8212; Full Stack Quantitative Finance</title>
+    <title>Course Syllabus: FINM 32900, Summer 2026 &#8212; Full Stack Quantitative Finance</title>
   
   
   
@@ -171,7 +171,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Course Syllabus: FINM 32900, Winter 2026</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Course Syllabus: FINM 32900, Summer 2026</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">Acknowledgments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix</a></li>
 </ul>
@@ -182,8 +182,10 @@
 <li class="toctree-l2"><a class="reference internal" href="Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week1/virtual_environments.html">Virtual Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week1/midterm_report_and_style_guides.html">The Midterm Report and Style Guides</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_01_wrds_python_package_ipynb.html">Example: Connecting to the WRDS Platform With Python</a></li>
@@ -258,8 +260,10 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="HW5.html">Homework 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="midterm_report.html">Midterm Report</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="FinalProject/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FinalProject/proposal_presentation_rubric.html">Proposal Presentation Rubric</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FinalProject/potential_final_projects.html">List of Potential Final Projects</a></li>
 </ul>
 </details></li>
@@ -448,7 +452,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Course Syllabus: FINM 32900, Winter 2026</h1>
+    <h1>Course Syllabus: FINM 32900, Summer 2026</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -460,6 +464,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignments">Assignments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-exams">No Exams</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project">Final Project</a></li>
 </ul>
 </li>
@@ -481,8 +486,8 @@ document.write(`
                 
 <div id="searchbox"></div>
                 <article class="bd-article">
-                   <section class="tex2jax_ignore mathjax_ignore" id="course-syllabus-finm-32900-winter-2026">
-<h1>Course Syllabus: FINM 32900, Winter 2026<a class="headerlink" href="#course-syllabus-finm-32900-winter-2026" title="Link to this heading">#</a></h1>
+                   <section class="tex2jax_ignore mathjax_ignore" id="course-syllabus-finm-32900-summer-2026">
+<h1>Course Syllabus: FINM 32900, Summer 2026<a class="headerlink" href="#course-syllabus-finm-32900-summer-2026" title="Link to this heading">#</a></h1>
 <p><strong>FINM 32900, Full Stack Quantitative Finance</strong></p>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
@@ -503,25 +508,32 @@ from OptionMetrics, Treasury auction data from TreasuryDirect,
 textual data from EDGAR, and high-frequency trade and quote data from NYSE.
 Prior experience at an intermediate level with Python and the PyData stack is
 assumed.</p>
+<p>This is an <strong>online course</strong>, taught live over Zoom. Because we meet remotely, we
+put extra emphasis on class participation and on getting to know your classmates.
+Networking with your peers is one of the most valuable parts of the university
+experience—both for learning and for your career—so this term the course is built
+around live, interactive components. The two main vehicles for this are the
+<strong>final-project proposal presentations</strong> (where you present your project plan to
+the class and give and receive live feedback from your classmates) and the
+collaborative <strong>Midterm Report</strong> (a single economic report that the whole class
+builds together). Attendance at the proposal presentations is taken via Zoom.</p>
 <ul class="simple">
-<li><p><strong>Class:</strong> Mondays, 1:30 - 4:30 PM, in-person at the Stevanovich Center building,
-Room #112. (5727 S. University Ave.)</p></li>
-<li><p><strong>Note:</strong> Due to the Jan 20 holiday, a makeup class will be held Tuesday, Jan 21, 6-9 PM CT on Zoom (link on Canvas). The class will be recorded.</p></li>
+<li><p><strong>Class:</strong> Thursdays, 6 - 9 PM CT, online via Zoom. The Zoom link is posted on
+Canvas. Classes will be recorded.</p></li>
 <li><p><strong>Lecturer:</strong> Jeremy Bejarano, <a class="reference external" href="mailto:jbejarano&#37;&#52;&#48;uchicago&#46;edu">jbejarano<span>&#64;</span>uchicago<span>&#46;</span>edu</a></p></li>
-<li><p><strong>Instructor Office Hours:</strong> Monday, 4:30 - 5:30 pm, in the FinMath library (first floor of the Stevanovich Center, 5727 S. University Ave.)</p></li>
-<li><p><strong>Teaching Assistants:</strong></p>
+<li><p><strong>Instructor Office Hours:</strong> By appointment over Zoom (link on Canvas). You can
+also schedule a 1-on-1 consultation using the booking link posted on Canvas.</p></li>
+<li><p><strong>Teaching Assistant:</strong></p>
 <ul>
-<li><p>Viren Desai, <a class="reference external" href="mailto:viren&#46;desai&#37;&#52;&#48;aprio&#46;com">viren<span>&#46;</span>desai<span>&#64;</span>aprio<span>&#46;</span>com</a></p></li>
 <li><p>Jared Szajkowski, <a class="reference external" href="mailto:jszajkowski&#37;&#52;&#48;uchicago&#46;edu">jszajkowski<span>&#64;</span>uchicago<span>&#46;</span>edu</a></p></li>
-<li><p>Note: Please include both TAs on all emails. However, students are strongly
-encouraged to post questions on the discussion page of the class GitHub
-repository here.</p></li>
+<li><p>Note: Students are strongly encouraged to post questions on the discussion
+page of the class GitHub repository (see below) rather than emailing, so that
+the whole class can benefit from the answers.</p></li>
 </ul>
 </li>
 <li><p><strong>TA Office Hours:</strong></p>
 <ul>
-<li><p>In-Person: Mondays, 12:30 - 1:30 pm in the FinMath library (first floor of the Stevanovich Center, 5727 S. University Ave.)</p></li>
-<li><p>Virtual (Zoom): Fridays, 12 - 1 PM CT. See the Canvas calendar for the Zoom link.</p></li>
+<li><p>Virtual (Zoom): Time TBD. See the Canvas calendar for the schedule and the Zoom link.</p></li>
 </ul>
 </li>
 <li><p><strong>Textbook:</strong> The text for the course will be published incrementally here:
@@ -538,10 +550,10 @@ Class-related discussions should be posted here as well.</p></li>
 <section id="assignments">
 <h3>Assignments<a class="headerlink" href="#assignments" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Assignments will typically be due on Fridays at 11:59 pm. Check GitHub Classroom
-for the due date for each assignment. Each
-assignment will be distributed on a Monday, and will be due the on the Friday
-of the following week (11 days later).</p></li>
+<li><p>Assignments are distributed and collected through GitHub Classroom. Check
+GitHub Classroom for the due date for each assignment. Each assignment is
+typically distributed on the day of the lecture and due roughly a week and a
+half later.</p></li>
 <li><p>Assignments are automatically graded via the autograder on GitHub Classroom
 and solutions will be released shortly after. This means that the due date is
 strict. Late assignments will not be accepted.</p></li>
@@ -554,51 +566,126 @@ repos, found under the <code class="docutils literal notranslate"><span class="p
 <a class="github reference external" href="https://github.com/finm-32900">finm-32900</a></p></li>
 </ul>
 </section>
+<section id="no-exams">
+<h3>No Exams<a class="headerlink" href="#no-exams" title="Link to this heading">#</a></h3>
+<p>This course has <strong>no exams</strong>—no midterm exam and no final exam. In their place:</p>
+<ul class="simple">
+<li><p>The <strong>Midterm Report</strong> (a collaborative, class-wide economic report) takes the
+place of a midterm. See <a class="reference internal" href="midterm_report.html"><span class="std std-doc">Midterm Report</span></a>.</p></li>
+<li><p>The <strong>final project</strong>, presented and orally defended at the end of the quarter,
+takes the place of a final.</p></li>
+</ul>
+</section>
 <section id="final-project">
 <h3>Final Project<a class="headerlink" href="#final-project" title="Link to this heading">#</a></h3>
 <p>In lieu of a final exam, students will be organized into groups of 2 (pairs) and
-will each complete a course project. Each group will present their completed
-project to the instructor at the end of the course. These presentations will be
-scheduled individually.</p>
+will each complete a course project. The final project this term is structured
+around three separate milestones:</p>
+<ol class="arabic simple">
+<li><p><strong>Instructor consultation</strong> — each group schedules a 1-on-1 meeting with the
+instructor (at least one week before their proposal presentation) to get
+individual feedback on their plan.</p></li>
+<li><p><strong>Proposal presentation</strong> — each group presents their project plan to the
+class (in an assigned week, roughly weeks 5–8), advertising the data sources
+and the reusable “product” they intend to build. Classmates ask questions and
+submit feedback surveys.</p></li>
+<li><p><strong>Final project presentation</strong> — in week 10, each group presents the completed
+project and each member is individually quizzed in an oral defense of both
+their analysis and the tools used to build it.</p></li>
+</ol>
+<p>See the <a class="reference internal" href="FinalProject/final_project_rubric.html"><span class="std std-doc">Final Project Instructions and Rubric</span></a>
+and the <a class="reference internal" href="FinalProject/proposal_presentation_rubric.html"><span class="std std-doc">Proposal Presentation Rubric</span></a>
+for full details.</p>
 </section>
 </section>
 <section id="assessment">
 <h2>Assessment<a class="headerlink" href="#assessment" title="Link to this heading">#</a></h2>
-<p>Grades will be based on coding assignments (60%), a final group project (35%),
-and participation (5%).</p>
+<p>Grades will be based on the following components:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Weight</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Coding Assignments</p></td>
+<td><p>25%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Final Project</p></td>
+<td><p>30%</p></td>
+</tr>
+<tr class="row-even"><td><p>Proposal Presentation</p></td>
+<td><p>20%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Midterm Report</p></td>
+<td><p>10%</p></td>
+</tr>
+<tr class="row-even"><td><p>Proposal Attendance &amp; Feedback</p></td>
+<td><p>10%</p></td>
+</tr>
+<tr class="row-odd"><td><p>Participation</p></td>
+<td><p>5%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <ul class="simple">
-<li><p>Assignments will be submitted individually and will be graded using GitHub’s
-automated testing tools.</p></li>
-<li><p>The final project will be completed in groups. Students will choose the
-project from among a few options provided at the beginning of the quarter. The
-project will be graded not only on how well it accomplishes the assigned data
-cleaning and analysis task, but will be primarily graded on whether (1) the
-steps to reproduce it are fully automated and well documented, (2) the code is
-written in a clean and reusable fashion, and (3) the results are presented
-clearly and presented in a way that convinces the reader that the results are
-correct. A more specific rubric will be provided in class.</p></li>
-<li><p>The participation grade will depend on the positive impacts that a student has
-on the class. These include participating in in-class discussions and/or
-answering questions on the class GitHub page (or on Canvas). Students are in
-no way penalized for giving wrong answers in these in-class discussions nor is
-there any penalty for asking for help—asking for help is often the best way to
-learn!</p></li>
+<li><p><strong>Coding Assignments (25%)</strong> are submitted individually and graded using
+GitHub’s automated testing tools (the GitHub Classroom autograder runs as a
+CI/CD workflow). Because you can re-run the autograder until your code passes,
+the assignments are best thought of as teaching vehicles—the grade primarily
+reflects whether you did the work to complete them.</p></li>
+<li><p><strong>Final Project (30%)</strong> is completed in groups of 2. Students choose their
+project from among the options provided at the beginning of the quarter. It is
+graded not only on how well it accomplishes the assigned data cleaning and
+analysis task, but primarily on whether (1) the steps to reproduce it are fully
+automated and well documented, (2) the code is written in a clean and reusable
+fashion, and (3) the results are presented clearly and convincingly. At the
+week-10 presentation, <strong>each group member is individually quizzed in an oral
+defense</strong>—you will be asked to defend your analysis and design choices and to
+demonstrate that you can actually run and modify the project (e.g., managing
+the conda environment, running the pipeline, using SSH).</p></li>
+<li><p><strong>Proposal Presentation (20%)</strong> is graded on the ambition of your project and
+on how useful and interesting your classmates judge your proposed “product” to
+be, informed by the peer-feedback surveys.</p></li>
+<li><p><strong>Midterm Report (10%)</strong> is your individual contribution (one figure and one
+paragraph) to the collaborative class economic report.</p></li>
+<li><p><strong>Proposal Attendance &amp; Feedback (10%)</strong> requires that, for <strong>every</strong> proposal
+presentation, you both attend (Zoom attendance is taken) <strong>and</strong> submit the
+peer-feedback survey. Both are required to earn the points, and there are
+<strong>no allowed misses</strong>—attending and giving feedback to your classmates is an
+expected part of this course.</p></li>
+<li><p><strong>Participation (5%)</strong> depends on the positive impact you have on the class.
+This includes participating in in-class discussions and/or answering questions
+on the class GitHub page (or on Canvas). Students are in no way penalized for
+giving wrong answers in these discussions, nor is there any penalty for asking
+for help—asking for help is often the best way to learn!</p></li>
 </ul>
 </section>
 <section id="schedule">
 <h2>Schedule<a class="headerlink" href="#schedule" title="Link to this heading">#</a></h2>
-<p>The schedule will follow the ordering of the chapters listed in the GitHub book
-found here: <a class="reference external" href="https://finm-32900.github.io/">https://finm-32900.github.io/</a>. Each week is it’s own chapter and the
-agenda is listed in the first sub-section of the chapter.</p>
+<p>The course runs for ten weeks. There are <strong>9 weeks of lectures</strong> (Thursdays,
+starting June 18, 2026), followed by <strong>final project presentations in week 10</strong>.
+The lecture schedule follows the ordering of the chapters listed in the GitHub
+book found here: <a class="reference external" href="https://finm-32900.github.io/">https://finm-32900.github.io/</a>. Each week is its own chapter and
+the agenda is listed in the first sub-section of the chapter.</p>
+<p>Other key milestones (exact dates to be announced on Canvas and GitHub Classroom):</p>
+<ul class="simple">
+<li><p><strong>Midterm Report</strong> contributions are due mid-quarter. See <a class="reference internal" href="midterm_report.html"><span class="std std-doc">Midterm Report</span></a>.</p></li>
+<li><p><strong>Proposal presentations</strong> take place in class, roughly weeks 5–8.</p></li>
+<li><p><strong>Final project presentations</strong> take place in week 10.</p></li>
+</ul>
 <section id="hw-due-dates">
 <h3>HW Due Dates<a class="headerlink" href="#hw-due-dates" title="Link to this heading">#</a></h3>
+<p>Assignments are distributed and collected through GitHub Classroom. Check GitHub
+Classroom for each assignment’s due date.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="HW0.html"><span class="std std-doc">HW 0: Flexible. Please complete ASAP</span></a></p></li>
-<li><p><a class="reference internal" href="HW1.html"><span class="std std-doc">HW 1: Due Friday, Jan 16 at 11:59 pm</span></a></p></li>
-<li><p><a class="reference internal" href="HW2.html"><span class="std std-doc">HW 2: Due Friday, Jan 23 at 11:59 pm</span></a></p></li>
-<li><p><a class="reference internal" href="HW3.html"><span class="std std-doc">HW 3: Due Tuesday, Feb 10 at 11:59 pm</span></a></p></li>
-<li><p><a class="reference internal" href="HW4.html"><span class="std std-doc">HW 4: TBD</span></a></p></li>
-<li><p><a class="reference internal" href="HW5.html"><span class="std std-doc">HW 5: TBD</span></a></p></li>
+<li><p><a class="reference internal" href="HW1.html"><span class="std std-doc">HW 1: TBD — see GitHub Classroom</span></a></p></li>
+<li><p><a class="reference internal" href="HW2.html"><span class="std std-doc">HW 2: TBD — see GitHub Classroom</span></a></p></li>
+<li><p><a class="reference internal" href="HW3.html"><span class="std std-doc">HW 3: TBD — see GitHub Classroom</span></a></p></li>
+<li><p><a class="reference internal" href="HW4.html"><span class="std std-doc">HW 4: TBD — see GitHub Classroom</span></a></p></li>
+<li><p><a class="reference internal" href="HW5.html"><span class="std std-doc">HW 5: TBD — see GitHub Classroom</span></a></p></li>
 </ul>
 </section>
 </section>
@@ -731,6 +818,7 @@ conda environment using the following command:</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assignments">Assignments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-exams">No Exams</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project">Final Project</a></li>
 </ul>
 </li>

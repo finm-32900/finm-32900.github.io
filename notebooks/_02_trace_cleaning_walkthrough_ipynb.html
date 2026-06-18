@@ -173,7 +173,7 @@
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Winter 2026</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Summer 2026</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html">Appendix</a></li>
 </ul>
@@ -184,8 +184,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week1/virtual_environments.html">Virtual Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/midterm_report_and_style_guides.html">The Midterm Report and Style Guides</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_01_wrds_python_package_ipynb.html">Example: Connecting to the WRDS Platform With Python</a></li>
@@ -260,8 +262,10 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../HW5.html">Homework 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../midterm_report.html">Midterm Report</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../FinalProject/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/proposal_presentation_rubric.html">Proposal Presentation Rubric</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FinalProject/potential_final_projects.html">List of Potential Final Projects</a></li>
 </ul>
 </details></li>
@@ -1726,7 +1730,7 @@ zero-coupon yield)</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Stage 1 (stage1_20260225.parquet) -- Rows: 27,164,296  |  Columns: 43
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Stage 1 (stage1_latest.parquet) -- Rows: 27,164,296  |  Columns: 43
 Columns: [&#39;cusip_id&#39;, &#39;permno&#39;, &#39;permco&#39;, &#39;gvkey&#39;, &#39;trd_exctn_dt&#39;, &#39;pr&#39;, &#39;prfull&#39;, &#39;acclast&#39;, &#39;accpmt&#39;, &#39;accall&#39;, &#39;ytm&#39;, &#39;mod_dur&#39;, &#39;mac_dur&#39;, &#39;convexity&#39;, &#39;bond_maturity&#39;, &#39;credit_spread&#39;, &#39;prc_ew&#39;, &#39;prc_vw_par&#39;, &#39;prc_first&#39;, &#39;prc_last&#39;, &#39;prc_hi&#39;, &#39;prc_lo&#39;, &#39;trade_count&#39;, &#39;time_ew&#39;, &#39;time_last&#39;, &#39;qvolume&#39;, &#39;dvolume&#39;, &#39;prc_bid&#39;, &#39;bid_last&#39;, &#39;bid_time_ew&#39;, &#39;bid_time_last&#39;, &#39;prc_ask&#39;, &#39;bid_count&#39;, &#39;ask_count&#39;, &#39;db_type&#39;, &#39;ff17num&#39;, &#39;ff30num&#39;, &#39;bond_age&#39;, &#39;bond_amt_outstanding&#39;, &#39;sp_rating&#39;, &#39;mdy_rating&#39;, &#39;spc_rating&#39;, &#39;mdc_rating&#39;]
 </pre></div>
 </div>
@@ -1854,7 +1858,7 @@ High-yield bonds (BB and below) tend to have shorter duration.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/l3/tj6vb0ld2ys1h939jz0qrfrh0000gn/T/ipykernel_1756/3343011909.py:41: MatplotlibDeprecationWarning: The &#39;labels&#39; parameter of boxplot() has been renamed &#39;tick_labels&#39; since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/l3/tj6vb0ld2ys1h939jz0qrfrh0000gn/T/ipykernel_90126/3343011909.py:41: MatplotlibDeprecationWarning: The &#39;labels&#39; parameter of boxplot() has been renamed &#39;tick_labels&#39; since Matplotlib 3.9; support for the old name will be dropped in 3.11.
   bp = ax.boxplot(data_valid, labels=order_valid, patch_artist=True, showfliers=False)
 </pre></div>
 </div>

@@ -1,7 +1,7 @@
 # Homework 3
 
 - **Due Date:** Tuesday, Feb 10 at 11:59 pm.
-- **Link to Assignment:** https://classroom.github.com/a/FQKccYH-
+- **Link to Assignment:** TBD
 
 ## Overview
 

@@ -6,6 +6,7 @@ Week1/what_is_this_course_about.md
 Week1/reproducible_analytical_pipelines.md
 Week1/case_study_reproducibility_in_finance.md
 Week1/virtual_environments.md
+Week1/midterm_report_and_style_guides.md
 ```
 
 

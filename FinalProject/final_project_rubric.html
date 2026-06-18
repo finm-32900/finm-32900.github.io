@@ -51,7 +51,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="List of Potential Final Projects" href="potential_final_projects.html" />
+    <link rel="next" title="Proposal Presentation Rubric" href="proposal_presentation_rubric.html" />
     <link rel="prev" title="Final Project" href="../final_project.html" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>   
@@ -171,7 +171,7 @@
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Winter 2026</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Summer 2026</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../appendix.html">Appendix</a></li>
 </ul>
@@ -182,8 +182,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week1/virtual_environments.html">Virtual Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/midterm_report_and_style_guides.html">The Midterm Report and Style Guides</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_wrds_python_package_ipynb.html">Example: Connecting to the WRDS Platform With Python</a></li>
@@ -258,8 +260,10 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../HW5.html">Homework 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../midterm_report.html">Midterm Report</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../final_project.html">Final Project</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Final Project Instructions and Rubric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proposal_presentation_rubric.html">Proposal Presentation Rubric</a></li>
 <li class="toctree-l2"><a class="reference internal" href="potential_final_projects.html">List of Potential Final Projects</a></li>
 </ul>
 </details></li>
@@ -458,6 +462,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-three-project-milestones">The Three Project Milestones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#receiving-your-assigned-project">Receiving Your Assigned Project</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project-grading-rubric">Final Project Grading Rubric</a></li>
 </ul>
@@ -473,19 +478,29 @@ document.write(`
                    <section class="tex2jax_ignore mathjax_ignore" id="final-project-instructions-and-rubric">
 <h1>Final Project Instructions and Rubric<a class="headerlink" href="#final-project-instructions-and-rubric" title="Link to this heading">#</a></h1>
 <p>In this project, you’ll replicate tables, figures, or data series from a well known finance paper using the principals of reproducible analytical pipelines (RAPs) learned in this class. Your replication must be automated from end-to-end, formatted using the <a class="reference external" href="https://github.com/backofficedev/cookiecutter_chartbook">cookiecutter chartbook template</a>. To create a new project, use <a class="reference external" href="https://cruft.github.io/cruft/">cruft</a>: <code class="docutils literal notranslate"><span class="pre">cruft</span> <span class="pre">create</span> <span class="pre">https://github.com/backofficedev/cookiecutter_chartbook</span></code>. See <a class="reference internal" href="../Week3/project_structure.html"><span class="std std-doc">Project Structure: “Chartbook” Template</span></a> for more details.</p>
+<p>This term, the final project is more than a replication—it is a <strong>product</strong>. On top of replicating a table and a figure from your assigned paper (and reproducing them with updated numbers), you must build something that other people would actually want to use: for example, a cleaned, well-documented dataset and the code that produces it, plus your own new summary table and figure that say something interesting using that data. A central part of the project is <strong>advertising</strong> this product to your classmates during the <a class="reference internal" href="proposal_presentation_rubric.html"><span class="std std-doc">proposal presentation</span></a>—convincing them why they would want to clone your repository and run your code.</p>
+<section id="the-three-project-milestones">
+<h2>The Three Project Milestones<a class="headerlink" href="#the-three-project-milestones" title="Link to this heading">#</a></h2>
+<p>The final project this term is organized around three separate events. Read the <a class="reference internal" href="proposal_presentation_rubric.html"><span class="std std-doc">Proposal Presentation Rubric</span></a> for the full procedure; in brief:</p>
+<ol class="arabic simple">
+<li><p><strong>Instructor consultation</strong> — a 1-on-1 meeting you schedule with the instructor, to occur <strong>at least one week before</strong> your group’s proposal presentation. This is where you get individual feedback on your plan.</p></li>
+<li><p><strong>Proposal presentation</strong> — an in-class presentation (in an assigned week, roughly weeks 5–8) where you advertise your project and product to the class and receive peer feedback.</p></li>
+<li><p><strong>Final project presentation</strong> — in week 10, where you present the completed project and <strong>each group member is individually quizzed in an oral defense</strong> (see the rubric below).</p></li>
+</ol>
+</section>
 <section id="receiving-your-assigned-project">
 <h2>Receiving Your Assigned Project<a class="headerlink" href="#receiving-your-assigned-project" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>You will be assigned a project from the list found <a class="reference internal" href="potential_final_projects.html"><span class="std std-doc">here.</span></a></p></li>
-<li><p>Your preference will be taken into account when assigning the projects. You can rank your preferred projects by using the following Google Form: <a class="reference external" href="https://forms.gle/6NDFD2sVuAChec898">https://forms.gle/6NDFD2sVuAChec898</a>. Please, only submit one response per group. Your group must have 2 people in it. Students can not choose to work alone and groups can not have more than 2 people.</p></li>
-<li><p>You will meet with me at the beginning of the project as well as at the end (a consultation). The first meeting is to establish the goals for the project. The final meeting is to present your results. When you submit the link, you will also have a chance to schedule your consultation and final presentation dates. The link the page to book these meetings is in the Canvas announcement.</p></li>
-<li><p>In this first consultation meeting, you should come prepared with a list of tasks that each team member will be primarily responsible for. Team members can and should share tasks (e.g., two people can be responsible for the LaTeX writeup whereas everyone should be involved in figuring out how to understand and clean the data). Write this list of tasks in the <a class="reference external" href="http://README.md">README.md</a> of the GitHub repo.</p></li>
+<li><p>Your preference will be taken into account when assigning the projects. You can rank your preferred projects, and indicate your availability to present in one of the proposal-presentation weeks, using a Google Form: <strong>TBD</strong> (the link will be posted on Canvas). Please, only submit one response per group. Your group must have 2 people in it. Students can not choose to work alone and groups can not have more than 2 people. I will use your responses to assign each group both a project and a proposal-presentation week.</p></li>
+<li><p>You must schedule a <strong>consultation</strong> with me at the beginning of the project (at least one week before your proposal presentation). This meeting is to establish the goals for the project and get individual feedback on your plan. Use the booking link to schedule it: <a class="reference external" href="https://finm-32900.youcanbook.me/">https://finm-32900.youcanbook.me/</a> (also posted on Canvas).</p></li>
+<li><p>In this consultation meeting, you should come prepared with a list of tasks that each team member will be primarily responsible for. Team members can and should share tasks (e.g., two people can be responsible for the LaTeX writeup whereas everyone should be involved in figuring out how to understand and clean the data). Write this list of tasks in the <a class="reference external" href="http://README.md">README.md</a> of the GitHub repo.</p></li>
 </ul>
 </section>
 <section id="final-project-grading-rubric">
 <h2>Final Project Grading Rubric<a class="headerlink" href="#final-project-grading-rubric" title="Link to this heading">#</a></h2>
 <p>The following questions or assertions will be made of your code when you present it at the end of the quarter. Each question will be subjectively prorated on the degree of completion. For example, if you replicate 50% of the numbers from a table, you’ll get 50% of the available points. Some adjustments may be made by discretion based on the difficulty of the task.
-For each assertion in the following, I enumerate the points each is worth in <strong>bold</strong> and there are a total of 182 points available in total.</p>
+For each assertion in the following, I enumerate the points each is worth in <strong>bold</strong> and there are a total of 202 points available in total.</p>
 <ul class="simple">
 <li><p><strong>4/4</strong> You must generate a single LaTeX document that briefly describes the nature of the replication project and contains all the tables and charts that your code produces. You should give a high level overview of how the replication project went. Where did you find success, where were the challenges? Also, explain the data sources that you used? The LaTeX document should not contain code snippets, but only give the tables and charts and a high level discussion of the project.</p></li>
 <li><p><strong>4/4</strong> Provide at least one jupyter notebook that gives an brief tour of the cleaned data and some of the analysis that is performed in the code. You can think of this as giving the reader a tour of the code that you have written. You can provide code snippets in this notebook. It should look somethin like one the HW guides that we used, e.g. <a class="reference internal" href="../notebooks/_04_Fama_French_1993_ipynb.html"><span class="std std-doc">HW Guide: Replicate Fama-French 1993</span></a></p></li>
@@ -509,6 +524,7 @@ For each assertion in the following, I enumerate the points each is worth in <st
 <li><p><strong>4/4</strong> Does each Python file have a “docstring” at the top that describes what the file does?</p></li>
 <li><p><strong>4/4</strong> Does each Python function have a reasonably descriptive name and, when appropriate, a function docstring? (No need to overboard, but the code should be reasonably clean.)</p></li>
 <li><p><strong>50/50</strong> Did I individually accomplish the tasks that were assigned to me by the group and did I contribute a substantial part of the code to the project as evidenced by the commit history?</p></li>
+<li><p><strong>20/20</strong> Oral defense (graded individually for each group member). At the week-10 final presentation, each member will be quizzed individually. You must be able to (1) <strong>defend the analysis and design choices</strong> in the project, including the motivation and value of your additional “product” (your new table, figure, and/or cleaned dataset), and (2) <strong>demonstrate that you can actually run and modify the project</strong>—for example, creating and activating the conda environment, running the pipeline end-to-end with <code class="docutils literal notranslate"><span class="pre">doit</span></code>, making a small live edit to the code, and using tooling such as SSH where relevant. Both members are expected to understand the whole project, not only the parts they wrote.</p></li>
 </ul>
 </section>
 </section>
@@ -537,11 +553,11 @@ For each assertion in the following, I enumerate the points each is worth in <st
       </div>
     </a>
     <a class="right-next"
-       href="potential_final_projects.html"
+       href="proposal_presentation_rubric.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">List of Potential Final Projects</p>
+        <p class="prev-next-title">Proposal Presentation Rubric</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -561,6 +577,7 @@ For each assertion in the following, I enumerate the points each is worth in <st
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-three-project-milestones">The Three Project Milestones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#receiving-your-assigned-project">Receiving Your Assigned Project</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-project-grading-rubric">Final Project Grading Rubric</a></li>
 </ul>

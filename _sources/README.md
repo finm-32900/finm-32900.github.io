@@ -1,4 +1,4 @@
-Course Syllabus: FINM 32900, Winter 2026
+Course Syllabus: FINM 32900, Summer 2026
 ========================================
 
 **FINM 32900, Full Stack Quantitative Finance**
@@ -23,21 +23,29 @@ textual data from EDGAR, and high-frequency trade and quote data from NYSE.
 Prior experience at an intermediate level with Python and the PyData stack is
 assumed.
 
-- **Class:** Mondays, 1:30 - 4:30 PM, in-person at the Stevanovich Center building,
-  Room #112. (5727 S. University Ave.)
-- **Note:** Due to the Jan 20 holiday, a makeup class will be held Tuesday, Jan 21, 6-9 PM CT on Zoom (link on Canvas). The class will be recorded.
+This is an **online course**, taught live over Zoom. Because we meet remotely, we
+put extra emphasis on class participation and on getting to know your classmates.
+Networking with your peers is one of the most valuable parts of the university
+experience—both for learning and for your career—so this term the course is built
+around live, interactive components. The two main vehicles for this are the
+**final-project proposal presentations** (where you present your project plan to
+the class and give and receive live feedback from your classmates) and the
+collaborative **Midterm Report** (a single economic report that the whole class
+builds together). Attendance at the proposal presentations is taken via Zoom.
+
+- **Class:** Thursdays, 6 - 9 PM CT, online via Zoom. The Zoom link is posted on
+  Canvas. Classes will be recorded.
 - **Lecturer:** Jeremy Bejarano, jbejarano@uchicago.edu
-- **Instructor Office Hours:** Monday, 4:30 - 5:30 pm, in the FinMath library (first floor of the Stevanovich Center, 5727 S. University Ave.)
-- **Teaching Assistants:**
-  - Viren Desai, viren.desai@aprio.com
+- **Instructor Office Hours:** By appointment over Zoom (link on Canvas). You can
+  also schedule a 1-on-1 consultation using the booking link posted on Canvas.
+- **Teaching Assistant:**
   - Jared Szajkowski, jszajkowski@uchicago.edu
-  - Note: Please include both TAs on all emails. However, students are strongly
-    encouraged to post questions on the discussion page of the class GitHub
-    repository here.
+  - Note: Students are strongly encouraged to post questions on the discussion
+    page of the class GitHub repository (see below) rather than emailing, so that
+    the whole class can benefit from the answers.
 
 - **TA Office Hours:**
-  - In-Person: Mondays, 12:30 - 1:30 pm in the FinMath library (first floor of the Stevanovich Center, 5727 S. University Ave.)
-  - Virtual (Zoom): Fridays, 12 - 1 PM CT. See the Canvas calendar for the Zoom link.
+  - Virtual (Zoom): Time TBD. See the Canvas calendar for the schedule and the Zoom link.
 
 - **Textbook:** The text for the course will be published incrementally here:
   https://finm-32900.github.io/
@@ -52,10 +60,10 @@ page here: https://github.com/orgs/finm-32900/discussions
 
 ### Assignments
 
-- Assignments will typically be due on Fridays at 11:59 pm. Check GitHub Classroom 
-  for the due date for each assignment. Each
-  assignment will be distributed on a Monday, and will be due the on the Friday
-  of the following week (11 days later).
+- Assignments are distributed and collected through GitHub Classroom. Check
+  GitHub Classroom for the due date for each assignment. Each assignment is
+  typically distributed on the day of the lecture and due roughly a week and a
+  half later.
 - Assignments are automatically graded via the autograder on GitHub Classroom
   and solutions will be released shortly after. This means that the due date is
   strict. Late assignments will not be accepted.
@@ -67,50 +75,106 @@ page here: https://github.com/orgs/finm-32900/discussions
   repos, found under the `finm-32900` GitHub organization page here: 
   https://github.com/finm-32900
 
+### No Exams
+
+This course has **no exams**—no midterm exam and no final exam. In their place:
+
+- The **Midterm Report** (a collaborative, class-wide economic report) takes the
+  place of a midterm. See [Midterm Report](midterm_report.md).
+- The **final project**, presented and orally defended at the end of the quarter,
+  takes the place of a final.
+
 ### Final Project
 
 In lieu of a final exam, students will be organized into groups of 2 (pairs) and
-will each complete a course project. Each group will present their completed
-project to the instructor at the end of the course. These presentations will be
-scheduled individually. 
+will each complete a course project. The final project this term is structured
+around three separate milestones:
+
+1. **Instructor consultation** — each group schedules a 1-on-1 meeting with the
+   instructor (at least one week before their proposal presentation) to get
+   individual feedback on their plan.
+2. **Proposal presentation** — each group presents their project plan to the
+   class (in an assigned week, roughly weeks 5–8), advertising the data sources
+   and the reusable "product" they intend to build. Classmates ask questions and
+   submit feedback surveys.
+3. **Final project presentation** — in week 10, each group presents the completed
+   project and each member is individually quizzed in an oral defense of both
+   their analysis and the tools used to build it.
+
+See the [Final Project Instructions and Rubric](FinalProject/final_project_rubric.md)
+and the [Proposal Presentation Rubric](FinalProject/proposal_presentation_rubric.md)
+for full details.
 
 ## Assessment
 
-Grades will be based on coding assignments (60%), a final group project (35%),
-and participation (5%). 
+Grades will be based on the following components:
 
-- Assignments will be submitted individually and will be graded using GitHub’s
-  automated testing tools. 
-- The final project will be completed in groups. Students will choose the
-  project from among a few options provided at the beginning of the quarter. The
-  project will be graded not only on how well it accomplishes the assigned data
-  cleaning and analysis task, but will be primarily graded on whether (1) the
-  steps to reproduce it are fully automated and well documented, (2) the code is
-  written in a clean and reusable fashion, and (3) the results are presented
-  clearly and presented in a way that convinces the reader that the results are
-  correct. A more specific rubric will be provided in class.
-- The participation grade will depend on the positive impacts that a student has
-  on the class. These include participating in in-class discussions and/or
-  answering questions on the class GitHub page (or on Canvas). Students are in
-  no way penalized for giving wrong answers in these in-class discussions nor is
-  there any penalty for asking for help—asking for help is often the best way to
-  learn!
+| Component | Weight |
+| --- | --- |
+| Coding Assignments | 25% |
+| Final Project | 30% |
+| Proposal Presentation | 20% |
+| Midterm Report | 10% |
+| Proposal Attendance & Feedback | 10% |
+| Participation | 5% |
+
+- **Coding Assignments (25%)** are submitted individually and graded using
+  GitHub's automated testing tools (the GitHub Classroom autograder runs as a
+  CI/CD workflow). Because you can re-run the autograder until your code passes,
+  the assignments are best thought of as teaching vehicles—the grade primarily
+  reflects whether you did the work to complete them.
+- **Final Project (30%)** is completed in groups of 2. Students choose their
+  project from among the options provided at the beginning of the quarter. It is
+  graded not only on how well it accomplishes the assigned data cleaning and
+  analysis task, but primarily on whether (1) the steps to reproduce it are fully
+  automated and well documented, (2) the code is written in a clean and reusable
+  fashion, and (3) the results are presented clearly and convincingly. At the
+  week-10 presentation, **each group member is individually quizzed in an oral
+  defense**—you will be asked to defend your analysis and design choices and to
+  demonstrate that you can actually run and modify the project (e.g., managing
+  the conda environment, running the pipeline, using SSH).
+- **Proposal Presentation (20%)** is graded on the ambition of your project and
+  on how useful and interesting your classmates judge your proposed "product" to
+  be, informed by the peer-feedback surveys.
+- **Midterm Report (10%)** is your individual contribution (one figure and one
+  paragraph) to the collaborative class economic report.
+- **Proposal Attendance & Feedback (10%)** requires that, for **every** proposal
+  presentation, you both attend (Zoom attendance is taken) **and** submit the
+  peer-feedback survey. Both are required to earn the points, and there are
+  **no allowed misses**—attending and giving feedback to your classmates is an
+  expected part of this course.
+- **Participation (5%)** depends on the positive impact you have on the class.
+  This includes participating in in-class discussions and/or answering questions
+  on the class GitHub page (or on Canvas). Students are in no way penalized for
+  giving wrong answers in these discussions, nor is there any penalty for asking
+  for help—asking for help is often the best way to learn!
 
 
 ## Schedule
 
-The schedule will follow the ordering of the chapters listed in the GitHub book
-found here: https://finm-32900.github.io/. Each week is it's own chapter and the
-agenda is listed in the first sub-section of the chapter.
+The course runs for ten weeks. There are **9 weeks of lectures** (Thursdays,
+starting June 18, 2026), followed by **final project presentations in week 10**.
+The lecture schedule follows the ordering of the chapters listed in the GitHub
+book found here: https://finm-32900.github.io/. Each week is its own chapter and
+the agenda is listed in the first sub-section of the chapter.
+
+Other key milestones (exact dates to be announced on Canvas and GitHub Classroom):
+
+- **Midterm Report** contributions are due mid-quarter. See [Midterm Report](midterm_report.md).
+- **Proposal presentations** take place in class, roughly weeks 5–8.
+- **Final project presentations** take place in week 10.
 
 ### HW Due Dates
 
+Assignments are distributed and collected through GitHub Classroom. Check GitHub
+Classroom for each assignment's due date.
+
 - [HW 0: Flexible. Please complete ASAP](HW0.md)
-- [HW 1: Due Friday, Jan 16 at 11:59 pm](HW1.md)
-- [HW 2: Due Friday, Jan 23 at 11:59 pm](HW2.md)
-- [HW 3: Due Tuesday, Feb 10 at 11:59 pm](HW3.md)
-- [HW 4: TBD](HW4.md)
-- [HW 5: TBD](HW5.md)
+- [HW 1: TBD — see GitHub Classroom](HW1.md)
+- [HW 2: TBD — see GitHub Classroom](HW2.md)
+- [HW 3: TBD — see GitHub Classroom](HW3.md)
+- [HW 4: TBD — see GitHub Classroom](HW4.md)
+- [HW 5: TBD — see GitHub Classroom](HW5.md)
 
 ## References
 

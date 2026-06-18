@@ -7,7 +7,7 @@ notebooks/_04_Fama_French_1993_ipynb.ipynb
 ```
 
 - **Due Date:** Friday, Jan 23 at 11:59 pm.
-- **Link to Assignment:** https://classroom.github.com/a/wkZyHjl9
+- **Link to Assignment:** TBD
 
 
 ## Part 0 (not graded)
