@@ -6,7 +6,7 @@
 notebooks/_04_Fama_French_1993_ipynb.ipynb
 ```
 
-- **Due Date:** Friday, Jan 23 at 11:59 pm.
+- **Due Date:** Friday, July 17, 2026 at 11:59 pm.
 - **Link to Assignment:** TBD
 
 
@@ -49,7 +49,7 @@ For Part 2, you will:
 
 **Note:** The Fama-French factors (SMB, HML, Mkt-RF) are long-short constructs used for analysis, not directly tradeable as-is. The 6 size/BM portfolios, however, represent long-only portfolios of actual stocks.
 
-For detailed instructions on what tearsheets are and how to publish to GitHub Pages, see: [GitHub Pages and Tearsheets](Week2/github_pages_preview.md)
+For detailed instructions on what tearsheets are and how to publish to GitHub Pages, see: [GitHub Pages and Tearsheets](Week3/github_pages_preview.md)
 
 ### Autograder Requirement
 

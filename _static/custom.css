@@ -8,3 +8,31 @@
         max-width: 90em !important;  /* ~1440px, up from 60em */
     }
 }
+
+/* Tool logos floated alongside the prose (e.g. pip, conda).
+   Sphinx strips inline `style`, so positioning lives here. */
+img.tool-logo {
+    float: right;
+    height: 72px;
+    margin: 0.4rem 0.25rem 1rem 2rem;  /* top right bottom left; left gap keeps text off the logo */
+}
+
+/* The pip mark is a compact square, so it needs more height than the
+   wide conda wordmark to carry similar visual weight. */
+img.pip-logo {
+    height: 120px;
+}
+
+/* Small logos shown inline with text (e.g. uv, pixi). */
+img.inline-logo {
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+/* A touch more breathing room when an inline logo leads a heading. */
+h1 img.inline-logo,
+h2 img.inline-logo,
+h3 img.inline-logo {
+    margin-right: 0.6rem;
+}

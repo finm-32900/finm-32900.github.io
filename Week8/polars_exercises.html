@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=f23691d7" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2af69973" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -185,19 +185,20 @@
 <li class="toctree-l2"><a class="reference internal" href="../Week1/midterm_report_and_style_guides.html">The Midterm Report and Style Guides</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w2.html">Week 2: Env Files and Secrets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w2.html">Week 2: Virtual Environments, WRDS, and CRSP</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_wrds_python_package_ipynb.html">Example: Connecting to the WRDS Platform With Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/_05_basics_of_SQL_ipynb.html">Basics of SQL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Week2/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week3/doit_examples.html">PyDoit Examples Walkthrough</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week3/project_structure.html">Project Structure: “Chartbook” Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/uv_and_pixi.html">Modern Environment Tools: uv and pixi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
 </ul>
 </details></li>
@@ -501,8 +502,9 @@ document.write(`
                 <article class="bd-article">
                    <section class="tex2jax_ignore mathjax_ignore" id="polars-exercises-code-snippets">
 <h1>Polars Exercises: Code Snippets<a class="headerlink" href="#polars-exercises-code-snippets" title="Link to this heading">#</a></h1>
-<p>The in-class exercises in <code class="docutils literal notranslate"><span class="pre">inclass_examples/polars/</span></code> walk through Polars
-progressively—from basic syntax to production-scale data handling. Below are
+<p>The in-class exercises in <a class="reference external" href="https://github.com/finm-32900/inclass_examples/tree/main/polars"><code class="docutils literal notranslate"><span class="pre">polars/</span></code></a>
+(in the <a class="reference external" href="https://github.com/finm-32900/inclass_examples">in-class examples repository</a>) walk
+through Polars progressively—from basic syntax to production-scale data handling. Below are
 selected snippets from each module.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

@@ -34,6 +34,9 @@ how to access the [course textbook](https://finm-32900.github.io/), and how to d
     - Show students how to clone the assignment repository.
     - Show students how to sign up for GitHub Classroom (use assignment link)
     - Complete Example HWs together and submit them on GitHub Classroom
+- Introduce the **in-class examples repo**: <https://github.com/finm-32900/inclass_examples>
+    - This holds the small, self-contained demos used throughout the course (virtual environments, env vars, PyDoit, Sphinx, polars, WRDS/Datastream, LaTeX, etc.). Have students clone it now so it's ready when we reference it in later lectures.
+    - We'll pull from it the first time when we cover virtual environments (see `software_environments/` and `env_vars/`).
 - Discuss [Virtual Environments](./Week1/virtual_environments.md)
 - Discuss and start [Homework 0](./HW0.md)
 

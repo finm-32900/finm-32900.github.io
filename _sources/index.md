@@ -24,8 +24,8 @@ appendix.md
 :maxdepth: 1
 :caption: Lectures 📖
 overview_w1.md
-subject_to_change_after_this_week.md
 overview_w2.md
+subject_to_change_after_this_week.md
 overview_w3.md
 overview_w4.md
 overview_w5.md

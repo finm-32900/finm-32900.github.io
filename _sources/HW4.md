@@ -6,7 +6,7 @@ notebooks/_01_CRSP_treasury_overview_ipynb.ipynb
 notebooks/_02_replicate_GSW2005_ipynb.ipynb
 ```
 
-- **Due Date:** Friday, Feb 27 at 5:00 pm CT.
+- **Due Date:** Friday, July 31, 2026 at 11:59 pm.
 - **Link to Assignment:** TBD
 
 ## Learning Outcomes

@@ -13,7 +13,7 @@
 
 The assignment is located at the following GitHub Classroom link: TBD
 
-**Due Date:** Mar 8, 2026 at 6 pm CT
+**Due Date:** Friday, August 7, 2026 at 11:59 pm
 
 This is a lightweight assignment designed to give you hands-on experience with
 the RCC Midway3 cluster. You will set up your environment, run the Clean TRACE

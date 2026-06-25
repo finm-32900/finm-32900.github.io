@@ -57,6 +57,12 @@ builds together). Attendance at the proposal presentations is taken via Zoom.
   Questions and other discussion should be posted on the GitHub discussion
 page here: https://github.com/orgs/finm-32900/discussions
   Class-related discussions should be posted here as well.
+- **In-class examples:** Many lectures are accompanied by small, runnable code
+  examples collected in a companion repository, the **in-class examples repo**:
+  https://github.com/finm-32900/inclass_examples. We use this repository
+  throughout the course---individual textbook chapters link to the relevant
+  subfolders (for example, `software_environments/`, `pydoit/`, `env_vars/`,
+  `sphinx/`, and `unit_tests/`). Clone it and follow along during class.
 
 ### Assignments
 
@@ -231,8 +237,7 @@ use free versions of each of these services:
 ## Quick Start
 
 To quickest way to run code in this repo is to use the following steps. First, you must have the `conda`  
-package manager installed (e.g., via Anaconda). However, I recommend using `mamba`, via [miniforge]
-(https://github.com/conda-forge/miniforge) as it is faster and more lightweight than `conda`. Second, you 
+package manager installed (e.g., via Anaconda). Second, you 
 must have TexLive (or another LaTeX distribution) installed on your computer and available in your path.
 You can do this by downloading and 
 installing it from here ([windows](https://tug.org/texlive/windows.html#install) 

@@ -1,6 +1,6 @@
 # Homework 3
 
-- **Due Date:** Tuesday, Feb 10 at 11:59 pm.
+- **Due Date:** Friday, July 24, 2026 at 11:59 pm.
 - **Link to Assignment:** TBD
 
 ## Overview

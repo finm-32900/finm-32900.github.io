@@ -1,7 +1,8 @@
 # Polars Exercises: Code Snippets
 
-The in-class exercises in `inclass_examples/polars/` walk through Polars
-progressively---from basic syntax to production-scale data handling. Below are
+The in-class exercises in [`polars/`](https://github.com/finm-32900/inclass_examples/tree/main/polars)
+(in the [in-class examples repository](https://github.com/finm-32900/inclass_examples)) walk
+through Polars progressively---from basic syntax to production-scale data handling. Below are
 selected snippets from each module.
 
 ```{tip}
