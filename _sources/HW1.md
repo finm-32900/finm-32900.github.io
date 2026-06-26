@@ -6,7 +6,7 @@ notebooks/_02_CRSP_market_index_ipynb.ipynb
 notebooks/_03_SP500_constituents_and_index_ipynb.ipynb
 ```
 
-- **Due Date:** Friday, July 3, 2026 at 11:59 pm CT.
+- **Due Date:** Friday, July 10, 2026 at 11:59 pm CT.
 - **Link to Assignment:** https://classroom.github.com/a/GK3zTEw7
 
 

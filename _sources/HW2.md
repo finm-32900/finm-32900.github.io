@@ -6,7 +6,7 @@
 notebooks/_04_Fama_French_1993_ipynb.ipynb
 ```
 
-- **Due Date:** Friday, July 10, 2026 at 11:59 pm CT.
+- **Due Date:** Friday, July 17, 2026 at 11:59 pm CT.
 - **Link to Assignment:** TBD
 
 

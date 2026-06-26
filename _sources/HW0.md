@@ -1,6 +1,6 @@
 # Homework 0
 
-- **Due date:** Friday, July 3, 2026 at 11:59 pm CT (same as HW 1). This is an ungraded practice homework, but try to finish it as soon as possible during the first week.
+- **Due date:** Friday, July 10, 2026 at 11:59 pm CT (same as HW 1). This is an ungraded practice homework, but try to finish it as soon as possible during the first week.
 - **Link to Assignment:** https://classroom.github.com/a/yuuC4j0j
 
 ## Setting up your computing environment
