@@ -193,17 +193,17 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w3.html">Week 3: Automating the Pipeline with PyDoit, featuring Fama-French 1993</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week3/doit_examples.html">PyDoit Examples Walkthrough</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week3/project_structure.html">Project Structure: “Chartbook” Template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week3/uv_and_pixi.html">Modern Environment Tools: uv and pixi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Week3/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
@@ -252,6 +252,8 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="_04_Fama_French_1993_ipynb.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_06_CAPM_analysis_ipynb.html">CAPM Analysis of Size, Value, and Investment Portfolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_07_Fama_French_3_factor_ipynb.html">Fama-French 3-Factor Analysis of Investment Portfolios</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../HW3.html">Homework 3</a></li>
@@ -519,7 +521,7 @@ Log in using your WRDS username and password.
 Set up a <code class="docutils literal notranslate"><span class="pre">pgpass</span></code> file to store the info. This will allow you to access WRDS without supplying your password each time, as long as you supply your username (which we are doing below via environment variables). We want to be able to access WRDS without a password so that we can automate the query.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
 <span class="kn">from</span> <span class="nn">settings</span> <span class="kn">import</span> <span class="n">config</span>
 
@@ -534,7 +536,7 @@ Set up a <code class="docutils literal notranslate"><span class="pre">pgpass</sp
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span> <span class="o">=</span> <span class="n">wrds</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span><span class="n">wrds_username</span><span class="o">=</span><span class="n">WRDS_USERNAME</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">db</span> <span class="o">=</span> <span class="n">wrds</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span><span class="n">wrds_username</span><span class="o">=</span><span class="n">WRDS_USERNAME</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -549,7 +551,7 @@ Set up a <code class="docutils literal notranslate"><span class="pre">pgpass</sp
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The `obs` keyword argument limits the number of rows returned.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The `obs` keyword argument limits the number of rows returned.</span>
 <span class="c1"># You can omit it to get all rows.</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span>
     <span class="n">library</span><span class="o">=</span><span class="s2">&quot;crsp&quot;</span><span class="p">,</span>
@@ -715,7 +717,7 @@ Set up a <code class="docutils literal notranslate"><span class="pre">pgpass</sp
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">list_libraries</span><span class="p">())[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">list_libraries</span><span class="p">())[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -742,7 +744,7 @@ Set up a <code class="docutils literal notranslate"><span class="pre">pgpass</sp
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">list_tables</span><span class="p">(</span><span class="n">library</span><span class="o">=</span><span class="s2">&quot;crsp&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">list_tables</span><span class="p">(</span><span class="n">library</span><span class="o">=</span><span class="s2">&quot;crsp&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -769,7 +771,7 @@ Set up a <code class="docutils literal notranslate"><span class="pre">pgpass</sp
 </div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">describe_table</span><span class="p">(</span><span class="n">library</span><span class="o">=</span><span class="s2">&quot;crsp&quot;</span><span class="p">,</span> <span class="n">table</span><span class="o">=</span><span class="s2">&quot;msf&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">describe_table</span><span class="p">(</span><span class="n">library</span><span class="o">=</span><span class="s2">&quot;crsp&quot;</span><span class="p">,</span> <span class="n">table</span><span class="o">=</span><span class="s2">&quot;msf&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -966,7 +968,7 @@ Set up a <code class="docutils literal notranslate"><span class="pre">pgpass</sp
 <h3>Using <code class="docutils literal notranslate"><span class="pre">get_table</span></code><a class="headerlink" href="#using-get-table" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The `obs` keyword argument limits the number of rows returned.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The `obs` keyword argument limits the number of rows returned.</span>
 <span class="c1"># You can omit it to get all rows.</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span>
     <span class="n">library</span><span class="o">=</span><span class="s2">&quot;crsp&quot;</span><span class="p">,</span>
@@ -1116,7 +1118,7 @@ Set up a <code class="docutils literal notranslate"><span class="pre">pgpass</sp
 <h3>Using <code class="docutils literal notranslate"><span class="pre">raw_sql</span></code><a class="headerlink" href="#using-raw-sql" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">raw_sql</span><span class="p">(</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">raw_sql</span><span class="p">(</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    SELECT</span>
 <span class="sd">        cusip, permno, date, shrout, prc, ret, retx</span>
@@ -1265,7 +1267,7 @@ Set up a <code class="docutils literal notranslate"><span class="pre">pgpass</sp
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">raw_sql</span><span class="p">(</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">raw_sql</span><span class="p">(</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    SELECT </span>
 <span class="sd">        a.gvkey, a.datadate, a.tic, a.conm, a.at, a.lt, b.prccm, b.cshoq</span>
@@ -1431,7 +1433,7 @@ Set up a <code class="docutils literal notranslate"><span class="pre">pgpass</sp
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tickers&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;0015B&quot;</span><span class="p">,</span> <span class="s2">&quot;0030B&quot;</span><span class="p">,</span> <span class="s2">&quot;0032A&quot;</span><span class="p">,</span> <span class="s2">&quot;0033A&quot;</span><span class="p">,</span> <span class="s2">&quot;0038A&quot;</span><span class="p">)}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tickers&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;0015B&quot;</span><span class="p">,</span> <span class="s2">&quot;0030B&quot;</span><span class="p">,</span> <span class="s2">&quot;0032A&quot;</span><span class="p">,</span> <span class="s2">&quot;0033A&quot;</span><span class="p">,</span> <span class="s2">&quot;0038A&quot;</span><span class="p">)}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">raw_sql</span><span class="p">(</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    SELECT </span>
@@ -1541,7 +1543,7 @@ Set up a <code class="docutils literal notranslate"><span class="pre">pgpass</sp
 <h3>Misc<a class="headerlink" href="#misc" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">get_row_count</span><span class="p">(</span><span class="s2">&quot;djones&quot;</span><span class="p">,</span> <span class="s2">&quot;djdaily&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">get_row_count</span><span class="p">(</span><span class="s2">&quot;djones&quot;</span><span class="p">,</span> <span class="s2">&quot;djdaily&quot;</span><span class="p">)</span>
 <span class="n">data</span>
 </pre></div>
 </div>
@@ -1554,7 +1556,7 @@ Set up a <code class="docutils literal notranslate"><span class="pre">pgpass</sp
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>

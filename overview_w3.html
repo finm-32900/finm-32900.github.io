@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Week 3: Task Runners, Automating Queries, and the Basics of SQL &#8212; Full Stack Quantitative Finance</title>
+    <title>Week 3: Automating the Pipeline with PyDoit, featuring Fama-French 1993 &#8212; Full Stack Quantitative Finance</title>
   
   
   
@@ -193,17 +193,17 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 3: Automating the Pipeline with PyDoit, featuring Fama-French 1993</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week3/doit_examples.html">PyDoit Examples Walkthrough</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week3/project_structure.html">Project Structure: “Chartbook” Template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week3/uv_and_pixi.html">Modern Environment Tools: uv and pixi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week3/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week3/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
@@ -252,6 +252,8 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_04_Fama_French_1993_ipynb.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_06_CAPM_analysis_ipynb.html">CAPM Analysis of Size, Value, and Investment Portfolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_07_Fama_French_3_factor_ipynb.html">Fama-French 3-Factor Analysis of Investment Portfolios</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="HW3.html">Homework 3</a></li>
@@ -454,7 +456,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 3: Task Runners, Automating Queries, and the Basics of SQL</h1>
+    <h1>Week 3: Automating the Pipeline with PyDoit, featuring Fama-French 1993</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -464,8 +466,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">Agenda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#announcements">Announcements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-projects-preview-and-pitch">Final Projects: Preview and Pitch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-ahead-to-week-4">Looking ahead to Week 4</a></li>
 </ul>
             </nav>
         </div>
@@ -476,47 +480,60 @@ document.write(`
                 
 <div id="searchbox"></div>
                 <article class="bd-article">
-                   <section class="tex2jax_ignore mathjax_ignore" id="week-3-task-runners-automating-queries-and-the-basics-of-sql">
-<h1>Week 3: Task Runners, Automating Queries, and the Basics of SQL<a class="headerlink" href="#week-3-task-runners-automating-queries-and-the-basics-of-sql" title="Link to this heading">#</a></h1>
+                   <section class="tex2jax_ignore mathjax_ignore" id="week-3-automating-the-pipeline-with-pydoit-featuring-fama-french-1993">
+<h1>Week 3: Automating the Pipeline with PyDoit, featuring Fama-French 1993<a class="headerlink" href="#week-3-automating-the-pipeline-with-pydoit-featuring-fama-french-1993" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week3/doit_examples.html">PyDoit Examples Walkthrough</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week3/project_structure.html">Project Structure: “Chartbook” Template</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week3/uv_and_pixi.html">Modern Environment Tools: uv and pixi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week3/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
 </ul>
 </div>
-<section id="learning-outcomes">
-<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h2>
+<section id="announcements">
+<h2>Announcements<a class="headerlink" href="#announcements" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><strong>Task Runners</strong> Now, discuss incorporating automated data downloads into our workflow. Discuss <a class="reference internal" href="Week3/what_is_a_task_runner.html"><span class="std std-doc">Build Systems and Task Runners</span></a></p></li>
-<li><p><strong>Query Automation</strong> We’ll then put these two concepts together to demonstrate how to automate a data query from a database.</p></li>
-<li><p><strong>Project Structure</strong> We’ll discuss the structure of the “chartbook project” template and how to use it to create a new project. Mention my older template that is now deprecated.</p></li>
-<li><p><strong>Overview of my “Financial Times Series Forecasting Repository”</strong> I will discuss the structure of my repository and how to use it to obtain a variety of useful financial time series data.</p></li>
+<li><p><strong>Final project survey</strong>: This week I will email a survey where your group indicates which projects interest you. Find your project partner now—each group must have <strong>exactly 2 people</strong>, and only <strong>one person per group</strong> submits the survey. I will do my best to assign each group a project it ranked highly. Project assignments will be emailed shortly after the survey closes.</p></li>
+<li><p><strong>HW 1 is due Friday, July 10.</strong> We’ll take questions at the start of class.</p></li>
 </ul>
 </section>
-<section id="agenda">
-<h2>Agenda<a class="headerlink" href="#agenda" title="Link to this heading">#</a></h2>
+<section id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Link to this heading">#</a></h2>
+<p>The core of this week is the <strong>PyDoit task runner</strong>, and the case study that motivates it is the <strong>Fama-French 1993 replication</strong> that is <strong><a class="reference internal" href="HW2.html"><span class="std std-doc">HW 2</span></a></strong> (due Friday, July 17): merge <strong>CRSP with Compustat</strong>, construct the size and value factors, and reproduce the sorted portfolios. A replication like this is a <em>pipeline</em>—pull, clean, merge, construct, test, report—and once a project has more than two steps, running them by hand in the right order becomes the main source of irreproducibility. The task runner is the fix, and it’s the glue for every repository you’ll touch for the rest of the quarter, including your final project.</p>
 <ul class="simple">
-<li><p>Review <a class="reference internal" href="HW2.html"><span class="std std-doc">HW 2</span></a> and answer questions</p>
+<li><p><strong>Why task runners?</strong> <a class="reference internal" href="Week3/what_is_a_task_runner.html"><span class="std std-doc">Build Systems and Task Runners</span></a>—what problems they solve, and where <code class="docutils literal notranslate"><span class="pre">doit</span></code> sits relative to Make and friends.</p>
 <ul>
-<li><p>This is where the <strong>Fama-French 1993</strong> replication lives: merge <strong>CRSP with Compustat</strong>, construct the factors and sorted portfolios.</p></li>
+<li><p><em>→ HW 2:</em> the assignment repo is organized as a <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> pipeline; understanding the dependency graph is understanding the assignment.</p></li>
 </ul>
 </li>
-<li><p>Note: <a class="reference internal" href="notebooks/_05_basics_of_SQL_ipynb.html"><span class="std std-doc">Basics of SQL</span></a> has been moved to Week 2</p></li>
-<li><p><strong>Publishing results</strong>: Now that we have factor loadings worth reporting, introduce <a class="reference internal" href="Week3/github_pages_preview.html"><span class="std std-doc">GitHub Pages and Tearsheets</span></a>—generate a tearsheet with <code class="docutils literal notranslate"><span class="pre">quantstats_lumi</span></code> and publish it to the web via GitHub Pages. <em>(Moved here from Week 2; still needs to be fully fit into the Week 3 flow.)</em></p></li>
-<li><p><a class="reference internal" href="Week3/what_is_a_task_runner.html"><span class="std std-doc">Task Runners</span></a></p></li>
-<li><p><a class="reference internal" href="Week3/project_structure.html"><span class="std std-doc">Introduction to “Chartbook Project” Template</span></a></p></li>
-<li><p><a class="reference internal" href="Week3/uv_and_pixi.html"><span class="std std-doc">Modern Environment Tools: <code class="docutils literal notranslate"><span class="pre">uv</span></code> and <code class="docutils literal notranslate"><span class="pre">pixi</span></code></span></a> (the hands-on follow-up to the Week 1 preview)</p></li>
-<li><p>Discuss <a class="reference internal" href="FinalProject/potential_final_projects.html"><span class="std std-doc">Potential Final Projects</span></a>. I will send an email out with a survey to select the projects. Please find your project partner. Each group must have exactly 2 people. Only have one person per group submit responses to the survey. I will try to make sure that each group is assigned a project that is of interest to them.</p></li>
-<li><p>Discuss <a class="reference internal" href="HW3.html"><span class="std std-doc">HW 3</span></a></p>
+<li><p><strong>PyDoit hands-on</strong>: <a class="reference internal" href="Week3/doit_examples.html"><span class="std std-doc">PyDoit Examples Walkthrough</span></a>, using the <code class="docutils literal notranslate"><span class="pre">pydoit/</span></code> directory of the <a class="reference external" href="https://github.com/finm-32900/inclass_examples">in-class examples repo</a>. Tasks, file dependencies, targets, and why <code class="docutils literal notranslate"><span class="pre">doit</span></code> only re-runs what changed.</p></li>
+<li><p><strong>Multifactor asset pricing models</strong>: it’s hard to appreciate the construction details of the Fama-French factors without first understanding the model they serve. The CAPM says market beta is the only priced risk—every portfolio’s alpha should be zero. We’ll test that claim on portfolios sorted by size, book-to-market, and investment in the <a class="reference internal" href="notebooks/_06_CAPM_analysis_ipynb.html"><span class="std std-doc">CAPM analysis notebook</span></a>, find the significant alphas the CAPM leaves behind, and see in the <a class="reference internal" href="notebooks/_07_Fama_French_3_factor_ipynb.html"><span class="std std-doc">Fama-French 3-factor notebook</span></a> how adding SMB and HML absorbs them. That is the whole reason the factors exist—and why we’re about to build them.</p>
 <ul>
-<li><p>Start HW 3 together.</p></li>
+<li><p><em>→ HW 2:</em> these two notebooks run on the exact portfolios your HW 2 pipeline produces.</p></li>
 </ul>
 </li>
+<li><p><strong>The case study</strong>: with the model in hand, walk through the Fama-French pipeline end to end—automated CRSP and Compustat pulls feeding factor construction, with unit tests at the end. This is the same automated-query pattern from Week 2, now embedded in a pipeline that rebuilds itself with one command.</p>
+<ul>
+<li><p><em>→ HW 2:</em> we’ll launch the assignment together in class; you’ll finish the factor construction on your own.</p></li>
 </ul>
+</li>
+<li><p><strong>Project structure</strong>: <a class="reference internal" href="Week3/project_structure.html"><span class="std std-doc">Introduction to the “Chartbook Project” Template</span></a>—the directory layout your final project will use. (My older template is now deprecated; we’ll return to the chartbook’s pipelines and catalogs in Week 4.)</p></li>
+<li><p><strong>Modern environment tools</strong>: <a class="reference internal" href="Week3/uv_and_pixi.html"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">uv</span></code> and <code class="docutils literal notranslate"><span class="pre">pixi</span></code></span></a>—the promised hands-on follow-up to the Week 1 preview, if time permits.</p></li>
+</ul>
+</section>
+<section id="final-projects-preview-and-pitch">
+<h2>Final Projects: Preview and Pitch<a class="headerlink" href="#final-projects-preview-and-pitch" title="Link to this heading">#</a></h2>
+<p>This is the week you meet the final projects.</p>
+<ul class="simple">
+<li><p><strong>What does a replication look like?</strong> Before the list, we’ll walk through the <a class="reference internal" href="FinalProject/project_previews.html"><span class="std std-doc">Project Previews</span></a> page—three of this quarter’s papers with the actual figures and tables you’d reproduce.</p></li>
+<li><p><strong>The full list</strong>: <a class="reference internal" href="FinalProject/potential_final_projects.html"><span class="std std-doc">Potential Final Projects</span></a>, organized by topic. Skim it before the survey goes out; each entry states the exact tables and figures to reproduce and the data sources involved (all verified to be available to you).</p></li>
+<li><p><strong>Where this can lead—the FTSFR story</strong>: past final projects from this course grew into the <a class="reference internal" href="Week3/ftsfr.html"><span class="std std-doc">Financial Time Series Forecasting Repository</span></a>, which is now a paper: <a class="reference external" href="https://jeremybejarano.com/downloads/draft_ftsfr.pdf">“An Open Benchmark for Evaluating Time Series Forecasting Methods across Financial Markets”</a>—with former students as coauthors. I’ll demo the repository (<a class="reference external" href="https://github.com/jmbejara/ftsfr">github.com/jmbejara/ftsfr</a>) and make the key point: every dataset in it is <strong>fully reproducible from source with one command</strong>, and that reproducibility—not any single forecast—is the paper’s key innovation. The skills in this course (automated pulls, pinned environments, task runners, tests) are exactly what made it possible.</p></li>
+</ul>
+</section>
+<section id="looking-ahead-to-week-4">
+<h2>Looking ahead to Week 4<a class="headerlink" href="#looking-ahead-to-week-4" title="Link to this heading">#</a></h2>
+<p>Once HW 2 gives you factor loadings worth reporting, Week 4 turns to <strong>reports and publishing</strong>: Jupyter notebooks as final reports, LaTeX, and tearsheets published to the web with <strong>GitHub Pages</strong>. Project assignments will be out by then, and <a class="reference internal" href="HW3.html"><span class="std std-doc">HW 3</span></a> will have you stand up your final-project repository using the chartbook template.</p>
 </section>
 </section>
 
@@ -568,8 +585,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">Agenda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#announcements">Announcements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-projects-preview-and-pitch">Final Projects: Preview and Pitch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#looking-ahead-to-week-4">Looking ahead to Week 4</a></li>
 </ul>
   </nav></div>
 

@@ -60,4 +60,4 @@ HW 1 is the capstone of everything above---it exercises the whole reproducibilit
 
 ## Looking ahead to Week 3
 
-Next week we extend this to the **Fama-French 1993** replication ([HW 2](./HW2.md)): merging **CRSP with Compustat**, constructing the factors, and then publishing results---tearsheets and **GitHub Pages**---once we have factor loadings worth reporting.
+Next week we extend this to the **Fama-French 1993** replication ([HW 2](./HW2.md))---merging **CRSP with Compustat** and constructing the factors---and make it the case study for the **PyDoit task runner**, the tool that turns a pile of scripts into a pipeline that rebuilds itself with one command. Week 3 is also when you'll meet the **final projects**: I'll walk through the project list and previews, and send out the survey where each group of two indicates its preferred projects and partner.

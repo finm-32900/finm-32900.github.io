@@ -4,6 +4,8 @@
 ```{toctree}
 :maxdepth: 1
 notebooks/_04_Fama_French_1993_ipynb.ipynb
+notebooks/_06_CAPM_analysis_ipynb.ipynb
+notebooks/_07_Fama_French_3_factor_ipynb.ipynb
 ```
 
 - **Due Date:** Friday, July 17, 2026 at 11:59 pm CT.
@@ -27,22 +29,40 @@ Please watch the following videos to better familiarize yourself with CRSP and C
    - [Fama-French SMB and HML | 4. Merge CRSP and Compustat. B/M Ratio](https://vimeo.com/447871296)
    - [Fama-French SMB and HML | 5. Calculating Fama-French Factors](https://vimeo.com/447876324)
 
+## Background: Why These Portfolios? CAPM and Multifactor Models
+
+Before diving into the construction details, understand what the factors and sorted portfolios are *for*. The CAPM says market beta is the only priced risk, so every portfolio's alpha should be zero. It isn't: portfolios sorted on size, book-to-market, and investment earn returns that market beta cannot explain, and those anomalies are exactly what motivated Fama and French to add the SMB and HML factors. Two companion notebooks run this asset-pricing analysis on the very portfolios your pipeline will produce:
+
+ - [CAPM Analysis of Size, Value, and Investment Portfolios](notebooks/_06_CAPM_analysis_ipynb.ipynb): regress each portfolio's excess returns on the market factor and find the significant alphas the CAPM leaves behind
+ - [Fama-French 3-Factor Analysis](notebooks/_07_Fama_French_3_factor_ipynb.ipynb): add SMB and HML and test whether the multifactor model absorbs those alphas
+
 ## Part 1 (graded)
 
 In Part 1, you will replicate portfolio analysis from the seminal paper [Fama and French (1993)](https://www.jufinance.com/mag/fin534_16/Common_risk_factors_Fama_French_JFE1993.pdf). A guide to this replication is available here:
 
  - [HW Guide: Replicate Fama-French 1993](notebooks/_04_Fama_French_1993_ipynb.ipynb)
 
-The data will be downloaded using the WRDS Python package. The code for this is included in the HW, and the data download step is fully automated. Your job is to fill in the missing code to complete the replication.
+Your job is to fill in the missing code (marked with `TODO`) to complete the replication. The blanks span the full data pipeline, from query to automation:
+
+ - **SQL queries** (`src/pull_CRSP_Compustat.py`): Complete the WHERE clauses of the queries that pull Compustat fundamentals and the CRSP-Compustat link table from WRDS. These are tested locally (without a WRDS connection) by running your queries against a small in-memory database, so you can iterate quickly. Note that you must complete these queries before the automated data download will work.
+ - **Portfolio construction** (`src/shared_portfolio_sorts.py` and `src/calc_Fama_French_1993.py`): Compute book equity, apply the common-stock and exchange screens, compute firm-level market equity, compute the NYSE breakpoints, and construct the SMB and HML factors from the six size/book-to-market portfolios. The docstrings state what each function must produce; consult Fama and French (1993) and the CRSP/Compustat documentation linked in the code for the methodology.
+ - **Pipeline automation** (`dodo.py`): Complete the PyDoit task definitions (`task_calc_Fama_French_1993` and `task_calc_inv_portfolios`) so that `doit` runs the full pipeline with correct file dependencies and targets. See [What is a task runner?](Week3/what_is_a_task_runner.md) and https://pydoit.org/tasks.html.
 
 The actual Fama-French factors and sorted portfolios are downloaded from the [Kenneth French data library](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html). The HW code is already configured to automatically download these reference data (the precomputed factors and sorted portfolios from the Ken French data library). However, you will also download the raw underlying data from CRSP and Compustat via WRDS and construct the Fama-French factors and sorted portfolios from the raw data yourself. The unit tests will check that your code produces time series for the factors and portfolio returns that statistically match the reference data from the Kenneth French data library.
 
+The unit tests are the specification: when you are unsure exactly what a function should produce, read its test in `src/test_*.py`. Do not modify the test files.
 
 ## Part 2 (graded)
 
+In Part 2, you will extend the pipeline to a second portfolio sort: portfolios formed on corporate investment (asset growth), as in the Fama-French five-factor model (Fama and French, 2015). Complete the missing code in `src/calc_inv_portfolios.py`: the investment measure, the NYSE breakpoints, and the portfolio assignment. The module docstring describes the methodology, and the unit tests in `src/test_calc_inv_portfolios.py` check your portfolio returns against the "Portfolios Formed on INV" data from the Ken French data library.
+
+This part reuses the functions you completed in Part 1 (the same book equity, market equity, and universe screens), which is the point: a well-structured pipeline makes the second sort dramatically cheaper to build than the first.
+
+## Part 3 (graded)
+
 In Part 1, you constructed the Fama-French size and book-to-market sorted portfolios. These 6 portfolios (Small/Low, Small/Medium, Small/High, Big/Low, Big/Medium, Big/High) represent different investment styles based on firm size and value characteristics.
 
-For Part 2, you will:
+For Part 3, you will:
 1. Pick a trading strategy to analyze (we recommend one of the 6 size/BM portfolios from Part 1)
 2. Use the [`quantstats_lumi`](https://github.com/Lumiwealth/quantstats_lumi) package to generate a tearsheet
 3. Publish the tearsheet to the internet using GitHub Pages
@@ -74,6 +94,7 @@ See a completed example here: https://finm-32900.github.io/hw2--solutions/
 
  - Eugene, Fama, and Kenneth French. "The cross-section of expected stock returns." Journal of Finance 47, no. 2 (1992): 427-465.
  - Fama, Eugene F., and Kenneth R. French. "Common risk factors in the returns on stocks and bonds." Journal of financial economics 33, no. 1 (1993): 3-56.
+ - Fama, Eugene F., and Kenneth R. French. "A five-factor asset pricing model." Journal of financial economics 116, no. 1 (2015): 1-22.
 
 ## Reminder
 

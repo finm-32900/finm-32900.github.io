@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Homework 4" href="HW4.html" />
-    <link rel="prev" title="HW Guide Part A: Replicate Fama-French 1993" href="notebooks/_04_Fama_French_1993_ipynb.html" /> 
+    <link rel="prev" title="Fama-French 3-Factor Analysis of Investment Portfolios" href="notebooks/_07_Fama_French_3_factor_ipynb.html" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>   
   </head>
@@ -193,17 +193,17 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w3.html">Week 3: Automating the Pipeline with PyDoit, featuring Fama-French 1993</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week3/doit_examples.html">PyDoit Examples Walkthrough</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week3/project_structure.html">Project Structure: “Chartbook” Template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week3/uv_and_pixi.html">Modern Environment Tools: uv and pixi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week3/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week3/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
@@ -252,6 +252,8 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_04_Fama_French_1993_ipynb.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_06_CAPM_analysis_ipynb.html">CAPM Analysis of Size, Value, and Investment Portfolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_07_Fama_French_3_factor_ipynb.html">Fama-French 3-Factor Analysis of Investment Portfolios</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Homework 3</a></li>
@@ -501,7 +503,7 @@ document.write(`
 <p>Keep it simple — this is just a first step!
 The goal of this homework is <strong>not</strong> to finish your final project. It is simply to help you <strong>get oriented</strong> with your datasets and project infrastructure. You only need to demonstrate that you can pull <em>something</em> from each required data source and produce <em>any</em> simple exploratory plot for each. The charts do not need to be polished or directly related to the paper’s analysis — any plot that shows the data was successfully retrieved is sufficient. There will be plenty of time to refine your work later.</p>
 </div>
-<p>Project assignments will be emailed on Wednesday, January 28. You and your partner will be assigned one project from the <a class="reference internal" href="FinalProject/potential_final_projects.html"><span class="std std-doc">list of potential final projects</span></a>. In this homework, you will set up the repository for your final project using the cookiecutter chartbook template, pull data from each of your data sources, create a simple exploratory chart for each to verify you can access and work with the data, and publish your chartbook site via GitHub Pages.</p>
+<p>Project assignments will be emailed on Wednesday, July 15. You and your partner will be assigned one project from the <a class="reference internal" href="FinalProject/potential_final_projects.html"><span class="std std-doc">list of potential final projects</span></a>. In this homework, you will set up the repository for your final project using the cookiecutter chartbook template, pull data from each of your data sources, create a simple exploratory chart for each to verify you can access and work with the data, and publish your chartbook site via GitHub Pages.</p>
 <p>See the <a class="reference internal" href="FinalProject/final_project_rubric.html"><span class="std std-doc">Final Project Instructions and Rubric</span></a> for full details on how the final project will be graded. This homework gets you started on the infrastructure.</p>
 </section>
 <section id="part-0-not-graded-review-resources">
@@ -529,9 +531,9 @@ The goal of this homework is <strong>not</strong> to finish your final project. 
 </ul>
 <p><strong>Examples:</strong></p>
 <ul class="simple">
-<li><p>Project 1 (Kelly and Pruitt, 2013): <code class="docutils literal notranslate"><span class="pre">p01_kelly_pruitt_2013</span></code></p></li>
-<li><p>Project 5 (Lopez-Lira and Tang, 2023): <code class="docutils literal notranslate"><span class="pre">p05_lopez-lira_tang_2023</span></code></p></li>
-<li><p>Project 8 (Jiang, Matvos, Piskorski, and Seru, 2024): <code class="docutils literal notranslate"><span class="pre">p08_jiang_et_al_2024</span></code></p></li>
+<li><p>Project 1 (Kelly, Malamud, and Zhou, 2024): <code class="docutils literal notranslate"><span class="pre">p01_kelly_malamud_zhou_2024</span></code></p></li>
+<li><p>Project 2 (Greenwood, Hanson, Shleifer, and Sørensen, 2022): <code class="docutils literal notranslate"><span class="pre">p02_greenwood_et_al_2022</span></code></p></li>
+<li><p>Project 3 (López-Salido, Stein, and Zakrajšek, 2017): <code class="docutils literal notranslate"><span class="pre">p03_lopez-salido_stein_zakrajsek_2017</span></code></p></li>
 </ul>
 <p>If the paper has more than three authors, you may use <code class="docutils literal notranslate"><span class="pre">et_al</span></code> in place of the remaining author names.</p>
 <p>After creating the repository, add your partner as a <strong>collaborator</strong> (Settings &gt; Collaborators &gt; Add people). Both team members should contribute commits to the repository. The other student can optionally fork the repo so that it shows up on both students’ GitHub profiles.</p>
@@ -659,12 +661,12 @@ cruft<span class="w"> </span>create<span class="w"> </span>https://github.com/ba
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="notebooks/_04_Fama_French_1993_ipynb.html"
+       href="notebooks/_07_Fama_French_3_factor_ipynb.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">HW Guide Part A: Replicate Fama-French 1993</p>
+        <p class="prev-next-title">Fama-French 3-Factor Analysis of Investment Portfolios</p>
       </div>
     </a>
     <a class="right-next"

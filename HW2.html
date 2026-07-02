@@ -47,6 +47,8 @@
     <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'HW2';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -193,17 +195,17 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w3.html">Week 3: Task Runners, Automating Queries, and the Basics of SQL</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w3.html">Week 3: Automating the Pipeline with PyDoit, featuring Fama-French 1993</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week3/doit_examples.html">PyDoit Examples Walkthrough</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week3/project_structure.html">Project Structure: “Chartbook” Template</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week3/uv_and_pixi.html">Modern Environment Tools: uv and pixi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week3/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week3/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
@@ -252,6 +254,8 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Homework 2</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_04_Fama_French_1993_ipynb.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_06_CAPM_analysis_ipynb.html">CAPM Analysis of Size, Value, and Investment Portfolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/_07_Fama_French_3_factor_ipynb.html">Fama-French 3-Factor Analysis of Investment Portfolios</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="HW3.html">Homework 3</a></li>
@@ -465,8 +469,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-not-graded">Part 0 (not graded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-why-these-portfolios-capm-and-multifactor-models">Background: Why These Portfolios? CAPM and Multifactor Models</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded">Part 1 (graded)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded">Part 2 (graded)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded">Part 2 (graded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-graded">Part 3 (graded)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autograder-requirement">Autograder Requirement</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 </ul>
@@ -487,6 +493,8 @@ document.write(`
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/_04_Fama_French_1993_ipynb.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/_06_CAPM_analysis_ipynb.html">CAPM Analysis of Size, Value, and Investment Portfolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/_07_Fama_French_3_factor_ipynb.html">Fama-French 3-Factor Analysis of Investment Portfolios</a></li>
 </ul>
 </div>
 <ul class="simple">
@@ -516,19 +524,38 @@ document.write(`
 </li>
 </ul>
 </section>
+<section id="background-why-these-portfolios-capm-and-multifactor-models">
+<h2>Background: Why These Portfolios? CAPM and Multifactor Models<a class="headerlink" href="#background-why-these-portfolios-capm-and-multifactor-models" title="Link to this heading">#</a></h2>
+<p>Before diving into the construction details, understand what the factors and sorted portfolios are <em>for</em>. The CAPM says market beta is the only priced risk, so every portfolio’s alpha should be zero. It isn’t: portfolios sorted on size, book-to-market, and investment earn returns that market beta cannot explain, and those anomalies are exactly what motivated Fama and French to add the SMB and HML factors. Two companion notebooks run this asset-pricing analysis on the very portfolios your pipeline will produce:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="notebooks/_06_CAPM_analysis_ipynb.html"><span class="std std-doc">CAPM Analysis of Size, Value, and Investment Portfolios</span></a>: regress each portfolio’s excess returns on the market factor and find the significant alphas the CAPM leaves behind</p></li>
+<li><p><a class="reference internal" href="notebooks/_07_Fama_French_3_factor_ipynb.html"><span class="std std-doc">Fama-French 3-Factor Analysis</span></a>: add SMB and HML and test whether the multifactor model absorbs those alphas</p></li>
+</ul>
+</section>
 <section id="part-1-graded">
 <h2>Part 1 (graded)<a class="headerlink" href="#part-1-graded" title="Link to this heading">#</a></h2>
 <p>In Part 1, you will replicate portfolio analysis from the seminal paper <a class="reference external" href="https://www.jufinance.com/mag/fin534_16/Common_risk_factors_Fama_French_JFE1993.pdf">Fama and French (1993)</a>. A guide to this replication is available here:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="notebooks/_04_Fama_French_1993_ipynb.html"><span class="std std-doc">HW Guide: Replicate Fama-French 1993</span></a></p></li>
 </ul>
-<p>The data will be downloaded using the WRDS Python package. The code for this is included in the HW, and the data download step is fully automated. Your job is to fill in the missing code to complete the replication.</p>
+<p>Your job is to fill in the missing code (marked with <code class="docutils literal notranslate"><span class="pre">TODO</span></code>) to complete the replication. The blanks span the full data pipeline, from query to automation:</p>
+<ul class="simple">
+<li><p><strong>SQL queries</strong> (<code class="docutils literal notranslate"><span class="pre">src/pull_CRSP_Compustat.py</span></code>): Complete the WHERE clauses of the queries that pull Compustat fundamentals and the CRSP-Compustat link table from WRDS. These are tested locally (without a WRDS connection) by running your queries against a small in-memory database, so you can iterate quickly. Note that you must complete these queries before the automated data download will work.</p></li>
+<li><p><strong>Portfolio construction</strong> (<code class="docutils literal notranslate"><span class="pre">src/shared_portfolio_sorts.py</span></code> and <code class="docutils literal notranslate"><span class="pre">src/calc_Fama_French_1993.py</span></code>): Compute book equity, apply the common-stock and exchange screens, compute firm-level market equity, compute the NYSE breakpoints, and construct the SMB and HML factors from the six size/book-to-market portfolios. The docstrings state what each function must produce; consult Fama and French (1993) and the CRSP/Compustat documentation linked in the code for the methodology.</p></li>
+<li><p><strong>Pipeline automation</strong> (<code class="docutils literal notranslate"><span class="pre">dodo.py</span></code>): Complete the PyDoit task definitions (<code class="docutils literal notranslate"><span class="pre">task_calc_Fama_French_1993</span></code> and <code class="docutils literal notranslate"><span class="pre">task_calc_inv_portfolios</span></code>) so that <code class="docutils literal notranslate"><span class="pre">doit</span></code> runs the full pipeline with correct file dependencies and targets. See <a class="reference internal" href="Week3/what_is_a_task_runner.html"><span class="std std-doc">What is a task runner?</span></a> and <a class="reference external" href="https://pydoit.org/tasks.html">https://pydoit.org/tasks.html</a>.</p></li>
+</ul>
 <p>The actual Fama-French factors and sorted portfolios are downloaded from the <a class="reference external" href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">Kenneth French data library</a>. The HW code is already configured to automatically download these reference data (the precomputed factors and sorted portfolios from the Ken French data library). However, you will also download the raw underlying data from CRSP and Compustat via WRDS and construct the Fama-French factors and sorted portfolios from the raw data yourself. The unit tests will check that your code produces time series for the factors and portfolio returns that statistically match the reference data from the Kenneth French data library.</p>
+<p>The unit tests are the specification: when you are unsure exactly what a function should produce, read its test in <code class="docutils literal notranslate"><span class="pre">src/test_*.py</span></code>. Do not modify the test files.</p>
 </section>
 <section id="part-2-graded">
 <h2>Part 2 (graded)<a class="headerlink" href="#part-2-graded" title="Link to this heading">#</a></h2>
+<p>In Part 2, you will extend the pipeline to a second portfolio sort: portfolios formed on corporate investment (asset growth), as in the Fama-French five-factor model (Fama and French, 2015). Complete the missing code in <code class="docutils literal notranslate"><span class="pre">src/calc_inv_portfolios.py</span></code>: the investment measure, the NYSE breakpoints, and the portfolio assignment. The module docstring describes the methodology, and the unit tests in <code class="docutils literal notranslate"><span class="pre">src/test_calc_inv_portfolios.py</span></code> check your portfolio returns against the “Portfolios Formed on INV” data from the Ken French data library.</p>
+<p>This part reuses the functions you completed in Part 1 (the same book equity, market equity, and universe screens), which is the point: a well-structured pipeline makes the second sort dramatically cheaper to build than the first.</p>
+</section>
+<section id="part-3-graded">
+<h2>Part 3 (graded)<a class="headerlink" href="#part-3-graded" title="Link to this heading">#</a></h2>
 <p>In Part 1, you constructed the Fama-French size and book-to-market sorted portfolios. These 6 portfolios (Small/Low, Small/Medium, Small/High, Big/Low, Big/Medium, Big/High) represent different investment styles based on firm size and value characteristics.</p>
-<p>For Part 2, you will:</p>
+<p>For Part 3, you will:</p>
 <ol class="arabic simple">
 <li><p>Pick a trading strategy to analyze (we recommend one of the 6 size/BM portfolios from Part 1)</p></li>
 <li><p>Use the <a class="reference external" href="https://github.com/Lumiwealth/quantstats_lumi"><code class="docutils literal notranslate"><span class="pre">quantstats_lumi</span></code></a> package to generate a tearsheet</p></li>
@@ -555,6 +582,7 @@ document.write(`
 <ul class="simple">
 <li><p>Eugene, Fama, and Kenneth French. “The cross-section of expected stock returns.” Journal of Finance 47, no. 2 (1992): 427-465.</p></li>
 <li><p>Fama, Eugene F., and Kenneth R. French. “Common risk factors in the returns on stocks and bonds.” Journal of financial economics 33, no. 1 (1993): 3-56.</p></li>
+<li><p>Fama, Eugene F., and Kenneth R. French. “A five-factor asset pricing model.” Journal of financial economics 116, no. 1 (2015): 1-22.</p></li>
 </ul>
 </section>
 </section>
@@ -613,8 +641,10 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-not-graded">Part 0 (not graded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-why-these-portfolios-capm-and-multifactor-models">Background: Why These Portfolios? CAPM and Multifactor Models</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded">Part 1 (graded)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded">Part 2 (graded)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded">Part 2 (graded)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-graded">Part 3 (graded)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autograder-requirement">Autograder Requirement</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
 </ul>

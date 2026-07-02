@@ -3,6 +3,7 @@
 ```{toctree}
 :maxdepth: 1
 Week4/reports_with_jupyter_notebooks.md
+Week3/github_pages_preview.md
 Week4/intro_to_LaTeX.md
 Week4/latex_essentials.md
 ```
@@ -28,7 +29,11 @@ Finish up items from Week 3:
 - [Introduction to "Chartbook Project" Template](./Week3/project_structure.md)
 - Discuss structure of [Financial Time Series Forecasting Repository](./Week3/ftsfr.md)
 - Discuss simplified structure of the FTSFR project: https://github.com/ftsfr
-  - Discuss how Chartbook pipelines and catalogs help organize this. Demo the catalog and the data load. 
+  - Discuss how Chartbook pipelines and catalogs help organize this. Demo the catalog and the data load.
+
+Publishing results:
+
+- **[GitHub Pages and Tearsheets](./Week3/github_pages_preview.md)** *(moved here from Week 3)*: now that HW 2 has produced factor loadings worth reporting, generate a tearsheet with `quantstats_lumi` and publish it to the web via GitHub Pages. This is the same publishing workflow your final-project chartbook site will use in [HW 3](./HW3.md).
 
 ## TA Session on Friday
   - [Introduction to LaTeX](./Week4/intro_to_LaTeX.md)

@@ -9,7 +9,7 @@
 The goal of this homework is **not** to finish your final project. It is simply to help you **get oriented** with your datasets and project infrastructure. You only need to demonstrate that you can pull *something* from each required data source and produce *any* simple exploratory plot for each. The charts do not need to be polished or directly related to the paper's analysis — any plot that shows the data was successfully retrieved is sufficient. There will be plenty of time to refine your work later.
 ```
 
-Project assignments will be emailed on Wednesday, January 28. You and your partner will be assigned one project from the [list of potential final projects](./FinalProject/potential_final_projects.md). In this homework, you will set up the repository for your final project using the cookiecutter chartbook template, pull data from each of your data sources, create a simple exploratory chart for each to verify you can access and work with the data, and publish your chartbook site via GitHub Pages.
+Project assignments will be emailed on Wednesday, July 15. You and your partner will be assigned one project from the [list of potential final projects](./FinalProject/potential_final_projects.md). In this homework, you will set up the repository for your final project using the cookiecutter chartbook template, pull data from each of your data sources, create a simple exploratory chart for each to verify you can access and work with the data, and publish your chartbook site via GitHub Pages.
 
 See the [Final Project Instructions and Rubric](./FinalProject/final_project_rubric.md) for full details on how the final project will be graded. This homework gets you started on the infrastructure.
 
@@ -37,9 +37,9 @@ where:
 - `year` is the publication year of the paper
 
 **Examples:**
-- Project 1 (Kelly and Pruitt, 2013): `p01_kelly_pruitt_2013`
-- Project 5 (Lopez-Lira and Tang, 2023): `p05_lopez-lira_tang_2023`
-- Project 8 (Jiang, Matvos, Piskorski, and Seru, 2024): `p08_jiang_et_al_2024`
+- Project 1 (Kelly, Malamud, and Zhou, 2024): `p01_kelly_malamud_zhou_2024`
+- Project 2 (Greenwood, Hanson, Shleifer, and Sørensen, 2022): `p02_greenwood_et_al_2022`
+- Project 3 (López-Salido, Stein, and Zakrajšek, 2017): `p03_lopez-salido_stein_zakrajsek_2017`
 
 If the paper has more than three authors, you may use `et_al` in place of the remaining author names.
 
