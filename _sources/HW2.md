@@ -9,7 +9,7 @@ notebooks/_07_Fama_French_3_factor_ipynb.ipynb
 ```
 
 - **Due Date:** Friday, July 17, 2026 at 11:59 pm CT.
-- **Link to Assignment:** TBD
+- **Link to Assignment:** https://classroom.github.com/a/7vHkJyme
 
 
 ## Part 0 (not graded)
@@ -57,38 +57,6 @@ The unit tests are the specification: when you are unsure exactly what a functio
 In Part 2, you will extend the pipeline to a second portfolio sort: portfolios formed on corporate investment (asset growth), as in the Fama-French five-factor model (Fama and French, 2015). Complete the missing code in `src/calc_inv_portfolios.py`: the investment measure, the NYSE breakpoints, and the portfolio assignment. The module docstring describes the methodology, and the unit tests in `src/test_calc_inv_portfolios.py` check your portfolio returns against the "Portfolios Formed on INV" data from the Ken French data library.
 
 This part reuses the functions you completed in Part 1 (the same book equity, market equity, and universe screens), which is the point: a well-structured pipeline makes the second sort dramatically cheaper to build than the first.
-
-## Part 3 (graded)
-
-In Part 1, you constructed the Fama-French size and book-to-market sorted portfolios. These 6 portfolios (Small/Low, Small/Medium, Small/High, Big/Low, Big/Medium, Big/High) represent different investment styles based on firm size and value characteristics.
-
-For Part 3, you will:
-1. Pick a trading strategy to analyze (we recommend one of the 6 size/BM portfolios from Part 1)
-2. Use the [`quantstats_lumi`](https://github.com/Lumiwealth/quantstats_lumi) package to generate a tearsheet
-3. Publish the tearsheet to the internet using GitHub Pages
-
-**Note:** The Fama-French factors (SMB, HML, Mkt-RF) are long-short constructs used for analysis, not directly tradeable as-is. The 6 size/BM portfolios, however, represent long-only portfolios of actual stocks.
-
-For detailed instructions on what tearsheets are and how to publish to GitHub Pages, see: [GitHub Pages and Tearsheets](Week3/github_pages_preview.md)
-
-### Autograder Requirement
-
-To receive credit for this part, you must update `src/github_pages_tearsheet.py` in your HW repository:
-
-```python
-# Set this to True once you've published your tearsheet
-I_HAVE_CREATED_A_TEAR_SHEET_ON_GITHUB_PAGES = True
-
-# Provide the URL to your published tearsheet
-URL_TO_MY_TEAR_SHEET = "https://finm-32900.github.io/<your-repo-name>/"
-```
-
-The unit test `test_github_pages_tearsheet.py` will verify that both values are set correctly.
-
-### Example
-
-See a completed example here: https://finm-32900.github.io/hw2--solutions/
-
 
 **Citations:**
 

@@ -472,11 +472,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-why-these-portfolios-capm-and-multifactor-models">Background: Why These Portfolios? CAPM and Multifactor Models</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded">Part 1 (graded)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded">Part 2 (graded)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-graded">Part 3 (graded)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autograder-requirement">Autograder Requirement</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder">Reminder</a></li>
 </ul>
             </nav>
@@ -499,7 +494,7 @@ document.write(`
 </div>
 <ul class="simple">
 <li><p><strong>Due Date:</strong> Friday, July 17, 2026 at 11:59 pm CT.</p></li>
-<li><p><strong>Link to Assignment:</strong> TBD</p></li>
+<li><p><strong>Link to Assignment:</strong> <a class="reference external" href="https://classroom.github.com/a/7vHkJyme">https://classroom.github.com/a/7vHkJyme</a></p></li>
 </ul>
 <section id="part-0-not-graded">
 <h2>Part 0 (not graded)<a class="headerlink" href="#part-0-not-graded" title="Link to this heading">#</a></h2>
@@ -551,40 +546,12 @@ document.write(`
 <h2>Part 2 (graded)<a class="headerlink" href="#part-2-graded" title="Link to this heading">#</a></h2>
 <p>In Part 2, you will extend the pipeline to a second portfolio sort: portfolios formed on corporate investment (asset growth), as in the Fama-French five-factor model (Fama and French, 2015). Complete the missing code in <code class="docutils literal notranslate"><span class="pre">src/calc_inv_portfolios.py</span></code>: the investment measure, the NYSE breakpoints, and the portfolio assignment. The module docstring describes the methodology, and the unit tests in <code class="docutils literal notranslate"><span class="pre">src/test_calc_inv_portfolios.py</span></code> check your portfolio returns against the “Portfolios Formed on INV” data from the Ken French data library.</p>
 <p>This part reuses the functions you completed in Part 1 (the same book equity, market equity, and universe screens), which is the point: a well-structured pipeline makes the second sort dramatically cheaper to build than the first.</p>
-</section>
-<section id="part-3-graded">
-<h2>Part 3 (graded)<a class="headerlink" href="#part-3-graded" title="Link to this heading">#</a></h2>
-<p>In Part 1, you constructed the Fama-French size and book-to-market sorted portfolios. These 6 portfolios (Small/Low, Small/Medium, Small/High, Big/Low, Big/Medium, Big/High) represent different investment styles based on firm size and value characteristics.</p>
-<p>For Part 3, you will:</p>
-<ol class="arabic simple">
-<li><p>Pick a trading strategy to analyze (we recommend one of the 6 size/BM portfolios from Part 1)</p></li>
-<li><p>Use the <a class="reference external" href="https://github.com/Lumiwealth/quantstats_lumi"><code class="docutils literal notranslate"><span class="pre">quantstats_lumi</span></code></a> package to generate a tearsheet</p></li>
-<li><p>Publish the tearsheet to the internet using GitHub Pages</p></li>
-</ol>
-<p><strong>Note:</strong> The Fama-French factors (SMB, HML, Mkt-RF) are long-short constructs used for analysis, not directly tradeable as-is. The 6 size/BM portfolios, however, represent long-only portfolios of actual stocks.</p>
-<p>For detailed instructions on what tearsheets are and how to publish to GitHub Pages, see: <a class="reference internal" href="Week3/github_pages_preview.html"><span class="std std-doc">GitHub Pages and Tearsheets</span></a></p>
-<section id="autograder-requirement">
-<h3>Autograder Requirement<a class="headerlink" href="#autograder-requirement" title="Link to this heading">#</a></h3>
-<p>To receive credit for this part, you must update <code class="docutils literal notranslate"><span class="pre">src/github_pages_tearsheet.py</span></code> in your HW repository:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set this to True once you&#39;ve published your tearsheet</span>
-<span class="n">I_HAVE_CREATED_A_TEAR_SHEET_ON_GITHUB_PAGES</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="c1"># Provide the URL to your published tearsheet</span>
-<span class="n">URL_TO_MY_TEAR_SHEET</span> <span class="o">=</span> <span class="s2">&quot;https://finm-32900.github.io/&lt;your-repo-name&gt;/&quot;</span>
-</pre></div>
-</div>
-<p>The unit test <code class="docutils literal notranslate"><span class="pre">test_github_pages_tearsheet.py</span></code> will verify that both values are set correctly.</p>
-</section>
-<section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
-<p>See a completed example here: <a class="reference external" href="https://finm-32900.github.io/hw2--solutions/">https://finm-32900.github.io/hw2–solutions/</a></p>
 <p><strong>Citations:</strong></p>
 <ul class="simple">
 <li><p>Eugene, Fama, and Kenneth French. “The cross-section of expected stock returns.” Journal of Finance 47, no. 2 (1992): 427-465.</p></li>
 <li><p>Fama, Eugene F., and Kenneth R. French. “Common risk factors in the returns on stocks and bonds.” Journal of financial economics 33, no. 1 (1993): 3-56.</p></li>
 <li><p>Fama, Eugene F., and Kenneth R. French. “A five-factor asset pricing model.” Journal of financial economics 116, no. 1 (2015): 1-22.</p></li>
 </ul>
-</section>
 </section>
 <section id="reminder">
 <h2>Reminder<a class="headerlink" href="#reminder" title="Link to this heading">#</a></h2>
@@ -644,11 +611,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-why-these-portfolios-capm-and-multifactor-models">Background: Why These Portfolios? CAPM and Multifactor Models</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded">Part 1 (graded)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded">Part 2 (graded)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-graded">Part 3 (graded)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autograder-requirement">Autograder Requirement</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder">Reminder</a></li>
 </ul>
   </nav></div>

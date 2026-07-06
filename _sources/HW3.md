@@ -146,6 +146,39 @@ Accept the GitHub Classroom assignment using the link at the top of this page. I
 
 The autograder will run `pytest` against `src/test_final_project_flags.py` to verify that all flags are set and all URLs are non-empty.
 
+% NOTE: The tearsheet part below was temporarily moved here from HW2.
+
+## Part 4 (graded): Publish a Tearsheet via GitHub Pages
+
+In HW2 Part 1, you constructed the Fama-French size and book-to-market sorted portfolios. These 6 portfolios (Small/Low, Small/Medium, Small/High, Big/Low, Big/Medium, Big/High) represent different investment styles based on firm size and value characteristics.
+
+For this part, you will:
+1. Pick a trading strategy to analyze (we recommend one of the 6 size/BM portfolios from HW2 Part 1)
+2. Use the [`quantstats_lumi`](https://github.com/Lumiwealth/quantstats_lumi) package to generate a tearsheet
+3. Publish the tearsheet to the internet using GitHub Pages
+
+**Note:** The Fama-French factors (SMB, HML, Mkt-RF) are long-short constructs used for analysis, not directly tradeable as-is. The 6 size/BM portfolios, however, represent long-only portfolios of actual stocks.
+
+For detailed instructions on what tearsheets are and how to publish to GitHub Pages, see: [GitHub Pages and Tearsheets](Week3/github_pages_preview.md)
+
+### Autograder Requirement
+
+To receive credit for this part, you must update `src/github_pages_tearsheet.py` in your HW3 repository:
+
+```python
+# Set this to True once you've published your tearsheet
+I_HAVE_CREATED_A_TEAR_SHEET_ON_GITHUB_PAGES = True
+
+# Provide the URL to your published tearsheet
+URL_TO_MY_TEAR_SHEET = "https://finm-32900.github.io/<your-repo-name>/"
+```
+
+The unit test `test_github_pages_tearsheet.py` will verify that both values are set correctly.
+
+### Example
+
+See a completed example here: https://finm-32900.github.io/hw3--solutions/
+
 ## Reminder
 
 Do not make any changes to the unit test files. If an edit is made, you will be required to edit the history of your commits to remove any trace of the edits to these files.

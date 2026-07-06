@@ -479,6 +479,11 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded-schedule-a-consultation">Part 2 (graded): Schedule a Consultation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-graded-set-flags-in-the-hw3-github-classroom-repo">Part 3 (graded): Set Flags in the HW3 GitHub Classroom Repo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-graded-publish-a-tearsheet-via-github-pages">Part 4 (graded): Publish a Tearsheet via GitHub Pages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autograder-requirement">Autograder Requirement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder">Reminder</a></li>
 </ul>
             </nav>
@@ -640,6 +645,34 @@ cruft<span class="w"> </span>create<span class="w"> </span>https://github.com/ba
 </ol>
 <p>The autograder will run <code class="docutils literal notranslate"><span class="pre">pytest</span></code> against <code class="docutils literal notranslate"><span class="pre">src/test_final_project_flags.py</span></code> to verify that all flags are set and all URLs are non-empty.</p>
 </section>
+<section id="part-4-graded-publish-a-tearsheet-via-github-pages">
+<h2>Part 4 (graded): Publish a Tearsheet via GitHub Pages<a class="headerlink" href="#part-4-graded-publish-a-tearsheet-via-github-pages" title="Link to this heading">#</a></h2>
+<p>In HW2 Part 1, you constructed the Fama-French size and book-to-market sorted portfolios. These 6 portfolios (Small/Low, Small/Medium, Small/High, Big/Low, Big/Medium, Big/High) represent different investment styles based on firm size and value characteristics.</p>
+<p>For this part, you will:</p>
+<ol class="arabic simple">
+<li><p>Pick a trading strategy to analyze (we recommend one of the 6 size/BM portfolios from HW2 Part 1)</p></li>
+<li><p>Use the <a class="reference external" href="https://github.com/Lumiwealth/quantstats_lumi"><code class="docutils literal notranslate"><span class="pre">quantstats_lumi</span></code></a> package to generate a tearsheet</p></li>
+<li><p>Publish the tearsheet to the internet using GitHub Pages</p></li>
+</ol>
+<p><strong>Note:</strong> The Fama-French factors (SMB, HML, Mkt-RF) are long-short constructs used for analysis, not directly tradeable as-is. The 6 size/BM portfolios, however, represent long-only portfolios of actual stocks.</p>
+<p>For detailed instructions on what tearsheets are and how to publish to GitHub Pages, see: <a class="reference internal" href="Week3/github_pages_preview.html"><span class="std std-doc">GitHub Pages and Tearsheets</span></a></p>
+<section id="autograder-requirement">
+<h3>Autograder Requirement<a class="headerlink" href="#autograder-requirement" title="Link to this heading">#</a></h3>
+<p>To receive credit for this part, you must update <code class="docutils literal notranslate"><span class="pre">src/github_pages_tearsheet.py</span></code> in your HW3 repository:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set this to True once you&#39;ve published your tearsheet</span>
+<span class="n">I_HAVE_CREATED_A_TEAR_SHEET_ON_GITHUB_PAGES</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Provide the URL to your published tearsheet</span>
+<span class="n">URL_TO_MY_TEAR_SHEET</span> <span class="o">=</span> <span class="s2">&quot;https://finm-32900.github.io/&lt;your-repo-name&gt;/&quot;</span>
+</pre></div>
+</div>
+<p>The unit test <code class="docutils literal notranslate"><span class="pre">test_github_pages_tearsheet.py</span></code> will verify that both values are set correctly.</p>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
+<p>See a completed example here: <a class="reference external" href="https://finm-32900.github.io/hw3--solutions/">https://finm-32900.github.io/hw3–solutions/</a></p>
+</section>
+</section>
 <section id="reminder">
 <h2>Reminder<a class="headerlink" href="#reminder" title="Link to this heading">#</a></h2>
 <p>Do not make any changes to the unit test files. If an edit is made, you will be required to edit the history of your commits to remove any trace of the edits to these files.</p>
@@ -707,6 +740,11 @@ cruft<span class="w"> </span>create<span class="w"> </span>https://github.com/ba
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded-schedule-a-consultation">Part 2 (graded): Schedule a Consultation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-graded-set-flags-in-the-hw3-github-classroom-repo">Part 3 (graded): Set Flags in the HW3 GitHub Classroom Repo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-graded-publish-a-tearsheet-via-github-pages">Part 4 (graded): Publish a Tearsheet via GitHub Pages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autograder-requirement">Autograder Requirement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder">Reminder</a></li>
 </ul>
   </nav></div>
