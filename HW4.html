@@ -47,14 +47,12 @@
     <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'HW4';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="CRSP Treasury Data Oveview" href="notebooks/_01_CRSP_treasury_overview_ipynb.html" />
-    <link rel="prev" title="Homework 3" href="HW3.html" /> 
+    <link rel="next" title="Homework 5" href="HW5.html" />
+    <link rel="prev" title="Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve" href="notebooks/_02_replicate_GSW2005_ipynb.html" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>   
   </head>
@@ -175,7 +173,10 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="README.html">Course Syllabus: FINM 32900, Summer 2026</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">Acknowledgments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="appendix.html">Appendix</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week7/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures 📖</span></p>
 <ul class="nav bd-sidenav">
@@ -202,16 +203,15 @@
 <li class="toctree-l2"><a class="reference internal" href="Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w4.html">Week 4: ChartBook, GitHub Pages, and Reproducible Reports</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week3/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w5.html">Week 5: Bloomberg, LSEG Datastream, and Databento</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="Week7/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w5.html">Week 5: Publishing Reports with LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week4/latex_essentials.html">LaTeX Essentials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week7/LSEG_datastream.html">LSEG Datastream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week7/databento.html">Databento</a></li>
 </ul>
@@ -258,12 +258,12 @@
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_07_Fama_French_3_factor_ipynb.html">Fama-French 3-Factor Analysis of Investment Portfolios</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="HW3.html">Homework 3</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Homework 4</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="HW3.html">Homework 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_01_CRSP_treasury_overview_ipynb.html">CRSP Treasury Data Oveview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_02_replicate_GSW2005_ipynb.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Homework 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="HW5.html">Homework 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="midterm_report.html">Midterm Report</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -445,9 +445,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -463,15 +461,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment">Assignment</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -482,39 +471,16 @@ document.write(`
                 <article class="bd-article">
                    <section class="tex2jax_ignore mathjax_ignore" id="homework-4">
 <h1>Homework 4<a class="headerlink" href="#homework-4" title="Link to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/_01_CRSP_treasury_overview_ipynb.html">CRSP Treasury Data Oveview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/_02_replicate_GSW2005_ipynb.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
-</ul>
-</div>
 <ul class="simple">
-<li><p><strong>Due Date:</strong> Friday, July 31, 2026 at 11:59 pm CT.</p></li>
+<li><p><strong>Due Date:</strong> TBD</p></li>
 <li><p><strong>Link to Assignment:</strong> TBD</p></li>
 </ul>
-<section id="learning-outcomes">
-<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Estimate the U.S. Treasury yield curve using the Nelson-Siegel-Svensson model following Gurkaynak, Sack and Wright (2006)</p></li>
-<li><p>Use the <code class="docutils literal notranslate"><span class="pre">finm</span></code> package to implement yield curve functions (spot rates, discount factors, cashflow construction, and model fitting)</p></li>
-<li><p>Build and verify a data pipeline using <code class="docutils literal notranslate"><span class="pre">doit</span></code></p></li>
-<li><p>Learn to use GitHub to scan for secrets and revise Git commit history</p></li>
-</ul>
-</section>
-<section id="assignment">
-<h2>Assignment<a class="headerlink" href="#assignment" title="Link to this heading">#</a></h2>
-<p>Please refer to the HW repo README for full details. The assignment consists of the following tasks:</p>
-<ul class="simple">
-<li><p><strong>Task 1: GSW Yield Curve Module (2 pts)</strong> — Replace <code class="docutils literal notranslate"><span class="pre">TODO</span></code> placeholders in <code class="docutils literal notranslate"><span class="pre">src/gsw2006_yield_curve.py</span></code> with imports from the <a class="reference external" href="https://jeremybejarano.com/finm/"><code class="docutils literal notranslate"><span class="pre">finm</span></code></a> package.</p></li>
-<li><p><strong>Task 2: Data Pipeline (3 pts)</strong> — Ensure the full data pipeline runs successfully via <code class="docutils literal notranslate"><span class="pre">doit</span></code>.</p></li>
-<li><p><strong>Task 3: Federal Reserve Yield Curve Data (1 pt)</strong> — Implement <code class="docutils literal notranslate"><span class="pre">task_pull_fed_yield_curve_data</span></code> in <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code>.</p></li>
-<li><p><strong>Task 4: Notebooks (1 pt)</strong> — Ensure the Jupyter notebooks execute successfully.</p></li>
-<li><p><strong>Task 5: GitHub Skills (2 pts)</strong> — Complete the <a class="reference external" href="https://github.com/skills/change-commit-history">Change Commit History</a> and <a class="reference external" href="https://github.com/skills/introduction-to-secret-scanning">Introduction to Secret Scanning</a> tutorials.</p></li>
-<li><p><strong>Task 6: Market Brief Self-Attestation (2 pts)</strong> — Affirm that you have compiled your market brief and added custom metrics.</p></li>
-</ul>
-<p><strong>Total: 11 points</strong></p>
-<p><a class="reference download internal" download="" href="_downloads/33ed340ad57f7a559b056575ebc64d57/market_brief.pdf"><span class="xref download myst">Example Market Brief</span></a></p>
-</section>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This assignment is being revised. The yield-curve estimation content that
+previously lived here has moved to <strong><a class="reference internal" href="HW3.html"><span class="std std-doc">Homework 3</span></a></strong>. A new Homework 4
+will be posted later in the quarter.</p>
+</div>
 </section>
 
 <div class="section ablog__blog_comments">
@@ -532,20 +498,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="HW3.html"
+       href="notebooks/_02_replicate_GSW2005_ipynb.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Homework 3</p>
+        <p class="prev-next-title">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</p>
       </div>
     </a>
     <a class="right-next"
-       href="notebooks/_01_CRSP_treasury_overview_ipynb.html"
+       href="HW5.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">CRSP Treasury Data Oveview</p>
+        <p class="prev-next-title">Homework 5</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -555,22 +521,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment">Assignment</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

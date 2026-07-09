@@ -47,11 +47,13 @@
     <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'HW3';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Homework 4" href="HW4.html" />
+    <link rel="next" title="CRSP Treasury Data Oveview" href="notebooks/_01_CRSP_treasury_overview_ipynb.html" />
     <link rel="prev" title="Fama-French 3-Factor Analysis of Investment Portfolios" href="notebooks/_07_Fama_French_3_factor_ipynb.html" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>   
@@ -173,7 +175,10 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="README.html">Course Syllabus: FINM 32900, Summer 2026</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">Acknowledgments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="appendix.html">Appendix</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week7/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures 📖</span></p>
 <ul class="nav bd-sidenav">
@@ -200,16 +205,15 @@
 <li class="toctree-l2"><a class="reference internal" href="Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w4.html">Week 4: Generating Reports, featuring Jupyter Notebooks and LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w4.html">Week 4: ChartBook, GitHub Pages, and Reproducible Reports</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week3/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week4/latex_essentials.html">LaTeX Essentials</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w5.html">Week 5: Bloomberg, LSEG Datastream, and Databento</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="Week7/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w5.html">Week 5: Publishing Reports with LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week4/latex_essentials.html">LaTeX Essentials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week7/LSEG_datastream.html">LSEG Datastream</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week7/databento.html">Databento</a></li>
 </ul>
@@ -256,12 +260,12 @@
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_07_Fama_French_3_factor_ipynb.html">Fama-French 3-Factor Analysis of Investment Portfolios</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Homework 3</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="HW4.html">Homework 4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Homework 3</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_01_CRSP_treasury_overview_ipynb.html">CRSP Treasury Data Oveview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_02_replicate_GSW2005_ipynb.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="HW4.html">Homework 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="HW5.html">Homework 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="midterm_report.html">Midterm Report</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -467,23 +471,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-not-graded-review-resources">Part 0 (not graded): Review Resources</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded-set-up-your-final-project-repository">Part 1 (graded): Set Up Your Final Project Repository</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-create-the-repository">Step 1: Create the Repository</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-scaffold-with-the-cookiecutter-chartbook-template">Step 2: Scaffold with the Cookiecutter Chartbook Template</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-set-up-data-pull-scripts">Step 3: Set Up Data Pull Scripts</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-create-exploratory-charts">Step 4: Create Exploratory Charts</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-register-dataframes-and-charts-in-chartbook-toml">Step 5: Register Dataframes and Charts in <code class="docutils literal notranslate"><span class="pre">chartbook.toml</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-build-and-publish-the-chartbook-site">Step 6: Build and Publish the Chartbook Site</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded-schedule-a-consultation">Part 2 (graded): Schedule a Consultation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-graded-set-flags-in-the-hw3-github-classroom-repo">Part 3 (graded): Set Flags in the HW3 GitHub Classroom Repo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-graded-publish-a-tearsheet-via-github-pages">Part 4 (graded): Publish a Tearsheet via GitHub Pages</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autograder-requirement">Autograder Requirement</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded-the-yield-curve-pipeline">Part 1 (graded): The Yield-Curve Pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded-publish-your-chartbook-site-to-github-pages-2-pts">Part 2 (graded): Publish Your ChartBook Site to GitHub Pages (2 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-not-graded-but-required-schedule-your-final-project-proposal-consultation">Part 3 (not graded, but required): Schedule Your Final-Project Proposal Consultation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder">Reminder</a></li>
 </ul>
             </nav>
@@ -497,181 +488,67 @@ document.write(`
                 <article class="bd-article">
                    <section class="tex2jax_ignore mathjax_ignore" id="homework-3">
 <h1>Homework 3<a class="headerlink" href="#homework-3" title="Link to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/_01_CRSP_treasury_overview_ipynb.html">CRSP Treasury Data Oveview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/_02_replicate_GSW2005_ipynb.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
+</ul>
+</div>
 <ul class="simple">
 <li><p><strong>Due Date:</strong> Friday, July 24, 2026 at 11:59 pm CT.</p></li>
 <li><p><strong>Link to Assignment:</strong> TBD</p></li>
 </ul>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Keep it simple — this is just a first step!
-The goal of this homework is <strong>not</strong> to finish your final project. It is simply to help you <strong>get oriented</strong> with your datasets and project infrastructure. You only need to demonstrate that you can pull <em>something</em> from each required data source and produce <em>any</em> simple exploratory plot for each. The charts do not need to be polished or directly related to the paper’s analysis — any plot that shows the data was successfully retrieved is sufficient. There will be plenty of time to refine your work later.</p>
-</div>
-<p>Project assignments will be emailed on Wednesday, July 15. You and your partner will be assigned one project from the <a class="reference internal" href="FinalProject/potential_final_projects.html"><span class="std std-doc">list of potential final projects</span></a>. In this homework, you will set up the repository for your final project using the cookiecutter chartbook template, pull data from each of your data sources, create a simple exploratory chart for each to verify you can access and work with the data, and publish your chartbook site via GitHub Pages.</p>
-<p>See the <a class="reference internal" href="FinalProject/final_project_rubric.html"><span class="std std-doc">Final Project Instructions and Rubric</span></a> for full details on how the final project will be graded. This homework gets you started on the infrastructure.</p>
+<p>In this homework you build a complete, reproducible data pipeline end to end: pull raw U.S. Treasury data, fit the term structure of interest rates, and <strong>publish the results as a browsable website</strong>. It is the same shape as every serious replication in this course — pull, clean, model, test, report — but here the <em>report</em> is the point. You will turn your pipeline’s outputs into a <a class="reference external" href="https://pypi.org/project/chartbook/">ChartBook</a> site and deploy it to GitHub Pages, exactly the workflow your final-project chartbook will use.</p>
+<p>The financial content is the U.S. Treasury yield curve. You will estimate it with the Nelson-Siegel-Svensson (NSS) model, following <a class="reference external" href="https://www.federalreserve.gov/pubs/feds/2006/200628/200628abs.html">Gurkaynak, Sack, and Wright (2006)</a> — the same methodology the Federal Reserve uses to publish its daily yield-curve series. Fitting a smooth curve to the cross-section of noisy Treasury quotes is a small, self-contained modeling problem with a clean data pipeline behind it, which is what makes it a good vehicle for the publishing tools this week.</p>
 </section>
-<section id="part-0-not-graded-review-resources">
-<h2>Part 0 (not graded): Review Resources<a class="headerlink" href="#part-0-not-graded-review-resources" title="Link to this heading">#</a></h2>
-<p>Before starting, please review the following:</p>
+<section id="learning-outcomes">
+<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="Week3/project_structure.html"><span class="std std-doc">Project Structure: “Chartbook” Template</span></a> — Explains the cookiecutter chartbook template and how to use cruft.</p></li>
-<li><p><a class="reference internal" href="FinalProject/final_project_rubric.html"><span class="std std-doc">Final Project Instructions and Rubric</span></a> — Grading criteria for the final project.</p></li>
-<li><p><a class="reference internal" href="FinalProject/potential_final_projects.html"><span class="std std-doc">Potential Final Projects</span></a> — The list of assigned projects and their data sources.</p></li>
+<li><p>Estimate the U.S. Treasury yield curve using the Nelson-Siegel-Svensson model following Gurkaynak, Sack, and Wright (2006).</p></li>
+<li><p>Use the <a class="reference external" href="https://jeremybejarano.com/finm/"><code class="docutils literal notranslate"><span class="pre">finm</span></code></a> package to implement the yield-curve functions (spot rates, discount factors, cashflow construction, and model fitting).</p></li>
+<li><p>Build and verify a full data pipeline with <code class="docutils literal notranslate"><span class="pre">doit</span></code>, pulling from WRDS (CRSP Treasuries) and the Federal Reserve.</p></li>
+<li><p>Generate a <strong>ChartBook</strong> site from your pipeline’s registered dataframes and charts, and <strong>publish it to GitHub Pages</strong>.</p></li>
+<li><p>Use GitHub to scan a repository for secrets and to revise Git commit history.</p></li>
 </ul>
 </section>
-<section id="part-1-graded-set-up-your-final-project-repository">
-<h2>Part 1 (graded): Set Up Your Final Project Repository<a class="headerlink" href="#part-1-graded-set-up-your-final-project-repository" title="Link to this heading">#</a></h2>
-<section id="step-1-create-the-repository">
-<h3>Step 1: Create the Repository<a class="headerlink" href="#step-1-create-the-repository" title="Link to this heading">#</a></h3>
-<p>One team member should create a <strong>public</strong> GitHub repository under their own GitHub user account. The repository must be named using the following convention:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pXX_lastnames_year</span>
-</pre></div>
-</div>
-<p>where:</p>
+<section id="part-1-graded-the-yield-curve-pipeline">
+<h2>Part 1 (graded): The Yield-Curve Pipeline<a class="headerlink" href="#part-1-graded-the-yield-curve-pipeline" title="Link to this heading">#</a></h2>
+<p>Please refer to the HW repo <code class="docutils literal notranslate"><span class="pre">README.md</span></code> for full details. The graded tasks are:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">XX</span></code> is the zero-padded project number from the <a class="reference internal" href="FinalProject/potential_final_projects.html"><span class="std std-doc">potential final projects list</span></a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lastnames</span></code> is the authors’ last names from the paper (lowercase, separated by underscores, hyphens preserved within hyphenated names)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code> is the publication year of the paper</p></li>
-</ul>
-<p><strong>Examples:</strong></p>
-<ul class="simple">
-<li><p>Project 1 (Kelly, Malamud, and Zhou, 2024): <code class="docutils literal notranslate"><span class="pre">p01_kelly_malamud_zhou_2024</span></code></p></li>
-<li><p>Project 2 (Greenwood, Hanson, Shleifer, and Sørensen, 2022): <code class="docutils literal notranslate"><span class="pre">p02_greenwood_et_al_2022</span></code></p></li>
-<li><p>Project 3 (López-Salido, Stein, and Zakrajšek, 2017): <code class="docutils literal notranslate"><span class="pre">p03_lopez-salido_stein_zakrajsek_2017</span></code></p></li>
-</ul>
-<p>If the paper has more than three authors, you may use <code class="docutils literal notranslate"><span class="pre">et_al</span></code> in place of the remaining author names.</p>
-<p>After creating the repository, add your partner as a <strong>collaborator</strong> (Settings &gt; Collaborators &gt; Add people). Both team members should contribute commits to the repository. The other student can optionally fork the repo so that it shows up on both students’ GitHub profiles.</p>
-</section>
-<section id="step-2-scaffold-with-the-cookiecutter-chartbook-template">
-<h3>Step 2: Scaffold with the Cookiecutter Chartbook Template<a class="headerlink" href="#step-2-scaffold-with-the-cookiecutter-chartbook-template" title="Link to this heading">#</a></h3>
-<p>Use <a class="reference external" href="https://cruft.github.io/cruft/">cruft</a> to scaffold your project from the <a class="reference external" href="https://github.com/backofficedev/cookiecutter_chartbook">cookiecutter chartbook template</a>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>cruft
-cruft<span class="w"> </span>create<span class="w"> </span>https://github.com/backofficedev/cookiecutter_chartbook
-</pre></div>
-</div>
-<p>Answer the prompts with your project’s details. Copy the generated files into your repository (or run the command directly inside your cloned repo directory). Commit and push.</p>
-<p>For more details on the template and cruft, see <a class="reference internal" href="Week3/project_structure.html"><span class="std std-doc">Project Structure: “Chartbook” Template</span></a>.</p>
-</section>
-<section id="step-3-set-up-data-pull-scripts">
-<h3>Step 3: Set Up Data Pull Scripts<a class="headerlink" href="#step-3-set-up-data-pull-scripts" title="Link to this heading">#</a></h3>
-<p>For <strong>each distinct data source</strong> your assigned project requires (e.g., CRSP, Compustat, FRED, Bloomberg, OptionMetrics, etc.), create a <code class="docutils literal notranslate"><span class="pre">src/pull_*.py</span></code> script that programmatically downloads the data. Refer to the “Data sources” listed for your assigned project in the <a class="reference internal" href="FinalProject/potential_final_projects.html"><span class="std std-doc">potential final projects list</span></a>.</p>
-<p>Requirements:</p>
-<ul class="simple">
-<li><p>Follow the naming convention: <code class="docutils literal notranslate"><span class="pre">pull_CRSP_stock.py</span></code>, <code class="docutils literal notranslate"><span class="pre">pull_compustat.py</span></code>, <code class="docutils literal notranslate"><span class="pre">pull_fred.py</span></code>, etc.</p></li>
-<li><p>Each pull script should save its output to the <code class="docutils literal notranslate"><span class="pre">_data/</span></code> directory as a <code class="docutils literal notranslate"><span class="pre">.parquet</span></code> file.</p></li>
-<li><p>If a data source requires credentials (e.g., WRDS), use a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file and document the required environment variables in <code class="docutils literal notranslate"><span class="pre">.env.example</span></code>.</p></li>
-<li><p>Add each pull script as a task in your <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code> file.</p></li>
+<li><p><strong>Task 1: GSW Yield Curve Module (2 pts)</strong> — Replace the <code class="docutils literal notranslate"><span class="pre">TODO</span></code>/<code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code> placeholders in <code class="docutils literal notranslate"><span class="pre">src/gsw2006_yield_curve.py</span></code> with imports from the <a class="reference external" href="https://jeremybejarano.com/finm/"><code class="docutils literal notranslate"><span class="pre">finm</span></code></a> package’s <code class="docutils literal notranslate"><span class="pre">fixedincome</span></code> module (<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">finm.fixedincome</span> <span class="pre">import</span> <span class="pre">spot,</span> <span class="pre">discount,</span> <span class="pre">calc_cashflows,</span> <span class="pre">fit,</span> <span class="pre">gurkaynak_sack_wright_filters</span></code>). The unit tests in <code class="docutils literal notranslate"><span class="pre">src/test_gsw2006_yield_curve.py</span></code> are the specification.</p></li>
+<li><p><strong>Task 2: Data Pipeline (3 pts)</strong> — Make the full pipeline run with <code class="docutils literal notranslate"><span class="pre">doit</span></code>, so that the data pull, model fit, and notebook execution complete and produce their targets.</p></li>
+<li><p><strong>Task 3: Federal Reserve Yield Curve Data (1 pt)</strong> — Implement <code class="docutils literal notranslate"><span class="pre">task_pull_fed_yield_curve_data</span></code> in <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code>, which runs <code class="docutils literal notranslate"><span class="pre">src/pull_yield_curve_data.py</span></code> (downloading the Fed’s published GSW series) and produces <code class="docutils literal notranslate"><span class="pre">fed_yield_curve.parquet</span></code>.</p></li>
+<li><p><strong>Task 4: Notebooks (1 pt)</strong> — Ensure the two Jupyter notebooks execute successfully as part of the pipeline.</p></li>
+<li><p><strong>Task 5: GitHub Skills (2 pts)</strong> — Complete the <a class="reference external" href="https://github.com/skills/change-commit-history">Change Commit History</a> and <a class="reference external" href="https://github.com/skills/introduction-to-secret-scanning">Introduction to Secret Scanning</a> GitHub Skills exercises, then set the flags and paste your completed-repo URLs in <code class="docutils literal notranslate"><span class="pre">src/github_skills.py</span></code>. (Secret scanning matters here: your WRDS credentials live in a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file that must never be committed.)</p></li>
 </ul>
 </section>
-<section id="step-4-create-exploratory-charts">
-<h3>Step 4: Create Exploratory Charts<a class="headerlink" href="#step-4-create-exploratory-charts" title="Link to this heading">#</a></h3>
-<p>The purpose of this step is simply to demonstrate that you were able to successfully pull and work with each dataset. For <strong>each distinct data source</strong>, create at least one simple exploratory chart that:</p>
-<ul class="simple">
-<li><p>Loads the pulled data from <code class="docutils literal notranslate"><span class="pre">_data/</span></code></p></li>
-<li><p>Creates any simple visualization — a time series plot, a histogram, a scatter plot, or anything else that shows the data was retrieved successfully</p></li>
-<li><p>Saves the chart as an interactive HTML file in <code class="docutils literal notranslate"><span class="pre">_output/</span></code> (using <a class="reference external" href="https://plotly.com/python/">Plotly</a> or a similar library)</p></li>
-</ul>
-<p>Don’t overthink this — any plot that helps you get oriented with the data is fine. You will have time to create more polished charts later.</p>
-<p>You may create charts in a <code class="docutils literal notranslate"><span class="pre">src/generate_chart.py</span></code> file or in separate scripts. Add chart generation as a task in <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code>.</p>
-</section>
-<section id="step-5-register-dataframes-and-charts-in-chartbook-toml">
-<h3>Step 5: Register Dataframes and Charts in <code class="docutils literal notranslate"><span class="pre">chartbook.toml</span></code><a class="headerlink" href="#step-5-register-dataframes-and-charts-in-chartbook-toml" title="Link to this heading">#</a></h3>
-<p>For <strong>each distinct data source</strong>, add entries in your <code class="docutils literal notranslate"><span class="pre">chartbook.toml</span></code>:</p>
-<ol class="arabic simple">
-<li><p>One <code class="docutils literal notranslate"><span class="pre">[dataframes.&lt;name&gt;]</span></code> entry describing the dataset — include metadata such as <code class="docutils literal notranslate"><span class="pre">data_sources</span></code>, <code class="docutils literal notranslate"><span class="pre">data_providers</span></code>, <code class="docutils literal notranslate"><span class="pre">how_is_pulled</span></code>, and <code class="docutils literal notranslate"><span class="pre">path_to_parquet_data</span></code>.</p></li>
-<li><p>One <code class="docutils literal notranslate"><span class="pre">[charts.&lt;name&gt;]</span></code> entry describing the exploratory chart — include <code class="docutils literal notranslate"><span class="pre">chart_name</span></code>, <code class="docutils literal notranslate"><span class="pre">short_description_chart</span></code>, <code class="docutils literal notranslate"><span class="pre">dataframe_id</span></code>, and <code class="docutils literal notranslate"><span class="pre">path_to_html_chart</span></code>.</p></li>
-</ol>
-<p>Refer to the <code class="docutils literal notranslate"><span class="pre">chartbook.toml</span></code> in the template or the course examples for the required fields and format.</p>
-</section>
-<section id="step-6-build-and-publish-the-chartbook-site">
-<h3>Step 6: Build and Publish the Chartbook Site<a class="headerlink" href="#step-6-build-and-publish-the-chartbook-site" title="Link to this heading">#</a></h3>
+<section id="part-2-graded-publish-your-chartbook-site-to-github-pages-2-pts">
+<h2>Part 2 (graded): Publish Your ChartBook Site to GitHub Pages (2 pts)<a class="headerlink" href="#part-2-graded-publish-your-chartbook-site-to-github-pages-2-pts" title="Link to this heading">#</a></h2>
+<p>The pipeline registers its outputs — the consolidated CRSP Treasury data and the Fed’s published GSW yield-curve series — as <strong>dataframes</strong> in <code class="docutils literal notranslate"><span class="pre">chartbook.toml</span></code>. <a class="reference external" href="https://pypi.org/project/chartbook/">ChartBook</a> assembles those, together with your executed notebooks, into a static documentation website.</p>
 <ol class="arabic">
-<li><p>Run the full pipeline:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>doit
-</pre></div>
-</div>
-</li>
-<li><p>Build the chartbook site:</p>
+<li><p>Build the site (this is the <code class="docutils literal notranslate"><span class="pre">task_build_chartbook_site</span></code> task in <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code>):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chartbook<span class="w"> </span>build<span class="w"> </span>-f
 </pre></div>
 </div>
-<p>This generates the <code class="docutils literal notranslate"><span class="pre">docs/</span></code> folder containing a static website.</p>
+<p>This generates the <code class="docutils literal notranslate"><span class="pre">docs/</span></code> folder — a full static site (<code class="docutils literal notranslate"><span class="pre">index.html</span></code>, the executed notebooks, and dataframe pages).</p>
 </li>
-<li><p>Commit and push the <code class="docutils literal notranslate"><span class="pre">docs/</span></code> folder to your <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</p></li>
-<li><p>Enable GitHub Pages on your repository:</p>
-<ul class="simple">
-<li><p>Go to your repo’s <strong>Settings &gt; Pages</strong></p></li>
-<li><p>Under “Source”, select <strong>Deploy from a branch</strong></p></li>
-<li><p>Select the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch and the <code class="docutils literal notranslate"><span class="pre">/docs</span></code> folder</p></li>
-<li><p>Click <strong>Save</strong></p></li>
-</ul>
-</li>
-<li><p>Verify your site is live at:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">username</span><span class="o">&gt;.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">pXX_lastnames_year</span><span class="o">/</span>
-</pre></div>
-</div>
-</li>
+<li><p>Commit and push <code class="docutils literal notranslate"><span class="pre">docs/</span></code>, then enable <strong>GitHub Pages</strong> on your repository (Settings → Pages → Deploy from a branch → <code class="docutils literal notranslate"><span class="pre">main</span></code> / <code class="docutils literal notranslate"><span class="pre">/docs</span></code>).</p></li>
+<li><p>Verify the site is live, then record the published URL where the autograder expects it (see the HW repo <code class="docutils literal notranslate"><span class="pre">README.md</span></code>).</p></li>
 </ol>
+<p>For what ChartBook is and how the pieces fit together, see <a class="reference internal" href="Week3/project_structure.html"><span class="std std-doc">Project Structure: “Chartbook” Template</span></a>; for the GitHub Pages mechanics, see <a class="reference internal" href="Week3/github_pages_preview.html"><span class="std std-doc">Publishing to GitHub Pages</span></a>. We cover both in class this week.</p>
+<p><strong>Total: 11 points.</strong></p>
 </section>
-</section>
-<section id="part-2-graded-schedule-a-consultation">
-<h2>Part 2 (graded): Schedule a Consultation<a class="headerlink" href="#part-2-graded-schedule-a-consultation" title="Link to this heading">#</a></h2>
-<p>Schedule a consultation meeting with the instructor using the following link:</p>
+<section id="part-3-not-graded-but-required-schedule-your-final-project-proposal-consultation">
+<h2>Part 3 (not graded, but required): Schedule Your Final-Project Proposal Consultation<a class="headerlink" href="#part-3-not-graded-but-required-schedule-your-final-project-proposal-consultation" title="Link to this heading">#</a></h2>
+<p>This is separate from the pipeline above — it is part of the <strong>final-project proposal</strong> process, not this homework’s grade. Before your assigned proposal-presentation date, you must meet 1-on-1 with the instructor.</p>
 <ul class="simple">
 <li><p><strong>Booking link:</strong> <a class="reference external" href="https://finm-32900.youcanbook.me/">https://finm-32900.youcanbook.me/</a></p></li>
+<li><p>You must schedule it to occur <strong>at least one week before</strong> your group’s proposal presentation. Booking it before the HW deadline is what’s required now — the meeting itself can be later.</p></li>
+<li><p>Come prepared with your assigned paper, your data sources, a rough plan for the product you’ll build, and how you’ll divide the work.</p></li>
 </ul>
-<p>You must <strong>schedule</strong> the meeting before the homework deadline. You do not need to have attended the meeting before the deadline — only the booking needs to be completed.</p>
-<p><strong>Purpose of the consultation:</strong> You and your partner should come to the meeting prepared with:</p>
-<ul class="simple">
-<li><p>A plan for how you will complete the final project</p></li>
-<li><p>A division of responsibilities between team members (who is primarily responsible for which tasks)</p></li>
-<li><p>Any questions or concerns about feasibility (e.g., data access issues, unclear requirements)</p></li>
-</ul>
-<p>I will use this meeting to verify that the work is being divided appropriately, provide guidance on the project, and help modify requirements if something turns out not to be feasible (e.g., you do not have access to the necessary data).</p>
-<p>Ideally, you should have your exploratory plots (from Part 1) completed before the meeting so we can discuss your initial findings. However, if you need extra help getting situated with the data, that is fine — we can work through it together in the consultation.</p>
-</section>
-<section id="part-3-graded-set-flags-in-the-hw3-github-classroom-repo">
-<h2>Part 3 (graded): Set Flags in the HW3 GitHub Classroom Repo<a class="headerlink" href="#part-3-graded-set-flags-in-the-hw3-github-classroom-repo" title="Link to this heading">#</a></h2>
-<p>Accept the GitHub Classroom assignment using the link at the top of this page. In the HW3 repo, edit <code class="docutils literal notranslate"><span class="pre">src/final_project_flags.py</span></code> to set all of the following:</p>
-<ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">I_HAVE_CREATED_MY_FINAL_PROJECT_REPO</span> <span class="pre">=</span> <span class="pre">True</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">URL_TO_MY_FINAL_PROJECT_REPO</span> <span class="pre">=</span> <span class="pre">&quot;https://github.com/&lt;username&gt;/pXX_lastnames_year&quot;</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">I_HAVE_CREATED_A_CHARTBOOK_SITE_ON_GITHUB_PAGES</span> <span class="pre">=</span> <span class="pre">True</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">URL_TO_MY_CHARTBOOK_SITE</span> <span class="pre">=</span> <span class="pre">&quot;https://&lt;username&gt;.github.io/pXX_lastnames_year/&quot;</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">I_HAVE_REGISTERED_DATAFRAMES_IN_CHARTBOOK_TOML</span> <span class="pre">=</span> <span class="pre">True</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">I_HAVE_REGISTERED_CHARTS_IN_CHARTBOOK_TOML</span> <span class="pre">=</span> <span class="pre">True</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">I_HAVE_SCHEDULED_A_CONSULTATION</span> <span class="pre">=</span> <span class="pre">True</span></code></p></li>
-</ol>
-<p>The autograder will run <code class="docutils literal notranslate"><span class="pre">pytest</span></code> against <code class="docutils literal notranslate"><span class="pre">src/test_final_project_flags.py</span></code> to verify that all flags are set and all URLs are non-empty.</p>
-</section>
-<section id="part-4-graded-publish-a-tearsheet-via-github-pages">
-<h2>Part 4 (graded): Publish a Tearsheet via GitHub Pages<a class="headerlink" href="#part-4-graded-publish-a-tearsheet-via-github-pages" title="Link to this heading">#</a></h2>
-<p>In HW2 Part 1, you constructed the Fama-French size and book-to-market sorted portfolios. These 6 portfolios (Small/Low, Small/Medium, Small/High, Big/Low, Big/Medium, Big/High) represent different investment styles based on firm size and value characteristics.</p>
-<p>For this part, you will:</p>
-<ol class="arabic simple">
-<li><p>Pick a trading strategy to analyze (we recommend one of the 6 size/BM portfolios from HW2 Part 1)</p></li>
-<li><p>Use the <a class="reference external" href="https://github.com/Lumiwealth/quantstats_lumi"><code class="docutils literal notranslate"><span class="pre">quantstats_lumi</span></code></a> package to generate a tearsheet</p></li>
-<li><p>Publish the tearsheet to the internet using GitHub Pages</p></li>
-</ol>
-<p><strong>Note:</strong> The Fama-French factors (SMB, HML, Mkt-RF) are long-short constructs used for analysis, not directly tradeable as-is. The 6 size/BM portfolios, however, represent long-only portfolios of actual stocks.</p>
-<p>For detailed instructions on what tearsheets are and how to publish to GitHub Pages, see: <a class="reference internal" href="Week3/github_pages_preview.html"><span class="std std-doc">GitHub Pages and Tearsheets</span></a></p>
-<section id="autograder-requirement">
-<h3>Autograder Requirement<a class="headerlink" href="#autograder-requirement" title="Link to this heading">#</a></h3>
-<p>To receive credit for this part, you must update <code class="docutils literal notranslate"><span class="pre">src/github_pages_tearsheet.py</span></code> in your HW3 repository:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set this to True once you&#39;ve published your tearsheet</span>
-<span class="n">I_HAVE_CREATED_A_TEAR_SHEET_ON_GITHUB_PAGES</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="c1"># Provide the URL to your published tearsheet</span>
-<span class="n">URL_TO_MY_TEAR_SHEET</span> <span class="o">=</span> <span class="s2">&quot;https://finm-32900.github.io/&lt;your-repo-name&gt;/&quot;</span>
-</pre></div>
-</div>
-<p>The unit test <code class="docutils literal notranslate"><span class="pre">test_github_pages_tearsheet.py</span></code> will verify that both values are set correctly.</p>
-</section>
-<section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h3>
-<p>See a completed example here: <a class="reference external" href="https://finm-32900.github.io/hw3--solutions/">https://finm-32900.github.io/hw3–solutions/</a></p>
-</section>
+<p>See the <a class="reference internal" href="FinalProject/proposal_presentation_rubric.html"><span class="std std-doc">Proposal Presentation Rubric</span></a> for how the proposal and consultation fit together.</p>
 </section>
 <section id="reminder">
 <h2>Reminder<a class="headerlink" href="#reminder" title="Link to this heading">#</a></h2>
@@ -703,11 +580,11 @@ cruft<span class="w"> </span>create<span class="w"> </span>https://github.com/ba
       </div>
     </a>
     <a class="right-next"
-       href="HW4.html"
+       href="notebooks/_01_CRSP_treasury_overview_ipynb.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Homework 4</p>
+        <p class="prev-next-title">CRSP Treasury Data Oveview</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -728,23 +605,10 @@ cruft<span class="w"> </span>create<span class="w"> </span>https://github.com/ba
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-0-not-graded-review-resources">Part 0 (not graded): Review Resources</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded-set-up-your-final-project-repository">Part 1 (graded): Set Up Your Final Project Repository</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-create-the-repository">Step 1: Create the Repository</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-scaffold-with-the-cookiecutter-chartbook-template">Step 2: Scaffold with the Cookiecutter Chartbook Template</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-set-up-data-pull-scripts">Step 3: Set Up Data Pull Scripts</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-create-exploratory-charts">Step 4: Create Exploratory Charts</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-register-dataframes-and-charts-in-chartbook-toml">Step 5: Register Dataframes and Charts in <code class="docutils literal notranslate"><span class="pre">chartbook.toml</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-build-and-publish-the-chartbook-site">Step 6: Build and Publish the Chartbook Site</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded-schedule-a-consultation">Part 2 (graded): Schedule a Consultation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-graded-set-flags-in-the-hw3-github-classroom-repo">Part 3 (graded): Set Flags in the HW3 GitHub Classroom Repo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-graded-publish-a-tearsheet-via-github-pages">Part 4 (graded): Publish a Tearsheet via GitHub Pages</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autograder-requirement">Autograder Requirement</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-graded-the-yield-curve-pipeline">Part 1 (graded): The Yield-Curve Pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-graded-publish-your-chartbook-site-to-github-pages-2-pts">Part 2 (graded): Publish Your ChartBook Site to GitHub Pages (2 pts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-not-graded-but-required-schedule-your-final-project-proposal-consultation">Part 3 (not graded, but required): Schedule Your Final-Project Proposal Consultation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder">Reminder</a></li>
 </ul>
   </nav></div>

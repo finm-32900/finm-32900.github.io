@@ -8,3 +8,14 @@
  - This additional video is also useful, but is less relevant to data scientists: https://www.youtube.com/watch?v=PwGKhvqJCQM 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PwGKhvqJCQM?si=_HQs9OiLzd557OwX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## The Bloomberg Terminal
+
+```{note}
+We are **not covering the Bloomberg Terminal live this quarter** — as an online course, students don't have shared access to a terminal. This reference page is kept here for those who have access elsewhere.
+```
+
+```{toctree}
+:maxdepth: 1
+Week7/bloomberg_terminal.md
+```
