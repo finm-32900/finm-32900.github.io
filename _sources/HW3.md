@@ -43,9 +43,24 @@ The pipeline registers its outputs — the consolidated CRSP Treasury data and t
    ```
    This generates the `docs/` folder — a full static site (`index.html`, the executed notebooks, and dataframe pages).
 
-2. Commit and push `docs/`, then enable **GitHub Pages** on your repository (Settings → Pages → Deploy from a branch → `main` / `/docs`).
+2. Create a **new, separate public repository under your personal GitHub account** (for example, `finm32900-hw3-site`) to host the site. Do **not** make your assignment repo public, and do not try to enable Pages on it — it stays private inside the class organization. On GitHub's free tier, Pages only works on public repositories, and your assignment repo contains your graded solutions, tests, and git history, none of which should ever be public. The `docs/` folder is deliberately gitignored in the assignment repo.
 
-3. Verify the site is live, then record the published URL where the autograder expects it (see the HW repo `README.md`).
+3. Copy the built site into the new repo and push it. From the directory containing your assignment repo:
+
+   ```bash
+   git clone https://github.com/<your-username>/finm32900-hw3-site.git
+   cp -R <your-hw3-repo>/docs/. finm32900-hw3-site/
+   cd finm32900-hw3-site
+   git add .
+   git commit -m "Publish ChartBook site"
+   git push
+   ```
+
+   The `docs/.` form (with the trailing `/.`) matters: it copies hidden files such as `.nojekyll`, which the site needs to render correctly.
+
+4. Enable **GitHub Pages** on the *new* repo (Settings → Pages → Deploy from a branch → `main` / `/ (root)`). After a few minutes, verify the site is live at `https://<your-username>.github.io/finm32900-hw3-site/`, then record the published URL where the autograder expects it (see the HW repo `README.md`).
+
+Note the separation this gives you: the rendered site is public — that is the point of publishing — but your source code, unit tests, git history, and credentials never leave the private assignment repo. Whenever you rebuild the site, just re-copy `docs/` into the site repo and push again.
 
 For what ChartBook is and how the pieces fit together, see [Project Structure: "Chartbook" Template](./Week3/project_structure.md); for the GitHub Pages mechanics, see [Publishing to GitHub Pages](./Week3/github_pages_preview.md). We cover both in class this week.
 

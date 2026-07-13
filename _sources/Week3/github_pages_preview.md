@@ -7,8 +7,11 @@
 Key features:
 - **Free hosting** for static content
 - **Custom domains** supported (or use `<username>.github.io/<repo-name>`)
-- **Works with private repos** - you can keep your code private while making the Pages site public
 - **No server-side code** - just static files (HTML, CSS, JS, images)
+
+One important limitation: on GitHub's **free tier, Pages is only available for public repositories**. Publishing Pages from a *private* repo requires a paid plan (GitHub Pro for personal accounts, or GitHub Team/Enterprise for organizations). And even then, the published site itself is always publicly accessible — Pages does not password-protect anything.
+
+Because your assignment repos in this course are private and must stay that way (they contain your graded solutions), the workflow we use is: **keep the code in the private assignment repo, and publish the built site from a separate public repo** under your personal account. The steps below show how.
 
 In this course, we use GitHub Pages to publish analysis results and tearsheets, giving you practice with a common workflow for sharing research outputs.
 
@@ -88,9 +91,11 @@ Export the notebook as an HTML file:
 
 Name the exported file `index.html`.
 
-### Step 4: Set Up the `./docs/` Folder
+### Step 4: Create a Separate Public Repo and Set Up the `./docs/` Folder
 
-In your repository:
+Create a **new public repository under your personal GitHub account** to host the site (for example, `my-tearsheet`). This repo holds only the built static site — never your source code, tests, or `.env` file. Your private assignment repo stays private.
+
+In the new public repository:
 
 1. Create a `docs/` folder in the repo root
 2. Place your `index.html` file inside `docs/`
@@ -134,7 +139,7 @@ After a few minutes, your site will be live at:
 https://<org-or-username>.github.io/<repo-name>/
 ```
 
-**Note**: Your repository can remain private. Only the GitHub Pages site will be publicly accessible.
+**Note**: The repo hosting the Pages site must be public (on the free tier), which is why we publish from a separate site-only repo. Your assignment repo — with your code, tests, and git history — remains private.
 
 
 ## Example
