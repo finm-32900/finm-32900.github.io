@@ -18,7 +18,7 @@ Please watch the following videos to better familiarize yourself with CRSP and C
 
  - Watch the following videos about Compustat. The slides to accompany the videos are available [here](https://wrds-www.wharton.upenn.edu/documents/1374/intro_comp_access_link.pptx).
    - [Introduction to Compustat | Part 1](https://vimeo.com/417303405)
-   - [Introduction to Compustat | Part 2](https://vimeo.com/417302901)
+   - [Introduction to Compustat | Part 2](https://vimeo.com/1125031335)
    - [Merging CRSP and Compustat Data](https://vimeo.com/447503392)
 
  - You may also find the following videos helpful:
