@@ -88,4 +88,4 @@ There are tools like `nbdime` or even VS Code provides some help with this issue
 
 ## My Solutions for Incorporating Jupyter Notebooks into Git and an Automated Pipeline
 
-See the `dodo.py` file of my `blank_project` Git Repo: https://github.com/jmbejara/blank_project
+See the [`dodo.py`](https://github.com/backofficedev/cookiecutter_chartbook/blob/main/example/dodo.py) file in the rendered `example/` project of the course [project template](../Week3/project_structure.md).

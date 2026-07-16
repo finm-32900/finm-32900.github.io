@@ -2,8 +2,9 @@
 
 ```{toctree}
 :maxdepth: 1
-Week6/GitHub_pull_requests.md
 Week6/python_packaging_with_hatch.md
+Week7/LSEG_datastream.md
+Week7/databento.md
 ```
 
 ## Learning Outcomes
@@ -19,7 +20,7 @@ Week6/python_packaging_with_hatch.md
 - Brief LSEG Datastream and Databento overview (carried over from Week 5)
   - [LSEG Datastream](./Week7/LSEG_datastream.md)
   - [Databento](./Week7/databento.md)
-- Tutorial of Issue Tracker in conjunction with GitHub Pull Requests
+- Continue with GitHub Issues and Pull Requests (introduced in Week 5 with the Midterm Report)
   - [GitHub Issues and Pull Requests](./Week6/GitHub_pull_requests.md)
   - Introduce the [`finm`](https://pypi.org/project/finm/) package as the course's collaborative open-source package; a low-stakes environment for students to practice submitting PRs.
   - Note: Last year we used [`stockbeta`](https://github.com/finm-32900/stockbeta) as the example. `stockbeta` is published on [TestPyPI](https://test.pypi.org/project/stockbeta/) (but not on the real PyPI), which is useful for illustrating the TestPyPI workflow.

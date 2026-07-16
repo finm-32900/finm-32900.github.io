@@ -3,7 +3,7 @@
 Now that we've introduced the concept of LaTeX and discussed how to compile a document, we'll now go over a few of
 the essential pieces that you'll need to know.
 
-For this, we'll review each of the concepts listed below as they appear in `/reports/report_example.tex` in my `blank_project` repository: https://github.com/jmbejara/blank_project.
+For this, we'll review each of the concepts listed below as they appear in [`reports/report_example.tex`](https://github.com/backofficedev/cookiecutter_chartbook/blob/main/example/reports/report_example.tex) in the course [project template](../Week3/project_structure.md).
 
 ## Environments
 

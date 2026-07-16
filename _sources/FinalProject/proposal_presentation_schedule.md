@@ -6,8 +6,8 @@ For what to prepare and how the proposal is graded, see the [Proposal Presentati
 
 | Date | Groups presenting |
 |---|---|
-| Wednesday, July 16 | Michael + David (first), Fernando + Bangjie |
-| Wednesday, July 23 | Andrew + Chandler, Anthony + Stefano |
-| Wednesday, July 30 | Riley + Marija, Brian + Clara |
-| Wednesday, August 6 | Arnold + Cameron, Bobby + George |
-| Wednesday, August 13 | Ashish + Omar, Ahmad + Jeffrey |
+| Thursday, July 16 | Fernando + Bangjie (first), Michael + David |
+| Thursday, July 23 | Andrew + Chandler, Anthony + Stefano |
+| Thursday, July 30 | Riley + Marija, Brian + Clara |
+| Thursday, August 6 | Arnold + Cameron, Bobby + George, Iris + Zhicheng |
+| Thursday, August 13 | Ashish + Omar, Ahmad + Jeffrey |

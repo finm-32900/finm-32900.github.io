@@ -25,7 +25,8 @@ An in-class presentation to the whole class over Zoom.
   - what your paper/project is about,
   - what **data sources** it uses, and
   - the **product** you plan to build and why it is interesting and useful. This is an *advertisement*: convince your classmates why they would want to clone your repository and run your code. Describe your own new table and figure and what they reveal, and explain what you are contributing (e.g., a cleaned, shareable dataset and the code to produce it).
-- **Live feedback:** Classmates ask questions during your presentation, and **every student fills out a peer-feedback survey** about your proposal (Is it interesting? Why? Is it ambitious? How useful does the proposed product seem?). I use the aggregated survey feedback to help grade your proposal.
+- **Live feedback:** Classmates ask questions during your presentation, and **every student fills out a peer-feedback survey** about your proposal. The survey is written to help *you*: it asks the audience to say, in their own words, what your paper is about and why it matters, whether they would actually use your replication code and your proposed extension (and specifically how), and how clearly you explained each. This shows you whether your message landed and whether classmates see real value in what you are building. I use the aggregated feedback to help grade your proposal (see [How the peer feedback is used](#how-the-peer-feedback-is-used) below).
+- **When the survey happens:** You will get a few minutes of quiet feedback time in class right after each group's Q&A, and the form stays open until **11:59 PM the day after the presentation** so you can revise or expand your comments. The link is posted on Canvas and pasted into the Zoom chat.
 
 ### 3. Final Project Presentation
 
@@ -47,6 +48,14 @@ The proposal presentation is graded primarily on:
 
 Points are prorated by discretion based on the difficulty of the underlying project.
 
+#### How the peer feedback is used
+
+The peer-feedback survey is qualitative by design, but it maps onto the three grading criteria above:
+
+- **Usefulness and interest (8 points)** is informed most directly by the audience's answers to "would you use your classmates' replication code / proposed extension, and *how*?" Concrete, specific intended uses are the strongest signal that a product is genuinely useful.
+- **Ambition (8 points)** is informed by how the class describes your proposed extension and the significance of the underlying paper — whether they see it as going meaningfully beyond a mechanical replication.
+- **Clarity (4 points)** is informed by the two 1–5 clarity ratings (how clearly you explained the replication, and how clearly you explained the extension), corroborated by how accurately the audience was able to restate your paper and your product in their own words.
+
 ### Proposal Attendance & Feedback — 10% of the course grade
 
 Networking with and learning from your classmates is an expected part of this course, so attending the proposal presentations and giving thoughtful feedback is required.
@@ -54,3 +63,4 @@ Networking with and learning from your classmates is an expected part of this co
 - For **every** proposal presentation, you must **both** (a) **attend** (Zoom attendance is taken) **and** (b) **submit the peer-feedback survey** for each presenting group.
 - Both are required to earn the points. There are **no allowed misses**—you are expected to attend all of the proposal presentations and give feedback on every group.
 - Your feedback is not only a grading input for the presenters; it is how the class learns from each other's projects, so please make your comments substantive.
+- **How attendance is recorded:** Your name and the timestamp on each survey response are the attendance record, and the Zoom participant report is the backup and cross-check. The form stays open until 11:59 PM the day after the presentation, so submitting a thoughtful response by then satisfies both the attendance and the feedback requirement.

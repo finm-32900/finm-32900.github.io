@@ -15,7 +15,7 @@ Your contribution must follow the report's shared **style guide** (formatting, f
 
 ## Workflow
 
-1. I will create a **GitHub repository** containing a skeleton of the report and a set of **issues** in the issue tracker, each describing a possible topic.
+1. The report lives in a private **GitHub repository** — [finm-32900/finm_midterm_report](https://github.com/finm-32900/finm_midterm_report) — containing a skeleton of the report and a set of **issues** in the issue tracker, each describing a possible topic. Every student receives a collaborator invite by email; accept it to get access.
 2. **Claim a topic** by assigning one of the open issues to yourself. Each topic can only be claimed by one student, so claim early. (You may propose your own topic—coordinate with me through an issue.)
 3. Build your figure and write your paragraph in a branch, following the skeleton and style guide.
 4. Open a **pull request** with your contribution. Address any review comments and get it merged.
@@ -28,4 +28,4 @@ Your Midterm Report contribution is graded individually on:
 - the clarity and insight of your written paragraph, and
 - whether your contribution follows the shared style guide and integrates cleanly (a clean, reviewable pull request).
 
-Exact deadlines and the repository link will be announced on Canvas and on the class GitHub page.
+Exact deadlines will be announced on Canvas and on the class GitHub page.

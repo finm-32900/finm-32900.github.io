@@ -103,10 +103,10 @@ Now, let's turn to a more in-depth tutorial, provided by Overleaf.
 
  - [Overleaf: Learn LaTeX in 30 minutes](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes)
 
-## My LaTeX Templates in the `blank_project` Repo
+## My LaTeX Templates in the Course Project Template
 
- - https://github.com/jmbejara/blank_project
-   - My preferred templates are in the ["reports" folder](https://github.com/jmbejara/blank_project/tree/main/reports)
+ - The course [project template](../Week3/project_structure.md), scaffolded with `cruft create` or `chartbook init`: https://github.com/backofficedev/cookiecutter_chartbook
+   - My preferred templates are in the ["reports" folder](https://github.com/backofficedev/cookiecutter_chartbook/tree/main/example/reports) (shown here in the template's rendered `example/` project)
 
 ```{admonition} Discussion
 :class: note 

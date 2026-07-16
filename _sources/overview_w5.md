@@ -1,33 +1,71 @@
-# Week 5: Publishing Reports with LaTeX
+# Week 5: Proposal Presentations, LaTeX, and the Midterm Report
 
 ```{toctree}
 :maxdepth: 1
 Week4/intro_to_LaTeX.md
 Week4/latex_essentials.md
-Week7/LSEG_datastream.md
-Week7/databento.md
+Week6/GitHub_pull_requests.md
 ```
 
 ## Learning Outcomes
 
-- Basic familiarity with LaTeX: edit and compile the templates in the `blank_project` repo using `TeXworks` (included with TeX Live).
+- See the first two final-project proposals and practice giving substantive peer feedback.
+- Basic familiarity with LaTeX: edit and compile the report templates in the course [project template](./Week3/project_structure.md) using `TeXworks` (included with TeX Live), and work through the `latex/` examples in the in-class examples repo.
 - Understand how to automate the inclusion of an image or table into a LaTeX document, so a PDF report rebuilds itself from your pipeline's outputs.
-- Brief, as-needed exposure to additional data vendors (LSEG Datastream via WRDS, Databento).
+- Understand the Midterm Report: what each student contributes, how topics are claimed through the issue tracker, and how contributions are merged through pull requests.
+- Understand the GitHub pull-request workflow used in open-source projects: branch → PR → review → merge.
 
-## Agenda
+## Announcements
 
-Last week we published an HTML report (the ChartBook site) to GitHub Pages. This week is the other half of report generation: **LaTeX and PDFs**.
+- **Proposal presentations start tonight.** See the [schedule](./FinalProject/proposal_presentation_schedule.md) for who presents. Format: 10 minutes to present, 5 minutes of Q&A, then ~5 minutes of quiet time for everyone to submit the peer-feedback survey.
+- **Peer-feedback survey.** Required from everyone, for every group ([Attendance & Feedback, 10% of the course grade](./FinalProject/proposal_presentation_rubric.md)). The questions and the form link are on the [Proposal Peer-Feedback Survey](./FinalProject/proposal_feedback_survey.md) page. Read them before the presentations so you know what to listen for; the link will also be pasted in the Zoom chat. You'll be given time in class right after each presentation; the form stays open until **Friday at 11:59 PM** if you want to revise or expand your comments. Survey submissions also serve as the attendance record.
+- **Accept your invite to the midterm report repo.** Before class I sent every student a GitHub collaborator invite to [finm-32900/finm_midterm_report](https://github.com/finm-32900/finm_midterm_report) (it's a private repo). Check your email or [github.com/notifications](https://github.com/notifications) and accept it, and confirm tonight that you can open the repo.
+- **Book your instructor consultation.** If you present **July 23**, your consultation should already be scheduled; if you present **July 30**, [book it now](https://finm-32900.youcanbook.me/); it must happen at least one week before you present.
+- [HW 3](./HW3.md) is due **Friday, July 24**.
 
-- **LaTeX for reports**: [Introduction to LaTeX](./Week4/intro_to_LaTeX.md) and [LaTeX Essentials](./Week4/latex_essentials.md). Compile the `blank_project` templates in `TeXworks`, and automate pulling a generated chart or table into the document — the same automated-pipeline idea as ChartBook, but producing a PDF.
-- **Data vendors (brief, as they come up)**: [LSEG Datastream](./Week7/LSEG_datastream.md) via WRDS and [Databento](./Week7/databento.md). We'll keep these light and return to them when a project needs them.
+## Agenda Item 1: Proposal Presentations (Two Groups)
 
-% INSTRUCTOR-ONLY (does NOT render). To flesh out for the Week 5 class next pass:
-%  - Introduce the MIDTERM REPORT here: a single shared GitHub repo that all students
-%    contribute to via pull requests; PDF built from LaTeX; each student's charts should
-%    relate to their assigned final project. (Kept OUT of Week 4 deliberately.)
-%  - GitHub pull-request / open-source contribution workflow (currently in Week 6:
-%    Week6/GitHub_pull_requests.md) pulls forward to here.
-%  - Publishing a package to PyPI (chartbook / finm as the example), teed up by the
-%    Week 4 ChartBook discussion.
-%  - Bloomberg is NOT offered this quarter (online students lack terminal access); the
-%    reference page now lives in the Appendix.
+Two groups present tonight, in the order listed on the [schedule](./FinalProject/proposal_presentation_schedule.md). Each group gets a 10-minute presentation, 5 minutes of class Q&A, and then ~5 minutes of silent time for everyone to submit the [peer-feedback survey](./FinalProject/proposal_feedback_survey.md) (one response per group). Presenters, remember that the presentation is an *advertisement* for the product you'll build: what the paper is about, your data sources, and the new table/figure you'll produce ([rubric](./FinalProject/proposal_presentation_rubric.md)).
+
+## Agenda Item 2: LaTeX for PDF Reports from Your Pipeline
+
+Last week's ChartBook site was the HTML half of report generation; tonight is the PDF half.
+
+- [Introduction to LaTeX](./Week4/intro_to_LaTeX.md) and [LaTeX Essentials](./Week4/latex_essentials.md). Compile the report templates from the course [project template](./Week3/project_structure.md) in `TeXworks` (ships with TeX Live); scaffold a fresh project with `cruft create` or `chartbook init` if you don't have one.
+- Work through the [`latex/` examples](https://github.com/finm-32900/inclass_examples/tree/main/latex) in the in-class examples repo, a progression from a five-line document (`01_minimal`) up through figures and tables, bibliographies, and Beamer slides.
+- **Demo**: the market-brief handout in [`latex/08_handout`](https://github.com/finm-32900/inclass_examples/tree/main/latex/08_handout), a polished handout built from a custom class file (`handout.cls`), whose charts (`chart_sp500.pdf`, `chart_yield_curve.pdf`) and returns table (`returns_table.tex`) are *generated by a Python script* (`create_market_data.py`) and pulled into the document with `\includegraphics` and `\input`. The PDF rebuilds itself whenever the data changes: the same principle as ChartBook, and exactly how the Midterm Report (next item) is assembled.
+
+## Agenda Item 3: Launch the Midterm Report
+
+[The Midterm Report](./midterm_report.md) replaces a midterm exam: the whole class collaboratively produces one shared, LaTeX-built PDF report on the current economy and financial markets. Each student contributes one figure plus one explanatory paragraph, and everything is assembled in one shared (private) GitHub repository: [finm-32900/finm_midterm_report](https://github.com/finm-32900/finm_midterm_report). You should already have access via the collaborator invite sent before class.
+
+- **Live walkthrough of the repo**: the skeleton layout, the style guide, and how the PDF builds itself from everyone's contributions, using exactly the automated `\includegraphics` / `\input` pattern from the LaTeX demo above.
+- **Claiming a topic**: each candidate topic is an open issue in the repo's issue tracker; assign one to yourself to claim it (one student per topic, so claim early; you may also propose your own topic via a new issue). Where possible, pick a figure that relates to the themes of your assigned final-project paper.
+- **Contributing**: build your figure reproducibly, write your paragraph, and submit both as a pull request, which is exactly what the next agenda item teaches.
+- Deadlines are announced on Canvas.
+
+## Agenda Item 4: GitHub Issues and Pull Requests
+
+[GitHub Issues and Pull Requests](./Week6/GitHub_pull_requests.md): how contribution works in the open-source world, and the exact workflow you'll use for the Midterm Report.
+
+- Issues as the coordination layer: claiming work, discussing scope, and linking fixes with `fixes #123`.
+- The PR loop, demoed live on the midterm-report repo: branch → commit → open a pull request → review comments → revise → merge.
+- Why maintainers protect `main` and require review, and how these same mechanics let total strangers safely collaborate on the open-source packages we use every day.
+
+% INSTRUCTOR-ONLY (does NOT render).
+% Run of show (3-hour class): 0:00 announcements · 0:10 group 1 (10 present + 5 Q&A
+% + 5 silent feedback) · 0:30 group 2 · 0:50 LaTeX (intro → essentials →
+% inclass_examples latex/ progression, ending on 08_handout market brief) ·
+% 1:45 break · 1:55 midterm-report repo walkthrough (finm_midterm_report) ·
+% 2:20 live PR demo on the midterm repo · 2:50 wrap-up reminders (survey due
+% Friday 11:59 PM, HW3 due July 24, consultations for July 23/30 presenters).
+% - PREP: send GitHub collaborator invites to finm_midterm_report to ALL students
+%   before class; verify at start of class that everyone accepted.
+% - Data vendors (LSEG Datastream, Databento) DEFERRED to Week 6; their toctree
+%   entries moved to overview_w6.md.
+% - Publishing a package to PyPI (chartbook/finm) stays in Week 6, teed up by
+%   tonight's PR demo.
+% - Bloomberg is NOT offered this quarter (online students lack terminal access);
+%   the reference page lives in the Appendix.
+% - The peer-feedback Google Form doubles as the attendance record (name +
+%   timestamp); the Zoom participant report is the backup.

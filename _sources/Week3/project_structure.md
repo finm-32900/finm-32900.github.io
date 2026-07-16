@@ -42,6 +42,8 @@ pip install cruft
 cruft create https://github.com/backofficedev/cookiecutter_chartbook
 ```
 
+Alternatively, if you already have [ChartBook](https://pypi.org/project/chartbook/) installed, `chartbook init` scaffolds a new project from this same template, so the two commands are essentially interchangeable.
+
 See the template's README for detailed usage instructions and the structure it provides.
 
 

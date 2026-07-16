@@ -51,7 +51,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Proposal Presentation Schedule" href="proposal_presentation_schedule.html" />
+    <link rel="next" title="Proposal Peer-Feedback Survey" href="proposal_feedback_survey.html" />
     <link rel="prev" title="Final Project Instructions and Rubric" href="final_project_rubric.html" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>   
@@ -208,17 +208,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../Week3/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w5.html">Week 5: Publishing Reports with LaTeX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w5.html">Week 5: Proposal Presentations, LaTeX, and the Midterm Report</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Week7/LSEG_datastream.html">LSEG Datastream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Week7/databento.html">Databento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/LSEG_datastream.html">LSEG Datastream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/databento.html">Databento</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w7.html">Week 7: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -269,8 +269,10 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../final_project.html">Final Project</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="final_project_rubric.html">Final Project Instructions and Rubric</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Proposal Presentation Rubric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proposal_feedback_survey.html">Proposal Peer-Feedback Survey</a></li>
 <li class="toctree-l2"><a class="reference internal" href="proposal_presentation_schedule.html">Proposal Presentation Schedule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="project_previews.html">Project Previews: What Does a Replication Look Like?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="past_final_projects.html">Past Final Projects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="potential_final_projects.html">List of Potential Final Projects</a></li>
 </ul>
 </details></li>
@@ -477,7 +479,10 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-presentation-weeks-are-assigned">How Presentation Weeks Are Assigned</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposal-presentation-20-of-the-course-grade">Proposal Presentation — 20% of the course grade</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposal-presentation-20-of-the-course-grade">Proposal Presentation — 20% of the course grade</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-peer-feedback-is-used">How the peer feedback is used</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposal-attendance-feedback-10-of-the-course-grade">Proposal Attendance &amp; Feedback — 10% of the course grade</a></li>
 </ul>
 </li>
@@ -519,7 +524,8 @@ document.write(`
 <li><p>the <strong>product</strong> you plan to build and why it is interesting and useful. This is an <em>advertisement</em>: convince your classmates why they would want to clone your repository and run your code. Describe your own new table and figure and what they reveal, and explain what you are contributing (e.g., a cleaned, shareable dataset and the code to produce it).</p></li>
 </ul>
 </li>
-<li><p><strong>Live feedback:</strong> Classmates ask questions during your presentation, and <strong>every student fills out a peer-feedback survey</strong> about your proposal (Is it interesting? Why? Is it ambitious? How useful does the proposed product seem?). I use the aggregated survey feedback to help grade your proposal.</p></li>
+<li><p><strong>Live feedback:</strong> Classmates ask questions during your presentation, and <strong>every student fills out a peer-feedback survey</strong> about your proposal. The survey is written to help <em>you</em>: it asks the audience to say, in their own words, what your paper is about and why it matters, whether they would actually use your replication code and your proposed extension (and specifically how), and how clearly you explained each. This shows you whether your message landed and whether classmates see real value in what you are building. I use the aggregated feedback to help grade your proposal (see <a class="reference internal" href="#how-the-peer-feedback-is-used"><span class="xref myst">How the peer feedback is used</span></a> below).</p></li>
+<li><p><strong>When the survey happens:</strong> You will get a few minutes of quiet feedback time in class right after each group’s Q&amp;A, and the form stays open until <strong>11:59 PM the day after the presentation</strong> so you can revise or expand your comments. The link is posted on Canvas and pasted into the Zoom chat.</p></li>
 </ul>
 </section>
 <section id="final-project-presentation">
@@ -542,6 +548,15 @@ document.write(`
 <li><p><strong>Clarity of the data sources and analysis (4 points)</strong> — Did you clearly explain what data you are using and what your additional table and figure will show?</p></li>
 </ul>
 <p>Points are prorated by discretion based on the difficulty of the underlying project.</p>
+<section id="how-the-peer-feedback-is-used">
+<h4>How the peer feedback is used<a class="headerlink" href="#how-the-peer-feedback-is-used" title="Link to this heading">#</a></h4>
+<p>The peer-feedback survey is qualitative by design, but it maps onto the three grading criteria above:</p>
+<ul class="simple">
+<li><p><strong>Usefulness and interest (8 points)</strong> is informed most directly by the audience’s answers to “would you use your classmates’ replication code / proposed extension, and <em>how</em>?” Concrete, specific intended uses are the strongest signal that a product is genuinely useful.</p></li>
+<li><p><strong>Ambition (8 points)</strong> is informed by how the class describes your proposed extension and the significance of the underlying paper — whether they see it as going meaningfully beyond a mechanical replication.</p></li>
+<li><p><strong>Clarity (4 points)</strong> is informed by the two 1–5 clarity ratings (how clearly you explained the replication, and how clearly you explained the extension), corroborated by how accurately the audience was able to restate your paper and your product in their own words.</p></li>
+</ul>
+</section>
 </section>
 <section id="proposal-attendance-feedback-10-of-the-course-grade">
 <h3>Proposal Attendance &amp; Feedback — 10% of the course grade<a class="headerlink" href="#proposal-attendance-feedback-10-of-the-course-grade" title="Link to this heading">#</a></h3>
@@ -550,6 +565,7 @@ document.write(`
 <li><p>For <strong>every</strong> proposal presentation, you must <strong>both</strong> (a) <strong>attend</strong> (Zoom attendance is taken) <strong>and</strong> (b) <strong>submit the peer-feedback survey</strong> for each presenting group.</p></li>
 <li><p>Both are required to earn the points. There are <strong>no allowed misses</strong>—you are expected to attend all of the proposal presentations and give feedback on every group.</p></li>
 <li><p>Your feedback is not only a grading input for the presenters; it is how the class learns from each other’s projects, so please make your comments substantive.</p></li>
+<li><p><strong>How attendance is recorded:</strong> Your name and the timestamp on each survey response are the attendance record, and the Zoom participant report is the backup and cross-check. The form stays open until 11:59 PM the day after the presentation, so submitting a thoughtful response by then satisfies both the attendance and the feedback requirement.</p></li>
 </ul>
 </section>
 </section>
@@ -579,11 +595,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="proposal_presentation_schedule.html"
+       href="proposal_feedback_survey.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Proposal Presentation Schedule</p>
+        <p class="prev-next-title">Proposal Peer-Feedback Survey</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -611,7 +627,10 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-presentation-weeks-are-assigned">How Presentation Weeks Are Assigned</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposal-presentation-20-of-the-course-grade">Proposal Presentation — 20% of the course grade</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposal-presentation-20-of-the-course-grade">Proposal Presentation — 20% of the course grade</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-peer-feedback-is-used">How the peer feedback is used</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposal-attendance-feedback-10-of-the-course-grade">Proposal Attendance &amp; Feedback — 10% of the course grade</a></li>
 </ul>
 </li>
