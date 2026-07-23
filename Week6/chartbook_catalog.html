@@ -1,0 +1,812 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The ChartBook Catalog: Data Dependencies Across Repositories &#8212; Full Stack Quantitative Finance</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2af69973" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=8dbc1659"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Week6/chartbook_catalog';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Writing and Publishing Your Own Python Packages" href="python_packaging_with_hatch.html" />
+    <link rel="prev" title="Week 6: Python Packages, FINM, and the ChartBook Catalog" href="../overview_w6.html" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>   
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Full Stack Quantitative Finance - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Full Stack Quantitative Finance - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Full Stack Quantitative Finance
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Course Syllabus: FINM 32900, Summer 2026</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">Acknowledgments</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix.html">Appendix</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/bloomberg_terminal.html">The Bloomberg Terminal</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lectures 📖</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w1.html">Week 1: GitHub, GitHub Classroom, and Virtual Environments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/what_is_this_course_about.html">What is Full Stack Quantitative Finance? Why This Course?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/reproducible_analytical_pipelines.html">What are Reproducible Analytical Pipelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/case_study_reproducibility_in_finance.html">Case Study: Is There A Reproducibility Crisis In Finance?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/virtual_environments.html">Virtual Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/midterm_report_and_style_guides.html">The Midterm Report and Style Guides</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w2.html">Week 2: Virtual Environments, WRDS, and CRSP</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/WRDS_intro_and_web_queries.html">Introduction to WRDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_wrds_python_package_ipynb.html">Example: Connecting to the WRDS Platform With Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_05_basics_of_SQL_ipynb.html">Basics of SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/env_files.html">Env Files, Secrets, and the Separations of Settings from Code</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w3.html">Week 3: Automating the Pipeline with PyDoit, featuring Fama-French 1993</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/what_is_a_task_runner.html">What is a build system or task runner?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/doit_examples.html">PyDoit Examples Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/project_structure.html">Project Structure: “Chartbook” Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/uv_and_pixi.html">Modern Environment Tools: uv and pixi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/ftsfr.html">Financial Time Series Forecasting Repository (FTSFR)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w4.html">Week 4: ChartBook, GitHub Pages, and Reproducible Reports</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/reports_with_jupyter_notebooks.html">Reports with Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/github_pages_preview.html">GitHub Pages and Tearsheets</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w5.html">Week 5: Proposal Presentations, LaTeX, and the Midterm Report</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/intro_to_LaTeX.html">Introduction to LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/latex_essentials.html">LaTeX Essentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../overview_w6.html">Week 6: Python Packages, FINM, and the ChartBook Catalog</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">The ChartBook Catalog: Data Dependencies Across Repositories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w7.html">Week 7: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/sphinx.html">Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/LSEG_datastream.html">LSEG Datastream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/databento.html">Databento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_corporate_hedging_ipynb.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w8.html">Week 8: Medium-Sized Data and Remote Machines</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/medium_sized_data_strategies.html">Strategies for Medium-Sized Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/polars_exercises.html">Polars Exercises: Code Snippets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/remote_machines_and_hpc.html">Remote Machines and High-Performance Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/exercise_jupyter_on_midway.html">Exercise: Jupyter Notebook on Midway via SSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_data_sources_overview_ipynb.html">Data Sources Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_trace_cleaning_walkthrough_ipynb.html">Cleaning TRACE Corporate Bond Data: A Walkthrough</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w9.html">Week 9: Web Authentication, GitHub Actions, and Publishing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week9/github_actions_interactive_dashboard.html">Creating a Live Dashboard Example with GitHub Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week9/cron_jobs.html">Scheduling Recurring Tasks with Cron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/web_authentication.html">Web Authentication and Authorization</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework 📝</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../HW0.html">Homework 0</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW1.html">Homework 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_CRSP_market_index_ipynb.html">HW Guide Part A: CRSP Market Returns Indices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_03_SP500_constituents_and_index_ipynb.html">HW Guide Part B: Reconstructing the S&amp;P 500 Index</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW2.html">Homework 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_04_Fama_French_1993_ipynb.html">HW Guide Part A: Replicate Fama-French 1993</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_06_CAPM_analysis_ipynb.html">CAPM Analysis of Size, Value, and Investment Portfolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_07_Fama_French_3_factor_ipynb.html">Fama-French 3-Factor Analysis of Investment Portfolios</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../HW3.html">Homework 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_CRSP_treasury_overview_ipynb.html">CRSP Treasury Data Oveview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_replicate_GSW2005_ipynb.html">Replicating the Gürkaynak, Sack, and Wright (2006) Treasury Yield Curve</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../HW4.html">Homework 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../HW5.html">Homework 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../midterm_report.html">Midterm Report</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../final_project.html">Final Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/final_project_rubric.html">Final Project Instructions and Rubric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/proposal_presentation_rubric.html">Proposal Presentation Rubric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/proposal_feedback_survey.html">Proposal Peer-Feedback Survey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/proposal_presentation_schedule.html">Proposal Presentation Schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/project_previews.html">Project Previews: What Does a Replication Look Like?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/past_final_projects.html">Past Final Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FinalProject/potential_final_projects.html">List of Potential Final Projects</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmbejara/blank_project/issues/new?title=Issue%20on%20page%20%2FWeek6/chartbook_catalog.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Week6/chartbook_catalog.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The ChartBook Catalog: Data Dependencies Across Repositories</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-dependencies-between-repositories">The Problem: Dependencies Between Repositories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chartbook-0-1-x-what-just-changed">ChartBook 0.1.x: What Just Changed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipelines-vs-catalogs">Pipelines vs. Catalogs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-own-catalog">Setting Up Your Own Catalog</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-clone-the-pipelines-you-need">Step 1: Clone the pipelines you need</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-register-them-in-your-global-catalog">Step 2: Register them in your global catalog</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-run-the-pipeline-once">Step 3: Run the pipeline once</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-load-data-by-name">Step 4: Load data by name</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-catalog-for-your-midterm-report-contribution">Using the Catalog for Your Midterm Report Contribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-ftsfr-repos-can-you-use">Which FTSFR repos can you use?</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                   <section class="tex2jax_ignore mathjax_ignore" id="the-chartbook-catalog-data-dependencies-across-repositories">
+<h1>The ChartBook Catalog: Data Dependencies Across Repositories<a class="headerlink" href="#the-chartbook-catalog-data-dependencies-across-repositories" title="Link to this heading">#</a></h1>
+<p><strong>Objectives of This Chapter</strong></p>
+<ol class="arabic simple">
+<li><p>Understand the difference between a ChartBook <em>pipeline</em> and a ChartBook <em>catalog</em>, and why a catalog is the right tool for sharing data between repositories.</p></li>
+<li><p>Upgrade to ChartBook 0.1.x and understand what changed in this release (a breaking manifest redesign, catalog auto-discovery, and a simpler install).</p></li>
+<li><p>Set up a personal catalog on your own machine, register cloned pipeline repos in it, and load their data by name with <code class="docutils literal notranslate"><span class="pre">data.load(...)</span></code>.</p></li>
+<li><p>Apply this to the <a class="reference internal" href="../midterm_report.html"><span class="std std-doc">Midterm Report</span></a>: build your figure on top of data produced by the <a class="reference external" href="https://github.com/orgs/ftsfr/repositories">FTSFR pipeline repos</a> instead of re-writing data pulls from scratch.</p></li>
+</ol>
+<section id="the-problem-dependencies-between-repositories">
+<h2>The Problem: Dependencies Between Repositories<a class="headerlink" href="#the-problem-dependencies-between-repositories" title="Link to this heading">#</a></h2>
+<p>By now you have built several <em>pipelines</em>: repositories where <code class="docutils literal notranslate"><span class="pre">doit</span></code> pulls raw data, transforms it, and produces registered dataframes, charts, and notebook reports. Each pipeline is self-contained, which is exactly what makes it reproducible.</p>
+<p>But real analytical work is rarely one repository deep. Your midterm-report figure might need consolidated CRSP Treasury data, or the Fed’s published yield curve, or Markit CDS spreads. Some other repository has <em>already</em> solved that data problem, carefully. Your options:</p>
+<ol class="arabic simple">
+<li><p><strong>Copy the pull code</strong> into your repo. Fast today, painful forever: the copy drifts out of date, bugs get fixed in one place but not the other, and every project pays the full data-cleaning cost again.</p></li>
+<li><p><strong>Copy the output file</strong> by hand. Now nobody knows how that parquet was made. This violates everything this course stands for.</p></li>
+<li><p><strong>Declare a dependency</strong> on the other repository’s <em>registered output</em>, and resolve it by name at load time.</p></li>
+</ol>
+<p>Option 3 is what the ChartBook <strong>catalog</strong> does. A pipeline registers its dataframes in its <code class="docutils literal notranslate"><span class="pre">chartbook.toml</span></code>; a catalog aggregates many pipelines and gives every dataset a stable, loadable address: <code class="docutils literal notranslate"><span class="pre">pipeline</span></code> + <code class="docutils literal notranslate"><span class="pre">dataframe</span></code>. Downstream code then says <em>what</em> it needs, not <em>where it lives on your disk</em>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">chartbook</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pipeline</span><span class="o">=</span><span class="s2">&quot;ftsfr/fed_yield_curve&quot;</span><span class="p">,</span> <span class="n">dataframe</span><span class="o">=</span><span class="s2">&quot;fed_yield_curve&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;pandas&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is the same discipline that package managers brought to code dependencies (<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">finm</span></code> instead of copy-pasting functions), applied to data.</p>
+</section>
+<section id="chartbook-0-1-x-what-just-changed">
+<h2>ChartBook 0.1.x: What Just Changed<a class="headerlink" href="#chartbook-0-1-x-what-just-changed" title="Link to this heading">#</a></h2>
+<p>This week ChartBook shipped its biggest release so far (<code class="docutils literal notranslate"><span class="pre">0.1.0</span></code> on July 22, <code class="docutils literal notranslate"><span class="pre">0.1.1</span></code> on July 23). Upgrade before class:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install --upgrade chartbook</span>
+</pre></div>
+</div>
+<p>Highlights of the release, from the <a class="reference external" href="https://backofficedev.github.io/chartbook/changelog.html">changelog</a>:</p>
+<ul class="simple">
+<li><p><strong>Single install.</strong> <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">chartbook</span></code> now installs everything: data loading, plotting, the Sphinx documentation toolchain, and the <code class="docutils literal notranslate"><span class="pre">chartbook</span> <span class="pre">init</span></code> scaffolder. The old <code class="docutils literal notranslate"><span class="pre">[data]</span></code>, <code class="docutils literal notranslate"><span class="pre">[plotting]</span></code>, <code class="docutils literal notranslate"><span class="pre">[sphinx]</span></code>, and <code class="docutils literal notranslate"><span class="pre">[all]</span></code> extras are deprecated no-op aliases.</p></li>
+<li><p><strong>Breaking: manifest format v2.</strong> The <code class="docutils literal notranslate"><span class="pre">chartbook.toml</span></code> format was redesigned, and v1 files are no longer supported. The old <code class="docutils literal notranslate"><span class="pre">[config]</span></code>, <code class="docutils literal notranslate"><span class="pre">[site]</span></code>, and <code class="docutils literal notranslate"><span class="pre">[pipeline]</span></code> sections collapse into one <code class="docutils literal notranslate"><span class="pre">[project]</span></code> table; every field is now optional with sensible defaults (the minimal valid pipeline manifest is an <em>empty file</em>); and entity fields are de-prefixed (<code class="docutils literal notranslate"><span class="pre">chart_name</span></code> → <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">path_to_parquet_data</span></code> → <code class="docutils literal notranslate"><span class="pre">path</span></code>, <code class="docutils literal notranslate"><span class="pre">topic_tags</span></code> → <code class="docutils literal notranslate"><span class="pre">tags</span></code>, and so on). A migration script in the chartbook repo (<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">scripts/migrate_toml_v2.py</span> <span class="pre">&lt;project&gt;</span></code>) rewrites a v1 file for you.</p></li>
+<li><p><strong>Scoped pipeline identity.</strong> Pipelines are now canonically identified as <code class="docutils literal notranslate"><span class="pre">scope/name</span></code> — for example <code class="docutils literal notranslate"><span class="pre">ftsfr/crsp_treasury</span></code> — derived from the repo’s git remote and directory name. Bare names still work when unambiguous.</p></li>
+<li><p><strong>Catalog auto-discovery.</strong> A catalog can declare its members as glob patterns (<code class="docutils literal notranslate"><span class="pre">members</span> <span class="pre">=</span> <span class="pre">[&quot;../ftsfr_repos/*&quot;]</span></code>) so that new clones join automatically, with no bookkeeping.</p></li>
+</ul>
+<p>Version numbers are a <em>contract</em>. This release breaks old manifests, and the version says so: under <a class="reference external" href="https://semver.org/">semantic versioning</a>, a <code class="docutils literal notranslate"><span class="pre">0.x</span></code> project signals breaking changes by bumping the minor version, <code class="docutils literal notranslate"><span class="pre">0.0.21</span></code> → <code class="docutils literal notranslate"><span class="pre">0.1.0</span></code>. The <a class="reference external" href="https://backofficedev.github.io/chartbook/changelog.html">changelog</a> records what each version changed and why, following the <a class="reference external" href="https://keepachangelog.com/">Keep a Changelog</a> convention. When we discuss packaging this week, we’ll walk through how this release was actually cut and published to PyPI.</p>
+</section>
+<section id="pipelines-vs-catalogs">
+<h2>Pipelines vs. Catalogs<a class="headerlink" href="#pipelines-vs-catalogs" title="Link to this heading">#</a></h2>
+<p>Both are described by a <code class="docutils literal notranslate"><span class="pre">chartbook.toml</span></code> manifest. The difference is one table:</p>
+<ul class="simple">
+<li><p>A <strong>pipeline</strong> manifest describes one project: its <code class="docutils literal notranslate"><span class="pre">[project]</span></code> metadata and its registered <code class="docutils literal notranslate"><span class="pre">[dataframes]</span></code>, <code class="docutils literal notranslate"><span class="pre">[charts]</span></code>, and <code class="docutils literal notranslate"><span class="pre">[notebooks]</span></code>.</p></li>
+<li><p>A <strong>catalog</strong> manifest has a <code class="docutils literal notranslate"><span class="pre">[pipelines]</span></code> table — a registry of member pipelines. That table’s presence is what makes it a catalog.</p></li>
+</ul>
+<p>The <a class="reference external" href="https://github.com/orgs/ftsfr/repositories">FTSFR organization</a> is the production-scale example: roughly twenty pipeline repos (Treasury data, CDS returns, options, FX, and more), each registering its own dataframes, plus one <a class="reference external" href="https://github.com/ftsfr/catalog"><code class="docutils literal notranslate"><span class="pre">catalog</span></code></a> repo that pins them together:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;catalog&quot;</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ChartBook Catalog&quot;</span>
+
+<span class="k">[pipelines.</span><span class="s2">&quot;ftsfr/crsp_treasury&quot;</span><span class="k">]</span>
+<span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;../crsp_treasury&quot;</span>
+
+<span class="k">[pipelines.</span><span class="s2">&quot;ftsfr/fed_yield_curve&quot;</span><span class="k">]</span>
+<span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;../fed_yield_curve&quot;</span>
+
+<span class="c1"># ... one entry per member pipeline</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">chartbook</span> <span class="pre">build</span></code> inside the catalog directory renders one combined site: chart and dataframe listings across all members, per-pipeline pages, and a diagnostics page showing metadata completeness. Multiple pipelines, one catalog.</p>
+</section>
+<section id="setting-up-your-own-catalog">
+<h2>Setting Up Your Own Catalog<a class="headerlink" href="#setting-up-your-own-catalog" title="Link to this heading">#</a></h2>
+<section id="step-1-clone-the-pipelines-you-need">
+<h3>Step 1: Clone the pipelines you need<a class="headerlink" href="#step-1-clone-the-pipelines-you-need" title="Link to this heading">#</a></h3>
+<p>Make a dedicated folder and clone the FTSFR repos you want to draw from (see the table below for which ones you can actually run):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mkdir -p ~/GitRepositories/ftsfr_repos</span>
+<span class="go">cd ~/GitRepositories/ftsfr_repos</span>
+<span class="go">git clone https://github.com/ftsfr/fed_yield_curve</span>
+<span class="go">git clone https://github.com/ftsfr/ken_french_data_library</span>
+<span class="go">git clone https://github.com/ftsfr/crsp_treasury</span>
+</pre></div>
+</div>
+</section>
+<section id="step-2-register-them-in-your-global-catalog">
+<h3>Step 2: Register them in your global catalog<a class="headerlink" href="#step-2-register-them-in-your-global-catalog" title="Link to this heading">#</a></h3>
+<p>ChartBook keeps a ready-made personal catalog at <code class="docutils literal notranslate"><span class="pre">~/.chartbook/chartbook.toml</span></code>, with its own command group:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">chartbook catalog init                          # create it (first time only)</span>
+<span class="go">chartbook catalog add ~/GitRepositories/ftsfr_repos/*   # register pipelines (globs work)</span>
+<span class="go">chartbook catalog build                         # build the combined site into ~/.chartbook/docs/</span>
+<span class="go">chartbook catalog browse                        # open that site in your browser</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">catalog</span> <span class="pre">add</span></code> derives each scoped ID from the repo’s git remote (<code class="docutils literal notranslate"><span class="pre">ftsfr/crsp_treasury</span></code> from <code class="docutils literal notranslate"><span class="pre">github.com/ftsfr/crsp_treasury</span></code>) and skips duplicates. Alternatively, skip per-repo bookkeeping entirely with auto-discovery — edit <code class="docutils literal notranslate"><span class="pre">~/.chartbook/chartbook.toml</span></code> to read:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[pipelines]</span>
+<span class="n">members</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;~/GitRepositories/ftsfr_repos/*&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>and every pipeline you ever clone into that folder joins the catalog automatically. <code class="docutils literal notranslate"><span class="pre">chartbook</span> <span class="pre">catalog</span> <span class="pre">disable</span> <span class="pre">&lt;id&gt;</span></code> / <code class="docutils literal notranslate"><span class="pre">enable</span> <span class="pre">&lt;id&gt;</span></code> switch members off and on without deleting anything.</p>
+<p>Check what’s registered:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">chartbook ls              # tree of every pipeline, dataframe, and chart</span>
+<span class="go">chartbook ls dataframes   # flat list of dataframes</span>
+</pre></div>
+</div>
+</section>
+<section id="step-3-run-the-pipeline-once">
+<h3>Step 3: Run the pipeline once<a class="headerlink" href="#step-3-run-the-pipeline-once" title="Link to this heading">#</a></h3>
+<p>Registering a pipeline tells the catalog where its outputs <em>will</em> be; it does not produce them. Inside each cloned repo, install its requirements and run it:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd ~/GitRepositories/ftsfr_repos/fed_yield_curve</span>
+<span class="go">pip install -r requirements.txt</span>
+<span class="go">doit</span>
+</pre></div>
+</div>
+<p>For the WRDS-based repos you will need your WRDS credentials in a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file, exactly as in HW 3.</p>
+</section>
+<section id="step-4-load-data-by-name">
+<h3>Step 4: Load data by name<a class="headerlink" href="#step-4-load-data-by-name" title="Link to this heading">#</a></h3>
+<p>Once a pipeline has run, its dataframes are loadable from anywhere on your machine:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">chartbook</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="c1"># default: a polars LazyFrame</span>
+<span class="n">lf</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pipeline</span><span class="o">=</span><span class="s2">&quot;ftsfr/fed_yield_curve&quot;</span><span class="p">,</span> <span class="n">dataframe</span><span class="o">=</span><span class="s2">&quot;fed_yield_curve&quot;</span><span class="p">)</span>
+
+<span class="c1"># or ask for pandas</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pipeline</span><span class="o">=</span><span class="s2">&quot;ftsfr/fed_yield_curve&quot;</span><span class="p">,</span> <span class="n">dataframe</span><span class="o">=</span><span class="s2">&quot;fed_yield_curve&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;pandas&quot;</span><span class="p">)</span>
+
+<span class="c1"># where is the underlying parquet?</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get_data_path</span><span class="p">(</span><span class="n">pipeline</span><span class="o">=</span><span class="s2">&quot;ftsfr/fed_yield_curve&quot;</span><span class="p">,</span> <span class="n">dataframe</span><span class="o">=</span><span class="s2">&quot;fed_yield_curve&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Pipeline references accept three forms: a bare name (<code class="docutils literal notranslate"><span class="pre">&quot;fed_yield_curve&quot;</span></code>, fine when unambiguous), the canonical scoped name (<code class="docutils literal notranslate"><span class="pre">&quot;ftsfr/fed_yield_curve&quot;</span></code>), or the repository URL. The same lookups exist on the command line:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">chartbook data get-path --pipeline ftsfr/fed_yield_curve --dataframe fed_yield_curve</span>
+<span class="go">chartbook data get-docs --pipeline ftsfr/fed_yield_curve --dataframe fed_yield_curve</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="using-the-catalog-for-your-midterm-report-contribution">
+<h2>Using the Catalog for Your Midterm Report Contribution<a class="headerlink" href="#using-the-catalog-for-your-midterm-report-contribution" title="Link to this heading">#</a></h2>
+<p>This is the workflow for your <a class="reference internal" href="../midterm_report.html"><span class="std std-doc">Midterm Report</span></a> figure: rather than writing a new data pull from scratch, build on a dataset an FTSFR pipeline already produces. Clone the repo, register it, run it, then <code class="docutils literal notranslate"><span class="pre">data.load(...)</span></code> inside your contribution’s code in the midterm-report repo. Your contribution stays reproducible (the data’s provenance is a registered, documented pipeline), and the report becomes a <em>downstream consumer</em> of maintained data rather than a pile of one-off scripts.</p>
+<section id="which-ftsfr-repos-can-you-use">
+<h3>Which FTSFR repos can you use?<a class="headerlink" href="#which-ftsfr-repos-can-you-use" title="Link to this heading">#</a></h3>
+<p>Not every FTSFR pipeline is runnable by students: some require a Bloomberg Terminal subscription, which this course doesn’t provide. The repos below rely only on <strong>free public data</strong> or on <strong>WRDS</strong> (which you have access to through the course), so you can run them end to end:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Repo</p></th>
+<th class="head"><p>Data</p></th>
+<th class="head"><p>Access</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ftsfr/fed_yield_curve"><code class="docutils literal notranslate"><span class="pre">ftsfr/fed_yield_curve</span></code></a></p></td>
+<td><p>The Fed’s published (GSW) Treasury yield curve</p></td>
+<td><p>Public</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/ftsfr/ken_french_data_library"><code class="docutils literal notranslate"><span class="pre">ftsfr/ken_french_data_library</span></code></a></p></td>
+<td><p>Ken French Data Library factor and portfolio returns</p></td>
+<td><p>Public</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ftsfr/he_kelly_manela"><code class="docutils literal notranslate"><span class="pre">ftsfr/he_kelly_manela</span></code></a></p></td>
+<td><p>He-Kelly-Manela intermediary asset pricing factors</p></td>
+<td><p>Public</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/ftsfr/nyu_call_report"><code class="docutils literal notranslate"><span class="pre">ftsfr/nyu_call_report</span></code></a></p></td>
+<td><p>NYU-hosted bank Call Report data</p></td>
+<td><p>Public</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ftsfr/corp_bond_returns"><code class="docutils literal notranslate"><span class="pre">ftsfr/corp_bond_returns</span></code></a></p></td>
+<td><p>Corporate bond returns from <a class="reference external" href="http://OpenBondAssetPricing.com">OpenBondAssetPricing.com</a></p></td>
+<td><p>Public</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/ftsfr/crsp_treasury"><code class="docutils literal notranslate"><span class="pre">ftsfr/crsp_treasury</span></code></a></p></td>
+<td><p>CRSP daily Treasury data, plus Fed yield curve and Treasury auction stats</p></td>
+<td><p>WRDS + public</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ftsfr/wrds_crsp_compustat"><code class="docutils literal notranslate"><span class="pre">ftsfr/wrds_crsp_compustat</span></code></a></p></td>
+<td><p>CRSP/Compustat equity data</p></td>
+<td><p>WRDS</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/ftsfr/wrds_bank_premium"><code class="docutils literal notranslate"><span class="pre">ftsfr/wrds_bank_premium</span></code></a></p></td>
+<td><p>WRDS bank regulatory data</p></td>
+<td><p>WRDS</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ftsfr/options"><code class="docutils literal notranslate"><span class="pre">ftsfr/options</span></code></a></p></td>
+<td><p>OptionMetrics equity options data</p></td>
+<td><p>WRDS</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/ftsfr/cds_returns"><code class="docutils literal notranslate"><span class="pre">ftsfr/cds_returns</span></code></a></p></td>
+<td><p>Markit CDS spreads and returns</p></td>
+<td><p>WRDS</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/ftsfr/cds_bond_basis"><code class="docutils literal notranslate"><span class="pre">ftsfr/cds_bond_basis</span></code></a></p></td>
+<td><p>WRDS bond returns plus Markit CDS</p></td>
+<td><p>WRDS + public</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The remaining pipelines (<code class="docutils literal notranslate"><span class="pre">basis_tips_treas</span></code>, <code class="docutils literal notranslate"><span class="pre">basis_treas_sf</span></code>, <code class="docutils literal notranslate"><span class="pre">basis_treas_swap</span></code>, <code class="docutils literal notranslate"><span class="pre">cip</span></code>, <code class="docutils literal notranslate"><span class="pre">commodities</span></code>, <code class="docutils literal notranslate"><span class="pre">foreign_exchange</span></code>, <code class="docutils literal notranslate"><span class="pre">sovereign_bonds</span></code>) require Bloomberg Terminal data and are off the menu for this exercise, though you’re welcome to read their code.</p>
+<p>Pick the pipeline closest to your claimed midterm-report topic. Where possible, choose one that also relates to your final-project paper, so the effort compounds.</p>
+</section>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+   
+</div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../overview_w6.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 6: Python Packages, FINM, and the ChartBook Catalog</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="python_packaging_with_hatch.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Writing and Publishing Your Own Python Packages</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-dependencies-between-repositories">The Problem: Dependencies Between Repositories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chartbook-0-1-x-what-just-changed">ChartBook 0.1.x: What Just Changed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pipelines-vs-catalogs">Pipelines vs. Catalogs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-own-catalog">Setting Up Your Own Catalog</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-clone-the-pipelines-you-need">Step 1: Clone the pipelines you need</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-register-them-in-your-global-catalog">Step 2: Register them in your global catalog</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-run-the-pipeline-once">Step 3: Run the pipeline once</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-load-data-by-name">Step 4: Load data by name</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-catalog-for-your-midterm-report-contribution">Using the Catalog for Your Midterm Report Contribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-ftsfr-repos-can-you-use">Which FTSFR repos can you use?</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeremiah Bejarano
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Jeremiah Bejarano.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

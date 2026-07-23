@@ -214,16 +214,17 @@
 <li class="toctree-l2"><a class="reference internal" href="Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w6.html">Week 6: Python Packages, FINM, and the ChartBook Catalog</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week6/chartbook_catalog.html">The ChartBook Catalog: Data Dependencies Across Repositories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week7/LSEG_datastream.html">LSEG Datastream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week7/databento.html">Databento</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w7.html">Week 7: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week5/sphinx.html">Sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week5/unit_tests.html">Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week7/LSEG_datastream.html">LSEG Datastream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week7/databento.html">Databento</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_01_corporate_hedging_ipynb.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
 </ul>
@@ -473,7 +474,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-contribute">What You Contribute</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-10-of-the-course-grade">Grading — 10% of the course grade</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a></li>
 </ul>
             </nav>
         </div>
@@ -486,35 +487,59 @@ document.write(`
                 <article class="bd-article">
                    <section class="tex2jax_ignore mathjax_ignore" id="midterm-report">
 <h1>Midterm Report<a class="headerlink" href="#midterm-report" title="Link to this heading">#</a></h1>
-<p>This course has <strong>no exams</strong>. In place of a midterm exam, the entire class will collaboratively produce a single, nicely formatted <strong>Midterm Report</strong>—one shared document that analyzes something interesting about the current economy and financial markets. Each student contributes one figure and one short write-up, and we assemble these into one polished, publication-style report for the whole class.</p>
-<p>This is also a practical exercise in the social-coding workflow we cover in class: claiming work through an issue tracker, contributing through pull requests, and adhering to a shared style guide so that many people’s contributions fit together into one coherent document.</p>
+<p>This course has <strong>no exams</strong>. In place of a midterm exam, the entire class collaboratively produces one shared, publication-style <strong>Midterm Report</strong> on the current economy and financial markets. Each student contributes one exhibit and one short write-up, and we assemble these into a single polished PDF.</p>
+<p>This is also a practical exercise in the social coding workflow we cover in class: claiming work through an issue tracker, contributing through pull requests, reviewing other people’s work, and following a shared style guide so that many authors produce one coherent document.</p>
 <section id="what-you-contribute">
 <h2>What You Contribute<a class="headerlink" href="#what-you-contribute" title="Link to this heading">#</a></h2>
-<p>Each student must contribute, individually:</p>
+<p>Each student contributes, individually:</p>
 <ul class="simple">
-<li><p><strong>One figure</strong> that says something interesting about the current economy or financial markets, generated reproducibly from real data (following the reproducible-analytical-pipeline principles from this course).</p></li>
-<li><p><strong>One paragraph</strong> that explains the figure—what the data shows, why it matters, and what the reader should take away.</p></li>
+<li><p><strong>One figure</strong> that says something concrete about the economy or financial markets over the last 6 to 12 months, generated reproducibly by the repo’s pipeline.</p></li>
+<li><p><strong>One paragraph</strong> that explains the figure: what the data shows, why it matters, and what the reader should take away.</p></li>
+<li><p><strong>A citation</strong> that establishes the topic’s importance, such as a news article or research piece that discusses it.</p></li>
 </ul>
-<p>Your contribution must follow the report’s shared <strong>style guide</strong> (formatting, figure style, citation/source conventions) so that it integrates cleanly with everyone else’s.</p>
+<p>Your contribution must follow the repo’s style guides so it integrates cleanly with everyone else’s work: <code class="docutils literal notranslate"><span class="pre">CODE_STYLE.md</span></code> for code organization, plus the report and chart style guides in <code class="docutils literal notranslate"><span class="pre">reports/</span></code>.</p>
 </section>
 <section id="workflow">
 <h2>Workflow<a class="headerlink" href="#workflow" title="Link to this heading">#</a></h2>
+<p>The report lives in a private GitHub repository, <a class="reference external" href="https://github.com/finm-32900/finm_midterm_report">finm-32900/finm_midterm_report</a>. Every student receives a collaborator invite by email.</p>
 <ol class="arabic simple">
-<li><p>The report lives in a private <strong>GitHub repository</strong> — <a class="reference external" href="https://github.com/finm-32900/finm_midterm_report">finm-32900/finm_midterm_report</a> — containing a skeleton of the report and a set of <strong>issues</strong> in the issue tracker, each describing a possible topic. Every student receives a collaborator invite by email; accept it to get access.</p></li>
-<li><p><strong>Claim a topic</strong> by assigning one of the open issues to yourself. Each topic can only be claimed by one student, so claim early. (You may propose your own topic—coordinate with me through an issue.)</p></li>
-<li><p>Build your figure and write your paragraph in a branch, following the skeleton and style guide.</p></li>
-<li><p>Open a <strong>pull request</strong> with your contribution. Address any review comments and get it merged.</p></li>
+<li><p><strong>Claim an issue.</strong> Each open issue is a coverage area or a dataset, deliberately broad. The specific chart and angle are yours to choose. Assign the issue to yourself, one student per issue. You may also propose your own topic by opening a new issue and coordinating with me there.</p></li>
+<li><p><strong>Build it reproducibly.</strong> Work on a branch. Your exhibit gets its own file in <code class="docutils literal notranslate"><span class="pre">src/</span></code>, is wired into <code class="docutils literal notranslate"><span class="pre">dodo.py</span></code>, and pulls data through FRED, the OFR API, or the chartbook catalog (the ftsfr pipelines). Details are in <code class="docutils literal notranslate"><span class="pre">CODE_STYLE.md</span></code>.</p></li>
+<li><p><strong>Open a pull request and request review from two classmates.</strong> Your reviewers must verify that your code actually runs and builds your exhibit. Address their comments.</p></li>
+<li><p><strong>Instructor review.</strong> After both classmate reviews are complete, I review and merge.</p></li>
+<li><p><strong>Review two others.</strong> You must also serve as a reviewer on two classmates’ pull requests.</p></li>
 </ol>
+<p>All of this must be complete by the deadline: <strong>Monday, August 10 at 11:59 pm CT</strong>.</p>
 </section>
-<section id="grading-10-of-the-course-grade">
-<h2>Grading — 10% of the course grade<a class="headerlink" href="#grading-10-of-the-course-grade" title="Link to this heading">#</a></h2>
-<p>Your Midterm Report contribution is graded individually on:</p>
-<ul class="simple">
-<li><p>the quality and correctness of your analysis and figure,</p></li>
-<li><p>the clarity and insight of your written paragraph, and</p></li>
-<li><p>whether your contribution follows the shared style guide and integrates cleanly (a clean, reviewable pull request).</p></li>
-</ul>
-<p>Exact deadlines will be announced on Canvas and on the class GitHub page.</p>
+<section id="grading">
+<h2>Grading<a class="headerlink" href="#grading" title="Link to this heading">#</a></h2>
+<p>The Midterm Report is 10% of the course grade. Your contribution is graded out of 10 points.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Criterion</p></th>
+<th class="head"><p>Points</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Topic and importance.</strong> The exhibit addresses your claimed issue, speaks to the last 6 to 12 months, and cites a source that shows why it matters.</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Message.</strong> The figure and paragraph carry one clear, coherent point.</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Style.</strong> The chart matches the chart style guide and the code follows <code class="docutils literal notranslate"><span class="pre">CODE_STYLE.md</span></code>.</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>It works.</strong> The pipeline builds your exhibit end to end, and your reviewers verified this before I saw it.</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Peer review.</strong> Two classmates reviewed your PR, and you completed reviews for two others.</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Credit requires each step to happen before the deadline. A contribution that is still unmerged at the deadline, or that skipped peer review, cannot earn full credit no matter its quality.</p>
 </section>
 </section>
 
@@ -568,7 +593,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-contribute">What You Contribute</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-10-of-the-course-grade">Grading — 10% of the course grade</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a></li>
 </ul>
   </nav></div>
 

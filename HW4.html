@@ -214,16 +214,17 @@
 <li class="toctree-l2"><a class="reference internal" href="Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="overview_w6.html">Week 6: Python Packages, FINM, and the ChartBook Catalog</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week6/chartbook_catalog.html">The ChartBook Catalog: Data Dependencies Across Repositories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week7/LSEG_datastream.html">LSEG Datastream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week7/databento.html">Databento</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w7.html">Week 7: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week5/sphinx.html">Sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week5/unit_tests.html">Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week7/LSEG_datastream.html">LSEG Datastream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week7/databento.html">Databento</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_01_corporate_hedging_ipynb.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
 </ul>
@@ -448,7 +449,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -464,6 +467,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -475,15 +486,38 @@ document.write(`
                    <section class="tex2jax_ignore mathjax_ignore" id="homework-4">
 <h1>Homework 4<a class="headerlink" href="#homework-4" title="Link to this heading">#</a></h1>
 <ul class="simple">
-<li><p><strong>Due Date:</strong> TBD</p></li>
-<li><p><strong>Link to Assignment:</strong> TBD</p></li>
+<li><p><strong>Due Date:</strong> TBD (will be announced on Canvas)</p></li>
+<li><p><strong>Link to Assignment:</strong> TBD (the GitHub Classroom link will be posted on Canvas)</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This assignment is being revised. The yield-curve estimation content that
-previously lived here has moved to <strong><a class="reference internal" href="HW3.html"><span class="std std-doc">Homework 3</span></a></strong>. A new Homework 4
-will be posted later in the quarter.</p>
+<p>The yield-curve estimation content that previously formed Homework 4 has moved to
+<strong><a class="reference internal" href="HW3.html"><span class="std std-doc">Homework 3</span></a></strong>. Homework 4 is now a short options case study; full
+instructions arrive with the GitHub Classroom link.</p>
 </div>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Homework 4 is a deliberately minimal introduction to working with options data.
+The spine of the assignment is <a class="reference external" href="https://github.com/finm-32900/case_study_options">finm-32900/case_study_options</a>,
+a pipeline built from the same ChartBook template as your other course repos. The
+pipeline pulls option-chain data from WRDS OptionMetrics (a year-by-year SQL query
+against WRDS, in <code class="docutils literal notranslate"><span class="pre">src/pull_options_data.py</span></code>) and works through two hedging case
+studies as notebook reports:</p>
+<ul class="simple">
+<li><p><strong>Corporate hedging</strong>: designing a hedging program for a firm exposed to oil
+prices, using Brent crude futures and options (the futures strips and
+option-chain snapshots ship with the repo in <code class="docutils literal notranslate"><span class="pre">data_manual/</span></code>).</p></li>
+<li><p><strong>SPX hedging</strong>: hedging an equity portfolio with S&amp;P 500 index options.</p></li>
+</ul>
+<p>As in HW 3, the pipeline is orchestrated with <code class="docutils literal notranslate"><span class="pre">doit</span></code> and ends by building a
+ChartBook site from the registered dataframes and executed notebooks.</p>
+<p>We launch the assignment together in Week 7 and review the two case-study
+notebooks in class:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="notebooks/_01_corporate_hedging_ipynb.html"><span class="std std-doc">Corporate Hedging</span></a></p></li>
+<li><p><a class="reference internal" href="notebooks/_02_spx_hedging_ipynb.html"><span class="std std-doc">SPX Hedging</span></a></p></li>
+</ul>
+</section>
 </section>
 
 <div class="section ablog__blog_comments">
@@ -524,6 +558,21 @@ will be posted later in the quarter.</p>
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

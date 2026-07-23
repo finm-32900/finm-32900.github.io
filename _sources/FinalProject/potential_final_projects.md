@@ -275,3 +275,38 @@ This project involves assembling long historical time series (US 1841–2022, UK
   - UK: [OBR historical public finances database](https://obr.uk/data/) (tax revenue and spending); market value of central government debt from the Bank of England's [A Millennium of Macroeconomic Data](https://www.bankofengland.co.uk/statistics/research-datasets) (1727–2016) spliced with BIS data (2017–2022); UK GDP and deflator from MeasuringWorth
 - **Citation**: Campbell, John Y., Can Gao, and Ian W. R. Martin. "Debt and Deficits: Fiscal Analysis with Stationary Ratios." Working paper, August 2025. https://personal.lse.ac.uk/martiniw/Debt%20and%20Deficits%20250806.pdf
 - **Paper PDF**: [CampbellGaoMartin2025DebtAndDeficits.pdf](project_papers/CampbellGaoMartin2025DebtAndDeficits.pdf)
+
+## Daily Cash Flow News
+
+### 15. [Cash Flow News and Stock Price Dynamics](https://doi.org/10.1111/jofi.12901)
+
+On any given day, anywhere from zero to more than 100 firms announce dividends, making daily cash flow news extremely lumpy. This paper builds a daily "bottom-up" measure of aggregate dividend growth from firm-level dividend *announcements*—matching each firm's declared dividend to its own announcement in the same fiscal quarter one year earlier—and decomposes it into "a persistent component, jumps, and temporary shocks." The persistent component turns out to be "a highly significant predictor of future growth in dividends and consumption," leading measures of the state of the economy by a substantial margin.
+
+The pipeline: construct the daily dividend growth series from CRSP declaration dates (dollar-weighted, firm-matched, year-over-year), extract a smooth persistent growth component from the very noisy daily series with a state-space model, then run predictive regressions of dividend growth, GDP growth, and consumption growth on the extracted component. The data construction is the heart of the project; the filtering step can be done with a simplified model (see notes).
+
+- **Tasks**:
+  - **Replicate Figures 1 and 2 (the daily dividend growth series)**: the 2014Q2 announcement panels (number of announcers, total dollar dividends, daily growth rate) and the bottom-up versus top-down comparison over 1973–2016 (this is the data-cleaning deliverable)
+  - **Replicate Figure 3 (the persistent dividend growth component)**: first estimate the no-jump model (equations (4) and (11))—a linear-Gaussian state-space model—by Kalman filter and maximum likelihood to reproduce the spiky top panel; then extract the smooth bottom-panel series using an outlier-robust variant (see notes). The benchmark is qualitative: a smooth series ranging from roughly 0 to 0.15 that dips negative only during 2008 to 2009 and rebounds in 2009 to 2010
+  - **Replicate Table II, Panel A (dividend growth predictability)**: quarterly and annual predictive regressions of CRSP dividend growth on the lagged persistent component, the dividend-price ratio, and lagged dividend growth, with Newey–West standard errors
+  - **Replicate Table IV, Panel A (GDP and consumption growth)**: quarterly predictive regressions of macro growth on the persistent dividend growth component
+  - **Stretch goal (optional)**: implement the paper's full Gibbs sampler (Internet Appendix Section I) with stochastic volatility and jumps, and replicate the 1973–2016 columns of Table I
+- **Data sources**: CRSP distribution events (`crsp.dsedist`; declaration dates `dclrdt`, ordinary cash dividends are distribution codes below 2000), daily stock file (`crsp.dsf`, for shares outstanding and prices at announcement), and daily index file (`crsp.dsi`, `vwretd`/`vwretx`, for the top-down measure and the dividend-price ratio), all on WRDS; FRED (real GDP); BEA NIPA Table 2.3.5 (nondurables plus services consumption)
+- **Notes**:
+  - CRSP no longer provides declaration dates before 1962 (the paper's footnote 10—its pre-1964 observations come from an older CRSP vintage), so replicate the 1973–2016 sample, which is the paper's main focus. Checkpoints for your Figure 1: on April 24, 2014, roughly $7.1bn of dividends were announced, and the lone June 22, 2014 announcer is Costco ($155.6m versus $135.3m a year before, gross growth 1.15).
+  - The dollar dividend is the declared dividend per share times shares outstanding on the announcement day. Follow the paper's filters: share codes 10/11, NYSE/AMEX/NASDAQ, valid price and shares outstanding, one dividend per firm per day (aggregate duplicates).
+  - You are not required to implement the paper's full Bayesian model. For the bottom panel of Figure 3, any documented outlier-robust filter is acceptable—for example, Student-t measurement errors in the state-space model, or winsorizing days with few announcing firms before applying the Kalman smoother. For Tables II and IV, the standard for success is matching the sign and statistical significance of the coefficients on the persistent component, not the exact magnitudes, since your extracted series will differ from the paper's.
+  - Skip Tables VI through IX (the present value model and same-day return dynamics): their results depend on daily innovations from the full jump model, and Table VIII additionally requires re-estimating the model weekly over 30 years. This paper shares an author with the M&A cash flows project above and pairs naturally with it: announced versus distributed dividends is the theme of both.
+- **Citation**: Pettenuzzo, Davide, Riccardo Sabbatucci, and Allan Timmermann. "Cash Flow News and Stock Price Dynamics." The Journal of Finance 75, no. 4 (2020): 2221–2270. https://doi.org/10.1111/jofi.12901
+- **Paper PDF**: [Pettenuzzo_et_al_2020_Cash_Flow_News_and_Stock_Price_Dynamics.pdf](project_papers/Pettenuzzo_et_al_2020_Cash_Flow_News_and_Stock_Price_Dynamics.pdf)
+
+## Misc
+
+### 16. [How Global is Predictability? The Power of Financial Transfer Learning](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4620157)
+
+Should an investor predicting stock returns in a given country use only that country's data, pooled global data, or some combination of the two? This paper's answer: "a common global model predicts stock returns more effectively than local models estimated individually for each country, even when the global model is estimated without local data." The authors introduce a "generalized elastic net" (GENet) that estimates a combined global-and-local model—each country's coefficients are penalized for deviating from the global model rather than from zero—and find that the resulting model is "96% global—nearly the same function predicts stock returns across countries and over the past century."
+
+The empirical setting is a large cross-country panel: stock returns are regressed directly on 111 ex ante stock characteristics (the Jensen–Kelly–Pedersen global dataset), estimated with penalized regressions and evaluated out of sample from 2000 onward. A striking reverse-transfer exercise shows that a model trained on post-1982 data from outside the US successfully predicts US stock returns from 1926 to 1981. The paper also finds that risk-based signals are purely global, while mispricing-related signals carry significant local components.
+
+- **Tasks**: to be determined (specific tables and figures will be assigned later)
+- **Citation**: Hellum, Oliver, Lasse Heje Pedersen, and Anders Rønn-Nielsen. "How Global is Predictability? The Power of Financial Transfer Learning." Working paper, October 2025. Available at SSRN: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4620157
+- **Paper PDF**: [Hellum_et_al_2023_How_Global_is_Predictability_The_Power_of_Financial_Transfer_Learning.pdf](project_papers/Hellum_et_al_2023_How_Global_is_Predictability_The_Power_of_Financial_Transfer_Learning.pdf)

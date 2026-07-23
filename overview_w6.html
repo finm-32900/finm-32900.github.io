@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Week 6: Python Package Development and Social Coding with GitHub &#8212; Full Stack Quantitative Finance</title>
+    <title>Week 6: Python Packages, FINM, and the ChartBook Catalog &#8212; Full Stack Quantitative Finance</title>
   
   
   
@@ -51,8 +51,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Writing and Publishing Your Own Python Packages" href="Week6/python_packaging_with_hatch.html" />
-    <link rel="prev" title="WARNING: Notes subject to change after this week" href="subject_to_change_after_this_week.html" /> 
+    <link rel="next" title="The ChartBook Catalog: Data Dependencies Across Repositories" href="Week6/chartbook_catalog.html" />
+    <link rel="prev" title="GitHub Issues and Pull Requests: Enhancing Collaborative Development" href="Week6/GitHub_pull_requests.html" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>   
   </head>
@@ -214,16 +214,17 @@
 <li class="toctree-l2"><a class="reference internal" href="Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 6: Python Package Development and Social Coding with GitHub</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Week 6: Python Packages, FINM, and the ChartBook Catalog</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week6/chartbook_catalog.html">The ChartBook Catalog: Data Dependencies Across Repositories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week7/LSEG_datastream.html">LSEG Datastream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Week7/databento.html">Databento</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="overview_w7.html">Week 7: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week5/sphinx.html">Sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week5/unit_tests.html">Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week7/LSEG_datastream.html">LSEG Datastream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week7/databento.html">Databento</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_01_corporate_hedging_ipynb.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
 <li class="toctree-l2"><a class="reference internal" href="notebooks/_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
 </ul>
@@ -461,7 +462,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week 6: Python Package Development and Social Coding with GitHub</h1>
+    <h1>Week 6: Python Packages, FINM, and the ChartBook Catalog</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -472,7 +473,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">Agenda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#announcements">Announcements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda-item-1-proposal-presentations-two-groups">Agenda Item 1: Proposal Presentations (Two Groups)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda-item-2-the-midterm-report-and-the-chartbook-catalog">Agenda Item 2: The Midterm Report and the ChartBook Catalog</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda-item-3-shipping-a-release-chartbook-0-1-0-as-a-case-study">Agenda Item 3: Shipping a Release: ChartBook 0.1.0 as a Case Study</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda-item-4-finm-stockbeta-and-writing-your-own-package">Agenda Item 4: <code class="docutils literal notranslate"><span class="pre">finm</span></code>, <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code>, and Writing Your Own Package</a></li>
 </ul>
             </nav>
         </div>
@@ -483,52 +488,66 @@ document.write(`
                 
 <div id="searchbox"></div>
                 <article class="bd-article">
-                   <section class="tex2jax_ignore mathjax_ignore" id="week-6-python-package-development-and-social-coding-with-github">
-<h1>Week 6: Python Package Development and Social Coding with GitHub<a class="headerlink" href="#week-6-python-package-development-and-social-coding-with-github" title="Link to this heading">#</a></h1>
+                   <section class="tex2jax_ignore mathjax_ignore" id="week-6-python-packages-finm-and-the-chartbook-catalog">
+<h1>Week 6: Python Packages, FINM, and the ChartBook Catalog<a class="headerlink" href="#week-6-python-packages-finm-and-the-chartbook-catalog" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="Week6/chartbook_catalog.html">The ChartBook Catalog: Data Dependencies Across Repositories</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week7/LSEG_datastream.html">LSEG Datastream</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Week7/databento.html">Databento</a></li>
 </ul>
 </div>
 <section id="learning-outcomes">
 <h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Python package development with Hatch and Hatchling</p></li>
-<li><p>GitHub-based open source contributions (pull requests) using the <a class="reference external" href="https://pypi.org/project/finm/"><code class="docutils literal notranslate"><span class="pre">finm</span></code></a> package</p></li>
-<li><p>LSEG Datastream via WRDS (brief overview)</p></li>
-<li><p>Databento: API-first market data for futures and exchange data</p></li>
-<li><p>Introduction to HW 4: yield curve estimation with Nelson-Siegel-Svensson</p></li>
+<li><p>See the next two final-project proposals and give substantive peer feedback.</p></li>
+<li><p>Understand the ChartBook <em>catalog</em>: how it pins together data dependencies between repositories, and how to set one up on your own machine (<a class="reference internal" href="Week6/chartbook_catalog.html"><span class="std std-doc">The ChartBook Catalog</span></a>) using cloned pipelines from the <a class="reference external" href="https://github.com/orgs/ftsfr/repositories">FTSFR organization</a>.</p></li>
+<li><p>Understand what changed in this week’s ChartBook 0.1.x release (manifest format v2, catalog auto-discovery, single install) and how a release like this is actually cut: changelog, semantic versioning, <code class="docutils literal notranslate"><span class="pre">hatch</span> <span class="pre">build</span></code>, publish to PyPI.</p></li>
+<li><p>Understand the anatomy of a published Python package (<code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, a build backend, versioning, CLI entry points), and know the packages we’ll keep working with: <a class="reference external" href="https://pypi.org/project/chartbook/"><code class="docutils literal notranslate"><span class="pre">chartbook</span></code></a>, <a class="reference external" href="https://pypi.org/project/finm/"><code class="docutils literal notranslate"><span class="pre">finm</span></code></a>, and the TestPyPI practice package <a class="reference external" href="https://test.pypi.org/project/stockbeta/"><code class="docutils literal notranslate"><span class="pre">stockbeta</span></code></a>.</p></li>
+<li><p>Know the plan for your Midterm Report figure: build it on data produced by an FTSFR pipeline, consumed through your catalog with <code class="docutils literal notranslate"><span class="pre">data.load(...)</span></code>.</p></li>
 </ul>
 </section>
-<section id="agenda">
-<h2>Agenda<a class="headerlink" href="#agenda" title="Link to this heading">#</a></h2>
+<section id="announcements">
+<h2>Announcements<a class="headerlink" href="#announcements" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Brief LSEG Datastream and Databento overview (carried over from Week 5)</p>
-<ul>
-<li><p><a class="reference internal" href="Week7/LSEG_datastream.html"><span class="std std-doc">LSEG Datastream</span></a></p></li>
-<li><p><a class="reference internal" href="Week7/databento.html"><span class="std std-doc">Databento</span></a></p></li>
+<li><p><a class="reference internal" href="HW3.html"><span class="std std-doc">HW 3</span></a> is due <strong>this Friday, July 24</strong>.</p></li>
+<li><p><strong>Upgrade ChartBook</strong>: a new major release shipped this week. Run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">chartbook</span></code> (you want 0.1.1 or later). It contains breaking changes we’ll discuss tonight; see <a class="reference internal" href="Week6/chartbook_catalog.html"><span class="std std-doc">The ChartBook Catalog</span></a>.</p></li>
+<li><p><strong>Midterm report: claim your topic now if you haven’t.</strong> Every candidate topic is an open issue in <a class="reference external" href="https://github.com/finm-32900/finm_midterm_report">finm-32900/finm_midterm_report</a>; assign one to yourself to claim it. Your merged contribution is due <strong>Monday, August 10 at 11:59 pm CT</strong>. Don’t wait to open your pull request: an early draft PR gets you review comments while there is still time to act on them.</p></li>
+<li><p><strong>Peer-feedback survey</strong> for tonight’s two groups: same as last week. Submit during the quiet time after each presentation; the <a class="reference internal" href="FinalProject/proposal_feedback_survey.html"><span class="std std-doc">form</span></a> stays open until <strong>Friday at 11:59 PM</strong> and doubles as the attendance record.</p></li>
+<li><p><strong>If you present July 30</strong>, your instructor consultation must happen this week; <a class="reference external" href="https://finm-32900.youcanbook.me/">book it now</a> if you haven’t.</p></li>
 </ul>
-</li>
-<li><p>Continue with GitHub Issues and Pull Requests (introduced in Week 5 with the Midterm Report)</p>
-<ul>
-<li><p><a class="reference internal" href="Week6/GitHub_pull_requests.html"><span class="std std-doc">GitHub Issues and Pull Requests</span></a></p></li>
-<li><p>Introduce the <a class="reference external" href="https://pypi.org/project/finm/"><code class="docutils literal notranslate"><span class="pre">finm</span></code></a> package as the course’s collaborative open-source package; a low-stakes environment for students to practice submitting PRs.</p></li>
-<li><p>Note: Last year we used <a class="reference external" href="https://github.com/finm-32900/stockbeta"><code class="docutils literal notranslate"><span class="pre">stockbeta</span></code></a> as the example. <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code> is published on <a class="reference external" href="https://test.pypi.org/project/stockbeta/">TestPyPI</a> (but not on the real PyPI), which is useful for illustrating the TestPyPI workflow.</p></li>
-<li><p>A function from the <code class="docutils literal notranslate"><span class="pre">finm</span></code> package will be used in HW 4.</p></li>
+</section>
+<section id="agenda-item-1-proposal-presentations-two-groups">
+<h2>Agenda Item 1: Proposal Presentations (Two Groups)<a class="headerlink" href="#agenda-item-1-proposal-presentations-two-groups" title="Link to this heading">#</a></h2>
+<p>Two more groups present tonight, in the order on the <a class="reference internal" href="FinalProject/proposal_presentation_schedule.html"><span class="std std-doc">schedule</span></a>: 10 minutes to present, 5 minutes of Q&amp;A, then ~5 minutes of quiet time to submit the <a class="reference internal" href="FinalProject/proposal_feedback_survey.html"><span class="std std-doc">peer-feedback survey</span></a>. Same reminder as last week: the presentation is an <em>advertisement</em> for the product you’ll build (<a class="reference internal" href="FinalProject/proposal_presentation_rubric.html"><span class="std std-doc">rubric</span></a>).</p>
+</section>
+<section id="agenda-item-2-the-midterm-report-and-the-chartbook-catalog">
+<h2>Agenda Item 2: The Midterm Report and the ChartBook Catalog<a class="headerlink" href="#agenda-item-2-the-midterm-report-and-the-chartbook-catalog" title="Link to this heading">#</a></h2>
+<p>First, a working check-in on the <a class="reference internal" href="midterm_report.html"><span class="std std-doc">Midterm Report</span></a>: confirm every topic issue has an owner, then review one or two open pull requests live, applying the <a class="reference internal" href="Week6/GitHub_pull_requests.html"><span class="std std-doc">PR workflow</span></a> from last week.</p>
+<p>Then the architecture question the report forces on us: <strong>what should your contribution do when it needs data that another repository already produces?</strong> Copying pull code duplicates work and drifts out of date. The answer is the ChartBook <em>catalog</em>, covered in tonight’s new chapter, <a class="reference internal" href="Week6/chartbook_catalog.html"><span class="std std-doc">The ChartBook Catalog: Data Dependencies Across Repositories</span></a>:</p>
+<ul class="simple">
+<li><p>Pipelines vs. catalogs: a catalog is a <code class="docutils literal notranslate"><span class="pre">chartbook.toml</span></code> with a <code class="docutils literal notranslate"><span class="pre">[pipelines]</span></code> registry, and the <a class="reference external" href="https://github.com/orgs/ftsfr/repositories">FTSFR organization</a> (~20 pipeline repos plus one <a class="reference external" href="https://github.com/ftsfr/catalog"><code class="docutils literal notranslate"><span class="pre">catalog</span></code></a> repo) is the production-scale example.</p></li>
+<li><p><strong>Hands-on</strong>: clone FTSFR pipeline repos, register them in your global catalog (<code class="docutils literal notranslate"><span class="pre">chartbook</span> <span class="pre">catalog</span> <span class="pre">add</span></code>, or <code class="docutils literal notranslate"><span class="pre">members</span></code> auto-discovery), build and browse the combined site, and load another repo’s dataframe by name with <code class="docutils literal notranslate"><span class="pre">data.load(pipeline=...,</span> <span class="pre">dataframe=...)</span></code>.</p></li>
+<li><p><strong>For your midterm figure</strong>: build it on data an FTSFR pipeline already produces. The chapter lists exactly which repos run on free public data or WRDS alone (eleven of them); the Bloomberg-dependent ones are off the menu.</p></li>
+<li><p><strong>Live demo</strong>: wire one midterm-report contribution to consume an FTSFR dataframe this way, so the report becomes a downstream consumer of maintained pipelines rather than a pile of one-off pulls.</p></li>
 </ul>
-</li>
-<li><p>Introduction to Hatch and Hatchling</p>
-<ul>
-<li><p><a class="reference internal" href="Week6/python_packaging_with_hatch.html"><span class="std std-doc">Python Packaging with Hatch</span></a></p></li>
+</section>
+<section id="agenda-item-3-shipping-a-release-chartbook-0-1-0-as-a-case-study">
+<h2>Agenda Item 3: Shipping a Release: ChartBook 0.1.0 as a Case Study<a class="headerlink" href="#agenda-item-3-shipping-a-release-chartbook-0-1-0-as-a-case-study" title="Link to this heading">#</a></h2>
+<p>You have been <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>-ing <a class="reference external" href="https://pypi.org/project/chartbook/"><code class="docutils literal notranslate"><span class="pre">chartbook</span></code></a> all quarter, and this week it shipped a breaking release (0.1.0 on July 22, 0.1.1 on July 23). That makes it a live case study in how real packages evolve and how a release actually happens:</p>
+<ul class="simple">
+<li><p><strong>What changed and why</strong>: read the <a class="reference external" href="https://backofficedev.github.io/chartbook/changelog.html">changelog</a> together. Manifest format v2 (one <code class="docutils literal notranslate"><span class="pre">[project]</span></code> table, every field optional, de-prefixed entity names), scoped pipeline IDs like <code class="docutils literal notranslate"><span class="pre">ftsfr/crsp_treasury</span></code>, catalog auto-discovery, and the retirement of the <code class="docutils literal notranslate"><span class="pre">[data]</span></code>/<code class="docutils literal notranslate"><span class="pre">[plotting]</span></code>/<code class="docutils literal notranslate"><span class="pre">[all]</span></code> extras in favor of a single install.</p></li>
+<li><p><strong>Versioning as a contract</strong>: semantic versioning, why a breaking change in a <code class="docutils literal notranslate"><span class="pre">0.x</span></code> package bumps the minor version (<code class="docutils literal notranslate"><span class="pre">0.0.21</span></code> → <code class="docutils literal notranslate"><span class="pre">0.1.0</span></code>), and how a migration script eases users across a breaking change.</p></li>
+<li><p><strong>How the release was cut</strong>: the walk from a green test suite to a published version — changelog entry, version bump, <code class="docutils literal notranslate"><span class="pre">hatch</span> <span class="pre">build</span></code> producing the wheel and sdist, publish to PyPI. I’ll show the actual process I used for this release.</p></li>
+<li><p><strong>Anatomy of the package</strong> along the way, from the <a class="reference external" href="https://github.com/backofficedev/chartbook">chartbook repo</a>: <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> as the single source of truth, the Hatchling build backend, dynamic versioning, and the one-line <code class="docutils literal notranslate"><span class="pre">[project.scripts]</span></code> entry (<code class="docutils literal notranslate"><span class="pre">chartbook</span> <span class="pre">=</span> <span class="pre">&quot;chartbook.cli:main&quot;</span></code>) that creates the CLI command.</p></li>
 </ul>
-</li>
-<li><p>HW 4 Discussion: Yield Curve Estimation</p>
-<ul>
-<li><p>Overview of the Nelson-Siegel-Svensson model and CRSP Treasury data (deferred from Week 5)</p></li>
-</ul>
-</li>
+</section>
+<section id="agenda-item-4-finm-stockbeta-and-writing-your-own-package">
+<h2>Agenda Item 4: <code class="docutils literal notranslate"><span class="pre">finm</span></code>, <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code>, and Writing Your Own Package<a class="headerlink" href="#agenda-item-4-finm-stockbeta-and-writing-your-own-package" title="Link to this heading">#</a></h2>
+<p>With a real release fresh in mind, work through <a class="reference internal" href="Week6/python_packaging_with_hatch.html"><span class="std std-doc">Writing and Publishing Your Own Python Packages</span></a> and the packages you can practice on:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pypi.org/project/finm/"><code class="docutils literal notranslate"><span class="pre">finm</span></code></a> (<a class="reference external" href="https://jeremybejarano.com/finm/">docs</a>) is the course’s own published package: <code class="docutils literal notranslate"><span class="pre">finm.fixedincome</span></code> (the yield-curve functions you imported in HW 3), <code class="docutils literal notranslate"><span class="pre">finm.data</span></code> (Fama-French, Federal Reserve, He-Kelly-Manela, and other loaders), and <code class="docutils literal notranslate"><span class="pre">finm.analytics</span></code> (factor analysis). It’s the low-stakes place to practice the contribution loop on a package you don’t own: fork, branch, PR, review, merge — the same mechanics as the midterm report, now crossing a repository boundary you don’t control.</p></li>
+<li><p><a class="reference external" href="https://github.com/finm-32900/stockbeta"><code class="docutils literal notranslate"><span class="pre">stockbeta</span></code></a> is a previous year’s practice package, published to <a class="reference external" href="https://test.pypi.org/project/stockbeta/">TestPyPI</a> but not the real PyPI. TestPyPI is the rehearsal space: the full publish workflow, with none of the consequences of claiming a real package name.</p></li>
+<li><p>Where this is heading: next week’s HW 4 (a minimal options case study) is built from the same ChartBook template as your other repos, and these packaging workflows are the muscles it exercises.</p></li>
 </ul>
 </section>
 </section>
@@ -548,20 +567,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="subject_to_change_after_this_week.html"
+       href="Week6/GitHub_pull_requests.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">WARNING: Notes subject to change after this week</p>
+        <p class="prev-next-title">GitHub Issues and Pull Requests: Enhancing Collaborative Development</p>
       </div>
     </a>
     <a class="right-next"
-       href="Week6/python_packaging_with_hatch.html"
+       href="Week6/chartbook_catalog.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Writing and Publishing Your Own Python Packages</p>
+        <p class="prev-next-title">The ChartBook Catalog: Data Dependencies Across Repositories</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -582,7 +601,11 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-outcomes">Learning Outcomes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda">Agenda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#announcements">Announcements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda-item-1-proposal-presentations-two-groups">Agenda Item 1: Proposal Presentations (Two Groups)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda-item-2-the-midterm-report-and-the-chartbook-catalog">Agenda Item 2: The Midterm Report and the ChartBook Catalog</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda-item-3-shipping-a-release-chartbook-0-1-0-as-a-case-study">Agenda Item 3: Shipping a Release: ChartBook 0.1.0 as a Case Study</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agenda-item-4-finm-stockbeta-and-writing-your-own-package">Agenda Item 4: <code class="docutils literal notranslate"><span class="pre">finm</span></code>, <code class="docutils literal notranslate"><span class="pre">stockbeta</span></code>, and Writing Your Own Package</a></li>
 </ul>
   </nav></div>
 

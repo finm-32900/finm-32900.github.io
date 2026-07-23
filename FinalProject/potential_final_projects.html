@@ -215,16 +215,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../Week6/GitHub_pull_requests.html">GitHub Issues and Pull Requests: Enhancing Collaborative Development</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w6.html">Week 6: Python Package Development and Social Coding with GitHub</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w6.html">Week 6: Python Packages, FINM, and the ChartBook Catalog</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/chartbook_catalog.html">The ChartBook Catalog: Data Dependencies Across Repositories</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week6/python_packaging_with_hatch.html">Writing and Publishing Your Own Python Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Week7/LSEG_datastream.html">LSEG Datastream</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Week7/databento.html">Databento</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="../subject_to_change_after_this_week.html">WARNING: Notes subject to change after this week</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../overview_w7.html">Week 7: Unit Tests and Documentation with Sphinx</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Week5/sphinx.html">Sphinx</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Week5/unit_tests.html">Unit Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/LSEG_datastream.html">LSEG Datastream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/databento.html">Databento</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/_01_corporate_hedging_ipynb.html">Case Study: Hedging Oil Price Exposure As An E&amp;P</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/_02_spx_hedging_ipynb.html">Case Study: Hedging A Long-Only SPX Portfolio With Costless Collars</a></li>
 </ul>
@@ -505,6 +506,14 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-finance-and-fiscal-policy">Macro-Finance and Fiscal Policy</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debt-and-deficits-fiscal-analysis-with-stationary-ratios">14. Debt and Deficits: Fiscal Analysis with Stationary Ratios</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daily-cash-flow-news">Daily Cash Flow News</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cash-flow-news-and-stock-price-dynamics">15. Cash Flow News and Stock Price Dynamics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#misc">Misc</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-global-is-predictability-the-power-of-financial-transfer-learning">16. How Global is Predictability? The Power of Financial Transfer Learning</a></li>
 </ul>
 </li>
 </ul>
@@ -878,6 +887,49 @@ If you can’t access the papers below, you can find a link to them here: <a cla
 </ul>
 </section>
 </section>
+<section id="daily-cash-flow-news">
+<h2>Daily Cash Flow News<a class="headerlink" href="#daily-cash-flow-news" title="Link to this heading">#</a></h2>
+<section id="cash-flow-news-and-stock-price-dynamics">
+<h3>15. <a class="reference external" href="https://doi.org/10.1111/jofi.12901">Cash Flow News and Stock Price Dynamics</a><a class="headerlink" href="#cash-flow-news-and-stock-price-dynamics" title="Link to this heading">#</a></h3>
+<p>On any given day, anywhere from zero to more than 100 firms announce dividends, making daily cash flow news extremely lumpy. This paper builds a daily “bottom-up” measure of aggregate dividend growth from firm-level dividend <em>announcements</em>—matching each firm’s declared dividend to its own announcement in the same fiscal quarter one year earlier—and decomposes it into “a persistent component, jumps, and temporary shocks.” The persistent component turns out to be “a highly significant predictor of future growth in dividends and consumption,” leading measures of the state of the economy by a substantial margin.</p>
+<p>The pipeline: construct the daily dividend growth series from CRSP declaration dates (dollar-weighted, firm-matched, year-over-year), extract a smooth persistent growth component from the very noisy daily series with a state-space model, then run predictive regressions of dividend growth, GDP growth, and consumption growth on the extracted component. The data construction is the heart of the project; the filtering step can be done with a simplified model (see notes).</p>
+<ul class="simple">
+<li><p><strong>Tasks</strong>:</p>
+<ul>
+<li><p><strong>Replicate Figures 1 and 2 (the daily dividend growth series)</strong>: the 2014Q2 announcement panels (number of announcers, total dollar dividends, daily growth rate) and the bottom-up versus top-down comparison over 1973–2016 (this is the data-cleaning deliverable)</p></li>
+<li><p><strong>Replicate Figure 3 (the persistent dividend growth component)</strong>: first estimate the no-jump model (equations (4) and (11))—a linear-Gaussian state-space model—by Kalman filter and maximum likelihood to reproduce the spiky top panel; then extract the smooth bottom-panel series using an outlier-robust variant (see notes). The benchmark is qualitative: a smooth series ranging from roughly 0 to 0.15 that dips negative only during 2008 to 2009 and rebounds in 2009 to 2010</p></li>
+<li><p><strong>Replicate Table II, Panel A (dividend growth predictability)</strong>: quarterly and annual predictive regressions of CRSP dividend growth on the lagged persistent component, the dividend-price ratio, and lagged dividend growth, with Newey–West standard errors</p></li>
+<li><p><strong>Replicate Table IV, Panel A (GDP and consumption growth)</strong>: quarterly predictive regressions of macro growth on the persistent dividend growth component</p></li>
+<li><p><strong>Stretch goal (optional)</strong>: implement the paper’s full Gibbs sampler (Internet Appendix Section I) with stochastic volatility and jumps, and replicate the 1973–2016 columns of Table I</p></li>
+</ul>
+</li>
+<li><p><strong>Data sources</strong>: CRSP distribution events (<code class="docutils literal notranslate"><span class="pre">crsp.dsedist</span></code>; declaration dates <code class="docutils literal notranslate"><span class="pre">dclrdt</span></code>, ordinary cash dividends are distribution codes below 2000), daily stock file (<code class="docutils literal notranslate"><span class="pre">crsp.dsf</span></code>, for shares outstanding and prices at announcement), and daily index file (<code class="docutils literal notranslate"><span class="pre">crsp.dsi</span></code>, <code class="docutils literal notranslate"><span class="pre">vwretd</span></code>/<code class="docutils literal notranslate"><span class="pre">vwretx</span></code>, for the top-down measure and the dividend-price ratio), all on WRDS; FRED (real GDP); BEA NIPA Table 2.3.5 (nondurables plus services consumption)</p></li>
+<li><p><strong>Notes</strong>:</p>
+<ul>
+<li><p>CRSP no longer provides declaration dates before 1962 (the paper’s footnote 10—its pre-1964 observations come from an older CRSP vintage), so replicate the 1973–2016 sample, which is the paper’s main focus. Checkpoints for your Figure 1: on April 24, 2014, roughly <span class="math notranslate nohighlight">\(7.1bn of dividends were announced, and the lone June 22, 2014 announcer is Costco (\)</span>155.6m versus $135.3m a year before, gross growth 1.15).</p></li>
+<li><p>The dollar dividend is the declared dividend per share times shares outstanding on the announcement day. Follow the paper’s filters: share codes 10/11, NYSE/AMEX/NASDAQ, valid price and shares outstanding, one dividend per firm per day (aggregate duplicates).</p></li>
+<li><p>You are not required to implement the paper’s full Bayesian model. For the bottom panel of Figure 3, any documented outlier-robust filter is acceptable—for example, Student-t measurement errors in the state-space model, or winsorizing days with few announcing firms before applying the Kalman smoother. For Tables II and IV, the standard for success is matching the sign and statistical significance of the coefficients on the persistent component, not the exact magnitudes, since your extracted series will differ from the paper’s.</p></li>
+<li><p>Skip Tables VI through IX (the present value model and same-day return dynamics): their results depend on daily innovations from the full jump model, and Table VIII additionally requires re-estimating the model weekly over 30 years. This paper shares an author with the M&amp;A cash flows project above and pairs naturally with it: announced versus distributed dividends is the theme of both.</p></li>
+</ul>
+</li>
+<li><p><strong>Citation</strong>: Pettenuzzo, Davide, Riccardo Sabbatucci, and Allan Timmermann. “Cash Flow News and Stock Price Dynamics.” The Journal of Finance 75, no. 4 (2020): 2221–2270. <a class="reference external" href="https://doi.org/10.1111/jofi.12901">https://doi.org/10.1111/jofi.12901</a></p></li>
+<li><p><strong>Paper PDF</strong>: <a class="reference download internal" download="" href="../_downloads/381df0203e6e9d5367474e68c79b9f25/Pettenuzzo_et_al_2020_Cash_Flow_News_and_Stock_Price_Dynamics.pdf"><span class="xref download myst">Pettenuzzo_et_al_2020_Cash_Flow_News_and_Stock_Price_Dynamics.pdf</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="misc">
+<h2>Misc<a class="headerlink" href="#misc" title="Link to this heading">#</a></h2>
+<section id="how-global-is-predictability-the-power-of-financial-transfer-learning">
+<h3>16. <a class="reference external" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4620157">How Global is Predictability? The Power of Financial Transfer Learning</a><a class="headerlink" href="#how-global-is-predictability-the-power-of-financial-transfer-learning" title="Link to this heading">#</a></h3>
+<p>Should an investor predicting stock returns in a given country use only that country’s data, pooled global data, or some combination of the two? This paper’s answer: “a common global model predicts stock returns more effectively than local models estimated individually for each country, even when the global model is estimated without local data.” The authors introduce a “generalized elastic net” (GENet) that estimates a combined global-and-local model—each country’s coefficients are penalized for deviating from the global model rather than from zero—and find that the resulting model is “96% global—nearly the same function predicts stock returns across countries and over the past century.”</p>
+<p>The empirical setting is a large cross-country panel: stock returns are regressed directly on 111 ex ante stock characteristics (the Jensen–Kelly–Pedersen global dataset), estimated with penalized regressions and evaluated out of sample from 2000 onward. A striking reverse-transfer exercise shows that a model trained on post-1982 data from outside the US successfully predicts US stock returns from 1926 to 1981. The paper also finds that risk-based signals are purely global, while mispricing-related signals carry significant local components.</p>
+<ul class="simple">
+<li><p><strong>Tasks</strong>: to be determined (specific tables and figures will be assigned later)</p></li>
+<li><p><strong>Citation</strong>: Hellum, Oliver, Lasse Heje Pedersen, and Anders Rønn-Nielsen. “How Global is Predictability? The Power of Financial Transfer Learning.” Working paper, October 2025. Available at SSRN: <a class="reference external" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4620157">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4620157</a></p></li>
+<li><p><strong>Paper PDF</strong>: <a class="reference download internal" download="" href="../_downloads/1017d2e444b8bac4da7445123ffc2bbb/Hellum_et_al_2023_How_Global_is_Predictability_The_Power_of_Financial_Transfer_Learning.pdf"><span class="xref download myst">Hellum_et_al_2023_How_Global_is_Predictability_The_Power_of_Financial_Transfer_Learning.pdf</span></a></p></li>
+</ul>
+</section>
+</section>
 </section>
 
 <div class="section ablog__blog_comments">
@@ -952,6 +1004,14 @@ If you can’t access the papers below, you can find a link to them here: <a cla
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-finance-and-fiscal-policy">Macro-Finance and Fiscal Policy</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#debt-and-deficits-fiscal-analysis-with-stationary-ratios">14. Debt and Deficits: Fiscal Analysis with Stationary Ratios</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daily-cash-flow-news">Daily Cash Flow News</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cash-flow-news-and-stock-price-dynamics">15. Cash Flow News and Stock Price Dynamics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#misc">Misc</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-global-is-predictability-the-power-of-financial-transfer-learning">16. How Global is Predictability? The Power of Financial Transfer Learning</a></li>
 </ul>
 </li>
 </ul>
